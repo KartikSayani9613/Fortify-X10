@@ -1,0 +1,47 @@
+File = 		w CompilationUnit w EndOfFile
+			| (w Imports w ";"?)? w Exports w ";"? (w Decls w ";"?)? w EndOfFile
+			| (w Imports w ";"?)? w AbsDecls w ";"? w EndOfFile
+			| w Imports w ";"? (w AbsDecls w ";"?)? w EndOfFile
+
+CompilationUnit =		Component
+						| Api
+
+Component = 	("native" w)? 	"component" 	w APIName 	(w Imports w ";"?)? 	w Exports w ";"? 	(w Decls w ";"?)? 	w "end"
+
+Api = 			("native" w)? 	"api" 			w APIName 	(w Imports w ";"?)? 	(w AbsDecls w ";"?)? 	w "end"
+
+Imports = 		Import (br Import)*
+
+Import =		"import" w ImportedNames
+				| "import" w "api" w AliasedAPINames
+
+ImportedNames =		APIName "." w "{" w "..." w "}" (w "except" w SimpleNames)?
+					| APIName "." w "{" w AliasedSimpleNameList (w "," w "...")? w "}"
+					| QualifiedName (w "as" w Id)?
+
+SimpleNames =		SimpleName
+					| "{" w SimpleNameList w "}"
+
+SimpleNameList = 	SimpleName (w "," w SimpleName)*
+
+AliasedSimpleName =		Id (w "as" w Id)?
+						| "opr" w Op (w "as" w Op)?
+						| "opr" w EncloserPair (w "as" w EncloserPair)?
+
+AliasedSimpleNameList = 	AliasedSimpleName (w "," w AliasedSimpleName)*
+
+AliasedAPINames =		AliasedAPIName
+						| "{" w AliasedAPINameList w "}"
+
+AliasedAPIName = 		APIName (w "as" w Id)?
+
+AliasedAPINameList = 	AliasedAPIName (w "," w AliasedAPIName)*
+
+Exports = 			Export (br Export)*
+
+Export = 			"export" w APINames
+
+APINames =			APIName
+					| "{" w APINameList  "}"
+
+APINameList = 		APIName (w "," w APIName)*
