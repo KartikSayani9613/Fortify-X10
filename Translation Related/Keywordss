@@ -1,0 +1,36 @@
+BIG    as    coerce    elif    export    getter    juxtaposition    
+opr    self    throw    typecase    with    FORALL    asif    
+coerces    else    extends    hidden    label    or    settable    
+throws    unit    wrapped    SI    unit    at    component    
+end    finally    if    most    override    setter    trait    
+value    absorbs    atomic    comprises    ensures    fn    
+import    nat    private    spawn    transient    var    
+abstract    bool    default    except    for    int    
+native    property    syntax    try    where    also    case    
+dim    excludes    forbid    invariant    object    provided    
+test    tryatomic    while    api    catch    do    exit    
+from    io    of    requires    then    type    widens
+
+
+
+
+for i -> 0#10 do
+	if i<5 then
+		println "I am small"
+	else 
+		println "I am large"
+	end
+end
+
+
+
+
+
+for(i in 0..9){
+	if(i<5){
+		Console.OUT.println("I am small");
+	}
+	else{
+		Console.OUT.println("I am large");	
+	}
+}

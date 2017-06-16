@@ -1,0 +1,40 @@
+												=====================================
+															Fortifying X10
+												=====================================
+
+
+
+
+						1						Identify Keywords & Structures from X10
+																||
+																||
+																\/
+						2					Fortress Grammar rules from Language Specification
+																||
+																||
+																\/
+						3							Construct AST based on (2)
+																||
+																||
+																\/
+						4				Complete Traversal of AST implies valid source code	
+																||
+																||
+																\/
+						5		Subdivide the AST into sub-ASTs that confirm to structs and grammars in (1)&(2)
+																||
+																||
+																\/
+						6						Tranform these subtress to X10 Syntax
+																||
+																||
+																\/
+						7						Reconstruct AST of the translated code
+																||
+																||
+																\/
+						8					Complete traversal verifies correct translation
+
+
+
+
