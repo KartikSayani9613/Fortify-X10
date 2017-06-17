@@ -1,0 +1,30 @@
+grammar srf.transpiler.fortxtrans.FortXTrans with org.eclipse.xtext.common.Terminals
+
+generate fortXTrans "http://www.transpiler.srf/fortxtrans/FortXTrans"
+
+Model:
+	File;
+	
+File:
+	CompilationUnit
+	|(Imports ';'?)? Exports ";"? (Decls';'?)?
+	|(Imports';'?)? AbsDecls ';'?
+	|Imports ';'? (AbsDecls ';'?)?
+	;
+
+CompilationUnit: 
+	Component
+	|Api
+	;
+
+Component: 
+	'component' name=ID
+	;
+
+Api: 
+	'api' name=ID
+	;
+
+Imports:
+	Import
+;
