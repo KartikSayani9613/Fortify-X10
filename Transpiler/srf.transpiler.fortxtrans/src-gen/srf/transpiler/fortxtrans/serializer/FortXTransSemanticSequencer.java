@@ -14,9 +14,17 @@ import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
-import srf.transpiler.fortxtrans.fortXTrans.Api;
+import srf.transpiler.fortxtrans.fortXTrans.API;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
+import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.Import;
+import srf.transpiler.fortxtrans.fortXTrans.ImportedNames;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 import srf.transpiler.fortxtrans.services.FortXTransGrammarAccess;
 
 @SuppressWarnings("all")
@@ -34,10 +42,34 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 		if (epackage == FortXTransPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
 			case FortXTransPackage.API:
-				sequence_Api(context, (Api) semanticObject); 
+				sequence_API(context, (API) semanticObject); 
+				return; 
+			case FortXTransPackage.ALIASED_API_NAME:
+				sequence_AliasedAPIName(context, (AliasedAPIName) semanticObject); 
+				return; 
+			case FortXTransPackage.ALIASED_API_NAMES:
+				sequence_AliasedAPINames(context, (AliasedAPINames) semanticObject); 
+				return; 
+			case FortXTransPackage.ALIASED_SIMPLE_NAME:
+				sequence_AliasedSimpleName(context, (AliasedSimpleName) semanticObject); 
 				return; 
 			case FortXTransPackage.COMPONENT:
 				sequence_Component(context, (Component) semanticObject); 
+				return; 
+			case FortXTransPackage.EXPORT:
+				sequence_Export(context, (Export) semanticObject); 
+				return; 
+			case FortXTransPackage.IMPORT:
+				sequence_Import(context, (Import) semanticObject); 
+				return; 
+			case FortXTransPackage.IMPORTED_NAMES:
+				sequence_ImportedNames(context, (ImportedNames) semanticObject); 
+				return; 
+			case FortXTransPackage.SIMPLE_NAME:
+				sequence_SimpleName(context, (SimpleName) semanticObject); 
+				return; 
+			case FortXTransPackage.SIMPLE_NAMES:
+				sequence_SimpleNames(context, (SimpleNames) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,41 +78,133 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Model returns Api
-	 *     File returns Api
-	 *     Api returns Api
+	 *     Model returns API
+	 *     API returns API
 	 *
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID imports+=Import*)
 	 */
-	protected void sequence_Api(ISerializationContext context, Api semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.FILE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.FILE__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getApiAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
+	protected void sequence_API(ISerializationContext context, API semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AliasedAPIName returns AliasedAPIName
+	 *
+	 * Constraint:
+	 *     (orig=APIName asName=ID?)
+	 */
+	protected void sequence_AliasedAPIName(ISerializationContext context, AliasedAPIName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AliasedAPINames returns AliasedAPINames
+	 *
+	 * Constraint:
+	 *     (nameList+=AliasedAPIName | (brack='{' nameList+=AliasedAPIName nameList+=AliasedAPIName*))
+	 */
+	protected void sequence_AliasedAPINames(ISerializationContext context, AliasedAPINames semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     AliasedSimpleName returns AliasedSimpleName
+	 *
+	 * Constraint:
+	 *     (orig=ID asName=ID?)
+	 */
+	protected void sequence_AliasedSimpleName(ISerializationContext context, AliasedSimpleName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
 	 *     Model returns Component
-	 *     File returns Component
 	 *     Component returns Component
+	 *
+	 * Constraint:
+	 *     (name=ID imports+=Import* exports+=Export*)
+	 */
+	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Export returns Export
+	 *
+	 * Constraint:
+	 *     ((exp='export' exportedName+=APIName) | (exp='export' brack='{' exportedName+=APIName exportedName+=APIName*))
+	 */
+	protected void sequence_Export(ISerializationContext context, Export semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Import returns Import
+	 *
+	 * Constraint:
+	 *     ((imps='import' importedNames=ImportedNames) | (imps='import' api='api' aliasedimportedNames=AliasedAPINames))
+	 */
+	protected void sequence_Import(ISerializationContext context, Import semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     ImportedNames returns ImportedNames
+	 *
+	 * Constraint:
+	 *     (
+	 *         (impname=APIName (except?='except' simp=SimpleNames)?) | 
+	 *         (impname=APIName simpList+=AliasedSimpleName simpList+=AliasedSimpleName* (comma?=',' dots?='...')?) | 
+	 *         (impname=APIName asname=ID?)
+	 *     )
+	 */
+	protected void sequence_ImportedNames(ISerializationContext context, ImportedNames semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SimpleName returns SimpleName
 	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_Component(ISerializationContext context, Component semanticObject) {
+	protected void sequence_SimpleName(ISerializationContext context, SimpleName semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.FILE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.FILE__NAME));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.SIMPLE_NAME__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.SIMPLE_NAME__NAME));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getComponentAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getSimpleNameAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     SimpleNames returns SimpleNames
+	 *
+	 * Constraint:
+	 *     (nameList+=SimpleName | (brack='{' nameList+=SimpleName nameList+=SimpleName*))
+	 */
+	protected void sequence_SimpleNames(ISerializationContext context, SimpleNames semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -6,15 +6,22 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.Api;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
-import srf.transpiler.fortxtrans.fortXTrans.File;
+import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransFactory;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.Import;
+import srf.transpiler.fortxtrans.fortXTrans.ImportedNames;
 import srf.transpiler.fortxtrans.fortXTrans.Model;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 
 /**
  * <!-- begin-user-doc -->
@@ -36,7 +43,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass fileEClass = null;
+  private EClass apiEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -50,7 +57,56 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass apiEClass = null;
+  private EClass importEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass exportEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass importedNamesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleNamesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass simpleNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass aliasedSimpleNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass aliasedAPINamesEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass aliasedAPINameEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -130,9 +186,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getFile()
+  public EAttribute getModel_Name()
   {
-    return fileEClass;
+    return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -140,9 +196,19 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFile_Name()
+  public EReference getModel_Imports()
   {
-    return (EAttribute)fileEClass.getEStructuralFeatures().get(0);
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAPI()
+  {
+    return apiEClass;
   }
 
   /**
@@ -160,9 +226,319 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getApi()
+  public EReference getComponent_Exports()
   {
-    return apiEClass;
+    return (EReference)componentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImport()
+  {
+    return importEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImport_Imps()
+  {
+    return (EAttribute)importEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImport_ImportedNames()
+  {
+    return (EReference)importEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImport_Api()
+  {
+    return (EAttribute)importEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImport_AliasedimportedNames()
+  {
+    return (EReference)importEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getExport()
+  {
+    return exportEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExport_Exp()
+  {
+    return (EAttribute)exportEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExport_ExportedName()
+  {
+    return (EAttribute)exportEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getExport_Brack()
+  {
+    return (EAttribute)exportEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getImportedNames()
+  {
+    return importedNamesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportedNames_Impname()
+  {
+    return (EAttribute)importedNamesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportedNames_Except()
+  {
+    return (EAttribute)importedNamesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImportedNames_Simp()
+  {
+    return (EReference)importedNamesEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getImportedNames_SimpList()
+  {
+    return (EReference)importedNamesEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportedNames_Comma()
+  {
+    return (EAttribute)importedNamesEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportedNames_Dots()
+  {
+    return (EAttribute)importedNamesEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getImportedNames_Asname()
+  {
+    return (EAttribute)importedNamesEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSimpleNames()
+  {
+    return simpleNamesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSimpleNames_NameList()
+  {
+    return (EReference)simpleNamesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSimpleNames_Brack()
+  {
+    return (EAttribute)simpleNamesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSimpleName()
+  {
+    return simpleNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSimpleName_Name()
+  {
+    return (EAttribute)simpleNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAliasedSimpleName()
+  {
+    return aliasedSimpleNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAliasedSimpleName_Orig()
+  {
+    return (EAttribute)aliasedSimpleNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAliasedSimpleName_AsName()
+  {
+    return (EAttribute)aliasedSimpleNameEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAliasedAPINames()
+  {
+    return aliasedAPINamesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAliasedAPINames_NameList()
+  {
+    return (EReference)aliasedAPINamesEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAliasedAPINames_Brack()
+  {
+    return (EAttribute)aliasedAPINamesEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAliasedAPIName()
+  {
+    return aliasedAPINameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAliasedAPIName_Orig()
+  {
+    return (EAttribute)aliasedAPINameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAliasedAPIName_AsName()
+  {
+    return (EAttribute)aliasedAPINameEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -196,13 +572,52 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-
-    fileEClass = createEClass(FILE);
-    createEAttribute(fileEClass, FILE__NAME);
-
-    componentEClass = createEClass(COMPONENT);
+    createEAttribute(modelEClass, MODEL__NAME);
+    createEReference(modelEClass, MODEL__IMPORTS);
 
     apiEClass = createEClass(API);
+
+    componentEClass = createEClass(COMPONENT);
+    createEReference(componentEClass, COMPONENT__EXPORTS);
+
+    importEClass = createEClass(IMPORT);
+    createEAttribute(importEClass, IMPORT__IMPS);
+    createEReference(importEClass, IMPORT__IMPORTED_NAMES);
+    createEAttribute(importEClass, IMPORT__API);
+    createEReference(importEClass, IMPORT__ALIASEDIMPORTED_NAMES);
+
+    exportEClass = createEClass(EXPORT);
+    createEAttribute(exportEClass, EXPORT__EXP);
+    createEAttribute(exportEClass, EXPORT__EXPORTED_NAME);
+    createEAttribute(exportEClass, EXPORT__BRACK);
+
+    importedNamesEClass = createEClass(IMPORTED_NAMES);
+    createEAttribute(importedNamesEClass, IMPORTED_NAMES__IMPNAME);
+    createEAttribute(importedNamesEClass, IMPORTED_NAMES__EXCEPT);
+    createEReference(importedNamesEClass, IMPORTED_NAMES__SIMP);
+    createEReference(importedNamesEClass, IMPORTED_NAMES__SIMP_LIST);
+    createEAttribute(importedNamesEClass, IMPORTED_NAMES__COMMA);
+    createEAttribute(importedNamesEClass, IMPORTED_NAMES__DOTS);
+    createEAttribute(importedNamesEClass, IMPORTED_NAMES__ASNAME);
+
+    simpleNamesEClass = createEClass(SIMPLE_NAMES);
+    createEReference(simpleNamesEClass, SIMPLE_NAMES__NAME_LIST);
+    createEAttribute(simpleNamesEClass, SIMPLE_NAMES__BRACK);
+
+    simpleNameEClass = createEClass(SIMPLE_NAME);
+    createEAttribute(simpleNameEClass, SIMPLE_NAME__NAME);
+
+    aliasedSimpleNameEClass = createEClass(ALIASED_SIMPLE_NAME);
+    createEAttribute(aliasedSimpleNameEClass, ALIASED_SIMPLE_NAME__ORIG);
+    createEAttribute(aliasedSimpleNameEClass, ALIASED_SIMPLE_NAME__AS_NAME);
+
+    aliasedAPINamesEClass = createEClass(ALIASED_API_NAMES);
+    createEReference(aliasedAPINamesEClass, ALIASED_API_NAMES__NAME_LIST);
+    createEAttribute(aliasedAPINamesEClass, ALIASED_API_NAMES__BRACK);
+
+    aliasedAPINameEClass = createEClass(ALIASED_API_NAME);
+    createEAttribute(aliasedAPINameEClass, ALIASED_API_NAME__ORIG);
+    createEAttribute(aliasedAPINameEClass, ALIASED_API_NAME__AS_NAME);
   }
 
   /**
@@ -234,19 +649,57 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    fileEClass.getESuperTypes().add(this.getModel());
-    componentEClass.getESuperTypes().add(this.getFile());
-    apiEClass.getESuperTypes().add(this.getFile());
+    apiEClass.getESuperTypes().add(this.getModel());
+    componentEClass.getESuperTypes().add(this.getModel());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getModel_Name(), ecorePackage.getEString(), "name", null, 0, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Imports(), this.getImport(), null, "imports", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(fileEClass, File.class, "File", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getFile_Name(), ecorePackage.getEString(), "name", null, 0, 1, File.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(apiEClass, srf.transpiler.fortxtrans.fortXTrans.API.class, "API", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(componentEClass, Component.class, "Component", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getComponent_Exports(), this.getExport(), null, "exports", null, 0, -1, Component.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(apiEClass, Api.class, "Api", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(importEClass, Import.class, "Import", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImport_Imps(), ecorePackage.getEString(), "imps", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImport_ImportedNames(), this.getImportedNames(), null, "importedNames", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImport_Api(), ecorePackage.getEString(), "api", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImport_AliasedimportedNames(), this.getAliasedAPINames(), null, "aliasedimportedNames", null, 0, 1, Import.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(exportEClass, Export.class, "Export", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getExport_Exp(), ecorePackage.getEString(), "exp", null, 0, 1, Export.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExport_ExportedName(), ecorePackage.getEString(), "exportedName", null, 0, -1, Export.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExport_Brack(), ecorePackage.getEString(), "brack", null, 0, 1, Export.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(importedNamesEClass, ImportedNames.class, "ImportedNames", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getImportedNames_Impname(), ecorePackage.getEString(), "impname", null, 0, 1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImportedNames_Except(), ecorePackage.getEBoolean(), "except", null, 0, 1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportedNames_Simp(), this.getSimpleNames(), null, "simp", null, 0, 1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getImportedNames_SimpList(), this.getAliasedSimpleName(), null, "simpList", null, 0, -1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImportedNames_Comma(), ecorePackage.getEBoolean(), "comma", null, 0, 1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImportedNames_Dots(), ecorePackage.getEBoolean(), "dots", null, 0, 1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getImportedNames_Asname(), ecorePackage.getEString(), "asname", null, 0, 1, ImportedNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleNamesEClass, SimpleNames.class, "SimpleNames", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSimpleNames_NameList(), this.getSimpleName(), null, "nameList", null, 0, -1, SimpleNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSimpleNames_Brack(), ecorePackage.getEString(), "brack", null, 0, 1, SimpleNames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(simpleNameEClass, SimpleName.class, "SimpleName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSimpleName_Name(), ecorePackage.getEString(), "name", null, 0, 1, SimpleName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(aliasedSimpleNameEClass, AliasedSimpleName.class, "AliasedSimpleName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAliasedSimpleName_Orig(), ecorePackage.getEString(), "orig", null, 0, 1, AliasedSimpleName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAliasedSimpleName_AsName(), ecorePackage.getEString(), "asName", null, 0, 1, AliasedSimpleName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(aliasedAPINamesEClass, AliasedAPINames.class, "AliasedAPINames", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAliasedAPINames_NameList(), this.getAliasedAPIName(), null, "nameList", null, 0, -1, AliasedAPINames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAliasedAPINames_Brack(), ecorePackage.getEString(), "brack", null, 0, 1, AliasedAPINames.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(aliasedAPINameEClass, AliasedAPIName.class, "AliasedAPIName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getAliasedAPIName_Orig(), ecorePackage.getEString(), "orig", null, 0, 1, AliasedAPIName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAliasedAPIName_AsName(), ecorePackage.getEString(), "asName", null, 0, 1, AliasedAPIName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

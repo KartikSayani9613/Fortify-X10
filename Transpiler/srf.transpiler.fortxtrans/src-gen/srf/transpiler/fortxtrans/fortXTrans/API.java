@@ -6,14 +6,14 @@ package srf.transpiler.fortxtrans.fortXTrans;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Api</b></em>'.
+ * A representation of the model object '<em><b>API</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getApi()
+ * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getAPI()
  * @model
  * @generated
  */
-public interface Api extends File
+public interface API extends Model
 {
-} // Api
+} // API

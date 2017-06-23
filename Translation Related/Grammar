@@ -45,3 +45,30 @@ APINames =			APIName
 					| "{" w APINameList  "}"
 
 APINameList = 		APIName (w "," w APIName)*
+
+//==============================================================================
+
+
+Decls = 		Decl (Decl)*
+
+Decl = 			TraitDecl
+				| ObjectDecl
+				| VarDecl
+				| FnDecl
+				| DimUnitDecl
+				| TypeAlias
+				| TestDecl
+				| PropertyDecl
+				| ExternalSyntax
+
+AbsDecls =		AbsDecl (AbsDecl)*
+
+AbsDecl =		AbsTraitDecl
+				| AbsObjectDecl
+				| AbsVarDecl
+				| AbsFnDecl
+				| DimUnitDecl
+				| TypeAlias
+				| PropertyDecl
+				| AbsExternalSyntax
+

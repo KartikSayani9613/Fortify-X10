@@ -7,6 +7,11 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.eclipse.xtext.naming.IQualifiedNameProvider
+import javax.inject.Inject
+import srf.transpiler.fortxtrans.fortXTrans.Component
+import srf.transpiler.fortxtrans.fortXTrans.Import
+import srf.transpiler.fortxtrans.fortXTrans.Export
 
 /**
  * Generates code from your model files on save.
@@ -15,11 +20,117 @@ import org.eclipse.xtext.generator.IGeneratorContext
  */
 class FortXTransGenerator extends AbstractGenerator {
 
+	 @Inject extension IQualifiedNameProvider
+	
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		for(c: resource.allContents.toIterable.filter(Component)){
+			fsa.generateFile(
+                c.fullyQualifiedName.toString("/") + ".java",
+                c.compile)
+		}
 	}
+	
+	def compile(Component c)'''
+		/*needs to import
+		«FOR i:c.imports»
+			«i.compile»
+		«ENDFOR»
+		*/
+		/*exports
+		«FOR e:c.exports»
+			«e.compile»
+		«ENDFOR»
+		*/
+		
+		public class «c.name»{
+			
+		}
+	'''
+	
+	def compile(Import i)'''
+		«IF i.api===null»
+			«i.imps» «i.importedNames.impname
+			»«IF i.importedNames.asname!==null
+				»as «i.importedNames.asname
+			»«ELSE
+				»«IF i.importedNames.simpList.length !=0
+				».{«
+					FOR s:0..<(i.importedNames.simpList.length)
+						»«IF s===0»«
+							i.importedNames.simpList.get(s).orig
+						»«ELSE
+							», «i.importedNames.simpList.get(s).orig
+						»«ENDIF
+				
+						»«IF i.importedNames.simpList.get(s).asName!==null
+							» as «i.importedNames.simpList.get(s).asName
+						»«ENDIF
+					»«ENDFOR
+					»«IF i.importedNames.comma
+						» , ... «
+					ENDIF
+				»}«
+				ELSE».{...}«
+					IF i.importedNames.except
+						» except «
+						IF i.importedNames.simp.brack!==null
+							»{«
+							FOR s:0..<(i.importedNames.simp.nameList.length)
+								»«IF s==0»«
+									i.importedNames.simp.nameList.get(s).name
+								»«ELSE
+									», «i.importedNames.simp.nameList.get(s).name
+								»«ENDIF
+							»«ENDFOR
+							»}«
+						ELSE
+							»«i.importedNames.simp.nameList.get(0).name
+						»«ENDIF
+					»«ENDIF
+				»«ENDIF
+			»«ENDIF
+		»«ELSE»
+			«i.imps» «i.api 
+			» «IF i.aliasedimportedNames.brack!==null
+				»{«
+				FOR s:0..<(i.aliasedimportedNames.nameList.length)
+					»«IF s==0
+						»«i.aliasedimportedNames.nameList.get(0).orig
+					»«ELSE
+						», «i.aliasedimportedNames.nameList.get(0).orig
+					»«ENDIF
+					
+					»«IF i.aliasedimportedNames.nameList.get(s).asName!==null
+						» as «i.aliasedimportedNames.nameList.get(0).asName
+					»«ENDIF
+				»«ENDFOR
+				»}«
+			ELSE
+				»«i.aliasedimportedNames.nameList.get(0).orig
+				»«IF i.aliasedimportedNames.nameList.get(0).asName!==null
+					» as «i.aliasedimportedNames.nameList.get(0).asName
+				»«ENDIF
+			»«ENDIF
+		»«ENDIF»
+	'''
+	
+	def compile(Export e)'''
+		«e.exp
+		» «IF e.brack!==null
+			»{«
+			FOR s:0..<(e.exportedName.length)
+				»«IF s==0
+					»«e.exportedName.get(s)
+				»«ELSE
+					», «e.exportedName.get(s)
+				»«ENDIF
+			»«ENDFOR
+			»}«
+		ELSE
+			»«e.exportedName.get(0)
+		»«ENDIF»
+	'''
+	
+    
+   
 }

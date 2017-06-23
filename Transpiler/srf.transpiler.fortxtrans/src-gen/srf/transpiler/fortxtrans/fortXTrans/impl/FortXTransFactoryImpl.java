@@ -66,9 +66,16 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
     switch (eClass.getClassifierID())
     {
       case FortXTransPackage.MODEL: return createModel();
-      case FortXTransPackage.FILE: return createFile();
+      case FortXTransPackage.API: return createAPI();
       case FortXTransPackage.COMPONENT: return createComponent();
-      case FortXTransPackage.API: return createApi();
+      case FortXTransPackage.IMPORT: return createImport();
+      case FortXTransPackage.EXPORT: return createExport();
+      case FortXTransPackage.IMPORTED_NAMES: return createImportedNames();
+      case FortXTransPackage.SIMPLE_NAMES: return createSimpleNames();
+      case FortXTransPackage.SIMPLE_NAME: return createSimpleName();
+      case FortXTransPackage.ALIASED_SIMPLE_NAME: return createAliasedSimpleName();
+      case FortXTransPackage.ALIASED_API_NAMES: return createAliasedAPINames();
+      case FortXTransPackage.ALIASED_API_NAME: return createAliasedAPIName();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -90,10 +97,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public File createFile()
+  public API createAPI()
   {
-    FileImpl file = new FileImpl();
-    return file;
+    APIImpl api = new APIImpl();
+    return api;
   }
 
   /**
@@ -112,10 +119,87 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Api createApi()
+  public Import createImport()
   {
-    ApiImpl api = new ApiImpl();
-    return api;
+    ImportImpl import_ = new ImportImpl();
+    return import_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Export createExport()
+  {
+    ExportImpl export = new ExportImpl();
+    return export;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ImportedNames createImportedNames()
+  {
+    ImportedNamesImpl importedNames = new ImportedNamesImpl();
+    return importedNames;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleNames createSimpleNames()
+  {
+    SimpleNamesImpl simpleNames = new SimpleNamesImpl();
+    return simpleNames;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimpleName createSimpleName()
+  {
+    SimpleNameImpl simpleName = new SimpleNameImpl();
+    return simpleName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AliasedSimpleName createAliasedSimpleName()
+  {
+    AliasedSimpleNameImpl aliasedSimpleName = new AliasedSimpleNameImpl();
+    return aliasedSimpleName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AliasedAPINames createAliasedAPINames()
+  {
+    AliasedAPINamesImpl aliasedAPINames = new AliasedAPINamesImpl();
+    return aliasedAPINames;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AliasedAPIName createAliasedAPIName()
+  {
+    AliasedAPINameImpl aliasedAPIName = new AliasedAPINameImpl();
+    return aliasedAPIName;
   }
 
   /**

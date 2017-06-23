@@ -19,62 +19,62 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
+import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.Import;
-import srf.transpiler.fortxtrans.fortXTrans.Model;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Aliased API Names</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ModelImpl#getImports <em>Imports</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINamesImpl#getNameList <em>Name List</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINamesImpl#getBrack <em>Brack</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class AliasedAPINamesImpl extends MinimalEObjectImpl.Container implements AliasedAPINames
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getNameList() <em>Name List</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getNameList()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected EList<AliasedAPIName> nameList;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getBrack()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected static final String BRACK_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getImports() <em>Imports</em>}' containment reference list.
+   * The cached value of the '{@link #getBrack() <em>Brack</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImports()
+   * @see #getBrack()
    * @generated
    * @ordered
    */
-  protected EList<Import> imports;
+  protected String brack = BRACK_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected AliasedAPINamesImpl()
   {
     super();
   }
@@ -87,7 +87,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.MODEL;
+    return FortXTransPackage.Literals.ALIASED_API_NAMES;
   }
 
   /**
@@ -95,36 +95,36 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getName()
+  public EList<AliasedAPIName> getNameList()
   {
-    return name;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setName(String newName)
-  {
-    String oldName = name;
-    name = newName;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.MODEL__NAME, oldName, name));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Import> getImports()
-  {
-    if (imports == null)
+    if (nameList == null)
     {
-      imports = new EObjectContainmentEList<Import>(Import.class, this, FortXTransPackage.MODEL__IMPORTS);
+      nameList = new EObjectContainmentEList<AliasedAPIName>(AliasedAPIName.class, this, FortXTransPackage.ALIASED_API_NAMES__NAME_LIST);
     }
-    return imports;
+    return nameList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBrack()
+  {
+    return brack;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBrack(String newBrack)
+  {
+    String oldBrack = brack;
+    brack = newBrack;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.ALIASED_API_NAMES__BRACK, oldBrack, brack));
   }
 
   /**
@@ -137,8 +137,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FortXTransPackage.MODEL__IMPORTS:
-        return ((InternalEList<?>)getImports()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.ALIASED_API_NAMES__NAME_LIST:
+        return ((InternalEList<?>)getNameList()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -153,10 +153,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FortXTransPackage.MODEL__NAME:
-        return getName();
-      case FortXTransPackage.MODEL__IMPORTS:
-        return getImports();
+      case FortXTransPackage.ALIASED_API_NAMES__NAME_LIST:
+        return getNameList();
+      case FortXTransPackage.ALIASED_API_NAMES__BRACK:
+        return getBrack();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,12 +172,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FortXTransPackage.MODEL__NAME:
-        setName((String)newValue);
+      case FortXTransPackage.ALIASED_API_NAMES__NAME_LIST:
+        getNameList().clear();
+        getNameList().addAll((Collection<? extends AliasedAPIName>)newValue);
         return;
-      case FortXTransPackage.MODEL__IMPORTS:
-        getImports().clear();
-        getImports().addAll((Collection<? extends Import>)newValue);
+      case FortXTransPackage.ALIASED_API_NAMES__BRACK:
+        setBrack((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +193,11 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FortXTransPackage.MODEL__NAME:
-        setName(NAME_EDEFAULT);
+      case FortXTransPackage.ALIASED_API_NAMES__NAME_LIST:
+        getNameList().clear();
         return;
-      case FortXTransPackage.MODEL__IMPORTS:
-        getImports().clear();
+      case FortXTransPackage.ALIASED_API_NAMES__BRACK:
+        setBrack(BRACK_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +213,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case FortXTransPackage.MODEL__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-      case FortXTransPackage.MODEL__IMPORTS:
-        return imports != null && !imports.isEmpty();
+      case FortXTransPackage.ALIASED_API_NAMES__NAME_LIST:
+        return nameList != null && !nameList.isEmpty();
+      case FortXTransPackage.ALIASED_API_NAMES__BRACK:
+        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
     }
     return super.eIsSet(featureID);
   }
@@ -232,10 +232,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (brack: ");
+    result.append(brack);
     result.append(')');
     return result.toString();
   }
 
-} //ModelImpl
+} //AliasedAPINamesImpl

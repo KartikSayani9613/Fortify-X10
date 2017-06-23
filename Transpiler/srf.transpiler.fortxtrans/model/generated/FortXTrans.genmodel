@@ -6,11 +6,52 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.13">
   <genPackages prefix="FortXTrans" basePackage="srf.transpiler.fortxtrans" disposableProviderFactory="true"
       fileExtensions="fss" ecorePackage="FortXTrans.ecore#/">
-    <genClasses ecoreClass="FortXTrans.ecore#//Model"/>
-    <genClasses ecoreClass="FortXTrans.ecore#//File">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//File/name"/>
+    <genClasses ecoreClass="FortXTrans.ecore#//Model">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Model/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Model/imports"/>
     </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//Component"/>
-    <genClasses ecoreClass="FortXTrans.ecore#//Api"/>
+    <genClasses ecoreClass="FortXTrans.ecore#//API"/>
+    <genClasses ecoreClass="FortXTrans.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Component/exports"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//Import">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Import/imps"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Import/importedNames"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Import/api"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Import/aliasedimportedNames"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//Export">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Export/exp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Export/exportedName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Export/brack"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//ImportedNames">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ImportedNames/impname"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ImportedNames/except"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ImportedNames/simp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ImportedNames/simpList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ImportedNames/comma"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ImportedNames/dots"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ImportedNames/asname"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//SimpleNames">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//SimpleNames/nameList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//SimpleNames/brack"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//SimpleName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//SimpleName/name"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//AliasedSimpleName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//AliasedSimpleName/orig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//AliasedSimpleName/asName"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//AliasedAPINames">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//AliasedAPINames/nameList"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//AliasedAPINames/brack"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//AliasedAPIName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//AliasedAPIName/orig"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//AliasedAPIName/asName"/>
+    </genClasses>
   </genPackages>
 </genmodel:GenModel>

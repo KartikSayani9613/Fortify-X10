@@ -6,6 +6,7 @@ package srf.transpiler.fortxtrans.fortXTrans;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
 
 /**
  * <!-- begin-user-doc -->
@@ -67,23 +68,41 @@ public interface FortXTransPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__IMPORTS = 1;
+
+  /**
    * The number of structural features of the '<em>Model</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 0;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FileImpl <em>File</em>}' class.
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.APIImpl <em>API</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FileImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFile()
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.APIImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAPI()
    * @generated
    */
-  int FILE = 1;
+  int API = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -92,16 +111,25 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FILE__NAME = MODEL_FEATURE_COUNT + 0;
+  int API__NAME = MODEL__NAME;
 
   /**
-   * The number of structural features of the '<em>File</em>' class.
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FILE_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
+  int API__IMPORTS = MODEL__IMPORTS;
+
+  /**
+   * The number of structural features of the '<em>API</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int API_FEATURE_COUNT = MODEL_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ComponentImpl <em>Component</em>}' class.
@@ -120,7 +148,25 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT__NAME = FILE__NAME;
+  int COMPONENT__NAME = MODEL__NAME;
+
+  /**
+   * The feature id for the '<em><b>Imports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__IMPORTS = MODEL__IMPORTS;
+
+  /**
+   * The feature id for the '<em><b>Exports</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COMPONENT__EXPORTS = MODEL_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Component</em>' class.
@@ -129,17 +175,237 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMPONENT_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+  int COMPONENT_FEATURE_COUNT = MODEL_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ApiImpl <em>Api</em>}' class.
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ImportImpl <em>Import</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ApiImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getApi()
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ImportImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getImport()
    * @generated
    */
-  int API = 3;
+  int IMPORT = 3;
+
+  /**
+   * The feature id for the '<em><b>Imps</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__IMPS = 0;
+
+  /**
+   * The feature id for the '<em><b>Imported Names</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__IMPORTED_NAMES = 1;
+
+  /**
+   * The feature id for the '<em><b>Api</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__API = 2;
+
+  /**
+   * The feature id for the '<em><b>Aliasedimported Names</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT__ALIASEDIMPORTED_NAMES = 3;
+
+  /**
+   * The number of structural features of the '<em>Import</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORT_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExportImpl <em>Export</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ExportImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExport()
+   * @generated
+   */
+  int EXPORT = 4;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPORT__EXP = 0;
+
+  /**
+   * The feature id for the '<em><b>Exported Name</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPORT__EXPORTED_NAME = 1;
+
+  /**
+   * The feature id for the '<em><b>Brack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPORT__BRACK = 2;
+
+  /**
+   * The number of structural features of the '<em>Export</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPORT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ImportedNamesImpl <em>Imported Names</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ImportedNamesImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getImportedNames()
+   * @generated
+   */
+  int IMPORTED_NAMES = 5;
+
+  /**
+   * The feature id for the '<em><b>Impname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__IMPNAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Except</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__EXCEPT = 1;
+
+  /**
+   * The feature id for the '<em><b>Simp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__SIMP = 2;
+
+  /**
+   * The feature id for the '<em><b>Simp List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__SIMP_LIST = 3;
+
+  /**
+   * The feature id for the '<em><b>Comma</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__COMMA = 4;
+
+  /**
+   * The feature id for the '<em><b>Dots</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__DOTS = 5;
+
+  /**
+   * The feature id for the '<em><b>Asname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES__ASNAME = 6;
+
+  /**
+   * The number of structural features of the '<em>Imported Names</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IMPORTED_NAMES_FEATURE_COUNT = 7;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNamesImpl <em>Simple Names</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNamesImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getSimpleNames()
+   * @generated
+   */
+  int SIMPLE_NAMES = 6;
+
+  /**
+   * The feature id for the '<em><b>Name List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_NAMES__NAME_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Brack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_NAMES__BRACK = 1;
+
+  /**
+   * The number of structural features of the '<em>Simple Names</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SIMPLE_NAMES_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNameImpl <em>Simple Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNameImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getSimpleName()
+   * @generated
+   */
+  int SIMPLE_NAME = 7;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,16 +414,127 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int API__NAME = FILE__NAME;
+  int SIMPLE_NAME__NAME = 0;
 
   /**
-   * The number of structural features of the '<em>Api</em>' class.
+   * The number of structural features of the '<em>Simple Name</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int API_FEATURE_COUNT = FILE_FEATURE_COUNT + 0;
+  int SIMPLE_NAME_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedSimpleNameImpl <em>Aliased Simple Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.AliasedSimpleNameImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAliasedSimpleName()
+   * @generated
+   */
+  int ALIASED_SIMPLE_NAME = 8;
+
+  /**
+   * The feature id for the '<em><b>Orig</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_SIMPLE_NAME__ORIG = 0;
+
+  /**
+   * The feature id for the '<em><b>As Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_SIMPLE_NAME__AS_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Aliased Simple Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_SIMPLE_NAME_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINamesImpl <em>Aliased API Names</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINamesImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAliasedAPINames()
+   * @generated
+   */
+  int ALIASED_API_NAMES = 9;
+
+  /**
+   * The feature id for the '<em><b>Name List</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_API_NAMES__NAME_LIST = 0;
+
+  /**
+   * The feature id for the '<em><b>Brack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_API_NAMES__BRACK = 1;
+
+  /**
+   * The number of structural features of the '<em>Aliased API Names</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_API_NAMES_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINameImpl <em>Aliased API Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINameImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAliasedAPIName()
+   * @generated
+   */
+  int ALIASED_API_NAME = 10;
+
+  /**
+   * The feature id for the '<em><b>Orig</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_API_NAME__ORIG = 0;
+
+  /**
+   * The feature id for the '<em><b>As Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_API_NAME__AS_NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Aliased API Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ALIASED_API_NAME_FEATURE_COUNT = 2;
 
 
   /**
@@ -171,25 +548,36 @@ public interface FortXTransPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.File <em>File</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>File</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.File
-   * @generated
-   */
-  EClass getFile();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.File#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Model#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Name</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.File#getName()
-   * @see #getFile()
+   * @see srf.transpiler.fortxtrans.fortXTrans.Model#getName()
+   * @see #getModel()
    * @generated
    */
-  EAttribute getFile_Name();
+  EAttribute getModel_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.Model#getImports <em>Imports</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Imports</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Model#getImports()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Imports();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.API <em>API</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>API</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.API
+   * @generated
+   */
+  EClass getAPI();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Component <em>Component</em>}'.
@@ -202,14 +590,348 @@ public interface FortXTransPackage extends EPackage
   EClass getComponent();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Api <em>Api</em>}'.
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.Component#getExports <em>Exports</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Api</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Api
+   * @return the meta object for the containment reference list '<em>Exports</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Component#getExports()
+   * @see #getComponent()
    * @generated
    */
-  EClass getApi();
+  EReference getComponent_Exports();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Import <em>Import</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Import</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Import
+   * @generated
+   */
+  EClass getImport();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Import#getImps <em>Imps</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Imps</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Import#getImps()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_Imps();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Import#getImportedNames <em>Imported Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Imported Names</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Import#getImportedNames()
+   * @see #getImport()
+   * @generated
+   */
+  EReference getImport_ImportedNames();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Import#getApi <em>Api</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Api</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Import#getApi()
+   * @see #getImport()
+   * @generated
+   */
+  EAttribute getImport_Api();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Import#getAliasedimportedNames <em>Aliasedimported Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Aliasedimported Names</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Import#getAliasedimportedNames()
+   * @see #getImport()
+   * @generated
+   */
+  EReference getImport_AliasedimportedNames();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Export <em>Export</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Export</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Export
+   * @generated
+   */
+  EClass getExport();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Export#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Exp</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Export#getExp()
+   * @see #getExport()
+   * @generated
+   */
+  EAttribute getExport_Exp();
+
+  /**
+   * Returns the meta object for the attribute list '{@link srf.transpiler.fortxtrans.fortXTrans.Export#getExportedName <em>Exported Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Exported Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Export#getExportedName()
+   * @see #getExport()
+   * @generated
+   */
+  EAttribute getExport_ExportedName();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Export#getBrack <em>Brack</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Brack</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Export#getBrack()
+   * @see #getExport()
+   * @generated
+   */
+  EAttribute getExport_Brack();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames <em>Imported Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Imported Names</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames
+   * @generated
+   */
+  EClass getImportedNames();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getImpname <em>Impname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Impname</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getImpname()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EAttribute getImportedNames_Impname();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#isExcept <em>Except</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Except</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#isExcept()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EAttribute getImportedNames_Except();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getSimp <em>Simp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Simp</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getSimp()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EReference getImportedNames_Simp();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getSimpList <em>Simp List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Simp List</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getSimpList()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EReference getImportedNames_SimpList();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#isComma <em>Comma</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Comma</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#isComma()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EAttribute getImportedNames_Comma();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#isDots <em>Dots</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Dots</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#isDots()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EAttribute getImportedNames_Dots();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getAsname <em>Asname</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Asname</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getAsname()
+   * @see #getImportedNames()
+   * @generated
+   */
+  EAttribute getImportedNames_Asname();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleNames <em>Simple Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Names</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleNames
+   * @generated
+   */
+  EClass getSimpleNames();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleNames#getNameList <em>Name List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Name List</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleNames#getNameList()
+   * @see #getSimpleNames()
+   * @generated
+   */
+  EReference getSimpleNames_NameList();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleNames#getBrack <em>Brack</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Brack</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleNames#getBrack()
+   * @see #getSimpleNames()
+   * @generated
+   */
+  EAttribute getSimpleNames_Brack();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleName <em>Simple Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Simple Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleName
+   * @generated
+   */
+  EClass getSimpleName();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleName#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleName#getName()
+   * @see #getSimpleName()
+   * @generated
+   */
+  EAttribute getSimpleName_Name();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName <em>Aliased Simple Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Aliased Simple Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName
+   * @generated
+   */
+  EClass getAliasedSimpleName();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName#getOrig <em>Orig</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Orig</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName#getOrig()
+   * @see #getAliasedSimpleName()
+   * @generated
+   */
+  EAttribute getAliasedSimpleName_Orig();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName#getAsName <em>As Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>As Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName#getAsName()
+   * @see #getAliasedSimpleName()
+   * @generated
+   */
+  EAttribute getAliasedSimpleName_AsName();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames <em>Aliased API Names</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Aliased API Names</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames
+   * @generated
+   */
+  EClass getAliasedAPINames();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames#getNameList <em>Name List</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Name List</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames#getNameList()
+   * @see #getAliasedAPINames()
+   * @generated
+   */
+  EReference getAliasedAPINames_NameList();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames#getBrack <em>Brack</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Brack</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames#getBrack()
+   * @see #getAliasedAPINames()
+   * @generated
+   */
+  EAttribute getAliasedAPINames_Brack();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName <em>Aliased API Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Aliased API Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName
+   * @generated
+   */
+  EClass getAliasedAPIName();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName#getOrig <em>Orig</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Orig</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName#getOrig()
+   * @see #getAliasedAPIName()
+   * @generated
+   */
+  EAttribute getAliasedAPIName_Orig();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName#getAsName <em>As Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>As Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName#getAsName()
+   * @see #getAliasedAPIName()
+   * @generated
+   */
+  EAttribute getAliasedAPIName_AsName();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -245,22 +967,30 @@ public interface FortXTransPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FileImpl <em>File</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FileImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFile()
-     * @generated
-     */
-    EClass FILE = eINSTANCE.getFile();
-
-    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute FILE__NAME = eINSTANCE.getFile_Name();
+    EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Imports</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__IMPORTS = eINSTANCE.getModel_Imports();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.APIImpl <em>API</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.APIImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAPI()
+     * @generated
+     */
+    EClass API = eINSTANCE.getAPI();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ComponentImpl <em>Component</em>}' class.
@@ -273,14 +1003,276 @@ public interface FortXTransPackage extends EPackage
     EClass COMPONENT = eINSTANCE.getComponent();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ApiImpl <em>Api</em>}' class.
+     * The meta object literal for the '<em><b>Exports</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ApiImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getApi()
      * @generated
      */
-    EClass API = eINSTANCE.getApi();
+    EReference COMPONENT__EXPORTS = eINSTANCE.getComponent_Exports();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ImportImpl <em>Import</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ImportImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getImport()
+     * @generated
+     */
+    EClass IMPORT = eINSTANCE.getImport();
+
+    /**
+     * The meta object literal for the '<em><b>Imps</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__IMPS = eINSTANCE.getImport_Imps();
+
+    /**
+     * The meta object literal for the '<em><b>Imported Names</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORT__IMPORTED_NAMES = eINSTANCE.getImport_ImportedNames();
+
+    /**
+     * The meta object literal for the '<em><b>Api</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORT__API = eINSTANCE.getImport_Api();
+
+    /**
+     * The meta object literal for the '<em><b>Aliasedimported Names</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORT__ALIASEDIMPORTED_NAMES = eINSTANCE.getImport_AliasedimportedNames();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExportImpl <em>Export</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ExportImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExport()
+     * @generated
+     */
+    EClass EXPORT = eINSTANCE.getExport();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPORT__EXP = eINSTANCE.getExport_Exp();
+
+    /**
+     * The meta object literal for the '<em><b>Exported Name</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPORT__EXPORTED_NAME = eINSTANCE.getExport_ExportedName();
+
+    /**
+     * The meta object literal for the '<em><b>Brack</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPORT__BRACK = eINSTANCE.getExport_Brack();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ImportedNamesImpl <em>Imported Names</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ImportedNamesImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getImportedNames()
+     * @generated
+     */
+    EClass IMPORTED_NAMES = eINSTANCE.getImportedNames();
+
+    /**
+     * The meta object literal for the '<em><b>Impname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORTED_NAMES__IMPNAME = eINSTANCE.getImportedNames_Impname();
+
+    /**
+     * The meta object literal for the '<em><b>Except</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORTED_NAMES__EXCEPT = eINSTANCE.getImportedNames_Except();
+
+    /**
+     * The meta object literal for the '<em><b>Simp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORTED_NAMES__SIMP = eINSTANCE.getImportedNames_Simp();
+
+    /**
+     * The meta object literal for the '<em><b>Simp List</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IMPORTED_NAMES__SIMP_LIST = eINSTANCE.getImportedNames_SimpList();
+
+    /**
+     * The meta object literal for the '<em><b>Comma</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORTED_NAMES__COMMA = eINSTANCE.getImportedNames_Comma();
+
+    /**
+     * The meta object literal for the '<em><b>Dots</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORTED_NAMES__DOTS = eINSTANCE.getImportedNames_Dots();
+
+    /**
+     * The meta object literal for the '<em><b>Asname</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute IMPORTED_NAMES__ASNAME = eINSTANCE.getImportedNames_Asname();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNamesImpl <em>Simple Names</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNamesImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getSimpleNames()
+     * @generated
+     */
+    EClass SIMPLE_NAMES = eINSTANCE.getSimpleNames();
+
+    /**
+     * The meta object literal for the '<em><b>Name List</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SIMPLE_NAMES__NAME_LIST = eINSTANCE.getSimpleNames_NameList();
+
+    /**
+     * The meta object literal for the '<em><b>Brack</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_NAMES__BRACK = eINSTANCE.getSimpleNames_Brack();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNameImpl <em>Simple Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNameImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getSimpleName()
+     * @generated
+     */
+    EClass SIMPLE_NAME = eINSTANCE.getSimpleName();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SIMPLE_NAME__NAME = eINSTANCE.getSimpleName_Name();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedSimpleNameImpl <em>Aliased Simple Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.AliasedSimpleNameImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAliasedSimpleName()
+     * @generated
+     */
+    EClass ALIASED_SIMPLE_NAME = eINSTANCE.getAliasedSimpleName();
+
+    /**
+     * The meta object literal for the '<em><b>Orig</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALIASED_SIMPLE_NAME__ORIG = eINSTANCE.getAliasedSimpleName_Orig();
+
+    /**
+     * The meta object literal for the '<em><b>As Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALIASED_SIMPLE_NAME__AS_NAME = eINSTANCE.getAliasedSimpleName_AsName();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINamesImpl <em>Aliased API Names</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINamesImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAliasedAPINames()
+     * @generated
+     */
+    EClass ALIASED_API_NAMES = eINSTANCE.getAliasedAPINames();
+
+    /**
+     * The meta object literal for the '<em><b>Name List</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ALIASED_API_NAMES__NAME_LIST = eINSTANCE.getAliasedAPINames_NameList();
+
+    /**
+     * The meta object literal for the '<em><b>Brack</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALIASED_API_NAMES__BRACK = eINSTANCE.getAliasedAPINames_Brack();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINameImpl <em>Aliased API Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.AliasedAPINameImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAliasedAPIName()
+     * @generated
+     */
+    EClass ALIASED_API_NAME = eINSTANCE.getAliasedAPIName();
+
+    /**
+     * The meta object literal for the '<em><b>Orig</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALIASED_API_NAME__ORIG = eINSTANCE.getAliasedAPIName_Orig();
+
+    /**
+     * The meta object literal for the '<em><b>As Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ALIASED_API_NAME__AS_NAME = eINSTANCE.getAliasedAPIName_AsName();
 
   }
 

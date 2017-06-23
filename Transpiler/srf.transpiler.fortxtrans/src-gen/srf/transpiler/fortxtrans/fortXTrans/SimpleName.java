@@ -3,24 +3,25 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>File</b></em>'.
+ * A representation of the model object '<em><b>Simple Name</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.File#getName <em>Name</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.SimpleName#getName <em>Name</em>}</li>
  * </ul>
  *
- * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFile()
+ * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getSimpleName()
  * @model
  * @generated
  */
-public interface File extends Model
+public interface SimpleName extends EObject
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
@@ -32,14 +33,14 @@ public interface File extends Model
    * <!-- end-user-doc -->
    * @return the value of the '<em>Name</em>' attribute.
    * @see #setName(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFile_Name()
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getSimpleName_Name()
    * @model
    * @generated
    */
   String getName();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.File#getName <em>Name</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleName#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Name</em>' attribute.
@@ -48,4 +49,4 @@ public interface File extends Model
    */
   void setName(String value);
 
-} // File
+} // SimpleName

@@ -8,24 +8,25 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.File;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>File</b></em>'.
+ * An implementation of the model object '<em><b>Simple Name</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FileImpl#getName <em>Name</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.SimpleNameImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class FileImpl extends ModelImpl implements File
+public class SimpleNameImpl extends MinimalEObjectImpl.Container implements SimpleName
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -52,7 +53,7 @@ public class FileImpl extends ModelImpl implements File
    * <!-- end-user-doc -->
    * @generated
    */
-  protected FileImpl()
+  protected SimpleNameImpl()
   {
     super();
   }
@@ -65,7 +66,7 @@ public class FileImpl extends ModelImpl implements File
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.FILE;
+    return FortXTransPackage.Literals.SIMPLE_NAME;
   }
 
   /**
@@ -88,7 +89,7 @@ public class FileImpl extends ModelImpl implements File
     String oldName = name;
     name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FILE__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.SIMPLE_NAME__NAME, oldName, name));
   }
 
   /**
@@ -101,7 +102,7 @@ public class FileImpl extends ModelImpl implements File
   {
     switch (featureID)
     {
-      case FortXTransPackage.FILE__NAME:
+      case FortXTransPackage.SIMPLE_NAME__NAME:
         return getName();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -117,7 +118,7 @@ public class FileImpl extends ModelImpl implements File
   {
     switch (featureID)
     {
-      case FortXTransPackage.FILE__NAME:
+      case FortXTransPackage.SIMPLE_NAME__NAME:
         setName((String)newValue);
         return;
     }
@@ -134,7 +135,7 @@ public class FileImpl extends ModelImpl implements File
   {
     switch (featureID)
     {
-      case FortXTransPackage.FILE__NAME:
+      case FortXTransPackage.SIMPLE_NAME__NAME:
         setName(NAME_EDEFAULT);
         return;
     }
@@ -151,7 +152,7 @@ public class FileImpl extends ModelImpl implements File
   {
     switch (featureID)
     {
-      case FortXTransPackage.FILE__NAME:
+      case FortXTransPackage.SIMPLE_NAME__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
@@ -174,4 +175,4 @@ public class FileImpl extends ModelImpl implements File
     return result.toString();
   }
 
-} //FileImpl
+} //SimpleNameImpl

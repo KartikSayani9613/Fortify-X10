@@ -3,28 +3,93 @@ grammar srf.transpiler.fortxtrans.FortXTrans with org.eclipse.xtext.common.Termi
 generate fortXTrans "http://www.transpiler.srf/fortxtrans/FortXTrans"
 
 Model:
-	File;
-	
-File:
-	CompilationUnit
-	|(Imports ';'?)? Exports ";"? (Decls';'?)?
-	|(Imports';'?)? AbsDecls ';'?
-	|Imports ';'? (AbsDecls ';'?)?
-	;
-
-CompilationUnit: 
 	Component
-	|Api
-	;
+	|API
+;
 
-Component: 
-	'component' name=ID
-	;
 
-Api: 
-	'api' name=ID
-	;
+Component:
+	'component' name=ID (imports+=Import)* (exports+=Export)+ (decls+=Decls)* 'end'
+;
 
-Imports:
-	Import
+API:
+	'api' name=ID (imports+=Import)* (absDecls+=AbsDecls)* 'end'
+;
+
+
+Import:
+	imps='import' importedNames=ImportedNames
+	|imps='import' api='api' aliasedimportedNames=AliasedAPINames
+	
+;
+
+Export:
+	exp='export' exportedName+=APIName
+	|exp='export' brack='{' exportedName+=APIName ("," exportedName+=APIName)* '}'
+;
+
+ImportedNames:
+	impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
+	|impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+= AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+	|impname=APIName ('as' asname=ID)?
+;
+
+APIName:
+	ID'...'
+	|ID ('.'ID)* '...'
+	|ID ('.'ID)*
+;
+
+SimpleNames:
+	nameList+=SimpleName
+	|brack='{' nameList+=SimpleName (',' nameList+=SimpleName)* '}'
+;
+
+SimpleName:
+	name=ID
+;
+
+AliasedSimpleName:
+	orig=ID ('as' asName=ID)?
+;
+
+AliasedAPINames:
+	nameList+=AliasedAPIName
+	|brack='{' nameList+=AliasedAPIName (',' nameList+=AliasedAPIName)* '}'
+;
+
+AliasedAPIName:
+	orig=APIName ('as' asName=ID)?
+;
+
+Decls: 
+	decls+=Decl+
+;
+
+Decl:
+	TraitDecl
+	| ObjectDecl
+//	| VarDecl
+//	| FnDecl
+//	| DimUnitDecl
+//	| TypeAlias
+//	| TestDecl
+//	| PropertyDecl
+//	| ExternalSyntax
+;
+
+
+AbsDecls: 
+	absdecls+=AbsDecl+
+;
+
+AbsDecl:
+	AbsTraitDecl
+	| AbsObjectDecl
+//	| AbsVarDecl
+//	| AbsFnDecl
+//	| DimUnitDecl
+//	| TypeAlias
+//	| PropertyDecl
+//	| AbsExternalSyntax
 ;

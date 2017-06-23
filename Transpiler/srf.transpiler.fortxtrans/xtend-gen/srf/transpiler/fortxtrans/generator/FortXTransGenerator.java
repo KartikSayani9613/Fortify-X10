@@ -3,10 +3,23 @@
  */
 package srf.transpiler.fortxtrans.generator;
 
+import com.google.common.collect.Iterables;
+import javax.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.xbase.lib.Conversions;
+import org.eclipse.xtext.xbase.lib.ExclusiveRange;
+import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import srf.transpiler.fortxtrans.fortXTrans.Component;
+import srf.transpiler.fortxtrans.fortXTrans.Export;
+import srf.transpiler.fortxtrans.fortXTrans.Import;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +28,247 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class FortXTransGenerator extends AbstractGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    Iterable<Component> _filter = Iterables.<Component>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Component.class);
+    for (final Component c : _filter) {
+      String _string = this._iQualifiedNameProvider.getFullyQualifiedName(c).toString("/");
+      String _plus = (_string + ".java");
+      fsa.generateFile(_plus, 
+        this.compile(c));
+    }
+  }
+  
+  public CharSequence compile(final Component c) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/*needs to import");
+    _builder.newLine();
+    {
+      EList<Import> _imports = c.getImports();
+      for(final Import i : _imports) {
+        CharSequence _compile = this.compile(i);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("/*exports");
+    _builder.newLine();
+    {
+      EList<Export> _exports = c.getExports();
+      for(final Export e : _exports) {
+        CharSequence _compile_1 = this.compile(e);
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("public class ");
+    String _name = c.getName();
+    _builder.append(_name);
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Import i) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _api = i.getApi();
+      boolean _tripleEquals = (_api == null);
+      if (_tripleEquals) {
+        String _imps = i.getImps();
+        _builder.append(_imps);
+        _builder.append(" ");
+        String _impname = i.getImportedNames().getImpname();
+        _builder.append(_impname);
+        {
+          String _asname = i.getImportedNames().getAsname();
+          boolean _tripleNotEquals = (_asname != null);
+          if (_tripleNotEquals) {
+            _builder.append("as ");
+            String _asname_1 = i.getImportedNames().getAsname();
+            _builder.append(_asname_1);
+          } else {
+            {
+              int _length = ((Object[])Conversions.unwrapArray(i.getImportedNames().getSimpList(), Object.class)).length;
+              boolean _notEquals = (_length != 0);
+              if (_notEquals) {
+                _builder.append(".{");
+                {
+                  int _length_1 = ((Object[])Conversions.unwrapArray(i.getImportedNames().getSimpList(), Object.class)).length;
+                  ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
+                  for(final Integer s : _doubleDotLessThan) {
+                    {
+                      if (((s).intValue() == 0)) {
+                        String _orig = i.getImportedNames().getSimpList().get((s).intValue()).getOrig();
+                        _builder.append(_orig);
+                      } else {
+                        _builder.append(", ");
+                        String _orig_1 = i.getImportedNames().getSimpList().get((s).intValue()).getOrig();
+                        _builder.append(_orig_1);
+                      }
+                    }
+                    {
+                      String _asName = i.getImportedNames().getSimpList().get((s).intValue()).getAsName();
+                      boolean _tripleNotEquals_1 = (_asName != null);
+                      if (_tripleNotEquals_1) {
+                        _builder.append(" as ");
+                        String _asName_1 = i.getImportedNames().getSimpList().get((s).intValue()).getAsName();
+                        _builder.append(_asName_1);
+                      }
+                    }
+                  }
+                }
+                {
+                  boolean _isComma = i.getImportedNames().isComma();
+                  if (_isComma) {
+                    _builder.append(" , ... ");
+                  }
+                }
+                _builder.append("}");
+              } else {
+                _builder.append(".{...}");
+                {
+                  boolean _isExcept = i.getImportedNames().isExcept();
+                  if (_isExcept) {
+                    _builder.append(" except ");
+                    {
+                      String _brack = i.getImportedNames().getSimp().getBrack();
+                      boolean _tripleNotEquals_2 = (_brack != null);
+                      if (_tripleNotEquals_2) {
+                        _builder.append("{");
+                        {
+                          int _length_2 = ((Object[])Conversions.unwrapArray(i.getImportedNames().getSimp().getNameList(), Object.class)).length;
+                          ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_2, true);
+                          for(final Integer s_1 : _doubleDotLessThan_1) {
+                            {
+                              if (((s_1).intValue() == 0)) {
+                                String _name = i.getImportedNames().getSimp().getNameList().get((s_1).intValue()).getName();
+                                _builder.append(_name);
+                              } else {
+                                _builder.append(", ");
+                                String _name_1 = i.getImportedNames().getSimp().getNameList().get((s_1).intValue()).getName();
+                                _builder.append(_name_1);
+                              }
+                            }
+                          }
+                        }
+                        _builder.append("}");
+                      } else {
+                        String _name_2 = i.getImportedNames().getSimp().getNameList().get(0).getName();
+                        _builder.append(_name_2);
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      } else {
+        _builder.newLineIfNotEmpty();
+        String _imps_1 = i.getImps();
+        _builder.append(_imps_1);
+        _builder.append(" ");
+        String _api_1 = i.getApi();
+        _builder.append(_api_1);
+        _builder.append(" ");
+        {
+          String _brack_1 = i.getAliasedimportedNames().getBrack();
+          boolean _tripleNotEquals_3 = (_brack_1 != null);
+          if (_tripleNotEquals_3) {
+            _builder.append("{");
+            {
+              int _length_3 = ((Object[])Conversions.unwrapArray(i.getAliasedimportedNames().getNameList(), Object.class)).length;
+              ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_3, true);
+              for(final Integer s_2 : _doubleDotLessThan_2) {
+                {
+                  if (((s_2).intValue() == 0)) {
+                    String _orig_2 = i.getAliasedimportedNames().getNameList().get(0).getOrig();
+                    _builder.append(_orig_2);
+                  } else {
+                    _builder.append(", ");
+                    String _orig_3 = i.getAliasedimportedNames().getNameList().get(0).getOrig();
+                    _builder.append(_orig_3);
+                  }
+                }
+                {
+                  String _asName_2 = i.getAliasedimportedNames().getNameList().get((s_2).intValue()).getAsName();
+                  boolean _tripleNotEquals_4 = (_asName_2 != null);
+                  if (_tripleNotEquals_4) {
+                    _builder.append(" as ");
+                    String _asName_3 = i.getAliasedimportedNames().getNameList().get(0).getAsName();
+                    _builder.append(_asName_3);
+                  }
+                }
+              }
+            }
+            _builder.append("}");
+          } else {
+            String _orig_4 = i.getAliasedimportedNames().getNameList().get(0).getOrig();
+            _builder.append(_orig_4);
+            {
+              String _asName_4 = i.getAliasedimportedNames().getNameList().get(0).getAsName();
+              boolean _tripleNotEquals_5 = (_asName_4 != null);
+              if (_tripleNotEquals_5) {
+                _builder.append(" as ");
+                String _asName_5 = i.getAliasedimportedNames().getNameList().get(0).getAsName();
+                _builder.append(_asName_5);
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Export e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _exp = e.getExp();
+    _builder.append(_exp);
+    _builder.append(" ");
+    {
+      String _brack = e.getBrack();
+      boolean _tripleNotEquals = (_brack != null);
+      if (_tripleNotEquals) {
+        _builder.append("{");
+        {
+          int _length = ((Object[])Conversions.unwrapArray(e.getExportedName(), Object.class)).length;
+          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+          for(final Integer s : _doubleDotLessThan) {
+            {
+              if (((s).intValue() == 0)) {
+                String _get = e.getExportedName().get((s).intValue());
+                _builder.append(_get);
+              } else {
+                _builder.append(", ");
+                String _get_1 = e.getExportedName().get((s).intValue());
+                _builder.append(_get_1);
+              }
+            }
+          }
+        }
+        _builder.append("}");
+      } else {
+        String _get_2 = e.getExportedName().get(0);
+        _builder.append(_get_2);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
   }
 }

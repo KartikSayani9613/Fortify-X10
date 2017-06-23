@@ -5,24 +5,24 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import srf.transpiler.fortxtrans.fortXTrans.Api;
+import srf.transpiler.fortxtrans.fortXTrans.API;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Api</b></em>'.
+ * An implementation of the model object '<em><b>API</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class ApiImpl extends FileImpl implements Api
+public class APIImpl extends ModelImpl implements API
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ApiImpl()
+  protected APIImpl()
   {
     super();
   }
@@ -38,4 +38,4 @@ public class ApiImpl extends FileImpl implements Api
     return FortXTransPackage.Literals.API;
   }
 
-} //ApiImpl
+} //APIImpl

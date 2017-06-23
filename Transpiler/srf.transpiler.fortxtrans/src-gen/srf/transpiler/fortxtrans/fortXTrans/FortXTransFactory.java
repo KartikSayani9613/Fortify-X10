@@ -33,13 +33,13 @@ public interface FortXTransFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>File</em>'.
+   * Returns a new object of class '<em>API</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>File</em>'.
+   * @return a new object of class '<em>API</em>'.
    * @generated
    */
-  File createFile();
+  API createAPI();
 
   /**
    * Returns a new object of class '<em>Component</em>'.
@@ -51,13 +51,76 @@ public interface FortXTransFactory extends EFactory
   Component createComponent();
 
   /**
-   * Returns a new object of class '<em>Api</em>'.
+   * Returns a new object of class '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Api</em>'.
+   * @return a new object of class '<em>Import</em>'.
    * @generated
    */
-  Api createApi();
+  Import createImport();
+
+  /**
+   * Returns a new object of class '<em>Export</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Export</em>'.
+   * @generated
+   */
+  Export createExport();
+
+  /**
+   * Returns a new object of class '<em>Imported Names</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Imported Names</em>'.
+   * @generated
+   */
+  ImportedNames createImportedNames();
+
+  /**
+   * Returns a new object of class '<em>Simple Names</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Names</em>'.
+   * @generated
+   */
+  SimpleNames createSimpleNames();
+
+  /**
+   * Returns a new object of class '<em>Simple Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Name</em>'.
+   * @generated
+   */
+  SimpleName createSimpleName();
+
+  /**
+   * Returns a new object of class '<em>Aliased Simple Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aliased Simple Name</em>'.
+   * @generated
+   */
+  AliasedSimpleName createAliasedSimpleName();
+
+  /**
+   * Returns a new object of class '<em>Aliased API Names</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aliased API Names</em>'.
+   * @generated
+   */
+  AliasedAPINames createAliasedAPINames();
+
+  /**
+   * Returns a new object of class '<em>Aliased API Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Aliased API Name</em>'.
+   * @generated
+   */
+  AliasedAPIName createAliasedAPIName();
 
   /**
    * Returns the package supported by this factory.

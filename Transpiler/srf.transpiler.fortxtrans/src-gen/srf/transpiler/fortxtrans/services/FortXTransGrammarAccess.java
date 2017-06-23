@@ -24,69 +24,39 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Model");
-		private final RuleCall cFileParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Model:
-		//	File;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//File
-		public RuleCall getFileParserRuleCall() { return cFileParserRuleCall; }
-	}
-	public class FileElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.File");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cComponentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cApiParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cAPIParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//File:
-		//	Component | Api;
+		//Model:
+		//	Component
+		//	| API;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Component | Api
+		//Component | API
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//Component
 		public RuleCall getComponentParserRuleCall_0() { return cComponentParserRuleCall_0; }
 		
-		//Api
-		public RuleCall getApiParserRuleCall_1() { return cApiParserRuleCall_1; }
+		//API
+		public RuleCall getAPIParserRuleCall_1() { return cAPIParserRuleCall_1; }
 	}
-	public class ComponentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Component");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		
-		//Component:
-		//	'component' name=ID;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'component' name=ID
-		public Group getGroup() { return cGroup; }
-		
-		//'component'
-		public Keyword getComponentKeyword_0() { return cComponentKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-	}
-	public class ApiElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Api");
+	public class APIElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.API");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cApiKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//Api:
-		//	'api' name=ID;
+		//API:
+		//	'api' name=ID imports+=Import* 'end';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'api' name=ID
+		//'api' name=ID imports+=Import* 'end'
 		public Group getGroup() { return cGroup; }
 		
 		//'api'
@@ -97,13 +67,646 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//imports+=Import*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//Import
+		public RuleCall getImportsImportParserRuleCall_2_0() { return cImportsImportParserRuleCall_2_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
+	}
+	public class ComponentElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Component");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cComponentKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Assignment cExportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cExportsExportParserRuleCall_3_0 = (RuleCall)cExportsAssignment_3.eContents().get(0);
+		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//Component:
+		//	'component' name=ID imports+=Import* exports+=Export* 'end';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'component' name=ID imports+=Import* exports+=Export* 'end'
+		public Group getGroup() { return cGroup; }
+		
+		//'component'
+		public Keyword getComponentKeyword_0() { return cComponentKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//imports+=Import*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//Import
+		public RuleCall getImportsImportParserRuleCall_2_0() { return cImportsImportParserRuleCall_2_0; }
+		
+		//exports+=Export*
+		public Assignment getExportsAssignment_3() { return cExportsAssignment_3; }
+		
+		//Export
+		public RuleCall getExportsExportParserRuleCall_3_0() { return cExportsExportParserRuleCall_3_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
+	}
+	public class ImportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Import");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cImpsAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cImpsImportKeyword_0_0_0 = (Keyword)cImpsAssignment_0_0.eContents().get(0);
+		private final Assignment cImportedNamesAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cImportedNamesImportedNamesParserRuleCall_0_1_0 = (RuleCall)cImportedNamesAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cImpsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cImpsImportKeyword_1_0_0 = (Keyword)cImpsAssignment_1_0.eContents().get(0);
+		private final Assignment cApiAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cApiApiKeyword_1_1_0 = (Keyword)cApiAssignment_1_1.eContents().get(0);
+		private final Assignment cAliasedimportedNamesAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cAliasedimportedNamesAliasedAPINamesParserRuleCall_1_2_0 = (RuleCall)cAliasedimportedNamesAssignment_1_2.eContents().get(0);
+		
+		//Import:
+		//	imps='import' importedNames=ImportedNames
+		//	| imps='import' api='api' aliasedimportedNames=AliasedAPINames;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//imps='import' importedNames=ImportedNames | imps='import' api='api' aliasedimportedNames=AliasedAPINames
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//imps='import' importedNames=ImportedNames
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//imps='import'
+		public Assignment getImpsAssignment_0_0() { return cImpsAssignment_0_0; }
+		
+		//'import'
+		public Keyword getImpsImportKeyword_0_0_0() { return cImpsImportKeyword_0_0_0; }
+		
+		//importedNames=ImportedNames
+		public Assignment getImportedNamesAssignment_0_1() { return cImportedNamesAssignment_0_1; }
+		
+		//ImportedNames
+		public RuleCall getImportedNamesImportedNamesParserRuleCall_0_1_0() { return cImportedNamesImportedNamesParserRuleCall_0_1_0; }
+		
+		//imps='import' api='api' aliasedimportedNames=AliasedAPINames
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//imps='import'
+		public Assignment getImpsAssignment_1_0() { return cImpsAssignment_1_0; }
+		
+		//'import'
+		public Keyword getImpsImportKeyword_1_0_0() { return cImpsImportKeyword_1_0_0; }
+		
+		//api='api'
+		public Assignment getApiAssignment_1_1() { return cApiAssignment_1_1; }
+		
+		//'api'
+		public Keyword getApiApiKeyword_1_1_0() { return cApiApiKeyword_1_1_0; }
+		
+		//aliasedimportedNames=AliasedAPINames
+		public Assignment getAliasedimportedNamesAssignment_1_2() { return cAliasedimportedNamesAssignment_1_2; }
+		
+		//AliasedAPINames
+		public RuleCall getAliasedimportedNamesAliasedAPINamesParserRuleCall_1_2_0() { return cAliasedimportedNamesAliasedAPINamesParserRuleCall_1_2_0; }
+	}
+	public class ExportElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Export");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cExpAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cExpExportKeyword_0_0_0 = (Keyword)cExpAssignment_0_0.eContents().get(0);
+		private final Assignment cExportedNameAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cExportedNameAPINameParserRuleCall_0_1_0 = (RuleCall)cExportedNameAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cExpAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cExpExportKeyword_1_0_0 = (Keyword)cExpAssignment_1_0.eContents().get(0);
+		private final Assignment cBrackAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cBrackLeftCurlyBracketKeyword_1_1_0 = (Keyword)cBrackAssignment_1_1.eContents().get(0);
+		private final Assignment cExportedNameAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cExportedNameAPINameParserRuleCall_1_2_0 = (RuleCall)cExportedNameAssignment_1_2.eContents().get(0);
+		private final Group cGroup_1_3 = (Group)cGroup_1.eContents().get(3);
+		private final Keyword cCommaKeyword_1_3_0 = (Keyword)cGroup_1_3.eContents().get(0);
+		private final Assignment cExportedNameAssignment_1_3_1 = (Assignment)cGroup_1_3.eContents().get(1);
+		private final RuleCall cExportedNameAPINameParserRuleCall_1_3_1_0 = (RuleCall)cExportedNameAssignment_1_3_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_4 = (Keyword)cGroup_1.eContents().get(4);
+		
+		//Export:
+		//	exp='export' exportedName+=APIName
+		//	| exp='export' brack='{' exportedName+=APIName ("," exportedName+=APIName)* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//exp='export' exportedName+=APIName | exp='export' brack='{' exportedName+=APIName ("," exportedName+=APIName)* '}'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//exp='export' exportedName+=APIName
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//exp='export'
+		public Assignment getExpAssignment_0_0() { return cExpAssignment_0_0; }
+		
+		//'export'
+		public Keyword getExpExportKeyword_0_0_0() { return cExpExportKeyword_0_0_0; }
+		
+		//exportedName+=APIName
+		public Assignment getExportedNameAssignment_0_1() { return cExportedNameAssignment_0_1; }
+		
+		//APIName
+		public RuleCall getExportedNameAPINameParserRuleCall_0_1_0() { return cExportedNameAPINameParserRuleCall_0_1_0; }
+		
+		//exp='export' brack='{' exportedName+=APIName ("," exportedName+=APIName)* '}'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//exp='export'
+		public Assignment getExpAssignment_1_0() { return cExpAssignment_1_0; }
+		
+		//'export'
+		public Keyword getExpExportKeyword_1_0_0() { return cExpExportKeyword_1_0_0; }
+		
+		//brack='{'
+		public Assignment getBrackAssignment_1_1() { return cBrackAssignment_1_1; }
+		
+		//'{'
+		public Keyword getBrackLeftCurlyBracketKeyword_1_1_0() { return cBrackLeftCurlyBracketKeyword_1_1_0; }
+		
+		//exportedName+=APIName
+		public Assignment getExportedNameAssignment_1_2() { return cExportedNameAssignment_1_2; }
+		
+		//APIName
+		public RuleCall getExportedNameAPINameParserRuleCall_1_2_0() { return cExportedNameAPINameParserRuleCall_1_2_0; }
+		
+		//("," exportedName+=APIName)*
+		public Group getGroup_1_3() { return cGroup_1_3; }
+		
+		//","
+		public Keyword getCommaKeyword_1_3_0() { return cCommaKeyword_1_3_0; }
+		
+		//exportedName+=APIName
+		public Assignment getExportedNameAssignment_1_3_1() { return cExportedNameAssignment_1_3_1; }
+		
+		//APIName
+		public RuleCall getExportedNameAPINameParserRuleCall_1_3_1_0() { return cExportedNameAPINameParserRuleCall_1_3_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_4() { return cRightCurlyBracketKeyword_1_4; }
+	}
+	public class ImportedNamesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ImportedNames");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cImpnameAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final RuleCall cImpnameAPINameParserRuleCall_0_0_0 = (RuleCall)cImpnameAssignment_0_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
+		private final Keyword cFullStopFullStopFullStopKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
+		private final Group cGroup_0_5 = (Group)cGroup_0.eContents().get(5);
+		private final Assignment cExceptAssignment_0_5_0 = (Assignment)cGroup_0_5.eContents().get(0);
+		private final Keyword cExceptExceptKeyword_0_5_0_0 = (Keyword)cExceptAssignment_0_5_0.eContents().get(0);
+		private final Assignment cSimpAssignment_0_5_1 = (Assignment)cGroup_0_5.eContents().get(1);
+		private final RuleCall cSimpSimpleNamesParserRuleCall_0_5_1_0 = (RuleCall)cSimpAssignment_0_5_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cImpnameAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cImpnameAPINameParserRuleCall_1_0_0 = (RuleCall)cImpnameAssignment_1_0.eContents().get(0);
+		private final Keyword cFullStopKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cSimpListAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cSimpListAliasedSimpleNameParserRuleCall_1_3_0 = (RuleCall)cSimpListAssignment_1_3.eContents().get(0);
+		private final Group cGroup_1_4 = (Group)cGroup_1.eContents().get(4);
+		private final Keyword cCommaKeyword_1_4_0 = (Keyword)cGroup_1_4.eContents().get(0);
+		private final Assignment cSimpListAssignment_1_4_1 = (Assignment)cGroup_1_4.eContents().get(1);
+		private final RuleCall cSimpListAliasedSimpleNameParserRuleCall_1_4_1_0 = (RuleCall)cSimpListAssignment_1_4_1.eContents().get(0);
+		private final Group cGroup_1_5 = (Group)cGroup_1.eContents().get(5);
+		private final Assignment cCommaAssignment_1_5_0 = (Assignment)cGroup_1_5.eContents().get(0);
+		private final Keyword cCommaCommaKeyword_1_5_0_0 = (Keyword)cCommaAssignment_1_5_0.eContents().get(0);
+		private final Assignment cDotsAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
+		private final Keyword cDotsFullStopFullStopFullStopKeyword_1_5_1_0 = (Keyword)cDotsAssignment_1_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cImpnameAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final RuleCall cImpnameAPINameParserRuleCall_2_0_0 = (RuleCall)cImpnameAssignment_2_0.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cAsKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final Assignment cAsnameAssignment_2_1_1 = (Assignment)cGroup_2_1.eContents().get(1);
+		private final RuleCall cAsnameIDTerminalRuleCall_2_1_1_0 = (RuleCall)cAsnameAssignment_2_1_1.eContents().get(0);
+		
+		//ImportedNames:
+		//	impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
+		//	| impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+		//	| impname=APIName ('as' asname=ID)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)? | impname=APIName '.' '{'
+		//simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}' | impname=APIName ('as'
+		//asname=ID)?
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//impname=APIName
+		public Assignment getImpnameAssignment_0_0() { return cImpnameAssignment_0_0; }
+		
+		//APIName
+		public RuleCall getImpnameAPINameParserRuleCall_0_0_0() { return cImpnameAPINameParserRuleCall_0_0_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_0_1() { return cFullStopKeyword_0_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_0_2() { return cLeftCurlyBracketKeyword_0_2; }
+		
+		//'...'
+		public Keyword getFullStopFullStopFullStopKeyword_0_3() { return cFullStopFullStopFullStopKeyword_0_3; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_0_4() { return cRightCurlyBracketKeyword_0_4; }
+		
+		//(except?='except' simp=SimpleNames)?
+		public Group getGroup_0_5() { return cGroup_0_5; }
+		
+		//except?='except'
+		public Assignment getExceptAssignment_0_5_0() { return cExceptAssignment_0_5_0; }
+		
+		//'except'
+		public Keyword getExceptExceptKeyword_0_5_0_0() { return cExceptExceptKeyword_0_5_0_0; }
+		
+		//simp=SimpleNames
+		public Assignment getSimpAssignment_0_5_1() { return cSimpAssignment_0_5_1; }
+		
+		//SimpleNames
+		public RuleCall getSimpSimpleNamesParserRuleCall_0_5_1_0() { return cSimpSimpleNamesParserRuleCall_0_5_1_0; }
+		
+		//impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//impname=APIName
+		public Assignment getImpnameAssignment_1_0() { return cImpnameAssignment_1_0; }
+		
+		//APIName
+		public RuleCall getImpnameAPINameParserRuleCall_1_0_0() { return cImpnameAPINameParserRuleCall_1_0_0; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_1() { return cFullStopKeyword_1_1; }
+		
+		//'{'
+		public Keyword getLeftCurlyBracketKeyword_1_2() { return cLeftCurlyBracketKeyword_1_2; }
+		
+		//simpList+=AliasedSimpleName
+		public Assignment getSimpListAssignment_1_3() { return cSimpListAssignment_1_3; }
+		
+		//AliasedSimpleName
+		public RuleCall getSimpListAliasedSimpleNameParserRuleCall_1_3_0() { return cSimpListAliasedSimpleNameParserRuleCall_1_3_0; }
+		
+		//(',' simpList+=AliasedSimpleName)*
+		public Group getGroup_1_4() { return cGroup_1_4; }
+		
+		//','
+		public Keyword getCommaKeyword_1_4_0() { return cCommaKeyword_1_4_0; }
+		
+		//simpList+=AliasedSimpleName
+		public Assignment getSimpListAssignment_1_4_1() { return cSimpListAssignment_1_4_1; }
+		
+		//AliasedSimpleName
+		public RuleCall getSimpListAliasedSimpleNameParserRuleCall_1_4_1_0() { return cSimpListAliasedSimpleNameParserRuleCall_1_4_1_0; }
+		
+		//(comma?=',' dots?='...')?
+		public Group getGroup_1_5() { return cGroup_1_5; }
+		
+		//comma?=','
+		public Assignment getCommaAssignment_1_5_0() { return cCommaAssignment_1_5_0; }
+		
+		//','
+		public Keyword getCommaCommaKeyword_1_5_0_0() { return cCommaCommaKeyword_1_5_0_0; }
+		
+		//dots?='...'
+		public Assignment getDotsAssignment_1_5_1() { return cDotsAssignment_1_5_1; }
+		
+		//'...'
+		public Keyword getDotsFullStopFullStopFullStopKeyword_1_5_1_0() { return cDotsFullStopFullStopFullStopKeyword_1_5_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_6() { return cRightCurlyBracketKeyword_1_6; }
+		
+		//impname=APIName ('as' asname=ID)?
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//impname=APIName
+		public Assignment getImpnameAssignment_2_0() { return cImpnameAssignment_2_0; }
+		
+		//APIName
+		public RuleCall getImpnameAPINameParserRuleCall_2_0_0() { return cImpnameAPINameParserRuleCall_2_0_0; }
+		
+		//('as' asname=ID)?
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'as'
+		public Keyword getAsKeyword_2_1_0() { return cAsKeyword_2_1_0; }
+		
+		//asname=ID
+		public Assignment getAsnameAssignment_2_1_1() { return cAsnameAssignment_2_1_1; }
+		
+		//ID
+		public RuleCall getAsnameIDTerminalRuleCall_2_1_1_0() { return cAsnameIDTerminalRuleCall_2_1_1_0; }
+	}
+	public class APINameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.APIName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Keyword cFullStopFullStopFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final Keyword cFullStopFullStopFullStopKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final RuleCall cIDTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cFullStopKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_2_1_1 = (RuleCall)cGroup_2_1.eContents().get(1);
+		
+		//APIName:
+		//	ID '...'
+		//	| ID ('.' ID)* '...'
+		//	| ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID '...' | ID ('.' ID)* '...' | ID ('.' ID)*
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID '...'
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+		
+		//'...'
+		public Keyword getFullStopFullStopFullStopKeyword_0_1() { return cFullStopFullStopFullStopKeyword_0_1; }
+		
+		//ID ('.' ID)* '...'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_0() { return cIDTerminalRuleCall_1_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_1_0() { return cFullStopKeyword_1_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1_1() { return cIDTerminalRuleCall_1_1_1; }
+		
+		//'...'
+		public Keyword getFullStopFullStopFullStopKeyword_1_2() { return cFullStopFullStopFullStopKeyword_1_2; }
+		
+		//ID ('.' ID)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_0() { return cIDTerminalRuleCall_2_0; }
+		
+		//('.' ID)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_2_1_0() { return cFullStopKeyword_2_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_1_1() { return cIDTerminalRuleCall_2_1_1; }
+	}
+	public class SimpleNamesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.SimpleNames");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cNameListAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cNameListSimpleNameParserRuleCall_0_0 = (RuleCall)cNameListAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cBrackAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cBrackLeftCurlyBracketKeyword_1_0_0 = (Keyword)cBrackAssignment_1_0.eContents().get(0);
+		private final Assignment cNameListAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameListSimpleNameParserRuleCall_1_1_0 = (RuleCall)cNameListAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cNameListAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cNameListSimpleNameParserRuleCall_1_2_1_0 = (RuleCall)cNameListAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		
+		//SimpleNames:
+		//	nameList+=SimpleName
+		//	| brack='{' nameList+=SimpleName (',' nameList+=SimpleName)* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//nameList+=SimpleName | brack='{' nameList+=SimpleName (',' nameList+=SimpleName)* '}'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//nameList+=SimpleName
+		public Assignment getNameListAssignment_0() { return cNameListAssignment_0; }
+		
+		//SimpleName
+		public RuleCall getNameListSimpleNameParserRuleCall_0_0() { return cNameListSimpleNameParserRuleCall_0_0; }
+		
+		//brack='{' nameList+=SimpleName (',' nameList+=SimpleName)* '}'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//brack='{'
+		public Assignment getBrackAssignment_1_0() { return cBrackAssignment_1_0; }
+		
+		//'{'
+		public Keyword getBrackLeftCurlyBracketKeyword_1_0_0() { return cBrackLeftCurlyBracketKeyword_1_0_0; }
+		
+		//nameList+=SimpleName
+		public Assignment getNameListAssignment_1_1() { return cNameListAssignment_1_1; }
+		
+		//SimpleName
+		public RuleCall getNameListSimpleNameParserRuleCall_1_1_0() { return cNameListSimpleNameParserRuleCall_1_1_0; }
+		
+		//(',' nameList+=SimpleName)*
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//','
+		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
+		
+		//nameList+=SimpleName
+		public Assignment getNameListAssignment_1_2_1() { return cNameListAssignment_1_2_1; }
+		
+		//SimpleName
+		public RuleCall getNameListSimpleNameParserRuleCall_1_2_1_0() { return cNameListSimpleNameParserRuleCall_1_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_3() { return cRightCurlyBracketKeyword_1_3; }
+	}
+	public class SimpleNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.SimpleName");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//SimpleName:
+		//	name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class AliasedSimpleNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.AliasedSimpleName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOrigAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOrigIDTerminalRuleCall_0_0 = (RuleCall)cOrigAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cAsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cAsNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAsNameIDTerminalRuleCall_1_1_0 = (RuleCall)cAsNameAssignment_1_1.eContents().get(0);
+		
+		//AliasedSimpleName:
+		//	orig=ID ('as' asName=ID)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//orig=ID ('as' asName=ID)?
+		public Group getGroup() { return cGroup; }
+		
+		//orig=ID
+		public Assignment getOrigAssignment_0() { return cOrigAssignment_0; }
+		
+		//ID
+		public RuleCall getOrigIDTerminalRuleCall_0_0() { return cOrigIDTerminalRuleCall_0_0; }
+		
+		//('as' asName=ID)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'as'
+		public Keyword getAsKeyword_1_0() { return cAsKeyword_1_0; }
+		
+		//asName=ID
+		public Assignment getAsNameAssignment_1_1() { return cAsNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getAsNameIDTerminalRuleCall_1_1_0() { return cAsNameIDTerminalRuleCall_1_1_0; }
+	}
+	public class AliasedAPINamesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.AliasedAPINames");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cNameListAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cNameListAliasedAPINameParserRuleCall_0_0 = (RuleCall)cNameListAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cBrackAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cBrackLeftCurlyBracketKeyword_1_0_0 = (Keyword)cBrackAssignment_1_0.eContents().get(0);
+		private final Assignment cNameListAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cNameListAliasedAPINameParserRuleCall_1_1_0 = (RuleCall)cNameListAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cNameListAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cNameListAliasedAPINameParserRuleCall_1_2_1_0 = (RuleCall)cNameListAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		
+		//AliasedAPINames:
+		//	nameList+=AliasedAPIName
+		//	| brack='{' nameList+=AliasedAPIName (',' nameList+=AliasedAPIName)* '}';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//nameList+=AliasedAPIName | brack='{' nameList+=AliasedAPIName (',' nameList+=AliasedAPIName)* '}'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//nameList+=AliasedAPIName
+		public Assignment getNameListAssignment_0() { return cNameListAssignment_0; }
+		
+		//AliasedAPIName
+		public RuleCall getNameListAliasedAPINameParserRuleCall_0_0() { return cNameListAliasedAPINameParserRuleCall_0_0; }
+		
+		//brack='{' nameList+=AliasedAPIName (',' nameList+=AliasedAPIName)* '}'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//brack='{'
+		public Assignment getBrackAssignment_1_0() { return cBrackAssignment_1_0; }
+		
+		//'{'
+		public Keyword getBrackLeftCurlyBracketKeyword_1_0_0() { return cBrackLeftCurlyBracketKeyword_1_0_0; }
+		
+		//nameList+=AliasedAPIName
+		public Assignment getNameListAssignment_1_1() { return cNameListAssignment_1_1; }
+		
+		//AliasedAPIName
+		public RuleCall getNameListAliasedAPINameParserRuleCall_1_1_0() { return cNameListAliasedAPINameParserRuleCall_1_1_0; }
+		
+		//(',' nameList+=AliasedAPIName)*
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//','
+		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
+		
+		//nameList+=AliasedAPIName
+		public Assignment getNameListAssignment_1_2_1() { return cNameListAssignment_1_2_1; }
+		
+		//AliasedAPIName
+		public RuleCall getNameListAliasedAPINameParserRuleCall_1_2_1_0() { return cNameListAliasedAPINameParserRuleCall_1_2_1_0; }
+		
+		//'}'
+		public Keyword getRightCurlyBracketKeyword_1_3() { return cRightCurlyBracketKeyword_1_3; }
+	}
+	public class AliasedAPINameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.AliasedAPIName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cOrigAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cOrigAPINameParserRuleCall_0_0 = (RuleCall)cOrigAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cAsKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cAsNameAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cAsNameIDTerminalRuleCall_1_1_0 = (RuleCall)cAsNameAssignment_1_1.eContents().get(0);
+		
+		//AliasedAPIName:
+		//	orig=APIName ('as' asName=ID)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//orig=APIName ('as' asName=ID)?
+		public Group getGroup() { return cGroup; }
+		
+		//orig=APIName
+		public Assignment getOrigAssignment_0() { return cOrigAssignment_0; }
+		
+		//APIName
+		public RuleCall getOrigAPINameParserRuleCall_0_0() { return cOrigAPINameParserRuleCall_0_0; }
+		
+		//('as' asName=ID)?
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'as'
+		public Keyword getAsKeyword_1_0() { return cAsKeyword_1_0; }
+		
+		//asName=ID
+		public Assignment getAsNameAssignment_1_1() { return cAsNameAssignment_1_1; }
+		
+		//ID
+		public RuleCall getAsNameIDTerminalRuleCall_1_1_0() { return cAsNameIDTerminalRuleCall_1_1_0; }
 	}
 	
 	
 	private final ModelElements pModel;
-	private final FileElements pFile;
+	private final APIElements pAPI;
 	private final ComponentElements pComponent;
-	private final ApiElements pApi;
+	private final ImportElements pImport;
+	private final ExportElements pExport;
+	private final ImportedNamesElements pImportedNames;
+	private final APINameElements pAPIName;
+	private final SimpleNamesElements pSimpleNames;
+	private final SimpleNameElements pSimpleName;
+	private final AliasedSimpleNameElements pAliasedSimpleName;
+	private final AliasedAPINamesElements pAliasedAPINames;
+	private final AliasedAPINameElements pAliasedAPIName;
 	
 	private final Grammar grammar;
 	
@@ -115,9 +718,17 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pFile = new FileElements();
+		this.pAPI = new APIElements();
 		this.pComponent = new ComponentElements();
-		this.pApi = new ApiElements();
+		this.pImport = new ImportElements();
+		this.pExport = new ExportElements();
+		this.pImportedNames = new ImportedNamesElements();
+		this.pAPIName = new APINameElements();
+		this.pSimpleNames = new SimpleNamesElements();
+		this.pSimpleName = new SimpleNameElements();
+		this.pAliasedSimpleName = new AliasedSimpleNameElements();
+		this.pAliasedAPINames = new AliasedAPINamesElements();
+		this.pAliasedAPIName = new AliasedAPINameElements();
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -148,7 +759,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	File;
+	//	Component
+	//	| API;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -157,18 +769,18 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//File:
-	//	Component | Api;
-	public FileElements getFileAccess() {
-		return pFile;
+	//API:
+	//	'api' name=ID imports+=Import* 'end';
+	public APIElements getAPIAccess() {
+		return pAPI;
 	}
 	
-	public ParserRule getFileRule() {
-		return getFileAccess().getRule();
+	public ParserRule getAPIRule() {
+		return getAPIAccess().getRule();
 	}
 	
 	//Component:
-	//	'component' name=ID;
+	//	'component' name=ID imports+=Import* exports+=Export* 'end';
 	public ComponentElements getComponentAccess() {
 		return pComponent;
 	}
@@ -177,14 +789,102 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getComponentAccess().getRule();
 	}
 	
-	//Api:
-	//	'api' name=ID;
-	public ApiElements getApiAccess() {
-		return pApi;
+	//Import:
+	//	imps='import' importedNames=ImportedNames
+	//	| imps='import' api='api' aliasedimportedNames=AliasedAPINames;
+	public ImportElements getImportAccess() {
+		return pImport;
 	}
 	
-	public ParserRule getApiRule() {
-		return getApiAccess().getRule();
+	public ParserRule getImportRule() {
+		return getImportAccess().getRule();
+	}
+	
+	//Export:
+	//	exp='export' exportedName+=APIName
+	//	| exp='export' brack='{' exportedName+=APIName ("," exportedName+=APIName)* '}';
+	public ExportElements getExportAccess() {
+		return pExport;
+	}
+	
+	public ParserRule getExportRule() {
+		return getExportAccess().getRule();
+	}
+	
+	//ImportedNames:
+	//	impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
+	//	| impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+	//	| impname=APIName ('as' asname=ID)?;
+	public ImportedNamesElements getImportedNamesAccess() {
+		return pImportedNames;
+	}
+	
+	public ParserRule getImportedNamesRule() {
+		return getImportedNamesAccess().getRule();
+	}
+	
+	//APIName:
+	//	ID '...'
+	//	| ID ('.' ID)* '...'
+	//	| ID ('.' ID)*;
+	public APINameElements getAPINameAccess() {
+		return pAPIName;
+	}
+	
+	public ParserRule getAPINameRule() {
+		return getAPINameAccess().getRule();
+	}
+	
+	//SimpleNames:
+	//	nameList+=SimpleName
+	//	| brack='{' nameList+=SimpleName (',' nameList+=SimpleName)* '}';
+	public SimpleNamesElements getSimpleNamesAccess() {
+		return pSimpleNames;
+	}
+	
+	public ParserRule getSimpleNamesRule() {
+		return getSimpleNamesAccess().getRule();
+	}
+	
+	//SimpleName:
+	//	name=ID;
+	public SimpleNameElements getSimpleNameAccess() {
+		return pSimpleName;
+	}
+	
+	public ParserRule getSimpleNameRule() {
+		return getSimpleNameAccess().getRule();
+	}
+	
+	//AliasedSimpleName:
+	//	orig=ID ('as' asName=ID)?;
+	public AliasedSimpleNameElements getAliasedSimpleNameAccess() {
+		return pAliasedSimpleName;
+	}
+	
+	public ParserRule getAliasedSimpleNameRule() {
+		return getAliasedSimpleNameAccess().getRule();
+	}
+	
+	//AliasedAPINames:
+	//	nameList+=AliasedAPIName
+	//	| brack='{' nameList+=AliasedAPIName (',' nameList+=AliasedAPIName)* '}';
+	public AliasedAPINamesElements getAliasedAPINamesAccess() {
+		return pAliasedAPINames;
+	}
+	
+	public ParserRule getAliasedAPINamesRule() {
+		return getAliasedAPINamesAccess().getRule();
+	}
+	
+	//AliasedAPIName:
+	//	orig=APIName ('as' asName=ID)?;
+	public AliasedAPINameElements getAliasedAPINameAccess() {
+		return pAliasedAPIName;
+	}
+	
+	public ParserRule getAliasedAPINameRule() {
+		return getAliasedAPINameAccess().getRule();
 	}
 	
 	//terminal ID:

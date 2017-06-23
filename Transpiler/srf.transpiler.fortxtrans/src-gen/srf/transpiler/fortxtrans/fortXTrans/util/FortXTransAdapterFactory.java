@@ -81,9 +81,9 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseFile(File object)
+      public Adapter caseAPI(API object)
       {
-        return createFileAdapter();
+        return createAPIAdapter();
       }
       @Override
       public Adapter caseComponent(Component object)
@@ -91,9 +91,44 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createComponentAdapter();
       }
       @Override
-      public Adapter caseApi(Api object)
+      public Adapter caseImport(Import object)
       {
-        return createApiAdapter();
+        return createImportAdapter();
+      }
+      @Override
+      public Adapter caseExport(Export object)
+      {
+        return createExportAdapter();
+      }
+      @Override
+      public Adapter caseImportedNames(ImportedNames object)
+      {
+        return createImportedNamesAdapter();
+      }
+      @Override
+      public Adapter caseSimpleNames(SimpleNames object)
+      {
+        return createSimpleNamesAdapter();
+      }
+      @Override
+      public Adapter caseSimpleName(SimpleName object)
+      {
+        return createSimpleNameAdapter();
+      }
+      @Override
+      public Adapter caseAliasedSimpleName(AliasedSimpleName object)
+      {
+        return createAliasedSimpleNameAdapter();
+      }
+      @Override
+      public Adapter caseAliasedAPINames(AliasedAPINames object)
+      {
+        return createAliasedAPINamesAdapter();
+      }
+      @Override
+      public Adapter caseAliasedAPIName(AliasedAPIName object)
+      {
+        return createAliasedAPINameAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -133,16 +168,16 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.File <em>File</em>}'.
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.API <em>API</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.File
+   * @see srf.transpiler.fortxtrans.fortXTrans.API
    * @generated
    */
-  public Adapter createFileAdapter()
+  public Adapter createAPIAdapter()
   {
     return null;
   }
@@ -163,16 +198,121 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Api <em>Api</em>}'.
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Import <em>Import</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Api
+   * @see srf.transpiler.fortxtrans.fortXTrans.Import
    * @generated
    */
-  public Adapter createApiAdapter()
+  public Adapter createImportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Export <em>Export</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Export
+   * @generated
+   */
+  public Adapter createExportAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames <em>Imported Names</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ImportedNames
+   * @generated
+   */
+  public Adapter createImportedNamesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleNames <em>Simple Names</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleNames
+   * @generated
+   */
+  public Adapter createSimpleNamesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.SimpleName <em>Simple Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SimpleName
+   * @generated
+   */
+  public Adapter createSimpleNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName <em>Aliased Simple Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName
+   * @generated
+   */
+  public Adapter createAliasedSimpleNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames <em>Aliased API Names</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames
+   * @generated
+   */
+  public Adapter createAliasedAPINamesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName <em>Aliased API Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName
+   * @generated
+   */
+  public Adapter createAliasedAPINameAdapter()
   {
     return null;
   }

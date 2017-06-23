@@ -80,11 +80,11 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.FILE:
+      case FortXTransPackage.API:
       {
-        File file = (File)theEObject;
-        T result = caseFile(file);
-        if (result == null) result = caseModel(file);
+        API api = (API)theEObject;
+        T result = caseAPI(api);
+        if (result == null) result = caseModel(api);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -92,17 +92,63 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         Component component = (Component)theEObject;
         T result = caseComponent(component);
-        if (result == null) result = caseFile(component);
         if (result == null) result = caseModel(component);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.API:
+      case FortXTransPackage.IMPORT:
       {
-        Api api = (Api)theEObject;
-        T result = caseApi(api);
-        if (result == null) result = caseFile(api);
-        if (result == null) result = caseModel(api);
+        Import import_ = (Import)theEObject;
+        T result = caseImport(import_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.EXPORT:
+      {
+        Export export = (Export)theEObject;
+        T result = caseExport(export);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.IMPORTED_NAMES:
+      {
+        ImportedNames importedNames = (ImportedNames)theEObject;
+        T result = caseImportedNames(importedNames);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.SIMPLE_NAMES:
+      {
+        SimpleNames simpleNames = (SimpleNames)theEObject;
+        T result = caseSimpleNames(simpleNames);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.SIMPLE_NAME:
+      {
+        SimpleName simpleName = (SimpleName)theEObject;
+        T result = caseSimpleName(simpleName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.ALIASED_SIMPLE_NAME:
+      {
+        AliasedSimpleName aliasedSimpleName = (AliasedSimpleName)theEObject;
+        T result = caseAliasedSimpleName(aliasedSimpleName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.ALIASED_API_NAMES:
+      {
+        AliasedAPINames aliasedAPINames = (AliasedAPINames)theEObject;
+        T result = caseAliasedAPINames(aliasedAPINames);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.ALIASED_API_NAME:
+      {
+        AliasedAPIName aliasedAPIName = (AliasedAPIName)theEObject;
+        T result = caseAliasedAPIName(aliasedAPIName);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -127,17 +173,17 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>File</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>API</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>File</em>'.
+   * @return the result of interpreting the object as an instance of '<em>API</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFile(File object)
+  public T caseAPI(API object)
   {
     return null;
   }
@@ -159,17 +205,129 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Api</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Import</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Api</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Import</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseApi(Api object)
+  public T caseImport(Import object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Export</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Export</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExport(Export object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Imported Names</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Imported Names</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseImportedNames(ImportedNames object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Names</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Names</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleNames(SimpleNames object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimpleName(SimpleName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Aliased Simple Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Aliased Simple Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAliasedSimpleName(AliasedSimpleName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Aliased API Names</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Aliased API Names</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAliasedAPINames(AliasedAPINames object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Aliased API Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Aliased API Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAliasedAPIName(AliasedAPIName object)
   {
     return null;
   }
