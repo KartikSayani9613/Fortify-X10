@@ -81,7 +81,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.FN_DECL: return createFnDecl();
       case FortXTransPackage.FN_MODS: return createFnMods();
       case FortXTransPackage.FN_MOD: return createFnMod();
-      case FortXTransPackage.ABS_FN_MOD: return createAbsFnMod();
       case FortXTransPackage.VAL_PARAM: return createValParam();
       case FortXTransPackage.PARAM: return createParam();
       case FortXTransPackage.IS_TYPE: return createIsType();
@@ -274,17 +273,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     FnModImpl fnMod = new FnModImpl();
     return fnMod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbsFnMod createAbsFnMod()
-  {
-    AbsFnModImpl absFnMod = new AbsFnModImpl();
-    return absFnMod;
   }
 
   /**

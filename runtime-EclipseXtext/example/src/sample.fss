@@ -1,25 +1,8 @@
-component hello
-	import hello
-	import hello as bello
-	import hello.{a}
-	import hello.{a as b}
-	import hello.{a as b, c}
-	import hello.{a as b, c,...}
-	import hello.{...} except yolo
-	import hello.{...} except {you}
-	import hello.{...} except {you ,me, us}
-	import api hello as bello
-	import api {hello}
-	import api {hello as bello, yolo}
-	import api {hello as bello, yolo as kolo}
-	export {some, things}
-	export something
-	export {someyjong}
+component sample
+export Executable
 
-	(*you only live once *)
-	
-	(*This is a 
-	comment*)
-	atomic private test io run():()= 
-		( (/exp, exp/).name, b) := name
+f(x:ZZ64):ZZ64 = do
+	name
+end
+
 end

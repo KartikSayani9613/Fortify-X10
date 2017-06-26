@@ -1401,9 +1401,9 @@ ruleFnDecl returns [EObject current=null]
 		)?
 		(
 			(
-				lv_fnName_1_0=RULE_ID
+				lv_name_1_0=RULE_ID
 				{
-					newLeafNode(lv_fnName_1_0, grammarAccess.getFnDeclAccess().getFnNameIDTerminalRuleCall_1_0());
+					newLeafNode(lv_name_1_0, grammarAccess.getFnDeclAccess().getNameIDTerminalRuleCall_1_0());
 				}
 				{
 					if ($current==null) {
@@ -1411,8 +1411,8 @@ ruleFnDecl returns [EObject current=null]
 					}
 					setWithLastConsumed(
 						$current,
-						"fnName",
-						lv_fnName_1_0,
+						"name",
+						lv_name_1_0,
 						"org.eclipse.xtext.common.Terminals.ID");
 				}
 			)
@@ -1436,29 +1436,31 @@ ruleFnDecl returns [EObject current=null]
 				}
 			)
 		)
-		otherlv_3=':'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getFnDeclAccess().getColonKeyword_3());
-		}
+		(
+			otherlv_3=':'
+			{
+				newLeafNode(otherlv_3, grammarAccess.getFnDeclAccess().getColonKeyword_3());
+			}
+		)?
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getFnDeclAccess().getReturnRetTypeParserRuleCall_4_0());
+					newCompositeNode(grammarAccess.getFnDeclAccess().getRetValRetTypeParserRuleCall_4_0());
 				}
-				lv_return_4_0=ruleRetType
+				lv_retVal_4_0=ruleRetType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getFnDeclRule());
 					}
 					set(
 						$current,
-						"return",
-						lv_return_4_0,
+						"retVal",
+						lv_retVal_4_0,
 						"srf.transpiler.fortxtrans.FortXTrans.RetType");
 					afterParserOrEnumRuleCall();
 				}
 			)
-		)
+		)?
 		(
 			otherlv_5='='
 			{
@@ -1541,121 +1543,63 @@ ruleFnMod returns [EObject current=null]
 	(
 		(
 			(
+				lv_modtype_0_0='private'
 				{
-					newCompositeNode(grammarAccess.getFnModAccess().getAbsModAbsFnModParserRuleCall_0_0());
-				}
-				lv_absMod_0_0=ruleAbsFnMod
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getFnModRule());
-					}
-					set(
-						$current,
-						"absMod",
-						lv_absMod_0_0,
-						"srf.transpiler.fortxtrans.FortXTrans.AbsFnMod");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		(
-			(
-				lv_pri_1_0='private'
-				{
-					newLeafNode(lv_pri_1_0, grammarAccess.getFnModAccess().getPriPrivateKeyword_1_0());
+					newLeafNode(lv_modtype_0_0, grammarAccess.getFnModAccess().getModtypePrivateKeyword_0_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getFnModRule());
 					}
-					setWithLastConsumed($current, "pri", lv_pri_1_0, "private");
-				}
-			)
-		)
-	)
-;
-
-// Entry rule entryRuleAbsFnMod
-entryRuleAbsFnMod returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getAbsFnModRule()); }
-	iv_ruleAbsFnMod=ruleAbsFnMod
-	{ $current=$iv_ruleAbsFnMod.current; }
-	EOF;
-
-// Rule AbsFnMod
-ruleAbsFnMod returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getAbsFnModAccess().getLocalLocalFnModParserRuleCall_0_0());
-				}
-				lv_local_0_0=ruleLocalFnMod
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getAbsFnModRule());
-					}
-					set(
-						$current,
-						"local",
-						lv_local_0_0,
-						"srf.transpiler.fortxtrans.FortXTrans.LocalFnMod");
-					afterParserOrEnumRuleCall();
+					setWithLastConsumed($current, "modtype", lv_modtype_0_0, "private");
 				}
 			)
 		)
 		    |
 		(
 			(
-				lv_test_1_0='test'
+				lv_modtype_1_0='test'
 				{
-					newLeafNode(lv_test_1_0, grammarAccess.getAbsFnModAccess().getTestTestKeyword_1_0());
+					newLeafNode(lv_modtype_1_0, grammarAccess.getFnModAccess().getModtypeTestKeyword_1_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getAbsFnModRule());
+						$current = createModelElement(grammarAccess.getFnModRule());
 					}
-					setWithLastConsumed($current, "test", lv_test_1_0, "test");
+					setWithLastConsumed($current, "modtype", lv_modtype_1_0, "test");
 				}
 			)
 		)
-	)
-;
-
-// Entry rule entryRuleLocalFnMod
-entryRuleLocalFnMod returns [String current=null]:
-	{ newCompositeNode(grammarAccess.getLocalFnModRule()); }
-	iv_ruleLocalFnMod=ruleLocalFnMod
-	{ $current=$iv_ruleLocalFnMod.current.getText(); }
-	EOF;
-
-// Rule LocalFnMod
-ruleLocalFnMod returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		kw='atomic'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getLocalFnModAccess().getAtomicKeyword_0());
-		}
 		    |
-		kw='io'
-		{
-			$current.merge(kw);
-			newLeafNode(kw, grammarAccess.getLocalFnModAccess().getIoKeyword_1());
-		}
+		(
+			(
+				lv_modtype_2_0='atomic'
+				{
+					newLeafNode(lv_modtype_2_0, grammarAccess.getFnModAccess().getModtypeAtomicKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFnModRule());
+					}
+					setWithLastConsumed($current, "modtype", lv_modtype_2_0, "atomic");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_modtype_3_0='io'
+				{
+					newLeafNode(lv_modtype_3_0, grammarAccess.getFnModAccess().getModtypeIoKeyword_3_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getFnModRule());
+					}
+					setWithLastConsumed($current, "modtype", lv_modtype_3_0, "io");
+				}
+			)
+		)
 	)
 ;
 
@@ -1678,18 +1622,18 @@ ruleValParam returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getValParamAccess().getBindIDBindIdParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getValParamAccess().getParamsParamParserRuleCall_0_0());
 				}
-				lv_bindID_0_0=ruleBindId
+				lv_params_0_0=ruleParam
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getValParamRule());
 					}
-					set(
+					add(
 						$current,
-						"bindID",
-						lv_bindID_0_0,
-						"srf.transpiler.fortxtrans.FortXTrans.BindId");
+						"params",
+						lv_params_0_0,
+						"srf.transpiler.fortxtrans.FortXTrans.Param");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -1912,21 +1856,24 @@ ruleRetType returns [EObject current=null]
 }:
 	(
 		(
-			otherlv_0='('
-			{
-				newLeafNode(otherlv_0, grammarAccess.getRetTypeAccess().getLeftParenthesisKeyword_0_0());
-			}
+			(
+				(
+					lv_empty_0_0='('
+					{
+						newLeafNode(lv_empty_0_0, grammarAccess.getRetTypeAccess().getEmptyLeftParenthesisKeyword_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getRetTypeRule());
+						}
+						setWithLastConsumed($current, "empty", lv_empty_0_0, "(");
+					}
+				)
+			)
 			otherlv_1=')'
 			{
 				newLeafNode(otherlv_1, grammarAccess.getRetTypeAccess().getRightParenthesisKeyword_0_1());
 			}
-			(
-				{
-					$current = forceCreateModelElement(
-						grammarAccess.getRetTypeAccess().getRetTypeAction_0_2(),
-						$current);
-				}
-			)
 		)
 		    |
 		(
@@ -1934,7 +1881,7 @@ ruleRetType returns [EObject current=null]
 				{
 					newCompositeNode(grammarAccess.getRetTypeAccess().getTypeTypeParserRuleCall_1_0());
 				}
-				lv_type_3_0=ruleType
+				lv_type_2_0=ruleType
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getRetTypeRule());
@@ -1942,7 +1889,7 @@ ruleRetType returns [EObject current=null]
 					set(
 						$current,
 						"type",
-						lv_type_3_0,
+						lv_type_2_0,
 						"srf.transpiler.fortxtrans.FortXTrans.Type");
 					afterParserOrEnumRuleCall();
 				}

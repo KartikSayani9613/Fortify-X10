@@ -156,11 +156,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createFnModAdapter();
       }
       @Override
-      public Adapter caseAbsFnMod(AbsFnMod object)
-      {
-        return createAbsFnModAdapter();
-      }
-      @Override
       public Adapter caseValParam(ValParam object)
       {
         return createValParamAdapter();
@@ -483,21 +478,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFnModAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.AbsFnMod <em>Abs Fn Mod</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.AbsFnMod
-   * @generated
-   */
-  public Adapter createAbsFnModAdapter()
   {
     return null;
   }

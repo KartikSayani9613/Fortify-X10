@@ -16,9 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ValParam#getBindID <em>Bind ID</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ValParam#getBrack <em>Brack</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ValParam#getParams <em>Params</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ValParam#getBrack <em>Brack</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getValParam()
@@ -28,30 +27,20 @@ import org.eclipse.emf.ecore.EObject;
 public interface ValParam extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Bind ID</b></em>' attribute.
+   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Param}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bind ID</em>' attribute isn't clear,
+   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bind ID</em>' attribute.
-   * @see #setBindID(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getValParam_BindID()
-   * @model
+   * @return the value of the '<em>Params</em>' containment reference list.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getValParam_Params()
+   * @model containment="true"
    * @generated
    */
-  String getBindID();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ValParam#getBindID <em>Bind ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bind ID</em>' attribute.
-   * @see #getBindID()
-   * @generated
-   */
-  void setBindID(String value);
+  EList<Param> getParams();
 
   /**
    * Returns the value of the '<em><b>Brack</b></em>' attribute.
@@ -78,21 +67,5 @@ public interface ValParam extends EObject
    * @generated
    */
   void setBrack(String value);
-
-  /**
-   * Returns the value of the '<em><b>Params</b></em>' containment reference list.
-   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Param}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Params</em>' containment reference list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Params</em>' containment reference list.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getValParam_Params()
-   * @model containment="true"
-   * @generated
-   */
-  EList<Param> getParams();
 
 } // ValParam

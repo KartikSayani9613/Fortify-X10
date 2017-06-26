@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.RetType#getEmpty <em>Empty</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.RetType#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -23,6 +24,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface RetType extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Empty</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Empty</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Empty</em>' attribute.
+   * @see #setEmpty(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getRetType_Empty()
+   * @model
+   * @generated
+   */
+  String getEmpty();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.RetType#getEmpty <em>Empty</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Empty</em>' attribute.
+   * @see #getEmpty()
+   * @generated
+   */
+  void setEmpty(String value);
+
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->

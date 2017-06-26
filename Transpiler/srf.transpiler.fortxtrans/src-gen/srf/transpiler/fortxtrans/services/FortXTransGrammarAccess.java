@@ -806,23 +806,23 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cModsAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cModsFnModsParserRuleCall_0_0 = (RuleCall)cModsAssignment_0.eContents().get(0);
-		private final Assignment cFnNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFnNameIDTerminalRuleCall_1_0 = (RuleCall)cFnNameAssignment_1.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Assignment cParamsAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cParamsValParamParserRuleCall_2_0 = (RuleCall)cParamsAssignment_2.eContents().get(0);
 		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cReturnAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cReturnRetTypeParserRuleCall_4_0 = (RuleCall)cReturnAssignment_4.eContents().get(0);
+		private final Assignment cRetValAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cRetValRetTypeParserRuleCall_4_0 = (RuleCall)cRetValAssignment_4.eContents().get(0);
 		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
 		private final Keyword cEqualsSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
 		private final Assignment cFnItselfAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
 		private final RuleCall cFnItselfExpressionParserRuleCall_5_1_0 = (RuleCall)cFnItselfAssignment_5_1.eContents().get(0);
 		
 		//FnDecl:
-		//	mods=FnMods? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?;
+		//	mods=FnMods? name=ID params=ValParam ':'? retVal=RetType? ('=' fnItself=Expression)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//mods=FnMods? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?
+		//mods=FnMods? name=ID params=ValParam ':'? retVal=RetType? ('=' fnItself=Expression)?
 		public Group getGroup() { return cGroup; }
 		
 		//mods=FnMods?
@@ -831,11 +831,11 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//FnMods
 		public RuleCall getModsFnModsParserRuleCall_0_0() { return cModsFnModsParserRuleCall_0_0; }
 		
-		//fnName=ID
-		public Assignment getFnNameAssignment_1() { return cFnNameAssignment_1; }
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 		
 		//ID
-		public RuleCall getFnNameIDTerminalRuleCall_1_0() { return cFnNameIDTerminalRuleCall_1_0; }
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
 		//params=ValParam
 		public Assignment getParamsAssignment_2() { return cParamsAssignment_2; }
@@ -843,14 +843,14 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//ValParam
 		public RuleCall getParamsValParamParserRuleCall_2_0() { return cParamsValParamParserRuleCall_2_0; }
 		
-		//':'
+		//':'?
 		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
 		
-		//return=RetType
-		public Assignment getReturnAssignment_4() { return cReturnAssignment_4; }
+		//retVal=RetType?
+		public Assignment getRetValAssignment_4() { return cRetValAssignment_4; }
 		
 		//RetType
-		public RuleCall getReturnRetTypeParserRuleCall_4_0() { return cReturnRetTypeParserRuleCall_4_0; }
+		public RuleCall getRetValRetTypeParserRuleCall_4_0() { return cRetValRetTypeParserRuleCall_4_0; }
 		
 		//('=' fnItself=Expression)?
 		public Group getGroup_5() { return cGroup_5; }
@@ -882,84 +882,54 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	public class FnModElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FnMod");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cAbsModAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cAbsModAbsFnModParserRuleCall_0_0 = (RuleCall)cAbsModAssignment_0.eContents().get(0);
-		private final Assignment cPriAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final Keyword cPriPrivateKeyword_1_0 = (Keyword)cPriAssignment_1.eContents().get(0);
+		private final Assignment cModtypeAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final Keyword cModtypePrivateKeyword_0_0 = (Keyword)cModtypeAssignment_0.eContents().get(0);
+		private final Assignment cModtypeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cModtypeTestKeyword_1_0 = (Keyword)cModtypeAssignment_1.eContents().get(0);
+		private final Assignment cModtypeAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final Keyword cModtypeAtomicKeyword_2_0 = (Keyword)cModtypeAssignment_2.eContents().get(0);
+		private final Assignment cModtypeAssignment_3 = (Assignment)cAlternatives.eContents().get(3);
+		private final Keyword cModtypeIoKeyword_3_0 = (Keyword)cModtypeAssignment_3.eContents().get(0);
 		
 		//FnMod:
-		//	absMod=AbsFnMod
-		//	| pri='private';
+		//	modtype='private'
+		//	| modtype='test'
+		//	| modtype='atomic'
+		//	| modtype='io';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//absMod=AbsFnMod | pri='private'
+		//modtype='private' | modtype='test' | modtype='atomic' | modtype='io'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//absMod=AbsFnMod
-		public Assignment getAbsModAssignment_0() { return cAbsModAssignment_0; }
-		
-		//AbsFnMod
-		public RuleCall getAbsModAbsFnModParserRuleCall_0_0() { return cAbsModAbsFnModParserRuleCall_0_0; }
-		
-		//pri='private'
-		public Assignment getPriAssignment_1() { return cPriAssignment_1; }
+		//modtype='private'
+		public Assignment getModtypeAssignment_0() { return cModtypeAssignment_0; }
 		
 		//'private'
-		public Keyword getPriPrivateKeyword_1_0() { return cPriPrivateKeyword_1_0; }
-	}
-	public class AbsFnModElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.AbsFnMod");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cLocalAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cLocalLocalFnModParserRuleCall_0_0 = (RuleCall)cLocalAssignment_0.eContents().get(0);
-		private final Assignment cTestAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
-		private final Keyword cTestTestKeyword_1_0 = (Keyword)cTestAssignment_1.eContents().get(0);
+		public Keyword getModtypePrivateKeyword_0_0() { return cModtypePrivateKeyword_0_0; }
 		
-		//AbsFnMod:
-		//	local=LocalFnMod
-		//	| test='test';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//local=LocalFnMod | test='test'
-		public Alternatives getAlternatives() { return cAlternatives; }
-		
-		//local=LocalFnMod
-		public Assignment getLocalAssignment_0() { return cLocalAssignment_0; }
-		
-		//LocalFnMod
-		public RuleCall getLocalLocalFnModParserRuleCall_0_0() { return cLocalLocalFnModParserRuleCall_0_0; }
-		
-		//test='test'
-		public Assignment getTestAssignment_1() { return cTestAssignment_1; }
+		//modtype='test'
+		public Assignment getModtypeAssignment_1() { return cModtypeAssignment_1; }
 		
 		//'test'
-		public Keyword getTestTestKeyword_1_0() { return cTestTestKeyword_1_0; }
-	}
-	public class LocalFnModElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.LocalFnMod");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cAtomicKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cIoKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		public Keyword getModtypeTestKeyword_1_0() { return cModtypeTestKeyword_1_0; }
 		
-		//LocalFnMod:
-		//	'atomic'
-		//	| 'io';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'atomic' | 'io'
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//modtype='atomic'
+		public Assignment getModtypeAssignment_2() { return cModtypeAssignment_2; }
 		
 		//'atomic'
-		public Keyword getAtomicKeyword_0() { return cAtomicKeyword_0; }
+		public Keyword getModtypeAtomicKeyword_2_0() { return cModtypeAtomicKeyword_2_0; }
+		
+		//modtype='io'
+		public Assignment getModtypeAssignment_3() { return cModtypeAssignment_3; }
 		
 		//'io'
-		public Keyword getIoKeyword_1() { return cIoKeyword_1; }
+		public Keyword getModtypeIoKeyword_3_0() { return cModtypeIoKeyword_3_0; }
 	}
 	public class ValParamElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ValParam");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cBindIDAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cBindIDBindIdParserRuleCall_0_0 = (RuleCall)cBindIDAssignment_0.eContents().get(0);
+		private final Assignment cParamsAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cParamsParamParserRuleCall_0_0 = (RuleCall)cParamsAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cBrackAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final Keyword cBrackLeftParenthesisKeyword_1_0_0 = (Keyword)cBrackAssignment_1_0.eContents().get(0);
@@ -973,18 +943,18 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
 		
 		//ValParam:
-		//	bindID=BindId
+		//	params+=Param
 		//	| brack='(' (params+=Param (',' params+=Param)*)? ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//bindID=BindId | brack='(' (params+=Param (',' params+=Param)*)? ')'
+		//params+=Param | brack='(' (params+=Param (',' params+=Param)*)? ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//bindID=BindId
-		public Assignment getBindIDAssignment_0() { return cBindIDAssignment_0; }
+		//params+=Param
+		public Assignment getParamsAssignment_0() { return cParamsAssignment_0; }
 		
-		//BindId
-		public RuleCall getBindIDBindIdParserRuleCall_0_0() { return cBindIDBindIdParserRuleCall_0_0; }
+		//Param
+		public RuleCall getParamsParamParserRuleCall_0_0() { return cParamsParamParserRuleCall_0_0; }
 		
 		//brack='(' (params+=Param (',' params+=Param)*)? ')'
 		public Group getGroup_1() { return cGroup_1; }
@@ -1093,30 +1063,31 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.RetType");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
-		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cEmptyAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cEmptyLeftParenthesisKeyword_0_0_0 = (Keyword)cEmptyAssignment_0_0.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
-		private final Action cRetTypeAction_0_2 = (Action)cGroup_0.eContents().get(2);
 		private final Assignment cTypeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cTypeTypeParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
 		
 		//RetType:
-		//	'(' ')' {RetType} | type=Type;
+		//	empty='(' ')'
+		//	| type=Type;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' ')' {RetType} | type=Type
+		//empty='(' ')' | type=Type
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'(' ')' {RetType}
+		//empty='(' ')'
 		public Group getGroup_0() { return cGroup_0; }
 		
+		//empty='('
+		public Assignment getEmptyAssignment_0_0() { return cEmptyAssignment_0_0; }
+		
 		//'('
-		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
+		public Keyword getEmptyLeftParenthesisKeyword_0_0_0() { return cEmptyLeftParenthesisKeyword_0_0_0; }
 		
 		//')'
 		public Keyword getRightParenthesisKeyword_0_1() { return cRightParenthesisKeyword_0_1; }
-		
-		//{RetType}
-		public Action getRetTypeAction_0_2() { return cRetTypeAction_0_2; }
 		
 		//type=Type
 		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
@@ -1395,8 +1366,6 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	private final FnDeclElements pFnDecl;
 	private final FnModsElements pFnMods;
 	private final FnModElements pFnMod;
-	private final AbsFnModElements pAbsFnMod;
-	private final LocalFnModElements pLocalFnMod;
 	private final ValParamElements pValParam;
 	private final ParamElements pParam;
 	private final BindIdElements pBindId;
@@ -1449,8 +1418,6 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		this.pFnDecl = new FnDeclElements();
 		this.pFnMods = new FnModsElements();
 		this.pFnMod = new FnModElements();
-		this.pAbsFnMod = new AbsFnModElements();
-		this.pLocalFnMod = new LocalFnModElements();
 		this.pValParam = new ValParamElements();
 		this.pParam = new ParamElements();
 		this.pBindId = new BindIdElements();
@@ -1666,7 +1633,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FnDecl:
-	//	mods=FnMods? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?;
+	//	mods=FnMods? name=ID params=ValParam ':'? retVal=RetType? ('=' fnItself=Expression)?;
 	public FnDeclElements getFnDeclAccess() {
 		return pFnDecl;
 	}
@@ -1686,8 +1653,10 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FnMod:
-	//	absMod=AbsFnMod
-	//	| pri='private';
+	//	modtype='private'
+	//	| modtype='test'
+	//	| modtype='atomic'
+	//	| modtype='io';
 	public FnModElements getFnModAccess() {
 		return pFnMod;
 	}
@@ -1696,30 +1665,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getFnModAccess().getRule();
 	}
 	
-	//AbsFnMod:
-	//	local=LocalFnMod
-	//	| test='test';
-	public AbsFnModElements getAbsFnModAccess() {
-		return pAbsFnMod;
-	}
-	
-	public ParserRule getAbsFnModRule() {
-		return getAbsFnModAccess().getRule();
-	}
-	
-	//LocalFnMod:
-	//	'atomic'
-	//	| 'io';
-	public LocalFnModElements getLocalFnModAccess() {
-		return pLocalFnMod;
-	}
-	
-	public ParserRule getLocalFnModRule() {
-		return getLocalFnModAccess().getRule();
-	}
-	
 	//ValParam:
-	//	bindID=BindId
+	//	params+=Param
 	//	| brack='(' (params+=Param (',' params+=Param)*)? ')';
 	public ValParamElements getValParamAccess() {
 		return pValParam;
@@ -1761,7 +1708,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//RetType:
-	//	'(' ')' {RetType} | type=Type;
+	//	empty='(' ')'
+	//	| type=Type;
 	public RetTypeElements getRetTypeAccess() {
 		return pRetType;
 	}

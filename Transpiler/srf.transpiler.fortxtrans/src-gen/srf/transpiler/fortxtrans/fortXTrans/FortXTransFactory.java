@@ -168,15 +168,6 @@ public interface FortXTransFactory extends EFactory
   FnMod createFnMod();
 
   /**
-   * Returns a new object of class '<em>Abs Fn Mod</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abs Fn Mod</em>'.
-   * @generated
-   */
-  AbsFnMod createAbsFnMod();
-
-  /**
    * Returns a new object of class '<em>Val Param</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

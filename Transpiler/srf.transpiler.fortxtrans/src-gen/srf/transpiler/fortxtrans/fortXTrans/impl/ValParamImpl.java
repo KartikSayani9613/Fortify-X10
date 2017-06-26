@@ -31,9 +31,8 @@ import srf.transpiler.fortxtrans.fortXTrans.ValParam;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl#getBindID <em>Bind ID</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl#getBrack <em>Brack</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl#getParams <em>Params</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl#getBrack <em>Brack</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,24 +40,14 @@ import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 public class ValParamImpl extends MinimalEObjectImpl.Container implements ValParam
 {
   /**
-   * The default value of the '{@link #getBindID() <em>Bind ID</em>}' attribute.
+   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBindID()
+   * @see #getParams()
    * @generated
    * @ordered
    */
-  protected static final String BIND_ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBindID() <em>Bind ID</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBindID()
-   * @generated
-   * @ordered
-   */
-  protected String bindID = BIND_ID_EDEFAULT;
+  protected EList<Param> params;
 
   /**
    * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
@@ -79,16 +68,6 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
    * @ordered
    */
   protected String brack = BRACK_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getParams()
-   * @generated
-   * @ordered
-   */
-  protected EList<Param> params;
 
   /**
    * <!-- begin-user-doc -->
@@ -116,22 +95,13 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBindID()
+  public EList<Param> getParams()
   {
-    return bindID;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBindID(String newBindID)
-  {
-    String oldBindID = bindID;
-    bindID = newBindID;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.VAL_PARAM__BIND_ID, oldBindID, bindID));
+    if (params == null)
+    {
+      params = new EObjectContainmentEList<Param>(Param.class, this, FortXTransPackage.VAL_PARAM__PARAMS);
+    }
+    return params;
   }
 
   /**
@@ -162,20 +132,6 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Param> getParams()
-  {
-    if (params == null)
-    {
-      params = new EObjectContainmentEList<Param>(Param.class, this, FortXTransPackage.VAL_PARAM__PARAMS);
-    }
-    return params;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -197,12 +153,10 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
   {
     switch (featureID)
     {
-      case FortXTransPackage.VAL_PARAM__BIND_ID:
-        return getBindID();
-      case FortXTransPackage.VAL_PARAM__BRACK:
-        return getBrack();
       case FortXTransPackage.VAL_PARAM__PARAMS:
         return getParams();
+      case FortXTransPackage.VAL_PARAM__BRACK:
+        return getBrack();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -218,15 +172,12 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
   {
     switch (featureID)
     {
-      case FortXTransPackage.VAL_PARAM__BIND_ID:
-        setBindID((String)newValue);
-        return;
-      case FortXTransPackage.VAL_PARAM__BRACK:
-        setBrack((String)newValue);
-        return;
       case FortXTransPackage.VAL_PARAM__PARAMS:
         getParams().clear();
         getParams().addAll((Collection<? extends Param>)newValue);
+        return;
+      case FortXTransPackage.VAL_PARAM__BRACK:
+        setBrack((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,14 +193,11 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
   {
     switch (featureID)
     {
-      case FortXTransPackage.VAL_PARAM__BIND_ID:
-        setBindID(BIND_ID_EDEFAULT);
+      case FortXTransPackage.VAL_PARAM__PARAMS:
+        getParams().clear();
         return;
       case FortXTransPackage.VAL_PARAM__BRACK:
         setBrack(BRACK_EDEFAULT);
-        return;
-      case FortXTransPackage.VAL_PARAM__PARAMS:
-        getParams().clear();
         return;
     }
     super.eUnset(featureID);
@@ -265,12 +213,10 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
   {
     switch (featureID)
     {
-      case FortXTransPackage.VAL_PARAM__BIND_ID:
-        return BIND_ID_EDEFAULT == null ? bindID != null : !BIND_ID_EDEFAULT.equals(bindID);
-      case FortXTransPackage.VAL_PARAM__BRACK:
-        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
       case FortXTransPackage.VAL_PARAM__PARAMS:
         return params != null && !params.isEmpty();
+      case FortXTransPackage.VAL_PARAM__BRACK:
+        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
     }
     return super.eIsSet(featureID);
   }
@@ -286,9 +232,7 @@ public class ValParamImpl extends MinimalEObjectImpl.Container implements ValPar
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (bindID: ");
-    result.append(bindID);
-    result.append(", brack: ");
+    result.append(" (brack: ");
     result.append(brack);
     result.append(')');
     return result.toString();

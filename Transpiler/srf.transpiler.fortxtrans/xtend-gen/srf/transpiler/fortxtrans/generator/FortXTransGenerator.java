@@ -3,6 +3,7 @@
  */
 package srf.transpiler.fortxtrans.generator;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import javax.inject.Inject;
 import org.eclipse.emf.common.util.EList;
@@ -18,8 +19,15 @@ import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
+import srf.transpiler.fortxtrans.fortXTrans.Decl;
+import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
+import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
+import srf.transpiler.fortxtrans.fortXTrans.FnMod;
+import srf.transpiler.fortxtrans.fortXTrans.FnMods;
 import srf.transpiler.fortxtrans.fortXTrans.Import;
+import srf.transpiler.fortxtrans.fortXTrans.Param;
+import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 
 /**
  * Generates code from your model files on save.
@@ -37,7 +45,7 @@ public class FortXTransGenerator extends AbstractGenerator {
     Iterable<Component> _filter = Iterables.<Component>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Component.class);
     for (final Component c : _filter) {
       String _string = this._iQualifiedNameProvider.getFullyQualifiedName(c).toString("/");
-      String _plus = (_string + ".java");
+      String _plus = (_string + ".x10");
       fsa.generateFile(_plus, 
         this.compile(c));
     }
@@ -45,6 +53,16 @@ public class FortXTransGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Component c) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("import x10.io.console;");
+    _builder.newLine();
+    _builder.append("import x10.lang.Math;");
+    _builder.newLine();
+    _builder.append("import x10.array.Array_1;");
+    _builder.newLine();
+    _builder.append("import x10.array.Array_2;");
+    _builder.newLine();
+    _builder.append("import x10.array.Array_3;");
+    _builder.newLine();
     _builder.append("/*needs to import");
     _builder.newLine();
     {
@@ -75,8 +93,15 @@ public class FortXTransGenerator extends AbstractGenerator {
     _builder.append(_name);
     _builder.append("{");
     _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.newLine();
+    {
+      EList<Decls> _decls = c.getDecls();
+      for(final Decls d : _decls) {
+        _builder.append("\t");
+        CharSequence _compile_2 = this.compile(d);
+        _builder.append(_compile_2, "\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("}");
     _builder.newLine();
     return _builder;
@@ -269,6 +294,199 @@ public class FortXTransGenerator extends AbstractGenerator {
       }
     }
     _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Decls d) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Decl> _decls = d.getDecls();
+      for(final Decl dec : _decls) {
+        CharSequence _compile = this.compile(dec);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Decl d) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compile = this.compile(d.getFunction());
+    _builder.append(_compile);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final FnDecl f) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      FnMods _mods = f.getMods();
+      boolean _tripleNotEquals = (_mods != null);
+      if (_tripleNotEquals) {
+        {
+          EList<FnMod> _mods_1 = f.getMods().getMods();
+          for(final FnMod mod : _mods_1) {
+            String _modtype = mod.getModtype();
+            _builder.append(_modtype);
+          }
+        }
+      }
+    }
+    _builder.append(" static def ");
+    String _name = f.getName();
+    _builder.append(_name);
+    _builder.append("(");
+    {
+      ValParam _params = f.getParams();
+      boolean _tripleNotEquals_1 = (_params != null);
+      if (_tripleNotEquals_1) {
+        CharSequence _compile = this.compile(f.getParams());
+        _builder.append(_compile);
+      }
+    }
+    _builder.append("):");
+    {
+      String _empty = f.getRetVal().getEmpty();
+      boolean _equals = Objects.equal(_empty, "(");
+      if (_equals) {
+        _builder.append("void");
+      } else {
+        {
+          String _tname = f.getRetVal().getType().getTname();
+          boolean _equals_1 = Objects.equal(_tname, "ZZ32");
+          if (_equals_1) {
+            _builder.append("Int");
+          } else {
+            {
+              String _tname_1 = f.getRetVal().getType().getTname();
+              boolean _equals_2 = Objects.equal(_tname_1, "ZZ64");
+              if (_equals_2) {
+                _builder.append("Long");
+              } else {
+                {
+                  String _tname_2 = f.getRetVal().getType().getTname();
+                  boolean _equals_3 = Objects.equal(_tname_2, "RR32");
+                  if (_equals_3) {
+                    _builder.append("Float");
+                  } else {
+                    {
+                      String _tname_3 = f.getRetVal().getType().getTname();
+                      boolean _equals_4 = Objects.equal(_tname_3, "RR64");
+                      if (_equals_4) {
+                        _builder.append("Double");
+                      } else {
+                        {
+                          String _tname_4 = f.getRetVal().getType().getTname();
+                          boolean _equals_5 = Objects.equal(_tname_4, "String");
+                          if (_equals_5) {
+                            _builder.append("String");
+                          } else {
+                            String _tname_5 = f.getRetVal().getType().getTname();
+                            _builder.append(_tname_5);
+                            String _tname_6 = f.getRetVal().getType().getTname();
+                            _builder.append(_tname_6);
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("{");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compile(final ValParam p) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      int _length = ((Object[])Conversions.unwrapArray(p.getParams(), Object.class)).length;
+      boolean _equals = (_length == 0);
+      if (_equals) {
+      } else {
+        {
+          String _brack = p.getBrack();
+          boolean _tripleEquals = (_brack == null);
+          if (_tripleEquals) {
+            Param _get = p.getParams().get(0);
+            _builder.append(_get);
+          } else {
+            {
+              int _length_1 = ((Object[])Conversions.unwrapArray(p.getParams(), Object.class)).length;
+              ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
+              for(final Integer s : _doubleDotLessThan) {
+                {
+                  if (((s).intValue() == 0)) {
+                    String _bId = p.getParams().get((s).intValue()).getBId();
+                    _builder.append(_bId);
+                    _builder.append(":");
+                  } else {
+                    _builder.append(", ");
+                    String _bId_1 = p.getParams().get((s).intValue()).getBId();
+                    _builder.append(_bId_1);
+                    _builder.append(":");
+                  }
+                }
+                {
+                  String _tname = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                  boolean _equals_1 = Objects.equal(_tname, "ZZ32");
+                  if (_equals_1) {
+                    _builder.append("Int");
+                  } else {
+                    {
+                      String _tname_1 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                      boolean _equals_2 = Objects.equal(_tname_1, "ZZ64");
+                      if (_equals_2) {
+                        _builder.append("Long");
+                      } else {
+                        {
+                          String _tname_2 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                          boolean _equals_3 = Objects.equal(_tname_2, "RR32");
+                          if (_equals_3) {
+                            _builder.append("Float");
+                          } else {
+                            {
+                              String _tname_3 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                              boolean _equals_4 = Objects.equal(_tname_3, "RR64");
+                              if (_equals_4) {
+                                _builder.append("Double");
+                              } else {
+                                {
+                                  String _tname_4 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                                  boolean _equals_5 = Objects.equal(_tname_4, "String");
+                                  if (_equals_5) {
+                                    _builder.append("String");
+                                  } else {
+                                    String _tname_5 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                                    _builder.append(_tname_5);
+                                    String _tname_6 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
+                                    _builder.append(_tname_6);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     return _builder;
   }
 }

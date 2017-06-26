@@ -15,7 +15,6 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import srf.transpiler.fortxtrans.fortXTrans.API;
-import srf.transpiler.fortxtrans.fortXTrans.AbsFnMod;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
@@ -61,9 +60,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			switch (semanticObject.eClass().getClassifierID()) {
 			case FortXTransPackage.API:
 				sequence_API(context, (API) semanticObject); 
-				return; 
-			case FortXTransPackage.ABS_FN_MOD:
-				sequence_AbsFnMod(context, (AbsFnMod) semanticObject); 
 				return; 
 			case FortXTransPackage.ALIASED_API_NAME:
 				sequence_AliasedAPIName(context, (AliasedAPIName) semanticObject); 
@@ -170,18 +166,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (name=ID imports+=Import*)
 	 */
 	protected void sequence_API(ISerializationContext context, API semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     AbsFnMod returns AbsFnMod
-	 *
-	 * Constraint:
-	 *     (local=LocalFnMod | test='test')
-	 */
-	protected void sequence_AbsFnMod(ISerializationContext context, AbsFnMod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -416,7 +400,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     FnDecl returns FnDecl
 	 *
 	 * Constraint:
-	 *     (mods=FnMods? fnName=ID params=ValParam return=RetType fnItself=Expression?)
+	 *     (mods=FnMods? name=ID params=ValParam retVal=RetType? fnItself=Expression?)
 	 */
 	protected void sequence_FnDecl(ISerializationContext context, FnDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -428,7 +412,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     FnMod returns FnMod
 	 *
 	 * Constraint:
-	 *     (absMod=AbsFnMod | pri='private')
+	 *     (modtype='private' | modtype='test' | modtype='atomic' | modtype='io')
 	 */
 	protected void sequence_FnMod(ISerializationContext context, FnMod semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -538,7 +522,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     RetType returns RetType
 	 *
 	 * Constraint:
-	 *     type=Type?
+	 *     (empty='(' | type=Type)
 	 */
 	protected void sequence_RetType(ISerializationContext context, RetType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -599,7 +583,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ValParam returns ValParam
 	 *
 	 * Constraint:
-	 *     (bindID=BindId | (brack='(' (params+=Param params+=Param*)?))
+	 *     (params+=Param | (brack='(' (params+=Param params+=Param*)?))
 	 */
 	protected void sequence_ValParam(ISerializationContext context, ValParam semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -28,9 +28,9 @@ import srf.transpiler.fortxtrans.fortXTrans.ValParam;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getMods <em>Mods</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getFnName <em>Fn Name</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getName <em>Name</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getParams <em>Params</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getReturn <em>Return</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getRetVal <em>Ret Val</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getFnItself <em>Fn Itself</em>}</li>
  * </ul>
  *
@@ -49,24 +49,24 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
   protected FnMods mods;
 
   /**
-   * The default value of the '{@link #getFnName() <em>Fn Name</em>}' attribute.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFnName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected static final String FN_NAME_EDEFAULT = null;
+  protected static final String NAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFnName() <em>Fn Name</em>}' attribute.
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFnName()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected String fnName = FN_NAME_EDEFAULT;
+  protected String name = NAME_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getParams() <em>Params</em>}' containment reference.
@@ -79,14 +79,14 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
   protected ValParam params;
 
   /**
-   * The cached value of the '{@link #getReturn() <em>Return</em>}' containment reference.
+   * The cached value of the '{@link #getRetVal() <em>Ret Val</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getReturn()
+   * @see #getRetVal()
    * @generated
    * @ordered
    */
-  protected RetType return_;
+  protected RetType retVal;
 
   /**
    * The cached value of the '{@link #getFnItself() <em>Fn Itself</em>}' containment reference.
@@ -172,9 +172,9 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFnName()
+  public String getName()
   {
-    return fnName;
+    return name;
   }
 
   /**
@@ -182,12 +182,12 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFnName(String newFnName)
+  public void setName(String newName)
   {
-    String oldFnName = fnName;
-    fnName = newFnName;
+    String oldName = name;
+    name = newName;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__FN_NAME, oldFnName, fnName));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__NAME, oldName, name));
   }
 
   /**
@@ -243,9 +243,9 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public RetType getReturn()
+  public RetType getRetVal()
   {
-    return return_;
+    return retVal;
   }
 
   /**
@@ -253,13 +253,13 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetReturn(RetType newReturn, NotificationChain msgs)
+  public NotificationChain basicSetRetVal(RetType newRetVal, NotificationChain msgs)
   {
-    RetType oldReturn = return_;
-    return_ = newReturn;
+    RetType oldRetVal = retVal;
+    retVal = newRetVal;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__RETURN, oldReturn, newReturn);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__RET_VAL, oldRetVal, newRetVal);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -270,20 +270,20 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setReturn(RetType newReturn)
+  public void setRetVal(RetType newRetVal)
   {
-    if (newReturn != return_)
+    if (newRetVal != retVal)
     {
       NotificationChain msgs = null;
-      if (return_ != null)
-        msgs = ((InternalEObject)return_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.FN_DECL__RETURN, null, msgs);
-      if (newReturn != null)
-        msgs = ((InternalEObject)newReturn).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.FN_DECL__RETURN, null, msgs);
-      msgs = basicSetReturn(newReturn, msgs);
+      if (retVal != null)
+        msgs = ((InternalEObject)retVal).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.FN_DECL__RET_VAL, null, msgs);
+      if (newRetVal != null)
+        msgs = ((InternalEObject)newRetVal).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.FN_DECL__RET_VAL, null, msgs);
+      msgs = basicSetRetVal(newRetVal, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__RETURN, newReturn, newReturn));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__RET_VAL, newRetVal, newRetVal));
   }
 
   /**
@@ -348,8 +348,8 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
         return basicSetMods(null, msgs);
       case FortXTransPackage.FN_DECL__PARAMS:
         return basicSetParams(null, msgs);
-      case FortXTransPackage.FN_DECL__RETURN:
-        return basicSetReturn(null, msgs);
+      case FortXTransPackage.FN_DECL__RET_VAL:
+        return basicSetRetVal(null, msgs);
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         return basicSetFnItself(null, msgs);
     }
@@ -368,12 +368,12 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
     {
       case FortXTransPackage.FN_DECL__MODS:
         return getMods();
-      case FortXTransPackage.FN_DECL__FN_NAME:
-        return getFnName();
+      case FortXTransPackage.FN_DECL__NAME:
+        return getName();
       case FortXTransPackage.FN_DECL__PARAMS:
         return getParams();
-      case FortXTransPackage.FN_DECL__RETURN:
-        return getReturn();
+      case FortXTransPackage.FN_DECL__RET_VAL:
+        return getRetVal();
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         return getFnItself();
     }
@@ -393,14 +393,14 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
       case FortXTransPackage.FN_DECL__MODS:
         setMods((FnMods)newValue);
         return;
-      case FortXTransPackage.FN_DECL__FN_NAME:
-        setFnName((String)newValue);
+      case FortXTransPackage.FN_DECL__NAME:
+        setName((String)newValue);
         return;
       case FortXTransPackage.FN_DECL__PARAMS:
         setParams((ValParam)newValue);
         return;
-      case FortXTransPackage.FN_DECL__RETURN:
-        setReturn((RetType)newValue);
+      case FortXTransPackage.FN_DECL__RET_VAL:
+        setRetVal((RetType)newValue);
         return;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         setFnItself((Expression)newValue);
@@ -422,14 +422,14 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
       case FortXTransPackage.FN_DECL__MODS:
         setMods((FnMods)null);
         return;
-      case FortXTransPackage.FN_DECL__FN_NAME:
-        setFnName(FN_NAME_EDEFAULT);
+      case FortXTransPackage.FN_DECL__NAME:
+        setName(NAME_EDEFAULT);
         return;
       case FortXTransPackage.FN_DECL__PARAMS:
         setParams((ValParam)null);
         return;
-      case FortXTransPackage.FN_DECL__RETURN:
-        setReturn((RetType)null);
+      case FortXTransPackage.FN_DECL__RET_VAL:
+        setRetVal((RetType)null);
         return;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         setFnItself((Expression)null);
@@ -450,12 +450,12 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
     {
       case FortXTransPackage.FN_DECL__MODS:
         return mods != null;
-      case FortXTransPackage.FN_DECL__FN_NAME:
-        return FN_NAME_EDEFAULT == null ? fnName != null : !FN_NAME_EDEFAULT.equals(fnName);
+      case FortXTransPackage.FN_DECL__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case FortXTransPackage.FN_DECL__PARAMS:
         return params != null;
-      case FortXTransPackage.FN_DECL__RETURN:
-        return return_ != null;
+      case FortXTransPackage.FN_DECL__RET_VAL:
+        return retVal != null;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         return fnItself != null;
     }
@@ -473,8 +473,8 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (fnName: ");
-    result.append(fnName);
+    result.append(" (name: ");
+    result.append(name);
     result.append(')');
     return result.toString();
   }

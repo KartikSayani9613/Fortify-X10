@@ -24,6 +24,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Type;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl#getEmpty <em>Empty</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  *
@@ -31,6 +32,26 @@ import srf.transpiler.fortxtrans.fortXTrans.Type;
  */
 public class RetTypeImpl extends MinimalEObjectImpl.Container implements RetType
 {
+  /**
+   * The default value of the '{@link #getEmpty() <em>Empty</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEmpty()
+   * @generated
+   * @ordered
+   */
+  protected static final String EMPTY_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getEmpty() <em>Empty</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getEmpty()
+   * @generated
+   * @ordered
+   */
+  protected String empty = EMPTY_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -60,6 +81,29 @@ public class RetTypeImpl extends MinimalEObjectImpl.Container implements RetType
   protected EClass eStaticClass()
   {
     return FortXTransPackage.Literals.RET_TYPE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getEmpty()
+  {
+    return empty;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setEmpty(String newEmpty)
+  {
+    String oldEmpty = empty;
+    empty = newEmpty;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.RET_TYPE__EMPTY, oldEmpty, empty));
   }
 
   /**
@@ -136,6 +180,8 @@ public class RetTypeImpl extends MinimalEObjectImpl.Container implements RetType
   {
     switch (featureID)
     {
+      case FortXTransPackage.RET_TYPE__EMPTY:
+        return getEmpty();
       case FortXTransPackage.RET_TYPE__TYPE:
         return getType();
     }
@@ -152,6 +198,9 @@ public class RetTypeImpl extends MinimalEObjectImpl.Container implements RetType
   {
     switch (featureID)
     {
+      case FortXTransPackage.RET_TYPE__EMPTY:
+        setEmpty((String)newValue);
+        return;
       case FortXTransPackage.RET_TYPE__TYPE:
         setType((Type)newValue);
         return;
@@ -169,6 +218,9 @@ public class RetTypeImpl extends MinimalEObjectImpl.Container implements RetType
   {
     switch (featureID)
     {
+      case FortXTransPackage.RET_TYPE__EMPTY:
+        setEmpty(EMPTY_EDEFAULT);
+        return;
       case FortXTransPackage.RET_TYPE__TYPE:
         setType((Type)null);
         return;
@@ -186,10 +238,29 @@ public class RetTypeImpl extends MinimalEObjectImpl.Container implements RetType
   {
     switch (featureID)
     {
+      case FortXTransPackage.RET_TYPE__EMPTY:
+        return EMPTY_EDEFAULT == null ? empty != null : !EMPTY_EDEFAULT.equals(empty);
       case FortXTransPackage.RET_TYPE__TYPE:
         return type != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (empty: ");
+    result.append(empty);
+    result.append(')');
+    return result.toString();
   }
 
 } //RetTypeImpl

@@ -10,7 +10,6 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.AbsFnMod;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
@@ -161,13 +160,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * @generated
    */
   private EClass fnModEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass absFnModEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -768,7 +760,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getFnDecl_FnName()
+  public EAttribute getFnDecl_Name()
   {
     return (EAttribute)fnDeclEClass.getEStructuralFeatures().get(1);
   }
@@ -788,7 +780,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFnDecl_Return()
+  public EReference getFnDecl_RetVal()
   {
     return (EReference)fnDeclEClass.getEStructuralFeatures().get(3);
   }
@@ -838,49 +830,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getFnMod_AbsMod()
+  public EAttribute getFnMod_Modtype()
   {
-    return (EReference)fnModEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getFnMod_Pri()
-  {
-    return (EAttribute)fnModEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAbsFnMod()
-  {
-    return absFnModEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAbsFnMod_Local()
-  {
-    return (EAttribute)absFnModEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getAbsFnMod_Test()
-  {
-    return (EAttribute)absFnModEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)fnModEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -898,9 +850,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getValParam_BindID()
+  public EReference getValParam_Params()
   {
-    return (EAttribute)valParamEClass.getEStructuralFeatures().get(0);
+    return (EReference)valParamEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -911,16 +863,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
   public EAttribute getValParam_Brack()
   {
     return (EAttribute)valParamEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getValParam_Params()
-  {
-    return (EReference)valParamEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -988,9 +930,19 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getRetType_Empty()
+  {
+    return (EAttribute)retTypeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getRetType_Type()
   {
-    return (EReference)retTypeEClass.getEStructuralFeatures().get(0);
+    return (EReference)retTypeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1290,26 +1242,20 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     fnDeclEClass = createEClass(FN_DECL);
     createEReference(fnDeclEClass, FN_DECL__MODS);
-    createEAttribute(fnDeclEClass, FN_DECL__FN_NAME);
+    createEAttribute(fnDeclEClass, FN_DECL__NAME);
     createEReference(fnDeclEClass, FN_DECL__PARAMS);
-    createEReference(fnDeclEClass, FN_DECL__RETURN);
+    createEReference(fnDeclEClass, FN_DECL__RET_VAL);
     createEReference(fnDeclEClass, FN_DECL__FN_ITSELF);
 
     fnModsEClass = createEClass(FN_MODS);
     createEReference(fnModsEClass, FN_MODS__MODS);
 
     fnModEClass = createEClass(FN_MOD);
-    createEReference(fnModEClass, FN_MOD__ABS_MOD);
-    createEAttribute(fnModEClass, FN_MOD__PRI);
-
-    absFnModEClass = createEClass(ABS_FN_MOD);
-    createEAttribute(absFnModEClass, ABS_FN_MOD__LOCAL);
-    createEAttribute(absFnModEClass, ABS_FN_MOD__TEST);
+    createEAttribute(fnModEClass, FN_MOD__MODTYPE);
 
     valParamEClass = createEClass(VAL_PARAM);
-    createEAttribute(valParamEClass, VAL_PARAM__BIND_ID);
-    createEAttribute(valParamEClass, VAL_PARAM__BRACK);
     createEReference(valParamEClass, VAL_PARAM__PARAMS);
+    createEAttribute(valParamEClass, VAL_PARAM__BRACK);
 
     paramEClass = createEClass(PARAM);
     createEAttribute(paramEClass, PARAM__BID);
@@ -1319,6 +1265,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     createEReference(isTypeEClass, IS_TYPE__TYPE);
 
     retTypeEClass = createEClass(RET_TYPE);
+    createEAttribute(retTypeEClass, RET_TYPE__EMPTY);
     createEReference(retTypeEClass, RET_TYPE__TYPE);
 
     typeEClass = createEClass(TYPE);
@@ -1449,26 +1396,20 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     initEClass(fnDeclEClass, FnDecl.class, "FnDecl", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFnDecl_Mods(), this.getFnMods(), null, "mods", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFnDecl_FnName(), ecorePackage.getEString(), "fnName", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFnDecl_Name(), ecorePackage.getEString(), "name", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFnDecl_Params(), this.getValParam(), null, "params", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getFnDecl_Return(), this.getRetType(), null, "return", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFnDecl_RetVal(), this.getRetType(), null, "retVal", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getFnDecl_FnItself(), this.getExpression(), null, "fnItself", null, 0, 1, FnDecl.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fnModsEClass, FnMods.class, "FnMods", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFnMods_Mods(), this.getFnMod(), null, "mods", null, 0, -1, FnMods.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fnModEClass, FnMod.class, "FnMod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getFnMod_AbsMod(), this.getAbsFnMod(), null, "absMod", null, 0, 1, FnMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getFnMod_Pri(), ecorePackage.getEString(), "pri", null, 0, 1, FnMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(absFnModEClass, AbsFnMod.class, "AbsFnMod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getAbsFnMod_Local(), ecorePackage.getEString(), "local", null, 0, 1, AbsFnMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getAbsFnMod_Test(), ecorePackage.getEString(), "test", null, 0, 1, AbsFnMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getFnMod_Modtype(), ecorePackage.getEString(), "modtype", null, 0, 1, FnMod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(valParamEClass, ValParam.class, "ValParam", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getValParam_BindID(), ecorePackage.getEString(), "bindID", null, 0, 1, ValParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getValParam_Brack(), ecorePackage.getEString(), "brack", null, 0, 1, ValParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getValParam_Params(), this.getParam(), null, "params", null, 0, -1, ValParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getValParam_Brack(), ecorePackage.getEString(), "brack", null, 0, 1, ValParam.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paramEClass, Param.class, "Param", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getParam_BId(), ecorePackage.getEString(), "bId", null, 0, 1, Param.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1478,6 +1419,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     initEReference(getIsType_Type(), this.getType(), null, "type", null, 0, 1, IsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(retTypeEClass, RetType.class, "RetType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRetType_Empty(), ecorePackage.getEString(), "empty", null, 0, 1, RetType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRetType_Type(), this.getType(), null, "type", null, 0, 1, RetType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -14,8 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getAbsMod <em>Abs Mod</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getPri <em>Pri</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getModtype <em>Modtype</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnMod()
@@ -25,55 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface FnMod extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Abs Mod</b></em>' containment reference.
+   * Returns the value of the '<em><b>Modtype</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Abs Mod</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Modtype</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Abs Mod</em>' containment reference.
-   * @see #setAbsMod(AbsFnMod)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnMod_AbsMod()
-   * @model containment="true"
-   * @generated
-   */
-  AbsFnMod getAbsMod();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getAbsMod <em>Abs Mod</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Abs Mod</em>' containment reference.
-   * @see #getAbsMod()
-   * @generated
-   */
-  void setAbsMod(AbsFnMod value);
-
-  /**
-   * Returns the value of the '<em><b>Pri</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Pri</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Pri</em>' attribute.
-   * @see #setPri(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnMod_Pri()
+   * @return the value of the '<em>Modtype</em>' attribute.
+   * @see #setModtype(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnMod_Modtype()
    * @model
    * @generated
    */
-  String getPri();
+  String getModtype();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getPri <em>Pri</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getModtype <em>Modtype</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pri</em>' attribute.
-   * @see #getPri()
+   * @param value the new value of the '<em>Modtype</em>' attribute.
+   * @see #getModtype()
    * @generated
    */
-  void setPri(String value);
+  void setModtype(String value);
 
 } // FnMod

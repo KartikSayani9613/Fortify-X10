@@ -187,13 +187,6 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.ABS_FN_MOD:
-      {
-        AbsFnMod absFnMod = (AbsFnMod)theEObject;
-        T result = caseAbsFnMod(absFnMod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case FortXTransPackage.VAL_PARAM:
       {
         ValParam valParam = (ValParam)theEObject;
@@ -548,22 +541,6 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFnMod(FnMod object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Abs Fn Mod</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abs Fn Mod</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbsFnMod(AbsFnMod object)
   {
     return null;
   }

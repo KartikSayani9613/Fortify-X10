@@ -12,6 +12,10 @@ import javax.inject.Inject
 import srf.transpiler.fortxtrans.fortXTrans.Component
 import srf.transpiler.fortxtrans.fortXTrans.Import
 import srf.transpiler.fortxtrans.fortXTrans.Export
+import srf.transpiler.fortxtrans.fortXTrans.Decls
+import srf.transpiler.fortxtrans.fortXTrans.Decl
+import srf.transpiler.fortxtrans.fortXTrans.FnDecl
+import srf.transpiler.fortxtrans.fortXTrans.ValParam
 
 /**
  * Generates code from your model files on save.
@@ -25,12 +29,17 @@ class FortXTransGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for(c: resource.allContents.toIterable.filter(Component)){
 			fsa.generateFile(
-                c.fullyQualifiedName.toString("/") + ".java",
+                c.fullyQualifiedName.toString("/") + ".x10",
                 c.compile)
 		}
 	}
 	
 	def compile(Component c)'''
+		import x10.io.console;
+		import x10.lang.Math;
+		import x10.array.Array_1;
+		import x10.array.Array_2;
+		import x10.array.Array_3;
 		/*needs to import
 		«FOR i:c.imports»
 			«i.compile»
@@ -43,7 +52,9 @@ class FortXTransGenerator extends AbstractGenerator {
 		*/
 		
 		public class «c.name»{
-			
+			«FOR d:c.decls»
+				«d.compile»
+			«ENDFOR»
 		}
 	'''
 	
@@ -130,7 +141,90 @@ class FortXTransGenerator extends AbstractGenerator {
 			»«e.exportedName.get(0)
 		»«ENDIF»
 	'''
+	def compile(Decls d)'''
+		«FOR dec:d.decls»
+			«dec.compile»
+		«ENDFOR»
+	'''
 	
+	def compile(Decl d)'''
+		«d.function.compile»
+	'''
+	
+	def compile(FnDecl f)'''
+		«IF f.mods!==null
+			»«FOR mod:f.mods.mods
+				»«mod.modtype
+			»«ENDFOR
+		»«ENDIF» static def «f.name»(«IF f.params!==null»«f.params.compile»«ENDIF»):«
+			IF f.retVal.empty=='('
+				»void«
+			ELSE
+				»«IF f.retVal.type.tname=="ZZ32"
+					»Int«
+				ELSE»«
+					IF f.retVal.type.tname=="ZZ64"
+						»Long«
+					ELSE»«
+						IF f.retVal.type.tname=="RR32"
+							»Float«
+						ELSE»«
+							IF f.retVal.type.tname=="RR64"
+								»Double«
+							ELSE»«
+								IF f.retVal.type.tname=="String"
+									»String«
+								ELSE»«
+									f.retVal.type.tname»«
+									f.retVal.type.tname									
+								»«ENDIF
+							»«ENDIF
+						»«ENDIF
+					»«ENDIF
+				»«ENDIF
+			»«ENDIF»{
+			
+		}
+		'''
+	
+	def compile(ValParam p)
+	'''«IF p.params.length==0
+		»«
+	ELSE»«
+		IF p.brack===null
+			»«p.params.get(0)»«
+		ELSE»«
+			FOR s:0..<p.params.length»«
+				IF s==0
+					»«p.params.get(s).BId»:«
+				ELSE
+					», «p.params.get(s).BId
+				»:«ENDIF»«
+				IF p.params.get(s).istype.type.tname=="ZZ32"
+					»Int«
+				ELSE»«
+					IF p.params.get(s).istype.type.tname=="ZZ64"
+						»Long«
+					ELSE»«
+						IF p.params.get(s).istype.type.tname=="RR32"
+							»Float«
+						ELSE»«
+							IF p.params.get(s).istype.type.tname=="RR64"
+								»Double«
+							ELSE»«
+								IF p.params.get(s).istype.type.tname=="String"
+									»String«
+								ELSE»«
+									p.params.get(s).istype.type.tname»«
+									p.params.get(s).istype.type.tname									
+								»«ENDIF
+							»«ENDIF
+						»«ENDIF
+					»«ENDIF
+				»«ENDIF
+			»«ENDFOR
+		»«ENDIF
+	»«ENDIF»'''
     
    
 }

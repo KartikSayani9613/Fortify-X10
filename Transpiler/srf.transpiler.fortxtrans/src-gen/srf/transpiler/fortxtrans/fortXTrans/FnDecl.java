@@ -15,9 +15,9 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getMods <em>Mods</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnName <em>Fn Name</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName <em>Name</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getParams <em>Params</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getReturn <em>Return</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal <em>Ret Val</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself <em>Fn Itself</em>}</li>
  * </ul>
  *
@@ -54,30 +54,30 @@ public interface FnDecl extends EObject
   void setMods(FnMods value);
 
   /**
-   * Returns the value of the '<em><b>Fn Name</b></em>' attribute.
+   * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Fn Name</em>' attribute isn't clear,
+   * If the meaning of the '<em>Name</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Fn Name</em>' attribute.
-   * @see #setFnName(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnDecl_FnName()
+   * @return the value of the '<em>Name</em>' attribute.
+   * @see #setName(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnDecl_Name()
    * @model
    * @generated
    */
-  String getFnName();
+  String getName();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnName <em>Fn Name</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fn Name</em>' attribute.
-   * @see #getFnName()
+   * @param value the new value of the '<em>Name</em>' attribute.
+   * @see #getName()
    * @generated
    */
-  void setFnName(String value);
+  void setName(String value);
 
   /**
    * Returns the value of the '<em><b>Params</b></em>' containment reference.
@@ -106,30 +106,30 @@ public interface FnDecl extends EObject
   void setParams(ValParam value);
 
   /**
-   * Returns the value of the '<em><b>Return</b></em>' containment reference.
+   * Returns the value of the '<em><b>Ret Val</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Return</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Ret Val</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Return</em>' containment reference.
-   * @see #setReturn(RetType)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnDecl_Return()
+   * @return the value of the '<em>Ret Val</em>' containment reference.
+   * @see #setRetVal(RetType)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnDecl_RetVal()
    * @model containment="true"
    * @generated
    */
-  RetType getReturn();
+  RetType getRetVal();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getReturn <em>Return</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal <em>Ret Val</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Return</em>' containment reference.
-   * @see #getReturn()
+   * @param value the new value of the '<em>Ret Val</em>' containment reference.
+   * @see #getRetVal()
    * @generated
    */
-  void setReturn(RetType value);
+  void setRetVal(RetType value);
 
   /**
    * Returns the value of the '<em><b>Fn Itself</b></em>' containment reference.
