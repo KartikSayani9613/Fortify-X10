@@ -15,11 +15,8 @@ import api {hello as bello, hello as bello}
 */
 /*exports
 export {some, things}
-
 export something
-
 export {someyjong}
-
 */
 
 public class hello{

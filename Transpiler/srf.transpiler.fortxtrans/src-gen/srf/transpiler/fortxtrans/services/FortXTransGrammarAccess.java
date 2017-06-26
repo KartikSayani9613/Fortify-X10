@@ -6,6 +6,7 @@ package srf.transpiler.fortxtrans.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
+import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.Grammar;
@@ -42,41 +43,6 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//API
 		public RuleCall getAPIParserRuleCall_1() { return cAPIParserRuleCall_1; }
 	}
-	public class APIElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.API");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cApiKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cImportsImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
-		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//API:
-		//	'api' name=ID imports+=Import* 'end';
-		@Override public ParserRule getRule() { return rule; }
-		
-		//'api' name=ID imports+=Import* 'end'
-		public Group getGroup() { return cGroup; }
-		
-		//'api'
-		public Keyword getApiKeyword_0() { return cApiKeyword_0; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
-		
-		//imports+=Import*
-		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
-		
-		//Import
-		public RuleCall getImportsImportParserRuleCall_2_0() { return cImportsImportParserRuleCall_2_0; }
-		
-		//'end'
-		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
-	}
 	public class ComponentElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Component");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -87,13 +53,15 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImportsImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
 		private final Assignment cExportsAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cExportsExportParserRuleCall_3_0 = (RuleCall)cExportsAssignment_3.eContents().get(0);
-		private final Keyword cEndKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDeclsAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDeclsDeclsParserRuleCall_4_0 = (RuleCall)cDeclsAssignment_4.eContents().get(0);
+		private final Keyword cEndKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Component:
-		//	'component' name=ID imports+=Import* exports+=Export* 'end';
+		//	'component' name=ID imports+=Import* exports+=Export+ decls+=Decls* 'end';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'component' name=ID imports+=Import* exports+=Export* 'end'
+		//'component' name=ID imports+=Import* exports+=Export+ decls+=Decls* 'end'
 		public Group getGroup() { return cGroup; }
 		
 		//'component'
@@ -111,14 +79,55 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//Import
 		public RuleCall getImportsImportParserRuleCall_2_0() { return cImportsImportParserRuleCall_2_0; }
 		
-		//exports+=Export*
+		//exports+=Export+
 		public Assignment getExportsAssignment_3() { return cExportsAssignment_3; }
 		
 		//Export
 		public RuleCall getExportsExportParserRuleCall_3_0() { return cExportsExportParserRuleCall_3_0; }
 		
+		//decls+=Decls*
+		public Assignment getDeclsAssignment_4() { return cDeclsAssignment_4; }
+		
+		//Decls
+		public RuleCall getDeclsDeclsParserRuleCall_4_0() { return cDeclsDeclsParserRuleCall_4_0; }
+		
 		//'end'
-		public Keyword getEndKeyword_4() { return cEndKeyword_4; }
+		public Keyword getEndKeyword_5() { return cEndKeyword_5; }
+	}
+	public class APIElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.API");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cApiKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cImportsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cImportsImportParserRuleCall_2_0 = (RuleCall)cImportsAssignment_2.eContents().get(0);
+		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//API:
+		//	'api' name=ID imports+=Import* /*(absDecls+=AbsDecls)**/ 'end';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'api' name=ID imports+=Import* /*(absDecls+=AbsDecls)**/ 'end'
+		public Group getGroup() { return cGroup; }
+		
+		//'api'
+		public Keyword getApiKeyword_0() { return cApiKeyword_0; }
+		
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//imports+=Import*
+		public Assignment getImportsAssignment_2() { return cImportsAssignment_2; }
+		
+		//Import
+		public RuleCall getImportsImportParserRuleCall_2_0() { return cImportsImportParserRuleCall_2_0; }
+		
+		///*(absDecls+=AbsDecls)**/ 'end'
+		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
 	}
 	public class ImportElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Import");
@@ -268,7 +277,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cImpnameAPINameParserRuleCall_0_0_0 = (RuleCall)cImpnameAssignment_0_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_0_2 = (Keyword)cGroup_0.eContents().get(2);
-		private final Keyword cFullStopFullStopFullStopKeyword_0_3 = (Keyword)cGroup_0.eContents().get(3);
+		private final RuleCall cDOTSTerminalRuleCall_0_3 = (RuleCall)cGroup_0.eContents().get(3);
 		private final Keyword cRightCurlyBracketKeyword_0_4 = (Keyword)cGroup_0.eContents().get(4);
 		private final Group cGroup_0_5 = (Group)cGroup_0.eContents().get(5);
 		private final Assignment cExceptAssignment_0_5_0 = (Assignment)cGroup_0_5.eContents().get(0);
@@ -290,7 +299,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCommaAssignment_1_5_0 = (Assignment)cGroup_1_5.eContents().get(0);
 		private final Keyword cCommaCommaKeyword_1_5_0_0 = (Keyword)cCommaAssignment_1_5_0.eContents().get(0);
 		private final Assignment cDotsAssignment_1_5_1 = (Assignment)cGroup_1_5.eContents().get(1);
-		private final Keyword cDotsFullStopFullStopFullStopKeyword_1_5_1_0 = (Keyword)cDotsAssignment_1_5_1.eContents().get(0);
+		private final RuleCall cDotsDOTSTerminalRuleCall_1_5_1_0 = (RuleCall)cDotsAssignment_1_5_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_1_6 = (Keyword)cGroup_1.eContents().get(6);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final Assignment cImpnameAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
@@ -301,17 +310,17 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAsnameIDTerminalRuleCall_2_1_1_0 = (RuleCall)cAsnameAssignment_2_1_1.eContents().get(0);
 		
 		//ImportedNames:
-		//	impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
-		//	| impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+		//	impname=APIName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)?
+		//	| impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}'
 		//	| impname=APIName ('as' asname=ID)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)? | impname=APIName '.' '{'
-		//simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}' | impname=APIName ('as'
+		//impname=APIName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)? | impname=APIName '.' '{'
+		//simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}' | impname=APIName ('as'
 		//asname=ID)?
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
+		//impname=APIName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//impname=APIName
@@ -326,8 +335,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//'{'
 		public Keyword getLeftCurlyBracketKeyword_0_2() { return cLeftCurlyBracketKeyword_0_2; }
 		
-		//'...'
-		public Keyword getFullStopFullStopFullStopKeyword_0_3() { return cFullStopFullStopFullStopKeyword_0_3; }
+		//DOTS
+		public RuleCall getDOTSTerminalRuleCall_0_3() { return cDOTSTerminalRuleCall_0_3; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_0_4() { return cRightCurlyBracketKeyword_0_4; }
@@ -347,7 +356,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//SimpleNames
 		public RuleCall getSimpSimpleNamesParserRuleCall_0_5_1_0() { return cSimpSimpleNamesParserRuleCall_0_5_1_0; }
 		
-		//impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+		//impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}'
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//impname=APIName
@@ -380,7 +389,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//AliasedSimpleName
 		public RuleCall getSimpListAliasedSimpleNameParserRuleCall_1_4_1_0() { return cSimpListAliasedSimpleNameParserRuleCall_1_4_1_0; }
 		
-		//(comma?=',' dots?='...')?
+		//(comma?=',' dots?=DOTS)?
 		public Group getGroup_1_5() { return cGroup_1_5; }
 		
 		//comma?=','
@@ -389,11 +398,11 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//','
 		public Keyword getCommaCommaKeyword_1_5_0_0() { return cCommaCommaKeyword_1_5_0_0; }
 		
-		//dots?='...'
+		//dots?=DOTS
 		public Assignment getDotsAssignment_1_5_1() { return cDotsAssignment_1_5_1; }
 		
-		//'...'
-		public Keyword getDotsFullStopFullStopFullStopKeyword_1_5_1_0() { return cDotsFullStopFullStopFullStopKeyword_1_5_1_0; }
+		//DOTS
+		public RuleCall getDotsDOTSTerminalRuleCall_1_5_1_0() { return cDotsDOTSTerminalRuleCall_1_5_1_0; }
 		
 		//'}'
 		public Keyword getRightCurlyBracketKeyword_1_6() { return cRightCurlyBracketKeyword_1_6; }
@@ -419,43 +428,43 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getAsnameIDTerminalRuleCall_2_1_1_0() { return cAsnameIDTerminalRuleCall_2_1_1_0; }
 	}
-	public class APINameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.APIName");
+	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.QualifiedName");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
-		private final Keyword cFullStopFullStopFullStopKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final RuleCall cDOTSTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final RuleCall cIDTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
 		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
 		private final Keyword cFullStopKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
-		private final Keyword cFullStopFullStopFullStopKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final RuleCall cDOTSTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
 		private final RuleCall cIDTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
 		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
 		private final Keyword cFullStopKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_2_1_1 = (RuleCall)cGroup_2_1.eContents().get(1);
 		
-		//APIName:
-		//	ID '...'
-		//	| ID ('.' ID)* '...'
+		//QualifiedName:
+		//	ID DOTS
+		//	| ID ('.' ID)* DOTS
 		//	| ID ('.' ID)*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//ID '...' | ID ('.' ID)* '...' | ID ('.' ID)*
+		//ID DOTS | ID ('.' ID)* DOTS | ID ('.' ID)*
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//ID '...'
+		//ID DOTS
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//ID
 		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
 		
-		//'...'
-		public Keyword getFullStopFullStopFullStopKeyword_0_1() { return cFullStopFullStopFullStopKeyword_0_1; }
+		//DOTS
+		public RuleCall getDOTSTerminalRuleCall_0_1() { return cDOTSTerminalRuleCall_0_1; }
 		
-		//ID ('.' ID)* '...'
+		//ID ('.' ID)* DOTS
 		public Group getGroup_1() { return cGroup_1; }
 		
 		//ID
@@ -470,8 +479,77 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getIDTerminalRuleCall_1_1_1() { return cIDTerminalRuleCall_1_1_1; }
 		
-		//'...'
-		public Keyword getFullStopFullStopFullStopKeyword_1_2() { return cFullStopFullStopFullStopKeyword_1_2; }
+		//DOTS
+		public RuleCall getDOTSTerminalRuleCall_1_2() { return cDOTSTerminalRuleCall_1_2; }
+		
+		//ID ('.' ID)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_0() { return cIDTerminalRuleCall_2_0; }
+		
+		//('.' ID)*
+		public Group getGroup_2_1() { return cGroup_2_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_2_1_0() { return cFullStopKeyword_2_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_2_1_1() { return cIDTerminalRuleCall_2_1_1; }
+	}
+	public class APINameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.APIName");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final RuleCall cDOTSTerminalRuleCall_0_1 = (RuleCall)cGroup_0.eContents().get(1);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_1_0 = (Keyword)cGroup_1_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1_1 = (RuleCall)cGroup_1_1.eContents().get(1);
+		private final RuleCall cDOTSTerminalRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final RuleCall cIDTerminalRuleCall_2_0 = (RuleCall)cGroup_2.eContents().get(0);
+		private final Group cGroup_2_1 = (Group)cGroup_2.eContents().get(1);
+		private final Keyword cFullStopKeyword_2_1_0 = (Keyword)cGroup_2_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_2_1_1 = (RuleCall)cGroup_2_1.eContents().get(1);
+		
+		//APIName:
+		//	ID DOTS
+		//	| ID ('.' ID)* DOTS
+		//	| ID ('.' ID)*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID DOTS | ID ('.' ID)* DOTS | ID ('.' ID)*
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID DOTS
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0_0() { return cIDTerminalRuleCall_0_0; }
+		
+		//DOTS
+		public RuleCall getDOTSTerminalRuleCall_0_1() { return cDOTSTerminalRuleCall_0_1; }
+		
+		//ID ('.' ID)* DOTS
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_0() { return cIDTerminalRuleCall_1_0; }
+		
+		//('.' ID)*
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//'.'
+		public Keyword getFullStopKeyword_1_1_0() { return cFullStopKeyword_1_1_0; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1_1() { return cIDTerminalRuleCall_1_1_1; }
+		
+		//DOTS
+		public RuleCall getDOTSTerminalRuleCall_1_2() { return cDOTSTerminalRuleCall_1_2; }
 		
 		//ID ('.' ID)*
 		public Group getGroup_2() { return cGroup_2; }
@@ -693,20 +771,656 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getAsNameIDTerminalRuleCall_1_1_0() { return cAsNameIDTerminalRuleCall_1_1_0; }
 	}
+	public class DeclsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Decls");
+		private final Assignment cDeclsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cDeclsDeclParserRuleCall_0 = (RuleCall)cDeclsAssignment.eContents().get(0);
+		
+		//Decls:
+		//	decls+=Decl+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//decls+=Decl+
+		public Assignment getDeclsAssignment() { return cDeclsAssignment; }
+		
+		//Decl
+		public RuleCall getDeclsDeclParserRuleCall_0() { return cDeclsDeclParserRuleCall_0; }
+	}
+	public class DeclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Decl");
+		private final Assignment cFunctionAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cFunctionFnDeclParserRuleCall_0 = (RuleCall)cFunctionAssignment.eContents().get(0);
+		
+		//Decl:
+		//	function=FnDecl;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//function=FnDecl
+		public Assignment getFunctionAssignment() { return cFunctionAssignment; }
+		
+		//FnDecl
+		public RuleCall getFunctionFnDeclParserRuleCall_0() { return cFunctionFnDeclParserRuleCall_0; }
+	}
+	public class FnDeclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FnDecl");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cModsAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cModsFnModsParserRuleCall_0_0 = (RuleCall)cModsAssignment_0.eContents().get(0);
+		private final Assignment cFnNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFnNameIDTerminalRuleCall_1_0 = (RuleCall)cFnNameAssignment_1.eContents().get(0);
+		private final Assignment cParamsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cParamsValParamParserRuleCall_2_0 = (RuleCall)cParamsAssignment_2.eContents().get(0);
+		private final Keyword cColonKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cReturnAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cReturnRetTypeParserRuleCall_4_0 = (RuleCall)cReturnAssignment_4.eContents().get(0);
+		private final Group cGroup_5 = (Group)cGroup.eContents().get(5);
+		private final Keyword cEqualsSignKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final Assignment cFnItselfAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cFnItselfExpressionParserRuleCall_5_1_0 = (RuleCall)cFnItselfAssignment_5_1.eContents().get(0);
+		
+		//FnDecl:
+		//	mods=FnMods? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//mods=FnMods? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?
+		public Group getGroup() { return cGroup; }
+		
+		//mods=FnMods?
+		public Assignment getModsAssignment_0() { return cModsAssignment_0; }
+		
+		//FnMods
+		public RuleCall getModsFnModsParserRuleCall_0_0() { return cModsFnModsParserRuleCall_0_0; }
+		
+		//fnName=ID
+		public Assignment getFnNameAssignment_1() { return cFnNameAssignment_1; }
+		
+		//ID
+		public RuleCall getFnNameIDTerminalRuleCall_1_0() { return cFnNameIDTerminalRuleCall_1_0; }
+		
+		//params=ValParam
+		public Assignment getParamsAssignment_2() { return cParamsAssignment_2; }
+		
+		//ValParam
+		public RuleCall getParamsValParamParserRuleCall_2_0() { return cParamsValParamParserRuleCall_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3() { return cColonKeyword_3; }
+		
+		//return=RetType
+		public Assignment getReturnAssignment_4() { return cReturnAssignment_4; }
+		
+		//RetType
+		public RuleCall getReturnRetTypeParserRuleCall_4_0() { return cReturnRetTypeParserRuleCall_4_0; }
+		
+		//('=' fnItself=Expression)?
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_5_0() { return cEqualsSignKeyword_5_0; }
+		
+		//fnItself=Expression
+		public Assignment getFnItselfAssignment_5_1() { return cFnItselfAssignment_5_1; }
+		
+		//Expression
+		public RuleCall getFnItselfExpressionParserRuleCall_5_1_0() { return cFnItselfExpressionParserRuleCall_5_1_0; }
+	}
+	public class FnModsElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FnMods");
+		private final Assignment cModsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cModsFnModParserRuleCall_0 = (RuleCall)cModsAssignment.eContents().get(0);
+		
+		//FnMods:
+		//	mods+=FnMod+;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//mods+=FnMod+
+		public Assignment getModsAssignment() { return cModsAssignment; }
+		
+		//FnMod
+		public RuleCall getModsFnModParserRuleCall_0() { return cModsFnModParserRuleCall_0; }
+	}
+	public class FnModElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FnMod");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cAbsModAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cAbsModAbsFnModParserRuleCall_0_0 = (RuleCall)cAbsModAssignment_0.eContents().get(0);
+		private final Assignment cPriAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cPriPrivateKeyword_1_0 = (Keyword)cPriAssignment_1.eContents().get(0);
+		
+		//FnMod:
+		//	absMod=AbsFnMod
+		//	| pri='private';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//absMod=AbsFnMod | pri='private'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//absMod=AbsFnMod
+		public Assignment getAbsModAssignment_0() { return cAbsModAssignment_0; }
+		
+		//AbsFnMod
+		public RuleCall getAbsModAbsFnModParserRuleCall_0_0() { return cAbsModAbsFnModParserRuleCall_0_0; }
+		
+		//pri='private'
+		public Assignment getPriAssignment_1() { return cPriAssignment_1; }
+		
+		//'private'
+		public Keyword getPriPrivateKeyword_1_0() { return cPriPrivateKeyword_1_0; }
+	}
+	public class AbsFnModElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.AbsFnMod");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cLocalAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cLocalLocalFnModParserRuleCall_0_0 = (RuleCall)cLocalAssignment_0.eContents().get(0);
+		private final Assignment cTestAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final Keyword cTestTestKeyword_1_0 = (Keyword)cTestAssignment_1.eContents().get(0);
+		
+		//AbsFnMod:
+		//	local=LocalFnMod
+		//	| test='test';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//local=LocalFnMod | test='test'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//local=LocalFnMod
+		public Assignment getLocalAssignment_0() { return cLocalAssignment_0; }
+		
+		//LocalFnMod
+		public RuleCall getLocalLocalFnModParserRuleCall_0_0() { return cLocalLocalFnModParserRuleCall_0_0; }
+		
+		//test='test'
+		public Assignment getTestAssignment_1() { return cTestAssignment_1; }
+		
+		//'test'
+		public Keyword getTestTestKeyword_1_0() { return cTestTestKeyword_1_0; }
+	}
+	public class LocalFnModElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.LocalFnMod");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Keyword cAtomicKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
+		private final Keyword cIoKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//LocalFnMod:
+		//	'atomic'
+		//	| 'io';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'atomic' | 'io'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'atomic'
+		public Keyword getAtomicKeyword_0() { return cAtomicKeyword_0; }
+		
+		//'io'
+		public Keyword getIoKeyword_1() { return cIoKeyword_1; }
+	}
+	public class ValParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ValParam");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cBindIDAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cBindIDBindIdParserRuleCall_0_0 = (RuleCall)cBindIDAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cBrackAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cBrackLeftParenthesisKeyword_1_0_0 = (Keyword)cBrackAssignment_1_0.eContents().get(0);
+		private final Group cGroup_1_1 = (Group)cGroup_1.eContents().get(1);
+		private final Assignment cParamsAssignment_1_1_0 = (Assignment)cGroup_1_1.eContents().get(0);
+		private final RuleCall cParamsParamParserRuleCall_1_1_0_0 = (RuleCall)cParamsAssignment_1_1_0.eContents().get(0);
+		private final Group cGroup_1_1_1 = (Group)cGroup_1_1.eContents().get(1);
+		private final Keyword cCommaKeyword_1_1_1_0 = (Keyword)cGroup_1_1_1.eContents().get(0);
+		private final Assignment cParamsAssignment_1_1_1_1 = (Assignment)cGroup_1_1_1.eContents().get(1);
+		private final RuleCall cParamsParamParserRuleCall_1_1_1_1_0 = (RuleCall)cParamsAssignment_1_1_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		
+		//ValParam:
+		//	bindID=BindId
+		//	| brack='(' (params+=Param (',' params+=Param)*)? ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//bindID=BindId | brack='(' (params+=Param (',' params+=Param)*)? ')'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//bindID=BindId
+		public Assignment getBindIDAssignment_0() { return cBindIDAssignment_0; }
+		
+		//BindId
+		public RuleCall getBindIDBindIdParserRuleCall_0_0() { return cBindIDBindIdParserRuleCall_0_0; }
+		
+		//brack='(' (params+=Param (',' params+=Param)*)? ')'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//brack='('
+		public Assignment getBrackAssignment_1_0() { return cBrackAssignment_1_0; }
+		
+		//'('
+		public Keyword getBrackLeftParenthesisKeyword_1_0_0() { return cBrackLeftParenthesisKeyword_1_0_0; }
+		
+		//(params+=Param (',' params+=Param)*)?
+		public Group getGroup_1_1() { return cGroup_1_1; }
+		
+		//params+=Param
+		public Assignment getParamsAssignment_1_1_0() { return cParamsAssignment_1_1_0; }
+		
+		//Param
+		public RuleCall getParamsParamParserRuleCall_1_1_0_0() { return cParamsParamParserRuleCall_1_1_0_0; }
+		
+		//(',' params+=Param)*
+		public Group getGroup_1_1_1() { return cGroup_1_1_1; }
+		
+		//','
+		public Keyword getCommaKeyword_1_1_1_0() { return cCommaKeyword_1_1_1_0; }
+		
+		//params+=Param
+		public Assignment getParamsAssignment_1_1_1_1() { return cParamsAssignment_1_1_1_1; }
+		
+		//Param
+		public RuleCall getParamsParamParserRuleCall_1_1_1_1_0() { return cParamsParamParserRuleCall_1_1_1_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_2() { return cRightParenthesisKeyword_1_2; }
+	}
+	public class ParamElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Param");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cBIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cBIdBindIdParserRuleCall_0_0 = (RuleCall)cBIdAssignment_0.eContents().get(0);
+		private final Assignment cIstypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIstypeIsTypeParserRuleCall_1_0 = (RuleCall)cIstypeAssignment_1.eContents().get(0);
+		
+		//Param:
+		//	bId=BindId istype=IsType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//bId=BindId istype=IsType
+		public Group getGroup() { return cGroup; }
+		
+		//bId=BindId
+		public Assignment getBIdAssignment_0() { return cBIdAssignment_0; }
+		
+		//BindId
+		public RuleCall getBIdBindIdParserRuleCall_0_0() { return cBIdBindIdParserRuleCall_0_0; }
+		
+		//istype=IsType
+		public Assignment getIstypeAssignment_1() { return cIstypeAssignment_1; }
+		
+		//IsType
+		public RuleCall getIstypeIsTypeParserRuleCall_1_0() { return cIstypeIsTypeParserRuleCall_1_0; }
+	}
+	public class BindIdElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.BindId");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Keyword c_Keyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		
+		//BindId:
+		//	ID
+		//	| '_';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ID | '_'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		
+		//'_'
+		public Keyword get_Keyword_1() { return c_Keyword_1; }
+	}
+	public class IsTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.IsType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cColonKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypeTypeParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		
+		//IsType:
+		//	':' type=Type;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//':' type=Type
+		public Group getGroup() { return cGroup; }
+		
+		//':'
+		public Keyword getColonKeyword_0() { return cColonKeyword_0; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_1_0() { return cTypeTypeParserRuleCall_1_0; }
+	}
+	public class RetTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.RetType");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Action cRetTypeAction_0_2 = (Action)cGroup_0.eContents().get(2);
+		private final Assignment cTypeAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cTypeTypeParserRuleCall_1_0 = (RuleCall)cTypeAssignment_1.eContents().get(0);
+		
+		//RetType:
+		//	'(' ')' {RetType} | type=Type;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' ')' {RetType} | type=Type
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//'(' ')' {RetType}
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0_0() { return cLeftParenthesisKeyword_0_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_0_1() { return cRightParenthesisKeyword_0_1; }
+		
+		//{RetType}
+		public Action getRetTypeAction_0_2() { return cRetTypeAction_0_2; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+		
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_1_0() { return cTypeTypeParserRuleCall_1_0; }
+	}
+	public class TypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Type");
+		private final Assignment cTnameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cTnameIDTerminalRuleCall_0 = (RuleCall)cTnameAssignment.eContents().get(0);
+		
+		//Type:
+		//	tname=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//tname=ID
+		public Assignment getTnameAssignment() { return cTnameAssignment; }
+		
+		//ID
+		public RuleCall getTnameIDTerminalRuleCall_0() { return cTnameIDTerminalRuleCall_0; }
+	}
+	public class ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Expression");
+		private final Assignment cExpAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cExpExprParserRuleCall_0 = (RuleCall)cExpAssignment.eContents().get(0);
+		
+		//Expression:
+		//	exp=Expr;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//exp=Expr
+		public Assignment getExpAssignment() { return cExpAssignment; }
+		
+		//Expr
+		public RuleCall getExpExprParserRuleCall_0() { return cExpExprParserRuleCall_0; }
+	}
+	public class ExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Expr");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExprFrontParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Action cExprFrontAction_1 = (Action)cGroup.eContents().get(1);
+		private final Assignment cTailsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cTailsExprTailParserRuleCall_2_0 = (RuleCall)cTailsAssignment_2.eContents().get(0);
+		
+		//Expr Expression:
+		//	ExprFront {Expr.front=current} tails+=ExprTail*;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//ExprFront {Expr.front=current} tails+=ExprTail*
+		public Group getGroup() { return cGroup; }
+		
+		//ExprFront
+		public RuleCall getExprFrontParserRuleCall_0() { return cExprFrontParserRuleCall_0; }
+		
+		//{Expr.front=current}
+		public Action getExprFrontAction_1() { return cExprFrontAction_1; }
+		
+		//tails+=ExprTail*
+		public Assignment getTailsAssignment_2() { return cTailsAssignment_2; }
+		
+		//ExprTail
+		public RuleCall getTailsExprTailParserRuleCall_2_0() { return cTailsExprTailParserRuleCall_2_0; }
+	}
+	public class ExprFrontElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ExprFront");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final RuleCall cDelimitedExprParserRuleCall_0_0 = (RuleCall)cGroup_0.eContents().get(0);
+		private final Action cExprFrontDelimAction_0_1 = (Action)cGroup_0.eContents().get(1);
+		private final Assignment cIdAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cIdQualifiedNameParserRuleCall_1_0 = (RuleCall)cIdAssignment_1.eContents().get(0);
+		
+		//ExprFront Expression:
+		//	DelimitedExpr {ExprFront.delim=current} | id=QualifiedName;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DelimitedExpr {ExprFront.delim=current} | id=QualifiedName
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//DelimitedExpr {ExprFront.delim=current}
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//DelimitedExpr
+		public RuleCall getDelimitedExprParserRuleCall_0_0() { return cDelimitedExprParserRuleCall_0_0; }
+		
+		//{ExprFront.delim=current}
+		public Action getExprFrontDelimAction_0_1() { return cExprFrontDelimAction_0_1; }
+		
+		//id=QualifiedName
+		public Assignment getIdAssignment_1() { return cIdAssignment_1; }
+		
+		//QualifiedName
+		public RuleCall getIdQualifiedNameParserRuleCall_1_0() { return cIdQualifiedNameParserRuleCall_1_0; }
+	}
+	public class ExprTailElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ExprTail");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cAsKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cTypeParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//ExprTail:
+		//	'as' Type;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'as' Type
+		public Group getGroup() { return cGroup; }
+		
+		//'as'
+		public Keyword getAsKeyword_0() { return cAsKeyword_0; }
+		
+		//Type
+		public RuleCall getTypeParserRuleCall_1() { return cTypeParserRuleCall_1; }
+	}
+	public class DelimitedExprElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cDoParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final RuleCall cParanthesizedParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Action cDelimitedParAction_1_1 = (Action)cGroup_1.eContents().get(1);
+		
+		//DelimitedExpr Expression:
+		//	Do
+		//	| Paranthesized {Delimited.par=current};
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Do | Paranthesized {Delimited.par=current}
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//Do
+		public RuleCall getDoParserRuleCall_0() { return cDoParserRuleCall_0; }
+		
+		//Paranthesized {Delimited.par=current}
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//Paranthesized
+		public RuleCall getParanthesizedParserRuleCall_1_0() { return cParanthesizedParserRuleCall_1_0; }
+		
+		//{Delimited.par=current}
+		public Action getDelimitedParAction_1_1() { return cDelimitedParAction_1_1; }
+	}
+	public class ParanthesizedElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Paranthesized");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cExprParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Action cParanthesizedExprAction_2 = (Action)cGroup.eContents().get(2);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Paranthesized Expression:
+		//	'(' Expr {Paranthesized.expr=current} ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' Expr {Paranthesized.expr=current} ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//Expr
+		public RuleCall getExprParserRuleCall_1() { return cExprParserRuleCall_1; }
+		
+		//{Paranthesized.expr=current}
+		public Action getParanthesizedExprAction_2() { return cParanthesizedExprAction_2; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
+	public class DoElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Do");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cDoFrontParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Action cDoDofsAction_1 = (Action)cGroup.eContents().get(1);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cAlsoKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cDofsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cDofsDoFrontParserRuleCall_2_1_0 = (RuleCall)cDofsAssignment_2_1.eContents().get(0);
+		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//Do Expression:
+		//	DoFront {Do.dofs+=current} ('also' dofs+=DoFront)* "end";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//DoFront {Do.dofs+=current} ('also' dofs+=DoFront)* "end"
+		public Group getGroup() { return cGroup; }
+		
+		//DoFront
+		public RuleCall getDoFrontParserRuleCall_0() { return cDoFrontParserRuleCall_0; }
+		
+		//{Do.dofs+=current}
+		public Action getDoDofsAction_1() { return cDoDofsAction_1; }
+		
+		//('also' dofs+=DoFront)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//'also'
+		public Keyword getAlsoKeyword_2_0() { return cAlsoKeyword_2_0; }
+		
+		//dofs+=DoFront
+		public Assignment getDofsAssignment_2_1() { return cDofsAssignment_2_1; }
+		
+		//DoFront
+		public RuleCall getDofsDoFrontParserRuleCall_2_1_0() { return cDofsDoFrontParserRuleCall_2_1_0; }
+		
+		//"end"
+		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
+	}
+	public class DoFrontElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.DoFront");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cAtomAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cAtomAtomicKeyword_0_0 = (Keyword)cAtomAssignment_0.eContents().get(0);
+		private final Keyword cDoKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBlockBlockElemParserRuleCall_2_0 = (RuleCall)cBlockAssignment_2.eContents().get(0);
+		
+		//DoFront Expression:
+		//	atom='atomic'? 'do' block=BlockElem;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//atom='atomic'? 'do' block=BlockElem
+		public Group getGroup() { return cGroup; }
+		
+		//atom='atomic'?
+		public Assignment getAtomAssignment_0() { return cAtomAssignment_0; }
+		
+		//'atomic'
+		public Keyword getAtomAtomicKeyword_0_0() { return cAtomAtomicKeyword_0_0; }
+		
+		//'do'
+		public Keyword getDoKeyword_1() { return cDoKeyword_1; }
+		
+		//block=BlockElem
+		public Assignment getBlockAssignment_2() { return cBlockAssignment_2; }
+		
+		//BlockElem
+		public RuleCall getBlockBlockElemParserRuleCall_2_0() { return cBlockBlockElemParserRuleCall_2_0; }
+	}
+	public class BlockElemElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Action cBlockELemExprAction_1 = (Action)cGroup.eContents().get(1);
+		
+		//BlockElem Expression:
+		//	Expr {BlockELem.expr=current};
+		@Override public ParserRule getRule() { return rule; }
+		
+		//Expr {BlockELem.expr=current}
+		public Group getGroup() { return cGroup; }
+		
+		//Expr
+		public RuleCall getExprParserRuleCall_0() { return cExprParserRuleCall_0; }
+		
+		//{BlockELem.expr=current}
+		public Action getBlockELemExprAction_1() { return cBlockELemExprAction_1; }
+	}
 	
 	
 	private final ModelElements pModel;
-	private final APIElements pAPI;
 	private final ComponentElements pComponent;
+	private final APIElements pAPI;
 	private final ImportElements pImport;
 	private final ExportElements pExport;
 	private final ImportedNamesElements pImportedNames;
+	private final QualifiedNameElements pQualifiedName;
 	private final APINameElements pAPIName;
 	private final SimpleNamesElements pSimpleNames;
 	private final SimpleNameElements pSimpleName;
 	private final AliasedSimpleNameElements pAliasedSimpleName;
 	private final AliasedAPINamesElements pAliasedAPINames;
 	private final AliasedAPINameElements pAliasedAPIName;
+	private final DeclsElements pDecls;
+	private final DeclElements pDecl;
+	private final FnDeclElements pFnDecl;
+	private final FnModsElements pFnMods;
+	private final FnModElements pFnMod;
+	private final AbsFnModElements pAbsFnMod;
+	private final LocalFnModElements pLocalFnMod;
+	private final ValParamElements pValParam;
+	private final ParamElements pParam;
+	private final BindIdElements pBindId;
+	private final IsTypeElements pIsType;
+	private final RetTypeElements pRetType;
+	private final TypeElements pType;
+	private final ExpressionElements pExpression;
+	private final ExprElements pExpr;
+	private final ExprFrontElements pExprFront;
+	private final ExprTailElements pExprTail;
+	private final DelimitedExprElements pDelimitedExpr;
+	private final ParanthesizedElements pParanthesized;
+	private final DoElements pDo;
+	private final DoFrontElements pDoFront;
+	private final BlockElemElements pBlockElem;
+	private final TerminalRule tML_COMMENT;
+	private final TerminalRule tGREATERS;
+	private final TerminalRule tLESSES;
+	private final TerminalRule tBARS;
+	private final TerminalRule tSLASHES;
+	private final TerminalRule tSD;
+	private final TerminalRule tLEFT_ENCLOSER;
+	private final TerminalRule tRIGHT_ENCLOSER;
+	private final TerminalRule tDOTS;
 	
 	private final Grammar grammar;
 	
@@ -718,17 +1432,49 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pAPI = new APIElements();
 		this.pComponent = new ComponentElements();
+		this.pAPI = new APIElements();
 		this.pImport = new ImportElements();
 		this.pExport = new ExportElements();
 		this.pImportedNames = new ImportedNamesElements();
+		this.pQualifiedName = new QualifiedNameElements();
 		this.pAPIName = new APINameElements();
 		this.pSimpleNames = new SimpleNamesElements();
 		this.pSimpleName = new SimpleNameElements();
 		this.pAliasedSimpleName = new AliasedSimpleNameElements();
 		this.pAliasedAPINames = new AliasedAPINamesElements();
 		this.pAliasedAPIName = new AliasedAPINameElements();
+		this.pDecls = new DeclsElements();
+		this.pDecl = new DeclElements();
+		this.pFnDecl = new FnDeclElements();
+		this.pFnMods = new FnModsElements();
+		this.pFnMod = new FnModElements();
+		this.pAbsFnMod = new AbsFnModElements();
+		this.pLocalFnMod = new LocalFnModElements();
+		this.pValParam = new ValParamElements();
+		this.pParam = new ParamElements();
+		this.pBindId = new BindIdElements();
+		this.pIsType = new IsTypeElements();
+		this.pRetType = new RetTypeElements();
+		this.pType = new TypeElements();
+		this.pExpression = new ExpressionElements();
+		this.pExpr = new ExprElements();
+		this.pExprFront = new ExprFrontElements();
+		this.pExprTail = new ExprTailElements();
+		this.pDelimitedExpr = new DelimitedExprElements();
+		this.pParanthesized = new ParanthesizedElements();
+		this.pDo = new DoElements();
+		this.pDoFront = new DoFrontElements();
+		this.pBlockElem = new BlockElemElements();
+		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ML_COMMENT");
+		this.tGREATERS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.GREATERS");
+		this.tLESSES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.LESSES");
+		this.tBARS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.BARS");
+		this.tSLASHES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.SLASHES");
+		this.tSD = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.SD");
+		this.tLEFT_ENCLOSER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.LEFT_ENCLOSER");
+		this.tRIGHT_ENCLOSER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.RIGHT_ENCLOSER");
+		this.tDOTS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.DOTS");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -769,24 +1515,24 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 	
-	//API:
-	//	'api' name=ID imports+=Import* 'end';
-	public APIElements getAPIAccess() {
-		return pAPI;
-	}
-	
-	public ParserRule getAPIRule() {
-		return getAPIAccess().getRule();
-	}
-	
 	//Component:
-	//	'component' name=ID imports+=Import* exports+=Export* 'end';
+	//	'component' name=ID imports+=Import* exports+=Export+ decls+=Decls* 'end';
 	public ComponentElements getComponentAccess() {
 		return pComponent;
 	}
 	
 	public ParserRule getComponentRule() {
 		return getComponentAccess().getRule();
+	}
+	
+	//API:
+	//	'api' name=ID imports+=Import* /*(absDecls+=AbsDecls)**/ 'end';
+	public APIElements getAPIAccess() {
+		return pAPI;
+	}
+	
+	public ParserRule getAPIRule() {
+		return getAPIAccess().getRule();
 	}
 	
 	//Import:
@@ -812,8 +1558,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ImportedNames:
-	//	impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
-	//	| impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+	//	impname=APIName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)?
+	//	| impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+=AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}'
 	//	| impname=APIName ('as' asname=ID)?;
 	public ImportedNamesElements getImportedNamesAccess() {
 		return pImportedNames;
@@ -823,9 +1569,21 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getImportedNamesAccess().getRule();
 	}
 	
+	//QualifiedName:
+	//	ID DOTS
+	//	| ID ('.' ID)* DOTS
+	//	| ID ('.' ID)*;
+	public QualifiedNameElements getQualifiedNameAccess() {
+		return pQualifiedName;
+	}
+	
+	public ParserRule getQualifiedNameRule() {
+		return getQualifiedNameAccess().getRule();
+	}
+	
 	//APIName:
-	//	ID '...'
-	//	| ID ('.' ID)* '...'
+	//	ID DOTS
+	//	| ID ('.' ID)* DOTS
 	//	| ID ('.' ID)*;
 	public APINameElements getAPINameAccess() {
 		return pAPIName;
@@ -887,6 +1645,292 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getAliasedAPINameAccess().getRule();
 	}
 	
+	//Decls:
+	//	decls+=Decl+;
+	public DeclsElements getDeclsAccess() {
+		return pDecls;
+	}
+	
+	public ParserRule getDeclsRule() {
+		return getDeclsAccess().getRule();
+	}
+	
+	//Decl:
+	//	function=FnDecl;
+	public DeclElements getDeclAccess() {
+		return pDecl;
+	}
+	
+	public ParserRule getDeclRule() {
+		return getDeclAccess().getRule();
+	}
+	
+	//FnDecl:
+	//	mods=FnMods? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?;
+	public FnDeclElements getFnDeclAccess() {
+		return pFnDecl;
+	}
+	
+	public ParserRule getFnDeclRule() {
+		return getFnDeclAccess().getRule();
+	}
+	
+	//FnMods:
+	//	mods+=FnMod+;
+	public FnModsElements getFnModsAccess() {
+		return pFnMods;
+	}
+	
+	public ParserRule getFnModsRule() {
+		return getFnModsAccess().getRule();
+	}
+	
+	//FnMod:
+	//	absMod=AbsFnMod
+	//	| pri='private';
+	public FnModElements getFnModAccess() {
+		return pFnMod;
+	}
+	
+	public ParserRule getFnModRule() {
+		return getFnModAccess().getRule();
+	}
+	
+	//AbsFnMod:
+	//	local=LocalFnMod
+	//	| test='test';
+	public AbsFnModElements getAbsFnModAccess() {
+		return pAbsFnMod;
+	}
+	
+	public ParserRule getAbsFnModRule() {
+		return getAbsFnModAccess().getRule();
+	}
+	
+	//LocalFnMod:
+	//	'atomic'
+	//	| 'io';
+	public LocalFnModElements getLocalFnModAccess() {
+		return pLocalFnMod;
+	}
+	
+	public ParserRule getLocalFnModRule() {
+		return getLocalFnModAccess().getRule();
+	}
+	
+	//ValParam:
+	//	bindID=BindId
+	//	| brack='(' (params+=Param (',' params+=Param)*)? ')';
+	public ValParamElements getValParamAccess() {
+		return pValParam;
+	}
+	
+	public ParserRule getValParamRule() {
+		return getValParamAccess().getRule();
+	}
+	
+	//Param:
+	//	bId=BindId istype=IsType;
+	public ParamElements getParamAccess() {
+		return pParam;
+	}
+	
+	public ParserRule getParamRule() {
+		return getParamAccess().getRule();
+	}
+	
+	//BindId:
+	//	ID
+	//	| '_';
+	public BindIdElements getBindIdAccess() {
+		return pBindId;
+	}
+	
+	public ParserRule getBindIdRule() {
+		return getBindIdAccess().getRule();
+	}
+	
+	//IsType:
+	//	':' type=Type;
+	public IsTypeElements getIsTypeAccess() {
+		return pIsType;
+	}
+	
+	public ParserRule getIsTypeRule() {
+		return getIsTypeAccess().getRule();
+	}
+	
+	//RetType:
+	//	'(' ')' {RetType} | type=Type;
+	public RetTypeElements getRetTypeAccess() {
+		return pRetType;
+	}
+	
+	public ParserRule getRetTypeRule() {
+		return getRetTypeAccess().getRule();
+	}
+	
+	//Type:
+	//	tname=ID;
+	public TypeElements getTypeAccess() {
+		return pType;
+	}
+	
+	public ParserRule getTypeRule() {
+		return getTypeAccess().getRule();
+	}
+	
+	//Expression:
+	//	exp=Expr;
+	public ExpressionElements getExpressionAccess() {
+		return pExpression;
+	}
+	
+	public ParserRule getExpressionRule() {
+		return getExpressionAccess().getRule();
+	}
+	
+	//Expr Expression:
+	//	ExprFront {Expr.front=current} tails+=ExprTail*;
+	public ExprElements getExprAccess() {
+		return pExpr;
+	}
+	
+	public ParserRule getExprRule() {
+		return getExprAccess().getRule();
+	}
+	
+	//ExprFront Expression:
+	//	DelimitedExpr {ExprFront.delim=current} | id=QualifiedName;
+	public ExprFrontElements getExprFrontAccess() {
+		return pExprFront;
+	}
+	
+	public ParserRule getExprFrontRule() {
+		return getExprFrontAccess().getRule();
+	}
+	
+	//ExprTail:
+	//	'as' Type;
+	public ExprTailElements getExprTailAccess() {
+		return pExprTail;
+	}
+	
+	public ParserRule getExprTailRule() {
+		return getExprTailAccess().getRule();
+	}
+	
+	//DelimitedExpr Expression:
+	//	Do
+	//	| Paranthesized {Delimited.par=current};
+	public DelimitedExprElements getDelimitedExprAccess() {
+		return pDelimitedExpr;
+	}
+	
+	public ParserRule getDelimitedExprRule() {
+		return getDelimitedExprAccess().getRule();
+	}
+	
+	//Paranthesized Expression:
+	//	'(' Expr {Paranthesized.expr=current} ')';
+	public ParanthesizedElements getParanthesizedAccess() {
+		return pParanthesized;
+	}
+	
+	public ParserRule getParanthesizedRule() {
+		return getParanthesizedAccess().getRule();
+	}
+	
+	//Do Expression:
+	//	DoFront {Do.dofs+=current} ('also' dofs+=DoFront)* "end";
+	public DoElements getDoAccess() {
+		return pDo;
+	}
+	
+	public ParserRule getDoRule() {
+		return getDoAccess().getRule();
+	}
+	
+	//DoFront Expression:
+	//	atom='atomic'? 'do' block=BlockElem;
+	public DoFrontElements getDoFrontAccess() {
+		return pDoFront;
+	}
+	
+	public ParserRule getDoFrontRule() {
+		return getDoFrontAccess().getRule();
+	}
+	
+	//BlockElem Expression:
+	//	Expr {BlockELem.expr=current};
+	public BlockElemElements getBlockElemAccess() {
+		return pBlockElem;
+	}
+	
+	public ParserRule getBlockElemRule() {
+		return getBlockElemAccess().getRule();
+	}
+	
+	//@ Override terminal ML_COMMENT:
+	//	'(*'->'*)';
+	public TerminalRule getML_COMMENTRule() {
+		return tML_COMMENT;
+	}
+	
+	//terminal GREATERS:
+	//	'>' (SD '>')*;
+	public TerminalRule getGREATERSRule() {
+		return tGREATERS;
+	}
+	
+	//terminal LESSES:
+	//	'<' (SD '<')*;
+	public TerminalRule getLESSESRule() {
+		return tLESSES;
+	}
+	
+	//terminal BARS:
+	//	'|' (SD '|')*;
+	public TerminalRule getBARSRule() {
+		return tBARS;
+	}
+	
+	//terminal SLASHES:
+	//	"/" (SD "/")*;
+	public TerminalRule getSLASHESRule() {
+		return tSLASHES;
+	}
+	
+	//terminal SD:
+	//	'.' | '*'?;
+	public TerminalRule getSDRule() {
+		return tSD;
+	}
+	
+	//terminal LEFT_ENCLOSER:
+	//	'(' ('/'+ | '\\'+) | '[/\\/\\/' | '[/\\/'
+	//	| '[' (SD SLASHES) | LESSES SD (SLASHES | BARS) | BARS SD SLASHES
+	//	| ('{*' | '[*') | ('((>' | '(<');
+	public TerminalRule getLEFT_ENCLOSERRule() {
+		return tLEFT_ENCLOSER;
+	}
+	
+	//terminal RIGHT_ENCLOSER:
+	//	'/'+ ')'
+	//	| '\\'+ ')'
+	//	| SLASHES SD (GREATERS | BARS | ('\\' | ']')) | BARS SD GREATERS
+	//	| ('*]' | '*}') | "]"
+	//	| (">)" | "<))") | "/\\/\\/]" | "/\\/]";
+	public TerminalRule getRIGHT_ENCLOSERRule() {
+		return tRIGHT_ENCLOSER;
+	}
+	
+	//terminal DOTS:
+	//	'...';
+	public TerminalRule getDOTSRule() {
+		return tDOTS;
+	}
+	
 	//terminal ID:
 	//	'^'? ('a'..'z' | 'A'..'Z' | '_') ('a'..'z' | 'A'..'Z' | '_' | '0'..'9')*;
 	public TerminalRule getIDRule() {
@@ -904,12 +1948,6 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	//	"'" ('\\' . | !('\\' | "'"))* "'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
-	}
-	
-	//terminal ML_COMMENT:
-	//	'/*'->'*/';
-	public TerminalRule getML_COMMENTRule() {
-		return gaTerminals.getML_COMMENTRule();
 	}
 	
 	//terminal SL_COMMENT:

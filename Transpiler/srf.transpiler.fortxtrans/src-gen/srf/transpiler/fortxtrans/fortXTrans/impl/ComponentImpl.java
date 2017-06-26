@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.Component;
+import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
@@ -28,6 +29,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ComponentImpl#getExports <em>Exports</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ComponentImpl#getDecls <em>Decls</em>}</li>
  * </ul>
  *
  * @generated
@@ -43,6 +45,16 @@ public class ComponentImpl extends ModelImpl implements Component
    * @ordered
    */
   protected EList<Export> exports;
+
+  /**
+   * The cached value of the '{@link #getDecls() <em>Decls</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDecls()
+   * @generated
+   * @ordered
+   */
+  protected EList<Decls> decls;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,6 +96,20 @@ public class ComponentImpl extends ModelImpl implements Component
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<Decls> getDecls()
+  {
+    if (decls == null)
+    {
+      decls = new EObjectContainmentEList<Decls>(Decls.class, this, FortXTransPackage.COMPONENT__DECLS);
+    }
+    return decls;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -91,6 +117,8 @@ public class ComponentImpl extends ModelImpl implements Component
     {
       case FortXTransPackage.COMPONENT__EXPORTS:
         return ((InternalEList<?>)getExports()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.COMPONENT__DECLS:
+        return ((InternalEList<?>)getDecls()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,6 +135,8 @@ public class ComponentImpl extends ModelImpl implements Component
     {
       case FortXTransPackage.COMPONENT__EXPORTS:
         return getExports();
+      case FortXTransPackage.COMPONENT__DECLS:
+        return getDecls();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -126,6 +156,10 @@ public class ComponentImpl extends ModelImpl implements Component
         getExports().clear();
         getExports().addAll((Collection<? extends Export>)newValue);
         return;
+      case FortXTransPackage.COMPONENT__DECLS:
+        getDecls().clear();
+        getDecls().addAll((Collection<? extends Decls>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -143,6 +177,9 @@ public class ComponentImpl extends ModelImpl implements Component
       case FortXTransPackage.COMPONENT__EXPORTS:
         getExports().clear();
         return;
+      case FortXTransPackage.COMPONENT__DECLS:
+        getDecls().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -159,6 +196,8 @@ public class ComponentImpl extends ModelImpl implements Component
     {
       case FortXTransPackage.COMPONENT__EXPORTS:
         return exports != null && !exports.isEmpty();
+      case FortXTransPackage.COMPONENT__DECLS:
+        return decls != null && !decls.isEmpty();
     }
     return super.eIsSet(featureID);
   }

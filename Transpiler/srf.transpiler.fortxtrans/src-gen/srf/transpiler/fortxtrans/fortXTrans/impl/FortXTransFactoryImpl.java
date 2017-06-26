@@ -66,8 +66,8 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
     switch (eClass.getClassifierID())
     {
       case FortXTransPackage.MODEL: return createModel();
-      case FortXTransPackage.API: return createAPI();
       case FortXTransPackage.COMPONENT: return createComponent();
+      case FortXTransPackage.API: return createAPI();
       case FortXTransPackage.IMPORT: return createImport();
       case FortXTransPackage.EXPORT: return createExport();
       case FortXTransPackage.IMPORTED_NAMES: return createImportedNames();
@@ -76,6 +76,25 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.ALIASED_SIMPLE_NAME: return createAliasedSimpleName();
       case FortXTransPackage.ALIASED_API_NAMES: return createAliasedAPINames();
       case FortXTransPackage.ALIASED_API_NAME: return createAliasedAPIName();
+      case FortXTransPackage.DECLS: return createDecls();
+      case FortXTransPackage.DECL: return createDecl();
+      case FortXTransPackage.FN_DECL: return createFnDecl();
+      case FortXTransPackage.FN_MODS: return createFnMods();
+      case FortXTransPackage.FN_MOD: return createFnMod();
+      case FortXTransPackage.ABS_FN_MOD: return createAbsFnMod();
+      case FortXTransPackage.VAL_PARAM: return createValParam();
+      case FortXTransPackage.PARAM: return createParam();
+      case FortXTransPackage.IS_TYPE: return createIsType();
+      case FortXTransPackage.RET_TYPE: return createRetType();
+      case FortXTransPackage.TYPE: return createType();
+      case FortXTransPackage.EXPRESSION: return createExpression();
+      case FortXTransPackage.EXPR_TAIL: return createExprTail();
+      case FortXTransPackage.EXPR: return createExpr();
+      case FortXTransPackage.EXPR_FRONT: return createExprFront();
+      case FortXTransPackage.DELIMITED: return createDelimited();
+      case FortXTransPackage.PARANTHESIZED: return createParanthesized();
+      case FortXTransPackage.DO: return createDo();
+      case FortXTransPackage.BLOCK_ELEM: return createBlockELem();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -97,10 +116,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public API createAPI()
+  public Component createComponent()
   {
-    APIImpl api = new APIImpl();
-    return api;
+    ComponentImpl component = new ComponentImpl();
+    return component;
   }
 
   /**
@@ -108,10 +127,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Component createComponent()
+  public API createAPI()
   {
-    ComponentImpl component = new ComponentImpl();
-    return component;
+    APIImpl api = new APIImpl();
+    return api;
   }
 
   /**
@@ -200,6 +219,215 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     AliasedAPINameImpl aliasedAPIName = new AliasedAPINameImpl();
     return aliasedAPIName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Decls createDecls()
+  {
+    DeclsImpl decls = new DeclsImpl();
+    return decls;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Decl createDecl()
+  {
+    DeclImpl decl = new DeclImpl();
+    return decl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnDecl createFnDecl()
+  {
+    FnDeclImpl fnDecl = new FnDeclImpl();
+    return fnDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnMods createFnMods()
+  {
+    FnModsImpl fnMods = new FnModsImpl();
+    return fnMods;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnMod createFnMod()
+  {
+    FnModImpl fnMod = new FnModImpl();
+    return fnMod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbsFnMod createAbsFnMod()
+  {
+    AbsFnModImpl absFnMod = new AbsFnModImpl();
+    return absFnMod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ValParam createValParam()
+  {
+    ValParamImpl valParam = new ValParamImpl();
+    return valParam;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Param createParam()
+  {
+    ParamImpl param = new ParamImpl();
+    return param;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IsType createIsType()
+  {
+    IsTypeImpl isType = new IsTypeImpl();
+    return isType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RetType createRetType()
+  {
+    RetTypeImpl retType = new RetTypeImpl();
+    return retType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Type createType()
+  {
+    TypeImpl type = new TypeImpl();
+    return type;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprTail createExprTail()
+  {
+    ExprTailImpl exprTail = new ExprTailImpl();
+    return exprTail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expr createExpr()
+  {
+    ExprImpl expr = new ExprImpl();
+    return expr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprFront createExprFront()
+  {
+    ExprFrontImpl exprFront = new ExprFrontImpl();
+    return exprFront;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Delimited createDelimited()
+  {
+    DelimitedImpl delimited = new DelimitedImpl();
+    return delimited;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Paranthesized createParanthesized()
+  {
+    ParanthesizedImpl paranthesized = new ParanthesizedImpl();
+    return paranthesized;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Do createDo()
+  {
+    DoImpl do_ = new DoImpl();
+    return do_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockELem createBlockELem()
+  {
+    BlockELemImpl blockELem = new BlockELemImpl();
+    return blockELem;
   }
 
   /**

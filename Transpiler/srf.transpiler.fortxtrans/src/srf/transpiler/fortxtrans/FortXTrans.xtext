@@ -13,7 +13,7 @@ Component:
 ;
 
 API:
-	'api' name=ID (imports+=Import)* (absDecls+=AbsDecls)* 'end'
+	'api' name=ID (imports+=Import)* /*(absDecls+=AbsDecls)**/ 'end'
 ;
 
 
@@ -29,14 +29,20 @@ Export:
 ;
 
 ImportedNames:
-	impname=APIName '.' '{' '...' '}' (except?='except' simp=SimpleNames)?
-	|impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+= AliasedSimpleName)* (comma?=',' dots?='...')? '}'
+	impname=APIName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)?
+	|impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+= AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}'
 	|impname=APIName ('as' asname=ID)?
 ;
 
+QualifiedName:
+	ID DOTS
+	|ID ('.'ID)* DOTS
+	|ID ('.'ID)*
+;
+
 APIName:
-	ID'...'
-	|ID ('.'ID)* '...'
+	ID DOTS
+	|ID ('.'ID)* DOTS
 	|ID ('.'ID)*
 ;
 
@@ -62,34 +68,152 @@ AliasedAPIName:
 	orig=APIName ('as' asName=ID)?
 ;
 
-Decls: 
-	decls+=Decl+
+Decls:
+	(decls+=Decl)+
 ;
 
 Decl:
-	TraitDecl
-	| ObjectDecl
-//	| VarDecl
-//	| FnDecl
-//	| DimUnitDecl
-//	| TypeAlias
-//	| TestDecl
-//	| PropertyDecl
-//	| ExternalSyntax
+	function=FnDecl
+;
+
+FnDecl:
+	(mods=FnMods)? fnName=ID params=ValParam ':' return=RetType ('=' fnItself=Expression)?
+;
+
+FnMods:
+	(mods+=FnMod)+
+;
+
+FnMod:
+	absMod=AbsFnMod
+	|pri='private'
+;
+
+AbsFnMod:
+	local=LocalFnMod
+	|test='test'
+;
+
+LocalFnMod:
+	'atomic'
+	|'io'
+;
+
+ValParam:
+	bindID=BindId
+	 |brack='(' (params+=Param (',' params+=Param)*)? ')'
+;
+
+Param:
+	bId=BindId istype=IsType
+;
+
+BindId:
+	ID
+	|'_'
+;
+
+IsType:
+	':' type=Type
+;
+
+RetType:
+	'(' ')'{RetType}
+	|type=Type
+;
+
+Type:
+	tname=ID
+;
+
+Expression:
+	exp=Expr
+;
+
+Expr returns Expression:
+	ExprFront {Expr.front=current} (tails+=ExprTail)*
+;
+
+ExprFront returns Expression:
+	DelimitedExpr {ExprFront.delim=current}
+	|id=QualifiedName
+;
+
+ExprTail:
+	'as' Type
+;
+
+DelimitedExpr returns Expression:
+	Do
+	|Paranthesized {Delimited.par=current}
+;
+
+Paranthesized returns Expression:
+	'(' Expr {Paranthesized.expr=current} ')'
+;
+
+Do returns Expression:
+	DoFront {Do.dofs+=current} ('also' dofs+=DoFront)* "end"
+;
+
+DoFront returns Expression:
+	(atom='atomic')? 'do' block=BlockElem
+;
+
+BlockElem returns Expression:
+	Expr {BlockELem.expr=current}
 ;
 
 
-AbsDecls: 
-	absdecls+=AbsDecl+
+
+
+@Override 
+terminal ML_COMMENT:
+	'(*' -> '*)'
 ;
 
-AbsDecl:
-	AbsTraitDecl
-	| AbsObjectDecl
-//	| AbsVarDecl
-//	| AbsFnDecl
-//	| DimUnitDecl
-//	| TypeAlias
-//	| PropertyDecl
-//	| AbsExternalSyntax
+terminal GREATERS:
+	'>' (SD '>')*
 ;
+
+terminal LESSES:
+	'<' (SD '<')*
+;
+
+terminal BARS:
+	'|' (SD '|')*
+;
+
+terminal SLASHES:
+	 "/" (SD "/")*
+;
+
+terminal SD:
+	('.'|'*')?
+;
+
+terminal LEFT_ENCLOSER:
+	'(' ('/'+ | '\\'+)
+	|'[/\\/\\/' | '[/\\/'
+	|'[' (SD SLASHES)
+	|LESSES SD (SLASHES |BARS)
+	|BARS SD SLASHES
+	|('{*' | '[*')
+	|('((>' | '(<')
+; 
+
+terminal RIGHT_ENCLOSER:
+	'/'+ ')'
+	|'\\'+ ')'
+	|SLASHES SD (GREATERS | BARS | ('\\'|']'))
+	|BARS SD GREATERS
+	|('*]' | '*}')
+	|"]"
+	|(">)" | "<))")
+	| "/\\/\\/]" | "/\\/]"
+;
+
+terminal DOTS:
+	'...'
+;
+

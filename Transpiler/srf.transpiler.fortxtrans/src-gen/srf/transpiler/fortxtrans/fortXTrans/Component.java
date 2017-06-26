@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Component#getExports <em>Exports</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Component#getDecls <em>Decls</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getComponent()
@@ -38,5 +39,21 @@ public interface Component extends Model
    * @generated
    */
   EList<Export> getExports();
+
+  /**
+   * Returns the value of the '<em><b>Decls</b></em>' containment reference list.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Decls}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Decls</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Decls</em>' containment reference list.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getComponent_Decls()
+   * @model containment="true"
+   * @generated
+   */
+  EList<Decls> getDecls();
 
 } // Component

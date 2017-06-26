@@ -33,15 +33,6 @@ public interface FortXTransFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>API</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>API</em>'.
-   * @generated
-   */
-  API createAPI();
-
-  /**
    * Returns a new object of class '<em>Component</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -49,6 +40,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   Component createComponent();
+
+  /**
+   * Returns a new object of class '<em>API</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>API</em>'.
+   * @generated
+   */
+  API createAPI();
 
   /**
    * Returns a new object of class '<em>Import</em>'.
@@ -121,6 +121,177 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   AliasedAPIName createAliasedAPIName();
+
+  /**
+   * Returns a new object of class '<em>Decls</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Decls</em>'.
+   * @generated
+   */
+  Decls createDecls();
+
+  /**
+   * Returns a new object of class '<em>Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Decl</em>'.
+   * @generated
+   */
+  Decl createDecl();
+
+  /**
+   * Returns a new object of class '<em>Fn Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Decl</em>'.
+   * @generated
+   */
+  FnDecl createFnDecl();
+
+  /**
+   * Returns a new object of class '<em>Fn Mods</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Mods</em>'.
+   * @generated
+   */
+  FnMods createFnMods();
+
+  /**
+   * Returns a new object of class '<em>Fn Mod</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Mod</em>'.
+   * @generated
+   */
+  FnMod createFnMod();
+
+  /**
+   * Returns a new object of class '<em>Abs Fn Mod</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abs Fn Mod</em>'.
+   * @generated
+   */
+  AbsFnMod createAbsFnMod();
+
+  /**
+   * Returns a new object of class '<em>Val Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Val Param</em>'.
+   * @generated
+   */
+  ValParam createValParam();
+
+  /**
+   * Returns a new object of class '<em>Param</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Param</em>'.
+   * @generated
+   */
+  Param createParam();
+
+  /**
+   * Returns a new object of class '<em>Is Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Is Type</em>'.
+   * @generated
+   */
+  IsType createIsType();
+
+  /**
+   * Returns a new object of class '<em>Ret Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Ret Type</em>'.
+   * @generated
+   */
+  RetType createRetType();
+
+  /**
+   * Returns a new object of class '<em>Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type</em>'.
+   * @generated
+   */
+  Type createType();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Expr Tail</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Tail</em>'.
+   * @generated
+   */
+  ExprTail createExprTail();
+
+  /**
+   * Returns a new object of class '<em>Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr</em>'.
+   * @generated
+   */
+  Expr createExpr();
+
+  /**
+   * Returns a new object of class '<em>Expr Front</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr Front</em>'.
+   * @generated
+   */
+  ExprFront createExprFront();
+
+  /**
+   * Returns a new object of class '<em>Delimited</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delimited</em>'.
+   * @generated
+   */
+  Delimited createDelimited();
+
+  /**
+   * Returns a new object of class '<em>Paranthesized</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Paranthesized</em>'.
+   * @generated
+   */
+  Paranthesized createParanthesized();
+
+  /**
+   * Returns a new object of class '<em>Do</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Do</em>'.
+   * @generated
+   */
+  Do createDo();
+
+  /**
+   * Returns a new object of class '<em>Block ELem</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block ELem</em>'.
+   * @generated
+   */
+  BlockELem createBlockELem();
 
   /**
    * Returns the package supported by this factory.
