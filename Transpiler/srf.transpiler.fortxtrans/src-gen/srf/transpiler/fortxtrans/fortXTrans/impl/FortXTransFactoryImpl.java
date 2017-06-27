@@ -78,22 +78,31 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.ALIASED_API_NAME: return createAliasedAPIName();
       case FortXTransPackage.DECLS: return createDecls();
       case FortXTransPackage.DECL: return createDecl();
-      case FortXTransPackage.FN_DECL: return createFnDecl();
       case FortXTransPackage.FN_MODS: return createFnMods();
       case FortXTransPackage.FN_MOD: return createFnMod();
       case FortXTransPackage.VAL_PARAM: return createValParam();
       case FortXTransPackage.PARAM: return createParam();
-      case FortXTransPackage.IS_TYPE: return createIsType();
       case FortXTransPackage.RET_TYPE: return createRetType();
       case FortXTransPackage.TYPE: return createType();
+      case FortXTransPackage.FN_DECL: return createFnDecl();
       case FortXTransPackage.EXPRESSION: return createExpression();
-      case FortXTransPackage.EXPR_TAIL: return createExprTail();
       case FortXTransPackage.EXPR: return createExpr();
       case FortXTransPackage.EXPR_FRONT: return createExprFront();
-      case FortXTransPackage.DELIMITED: return createDelimited();
-      case FortXTransPackage.PARANTHESIZED: return createParanthesized();
+      case FortXTransPackage.EXPR_TAIL: return createExprTail();
+      case FortXTransPackage.DELIMITED_EXPR: return createDelimitedExpr();
+      case FortXTransPackage.ELIFS: return createElifs();
+      case FortXTransPackage.ELIF: return createElif();
+      case FortXTransPackage.ELSE: return createElse();
+      case FortXTransPackage.GENERATORS: return createGenerators();
+      case FortXTransPackage.BINDING: return createBinding();
+      case FortXTransPackage.GEN_CLAUSE: return createGenClause();
       case FortXTransPackage.DO: return createDo();
+      case FortXTransPackage.DO_FRONT: return createDoFront();
+      case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
+      case FortXTransPackage.IS_TYPE: return createIsType();
+      case FortXTransPackage.BLOCK_ELEMS: return createBlockElems();
       case FortXTransPackage.BLOCK_ELEM: return createBlockELem();
+      case FortXTransPackage.PARANTHESIZED: return createParanthesized();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -247,17 +256,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public FnDecl createFnDecl()
-  {
-    FnDeclImpl fnDecl = new FnDeclImpl();
-    return fnDecl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public FnMods createFnMods()
   {
     FnModsImpl fnMods = new FnModsImpl();
@@ -302,17 +300,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public IsType createIsType()
-  {
-    IsTypeImpl isType = new IsTypeImpl();
-    return isType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public RetType createRetType()
   {
     RetTypeImpl retType = new RetTypeImpl();
@@ -335,10 +322,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression createExpression()
+  public FnDecl createFnDecl()
   {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
+    FnDeclImpl fnDecl = new FnDeclImpl();
+    return fnDecl;
   }
 
   /**
@@ -346,10 +333,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprTail createExprTail()
+  public Expression createExpression()
   {
-    ExprTailImpl exprTail = new ExprTailImpl();
-    return exprTail;
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
   }
 
   /**
@@ -379,10 +366,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Delimited createDelimited()
+  public ExprTail createExprTail()
   {
-    DelimitedImpl delimited = new DelimitedImpl();
-    return delimited;
+    ExprTailImpl exprTail = new ExprTailImpl();
+    return exprTail;
   }
 
   /**
@@ -390,10 +377,76 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Paranthesized createParanthesized()
+  public DelimitedExpr createDelimitedExpr()
   {
-    ParanthesizedImpl paranthesized = new ParanthesizedImpl();
-    return paranthesized;
+    DelimitedExprImpl delimitedExpr = new DelimitedExprImpl();
+    return delimitedExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Elifs createElifs()
+  {
+    ElifsImpl elifs = new ElifsImpl();
+    return elifs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Elif createElif()
+  {
+    ElifImpl elif = new ElifImpl();
+    return elif;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Else createElse()
+  {
+    ElseImpl else_ = new ElseImpl();
+    return else_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Generators createGenerators()
+  {
+    GeneratorsImpl generators = new GeneratorsImpl();
+    return generators;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Binding createBinding()
+  {
+    BindingImpl binding = new BindingImpl();
+    return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GenClause createGenClause()
+  {
+    GenClauseImpl genClause = new GenClauseImpl();
+    return genClause;
   }
 
   /**
@@ -412,10 +465,65 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public DoFront createDoFront()
+  {
+    DoFrontImpl doFront = new DoFrontImpl();
+    return doFront;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IdOrTuple createIdOrTuple()
+  {
+    IdOrTupleImpl idOrTuple = new IdOrTupleImpl();
+    return idOrTuple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IsType createIsType()
+  {
+    IsTypeImpl isType = new IsTypeImpl();
+    return isType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockElems createBlockElems()
+  {
+    BlockElemsImpl blockElems = new BlockElemsImpl();
+    return blockElems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public BlockELem createBlockELem()
   {
     BlockELemImpl blockELem = new BlockELemImpl();
     return blockELem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Paranthesized createParanthesized()
+  {
+    ParanthesizedImpl paranthesized = new ParanthesizedImpl();
+    return paranthesized;
   }
 
   /**

@@ -141,15 +141,6 @@ public interface FortXTransFactory extends EFactory
   Decl createDecl();
 
   /**
-   * Returns a new object of class '<em>Fn Decl</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fn Decl</em>'.
-   * @generated
-   */
-  FnDecl createFnDecl();
-
-  /**
    * Returns a new object of class '<em>Fn Mods</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -186,15 +177,6 @@ public interface FortXTransFactory extends EFactory
   Param createParam();
 
   /**
-   * Returns a new object of class '<em>Is Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Is Type</em>'.
-   * @generated
-   */
-  IsType createIsType();
-
-  /**
    * Returns a new object of class '<em>Ret Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -213,6 +195,15 @@ public interface FortXTransFactory extends EFactory
   Type createType();
 
   /**
+   * Returns a new object of class '<em>Fn Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Decl</em>'.
+   * @generated
+   */
+  FnDecl createFnDecl();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,15 +211,6 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Expr Tail</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr Tail</em>'.
-   * @generated
-   */
-  ExprTail createExprTail();
 
   /**
    * Returns a new object of class '<em>Expr</em>'.
@@ -249,22 +231,76 @@ public interface FortXTransFactory extends EFactory
   ExprFront createExprFront();
 
   /**
-   * Returns a new object of class '<em>Delimited</em>'.
+   * Returns a new object of class '<em>Expr Tail</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Delimited</em>'.
+   * @return a new object of class '<em>Expr Tail</em>'.
    * @generated
    */
-  Delimited createDelimited();
+  ExprTail createExprTail();
 
   /**
-   * Returns a new object of class '<em>Paranthesized</em>'.
+   * Returns a new object of class '<em>Delimited Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Paranthesized</em>'.
+   * @return a new object of class '<em>Delimited Expr</em>'.
    * @generated
    */
-  Paranthesized createParanthesized();
+  DelimitedExpr createDelimitedExpr();
+
+  /**
+   * Returns a new object of class '<em>Elifs</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Elifs</em>'.
+   * @generated
+   */
+  Elifs createElifs();
+
+  /**
+   * Returns a new object of class '<em>Elif</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Elif</em>'.
+   * @generated
+   */
+  Elif createElif();
+
+  /**
+   * Returns a new object of class '<em>Else</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Else</em>'.
+   * @generated
+   */
+  Else createElse();
+
+  /**
+   * Returns a new object of class '<em>Generators</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Generators</em>'.
+   * @generated
+   */
+  Generators createGenerators();
+
+  /**
+   * Returns a new object of class '<em>Binding</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Binding</em>'.
+   * @generated
+   */
+  Binding createBinding();
+
+  /**
+   * Returns a new object of class '<em>Gen Clause</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gen Clause</em>'.
+   * @generated
+   */
+  GenClause createGenClause();
 
   /**
    * Returns a new object of class '<em>Do</em>'.
@@ -276,6 +312,42 @@ public interface FortXTransFactory extends EFactory
   Do createDo();
 
   /**
+   * Returns a new object of class '<em>Do Front</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Do Front</em>'.
+   * @generated
+   */
+  DoFront createDoFront();
+
+  /**
+   * Returns a new object of class '<em>Id Or Tuple</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Id Or Tuple</em>'.
+   * @generated
+   */
+  IdOrTuple createIdOrTuple();
+
+  /**
+   * Returns a new object of class '<em>Is Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Is Type</em>'.
+   * @generated
+   */
+  IsType createIsType();
+
+  /**
+   * Returns a new object of class '<em>Block Elems</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block Elems</em>'.
+   * @generated
+   */
+  BlockElems createBlockElems();
+
+  /**
    * Returns a new object of class '<em>Block ELem</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -283,6 +355,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   BlockELem createBlockELem();
+
+  /**
+   * Returns a new object of class '<em>Paranthesized</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Paranthesized</em>'.
+   * @generated
+   */
+  Paranthesized createParanthesized();
 
   /**
    * Returns the package supported by this factory.

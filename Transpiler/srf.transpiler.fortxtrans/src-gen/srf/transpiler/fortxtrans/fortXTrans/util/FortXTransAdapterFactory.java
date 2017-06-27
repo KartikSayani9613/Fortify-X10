@@ -141,11 +141,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createDeclAdapter();
       }
       @Override
-      public Adapter caseFnDecl(FnDecl object)
-      {
-        return createFnDeclAdapter();
-      }
-      @Override
       public Adapter caseFnMods(FnMods object)
       {
         return createFnModsAdapter();
@@ -166,11 +161,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createParamAdapter();
       }
       @Override
-      public Adapter caseIsType(IsType object)
-      {
-        return createIsTypeAdapter();
-      }
-      @Override
       public Adapter caseRetType(RetType object)
       {
         return createRetTypeAdapter();
@@ -181,14 +171,14 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createTypeAdapter();
       }
       @Override
+      public Adapter caseFnDecl(FnDecl object)
+      {
+        return createFnDeclAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
-      }
-      @Override
-      public Adapter caseExprTail(ExprTail object)
-      {
-        return createExprTailAdapter();
       }
       @Override
       public Adapter caseExpr(Expr object)
@@ -201,14 +191,44 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createExprFrontAdapter();
       }
       @Override
-      public Adapter caseDelimited(Delimited object)
+      public Adapter caseExprTail(ExprTail object)
       {
-        return createDelimitedAdapter();
+        return createExprTailAdapter();
       }
       @Override
-      public Adapter caseParanthesized(Paranthesized object)
+      public Adapter caseDelimitedExpr(DelimitedExpr object)
       {
-        return createParanthesizedAdapter();
+        return createDelimitedExprAdapter();
+      }
+      @Override
+      public Adapter caseElifs(Elifs object)
+      {
+        return createElifsAdapter();
+      }
+      @Override
+      public Adapter caseElif(Elif object)
+      {
+        return createElifAdapter();
+      }
+      @Override
+      public Adapter caseElse(Else object)
+      {
+        return createElseAdapter();
+      }
+      @Override
+      public Adapter caseGenerators(Generators object)
+      {
+        return createGeneratorsAdapter();
+      }
+      @Override
+      public Adapter caseBinding(Binding object)
+      {
+        return createBindingAdapter();
+      }
+      @Override
+      public Adapter caseGenClause(GenClause object)
+      {
+        return createGenClauseAdapter();
       }
       @Override
       public Adapter caseDo(Do object)
@@ -216,9 +236,34 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createDoAdapter();
       }
       @Override
+      public Adapter caseDoFront(DoFront object)
+      {
+        return createDoFrontAdapter();
+      }
+      @Override
+      public Adapter caseIdOrTuple(IdOrTuple object)
+      {
+        return createIdOrTupleAdapter();
+      }
+      @Override
+      public Adapter caseIsType(IsType object)
+      {
+        return createIsTypeAdapter();
+      }
+      @Override
+      public Adapter caseBlockElems(BlockElems object)
+      {
+        return createBlockElemsAdapter();
+      }
+      @Override
       public Adapter caseBlockELem(BlockELem object)
       {
         return createBlockELemAdapter();
+      }
+      @Override
+      public Adapter caseParanthesized(Paranthesized object)
+      {
+        return createParanthesizedAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -438,21 +483,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl <em>Fn Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl
-   * @generated
-   */
-  public Adapter createFnDeclAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods <em>Fn Mods</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -513,21 +543,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.IsType
-   * @generated
-   */
-  public Adapter createIsTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.RetType <em>Ret Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -558,6 +573,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl <em>Fn Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl
+   * @generated
+   */
+  public Adapter createFnDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -568,21 +598,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprTail <em>Expr Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.ExprTail
-   * @generated
-   */
-  public Adapter createExprTailAdapter()
   {
     return null;
   }
@@ -618,31 +633,121 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Delimited <em>Delimited</em>}'.
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprTail <em>Expr Tail</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Delimited
+   * @see srf.transpiler.fortxtrans.fortXTrans.ExprTail
    * @generated
    */
-  public Adapter createDelimitedAdapter()
+  public Adapter createExprTailAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized <em>Paranthesized</em>}'.
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr <em>Delimited Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
    * @generated
    */
-  public Adapter createParanthesizedAdapter()
+  public Adapter createDelimitedExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Elifs <em>Elifs</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elifs
+   * @generated
+   */
+  public Adapter createElifsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Elif <em>Elif</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elif
+   * @generated
+   */
+  public Adapter createElifAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Else <em>Else</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Else
+   * @generated
+   */
+  public Adapter createElseAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Generators <em>Generators</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Generators
+   * @generated
+   */
+  public Adapter createGeneratorsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Binding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Binding
+   * @generated
+   */
+  public Adapter createBindingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.GenClause <em>Gen Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.GenClause
+   * @generated
+   */
+  public Adapter createGenClauseAdapter()
   {
     return null;
   }
@@ -663,6 +768,66 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.DoFront <em>Do Front</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DoFront
+   * @generated
+   */
+  public Adapter createDoFrontAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.IdOrTuple <em>Id Or Tuple</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.IdOrTuple
+   * @generated
+   */
+  public Adapter createIdOrTupleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.IsType
+   * @generated
+   */
+  public Adapter createIsTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems <em>Block Elems</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElems
+   * @generated
+   */
+  public Adapter createBlockElemsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockELem <em>Block ELem</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -673,6 +838,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBlockELemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized <em>Paranthesized</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized
+   * @generated
+   */
+  public Adapter createParanthesizedAdapter()
   {
     return null;
   }

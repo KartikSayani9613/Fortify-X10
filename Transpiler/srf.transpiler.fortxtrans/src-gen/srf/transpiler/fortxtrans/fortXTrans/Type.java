@@ -3,6 +3,7 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,7 +21,7 @@ package srf.transpiler.fortxtrans.fortXTrans;
  * @model
  * @generated
  */
-public interface Type extends ExprTail
+public interface Type extends EObject
 {
   /**
    * Returns the value of the '<em><b>Tname</b></em>' attribute.

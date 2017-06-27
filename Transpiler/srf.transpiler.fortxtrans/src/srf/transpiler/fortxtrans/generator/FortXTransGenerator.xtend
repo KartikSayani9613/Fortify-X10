@@ -16,6 +16,9 @@ import srf.transpiler.fortxtrans.fortXTrans.Decls
 import srf.transpiler.fortxtrans.fortXTrans.Decl
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl
 import srf.transpiler.fortxtrans.fortXTrans.ValParam
+import srf.transpiler.fortxtrans.fortXTrans.Expression
+import srf.transpiler.fortxtrans.fortXTrans.Expr
+import srf.transpiler.fortxtrans.fortXTrans.ExprFront
 
 /**
  * Generates code from your model files on save.
@@ -152,11 +155,15 @@ class FortXTransGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(FnDecl f)'''
-		«IF f.mods!==null
+		«IF f.name=='run'»
+		public static def main(args:Rail[String])«
+		ELSE
+		»«IF f.mods!==null
 			»«FOR mod:f.mods.mods
 				»«mod.modtype
 			»«ENDFOR
-		»«ENDIF» static def «f.name»(«IF f.params!==null»«f.params.compile»«ENDIF»):«
+		»«ENDIF» static def «f.name»(«IF f.params!==null»«f.params.compile»«ENDIF»)«
+		IF f.retVal!==null»:«
 			IF f.retVal.empty=='('
 				»void«
 			ELSE
@@ -175,17 +182,31 @@ class FortXTransGenerator extends AbstractGenerator {
 								IF f.retVal.type.tname=="String"
 									»String«
 								ELSE»«
-									f.retVal.type.tname»«
-									f.retVal.type.tname									
+									f.retVal.type.tname
 								»«ENDIF
 							»«ENDIF
 						»«ENDIF
 					»«ENDIF
 				»«ENDIF
-			»«ENDIF»{
-			
+			»«ENDIF
+		»«ENDIF
+		»«ENDIF»{	
+		«IF f.body
+			»«f.fnItself.compile»
+		«ENDIF»
 		}
 		'''
+	
+	def compile(Expression e)'''«e.exp.compile»'''
+	
+	
+	def compile(Expr e)'''
+	«e.front.compile» 
+	'''
+	
+	def compile(ExprFront ef)'''
+	'''
+	
 	
 	def compile(ValParam p)
 	'''«IF p.params.length==0

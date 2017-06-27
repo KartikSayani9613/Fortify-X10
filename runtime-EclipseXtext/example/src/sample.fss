@@ -1,8 +1,9 @@
 component sample
-export Executable
+import something
+export somethingelse
 
-f(x:ZZ64):ZZ64 = do
-	name
+run():() = do
+
 end
 
 end

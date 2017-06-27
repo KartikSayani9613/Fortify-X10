@@ -10,42 +10,43 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.Delimited;
+import srf.transpiler.fortxtrans.fortXTrans.Else;
 import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Delimited</b></em>'.
+ * An implementation of the model object '<em><b>Else</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedImpl#getPar <em>Par</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElseImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DelimitedImpl extends ExpressionImpl implements Delimited
+public class ElseImpl extends MinimalEObjectImpl.Container implements Else
 {
   /**
-   * The cached value of the '{@link #getPar() <em>Par</em>}' containment reference.
+   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getPar()
+   * @see #getBlock()
    * @generated
    * @ordered
    */
-  protected Expression par;
+  protected Expression block;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DelimitedImpl()
+  protected ElseImpl()
   {
     super();
   }
@@ -58,7 +59,7 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.DELIMITED;
+    return FortXTransPackage.Literals.ELSE;
   }
 
   /**
@@ -66,9 +67,9 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getPar()
+  public Expression getBlock()
   {
-    return par;
+    return block;
   }
 
   /**
@@ -76,13 +77,13 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPar(Expression newPar, NotificationChain msgs)
+  public NotificationChain basicSetBlock(Expression newBlock, NotificationChain msgs)
   {
-    Expression oldPar = par;
-    par = newPar;
+    Expression oldBlock = block;
+    block = newBlock;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED__PAR, oldPar, newPar);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.ELSE__BLOCK, oldBlock, newBlock);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -93,20 +94,20 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPar(Expression newPar)
+  public void setBlock(Expression newBlock)
   {
-    if (newPar != par)
+    if (newBlock != block)
     {
       NotificationChain msgs = null;
-      if (par != null)
-        msgs = ((InternalEObject)par).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED__PAR, null, msgs);
-      if (newPar != null)
-        msgs = ((InternalEObject)newPar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED__PAR, null, msgs);
-      msgs = basicSetPar(newPar, msgs);
+      if (block != null)
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ELSE__BLOCK, null, msgs);
+      if (newBlock != null)
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ELSE__BLOCK, null, msgs);
+      msgs = basicSetBlock(newBlock, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED__PAR, newPar, newPar));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.ELSE__BLOCK, newBlock, newBlock));
   }
 
   /**
@@ -119,8 +120,8 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED__PAR:
-        return basicSetPar(null, msgs);
+      case FortXTransPackage.ELSE__BLOCK:
+        return basicSetBlock(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -135,8 +136,8 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED__PAR:
-        return getPar();
+      case FortXTransPackage.ELSE__BLOCK:
+        return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -151,8 +152,8 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED__PAR:
-        setPar((Expression)newValue);
+      case FortXTransPackage.ELSE__BLOCK:
+        setBlock((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,8 +169,8 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED__PAR:
-        setPar((Expression)null);
+      case FortXTransPackage.ELSE__BLOCK:
+        setBlock((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -185,10 +186,10 @@ public class DelimitedImpl extends ExpressionImpl implements Delimited
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED__PAR:
-        return par != null;
+      case FortXTransPackage.ELSE__BLOCK:
+        return block != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //DelimitedImpl
+} //ElseImpl

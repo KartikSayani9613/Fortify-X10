@@ -15,9 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getExp <em>Exp</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getId <em>Id</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getAtom <em>Atom</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpression()
@@ -35,12 +32,12 @@ public interface Expression extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Exp</em>' containment reference.
-   * @see #setExp(Expression)
+   * @see #setExp(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpression_Exp()
    * @model containment="true"
    * @generated
    */
-  Expression getExp();
+  Expr getExp();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getExp <em>Exp</em>}' containment reference.
@@ -50,84 +47,6 @@ public interface Expression extends EObject
    * @see #getExp()
    * @generated
    */
-  void setExp(Expression value);
-
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpression_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
-
-  /**
-   * Returns the value of the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Atom</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Atom</em>' attribute.
-   * @see #setAtom(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpression_Atom()
-   * @model
-   * @generated
-   */
-  String getAtom();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getAtom <em>Atom</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Atom</em>' attribute.
-   * @see #getAtom()
-   * @generated
-   */
-  void setAtom(String value);
-
-  /**
-   * Returns the value of the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Block</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(Expression)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpression_Block()
-   * @model containment="true"
-   * @generated
-   */
-  Expression getBlock();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getBlock <em>Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Block</em>' containment reference.
-   * @see #getBlock()
-   * @generated
-   */
-  void setBlock(Expression value);
+  void setExp(Expr value);
 
 } // Expression

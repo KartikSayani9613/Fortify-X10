@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName <em>Name</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getParams <em>Params</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal <em>Ret Val</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#isBody <em>Body</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself <em>Fn Itself</em>}</li>
  * </ul>
  *
@@ -130,6 +131,32 @@ public interface FnDecl extends EObject
    * @generated
    */
   void setRetVal(RetType value);
+
+  /**
+   * Returns the value of the '<em><b>Body</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Body</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Body</em>' attribute.
+   * @see #setBody(boolean)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnDecl_Body()
+   * @model
+   * @generated
+   */
+  boolean isBody();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#isBody <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Body</em>' attribute.
+   * @see #isBody()
+   * @generated
+   */
+  void setBody(boolean value);
 
   /**
    * Returns the value of the '<em><b>Fn Itself</b></em>' containment reference.

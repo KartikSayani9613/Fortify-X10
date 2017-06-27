@@ -74,11 +74,12 @@ Decls:
 
 Decl:
 	function=FnDecl
+//	|var=VarDecl
+//	|object=ObjDecl
+//	|trait=TraitDecl
 ;
 
-FnDecl:
-	(mods=FnMods)? name=ID params=ValParam ':'? (retVal=RetType)? ('=' fnItself=Expression)?
-;
+
 
 FnMods:
 	(mods+=FnMod)+
@@ -101,6 +102,97 @@ Param:
 	bId=BindId istype=IsType
 ;
 
+RetType:
+	':' empty='(' ')'
+	|':' type=Type
+;
+
+Type:
+	tname=ID
+;
+
+
+
+FnDecl:
+	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Expression)?
+;
+
+Expression:
+	exp=Expr
+;
+
+Expr:
+	front=ExprFront (tails+=ExprTail)*
+;
+
+ExprFront:
+	delim=DelimitedExpr
+	|id=QualifiedName
+;
+
+ExprTail:
+	'as' type=Type
+;
+
+DelimitedExpr :
+	do=Do
+	|'while' expr=Expr do=Do
+	|'for' gen=Generators doront=DoFront 'end'
+	|'if' expr=Expr 'then' block=BlockElems (elifs=Elifs)? (else=Else)? 'end'
+	|par=Paranthesized
+;
+
+Elifs:
+	e+=Elif (e+=Elif)*
+;
+
+Elif:
+	'elif' expr=Expr 'then' block=BlockElems
+;
+
+Else:
+	'else' block=BlockElems
+;
+
+Generators:
+	binding=Binding (',' clause+=GenClause)*
+;
+
+Binding:
+	idtup=IdOrTuple '<-' expr=Expr
+;
+
+GenClause:
+	binding=Binding
+	|expr=Expr
+;
+
+BlockElems returns Expression:
+	BlockElem {BlockElems.block=current} (moreBlocks+=BlockElem)*
+;
+
+BlockElem returns Expression:
+	Expr {BlockELem.expr=current}
+;
+
+Paranthesized returns Expression:
+	'(' Expr {Paranthesized.expr=current} ')'
+;
+
+Do:
+	dofs+=DoFront('also' dofs+=DoFront)* "end"
+;
+
+DoFront:
+	(at='at')? (atom='atomic')? 'do' block=BlockElems
+;
+
+
+IdOrTuple:
+	bid+=BindId
+	|'(' bid+=BindId (',' bid+=BindId)* ')'	
+;
+
 BindId:
 	ID
 	|'_'
@@ -109,56 +201,6 @@ BindId:
 IsType:
 	':' type=Type
 ;
-
-RetType:
-	empty='(' ')'
-	|type=Type
-;
-
-Type:
-	tname=ID
-;
-
-Expression:
-	exp=Expr
-;
-
-Expr returns Expression:
-	ExprFront {Expr.front=current} (tails+=ExprTail)*
-;
-
-ExprFront returns Expression:
-	DelimitedExpr {ExprFront.delim=current}
-	|id=QualifiedName
-;
-
-ExprTail:
-	'as' Type
-;
-
-DelimitedExpr returns Expression:
-	Do
-	|Paranthesized {Delimited.par=current}
-;
-
-Paranthesized returns Expression:
-	'(' Expr {Paranthesized.expr=current} ')'
-;
-
-Do returns Expression:
-	DoFront {Do.dofs+=current} ('also' dofs+=DoFront)* "end"
-;
-
-DoFront returns Expression:
-	(atom='atomic')? 'do' block=BlockElem
-;
-
-BlockElem returns Expression:
-	Expr {BlockELem.expr=current}
-;
-
-
-
 
 @Override 
 terminal ML_COMMENT:

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
@@ -24,9 +25,6 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpressionImpl#getExp <em>Exp</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpressionImpl#getId <em>Id</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpressionImpl#getAtom <em>Atom</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpressionImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,57 +39,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * @generated
    * @ordered
    */
-  protected Expression exp;
-
-  /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected static final String ID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getId()
-   * @generated
-   * @ordered
-   */
-  protected String id = ID_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getAtom() <em>Atom</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAtom()
-   * @generated
-   * @ordered
-   */
-  protected static final String ATOM_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getAtom() <em>Atom</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAtom()
-   * @generated
-   * @ordered
-   */
-  protected String atom = ATOM_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBlock()
-   * @generated
-   * @ordered
-   */
-  protected Expression block;
+  protected Expr exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -119,7 +67,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExp()
+  public Expr getExp()
   {
     return exp;
   }
@@ -129,9 +77,9 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExp(Expression newExp, NotificationChain msgs)
+  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
   {
-    Expression oldExp = exp;
+    Expr oldExp = exp;
     exp = newExp;
     if (eNotificationRequired())
     {
@@ -146,7 +94,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExp(Expression newExp)
+  public void setExp(Expr newExp)
   {
     if (newExp != exp)
     {
@@ -167,100 +115,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
-  {
-    return id;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setId(String newId)
-  {
-    String oldId = id;
-    id = newId;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPRESSION__ID, oldId, id));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getAtom()
-  {
-    return atom;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setAtom(String newAtom)
-  {
-    String oldAtom = atom;
-    atom = newAtom;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPRESSION__ATOM, oldAtom, atom));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression getBlock()
-  {
-    return block;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBlock(Expression newBlock, NotificationChain msgs)
-  {
-    Expression oldBlock = block;
-    block = newBlock;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPRESSION__BLOCK, oldBlock, newBlock);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBlock(Expression newBlock)
-  {
-    if (newBlock != block)
-    {
-      NotificationChain msgs = null;
-      if (block != null)
-        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPRESSION__BLOCK, null, msgs);
-      if (newBlock != null)
-        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPRESSION__BLOCK, null, msgs);
-      msgs = basicSetBlock(newBlock, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPRESSION__BLOCK, newBlock, newBlock));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -268,8 +122,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case FortXTransPackage.EXPRESSION__EXP:
         return basicSetExp(null, msgs);
-      case FortXTransPackage.EXPRESSION__BLOCK:
-        return basicSetBlock(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -286,12 +138,6 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case FortXTransPackage.EXPRESSION__EXP:
         return getExp();
-      case FortXTransPackage.EXPRESSION__ID:
-        return getId();
-      case FortXTransPackage.EXPRESSION__ATOM:
-        return getAtom();
-      case FortXTransPackage.EXPRESSION__BLOCK:
-        return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -307,16 +153,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     switch (featureID)
     {
       case FortXTransPackage.EXPRESSION__EXP:
-        setExp((Expression)newValue);
-        return;
-      case FortXTransPackage.EXPRESSION__ID:
-        setId((String)newValue);
-        return;
-      case FortXTransPackage.EXPRESSION__ATOM:
-        setAtom((String)newValue);
-        return;
-      case FortXTransPackage.EXPRESSION__BLOCK:
-        setBlock((Expression)newValue);
+        setExp((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -333,16 +170,7 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     switch (featureID)
     {
       case FortXTransPackage.EXPRESSION__EXP:
-        setExp((Expression)null);
-        return;
-      case FortXTransPackage.EXPRESSION__ID:
-        setId(ID_EDEFAULT);
-        return;
-      case FortXTransPackage.EXPRESSION__ATOM:
-        setAtom(ATOM_EDEFAULT);
-        return;
-      case FortXTransPackage.EXPRESSION__BLOCK:
-        setBlock((Expression)null);
+        setExp((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -360,33 +188,8 @@ public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expr
     {
       case FortXTransPackage.EXPRESSION__EXP:
         return exp != null;
-      case FortXTransPackage.EXPRESSION__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
-      case FortXTransPackage.EXPRESSION__ATOM:
-        return ATOM_EDEFAULT == null ? atom != null : !ATOM_EDEFAULT.equals(atom);
-      case FortXTransPackage.EXPRESSION__BLOCK:
-        return block != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
-    result.append(", atom: ");
-    result.append(atom);
-    result.append(')');
-    return result.toString();
   }
 
 } //ExpressionImpl

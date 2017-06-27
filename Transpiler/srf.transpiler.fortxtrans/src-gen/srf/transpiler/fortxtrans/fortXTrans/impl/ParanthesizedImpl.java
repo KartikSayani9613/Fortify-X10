@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.Paranthesized;
 
@@ -38,7 +38,7 @@ public class ParanthesizedImpl extends ExpressionImpl implements Paranthesized
    * @generated
    * @ordered
    */
-  protected Expression expr;
+  protected Expr expr;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +66,7 @@ public class ParanthesizedImpl extends ExpressionImpl implements Paranthesized
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getExpr()
+  public Expr getExpr()
   {
     return expr;
   }
@@ -76,9 +76,9 @@ public class ParanthesizedImpl extends ExpressionImpl implements Paranthesized
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expression newExpr, NotificationChain msgs)
+  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
   {
-    Expression oldExpr = expr;
+    Expr oldExpr = expr;
     expr = newExpr;
     if (eNotificationRequired())
     {
@@ -93,7 +93,7 @@ public class ParanthesizedImpl extends ExpressionImpl implements Paranthesized
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expression newExpr)
+  public void setExpr(Expr newExpr)
   {
     if (newExpr != expr)
     {
@@ -152,7 +152,7 @@ public class ParanthesizedImpl extends ExpressionImpl implements Paranthesized
     switch (featureID)
     {
       case FortXTransPackage.PARANTHESIZED__EXPR:
-        setExpr((Expression)newValue);
+        setExpr((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +169,7 @@ public class ParanthesizedImpl extends ExpressionImpl implements Paranthesized
     switch (featureID)
     {
       case FortXTransPackage.PARANTHESIZED__EXPR:
-        setExpr((Expression)null);
+        setExpr((Expr)null);
         return;
     }
     super.eUnset(featureID);

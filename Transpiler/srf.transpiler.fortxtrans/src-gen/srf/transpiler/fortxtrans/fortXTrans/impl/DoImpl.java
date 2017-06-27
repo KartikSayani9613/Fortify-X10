@@ -12,11 +12,13 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.Do;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
+import srf.transpiler.fortxtrans.fortXTrans.DoFront;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
@@ -32,7 +34,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  *
  * @generated
  */
-public class DoImpl extends ExpressionImpl implements Do
+public class DoImpl extends MinimalEObjectImpl.Container implements Do
 {
   /**
    * The cached value of the '{@link #getDofs() <em>Dofs</em>}' containment reference list.
@@ -42,7 +44,7 @@ public class DoImpl extends ExpressionImpl implements Do
    * @generated
    * @ordered
    */
-  protected EList<Expression> dofs;
+  protected EList<DoFront> dofs;
 
   /**
    * <!-- begin-user-doc -->
@@ -70,11 +72,11 @@ public class DoImpl extends ExpressionImpl implements Do
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getDofs()
+  public EList<DoFront> getDofs()
   {
     if (dofs == null)
     {
-      dofs = new EObjectContainmentEList<Expression>(Expression.class, this, FortXTransPackage.DO__DOFS);
+      dofs = new EObjectContainmentEList<DoFront>(DoFront.class, this, FortXTransPackage.DO__DOFS);
     }
     return dofs;
   }
@@ -124,7 +126,7 @@ public class DoImpl extends ExpressionImpl implements Do
     {
       case FortXTransPackage.DO__DOFS:
         getDofs().clear();
-        getDofs().addAll((Collection<? extends Expression>)newValue);
+        getDofs().addAll((Collection<? extends DoFront>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

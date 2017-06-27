@@ -3,6 +3,7 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,13 +15,14 @@ package srf.transpiler.fortxtrans.fortXTrans;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront()
  * @model
  * @generated
  */
-public interface ExprFront extends Expression
+public interface ExprFront extends EObject
 {
   /**
    * Returns the value of the '<em><b>Delim</b></em>' containment reference.
@@ -31,12 +33,12 @@ public interface ExprFront extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Delim</em>' containment reference.
-   * @see #setDelim(Expression)
+   * @see #setDelim(DelimitedExpr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront_Delim()
    * @model containment="true"
    * @generated
    */
-  Expression getDelim();
+  DelimitedExpr getDelim();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getDelim <em>Delim</em>}' containment reference.
@@ -46,6 +48,32 @@ public interface ExprFront extends Expression
    * @see #getDelim()
    * @generated
    */
-  void setDelim(Expression value);
+  void setDelim(DelimitedExpr value);
+
+  /**
+   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Id</em>' attribute.
+   * @see #setId(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront_Id()
+   * @model
+   * @generated
+   */
+  String getId();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getId <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Id</em>' attribute.
+   * @see #getId()
+   * @generated
+   */
+  void setId(String value);
 
 } // ExprFront

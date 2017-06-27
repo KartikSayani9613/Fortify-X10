@@ -33,12 +33,12 @@ public interface Expr extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Front</em>' containment reference.
-   * @see #setFront(Expression)
+   * @see #setFront(ExprFront)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Front()
    * @model containment="true"
    * @generated
    */
-  Expression getFront();
+  ExprFront getFront();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface Expr extends Expression
    * @see #getFront()
    * @generated
    */
-  void setFront(Expression value);
+  void setFront(ExprFront value);
 
   /**
    * Returns the value of the '<em><b>Tails</b></em>' containment reference list.

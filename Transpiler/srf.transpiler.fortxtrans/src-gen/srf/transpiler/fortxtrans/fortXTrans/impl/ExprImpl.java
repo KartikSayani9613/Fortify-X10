@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
+import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
@@ -47,7 +47,7 @@ public class ExprImpl extends ExpressionImpl implements Expr
    * @generated
    * @ordered
    */
-  protected Expression front;
+  protected ExprFront front;
 
   /**
    * The cached value of the '{@link #getTails() <em>Tails</em>}' containment reference list.
@@ -85,7 +85,7 @@ public class ExprImpl extends ExpressionImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getFront()
+  public ExprFront getFront()
   {
     return front;
   }
@@ -95,9 +95,9 @@ public class ExprImpl extends ExpressionImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFront(Expression newFront, NotificationChain msgs)
+  public NotificationChain basicSetFront(ExprFront newFront, NotificationChain msgs)
   {
-    Expression oldFront = front;
+    ExprFront oldFront = front;
     front = newFront;
     if (eNotificationRequired())
     {
@@ -112,7 +112,7 @@ public class ExprImpl extends ExpressionImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFront(Expression newFront)
+  public void setFront(ExprFront newFront)
   {
     if (newFront != front)
     {
@@ -190,7 +190,7 @@ public class ExprImpl extends ExpressionImpl implements Expr
     switch (featureID)
     {
       case FortXTransPackage.EXPR__FRONT:
-        setFront((Expression)newValue);
+        setFront((ExprFront)newValue);
         return;
       case FortXTransPackage.EXPR__TAILS:
         getTails().clear();
@@ -211,7 +211,7 @@ public class ExprImpl extends ExpressionImpl implements Expr
     switch (featureID)
     {
       case FortXTransPackage.EXPR__FRONT:
-        setFront((Expression)null);
+        setFront((ExprFront)null);
         return;
       case FortXTransPackage.EXPR__TAILS:
         getTails().clear();

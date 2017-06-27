@@ -602,6 +602,201 @@ public interface FortXTransPackage extends EPackage
   int DECL_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMods()
+   * @generated
+   */
+  int FN_MODS = 13;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MODS__MODS = 0;
+
+  /**
+   * The number of structural features of the '<em>Fn Mods</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MODS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl <em>Fn Mod</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMod()
+   * @generated
+   */
+  int FN_MOD = 14;
+
+  /**
+   * The feature id for the '<em><b>Modtype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MOD__MODTYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Fn Mod</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MOD_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl <em>Val Param</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getValParam()
+   * @generated
+   */
+  int VAL_PARAM = 15;
+
+  /**
+   * The feature id for the '<em><b>Params</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAL_PARAM__PARAMS = 0;
+
+  /**
+   * The feature id for the '<em><b>Brack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAL_PARAM__BRACK = 1;
+
+  /**
+   * The number of structural features of the '<em>Val Param</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VAL_PARAM_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParamImpl <em>Param</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParamImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParam()
+   * @generated
+   */
+  int PARAM = 16;
+
+  /**
+   * The feature id for the '<em><b>BId</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAM__BID = 0;
+
+  /**
+   * The feature id for the '<em><b>Istype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAM__ISTYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Param</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAM_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl <em>Ret Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getRetType()
+   * @generated
+   */
+  int RET_TYPE = 17;
+
+  /**
+   * The feature id for the '<em><b>Empty</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RET_TYPE__EMPTY = 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RET_TYPE__TYPE = 1;
+
+  /**
+   * The number of structural features of the '<em>Ret Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RET_TYPE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.TypeImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 18;
+
+  /**
+   * The feature id for the '<em><b>Tname</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__TNAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl <em>Fn Decl</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -609,7 +804,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnDecl()
    * @generated
    */
-  int FN_DECL = 13;
+  int FN_DECL = 19;
 
   /**
    * The feature id for the '<em><b>Mods</b></em>' containment reference.
@@ -648,13 +843,22 @@ public interface FortXTransPackage extends EPackage
   int FN_DECL__RET_VAL = 3;
 
   /**
+   * The feature id for the '<em><b>Body</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_DECL__BODY = 4;
+
+  /**
    * The feature id for the '<em><b>Fn Itself</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FN_DECL__FN_ITSELF = 4;
+  int FN_DECL__FN_ITSELF = 5;
 
   /**
    * The number of structural features of the '<em>Fn Decl</em>' class.
@@ -663,249 +867,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FN_DECL_FEATURE_COUNT = 5;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMods()
-   * @generated
-   */
-  int FN_MODS = 14;
-
-  /**
-   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MODS__MODS = 0;
-
-  /**
-   * The number of structural features of the '<em>Fn Mods</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MODS_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl <em>Fn Mod</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMod()
-   * @generated
-   */
-  int FN_MOD = 15;
-
-  /**
-   * The feature id for the '<em><b>Modtype</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MOD__MODTYPE = 0;
-
-  /**
-   * The number of structural features of the '<em>Fn Mod</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MOD_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl <em>Val Param</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getValParam()
-   * @generated
-   */
-  int VAL_PARAM = 16;
-
-  /**
-   * The feature id for the '<em><b>Params</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAL_PARAM__PARAMS = 0;
-
-  /**
-   * The feature id for the '<em><b>Brack</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAL_PARAM__BRACK = 1;
-
-  /**
-   * The number of structural features of the '<em>Val Param</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VAL_PARAM_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParamImpl <em>Param</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParamImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParam()
-   * @generated
-   */
-  int PARAM = 17;
-
-  /**
-   * The feature id for the '<em><b>BId</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAM__BID = 0;
-
-  /**
-   * The feature id for the '<em><b>Istype</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAM__ISTYPE = 1;
-
-  /**
-   * The number of structural features of the '<em>Param</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAM_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl <em>Is Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIsType()
-   * @generated
-   */
-  int IS_TYPE = 18;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IS_TYPE__TYPE = 0;
-
-  /**
-   * The number of structural features of the '<em>Is Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int IS_TYPE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl <em>Ret Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getRetType()
-   * @generated
-   */
-  int RET_TYPE = 19;
-
-  /**
-   * The feature id for the '<em><b>Empty</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RET_TYPE__EMPTY = 0;
-
-  /**
-   * The feature id for the '<em><b>Type</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RET_TYPE__TYPE = 1;
-
-  /**
-   * The number of structural features of the '<em>Ret Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int RET_TYPE_FEATURE_COUNT = 2;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl <em>Expr Tail</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExprTail()
-   * @generated
-   */
-  int EXPR_TAIL = 22;
-
-  /**
-   * The number of structural features of the '<em>Expr Tail</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_TAIL_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.TypeImpl <em>Type</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.TypeImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getType()
-   * @generated
-   */
-  int TYPE = 20;
-
-  /**
-   * The feature id for the '<em><b>Tname</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE__TNAME = EXPR_TAIL_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Type</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TYPE_FEATURE_COUNT = EXPR_TAIL_FEATURE_COUNT + 1;
+  int FN_DECL_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpressionImpl <em>Expression</em>}' class.
@@ -915,7 +877,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 21;
+  int EXPRESSION = 20;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -927,40 +889,13 @@ public interface FortXTransPackage extends EPackage
   int EXPRESSION__EXP = 0;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ID = 1;
-
-  /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__ATOM = 2;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPRESSION__BLOCK = 3;
-
-  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 4;
+  int EXPRESSION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl <em>Expr</em>}' class.
@@ -970,7 +905,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExpr()
    * @generated
    */
-  int EXPR = 23;
+  int EXPR = 21;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -980,33 +915,6 @@ public interface FortXTransPackage extends EPackage
    * @ordered
    */
   int EXPR__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__ID = EXPRESSION__ID;
-
-  /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__ATOM = EXPRESSION__ATOM;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__BLOCK = EXPRESSION__BLOCK;
 
   /**
    * The feature id for the '<em><b>Front</b></em>' containment reference.
@@ -1043,43 +951,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExprFront()
    * @generated
    */
-  int EXPR_FRONT = 24;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_FRONT__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_FRONT__ID = EXPRESSION__ID;
-
-  /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_FRONT__ATOM = EXPRESSION__ATOM;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR_FRONT__BLOCK = EXPRESSION__BLOCK;
+  int EXPR_FRONT = 22;
 
   /**
    * The feature id for the '<em><b>Delim</b></em>' containment reference.
@@ -1088,7 +960,16 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_FRONT__DELIM = EXPRESSION_FEATURE_COUNT + 0;
+  int EXPR_FRONT__DELIM = 0;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR_FRONT__ID = 1;
 
   /**
    * The number of structural features of the '<em>Expr Front</em>' class.
@@ -1097,117 +978,54 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_FRONT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int EXPR_FRONT_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedImpl <em>Delimited</em>}' class.
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl <em>Expr Tail</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDelimited()
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExprTail()
    * @generated
    */
-  int DELIMITED = 25;
+  int EXPR_TAIL = 23;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED__ID = EXPRESSION__ID;
+  int EXPR_TAIL__TYPE = 0;
 
   /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
+   * The number of structural features of the '<em>Expr Tail</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED__ATOM = EXPRESSION__ATOM;
+  int EXPR_TAIL_FEATURE_COUNT = 1;
 
   /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl <em>Delimited Expr</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDelimitedExpr()
+   * @generated
+   */
+  int DELIMITED_EXPR = 24;
+
+  /**
+   * The feature id for the '<em><b>Do</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED__BLOCK = EXPRESSION__BLOCK;
-
-  /**
-   * The feature id for the '<em><b>Par</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED__PAR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Delimited</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl <em>Paranthesized</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParanthesized()
-   * @generated
-   */
-  int PARANTHESIZED = 26;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED__ID = EXPRESSION__ID;
-
-  /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED__ATOM = EXPRESSION__ATOM;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED__BLOCK = EXPRESSION__BLOCK;
+  int DELIMITED_EXPR__DO = 0;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1216,16 +1034,274 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARANTHESIZED__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+  int DELIMITED_EXPR__EXPR = 1;
 
   /**
-   * The number of structural features of the '<em>Paranthesized</em>' class.
+   * The feature id for the '<em><b>Gen</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARANTHESIZED_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int DELIMITED_EXPR__GEN = 2;
+
+  /**
+   * The feature id for the '<em><b>Doront</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__DORONT = 3;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__BLOCK = 4;
+
+  /**
+   * The feature id for the '<em><b>Elifs</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__ELIFS = 5;
+
+  /**
+   * The feature id for the '<em><b>Else</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__ELSE = 6;
+
+  /**
+   * The feature id for the '<em><b>Par</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__PAR = 7;
+
+  /**
+   * The number of structural features of the '<em>Delimited Expr</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR_FEATURE_COUNT = 8;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElifsImpl <em>Elifs</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ElifsImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getElifs()
+   * @generated
+   */
+  int ELIFS = 25;
+
+  /**
+   * The feature id for the '<em><b>E</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELIFS__E = 0;
+
+  /**
+   * The number of structural features of the '<em>Elifs</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELIFS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElifImpl <em>Elif</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ElifImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getElif()
+   * @generated
+   */
+  int ELIF = 26;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELIF__EXPR = 0;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELIF__BLOCK = 1;
+
+  /**
+   * The number of structural features of the '<em>Elif</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELIF_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElseImpl <em>Else</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ElseImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getElse()
+   * @generated
+   */
+  int ELSE = 27;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE__BLOCK = 0;
+
+  /**
+   * The number of structural features of the '<em>Else</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ELSE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.GeneratorsImpl <em>Generators</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.GeneratorsImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getGenerators()
+   * @generated
+   */
+  int GENERATORS = 28;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERATORS__BINDING = 0;
+
+  /**
+   * The feature id for the '<em><b>Clause</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERATORS__CLAUSE = 1;
+
+  /**
+   * The number of structural features of the '<em>Generators</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GENERATORS_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl <em>Binding</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBinding()
+   * @generated
+   */
+  int BINDING = 29;
+
+  /**
+   * The feature id for the '<em><b>Idtup</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINDING__IDTUP = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINDING__EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Binding</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINDING_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.GenClauseImpl <em>Gen Clause</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.GenClauseImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getGenClause()
+   * @generated
+   */
+  int GEN_CLAUSE = 30;
+
+  /**
+   * The feature id for the '<em><b>Binding</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GEN_CLAUSE__BINDING = 0;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GEN_CLAUSE__EXPR = 1;
+
+  /**
+   * The number of structural features of the '<em>Gen Clause</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int GEN_CLAUSE_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoImpl <em>Do</em>}' class.
@@ -1235,43 +1311,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDo()
    * @generated
    */
-  int DO = 27;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DO__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DO__ID = EXPRESSION__ID;
-
-  /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DO__ATOM = EXPRESSION__ATOM;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DO__BLOCK = EXPRESSION__BLOCK;
+  int DO = 31;
 
   /**
    * The feature id for the '<em><b>Dofs</b></em>' containment reference list.
@@ -1280,7 +1320,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DO__DOFS = EXPRESSION_FEATURE_COUNT + 0;
+  int DO__DOFS = 0;
 
   /**
    * The number of structural features of the '<em>Do</em>' class.
@@ -1289,7 +1329,155 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DO_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int DO_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl <em>Do Front</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDoFront()
+   * @generated
+   */
+  int DO_FRONT = 32;
+
+  /**
+   * The feature id for the '<em><b>At</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DO_FRONT__AT = 0;
+
+  /**
+   * The feature id for the '<em><b>Atom</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DO_FRONT__ATOM = 1;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DO_FRONT__BLOCK = 2;
+
+  /**
+   * The number of structural features of the '<em>Do Front</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DO_FRONT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl <em>Id Or Tuple</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIdOrTuple()
+   * @generated
+   */
+  int ID_OR_TUPLE = 33;
+
+  /**
+   * The feature id for the '<em><b>Bid</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_OR_TUPLE__BID = 0;
+
+  /**
+   * The number of structural features of the '<em>Id Or Tuple</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ID_OR_TUPLE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl <em>Is Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIsType()
+   * @generated
+   */
+  int IS_TYPE = 34;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IS_TYPE__TYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Is Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int IS_TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl <em>Block Elems</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBlockElems()
+   * @generated
+   */
+  int BLOCK_ELEMS = 35;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_ELEMS__EXP = EXPRESSION__EXP;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_ELEMS__BLOCK = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>More Blocks</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_ELEMS__MORE_BLOCKS = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Block Elems</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_ELEMS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockELemImpl <em>Block ELem</em>}' class.
@@ -1299,7 +1487,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBlockELem()
    * @generated
    */
-  int BLOCK_ELEM = 28;
+  int BLOCK_ELEM = 36;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1309,33 +1497,6 @@ public interface FortXTransPackage extends EPackage
    * @ordered
    */
   int BLOCK_ELEM__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK_ELEM__ID = EXPRESSION__ID;
-
-  /**
-   * The feature id for the '<em><b>Atom</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK_ELEM__ATOM = EXPRESSION__ATOM;
-
-  /**
-   * The feature id for the '<em><b>Block</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BLOCK_ELEM__BLOCK = EXPRESSION__BLOCK;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -1354,6 +1515,43 @@ public interface FortXTransPackage extends EPackage
    * @ordered
    */
   int BLOCK_ELEM_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl <em>Paranthesized</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParanthesized()
+   * @generated
+   */
+  int PARANTHESIZED = 37;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARANTHESIZED__EXP = EXPRESSION__EXP;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARANTHESIZED__EXPR = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Paranthesized</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARANTHESIZED_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -1806,71 +2004,6 @@ public interface FortXTransPackage extends EPackage
   EReference getDecl_Function();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl <em>Fn Decl</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Fn Decl</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl
-   * @generated
-   */
-  EClass getFnDecl();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getMods <em>Mods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Mods</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getMods()
-   * @see #getFnDecl()
-   * @generated
-   */
-  EReference getFnDecl_Mods();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName()
-   * @see #getFnDecl()
-   * @generated
-   */
-  EAttribute getFnDecl_Name();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getParams <em>Params</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Params</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getParams()
-   * @see #getFnDecl()
-   * @generated
-   */
-  EReference getFnDecl_Params();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal <em>Ret Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Ret Val</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal()
-   * @see #getFnDecl()
-   * @generated
-   */
-  EReference getFnDecl_RetVal();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself <em>Fn Itself</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Fn Itself</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself()
-   * @see #getFnDecl()
-   * @generated
-   */
-  EReference getFnDecl_FnItself();
-
-  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods <em>Fn Mods</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1977,27 +2110,6 @@ public interface FortXTransPackage extends EPackage
   EReference getParam_Istype();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Is Type</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.IsType
-   * @generated
-   */
-  EClass getIsType();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.IsType#getType <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Type</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.IsType#getType()
-   * @see #getIsType()
-   * @generated
-   */
-  EReference getIsType_Type();
-
-  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.RetType <em>Ret Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2051,6 +2163,82 @@ public interface FortXTransPackage extends EPackage
   EAttribute getType_Tname();
 
   /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl <em>Fn Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Fn Decl</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl
+   * @generated
+   */
+  EClass getFnDecl();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Mods</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getMods()
+   * @see #getFnDecl()
+   * @generated
+   */
+  EReference getFnDecl_Mods();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getName()
+   * @see #getFnDecl()
+   * @generated
+   */
+  EAttribute getFnDecl_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getParams <em>Params</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Params</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getParams()
+   * @see #getFnDecl()
+   * @generated
+   */
+  EReference getFnDecl_Params();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal <em>Ret Val</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ret Val</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getRetVal()
+   * @see #getFnDecl()
+   * @generated
+   */
+  EReference getFnDecl_RetVal();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#isBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Body</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#isBody()
+   * @see #getFnDecl()
+   * @generated
+   */
+  EAttribute getFnDecl_Body();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself <em>Fn Itself</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Fn Itself</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself()
+   * @see #getFnDecl()
+   * @generated
+   */
+  EReference getFnDecl_FnItself();
+
+  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2070,49 +2258,6 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getExpression_Exp();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getId <em>Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Expression#getId()
-   * @see #getExpression()
-   * @generated
-   */
-  EAttribute getExpression_Id();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getAtom <em>Atom</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Atom</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Expression#getAtom()
-   * @see #getExpression()
-   * @generated
-   */
-  EAttribute getExpression_Atom();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getBlock <em>Block</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Expression#getBlock()
-   * @see #getExpression()
-   * @generated
-   */
-  EReference getExpression_Block();
-
-  /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprTail <em>Expr Tail</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Expr Tail</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.ExprTail
-   * @generated
-   */
-  EClass getExprTail();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Expr <em>Expr</em>}'.
@@ -2168,46 +2313,304 @@ public interface FortXTransPackage extends EPackage
   EReference getExprFront_Delim();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Delimited <em>Delimited</em>}'.
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getId <em>Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Delimited</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Delimited
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ExprFront#getId()
+   * @see #getExprFront()
    * @generated
    */
-  EClass getDelimited();
+  EAttribute getExprFront_Id();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Delimited#getPar <em>Par</em>}'.
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprTail <em>Expr Tail</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Par</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Delimited#getPar()
-   * @see #getDelimited()
+   * @return the meta object for class '<em>Expr Tail</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ExprTail
    * @generated
    */
-  EReference getDelimited_Par();
+  EClass getExprTail();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized <em>Paranthesized</em>}'.
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ExprTail#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Paranthesized</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ExprTail#getType()
+   * @see #getExprTail()
    * @generated
    */
-  EClass getParanthesized();
+  EReference getExprTail_Type();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr <em>Expr</em>}'.
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr <em>Delimited Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Delimited Expr</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
+   * @generated
+   */
+  EClass getDelimitedExpr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDo <em>Do</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Do</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDo()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Do();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getExpr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr()
-   * @see #getParanthesized()
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getExpr()
+   * @see #getDelimitedExpr()
    * @generated
    */
-  EReference getParanthesized_Expr();
+  EReference getDelimitedExpr_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getGen <em>Gen</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Gen</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getGen()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Gen();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDoront <em>Doront</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Doront</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDoront()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Doront();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Block();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Elifs</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Elifs();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse <em>Else</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Else</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Else();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Par</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Par();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Elifs <em>Elifs</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Elifs</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elifs
+   * @generated
+   */
+  EClass getElifs();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.Elifs#getE <em>E</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>E</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elifs#getE()
+   * @see #getElifs()
+   * @generated
+   */
+  EReference getElifs_E();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Elif <em>Elif</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Elif</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elif
+   * @generated
+   */
+  EClass getElif();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Elif#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elif#getExpr()
+   * @see #getElif()
+   * @generated
+   */
+  EReference getElif_Expr();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Elif#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Elif#getBlock()
+   * @see #getElif()
+   * @generated
+   */
+  EReference getElif_Block();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Else <em>Else</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Else</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Else
+   * @generated
+   */
+  EClass getElse();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Else#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Else#getBlock()
+   * @see #getElse()
+   * @generated
+   */
+  EReference getElse_Block();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Generators <em>Generators</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Generators</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Generators
+   * @generated
+   */
+  EClass getGenerators();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Generators#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Generators#getBinding()
+   * @see #getGenerators()
+   * @generated
+   */
+  EReference getGenerators_Binding();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.Generators#getClause <em>Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Clause</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Generators#getClause()
+   * @see #getGenerators()
+   * @generated
+   */
+  EReference getGenerators_Clause();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Binding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Binding</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Binding
+   * @generated
+   */
+  EClass getBinding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getIdtup <em>Idtup</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Idtup</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Binding#getIdtup()
+   * @see #getBinding()
+   * @generated
+   */
+  EReference getBinding_Idtup();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Binding#getExpr()
+   * @see #getBinding()
+   * @generated
+   */
+  EReference getBinding_Expr();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.GenClause <em>Gen Clause</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Gen Clause</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.GenClause
+   * @generated
+   */
+  EClass getGenClause();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.GenClause#getBinding <em>Binding</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Binding</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.GenClause#getBinding()
+   * @see #getGenClause()
+   * @generated
+   */
+  EReference getGenClause_Binding();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.GenClause#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.GenClause#getExpr()
+   * @see #getGenClause()
+   * @generated
+   */
+  EReference getGenClause_Expr();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Do <em>Do</em>}'.
@@ -2231,6 +2634,123 @@ public interface FortXTransPackage extends EPackage
   EReference getDo_Dofs();
 
   /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.DoFront <em>Do Front</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Do Front</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DoFront
+   * @generated
+   */
+  EClass getDoFront();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.DoFront#getAt <em>At</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>At</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DoFront#getAt()
+   * @see #getDoFront()
+   * @generated
+   */
+  EAttribute getDoFront_At();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.DoFront#getAtom <em>Atom</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Atom</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DoFront#getAtom()
+   * @see #getDoFront()
+   * @generated
+   */
+  EAttribute getDoFront_Atom();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DoFront#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DoFront#getBlock()
+   * @see #getDoFront()
+   * @generated
+   */
+  EReference getDoFront_Block();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.IdOrTuple <em>Id Or Tuple</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Id Or Tuple</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.IdOrTuple
+   * @generated
+   */
+  EClass getIdOrTuple();
+
+  /**
+   * Returns the meta object for the attribute list '{@link srf.transpiler.fortxtrans.fortXTrans.IdOrTuple#getBid <em>Bid</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Bid</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.IdOrTuple#getBid()
+   * @see #getIdOrTuple()
+   * @generated
+   */
+  EAttribute getIdOrTuple_Bid();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Is Type</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.IsType
+   * @generated
+   */
+  EClass getIsType();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.IsType#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.IsType#getType()
+   * @see #getIsType()
+   * @generated
+   */
+  EReference getIsType_Type();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems <em>Block Elems</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Block Elems</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElems
+   * @generated
+   */
+  EClass getBlockElems();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElems#getBlock()
+   * @see #getBlockElems()
+   * @generated
+   */
+  EReference getBlockElems_Block();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems#getMoreBlocks <em>More Blocks</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>More Blocks</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElems#getMoreBlocks()
+   * @see #getBlockElems()
+   * @generated
+   */
+  EReference getBlockElems_MoreBlocks();
+
+  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockELem <em>Block ELem</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2250,6 +2770,27 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getBlockELem_Expr();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized <em>Paranthesized</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Paranthesized</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized
+   * @generated
+   */
+  EClass getParanthesized();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr()
+   * @see #getParanthesized()
+   * @generated
+   */
+  EReference getParanthesized_Expr();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -2637,56 +3178,6 @@ public interface FortXTransPackage extends EPackage
     EReference DECL__FUNCTION = eINSTANCE.getDecl_Function();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl <em>Fn Decl</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnDecl()
-     * @generated
-     */
-    EClass FN_DECL = eINSTANCE.getFnDecl();
-
-    /**
-     * The meta object literal for the '<em><b>Mods</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FN_DECL__MODS = eINSTANCE.getFnDecl_Mods();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FN_DECL__NAME = eINSTANCE.getFnDecl_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FN_DECL__PARAMS = eINSTANCE.getFnDecl_Params();
-
-    /**
-     * The meta object literal for the '<em><b>Ret Val</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FN_DECL__RET_VAL = eINSTANCE.getFnDecl_RetVal();
-
-    /**
-     * The meta object literal for the '<em><b>Fn Itself</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FN_DECL__FN_ITSELF = eINSTANCE.getFnDecl_FnItself();
-
-    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2775,24 +3266,6 @@ public interface FortXTransPackage extends EPackage
     EReference PARAM__ISTYPE = eINSTANCE.getParam_Istype();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl <em>Is Type</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIsType()
-     * @generated
-     */
-    EClass IS_TYPE = eINSTANCE.getIsType();
-
-    /**
-     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference IS_TYPE__TYPE = eINSTANCE.getIsType_Type();
-
-    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.RetTypeImpl <em>Ret Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2837,6 +3310,64 @@ public interface FortXTransPackage extends EPackage
     EAttribute TYPE__TNAME = eINSTANCE.getType_Tname();
 
     /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl <em>Fn Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnDecl()
+     * @generated
+     */
+    EClass FN_DECL = eINSTANCE.getFnDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FN_DECL__MODS = eINSTANCE.getFnDecl_Mods();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FN_DECL__NAME = eINSTANCE.getFnDecl_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Params</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FN_DECL__PARAMS = eINSTANCE.getFnDecl_Params();
+
+    /**
+     * The meta object literal for the '<em><b>Ret Val</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FN_DECL__RET_VAL = eINSTANCE.getFnDecl_RetVal();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FN_DECL__BODY = eINSTANCE.getFnDecl_Body();
+
+    /**
+     * The meta object literal for the '<em><b>Fn Itself</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FN_DECL__FN_ITSELF = eINSTANCE.getFnDecl_FnItself();
+
+    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2853,40 +3384,6 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference EXPRESSION__EXP = eINSTANCE.getExpression_Exp();
-
-    /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION__ID = eINSTANCE.getExpression_Id();
-
-    /**
-     * The meta object literal for the '<em><b>Atom</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute EXPRESSION__ATOM = eINSTANCE.getExpression_Atom();
-
-    /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference EXPRESSION__BLOCK = eINSTANCE.getExpression_Block();
-
-    /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl <em>Expr Tail</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExprTail()
-     * @generated
-     */
-    EClass EXPR_TAIL = eINSTANCE.getExprTail();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl <em>Expr</em>}' class.
@@ -2933,32 +3430,48 @@ public interface FortXTransPackage extends EPackage
     EReference EXPR_FRONT__DELIM = eINSTANCE.getExprFront_Delim();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedImpl <em>Delimited</em>}' class.
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDelimited()
      * @generated
      */
-    EClass DELIMITED = eINSTANCE.getDelimited();
+    EAttribute EXPR_FRONT__ID = eINSTANCE.getExprFront_Id();
 
     /**
-     * The meta object literal for the '<em><b>Par</b></em>' containment reference feature.
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl <em>Expr Tail</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ExprTailImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExprTail()
      * @generated
      */
-    EReference DELIMITED__PAR = eINSTANCE.getDelimited_Par();
+    EClass EXPR_TAIL = eINSTANCE.getExprTail();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl <em>Paranthesized</em>}' class.
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParanthesized()
      * @generated
      */
-    EClass PARANTHESIZED = eINSTANCE.getParanthesized();
+    EReference EXPR_TAIL__TYPE = eINSTANCE.getExprTail_Type();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl <em>Delimited Expr</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDelimitedExpr()
+     * @generated
+     */
+    EClass DELIMITED_EXPR = eINSTANCE.getDelimitedExpr();
+
+    /**
+     * The meta object literal for the '<em><b>Do</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__DO = eINSTANCE.getDelimitedExpr_Do();
 
     /**
      * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
@@ -2966,7 +3479,195 @@ public interface FortXTransPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARANTHESIZED__EXPR = eINSTANCE.getParanthesized_Expr();
+    EReference DELIMITED_EXPR__EXPR = eINSTANCE.getDelimitedExpr_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Gen</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__GEN = eINSTANCE.getDelimitedExpr_Gen();
+
+    /**
+     * The meta object literal for the '<em><b>Doront</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__DORONT = eINSTANCE.getDelimitedExpr_Doront();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__BLOCK = eINSTANCE.getDelimitedExpr_Block();
+
+    /**
+     * The meta object literal for the '<em><b>Elifs</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__ELIFS = eINSTANCE.getDelimitedExpr_Elifs();
+
+    /**
+     * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__ELSE = eINSTANCE.getDelimitedExpr_Else();
+
+    /**
+     * The meta object literal for the '<em><b>Par</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__PAR = eINSTANCE.getDelimitedExpr_Par();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElifsImpl <em>Elifs</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ElifsImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getElifs()
+     * @generated
+     */
+    EClass ELIFS = eINSTANCE.getElifs();
+
+    /**
+     * The meta object literal for the '<em><b>E</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELIFS__E = eINSTANCE.getElifs_E();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElifImpl <em>Elif</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ElifImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getElif()
+     * @generated
+     */
+    EClass ELIF = eINSTANCE.getElif();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELIF__EXPR = eINSTANCE.getElif_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELIF__BLOCK = eINSTANCE.getElif_Block();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElseImpl <em>Else</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ElseImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getElse()
+     * @generated
+     */
+    EClass ELSE = eINSTANCE.getElse();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ELSE__BLOCK = eINSTANCE.getElse_Block();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.GeneratorsImpl <em>Generators</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.GeneratorsImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getGenerators()
+     * @generated
+     */
+    EClass GENERATORS = eINSTANCE.getGenerators();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GENERATORS__BINDING = eINSTANCE.getGenerators_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Clause</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GENERATORS__CLAUSE = eINSTANCE.getGenerators_Clause();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl <em>Binding</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBinding()
+     * @generated
+     */
+    EClass BINDING = eINSTANCE.getBinding();
+
+    /**
+     * The meta object literal for the '<em><b>Idtup</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINDING__IDTUP = eINSTANCE.getBinding_Idtup();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BINDING__EXPR = eINSTANCE.getBinding_Expr();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.GenClauseImpl <em>Gen Clause</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.GenClauseImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getGenClause()
+     * @generated
+     */
+    EClass GEN_CLAUSE = eINSTANCE.getGenClause();
+
+    /**
+     * The meta object literal for the '<em><b>Binding</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GEN_CLAUSE__BINDING = eINSTANCE.getGenClause_Binding();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference GEN_CLAUSE__EXPR = eINSTANCE.getGenClause_Expr();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoImpl <em>Do</em>}' class.
@@ -2987,6 +3688,102 @@ public interface FortXTransPackage extends EPackage
     EReference DO__DOFS = eINSTANCE.getDo_Dofs();
 
     /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl <em>Do Front</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDoFront()
+     * @generated
+     */
+    EClass DO_FRONT = eINSTANCE.getDoFront();
+
+    /**
+     * The meta object literal for the '<em><b>At</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DO_FRONT__AT = eINSTANCE.getDoFront_At();
+
+    /**
+     * The meta object literal for the '<em><b>Atom</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DO_FRONT__ATOM = eINSTANCE.getDoFront_Atom();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DO_FRONT__BLOCK = eINSTANCE.getDoFront_Block();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl <em>Id Or Tuple</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIdOrTuple()
+     * @generated
+     */
+    EClass ID_OR_TUPLE = eINSTANCE.getIdOrTuple();
+
+    /**
+     * The meta object literal for the '<em><b>Bid</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ID_OR_TUPLE__BID = eINSTANCE.getIdOrTuple_Bid();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl <em>Is Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIsType()
+     * @generated
+     */
+    EClass IS_TYPE = eINSTANCE.getIsType();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference IS_TYPE__TYPE = eINSTANCE.getIsType_Type();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl <em>Block Elems</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBlockElems()
+     * @generated
+     */
+    EClass BLOCK_ELEMS = eINSTANCE.getBlockElems();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK_ELEMS__BLOCK = eINSTANCE.getBlockElems_Block();
+
+    /**
+     * The meta object literal for the '<em><b>More Blocks</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference BLOCK_ELEMS__MORE_BLOCKS = eINSTANCE.getBlockElems_MoreBlocks();
+
+    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockELemImpl <em>Block ELem</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3003,6 +3800,24 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference BLOCK_ELEM__EXPR = eINSTANCE.getBlockELem_Expr();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl <em>Paranthesized</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParanthesized()
+     * @generated
+     */
+    EClass PARANTHESIZED = eINSTANCE.getParanthesized();
+
+    /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARANTHESIZED__EXPR = eINSTANCE.getParanthesized_Expr();
 
   }
 

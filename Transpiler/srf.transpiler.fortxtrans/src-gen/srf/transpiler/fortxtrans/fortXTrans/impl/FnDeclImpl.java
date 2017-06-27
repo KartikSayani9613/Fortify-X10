@@ -31,6 +31,7 @@ import srf.transpiler.fortxtrans.fortXTrans.ValParam;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getName <em>Name</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getParams <em>Params</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getRetVal <em>Ret Val</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#isBody <em>Body</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl#getFnItself <em>Fn Itself</em>}</li>
  * </ul>
  *
@@ -87,6 +88,26 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * @ordered
    */
   protected RetType retVal;
+
+  /**
+   * The default value of the '{@link #isBody() <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBody()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean BODY_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isBody() <em>Body</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isBody()
+   * @generated
+   * @ordered
+   */
+  protected boolean body = BODY_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getFnItself() <em>Fn Itself</em>}' containment reference.
@@ -291,6 +312,29 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isBody()
+  {
+    return body;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBody(boolean newBody)
+  {
+    boolean oldBody = body;
+    body = newBody;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FN_DECL__BODY, oldBody, body));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expression getFnItself()
   {
     return fnItself;
@@ -374,6 +418,8 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
         return getParams();
       case FortXTransPackage.FN_DECL__RET_VAL:
         return getRetVal();
+      case FortXTransPackage.FN_DECL__BODY:
+        return isBody();
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         return getFnItself();
     }
@@ -401,6 +447,9 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
         return;
       case FortXTransPackage.FN_DECL__RET_VAL:
         setRetVal((RetType)newValue);
+        return;
+      case FortXTransPackage.FN_DECL__BODY:
+        setBody((Boolean)newValue);
         return;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         setFnItself((Expression)newValue);
@@ -431,6 +480,9 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
       case FortXTransPackage.FN_DECL__RET_VAL:
         setRetVal((RetType)null);
         return;
+      case FortXTransPackage.FN_DECL__BODY:
+        setBody(BODY_EDEFAULT);
+        return;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         setFnItself((Expression)null);
         return;
@@ -456,6 +508,8 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
         return params != null;
       case FortXTransPackage.FN_DECL__RET_VAL:
         return retVal != null;
+      case FortXTransPackage.FN_DECL__BODY:
+        return body != BODY_EDEFAULT;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
         return fnItself != null;
     }
@@ -475,6 +529,8 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", body: ");
+    result.append(body);
     result.append(')');
     return result.toString();
   }

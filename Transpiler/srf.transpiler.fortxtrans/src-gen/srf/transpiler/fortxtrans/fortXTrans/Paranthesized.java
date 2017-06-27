@@ -31,12 +31,12 @@ public interface Paranthesized extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expression)
+   * @see #setExpr(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParanthesized_Expr()
    * @model containment="true"
    * @generated
    */
-  Expression getExpr();
+  Expr getExpr();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr <em>Expr</em>}' containment reference.
@@ -46,6 +46,6 @@ public interface Paranthesized extends Expression
    * @see #getExpr()
    * @generated
    */
-  void setExpr(Expression value);
+  void setExpr(Expr value);
 
 } // Paranthesized

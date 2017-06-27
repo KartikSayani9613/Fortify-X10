@@ -10,9 +10,10 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
@@ -24,11 +25,12 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl#getId <em>Id</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprFrontImpl extends ExpressionImpl implements ExprFront
+public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprFront
 {
   /**
    * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference.
@@ -38,7 +40,27 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
    * @generated
    * @ordered
    */
-  protected Expression delim;
+  protected DelimitedExpr delim;
+
+  /**
+   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected static final String ID_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getId()
+   * @generated
+   * @ordered
+   */
+  protected String id = ID_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,7 +88,7 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getDelim()
+  public DelimitedExpr getDelim()
   {
     return delim;
   }
@@ -76,9 +98,9 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDelim(Expression newDelim, NotificationChain msgs)
+  public NotificationChain basicSetDelim(DelimitedExpr newDelim, NotificationChain msgs)
   {
-    Expression oldDelim = delim;
+    DelimitedExpr oldDelim = delim;
     delim = newDelim;
     if (eNotificationRequired())
     {
@@ -93,7 +115,7 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDelim(Expression newDelim)
+  public void setDelim(DelimitedExpr newDelim)
   {
     if (newDelim != delim)
     {
@@ -107,6 +129,29 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__DELIM, newDelim, newDelim));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getId()
+  {
+    return id;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setId(String newId)
+  {
+    String oldId = id;
+    id = newId;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__ID, oldId, id));
   }
 
   /**
@@ -137,6 +182,8 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
     {
       case FortXTransPackage.EXPR_FRONT__DELIM:
         return getDelim();
+      case FortXTransPackage.EXPR_FRONT__ID:
+        return getId();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,7 +199,10 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
     switch (featureID)
     {
       case FortXTransPackage.EXPR_FRONT__DELIM:
-        setDelim((Expression)newValue);
+        setDelim((DelimitedExpr)newValue);
+        return;
+      case FortXTransPackage.EXPR_FRONT__ID:
+        setId((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,7 +219,10 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
     switch (featureID)
     {
       case FortXTransPackage.EXPR_FRONT__DELIM:
-        setDelim((Expression)null);
+        setDelim((DelimitedExpr)null);
+        return;
+      case FortXTransPackage.EXPR_FRONT__ID:
+        setId(ID_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -187,8 +240,27 @@ public class ExprFrontImpl extends ExpressionImpl implements ExprFront
     {
       case FortXTransPackage.EXPR_FRONT__DELIM:
         return delim != null;
+      case FortXTransPackage.EXPR_FRONT__ID:
+        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (id: ");
+    result.append(id);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExprFrontImpl

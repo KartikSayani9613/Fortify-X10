@@ -8,6 +8,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.Type;
@@ -25,7 +26,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Type;
  *
  * @generated
  */
-public class TypeImpl extends ExprTailImpl implements Type
+public class TypeImpl extends MinimalEObjectImpl.Container implements Type
 {
   /**
    * The default value of the '{@link #getTname() <em>Tname</em>}' attribute.

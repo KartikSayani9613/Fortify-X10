@@ -5,6 +5,8 @@ package srf.transpiler.fortxtrans.fortXTrans;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Do</b></em>'.
@@ -21,11 +23,11 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Do extends Expression
+public interface Do extends EObject
 {
   /**
    * Returns the value of the '<em><b>Dofs</b></em>' containment reference list.
-   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Expression}.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.DoFront}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Dofs</em>' containment reference list isn't clear,
@@ -37,6 +39,6 @@ public interface Do extends Expression
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getDofs();
+  EList<DoFront> getDofs();
 
 } // Do
