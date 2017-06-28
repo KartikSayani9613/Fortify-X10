@@ -73,7 +73,7 @@ Decls:
 
 Decl:
 	function=FnDecl
-//	|var=VarDecl
+	|var=FieldDecl
 //	|object=ObjDecl
 //	|trait=TraitDecl
 ;
@@ -201,12 +201,6 @@ IsType:
 terminal ML_COMMENT:
 	'(*' -> '*)'
 ;
-
-@Override 
-terminal SL_COMMENT:
-	'(*' -> '*)'
-;
-
 terminal GREATERS:
 	'>' (SD '>')*
 ;
