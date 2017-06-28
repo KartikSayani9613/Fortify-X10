@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalFortXTransParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_DOTS", "RULE_ML_COMMENT", "RULE_SD", "RULE_GREATERS", "RULE_LESSES", "RULE_BARS", "RULE_SLASHES", "RULE_LEFT_ENCLOSER", "RULE_RIGHT_ENCLOSER", "RULE_INT", "RULE_STRING", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'_'", "'component'", "'end'", "'api'", "'}'", "','", "'.'", "'{'", "'as'", "')'", "':'", "'while'", "'for'", "'if'", "'then'", "'elif'", "'else'", "'<-'", "'('", "'also'", "'do'", "'import'", "'export'", "'except'", "'private'", "'test'", "'atomic'", "'io'", "'='", "'at'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_DOTS", "RULE_ML_COMMENT", "RULE_SD", "RULE_GREATERS", "RULE_LESSES", "RULE_BARS", "RULE_SLASHES", "RULE_LEFT_ENCLOSER", "RULE_RIGHT_ENCLOSER", "RULE_INT", "RULE_STRING", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'_'", "'component'", "'end'", "'api'", "'}'", "','", "'.'", "'{'", "'as'", "')'", "':'", "'then'", "'elif'", "'else'", "'<-'", "'('", "'also'", "'do'", "'import'", "'export'", "'except'", "'private'", "'test'", "'atomic'", "'io'", "'='", "'while'", "'for'", "'if'", "'at'"
     };
     public static final int RULE_BARS=10;
     public static final int RULE_DOTS=5;
@@ -1370,7 +1370,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( ((LA2_0>=43 && LA2_0<=46)) ) {
+                if ( ((LA2_0>=40 && LA2_0<=43)) ) {
                     alt2=1;
                 }
 
@@ -2835,31 +2835,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleBlockElem"
-    // InternalFortXTrans.g:926:1: ruleBlockElem : ( ( rule__BlockElem__Group__0 ) ) ;
+    // InternalFortXTrans.g:926:1: ruleBlockElem : ( ( rule__BlockElem__ExpAssignment ) ) ;
     public final void ruleBlockElem() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:930:2: ( ( ( rule__BlockElem__Group__0 ) ) )
-            // InternalFortXTrans.g:931:2: ( ( rule__BlockElem__Group__0 ) )
+            // InternalFortXTrans.g:930:2: ( ( ( rule__BlockElem__ExpAssignment ) ) )
+            // InternalFortXTrans.g:931:2: ( ( rule__BlockElem__ExpAssignment ) )
             {
-            // InternalFortXTrans.g:931:2: ( ( rule__BlockElem__Group__0 ) )
-            // InternalFortXTrans.g:932:3: ( rule__BlockElem__Group__0 )
+            // InternalFortXTrans.g:931:2: ( ( rule__BlockElem__ExpAssignment ) )
+            // InternalFortXTrans.g:932:3: ( rule__BlockElem__ExpAssignment )
             {
-             before(grammarAccess.getBlockElemAccess().getGroup()); 
-            // InternalFortXTrans.g:933:3: ( rule__BlockElem__Group__0 )
-            // InternalFortXTrans.g:933:4: rule__BlockElem__Group__0
+             before(grammarAccess.getBlockElemAccess().getExpAssignment()); 
+            // InternalFortXTrans.g:933:3: ( rule__BlockElem__ExpAssignment )
+            // InternalFortXTrans.g:933:4: rule__BlockElem__ExpAssignment
             {
             pushFollow(FOLLOW_2);
-            rule__BlockElem__Group__0();
+            rule__BlockElem__ExpAssignment();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getBlockElemAccess().getGroup()); 
+             after(grammarAccess.getBlockElemAccess().getExpAssignment()); 
 
             }
 
@@ -3433,7 +3433,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==40) ) {
+            if ( (LA4_0==37) ) {
                 int LA4_1 = input.LA(2);
 
                 if ( (LA4_1==RULE_ID) ) {
@@ -3534,7 +3534,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt5=2;
             int LA5_0 = input.LA(1);
 
-            if ( (LA5_0==41) ) {
+            if ( (LA5_0==38) ) {
                 int LA5_1 = input.LA(2);
 
                 if ( (LA5_1==RULE_ID) ) {
@@ -4125,22 +4125,22 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             // InternalFortXTrans.g:1281:1: ( ( ( rule__FnMod__ModtypeAssignment_0 ) ) | ( ( rule__FnMod__ModtypeAssignment_1 ) ) | ( ( rule__FnMod__ModtypeAssignment_2 ) ) | ( ( rule__FnMod__ModtypeAssignment_3 ) ) )
             int alt11=4;
             switch ( input.LA(1) ) {
-            case 43:
+            case 40:
                 {
                 alt11=1;
                 }
                 break;
-            case 44:
+            case 41:
                 {
                 alt11=2;
                 }
                 break;
-            case 45:
+            case 42:
                 {
                 alt11=3;
                 }
                 break;
-            case 46:
+            case 43:
                 {
                 alt11=4;
                 }
@@ -4284,7 +4284,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             if ( (LA12_0==RULE_ID||LA12_0==19) ) {
                 alt12=1;
             }
-            else if ( (LA12_0==37) ) {
+            else if ( (LA12_0==34) ) {
                 alt12=2;
             }
             else {
@@ -4375,11 +4375,11 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             if ( (LA13_0==29) ) {
                 int LA13_1 = input.LA(2);
 
-                if ( (LA13_1==RULE_ID) ) {
-                    alt13=2;
-                }
-                else if ( (LA13_1==37) ) {
+                if ( (LA13_1==34) ) {
                     alt13=1;
+                }
+                else if ( (LA13_1==RULE_ID) ) {
+                    alt13=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -4473,7 +4473,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt14=2;
             int LA14_0 = input.LA(1);
 
-            if ( ((LA14_0>=30 && LA14_0<=32)||LA14_0==37||LA14_0==39||LA14_0==45||LA14_0==48) ) {
+            if ( (LA14_0==34||LA14_0==36||LA14_0==42||(LA14_0>=45 && LA14_0<=48)) ) {
                 alt14=1;
             }
             else if ( (LA14_0==RULE_ID) ) {
@@ -4554,38 +4554,38 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Alternatives"
-    // InternalFortXTrans.g:1373:1: rule__DelimitedExpr__Alternatives : ( ( ( rule__DelimitedExpr__DoAssignment_0 ) ) | ( ( rule__DelimitedExpr__Group_1__0 ) ) | ( ( rule__DelimitedExpr__Group_2__0 ) ) | ( ( rule__DelimitedExpr__Group_3__0 ) ) | ( ( rule__DelimitedExpr__ParAssignment_4 ) ) );
+    // InternalFortXTrans.g:1373:1: rule__DelimitedExpr__Alternatives : ( ( ( rule__DelimitedExpr__DodAssignment_0 ) ) | ( ( rule__DelimitedExpr__Group_1__0 ) ) | ( ( rule__DelimitedExpr__Group_2__0 ) ) | ( ( rule__DelimitedExpr__Group_3__0 ) ) | ( ( rule__DelimitedExpr__ParAssignment_4 ) ) );
     public final void rule__DelimitedExpr__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:1377:1: ( ( ( rule__DelimitedExpr__DoAssignment_0 ) ) | ( ( rule__DelimitedExpr__Group_1__0 ) ) | ( ( rule__DelimitedExpr__Group_2__0 ) ) | ( ( rule__DelimitedExpr__Group_3__0 ) ) | ( ( rule__DelimitedExpr__ParAssignment_4 ) ) )
+            // InternalFortXTrans.g:1377:1: ( ( ( rule__DelimitedExpr__DodAssignment_0 ) ) | ( ( rule__DelimitedExpr__Group_1__0 ) ) | ( ( rule__DelimitedExpr__Group_2__0 ) ) | ( ( rule__DelimitedExpr__Group_3__0 ) ) | ( ( rule__DelimitedExpr__ParAssignment_4 ) ) )
             int alt15=5;
             switch ( input.LA(1) ) {
-            case 39:
-            case 45:
+            case 36:
+            case 42:
             case 48:
                 {
                 alt15=1;
                 }
                 break;
-            case 30:
+            case 45:
                 {
                 alt15=2;
                 }
                 break;
-            case 31:
+            case 46:
                 {
                 alt15=3;
                 }
                 break;
-            case 32:
+            case 47:
                 {
                 alt15=4;
                 }
                 break;
-            case 37:
+            case 34:
                 {
                 alt15=5;
                 }
@@ -4599,24 +4599,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
             switch (alt15) {
                 case 1 :
-                    // InternalFortXTrans.g:1378:2: ( ( rule__DelimitedExpr__DoAssignment_0 ) )
+                    // InternalFortXTrans.g:1378:2: ( ( rule__DelimitedExpr__DodAssignment_0 ) )
                     {
-                    // InternalFortXTrans.g:1378:2: ( ( rule__DelimitedExpr__DoAssignment_0 ) )
-                    // InternalFortXTrans.g:1379:3: ( rule__DelimitedExpr__DoAssignment_0 )
+                    // InternalFortXTrans.g:1378:2: ( ( rule__DelimitedExpr__DodAssignment_0 ) )
+                    // InternalFortXTrans.g:1379:3: ( rule__DelimitedExpr__DodAssignment_0 )
                     {
-                     before(grammarAccess.getDelimitedExprAccess().getDoAssignment_0()); 
-                    // InternalFortXTrans.g:1380:3: ( rule__DelimitedExpr__DoAssignment_0 )
-                    // InternalFortXTrans.g:1380:4: rule__DelimitedExpr__DoAssignment_0
+                     before(grammarAccess.getDelimitedExprAccess().getDodAssignment_0()); 
+                    // InternalFortXTrans.g:1380:3: ( rule__DelimitedExpr__DodAssignment_0 )
+                    // InternalFortXTrans.g:1380:4: rule__DelimitedExpr__DodAssignment_0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DelimitedExpr__DoAssignment_0();
+                    rule__DelimitedExpr__DodAssignment_0();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getDelimitedExprAccess().getDoAssignment_0()); 
+                     after(grammarAccess.getDelimitedExprAccess().getDodAssignment_0()); 
 
                     }
 
@@ -4754,11 +4754,11 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 {
                 int LA16_1 = input.LA(2);
 
-                if ( (LA16_1==EOF||LA16_1==RULE_DOTS||(LA16_1>=24 && LA16_1<=25)||LA16_1==27||LA16_1==39||LA16_1==45||LA16_1==48) ) {
-                    alt16=2;
-                }
-                else if ( (LA16_1==36) ) {
+                if ( (LA16_1==33) ) {
                     alt16=1;
+                }
+                else if ( (LA16_1==EOF||LA16_1==RULE_DOTS||(LA16_1>=24 && LA16_1<=25)||LA16_1==27||LA16_1==36||LA16_1==42||LA16_1==48) ) {
+                    alt16=2;
                 }
                 else {
                     NoViableAltException nvae =
@@ -4773,15 +4773,15 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 alt16=1;
                 }
                 break;
-            case 37:
+            case 34:
                 {
                 switch ( input.LA(2) ) {
-                case 30:
-                case 31:
-                case 32:
-                case 37:
-                case 39:
+                case 34:
+                case 36:
+                case 42:
                 case 45:
+                case 46:
+                case 47:
                 case 48:
                     {
                     alt16=2;
@@ -4801,11 +4801,11 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                         {
                         int LA16_6 = input.LA(4);
 
-                        if ( (LA16_6==EOF||LA16_6==24||LA16_6==27||LA16_6==39||LA16_6==45||LA16_6==48) ) {
-                            alt16=2;
-                        }
-                        else if ( (LA16_6==36) ) {
+                        if ( (LA16_6==33) ) {
                             alt16=1;
+                        }
+                        else if ( (LA16_6==EOF||LA16_6==24||LA16_6==27||LA16_6==36||LA16_6==42||LA16_6==48) ) {
+                            alt16=2;
                         }
                         else {
                             NoViableAltException nvae =
@@ -4843,11 +4843,11 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
                 }
                 break;
-            case 30:
-            case 31:
-            case 32:
-            case 39:
+            case 36:
+            case 42:
             case 45:
+            case 46:
+            case 47:
             case 48:
                 {
                 alt16=2;
@@ -4942,7 +4942,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             if ( (LA17_0==RULE_ID||LA17_0==19) ) {
                 alt17=1;
             }
-            else if ( (LA17_0==37) ) {
+            else if ( (LA17_0==34) ) {
                 alt17=2;
             }
             else {
@@ -5308,7 +5308,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 int alt19=2;
                 int LA19_0 = input.LA(1);
 
-                if ( (LA19_0==40) ) {
+                if ( (LA19_0==37) ) {
                     alt19=1;
                 }
 
@@ -5433,7 +5433,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 int alt20=2;
                 int LA20_0 = input.LA(1);
 
-                if ( (LA20_0==41) ) {
+                if ( (LA20_0==38) ) {
                     alt20=1;
                 }
 
@@ -5539,7 +5539,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
-                if ( (LA21_0==RULE_ID||(LA21_0>=43 && LA21_0<=46)) ) {
+                if ( (LA21_0==RULE_ID||(LA21_0>=40 && LA21_0<=43)) ) {
                     alt21=1;
                 }
 
@@ -5872,7 +5872,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
-                if ( (LA22_0==40) ) {
+                if ( (LA22_0==37) ) {
                     alt22=1;
                 }
 
@@ -7586,7 +7586,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==42) ) {
+            if ( (LA24_0==39) ) {
                 alt24=1;
             }
             switch (alt24) {
@@ -13608,7 +13608,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt38=2;
             int LA38_0 = input.LA(1);
 
-            if ( ((LA38_0>=43 && LA38_0<=46)) ) {
+            if ( ((LA38_0>=40 && LA38_0<=43)) ) {
                 alt38=1;
             }
             switch (alt38) {
@@ -13965,7 +13965,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt40=2;
             int LA40_0 = input.LA(1);
 
-            if ( (LA40_0==47) ) {
+            if ( (LA40_0==44) ) {
                 alt40=1;
             }
             switch (alt40) {
@@ -14547,21 +14547,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Group_1__0__Impl"
-    // InternalFortXTrans.g:4572:1: rule__DelimitedExpr__Group_1__0__Impl : ( 'while' ) ;
+    // InternalFortXTrans.g:4572:1: rule__DelimitedExpr__Group_1__0__Impl : ( ( rule__DelimitedExpr__AwhileAssignment_1_0 ) ) ;
     public final void rule__DelimitedExpr__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:4576:1: ( ( 'while' ) )
-            // InternalFortXTrans.g:4577:1: ( 'while' )
+            // InternalFortXTrans.g:4576:1: ( ( ( rule__DelimitedExpr__AwhileAssignment_1_0 ) ) )
+            // InternalFortXTrans.g:4577:1: ( ( rule__DelimitedExpr__AwhileAssignment_1_0 ) )
             {
-            // InternalFortXTrans.g:4577:1: ( 'while' )
-            // InternalFortXTrans.g:4578:2: 'while'
+            // InternalFortXTrans.g:4577:1: ( ( rule__DelimitedExpr__AwhileAssignment_1_0 ) )
+            // InternalFortXTrans.g:4578:2: ( rule__DelimitedExpr__AwhileAssignment_1_0 )
             {
-             before(grammarAccess.getDelimitedExprAccess().getWhileKeyword_1_0()); 
-            match(input,30,FOLLOW_2); 
-             after(grammarAccess.getDelimitedExprAccess().getWhileKeyword_1_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getAwhileAssignment_1_0()); 
+            // InternalFortXTrans.g:4579:2: ( rule__DelimitedExpr__AwhileAssignment_1_0 )
+            // InternalFortXTrans.g:4579:3: rule__DelimitedExpr__AwhileAssignment_1_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DelimitedExpr__AwhileAssignment_1_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDelimitedExprAccess().getAwhileAssignment_1_0()); 
 
             }
 
@@ -14702,31 +14712,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Group_1__2__Impl"
-    // InternalFortXTrans.g:4625:1: rule__DelimitedExpr__Group_1__2__Impl : ( ( rule__DelimitedExpr__DoAssignment_1_2 ) ) ;
+    // InternalFortXTrans.g:4625:1: rule__DelimitedExpr__Group_1__2__Impl : ( ( rule__DelimitedExpr__WhiledodAssignment_1_2 ) ) ;
     public final void rule__DelimitedExpr__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:4629:1: ( ( ( rule__DelimitedExpr__DoAssignment_1_2 ) ) )
-            // InternalFortXTrans.g:4630:1: ( ( rule__DelimitedExpr__DoAssignment_1_2 ) )
+            // InternalFortXTrans.g:4629:1: ( ( ( rule__DelimitedExpr__WhiledodAssignment_1_2 ) ) )
+            // InternalFortXTrans.g:4630:1: ( ( rule__DelimitedExpr__WhiledodAssignment_1_2 ) )
             {
-            // InternalFortXTrans.g:4630:1: ( ( rule__DelimitedExpr__DoAssignment_1_2 ) )
-            // InternalFortXTrans.g:4631:2: ( rule__DelimitedExpr__DoAssignment_1_2 )
+            // InternalFortXTrans.g:4630:1: ( ( rule__DelimitedExpr__WhiledodAssignment_1_2 ) )
+            // InternalFortXTrans.g:4631:2: ( rule__DelimitedExpr__WhiledodAssignment_1_2 )
             {
-             before(grammarAccess.getDelimitedExprAccess().getDoAssignment_1_2()); 
-            // InternalFortXTrans.g:4632:2: ( rule__DelimitedExpr__DoAssignment_1_2 )
-            // InternalFortXTrans.g:4632:3: rule__DelimitedExpr__DoAssignment_1_2
+             before(grammarAccess.getDelimitedExprAccess().getWhiledodAssignment_1_2()); 
+            // InternalFortXTrans.g:4632:2: ( rule__DelimitedExpr__WhiledodAssignment_1_2 )
+            // InternalFortXTrans.g:4632:3: rule__DelimitedExpr__WhiledodAssignment_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__DelimitedExpr__DoAssignment_1_2();
+            rule__DelimitedExpr__WhiledodAssignment_1_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDelimitedExprAccess().getDoAssignment_1_2()); 
+             after(grammarAccess.getDelimitedExprAccess().getWhiledodAssignment_1_2()); 
 
             }
 
@@ -14787,21 +14797,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Group_2__0__Impl"
-    // InternalFortXTrans.g:4653:1: rule__DelimitedExpr__Group_2__0__Impl : ( 'for' ) ;
+    // InternalFortXTrans.g:4653:1: rule__DelimitedExpr__Group_2__0__Impl : ( ( rule__DelimitedExpr__AforAssignment_2_0 ) ) ;
     public final void rule__DelimitedExpr__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:4657:1: ( ( 'for' ) )
-            // InternalFortXTrans.g:4658:1: ( 'for' )
+            // InternalFortXTrans.g:4657:1: ( ( ( rule__DelimitedExpr__AforAssignment_2_0 ) ) )
+            // InternalFortXTrans.g:4658:1: ( ( rule__DelimitedExpr__AforAssignment_2_0 ) )
             {
-            // InternalFortXTrans.g:4658:1: ( 'for' )
-            // InternalFortXTrans.g:4659:2: 'for'
+            // InternalFortXTrans.g:4658:1: ( ( rule__DelimitedExpr__AforAssignment_2_0 ) )
+            // InternalFortXTrans.g:4659:2: ( rule__DelimitedExpr__AforAssignment_2_0 )
             {
-             before(grammarAccess.getDelimitedExprAccess().getForKeyword_2_0()); 
-            match(input,31,FOLLOW_2); 
-             after(grammarAccess.getDelimitedExprAccess().getForKeyword_2_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getAforAssignment_2_0()); 
+            // InternalFortXTrans.g:4660:2: ( rule__DelimitedExpr__AforAssignment_2_0 )
+            // InternalFortXTrans.g:4660:3: rule__DelimitedExpr__AforAssignment_2_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DelimitedExpr__AforAssignment_2_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDelimitedExprAccess().getAforAssignment_2_0()); 
 
             }
 
@@ -14947,31 +14967,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Group_2__2__Impl"
-    // InternalFortXTrans.g:4707:1: rule__DelimitedExpr__Group_2__2__Impl : ( ( rule__DelimitedExpr__DorontAssignment_2_2 ) ) ;
+    // InternalFortXTrans.g:4707:1: rule__DelimitedExpr__Group_2__2__Impl : ( ( rule__DelimitedExpr__DofrontAssignment_2_2 ) ) ;
     public final void rule__DelimitedExpr__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:4711:1: ( ( ( rule__DelimitedExpr__DorontAssignment_2_2 ) ) )
-            // InternalFortXTrans.g:4712:1: ( ( rule__DelimitedExpr__DorontAssignment_2_2 ) )
+            // InternalFortXTrans.g:4711:1: ( ( ( rule__DelimitedExpr__DofrontAssignment_2_2 ) ) )
+            // InternalFortXTrans.g:4712:1: ( ( rule__DelimitedExpr__DofrontAssignment_2_2 ) )
             {
-            // InternalFortXTrans.g:4712:1: ( ( rule__DelimitedExpr__DorontAssignment_2_2 ) )
-            // InternalFortXTrans.g:4713:2: ( rule__DelimitedExpr__DorontAssignment_2_2 )
+            // InternalFortXTrans.g:4712:1: ( ( rule__DelimitedExpr__DofrontAssignment_2_2 ) )
+            // InternalFortXTrans.g:4713:2: ( rule__DelimitedExpr__DofrontAssignment_2_2 )
             {
-             before(grammarAccess.getDelimitedExprAccess().getDorontAssignment_2_2()); 
-            // InternalFortXTrans.g:4714:2: ( rule__DelimitedExpr__DorontAssignment_2_2 )
-            // InternalFortXTrans.g:4714:3: rule__DelimitedExpr__DorontAssignment_2_2
+             before(grammarAccess.getDelimitedExprAccess().getDofrontAssignment_2_2()); 
+            // InternalFortXTrans.g:4714:2: ( rule__DelimitedExpr__DofrontAssignment_2_2 )
+            // InternalFortXTrans.g:4714:3: rule__DelimitedExpr__DofrontAssignment_2_2
             {
             pushFollow(FOLLOW_2);
-            rule__DelimitedExpr__DorontAssignment_2_2();
+            rule__DelimitedExpr__DofrontAssignment_2_2();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDelimitedExprAccess().getDorontAssignment_2_2()); 
+             after(grammarAccess.getDelimitedExprAccess().getDofrontAssignment_2_2()); 
 
             }
 
@@ -15102,21 +15122,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Group_3__0__Impl"
-    // InternalFortXTrans.g:4761:1: rule__DelimitedExpr__Group_3__0__Impl : ( 'if' ) ;
+    // InternalFortXTrans.g:4761:1: rule__DelimitedExpr__Group_3__0__Impl : ( ( rule__DelimitedExpr__AnifAssignment_3_0 ) ) ;
     public final void rule__DelimitedExpr__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:4765:1: ( ( 'if' ) )
-            // InternalFortXTrans.g:4766:1: ( 'if' )
+            // InternalFortXTrans.g:4765:1: ( ( ( rule__DelimitedExpr__AnifAssignment_3_0 ) ) )
+            // InternalFortXTrans.g:4766:1: ( ( rule__DelimitedExpr__AnifAssignment_3_0 ) )
             {
-            // InternalFortXTrans.g:4766:1: ( 'if' )
-            // InternalFortXTrans.g:4767:2: 'if'
+            // InternalFortXTrans.g:4766:1: ( ( rule__DelimitedExpr__AnifAssignment_3_0 ) )
+            // InternalFortXTrans.g:4767:2: ( rule__DelimitedExpr__AnifAssignment_3_0 )
             {
-             before(grammarAccess.getDelimitedExprAccess().getIfKeyword_3_0()); 
-            match(input,32,FOLLOW_2); 
-             after(grammarAccess.getDelimitedExprAccess().getIfKeyword_3_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getAnifAssignment_3_0()); 
+            // InternalFortXTrans.g:4768:2: ( rule__DelimitedExpr__AnifAssignment_3_0 )
+            // InternalFortXTrans.g:4768:3: rule__DelimitedExpr__AnifAssignment_3_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DelimitedExpr__AnifAssignment_3_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDelimitedExprAccess().getAnifAssignment_3_0()); 
 
             }
 
@@ -15177,31 +15207,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__Group_3__1__Impl"
-    // InternalFortXTrans.g:4788:1: rule__DelimitedExpr__Group_3__1__Impl : ( ( rule__DelimitedExpr__ExprAssignment_3_1 ) ) ;
+    // InternalFortXTrans.g:4788:1: rule__DelimitedExpr__Group_3__1__Impl : ( ( rule__DelimitedExpr__CondAssignment_3_1 ) ) ;
     public final void rule__DelimitedExpr__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:4792:1: ( ( ( rule__DelimitedExpr__ExprAssignment_3_1 ) ) )
-            // InternalFortXTrans.g:4793:1: ( ( rule__DelimitedExpr__ExprAssignment_3_1 ) )
+            // InternalFortXTrans.g:4792:1: ( ( ( rule__DelimitedExpr__CondAssignment_3_1 ) ) )
+            // InternalFortXTrans.g:4793:1: ( ( rule__DelimitedExpr__CondAssignment_3_1 ) )
             {
-            // InternalFortXTrans.g:4793:1: ( ( rule__DelimitedExpr__ExprAssignment_3_1 ) )
-            // InternalFortXTrans.g:4794:2: ( rule__DelimitedExpr__ExprAssignment_3_1 )
+            // InternalFortXTrans.g:4793:1: ( ( rule__DelimitedExpr__CondAssignment_3_1 ) )
+            // InternalFortXTrans.g:4794:2: ( rule__DelimitedExpr__CondAssignment_3_1 )
             {
-             before(grammarAccess.getDelimitedExprAccess().getExprAssignment_3_1()); 
-            // InternalFortXTrans.g:4795:2: ( rule__DelimitedExpr__ExprAssignment_3_1 )
-            // InternalFortXTrans.g:4795:3: rule__DelimitedExpr__ExprAssignment_3_1
+             before(grammarAccess.getDelimitedExprAccess().getCondAssignment_3_1()); 
+            // InternalFortXTrans.g:4795:2: ( rule__DelimitedExpr__CondAssignment_3_1 )
+            // InternalFortXTrans.g:4795:3: rule__DelimitedExpr__CondAssignment_3_1
             {
             pushFollow(FOLLOW_2);
-            rule__DelimitedExpr__ExprAssignment_3_1();
+            rule__DelimitedExpr__CondAssignment_3_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getDelimitedExprAccess().getExprAssignment_3_1()); 
+             after(grammarAccess.getDelimitedExprAccess().getCondAssignment_3_1()); 
 
             }
 
@@ -15275,7 +15305,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             // InternalFortXTrans.g:4821:2: 'then'
             {
              before(grammarAccess.getDelimitedExprAccess().getThenKeyword_3_2()); 
-            match(input,33,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getDelimitedExprAccess().getThenKeyword_3_2()); 
 
             }
@@ -15439,7 +15469,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt42=2;
             int LA42_0 = input.LA(1);
 
-            if ( (LA42_0==34) ) {
+            if ( (LA42_0==31) ) {
                 alt42=1;
             }
             switch (alt42) {
@@ -15535,7 +15565,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             int alt43=2;
             int LA43_0 = input.LA(1);
 
-            if ( (LA43_0==35) ) {
+            if ( (LA43_0==32) ) {
                 alt43=1;
             }
             switch (alt43) {
@@ -15783,7 +15813,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 int alt44=2;
                 int LA44_0 = input.LA(1);
 
-                if ( (LA44_0==34) ) {
+                if ( (LA44_0==31) ) {
                     alt44=1;
                 }
 
@@ -15880,7 +15910,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             // InternalFortXTrans.g:5010:2: 'elif'
             {
              before(grammarAccess.getElifAccess().getElifKeyword_0()); 
-            match(input,34,FOLLOW_2); 
+            match(input,31,FOLLOW_2); 
              after(grammarAccess.getElifAccess().getElifKeyword_0()); 
 
             }
@@ -16040,7 +16070,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             // InternalFortXTrans.g:5064:2: 'then'
             {
              before(grammarAccess.getElifAccess().getThenKeyword_2()); 
-            match(input,33,FOLLOW_2); 
+            match(input,30,FOLLOW_2); 
              after(grammarAccess.getElifAccess().getThenKeyword_2()); 
 
             }
@@ -16195,7 +16225,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             // InternalFortXTrans.g:5118:2: 'else'
             {
              before(grammarAccess.getElseAccess().getElseKeyword_0()); 
-            match(input,35,FOLLOW_2); 
+            match(input,32,FOLLOW_2); 
              after(grammarAccess.getElseAccess().getElseKeyword_0()); 
 
             }
@@ -16773,7 +16803,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             // InternalFortXTrans.g:5307:2: '<-'
             {
              before(grammarAccess.getBindingAccess().getLessThanSignHyphenMinusKeyword_1()); 
-            match(input,36,FOLLOW_2); 
+            match(input,33,FOLLOW_2); 
              after(grammarAccess.getBindingAccess().getLessThanSignHyphenMinusKeyword_1()); 
 
             }
@@ -16915,25 +16945,31 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BlockElems__Group__0__Impl"
-    // InternalFortXTrans.g:5355:1: rule__BlockElems__Group__0__Impl : ( ruleBlockElem ) ;
+    // InternalFortXTrans.g:5355:1: rule__BlockElems__Group__0__Impl : ( ( rule__BlockElems__BlockAssignment_0 ) ) ;
     public final void rule__BlockElems__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5359:1: ( ( ruleBlockElem ) )
-            // InternalFortXTrans.g:5360:1: ( ruleBlockElem )
+            // InternalFortXTrans.g:5359:1: ( ( ( rule__BlockElems__BlockAssignment_0 ) ) )
+            // InternalFortXTrans.g:5360:1: ( ( rule__BlockElems__BlockAssignment_0 ) )
             {
-            // InternalFortXTrans.g:5360:1: ( ruleBlockElem )
-            // InternalFortXTrans.g:5361:2: ruleBlockElem
+            // InternalFortXTrans.g:5360:1: ( ( rule__BlockElems__BlockAssignment_0 ) )
+            // InternalFortXTrans.g:5361:2: ( rule__BlockElems__BlockAssignment_0 )
             {
-             before(grammarAccess.getBlockElemsAccess().getBlockElemParserRuleCall_0()); 
+             before(grammarAccess.getBlockElemsAccess().getBlockAssignment_0()); 
+            // InternalFortXTrans.g:5362:2: ( rule__BlockElems__BlockAssignment_0 )
+            // InternalFortXTrans.g:5362:3: rule__BlockElems__BlockAssignment_0
+            {
             pushFollow(FOLLOW_2);
-            ruleBlockElem();
+            rule__BlockElems__BlockAssignment_0();
 
             state._fsp--;
 
-             after(grammarAccess.getBlockElemsAccess().getBlockElemParserRuleCall_0()); 
+
+            }
+
+             after(grammarAccess.getBlockElemsAccess().getBlockAssignment_0()); 
 
             }
 
@@ -16956,22 +16992,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BlockElems__Group__1"
-    // InternalFortXTrans.g:5370:1: rule__BlockElems__Group__1 : rule__BlockElems__Group__1__Impl rule__BlockElems__Group__2 ;
+    // InternalFortXTrans.g:5370:1: rule__BlockElems__Group__1 : rule__BlockElems__Group__1__Impl ;
     public final void rule__BlockElems__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5374:1: ( rule__BlockElems__Group__1__Impl rule__BlockElems__Group__2 )
-            // InternalFortXTrans.g:5375:2: rule__BlockElems__Group__1__Impl rule__BlockElems__Group__2
+            // InternalFortXTrans.g:5374:1: ( rule__BlockElems__Group__1__Impl )
+            // InternalFortXTrans.g:5375:2: rule__BlockElems__Group__1__Impl
             {
-            pushFollow(FOLLOW_32);
-            rule__BlockElems__Group__1__Impl();
-
-            state._fsp--;
-
             pushFollow(FOLLOW_2);
-            rule__BlockElems__Group__2();
+            rule__BlockElems__Group__1__Impl();
 
             state._fsp--;
 
@@ -16994,106 +17025,36 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__BlockElems__Group__1__Impl"
-    // InternalFortXTrans.g:5382:1: rule__BlockElems__Group__1__Impl : ( () ) ;
+    // InternalFortXTrans.g:5381:1: rule__BlockElems__Group__1__Impl : ( ( rule__BlockElems__BlockAssignment_1 )* ) ;
     public final void rule__BlockElems__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5386:1: ( ( () ) )
-            // InternalFortXTrans.g:5387:1: ( () )
+            // InternalFortXTrans.g:5385:1: ( ( ( rule__BlockElems__BlockAssignment_1 )* ) )
+            // InternalFortXTrans.g:5386:1: ( ( rule__BlockElems__BlockAssignment_1 )* )
             {
-            // InternalFortXTrans.g:5387:1: ( () )
-            // InternalFortXTrans.g:5388:2: ()
+            // InternalFortXTrans.g:5386:1: ( ( rule__BlockElems__BlockAssignment_1 )* )
+            // InternalFortXTrans.g:5387:2: ( rule__BlockElems__BlockAssignment_1 )*
             {
-             before(grammarAccess.getBlockElemsAccess().getBlockElemsBlockAction_1()); 
-            // InternalFortXTrans.g:5389:2: ()
-            // InternalFortXTrans.g:5389:3: 
-            {
-            }
-
-             after(grammarAccess.getBlockElemsAccess().getBlockElemsBlockAction_1()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BlockElems__Group__1__Impl"
-
-
-    // $ANTLR start "rule__BlockElems__Group__2"
-    // InternalFortXTrans.g:5397:1: rule__BlockElems__Group__2 : rule__BlockElems__Group__2__Impl ;
-    public final void rule__BlockElems__Group__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalFortXTrans.g:5401:1: ( rule__BlockElems__Group__2__Impl )
-            // InternalFortXTrans.g:5402:2: rule__BlockElems__Group__2__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__BlockElems__Group__2__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BlockElems__Group__2"
-
-
-    // $ANTLR start "rule__BlockElems__Group__2__Impl"
-    // InternalFortXTrans.g:5408:1: rule__BlockElems__Group__2__Impl : ( ( rule__BlockElems__MoreBlocksAssignment_2 )* ) ;
-    public final void rule__BlockElems__Group__2__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalFortXTrans.g:5412:1: ( ( ( rule__BlockElems__MoreBlocksAssignment_2 )* ) )
-            // InternalFortXTrans.g:5413:1: ( ( rule__BlockElems__MoreBlocksAssignment_2 )* )
-            {
-            // InternalFortXTrans.g:5413:1: ( ( rule__BlockElems__MoreBlocksAssignment_2 )* )
-            // InternalFortXTrans.g:5414:2: ( rule__BlockElems__MoreBlocksAssignment_2 )*
-            {
-             before(grammarAccess.getBlockElemsAccess().getMoreBlocksAssignment_2()); 
-            // InternalFortXTrans.g:5415:2: ( rule__BlockElems__MoreBlocksAssignment_2 )*
+             before(grammarAccess.getBlockElemsAccess().getBlockAssignment_1()); 
+            // InternalFortXTrans.g:5388:2: ( rule__BlockElems__BlockAssignment_1 )*
             loop46:
             do {
                 int alt46=2;
                 int LA46_0 = input.LA(1);
 
-                if ( (LA46_0==RULE_ID||(LA46_0>=30 && LA46_0<=32)||LA46_0==37||LA46_0==39||LA46_0==45||LA46_0==48) ) {
+                if ( (LA46_0==RULE_ID||LA46_0==34||LA46_0==36||LA46_0==42||(LA46_0>=45 && LA46_0<=48)) ) {
                     alt46=1;
                 }
 
 
                 switch (alt46) {
             	case 1 :
-            	    // InternalFortXTrans.g:5415:3: rule__BlockElems__MoreBlocksAssignment_2
+            	    // InternalFortXTrans.g:5388:3: rule__BlockElems__BlockAssignment_1
             	    {
             	    pushFollow(FOLLOW_42);
-            	    rule__BlockElems__MoreBlocksAssignment_2();
+            	    rule__BlockElems__BlockAssignment_1();
 
             	    state._fsp--;
 
@@ -17106,7 +17067,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
                 }
             } while (true);
 
-             after(grammarAccess.getBlockElemsAccess().getMoreBlocksAssignment_2()); 
+             after(grammarAccess.getBlockElemsAccess().getBlockAssignment_1()); 
 
             }
 
@@ -17125,167 +17086,18 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__BlockElems__Group__2__Impl"
-
-
-    // $ANTLR start "rule__BlockElem__Group__0"
-    // InternalFortXTrans.g:5424:1: rule__BlockElem__Group__0 : rule__BlockElem__Group__0__Impl rule__BlockElem__Group__1 ;
-    public final void rule__BlockElem__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalFortXTrans.g:5428:1: ( rule__BlockElem__Group__0__Impl rule__BlockElem__Group__1 )
-            // InternalFortXTrans.g:5429:2: rule__BlockElem__Group__0__Impl rule__BlockElem__Group__1
-            {
-            pushFollow(FOLLOW_1);
-            rule__BlockElem__Group__0__Impl();
-
-            state._fsp--;
-
-            pushFollow(FOLLOW_2);
-            rule__BlockElem__Group__1();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BlockElem__Group__0"
-
-
-    // $ANTLR start "rule__BlockElem__Group__0__Impl"
-    // InternalFortXTrans.g:5436:1: rule__BlockElem__Group__0__Impl : ( ruleExpr ) ;
-    public final void rule__BlockElem__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalFortXTrans.g:5440:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:5441:1: ( ruleExpr )
-            {
-            // InternalFortXTrans.g:5441:1: ( ruleExpr )
-            // InternalFortXTrans.g:5442:2: ruleExpr
-            {
-             before(grammarAccess.getBlockElemAccess().getExprParserRuleCall_0()); 
-            pushFollow(FOLLOW_2);
-            ruleExpr();
-
-            state._fsp--;
-
-             after(grammarAccess.getBlockElemAccess().getExprParserRuleCall_0()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BlockElem__Group__0__Impl"
-
-
-    // $ANTLR start "rule__BlockElem__Group__1"
-    // InternalFortXTrans.g:5451:1: rule__BlockElem__Group__1 : rule__BlockElem__Group__1__Impl ;
-    public final void rule__BlockElem__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalFortXTrans.g:5455:1: ( rule__BlockElem__Group__1__Impl )
-            // InternalFortXTrans.g:5456:2: rule__BlockElem__Group__1__Impl
-            {
-            pushFollow(FOLLOW_2);
-            rule__BlockElem__Group__1__Impl();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BlockElem__Group__1"
-
-
-    // $ANTLR start "rule__BlockElem__Group__1__Impl"
-    // InternalFortXTrans.g:5462:1: rule__BlockElem__Group__1__Impl : ( () ) ;
-    public final void rule__BlockElem__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-        	
-        try {
-            // InternalFortXTrans.g:5466:1: ( ( () ) )
-            // InternalFortXTrans.g:5467:1: ( () )
-            {
-            // InternalFortXTrans.g:5467:1: ( () )
-            // InternalFortXTrans.g:5468:2: ()
-            {
-             before(grammarAccess.getBlockElemAccess().getBlockELemExprAction_1()); 
-            // InternalFortXTrans.g:5469:2: ()
-            // InternalFortXTrans.g:5469:3: 
-            {
-            }
-
-             after(grammarAccess.getBlockElemAccess().getBlockELemExprAction_1()); 
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__BlockElem__Group__1__Impl"
+    // $ANTLR end "rule__BlockElems__Group__1__Impl"
 
 
     // $ANTLR start "rule__Paranthesized__Group__0"
-    // InternalFortXTrans.g:5478:1: rule__Paranthesized__Group__0 : rule__Paranthesized__Group__0__Impl rule__Paranthesized__Group__1 ;
+    // InternalFortXTrans.g:5397:1: rule__Paranthesized__Group__0 : rule__Paranthesized__Group__0__Impl rule__Paranthesized__Group__1 ;
     public final void rule__Paranthesized__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5482:1: ( rule__Paranthesized__Group__0__Impl rule__Paranthesized__Group__1 )
-            // InternalFortXTrans.g:5483:2: rule__Paranthesized__Group__0__Impl rule__Paranthesized__Group__1
+            // InternalFortXTrans.g:5401:1: ( rule__Paranthesized__Group__0__Impl rule__Paranthesized__Group__1 )
+            // InternalFortXTrans.g:5402:2: rule__Paranthesized__Group__0__Impl rule__Paranthesized__Group__1
             {
             pushFollow(FOLLOW_32);
             rule__Paranthesized__Group__0__Impl();
@@ -17316,20 +17128,20 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__0__Impl"
-    // InternalFortXTrans.g:5490:1: rule__Paranthesized__Group__0__Impl : ( '(' ) ;
+    // InternalFortXTrans.g:5409:1: rule__Paranthesized__Group__0__Impl : ( '(' ) ;
     public final void rule__Paranthesized__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5494:1: ( ( '(' ) )
-            // InternalFortXTrans.g:5495:1: ( '(' )
+            // InternalFortXTrans.g:5413:1: ( ( '(' ) )
+            // InternalFortXTrans.g:5414:1: ( '(' )
             {
-            // InternalFortXTrans.g:5495:1: ( '(' )
-            // InternalFortXTrans.g:5496:2: '('
+            // InternalFortXTrans.g:5414:1: ( '(' )
+            // InternalFortXTrans.g:5415:2: '('
             {
              before(grammarAccess.getParanthesizedAccess().getLeftParenthesisKeyword_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getParanthesizedAccess().getLeftParenthesisKeyword_0()); 
 
             }
@@ -17353,14 +17165,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__1"
-    // InternalFortXTrans.g:5505:1: rule__Paranthesized__Group__1 : rule__Paranthesized__Group__1__Impl rule__Paranthesized__Group__2 ;
+    // InternalFortXTrans.g:5424:1: rule__Paranthesized__Group__1 : rule__Paranthesized__Group__1__Impl rule__Paranthesized__Group__2 ;
     public final void rule__Paranthesized__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5509:1: ( rule__Paranthesized__Group__1__Impl rule__Paranthesized__Group__2 )
-            // InternalFortXTrans.g:5510:2: rule__Paranthesized__Group__1__Impl rule__Paranthesized__Group__2
+            // InternalFortXTrans.g:5428:1: ( rule__Paranthesized__Group__1__Impl rule__Paranthesized__Group__2 )
+            // InternalFortXTrans.g:5429:2: rule__Paranthesized__Group__1__Impl rule__Paranthesized__Group__2
             {
             pushFollow(FOLLOW_28);
             rule__Paranthesized__Group__1__Impl();
@@ -17391,17 +17203,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__1__Impl"
-    // InternalFortXTrans.g:5517:1: rule__Paranthesized__Group__1__Impl : ( ruleExpr ) ;
+    // InternalFortXTrans.g:5436:1: rule__Paranthesized__Group__1__Impl : ( ruleExpr ) ;
     public final void rule__Paranthesized__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5521:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:5522:1: ( ruleExpr )
+            // InternalFortXTrans.g:5440:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:5441:1: ( ruleExpr )
             {
-            // InternalFortXTrans.g:5522:1: ( ruleExpr )
-            // InternalFortXTrans.g:5523:2: ruleExpr
+            // InternalFortXTrans.g:5441:1: ( ruleExpr )
+            // InternalFortXTrans.g:5442:2: ruleExpr
             {
              before(grammarAccess.getParanthesizedAccess().getExprParserRuleCall_1()); 
             pushFollow(FOLLOW_2);
@@ -17432,14 +17244,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__2"
-    // InternalFortXTrans.g:5532:1: rule__Paranthesized__Group__2 : rule__Paranthesized__Group__2__Impl rule__Paranthesized__Group__3 ;
+    // InternalFortXTrans.g:5451:1: rule__Paranthesized__Group__2 : rule__Paranthesized__Group__2__Impl rule__Paranthesized__Group__3 ;
     public final void rule__Paranthesized__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5536:1: ( rule__Paranthesized__Group__2__Impl rule__Paranthesized__Group__3 )
-            // InternalFortXTrans.g:5537:2: rule__Paranthesized__Group__2__Impl rule__Paranthesized__Group__3
+            // InternalFortXTrans.g:5455:1: ( rule__Paranthesized__Group__2__Impl rule__Paranthesized__Group__3 )
+            // InternalFortXTrans.g:5456:2: rule__Paranthesized__Group__2__Impl rule__Paranthesized__Group__3
             {
             pushFollow(FOLLOW_28);
             rule__Paranthesized__Group__2__Impl();
@@ -17470,21 +17282,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__2__Impl"
-    // InternalFortXTrans.g:5544:1: rule__Paranthesized__Group__2__Impl : ( () ) ;
+    // InternalFortXTrans.g:5463:1: rule__Paranthesized__Group__2__Impl : ( () ) ;
     public final void rule__Paranthesized__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5548:1: ( ( () ) )
-            // InternalFortXTrans.g:5549:1: ( () )
+            // InternalFortXTrans.g:5467:1: ( ( () ) )
+            // InternalFortXTrans.g:5468:1: ( () )
             {
-            // InternalFortXTrans.g:5549:1: ( () )
-            // InternalFortXTrans.g:5550:2: ()
+            // InternalFortXTrans.g:5468:1: ( () )
+            // InternalFortXTrans.g:5469:2: ()
             {
              before(grammarAccess.getParanthesizedAccess().getParanthesizedExprAction_2()); 
-            // InternalFortXTrans.g:5551:2: ()
-            // InternalFortXTrans.g:5551:3: 
+            // InternalFortXTrans.g:5470:2: ()
+            // InternalFortXTrans.g:5470:3: 
             {
             }
 
@@ -17507,14 +17319,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__3"
-    // InternalFortXTrans.g:5559:1: rule__Paranthesized__Group__3 : rule__Paranthesized__Group__3__Impl ;
+    // InternalFortXTrans.g:5478:1: rule__Paranthesized__Group__3 : rule__Paranthesized__Group__3__Impl ;
     public final void rule__Paranthesized__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5563:1: ( rule__Paranthesized__Group__3__Impl )
-            // InternalFortXTrans.g:5564:2: rule__Paranthesized__Group__3__Impl
+            // InternalFortXTrans.g:5482:1: ( rule__Paranthesized__Group__3__Impl )
+            // InternalFortXTrans.g:5483:2: rule__Paranthesized__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Paranthesized__Group__3__Impl();
@@ -17540,17 +17352,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Paranthesized__Group__3__Impl"
-    // InternalFortXTrans.g:5570:1: rule__Paranthesized__Group__3__Impl : ( ')' ) ;
+    // InternalFortXTrans.g:5489:1: rule__Paranthesized__Group__3__Impl : ( ')' ) ;
     public final void rule__Paranthesized__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5574:1: ( ( ')' ) )
-            // InternalFortXTrans.g:5575:1: ( ')' )
+            // InternalFortXTrans.g:5493:1: ( ( ')' ) )
+            // InternalFortXTrans.g:5494:1: ( ')' )
             {
-            // InternalFortXTrans.g:5575:1: ( ')' )
-            // InternalFortXTrans.g:5576:2: ')'
+            // InternalFortXTrans.g:5494:1: ( ')' )
+            // InternalFortXTrans.g:5495:2: ')'
             {
              before(grammarAccess.getParanthesizedAccess().getRightParenthesisKeyword_3()); 
             match(input,28,FOLLOW_2); 
@@ -17577,14 +17389,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group__0"
-    // InternalFortXTrans.g:5586:1: rule__Do__Group__0 : rule__Do__Group__0__Impl rule__Do__Group__1 ;
+    // InternalFortXTrans.g:5505:1: rule__Do__Group__0 : rule__Do__Group__0__Impl rule__Do__Group__1 ;
     public final void rule__Do__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5590:1: ( rule__Do__Group__0__Impl rule__Do__Group__1 )
-            // InternalFortXTrans.g:5591:2: rule__Do__Group__0__Impl rule__Do__Group__1
+            // InternalFortXTrans.g:5509:1: ( rule__Do__Group__0__Impl rule__Do__Group__1 )
+            // InternalFortXTrans.g:5510:2: rule__Do__Group__0__Impl rule__Do__Group__1
             {
             pushFollow(FOLLOW_43);
             rule__Do__Group__0__Impl();
@@ -17615,21 +17427,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group__0__Impl"
-    // InternalFortXTrans.g:5598:1: rule__Do__Group__0__Impl : ( ( rule__Do__DofsAssignment_0 ) ) ;
+    // InternalFortXTrans.g:5517:1: rule__Do__Group__0__Impl : ( ( rule__Do__DofsAssignment_0 ) ) ;
     public final void rule__Do__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5602:1: ( ( ( rule__Do__DofsAssignment_0 ) ) )
-            // InternalFortXTrans.g:5603:1: ( ( rule__Do__DofsAssignment_0 ) )
+            // InternalFortXTrans.g:5521:1: ( ( ( rule__Do__DofsAssignment_0 ) ) )
+            // InternalFortXTrans.g:5522:1: ( ( rule__Do__DofsAssignment_0 ) )
             {
-            // InternalFortXTrans.g:5603:1: ( ( rule__Do__DofsAssignment_0 ) )
-            // InternalFortXTrans.g:5604:2: ( rule__Do__DofsAssignment_0 )
+            // InternalFortXTrans.g:5522:1: ( ( rule__Do__DofsAssignment_0 ) )
+            // InternalFortXTrans.g:5523:2: ( rule__Do__DofsAssignment_0 )
             {
              before(grammarAccess.getDoAccess().getDofsAssignment_0()); 
-            // InternalFortXTrans.g:5605:2: ( rule__Do__DofsAssignment_0 )
-            // InternalFortXTrans.g:5605:3: rule__Do__DofsAssignment_0
+            // InternalFortXTrans.g:5524:2: ( rule__Do__DofsAssignment_0 )
+            // InternalFortXTrans.g:5524:3: rule__Do__DofsAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__Do__DofsAssignment_0();
@@ -17662,14 +17474,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group__1"
-    // InternalFortXTrans.g:5613:1: rule__Do__Group__1 : rule__Do__Group__1__Impl rule__Do__Group__2 ;
+    // InternalFortXTrans.g:5532:1: rule__Do__Group__1 : rule__Do__Group__1__Impl rule__Do__Group__2 ;
     public final void rule__Do__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5617:1: ( rule__Do__Group__1__Impl rule__Do__Group__2 )
-            // InternalFortXTrans.g:5618:2: rule__Do__Group__1__Impl rule__Do__Group__2
+            // InternalFortXTrans.g:5536:1: ( rule__Do__Group__1__Impl rule__Do__Group__2 )
+            // InternalFortXTrans.g:5537:2: rule__Do__Group__1__Impl rule__Do__Group__2
             {
             pushFollow(FOLLOW_43);
             rule__Do__Group__1__Impl();
@@ -17700,33 +17512,33 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group__1__Impl"
-    // InternalFortXTrans.g:5625:1: rule__Do__Group__1__Impl : ( ( rule__Do__Group_1__0 )* ) ;
+    // InternalFortXTrans.g:5544:1: rule__Do__Group__1__Impl : ( ( rule__Do__Group_1__0 )* ) ;
     public final void rule__Do__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5629:1: ( ( ( rule__Do__Group_1__0 )* ) )
-            // InternalFortXTrans.g:5630:1: ( ( rule__Do__Group_1__0 )* )
+            // InternalFortXTrans.g:5548:1: ( ( ( rule__Do__Group_1__0 )* ) )
+            // InternalFortXTrans.g:5549:1: ( ( rule__Do__Group_1__0 )* )
             {
-            // InternalFortXTrans.g:5630:1: ( ( rule__Do__Group_1__0 )* )
-            // InternalFortXTrans.g:5631:2: ( rule__Do__Group_1__0 )*
+            // InternalFortXTrans.g:5549:1: ( ( rule__Do__Group_1__0 )* )
+            // InternalFortXTrans.g:5550:2: ( rule__Do__Group_1__0 )*
             {
              before(grammarAccess.getDoAccess().getGroup_1()); 
-            // InternalFortXTrans.g:5632:2: ( rule__Do__Group_1__0 )*
+            // InternalFortXTrans.g:5551:2: ( rule__Do__Group_1__0 )*
             loop47:
             do {
                 int alt47=2;
                 int LA47_0 = input.LA(1);
 
-                if ( (LA47_0==38) ) {
+                if ( (LA47_0==35) ) {
                     alt47=1;
                 }
 
 
                 switch (alt47) {
             	case 1 :
-            	    // InternalFortXTrans.g:5632:3: rule__Do__Group_1__0
+            	    // InternalFortXTrans.g:5551:3: rule__Do__Group_1__0
             	    {
             	    pushFollow(FOLLOW_44);
             	    rule__Do__Group_1__0();
@@ -17765,14 +17577,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group__2"
-    // InternalFortXTrans.g:5640:1: rule__Do__Group__2 : rule__Do__Group__2__Impl ;
+    // InternalFortXTrans.g:5559:1: rule__Do__Group__2 : rule__Do__Group__2__Impl ;
     public final void rule__Do__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5644:1: ( rule__Do__Group__2__Impl )
-            // InternalFortXTrans.g:5645:2: rule__Do__Group__2__Impl
+            // InternalFortXTrans.g:5563:1: ( rule__Do__Group__2__Impl )
+            // InternalFortXTrans.g:5564:2: rule__Do__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Do__Group__2__Impl();
@@ -17798,17 +17610,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group__2__Impl"
-    // InternalFortXTrans.g:5651:1: rule__Do__Group__2__Impl : ( 'end' ) ;
+    // InternalFortXTrans.g:5570:1: rule__Do__Group__2__Impl : ( 'end' ) ;
     public final void rule__Do__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5655:1: ( ( 'end' ) )
-            // InternalFortXTrans.g:5656:1: ( 'end' )
+            // InternalFortXTrans.g:5574:1: ( ( 'end' ) )
+            // InternalFortXTrans.g:5575:1: ( 'end' )
             {
-            // InternalFortXTrans.g:5656:1: ( 'end' )
-            // InternalFortXTrans.g:5657:2: 'end'
+            // InternalFortXTrans.g:5575:1: ( 'end' )
+            // InternalFortXTrans.g:5576:2: 'end'
             {
              before(grammarAccess.getDoAccess().getEndKeyword_2()); 
             match(input,21,FOLLOW_2); 
@@ -17835,14 +17647,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group_1__0"
-    // InternalFortXTrans.g:5667:1: rule__Do__Group_1__0 : rule__Do__Group_1__0__Impl rule__Do__Group_1__1 ;
+    // InternalFortXTrans.g:5586:1: rule__Do__Group_1__0 : rule__Do__Group_1__0__Impl rule__Do__Group_1__1 ;
     public final void rule__Do__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5671:1: ( rule__Do__Group_1__0__Impl rule__Do__Group_1__1 )
-            // InternalFortXTrans.g:5672:2: rule__Do__Group_1__0__Impl rule__Do__Group_1__1
+            // InternalFortXTrans.g:5590:1: ( rule__Do__Group_1__0__Impl rule__Do__Group_1__1 )
+            // InternalFortXTrans.g:5591:2: rule__Do__Group_1__0__Impl rule__Do__Group_1__1
             {
             pushFollow(FOLLOW_34);
             rule__Do__Group_1__0__Impl();
@@ -17873,20 +17685,20 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group_1__0__Impl"
-    // InternalFortXTrans.g:5679:1: rule__Do__Group_1__0__Impl : ( 'also' ) ;
+    // InternalFortXTrans.g:5598:1: rule__Do__Group_1__0__Impl : ( 'also' ) ;
     public final void rule__Do__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5683:1: ( ( 'also' ) )
-            // InternalFortXTrans.g:5684:1: ( 'also' )
+            // InternalFortXTrans.g:5602:1: ( ( 'also' ) )
+            // InternalFortXTrans.g:5603:1: ( 'also' )
             {
-            // InternalFortXTrans.g:5684:1: ( 'also' )
-            // InternalFortXTrans.g:5685:2: 'also'
+            // InternalFortXTrans.g:5603:1: ( 'also' )
+            // InternalFortXTrans.g:5604:2: 'also'
             {
              before(grammarAccess.getDoAccess().getAlsoKeyword_1_0()); 
-            match(input,38,FOLLOW_2); 
+            match(input,35,FOLLOW_2); 
              after(grammarAccess.getDoAccess().getAlsoKeyword_1_0()); 
 
             }
@@ -17910,14 +17722,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group_1__1"
-    // InternalFortXTrans.g:5694:1: rule__Do__Group_1__1 : rule__Do__Group_1__1__Impl ;
+    // InternalFortXTrans.g:5613:1: rule__Do__Group_1__1 : rule__Do__Group_1__1__Impl ;
     public final void rule__Do__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5698:1: ( rule__Do__Group_1__1__Impl )
-            // InternalFortXTrans.g:5699:2: rule__Do__Group_1__1__Impl
+            // InternalFortXTrans.g:5617:1: ( rule__Do__Group_1__1__Impl )
+            // InternalFortXTrans.g:5618:2: rule__Do__Group_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Do__Group_1__1__Impl();
@@ -17943,21 +17755,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__Group_1__1__Impl"
-    // InternalFortXTrans.g:5705:1: rule__Do__Group_1__1__Impl : ( ( rule__Do__DofsAssignment_1_1 ) ) ;
+    // InternalFortXTrans.g:5624:1: rule__Do__Group_1__1__Impl : ( ( rule__Do__DofsAssignment_1_1 ) ) ;
     public final void rule__Do__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5709:1: ( ( ( rule__Do__DofsAssignment_1_1 ) ) )
-            // InternalFortXTrans.g:5710:1: ( ( rule__Do__DofsAssignment_1_1 ) )
+            // InternalFortXTrans.g:5628:1: ( ( ( rule__Do__DofsAssignment_1_1 ) ) )
+            // InternalFortXTrans.g:5629:1: ( ( rule__Do__DofsAssignment_1_1 ) )
             {
-            // InternalFortXTrans.g:5710:1: ( ( rule__Do__DofsAssignment_1_1 ) )
-            // InternalFortXTrans.g:5711:2: ( rule__Do__DofsAssignment_1_1 )
+            // InternalFortXTrans.g:5629:1: ( ( rule__Do__DofsAssignment_1_1 ) )
+            // InternalFortXTrans.g:5630:2: ( rule__Do__DofsAssignment_1_1 )
             {
              before(grammarAccess.getDoAccess().getDofsAssignment_1_1()); 
-            // InternalFortXTrans.g:5712:2: ( rule__Do__DofsAssignment_1_1 )
-            // InternalFortXTrans.g:5712:3: rule__Do__DofsAssignment_1_1
+            // InternalFortXTrans.g:5631:2: ( rule__Do__DofsAssignment_1_1 )
+            // InternalFortXTrans.g:5631:3: rule__Do__DofsAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Do__DofsAssignment_1_1();
@@ -17990,14 +17802,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__0"
-    // InternalFortXTrans.g:5721:1: rule__DoFront__Group__0 : rule__DoFront__Group__0__Impl rule__DoFront__Group__1 ;
+    // InternalFortXTrans.g:5640:1: rule__DoFront__Group__0 : rule__DoFront__Group__0__Impl rule__DoFront__Group__1 ;
     public final void rule__DoFront__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5725:1: ( rule__DoFront__Group__0__Impl rule__DoFront__Group__1 )
-            // InternalFortXTrans.g:5726:2: rule__DoFront__Group__0__Impl rule__DoFront__Group__1
+            // InternalFortXTrans.g:5644:1: ( rule__DoFront__Group__0__Impl rule__DoFront__Group__1 )
+            // InternalFortXTrans.g:5645:2: rule__DoFront__Group__0__Impl rule__DoFront__Group__1
             {
             pushFollow(FOLLOW_34);
             rule__DoFront__Group__0__Impl();
@@ -18028,20 +17840,20 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__0__Impl"
-    // InternalFortXTrans.g:5733:1: rule__DoFront__Group__0__Impl : ( ( rule__DoFront__AtAssignment_0 )? ) ;
+    // InternalFortXTrans.g:5652:1: rule__DoFront__Group__0__Impl : ( ( rule__DoFront__Group_0__0 )? ) ;
     public final void rule__DoFront__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5737:1: ( ( ( rule__DoFront__AtAssignment_0 )? ) )
-            // InternalFortXTrans.g:5738:1: ( ( rule__DoFront__AtAssignment_0 )? )
+            // InternalFortXTrans.g:5656:1: ( ( ( rule__DoFront__Group_0__0 )? ) )
+            // InternalFortXTrans.g:5657:1: ( ( rule__DoFront__Group_0__0 )? )
             {
-            // InternalFortXTrans.g:5738:1: ( ( rule__DoFront__AtAssignment_0 )? )
-            // InternalFortXTrans.g:5739:2: ( rule__DoFront__AtAssignment_0 )?
+            // InternalFortXTrans.g:5657:1: ( ( rule__DoFront__Group_0__0 )? )
+            // InternalFortXTrans.g:5658:2: ( rule__DoFront__Group_0__0 )?
             {
-             before(grammarAccess.getDoFrontAccess().getAtAssignment_0()); 
-            // InternalFortXTrans.g:5740:2: ( rule__DoFront__AtAssignment_0 )?
+             before(grammarAccess.getDoFrontAccess().getGroup_0()); 
+            // InternalFortXTrans.g:5659:2: ( rule__DoFront__Group_0__0 )?
             int alt48=2;
             int LA48_0 = input.LA(1);
 
@@ -18050,10 +17862,10 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             }
             switch (alt48) {
                 case 1 :
-                    // InternalFortXTrans.g:5740:3: rule__DoFront__AtAssignment_0
+                    // InternalFortXTrans.g:5659:3: rule__DoFront__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
-                    rule__DoFront__AtAssignment_0();
+                    rule__DoFront__Group_0__0();
 
                     state._fsp--;
 
@@ -18063,7 +17875,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
             }
 
-             after(grammarAccess.getDoFrontAccess().getAtAssignment_0()); 
+             after(grammarAccess.getDoFrontAccess().getGroup_0()); 
 
             }
 
@@ -18086,14 +17898,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__1"
-    // InternalFortXTrans.g:5748:1: rule__DoFront__Group__1 : rule__DoFront__Group__1__Impl rule__DoFront__Group__2 ;
+    // InternalFortXTrans.g:5667:1: rule__DoFront__Group__1 : rule__DoFront__Group__1__Impl rule__DoFront__Group__2 ;
     public final void rule__DoFront__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5752:1: ( rule__DoFront__Group__1__Impl rule__DoFront__Group__2 )
-            // InternalFortXTrans.g:5753:2: rule__DoFront__Group__1__Impl rule__DoFront__Group__2
+            // InternalFortXTrans.g:5671:1: ( rule__DoFront__Group__1__Impl rule__DoFront__Group__2 )
+            // InternalFortXTrans.g:5672:2: rule__DoFront__Group__1__Impl rule__DoFront__Group__2
             {
             pushFollow(FOLLOW_34);
             rule__DoFront__Group__1__Impl();
@@ -18124,29 +17936,29 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__1__Impl"
-    // InternalFortXTrans.g:5760:1: rule__DoFront__Group__1__Impl : ( ( rule__DoFront__AtomAssignment_1 )? ) ;
+    // InternalFortXTrans.g:5679:1: rule__DoFront__Group__1__Impl : ( ( rule__DoFront__AtomAssignment_1 )? ) ;
     public final void rule__DoFront__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5764:1: ( ( ( rule__DoFront__AtomAssignment_1 )? ) )
-            // InternalFortXTrans.g:5765:1: ( ( rule__DoFront__AtomAssignment_1 )? )
+            // InternalFortXTrans.g:5683:1: ( ( ( rule__DoFront__AtomAssignment_1 )? ) )
+            // InternalFortXTrans.g:5684:1: ( ( rule__DoFront__AtomAssignment_1 )? )
             {
-            // InternalFortXTrans.g:5765:1: ( ( rule__DoFront__AtomAssignment_1 )? )
-            // InternalFortXTrans.g:5766:2: ( rule__DoFront__AtomAssignment_1 )?
+            // InternalFortXTrans.g:5684:1: ( ( rule__DoFront__AtomAssignment_1 )? )
+            // InternalFortXTrans.g:5685:2: ( rule__DoFront__AtomAssignment_1 )?
             {
              before(grammarAccess.getDoFrontAccess().getAtomAssignment_1()); 
-            // InternalFortXTrans.g:5767:2: ( rule__DoFront__AtomAssignment_1 )?
+            // InternalFortXTrans.g:5686:2: ( rule__DoFront__AtomAssignment_1 )?
             int alt49=2;
             int LA49_0 = input.LA(1);
 
-            if ( (LA49_0==45) ) {
+            if ( (LA49_0==42) ) {
                 alt49=1;
             }
             switch (alt49) {
                 case 1 :
-                    // InternalFortXTrans.g:5767:3: rule__DoFront__AtomAssignment_1
+                    // InternalFortXTrans.g:5686:3: rule__DoFront__AtomAssignment_1
                     {
                     pushFollow(FOLLOW_2);
                     rule__DoFront__AtomAssignment_1();
@@ -18182,14 +17994,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__2"
-    // InternalFortXTrans.g:5775:1: rule__DoFront__Group__2 : rule__DoFront__Group__2__Impl rule__DoFront__Group__3 ;
+    // InternalFortXTrans.g:5694:1: rule__DoFront__Group__2 : rule__DoFront__Group__2__Impl rule__DoFront__Group__3 ;
     public final void rule__DoFront__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5779:1: ( rule__DoFront__Group__2__Impl rule__DoFront__Group__3 )
-            // InternalFortXTrans.g:5780:2: rule__DoFront__Group__2__Impl rule__DoFront__Group__3
+            // InternalFortXTrans.g:5698:1: ( rule__DoFront__Group__2__Impl rule__DoFront__Group__3 )
+            // InternalFortXTrans.g:5699:2: rule__DoFront__Group__2__Impl rule__DoFront__Group__3
             {
             pushFollow(FOLLOW_32);
             rule__DoFront__Group__2__Impl();
@@ -18220,20 +18032,20 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__2__Impl"
-    // InternalFortXTrans.g:5787:1: rule__DoFront__Group__2__Impl : ( 'do' ) ;
+    // InternalFortXTrans.g:5706:1: rule__DoFront__Group__2__Impl : ( 'do' ) ;
     public final void rule__DoFront__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5791:1: ( ( 'do' ) )
-            // InternalFortXTrans.g:5792:1: ( 'do' )
+            // InternalFortXTrans.g:5710:1: ( ( 'do' ) )
+            // InternalFortXTrans.g:5711:1: ( 'do' )
             {
-            // InternalFortXTrans.g:5792:1: ( 'do' )
-            // InternalFortXTrans.g:5793:2: 'do'
+            // InternalFortXTrans.g:5711:1: ( 'do' )
+            // InternalFortXTrans.g:5712:2: 'do'
             {
              before(grammarAccess.getDoFrontAccess().getDoKeyword_2()); 
-            match(input,39,FOLLOW_2); 
+            match(input,36,FOLLOW_2); 
              after(grammarAccess.getDoFrontAccess().getDoKeyword_2()); 
 
             }
@@ -18257,14 +18069,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__3"
-    // InternalFortXTrans.g:5802:1: rule__DoFront__Group__3 : rule__DoFront__Group__3__Impl ;
+    // InternalFortXTrans.g:5721:1: rule__DoFront__Group__3 : rule__DoFront__Group__3__Impl ;
     public final void rule__DoFront__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5806:1: ( rule__DoFront__Group__3__Impl )
-            // InternalFortXTrans.g:5807:2: rule__DoFront__Group__3__Impl
+            // InternalFortXTrans.g:5725:1: ( rule__DoFront__Group__3__Impl )
+            // InternalFortXTrans.g:5726:2: rule__DoFront__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__DoFront__Group__3__Impl();
@@ -18290,21 +18102,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__Group__3__Impl"
-    // InternalFortXTrans.g:5813:1: rule__DoFront__Group__3__Impl : ( ( rule__DoFront__BlockAssignment_3 ) ) ;
+    // InternalFortXTrans.g:5732:1: rule__DoFront__Group__3__Impl : ( ( rule__DoFront__BlockAssignment_3 ) ) ;
     public final void rule__DoFront__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5817:1: ( ( ( rule__DoFront__BlockAssignment_3 ) ) )
-            // InternalFortXTrans.g:5818:1: ( ( rule__DoFront__BlockAssignment_3 ) )
+            // InternalFortXTrans.g:5736:1: ( ( ( rule__DoFront__BlockAssignment_3 ) ) )
+            // InternalFortXTrans.g:5737:1: ( ( rule__DoFront__BlockAssignment_3 ) )
             {
-            // InternalFortXTrans.g:5818:1: ( ( rule__DoFront__BlockAssignment_3 ) )
-            // InternalFortXTrans.g:5819:2: ( rule__DoFront__BlockAssignment_3 )
+            // InternalFortXTrans.g:5737:1: ( ( rule__DoFront__BlockAssignment_3 ) )
+            // InternalFortXTrans.g:5738:2: ( rule__DoFront__BlockAssignment_3 )
             {
              before(grammarAccess.getDoFrontAccess().getBlockAssignment_3()); 
-            // InternalFortXTrans.g:5820:2: ( rule__DoFront__BlockAssignment_3 )
-            // InternalFortXTrans.g:5820:3: rule__DoFront__BlockAssignment_3
+            // InternalFortXTrans.g:5739:2: ( rule__DoFront__BlockAssignment_3 )
+            // InternalFortXTrans.g:5739:3: rule__DoFront__BlockAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__DoFront__BlockAssignment_3();
@@ -18336,15 +18148,180 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__DoFront__Group__3__Impl"
 
 
+    // $ANTLR start "rule__DoFront__Group_0__0"
+    // InternalFortXTrans.g:5748:1: rule__DoFront__Group_0__0 : rule__DoFront__Group_0__0__Impl rule__DoFront__Group_0__1 ;
+    public final void rule__DoFront__Group_0__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:5752:1: ( rule__DoFront__Group_0__0__Impl rule__DoFront__Group_0__1 )
+            // InternalFortXTrans.g:5753:2: rule__DoFront__Group_0__0__Impl rule__DoFront__Group_0__1
+            {
+            pushFollow(FOLLOW_32);
+            rule__DoFront__Group_0__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FOLLOW_2);
+            rule__DoFront__Group_0__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DoFront__Group_0__0"
+
+
+    // $ANTLR start "rule__DoFront__Group_0__0__Impl"
+    // InternalFortXTrans.g:5760:1: rule__DoFront__Group_0__0__Impl : ( ( rule__DoFront__AtAssignment_0_0 ) ) ;
+    public final void rule__DoFront__Group_0__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:5764:1: ( ( ( rule__DoFront__AtAssignment_0_0 ) ) )
+            // InternalFortXTrans.g:5765:1: ( ( rule__DoFront__AtAssignment_0_0 ) )
+            {
+            // InternalFortXTrans.g:5765:1: ( ( rule__DoFront__AtAssignment_0_0 ) )
+            // InternalFortXTrans.g:5766:2: ( rule__DoFront__AtAssignment_0_0 )
+            {
+             before(grammarAccess.getDoFrontAccess().getAtAssignment_0_0()); 
+            // InternalFortXTrans.g:5767:2: ( rule__DoFront__AtAssignment_0_0 )
+            // InternalFortXTrans.g:5767:3: rule__DoFront__AtAssignment_0_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__DoFront__AtAssignment_0_0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDoFrontAccess().getAtAssignment_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DoFront__Group_0__0__Impl"
+
+
+    // $ANTLR start "rule__DoFront__Group_0__1"
+    // InternalFortXTrans.g:5775:1: rule__DoFront__Group_0__1 : rule__DoFront__Group_0__1__Impl ;
+    public final void rule__DoFront__Group_0__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:5779:1: ( rule__DoFront__Group_0__1__Impl )
+            // InternalFortXTrans.g:5780:2: rule__DoFront__Group_0__1__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__DoFront__Group_0__1__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DoFront__Group_0__1"
+
+
+    // $ANTLR start "rule__DoFront__Group_0__1__Impl"
+    // InternalFortXTrans.g:5786:1: rule__DoFront__Group_0__1__Impl : ( ( rule__DoFront__ExpAssignment_0_1 ) ) ;
+    public final void rule__DoFront__Group_0__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:5790:1: ( ( ( rule__DoFront__ExpAssignment_0_1 ) ) )
+            // InternalFortXTrans.g:5791:1: ( ( rule__DoFront__ExpAssignment_0_1 ) )
+            {
+            // InternalFortXTrans.g:5791:1: ( ( rule__DoFront__ExpAssignment_0_1 ) )
+            // InternalFortXTrans.g:5792:2: ( rule__DoFront__ExpAssignment_0_1 )
+            {
+             before(grammarAccess.getDoFrontAccess().getExpAssignment_0_1()); 
+            // InternalFortXTrans.g:5793:2: ( rule__DoFront__ExpAssignment_0_1 )
+            // InternalFortXTrans.g:5793:3: rule__DoFront__ExpAssignment_0_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__DoFront__ExpAssignment_0_1();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getDoFrontAccess().getExpAssignment_0_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DoFront__Group_0__1__Impl"
+
+
     // $ANTLR start "rule__IdOrTuple__Group_1__0"
-    // InternalFortXTrans.g:5829:1: rule__IdOrTuple__Group_1__0 : rule__IdOrTuple__Group_1__0__Impl rule__IdOrTuple__Group_1__1 ;
+    // InternalFortXTrans.g:5802:1: rule__IdOrTuple__Group_1__0 : rule__IdOrTuple__Group_1__0__Impl rule__IdOrTuple__Group_1__1 ;
     public final void rule__IdOrTuple__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5833:1: ( rule__IdOrTuple__Group_1__0__Impl rule__IdOrTuple__Group_1__1 )
-            // InternalFortXTrans.g:5834:2: rule__IdOrTuple__Group_1__0__Impl rule__IdOrTuple__Group_1__1
+            // InternalFortXTrans.g:5806:1: ( rule__IdOrTuple__Group_1__0__Impl rule__IdOrTuple__Group_1__1 )
+            // InternalFortXTrans.g:5807:2: rule__IdOrTuple__Group_1__0__Impl rule__IdOrTuple__Group_1__1
             {
             pushFollow(FOLLOW_25);
             rule__IdOrTuple__Group_1__0__Impl();
@@ -18375,20 +18352,20 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__0__Impl"
-    // InternalFortXTrans.g:5841:1: rule__IdOrTuple__Group_1__0__Impl : ( '(' ) ;
+    // InternalFortXTrans.g:5814:1: rule__IdOrTuple__Group_1__0__Impl : ( '(' ) ;
     public final void rule__IdOrTuple__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5845:1: ( ( '(' ) )
-            // InternalFortXTrans.g:5846:1: ( '(' )
+            // InternalFortXTrans.g:5818:1: ( ( '(' ) )
+            // InternalFortXTrans.g:5819:1: ( '(' )
             {
-            // InternalFortXTrans.g:5846:1: ( '(' )
-            // InternalFortXTrans.g:5847:2: '('
+            // InternalFortXTrans.g:5819:1: ( '(' )
+            // InternalFortXTrans.g:5820:2: '('
             {
              before(grammarAccess.getIdOrTupleAccess().getLeftParenthesisKeyword_1_0()); 
-            match(input,37,FOLLOW_2); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getIdOrTupleAccess().getLeftParenthesisKeyword_1_0()); 
 
             }
@@ -18412,14 +18389,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__1"
-    // InternalFortXTrans.g:5856:1: rule__IdOrTuple__Group_1__1 : rule__IdOrTuple__Group_1__1__Impl rule__IdOrTuple__Group_1__2 ;
+    // InternalFortXTrans.g:5829:1: rule__IdOrTuple__Group_1__1 : rule__IdOrTuple__Group_1__1__Impl rule__IdOrTuple__Group_1__2 ;
     public final void rule__IdOrTuple__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5860:1: ( rule__IdOrTuple__Group_1__1__Impl rule__IdOrTuple__Group_1__2 )
-            // InternalFortXTrans.g:5861:2: rule__IdOrTuple__Group_1__1__Impl rule__IdOrTuple__Group_1__2
+            // InternalFortXTrans.g:5833:1: ( rule__IdOrTuple__Group_1__1__Impl rule__IdOrTuple__Group_1__2 )
+            // InternalFortXTrans.g:5834:2: rule__IdOrTuple__Group_1__1__Impl rule__IdOrTuple__Group_1__2
             {
             pushFollow(FOLLOW_45);
             rule__IdOrTuple__Group_1__1__Impl();
@@ -18450,21 +18427,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__1__Impl"
-    // InternalFortXTrans.g:5868:1: rule__IdOrTuple__Group_1__1__Impl : ( ( rule__IdOrTuple__BidAssignment_1_1 ) ) ;
+    // InternalFortXTrans.g:5841:1: rule__IdOrTuple__Group_1__1__Impl : ( ( rule__IdOrTuple__BidAssignment_1_1 ) ) ;
     public final void rule__IdOrTuple__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5872:1: ( ( ( rule__IdOrTuple__BidAssignment_1_1 ) ) )
-            // InternalFortXTrans.g:5873:1: ( ( rule__IdOrTuple__BidAssignment_1_1 ) )
+            // InternalFortXTrans.g:5845:1: ( ( ( rule__IdOrTuple__BidAssignment_1_1 ) ) )
+            // InternalFortXTrans.g:5846:1: ( ( rule__IdOrTuple__BidAssignment_1_1 ) )
             {
-            // InternalFortXTrans.g:5873:1: ( ( rule__IdOrTuple__BidAssignment_1_1 ) )
-            // InternalFortXTrans.g:5874:2: ( rule__IdOrTuple__BidAssignment_1_1 )
+            // InternalFortXTrans.g:5846:1: ( ( rule__IdOrTuple__BidAssignment_1_1 ) )
+            // InternalFortXTrans.g:5847:2: ( rule__IdOrTuple__BidAssignment_1_1 )
             {
              before(grammarAccess.getIdOrTupleAccess().getBidAssignment_1_1()); 
-            // InternalFortXTrans.g:5875:2: ( rule__IdOrTuple__BidAssignment_1_1 )
-            // InternalFortXTrans.g:5875:3: rule__IdOrTuple__BidAssignment_1_1
+            // InternalFortXTrans.g:5848:2: ( rule__IdOrTuple__BidAssignment_1_1 )
+            // InternalFortXTrans.g:5848:3: rule__IdOrTuple__BidAssignment_1_1
             {
             pushFollow(FOLLOW_2);
             rule__IdOrTuple__BidAssignment_1_1();
@@ -18497,14 +18474,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__2"
-    // InternalFortXTrans.g:5883:1: rule__IdOrTuple__Group_1__2 : rule__IdOrTuple__Group_1__2__Impl rule__IdOrTuple__Group_1__3 ;
+    // InternalFortXTrans.g:5856:1: rule__IdOrTuple__Group_1__2 : rule__IdOrTuple__Group_1__2__Impl rule__IdOrTuple__Group_1__3 ;
     public final void rule__IdOrTuple__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5887:1: ( rule__IdOrTuple__Group_1__2__Impl rule__IdOrTuple__Group_1__3 )
-            // InternalFortXTrans.g:5888:2: rule__IdOrTuple__Group_1__2__Impl rule__IdOrTuple__Group_1__3
+            // InternalFortXTrans.g:5860:1: ( rule__IdOrTuple__Group_1__2__Impl rule__IdOrTuple__Group_1__3 )
+            // InternalFortXTrans.g:5861:2: rule__IdOrTuple__Group_1__2__Impl rule__IdOrTuple__Group_1__3
             {
             pushFollow(FOLLOW_45);
             rule__IdOrTuple__Group_1__2__Impl();
@@ -18535,20 +18512,20 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__2__Impl"
-    // InternalFortXTrans.g:5895:1: rule__IdOrTuple__Group_1__2__Impl : ( ( rule__IdOrTuple__Group_1_2__0 )* ) ;
+    // InternalFortXTrans.g:5868:1: rule__IdOrTuple__Group_1__2__Impl : ( ( rule__IdOrTuple__Group_1_2__0 )* ) ;
     public final void rule__IdOrTuple__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5899:1: ( ( ( rule__IdOrTuple__Group_1_2__0 )* ) )
-            // InternalFortXTrans.g:5900:1: ( ( rule__IdOrTuple__Group_1_2__0 )* )
+            // InternalFortXTrans.g:5872:1: ( ( ( rule__IdOrTuple__Group_1_2__0 )* ) )
+            // InternalFortXTrans.g:5873:1: ( ( rule__IdOrTuple__Group_1_2__0 )* )
             {
-            // InternalFortXTrans.g:5900:1: ( ( rule__IdOrTuple__Group_1_2__0 )* )
-            // InternalFortXTrans.g:5901:2: ( rule__IdOrTuple__Group_1_2__0 )*
+            // InternalFortXTrans.g:5873:1: ( ( rule__IdOrTuple__Group_1_2__0 )* )
+            // InternalFortXTrans.g:5874:2: ( rule__IdOrTuple__Group_1_2__0 )*
             {
              before(grammarAccess.getIdOrTupleAccess().getGroup_1_2()); 
-            // InternalFortXTrans.g:5902:2: ( rule__IdOrTuple__Group_1_2__0 )*
+            // InternalFortXTrans.g:5875:2: ( rule__IdOrTuple__Group_1_2__0 )*
             loop50:
             do {
                 int alt50=2;
@@ -18561,7 +18538,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
                 switch (alt50) {
             	case 1 :
-            	    // InternalFortXTrans.g:5902:3: rule__IdOrTuple__Group_1_2__0
+            	    // InternalFortXTrans.g:5875:3: rule__IdOrTuple__Group_1_2__0
             	    {
             	    pushFollow(FOLLOW_15);
             	    rule__IdOrTuple__Group_1_2__0();
@@ -18600,14 +18577,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__3"
-    // InternalFortXTrans.g:5910:1: rule__IdOrTuple__Group_1__3 : rule__IdOrTuple__Group_1__3__Impl ;
+    // InternalFortXTrans.g:5883:1: rule__IdOrTuple__Group_1__3 : rule__IdOrTuple__Group_1__3__Impl ;
     public final void rule__IdOrTuple__Group_1__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5914:1: ( rule__IdOrTuple__Group_1__3__Impl )
-            // InternalFortXTrans.g:5915:2: rule__IdOrTuple__Group_1__3__Impl
+            // InternalFortXTrans.g:5887:1: ( rule__IdOrTuple__Group_1__3__Impl )
+            // InternalFortXTrans.g:5888:2: rule__IdOrTuple__Group_1__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IdOrTuple__Group_1__3__Impl();
@@ -18633,17 +18610,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1__3__Impl"
-    // InternalFortXTrans.g:5921:1: rule__IdOrTuple__Group_1__3__Impl : ( ')' ) ;
+    // InternalFortXTrans.g:5894:1: rule__IdOrTuple__Group_1__3__Impl : ( ')' ) ;
     public final void rule__IdOrTuple__Group_1__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5925:1: ( ( ')' ) )
-            // InternalFortXTrans.g:5926:1: ( ')' )
+            // InternalFortXTrans.g:5898:1: ( ( ')' ) )
+            // InternalFortXTrans.g:5899:1: ( ')' )
             {
-            // InternalFortXTrans.g:5926:1: ( ')' )
-            // InternalFortXTrans.g:5927:2: ')'
+            // InternalFortXTrans.g:5899:1: ( ')' )
+            // InternalFortXTrans.g:5900:2: ')'
             {
              before(grammarAccess.getIdOrTupleAccess().getRightParenthesisKeyword_1_3()); 
             match(input,28,FOLLOW_2); 
@@ -18670,14 +18647,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1_2__0"
-    // InternalFortXTrans.g:5937:1: rule__IdOrTuple__Group_1_2__0 : rule__IdOrTuple__Group_1_2__0__Impl rule__IdOrTuple__Group_1_2__1 ;
+    // InternalFortXTrans.g:5910:1: rule__IdOrTuple__Group_1_2__0 : rule__IdOrTuple__Group_1_2__0__Impl rule__IdOrTuple__Group_1_2__1 ;
     public final void rule__IdOrTuple__Group_1_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5941:1: ( rule__IdOrTuple__Group_1_2__0__Impl rule__IdOrTuple__Group_1_2__1 )
-            // InternalFortXTrans.g:5942:2: rule__IdOrTuple__Group_1_2__0__Impl rule__IdOrTuple__Group_1_2__1
+            // InternalFortXTrans.g:5914:1: ( rule__IdOrTuple__Group_1_2__0__Impl rule__IdOrTuple__Group_1_2__1 )
+            // InternalFortXTrans.g:5915:2: rule__IdOrTuple__Group_1_2__0__Impl rule__IdOrTuple__Group_1_2__1
             {
             pushFollow(FOLLOW_25);
             rule__IdOrTuple__Group_1_2__0__Impl();
@@ -18708,17 +18685,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1_2__0__Impl"
-    // InternalFortXTrans.g:5949:1: rule__IdOrTuple__Group_1_2__0__Impl : ( ',' ) ;
+    // InternalFortXTrans.g:5922:1: rule__IdOrTuple__Group_1_2__0__Impl : ( ',' ) ;
     public final void rule__IdOrTuple__Group_1_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5953:1: ( ( ',' ) )
-            // InternalFortXTrans.g:5954:1: ( ',' )
+            // InternalFortXTrans.g:5926:1: ( ( ',' ) )
+            // InternalFortXTrans.g:5927:1: ( ',' )
             {
-            // InternalFortXTrans.g:5954:1: ( ',' )
-            // InternalFortXTrans.g:5955:2: ','
+            // InternalFortXTrans.g:5927:1: ( ',' )
+            // InternalFortXTrans.g:5928:2: ','
             {
              before(grammarAccess.getIdOrTupleAccess().getCommaKeyword_1_2_0()); 
             match(input,24,FOLLOW_2); 
@@ -18745,14 +18722,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1_2__1"
-    // InternalFortXTrans.g:5964:1: rule__IdOrTuple__Group_1_2__1 : rule__IdOrTuple__Group_1_2__1__Impl ;
+    // InternalFortXTrans.g:5937:1: rule__IdOrTuple__Group_1_2__1 : rule__IdOrTuple__Group_1_2__1__Impl ;
     public final void rule__IdOrTuple__Group_1_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5968:1: ( rule__IdOrTuple__Group_1_2__1__Impl )
-            // InternalFortXTrans.g:5969:2: rule__IdOrTuple__Group_1_2__1__Impl
+            // InternalFortXTrans.g:5941:1: ( rule__IdOrTuple__Group_1_2__1__Impl )
+            // InternalFortXTrans.g:5942:2: rule__IdOrTuple__Group_1_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IdOrTuple__Group_1_2__1__Impl();
@@ -18778,21 +18755,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__Group_1_2__1__Impl"
-    // InternalFortXTrans.g:5975:1: rule__IdOrTuple__Group_1_2__1__Impl : ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) ) ;
+    // InternalFortXTrans.g:5948:1: rule__IdOrTuple__Group_1_2__1__Impl : ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) ) ;
     public final void rule__IdOrTuple__Group_1_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5979:1: ( ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) ) )
-            // InternalFortXTrans.g:5980:1: ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) )
+            // InternalFortXTrans.g:5952:1: ( ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) ) )
+            // InternalFortXTrans.g:5953:1: ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) )
             {
-            // InternalFortXTrans.g:5980:1: ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) )
-            // InternalFortXTrans.g:5981:2: ( rule__IdOrTuple__BidAssignment_1_2_1 )
+            // InternalFortXTrans.g:5953:1: ( ( rule__IdOrTuple__BidAssignment_1_2_1 ) )
+            // InternalFortXTrans.g:5954:2: ( rule__IdOrTuple__BidAssignment_1_2_1 )
             {
              before(grammarAccess.getIdOrTupleAccess().getBidAssignment_1_2_1()); 
-            // InternalFortXTrans.g:5982:2: ( rule__IdOrTuple__BidAssignment_1_2_1 )
-            // InternalFortXTrans.g:5982:3: rule__IdOrTuple__BidAssignment_1_2_1
+            // InternalFortXTrans.g:5955:2: ( rule__IdOrTuple__BidAssignment_1_2_1 )
+            // InternalFortXTrans.g:5955:3: rule__IdOrTuple__BidAssignment_1_2_1
             {
             pushFollow(FOLLOW_2);
             rule__IdOrTuple__BidAssignment_1_2_1();
@@ -18825,14 +18802,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IsType__Group__0"
-    // InternalFortXTrans.g:5991:1: rule__IsType__Group__0 : rule__IsType__Group__0__Impl rule__IsType__Group__1 ;
+    // InternalFortXTrans.g:5964:1: rule__IsType__Group__0 : rule__IsType__Group__0__Impl rule__IsType__Group__1 ;
     public final void rule__IsType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:5995:1: ( rule__IsType__Group__0__Impl rule__IsType__Group__1 )
-            // InternalFortXTrans.g:5996:2: rule__IsType__Group__0__Impl rule__IsType__Group__1
+            // InternalFortXTrans.g:5968:1: ( rule__IsType__Group__0__Impl rule__IsType__Group__1 )
+            // InternalFortXTrans.g:5969:2: rule__IsType__Group__0__Impl rule__IsType__Group__1
             {
             pushFollow(FOLLOW_5);
             rule__IsType__Group__0__Impl();
@@ -18863,17 +18840,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IsType__Group__0__Impl"
-    // InternalFortXTrans.g:6003:1: rule__IsType__Group__0__Impl : ( ':' ) ;
+    // InternalFortXTrans.g:5976:1: rule__IsType__Group__0__Impl : ( ':' ) ;
     public final void rule__IsType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6007:1: ( ( ':' ) )
-            // InternalFortXTrans.g:6008:1: ( ':' )
+            // InternalFortXTrans.g:5980:1: ( ( ':' ) )
+            // InternalFortXTrans.g:5981:1: ( ':' )
             {
-            // InternalFortXTrans.g:6008:1: ( ':' )
-            // InternalFortXTrans.g:6009:2: ':'
+            // InternalFortXTrans.g:5981:1: ( ':' )
+            // InternalFortXTrans.g:5982:2: ':'
             {
              before(grammarAccess.getIsTypeAccess().getColonKeyword_0()); 
             match(input,29,FOLLOW_2); 
@@ -18900,14 +18877,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IsType__Group__1"
-    // InternalFortXTrans.g:6018:1: rule__IsType__Group__1 : rule__IsType__Group__1__Impl ;
+    // InternalFortXTrans.g:5991:1: rule__IsType__Group__1 : rule__IsType__Group__1__Impl ;
     public final void rule__IsType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6022:1: ( rule__IsType__Group__1__Impl )
-            // InternalFortXTrans.g:6023:2: rule__IsType__Group__1__Impl
+            // InternalFortXTrans.g:5995:1: ( rule__IsType__Group__1__Impl )
+            // InternalFortXTrans.g:5996:2: rule__IsType__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__IsType__Group__1__Impl();
@@ -18933,21 +18910,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IsType__Group__1__Impl"
-    // InternalFortXTrans.g:6029:1: rule__IsType__Group__1__Impl : ( ( rule__IsType__TypeAssignment_1 ) ) ;
+    // InternalFortXTrans.g:6002:1: rule__IsType__Group__1__Impl : ( ( rule__IsType__TypeAssignment_1 ) ) ;
     public final void rule__IsType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6033:1: ( ( ( rule__IsType__TypeAssignment_1 ) ) )
-            // InternalFortXTrans.g:6034:1: ( ( rule__IsType__TypeAssignment_1 ) )
+            // InternalFortXTrans.g:6006:1: ( ( ( rule__IsType__TypeAssignment_1 ) ) )
+            // InternalFortXTrans.g:6007:1: ( ( rule__IsType__TypeAssignment_1 ) )
             {
-            // InternalFortXTrans.g:6034:1: ( ( rule__IsType__TypeAssignment_1 ) )
-            // InternalFortXTrans.g:6035:2: ( rule__IsType__TypeAssignment_1 )
+            // InternalFortXTrans.g:6007:1: ( ( rule__IsType__TypeAssignment_1 ) )
+            // InternalFortXTrans.g:6008:2: ( rule__IsType__TypeAssignment_1 )
             {
              before(grammarAccess.getIsTypeAccess().getTypeAssignment_1()); 
-            // InternalFortXTrans.g:6036:2: ( rule__IsType__TypeAssignment_1 )
-            // InternalFortXTrans.g:6036:3: rule__IsType__TypeAssignment_1
+            // InternalFortXTrans.g:6009:2: ( rule__IsType__TypeAssignment_1 )
+            // InternalFortXTrans.g:6009:3: rule__IsType__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__IsType__TypeAssignment_1();
@@ -18980,17 +18957,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Component__NameAssignment_1"
-    // InternalFortXTrans.g:6045:1: rule__Component__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6018:1: rule__Component__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Component__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6049:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6050:2: ( RULE_ID )
+            // InternalFortXTrans.g:6022:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6023:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6050:2: ( RULE_ID )
-            // InternalFortXTrans.g:6051:3: RULE_ID
+            // InternalFortXTrans.g:6023:2: ( RULE_ID )
+            // InternalFortXTrans.g:6024:3: RULE_ID
             {
              before(grammarAccess.getComponentAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -19017,17 +18994,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Component__ImportsAssignment_2"
-    // InternalFortXTrans.g:6060:1: rule__Component__ImportsAssignment_2 : ( ruleImport ) ;
+    // InternalFortXTrans.g:6033:1: rule__Component__ImportsAssignment_2 : ( ruleImport ) ;
     public final void rule__Component__ImportsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6064:1: ( ( ruleImport ) )
-            // InternalFortXTrans.g:6065:2: ( ruleImport )
+            // InternalFortXTrans.g:6037:1: ( ( ruleImport ) )
+            // InternalFortXTrans.g:6038:2: ( ruleImport )
             {
-            // InternalFortXTrans.g:6065:2: ( ruleImport )
-            // InternalFortXTrans.g:6066:3: ruleImport
+            // InternalFortXTrans.g:6038:2: ( ruleImport )
+            // InternalFortXTrans.g:6039:3: ruleImport
             {
              before(grammarAccess.getComponentAccess().getImportsImportParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19058,17 +19035,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Component__ExportsAssignment_3"
-    // InternalFortXTrans.g:6075:1: rule__Component__ExportsAssignment_3 : ( ruleExport ) ;
+    // InternalFortXTrans.g:6048:1: rule__Component__ExportsAssignment_3 : ( ruleExport ) ;
     public final void rule__Component__ExportsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6079:1: ( ( ruleExport ) )
-            // InternalFortXTrans.g:6080:2: ( ruleExport )
+            // InternalFortXTrans.g:6052:1: ( ( ruleExport ) )
+            // InternalFortXTrans.g:6053:2: ( ruleExport )
             {
-            // InternalFortXTrans.g:6080:2: ( ruleExport )
-            // InternalFortXTrans.g:6081:3: ruleExport
+            // InternalFortXTrans.g:6053:2: ( ruleExport )
+            // InternalFortXTrans.g:6054:3: ruleExport
             {
              before(grammarAccess.getComponentAccess().getExportsExportParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -19099,17 +19076,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Component__DeclsAssignment_4"
-    // InternalFortXTrans.g:6090:1: rule__Component__DeclsAssignment_4 : ( ruleDecls ) ;
+    // InternalFortXTrans.g:6063:1: rule__Component__DeclsAssignment_4 : ( ruleDecls ) ;
     public final void rule__Component__DeclsAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6094:1: ( ( ruleDecls ) )
-            // InternalFortXTrans.g:6095:2: ( ruleDecls )
+            // InternalFortXTrans.g:6067:1: ( ( ruleDecls ) )
+            // InternalFortXTrans.g:6068:2: ( ruleDecls )
             {
-            // InternalFortXTrans.g:6095:2: ( ruleDecls )
-            // InternalFortXTrans.g:6096:3: ruleDecls
+            // InternalFortXTrans.g:6068:2: ( ruleDecls )
+            // InternalFortXTrans.g:6069:3: ruleDecls
             {
              before(grammarAccess.getComponentAccess().getDeclsDeclsParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -19140,17 +19117,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__API__NameAssignment_1"
-    // InternalFortXTrans.g:6105:1: rule__API__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6078:1: rule__API__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__API__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6109:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6110:2: ( RULE_ID )
+            // InternalFortXTrans.g:6082:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6083:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6110:2: ( RULE_ID )
-            // InternalFortXTrans.g:6111:3: RULE_ID
+            // InternalFortXTrans.g:6083:2: ( RULE_ID )
+            // InternalFortXTrans.g:6084:3: RULE_ID
             {
              before(grammarAccess.getAPIAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -19177,17 +19154,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__API__ImportsAssignment_2"
-    // InternalFortXTrans.g:6120:1: rule__API__ImportsAssignment_2 : ( ruleImport ) ;
+    // InternalFortXTrans.g:6093:1: rule__API__ImportsAssignment_2 : ( ruleImport ) ;
     public final void rule__API__ImportsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6124:1: ( ( ruleImport ) )
-            // InternalFortXTrans.g:6125:2: ( ruleImport )
+            // InternalFortXTrans.g:6097:1: ( ( ruleImport ) )
+            // InternalFortXTrans.g:6098:2: ( ruleImport )
             {
-            // InternalFortXTrans.g:6125:2: ( ruleImport )
-            // InternalFortXTrans.g:6126:3: ruleImport
+            // InternalFortXTrans.g:6098:2: ( ruleImport )
+            // InternalFortXTrans.g:6099:3: ruleImport
             {
              before(grammarAccess.getAPIAccess().getImportsImportParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19218,24 +19195,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__ImpsAssignment_0_0"
-    // InternalFortXTrans.g:6135:1: rule__Import__ImpsAssignment_0_0 : ( ( 'import' ) ) ;
+    // InternalFortXTrans.g:6108:1: rule__Import__ImpsAssignment_0_0 : ( ( 'import' ) ) ;
     public final void rule__Import__ImpsAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6139:1: ( ( ( 'import' ) ) )
-            // InternalFortXTrans.g:6140:2: ( ( 'import' ) )
+            // InternalFortXTrans.g:6112:1: ( ( ( 'import' ) ) )
+            // InternalFortXTrans.g:6113:2: ( ( 'import' ) )
             {
-            // InternalFortXTrans.g:6140:2: ( ( 'import' ) )
-            // InternalFortXTrans.g:6141:3: ( 'import' )
-            {
-             before(grammarAccess.getImportAccess().getImpsImportKeyword_0_0_0()); 
-            // InternalFortXTrans.g:6142:3: ( 'import' )
-            // InternalFortXTrans.g:6143:4: 'import'
+            // InternalFortXTrans.g:6113:2: ( ( 'import' ) )
+            // InternalFortXTrans.g:6114:3: ( 'import' )
             {
              before(grammarAccess.getImportAccess().getImpsImportKeyword_0_0_0()); 
-            match(input,40,FOLLOW_2); 
+            // InternalFortXTrans.g:6115:3: ( 'import' )
+            // InternalFortXTrans.g:6116:4: 'import'
+            {
+             before(grammarAccess.getImportAccess().getImpsImportKeyword_0_0_0()); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getImportAccess().getImpsImportKeyword_0_0_0()); 
 
             }
@@ -19263,17 +19240,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__ImportedNamesAssignment_0_1"
-    // InternalFortXTrans.g:6154:1: rule__Import__ImportedNamesAssignment_0_1 : ( ruleImportedNames ) ;
+    // InternalFortXTrans.g:6127:1: rule__Import__ImportedNamesAssignment_0_1 : ( ruleImportedNames ) ;
     public final void rule__Import__ImportedNamesAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6158:1: ( ( ruleImportedNames ) )
-            // InternalFortXTrans.g:6159:2: ( ruleImportedNames )
+            // InternalFortXTrans.g:6131:1: ( ( ruleImportedNames ) )
+            // InternalFortXTrans.g:6132:2: ( ruleImportedNames )
             {
-            // InternalFortXTrans.g:6159:2: ( ruleImportedNames )
-            // InternalFortXTrans.g:6160:3: ruleImportedNames
+            // InternalFortXTrans.g:6132:2: ( ruleImportedNames )
+            // InternalFortXTrans.g:6133:3: ruleImportedNames
             {
              before(grammarAccess.getImportAccess().getImportedNamesImportedNamesParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19304,24 +19281,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__ImpsAssignment_1_0"
-    // InternalFortXTrans.g:6169:1: rule__Import__ImpsAssignment_1_0 : ( ( 'import' ) ) ;
+    // InternalFortXTrans.g:6142:1: rule__Import__ImpsAssignment_1_0 : ( ( 'import' ) ) ;
     public final void rule__Import__ImpsAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6173:1: ( ( ( 'import' ) ) )
-            // InternalFortXTrans.g:6174:2: ( ( 'import' ) )
+            // InternalFortXTrans.g:6146:1: ( ( ( 'import' ) ) )
+            // InternalFortXTrans.g:6147:2: ( ( 'import' ) )
             {
-            // InternalFortXTrans.g:6174:2: ( ( 'import' ) )
-            // InternalFortXTrans.g:6175:3: ( 'import' )
-            {
-             before(grammarAccess.getImportAccess().getImpsImportKeyword_1_0_0()); 
-            // InternalFortXTrans.g:6176:3: ( 'import' )
-            // InternalFortXTrans.g:6177:4: 'import'
+            // InternalFortXTrans.g:6147:2: ( ( 'import' ) )
+            // InternalFortXTrans.g:6148:3: ( 'import' )
             {
              before(grammarAccess.getImportAccess().getImpsImportKeyword_1_0_0()); 
-            match(input,40,FOLLOW_2); 
+            // InternalFortXTrans.g:6149:3: ( 'import' )
+            // InternalFortXTrans.g:6150:4: 'import'
+            {
+             before(grammarAccess.getImportAccess().getImpsImportKeyword_1_0_0()); 
+            match(input,37,FOLLOW_2); 
              after(grammarAccess.getImportAccess().getImpsImportKeyword_1_0_0()); 
 
             }
@@ -19349,21 +19326,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__ApiAssignment_1_1"
-    // InternalFortXTrans.g:6188:1: rule__Import__ApiAssignment_1_1 : ( ( 'api' ) ) ;
+    // InternalFortXTrans.g:6161:1: rule__Import__ApiAssignment_1_1 : ( ( 'api' ) ) ;
     public final void rule__Import__ApiAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6192:1: ( ( ( 'api' ) ) )
-            // InternalFortXTrans.g:6193:2: ( ( 'api' ) )
+            // InternalFortXTrans.g:6165:1: ( ( ( 'api' ) ) )
+            // InternalFortXTrans.g:6166:2: ( ( 'api' ) )
             {
-            // InternalFortXTrans.g:6193:2: ( ( 'api' ) )
-            // InternalFortXTrans.g:6194:3: ( 'api' )
+            // InternalFortXTrans.g:6166:2: ( ( 'api' ) )
+            // InternalFortXTrans.g:6167:3: ( 'api' )
             {
              before(grammarAccess.getImportAccess().getApiApiKeyword_1_1_0()); 
-            // InternalFortXTrans.g:6195:3: ( 'api' )
-            // InternalFortXTrans.g:6196:4: 'api'
+            // InternalFortXTrans.g:6168:3: ( 'api' )
+            // InternalFortXTrans.g:6169:4: 'api'
             {
              before(grammarAccess.getImportAccess().getApiApiKeyword_1_1_0()); 
             match(input,22,FOLLOW_2); 
@@ -19394,17 +19371,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Import__AliasedimportedNamesAssignment_1_2"
-    // InternalFortXTrans.g:6207:1: rule__Import__AliasedimportedNamesAssignment_1_2 : ( ruleAliasedAPINames ) ;
+    // InternalFortXTrans.g:6180:1: rule__Import__AliasedimportedNamesAssignment_1_2 : ( ruleAliasedAPINames ) ;
     public final void rule__Import__AliasedimportedNamesAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6211:1: ( ( ruleAliasedAPINames ) )
-            // InternalFortXTrans.g:6212:2: ( ruleAliasedAPINames )
+            // InternalFortXTrans.g:6184:1: ( ( ruleAliasedAPINames ) )
+            // InternalFortXTrans.g:6185:2: ( ruleAliasedAPINames )
             {
-            // InternalFortXTrans.g:6212:2: ( ruleAliasedAPINames )
-            // InternalFortXTrans.g:6213:3: ruleAliasedAPINames
+            // InternalFortXTrans.g:6185:2: ( ruleAliasedAPINames )
+            // InternalFortXTrans.g:6186:3: ruleAliasedAPINames
             {
              before(grammarAccess.getImportAccess().getAliasedimportedNamesAliasedAPINamesParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19435,24 +19412,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Export__ExpAssignment_0_0"
-    // InternalFortXTrans.g:6222:1: rule__Export__ExpAssignment_0_0 : ( ( 'export' ) ) ;
+    // InternalFortXTrans.g:6195:1: rule__Export__ExpAssignment_0_0 : ( ( 'export' ) ) ;
     public final void rule__Export__ExpAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6226:1: ( ( ( 'export' ) ) )
-            // InternalFortXTrans.g:6227:2: ( ( 'export' ) )
+            // InternalFortXTrans.g:6199:1: ( ( ( 'export' ) ) )
+            // InternalFortXTrans.g:6200:2: ( ( 'export' ) )
             {
-            // InternalFortXTrans.g:6227:2: ( ( 'export' ) )
-            // InternalFortXTrans.g:6228:3: ( 'export' )
-            {
-             before(grammarAccess.getExportAccess().getExpExportKeyword_0_0_0()); 
-            // InternalFortXTrans.g:6229:3: ( 'export' )
-            // InternalFortXTrans.g:6230:4: 'export'
+            // InternalFortXTrans.g:6200:2: ( ( 'export' ) )
+            // InternalFortXTrans.g:6201:3: ( 'export' )
             {
              before(grammarAccess.getExportAccess().getExpExportKeyword_0_0_0()); 
-            match(input,41,FOLLOW_2); 
+            // InternalFortXTrans.g:6202:3: ( 'export' )
+            // InternalFortXTrans.g:6203:4: 'export'
+            {
+             before(grammarAccess.getExportAccess().getExpExportKeyword_0_0_0()); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getExportAccess().getExpExportKeyword_0_0_0()); 
 
             }
@@ -19480,17 +19457,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Export__ExportedNameAssignment_0_1"
-    // InternalFortXTrans.g:6241:1: rule__Export__ExportedNameAssignment_0_1 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6214:1: rule__Export__ExportedNameAssignment_0_1 : ( ruleAPIName ) ;
     public final void rule__Export__ExportedNameAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6245:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6246:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6218:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6219:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6246:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6247:3: ruleAPIName
+            // InternalFortXTrans.g:6219:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6220:3: ruleAPIName
             {
              before(grammarAccess.getExportAccess().getExportedNameAPINameParserRuleCall_0_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19521,24 +19498,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Export__ExpAssignment_1_0"
-    // InternalFortXTrans.g:6256:1: rule__Export__ExpAssignment_1_0 : ( ( 'export' ) ) ;
+    // InternalFortXTrans.g:6229:1: rule__Export__ExpAssignment_1_0 : ( ( 'export' ) ) ;
     public final void rule__Export__ExpAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6260:1: ( ( ( 'export' ) ) )
-            // InternalFortXTrans.g:6261:2: ( ( 'export' ) )
+            // InternalFortXTrans.g:6233:1: ( ( ( 'export' ) ) )
+            // InternalFortXTrans.g:6234:2: ( ( 'export' ) )
             {
-            // InternalFortXTrans.g:6261:2: ( ( 'export' ) )
-            // InternalFortXTrans.g:6262:3: ( 'export' )
-            {
-             before(grammarAccess.getExportAccess().getExpExportKeyword_1_0_0()); 
-            // InternalFortXTrans.g:6263:3: ( 'export' )
-            // InternalFortXTrans.g:6264:4: 'export'
+            // InternalFortXTrans.g:6234:2: ( ( 'export' ) )
+            // InternalFortXTrans.g:6235:3: ( 'export' )
             {
              before(grammarAccess.getExportAccess().getExpExportKeyword_1_0_0()); 
-            match(input,41,FOLLOW_2); 
+            // InternalFortXTrans.g:6236:3: ( 'export' )
+            // InternalFortXTrans.g:6237:4: 'export'
+            {
+             before(grammarAccess.getExportAccess().getExpExportKeyword_1_0_0()); 
+            match(input,38,FOLLOW_2); 
              after(grammarAccess.getExportAccess().getExpExportKeyword_1_0_0()); 
 
             }
@@ -19566,21 +19543,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Export__BrackAssignment_1_1"
-    // InternalFortXTrans.g:6275:1: rule__Export__BrackAssignment_1_1 : ( ( '{' ) ) ;
+    // InternalFortXTrans.g:6248:1: rule__Export__BrackAssignment_1_1 : ( ( '{' ) ) ;
     public final void rule__Export__BrackAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6279:1: ( ( ( '{' ) ) )
-            // InternalFortXTrans.g:6280:2: ( ( '{' ) )
+            // InternalFortXTrans.g:6252:1: ( ( ( '{' ) ) )
+            // InternalFortXTrans.g:6253:2: ( ( '{' ) )
             {
-            // InternalFortXTrans.g:6280:2: ( ( '{' ) )
-            // InternalFortXTrans.g:6281:3: ( '{' )
+            // InternalFortXTrans.g:6253:2: ( ( '{' ) )
+            // InternalFortXTrans.g:6254:3: ( '{' )
             {
              before(grammarAccess.getExportAccess().getBrackLeftCurlyBracketKeyword_1_1_0()); 
-            // InternalFortXTrans.g:6282:3: ( '{' )
-            // InternalFortXTrans.g:6283:4: '{'
+            // InternalFortXTrans.g:6255:3: ( '{' )
+            // InternalFortXTrans.g:6256:4: '{'
             {
              before(grammarAccess.getExportAccess().getBrackLeftCurlyBracketKeyword_1_1_0()); 
             match(input,26,FOLLOW_2); 
@@ -19611,17 +19588,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Export__ExportedNameAssignment_1_2"
-    // InternalFortXTrans.g:6294:1: rule__Export__ExportedNameAssignment_1_2 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6267:1: rule__Export__ExportedNameAssignment_1_2 : ( ruleAPIName ) ;
     public final void rule__Export__ExportedNameAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6298:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6299:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6271:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6272:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6299:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6300:3: ruleAPIName
+            // InternalFortXTrans.g:6272:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6273:3: ruleAPIName
             {
              before(grammarAccess.getExportAccess().getExportedNameAPINameParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
@@ -19652,17 +19629,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Export__ExportedNameAssignment_1_3_1"
-    // InternalFortXTrans.g:6309:1: rule__Export__ExportedNameAssignment_1_3_1 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6282:1: rule__Export__ExportedNameAssignment_1_3_1 : ( ruleAPIName ) ;
     public final void rule__Export__ExportedNameAssignment_1_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6313:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6314:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6286:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6287:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6314:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6315:3: ruleAPIName
+            // InternalFortXTrans.g:6287:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6288:3: ruleAPIName
             {
              before(grammarAccess.getExportAccess().getExportedNameAPINameParserRuleCall_1_3_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19693,17 +19670,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__ImpnameAssignment_0_0"
-    // InternalFortXTrans.g:6324:1: rule__ImportedNames__ImpnameAssignment_0_0 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6297:1: rule__ImportedNames__ImpnameAssignment_0_0 : ( ruleAPIName ) ;
     public final void rule__ImportedNames__ImpnameAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6328:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6329:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6301:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6302:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6329:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6330:3: ruleAPIName
+            // InternalFortXTrans.g:6302:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6303:3: ruleAPIName
             {
              before(grammarAccess.getImportedNamesAccess().getImpnameAPINameParserRuleCall_0_0_0()); 
             pushFollow(FOLLOW_2);
@@ -19734,24 +19711,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__ExceptAssignment_0_5_0"
-    // InternalFortXTrans.g:6339:1: rule__ImportedNames__ExceptAssignment_0_5_0 : ( ( 'except' ) ) ;
+    // InternalFortXTrans.g:6312:1: rule__ImportedNames__ExceptAssignment_0_5_0 : ( ( 'except' ) ) ;
     public final void rule__ImportedNames__ExceptAssignment_0_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6343:1: ( ( ( 'except' ) ) )
-            // InternalFortXTrans.g:6344:2: ( ( 'except' ) )
+            // InternalFortXTrans.g:6316:1: ( ( ( 'except' ) ) )
+            // InternalFortXTrans.g:6317:2: ( ( 'except' ) )
             {
-            // InternalFortXTrans.g:6344:2: ( ( 'except' ) )
-            // InternalFortXTrans.g:6345:3: ( 'except' )
-            {
-             before(grammarAccess.getImportedNamesAccess().getExceptExceptKeyword_0_5_0_0()); 
-            // InternalFortXTrans.g:6346:3: ( 'except' )
-            // InternalFortXTrans.g:6347:4: 'except'
+            // InternalFortXTrans.g:6317:2: ( ( 'except' ) )
+            // InternalFortXTrans.g:6318:3: ( 'except' )
             {
              before(grammarAccess.getImportedNamesAccess().getExceptExceptKeyword_0_5_0_0()); 
-            match(input,42,FOLLOW_2); 
+            // InternalFortXTrans.g:6319:3: ( 'except' )
+            // InternalFortXTrans.g:6320:4: 'except'
+            {
+             before(grammarAccess.getImportedNamesAccess().getExceptExceptKeyword_0_5_0_0()); 
+            match(input,39,FOLLOW_2); 
              after(grammarAccess.getImportedNamesAccess().getExceptExceptKeyword_0_5_0_0()); 
 
             }
@@ -19779,17 +19756,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__SimpAssignment_0_5_1"
-    // InternalFortXTrans.g:6358:1: rule__ImportedNames__SimpAssignment_0_5_1 : ( ruleSimpleNames ) ;
+    // InternalFortXTrans.g:6331:1: rule__ImportedNames__SimpAssignment_0_5_1 : ( ruleSimpleNames ) ;
     public final void rule__ImportedNames__SimpAssignment_0_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6362:1: ( ( ruleSimpleNames ) )
-            // InternalFortXTrans.g:6363:2: ( ruleSimpleNames )
+            // InternalFortXTrans.g:6335:1: ( ( ruleSimpleNames ) )
+            // InternalFortXTrans.g:6336:2: ( ruleSimpleNames )
             {
-            // InternalFortXTrans.g:6363:2: ( ruleSimpleNames )
-            // InternalFortXTrans.g:6364:3: ruleSimpleNames
+            // InternalFortXTrans.g:6336:2: ( ruleSimpleNames )
+            // InternalFortXTrans.g:6337:3: ruleSimpleNames
             {
              before(grammarAccess.getImportedNamesAccess().getSimpSimpleNamesParserRuleCall_0_5_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19820,17 +19797,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__ImpnameAssignment_1_0"
-    // InternalFortXTrans.g:6373:1: rule__ImportedNames__ImpnameAssignment_1_0 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6346:1: rule__ImportedNames__ImpnameAssignment_1_0 : ( ruleAPIName ) ;
     public final void rule__ImportedNames__ImpnameAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6377:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6378:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6350:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6351:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6378:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6379:3: ruleAPIName
+            // InternalFortXTrans.g:6351:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6352:3: ruleAPIName
             {
              before(grammarAccess.getImportedNamesAccess().getImpnameAPINameParserRuleCall_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -19861,17 +19838,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__SimpListAssignment_1_3"
-    // InternalFortXTrans.g:6388:1: rule__ImportedNames__SimpListAssignment_1_3 : ( ruleAliasedSimpleName ) ;
+    // InternalFortXTrans.g:6361:1: rule__ImportedNames__SimpListAssignment_1_3 : ( ruleAliasedSimpleName ) ;
     public final void rule__ImportedNames__SimpListAssignment_1_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6392:1: ( ( ruleAliasedSimpleName ) )
-            // InternalFortXTrans.g:6393:2: ( ruleAliasedSimpleName )
+            // InternalFortXTrans.g:6365:1: ( ( ruleAliasedSimpleName ) )
+            // InternalFortXTrans.g:6366:2: ( ruleAliasedSimpleName )
             {
-            // InternalFortXTrans.g:6393:2: ( ruleAliasedSimpleName )
-            // InternalFortXTrans.g:6394:3: ruleAliasedSimpleName
+            // InternalFortXTrans.g:6366:2: ( ruleAliasedSimpleName )
+            // InternalFortXTrans.g:6367:3: ruleAliasedSimpleName
             {
              before(grammarAccess.getImportedNamesAccess().getSimpListAliasedSimpleNameParserRuleCall_1_3_0()); 
             pushFollow(FOLLOW_2);
@@ -19902,17 +19879,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__SimpListAssignment_1_4_1"
-    // InternalFortXTrans.g:6403:1: rule__ImportedNames__SimpListAssignment_1_4_1 : ( ruleAliasedSimpleName ) ;
+    // InternalFortXTrans.g:6376:1: rule__ImportedNames__SimpListAssignment_1_4_1 : ( ruleAliasedSimpleName ) ;
     public final void rule__ImportedNames__SimpListAssignment_1_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6407:1: ( ( ruleAliasedSimpleName ) )
-            // InternalFortXTrans.g:6408:2: ( ruleAliasedSimpleName )
+            // InternalFortXTrans.g:6380:1: ( ( ruleAliasedSimpleName ) )
+            // InternalFortXTrans.g:6381:2: ( ruleAliasedSimpleName )
             {
-            // InternalFortXTrans.g:6408:2: ( ruleAliasedSimpleName )
-            // InternalFortXTrans.g:6409:3: ruleAliasedSimpleName
+            // InternalFortXTrans.g:6381:2: ( ruleAliasedSimpleName )
+            // InternalFortXTrans.g:6382:3: ruleAliasedSimpleName
             {
              before(grammarAccess.getImportedNamesAccess().getSimpListAliasedSimpleNameParserRuleCall_1_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -19943,21 +19920,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__CommaAssignment_1_5_0"
-    // InternalFortXTrans.g:6418:1: rule__ImportedNames__CommaAssignment_1_5_0 : ( ( ',' ) ) ;
+    // InternalFortXTrans.g:6391:1: rule__ImportedNames__CommaAssignment_1_5_0 : ( ( ',' ) ) ;
     public final void rule__ImportedNames__CommaAssignment_1_5_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6422:1: ( ( ( ',' ) ) )
-            // InternalFortXTrans.g:6423:2: ( ( ',' ) )
+            // InternalFortXTrans.g:6395:1: ( ( ( ',' ) ) )
+            // InternalFortXTrans.g:6396:2: ( ( ',' ) )
             {
-            // InternalFortXTrans.g:6423:2: ( ( ',' ) )
-            // InternalFortXTrans.g:6424:3: ( ',' )
+            // InternalFortXTrans.g:6396:2: ( ( ',' ) )
+            // InternalFortXTrans.g:6397:3: ( ',' )
             {
              before(grammarAccess.getImportedNamesAccess().getCommaCommaKeyword_1_5_0_0()); 
-            // InternalFortXTrans.g:6425:3: ( ',' )
-            // InternalFortXTrans.g:6426:4: ','
+            // InternalFortXTrans.g:6398:3: ( ',' )
+            // InternalFortXTrans.g:6399:4: ','
             {
              before(grammarAccess.getImportedNamesAccess().getCommaCommaKeyword_1_5_0_0()); 
             match(input,24,FOLLOW_2); 
@@ -19988,17 +19965,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__DotsAssignment_1_5_1"
-    // InternalFortXTrans.g:6437:1: rule__ImportedNames__DotsAssignment_1_5_1 : ( RULE_DOTS ) ;
+    // InternalFortXTrans.g:6410:1: rule__ImportedNames__DotsAssignment_1_5_1 : ( RULE_DOTS ) ;
     public final void rule__ImportedNames__DotsAssignment_1_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6441:1: ( ( RULE_DOTS ) )
-            // InternalFortXTrans.g:6442:2: ( RULE_DOTS )
+            // InternalFortXTrans.g:6414:1: ( ( RULE_DOTS ) )
+            // InternalFortXTrans.g:6415:2: ( RULE_DOTS )
             {
-            // InternalFortXTrans.g:6442:2: ( RULE_DOTS )
-            // InternalFortXTrans.g:6443:3: RULE_DOTS
+            // InternalFortXTrans.g:6415:2: ( RULE_DOTS )
+            // InternalFortXTrans.g:6416:3: RULE_DOTS
             {
              before(grammarAccess.getImportedNamesAccess().getDotsDOTSTerminalRuleCall_1_5_1_0()); 
             match(input,RULE_DOTS,FOLLOW_2); 
@@ -20025,17 +20002,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__ImpnameAssignment_2_0"
-    // InternalFortXTrans.g:6452:1: rule__ImportedNames__ImpnameAssignment_2_0 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6425:1: rule__ImportedNames__ImpnameAssignment_2_0 : ( ruleAPIName ) ;
     public final void rule__ImportedNames__ImpnameAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6456:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6457:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6429:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6430:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6457:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6458:3: ruleAPIName
+            // InternalFortXTrans.g:6430:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6431:3: ruleAPIName
             {
              before(grammarAccess.getImportedNamesAccess().getImpnameAPINameParserRuleCall_2_0_0()); 
             pushFollow(FOLLOW_2);
@@ -20066,17 +20043,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ImportedNames__AsnameAssignment_2_1_1"
-    // InternalFortXTrans.g:6467:1: rule__ImportedNames__AsnameAssignment_2_1_1 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6440:1: rule__ImportedNames__AsnameAssignment_2_1_1 : ( RULE_ID ) ;
     public final void rule__ImportedNames__AsnameAssignment_2_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6471:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6472:2: ( RULE_ID )
+            // InternalFortXTrans.g:6444:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6445:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6472:2: ( RULE_ID )
-            // InternalFortXTrans.g:6473:3: RULE_ID
+            // InternalFortXTrans.g:6445:2: ( RULE_ID )
+            // InternalFortXTrans.g:6446:3: RULE_ID
             {
              before(grammarAccess.getImportedNamesAccess().getAsnameIDTerminalRuleCall_2_1_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -20103,17 +20080,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SimpleNames__NameListAssignment_0"
-    // InternalFortXTrans.g:6482:1: rule__SimpleNames__NameListAssignment_0 : ( ruleSimpleName ) ;
+    // InternalFortXTrans.g:6455:1: rule__SimpleNames__NameListAssignment_0 : ( ruleSimpleName ) ;
     public final void rule__SimpleNames__NameListAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6486:1: ( ( ruleSimpleName ) )
-            // InternalFortXTrans.g:6487:2: ( ruleSimpleName )
+            // InternalFortXTrans.g:6459:1: ( ( ruleSimpleName ) )
+            // InternalFortXTrans.g:6460:2: ( ruleSimpleName )
             {
-            // InternalFortXTrans.g:6487:2: ( ruleSimpleName )
-            // InternalFortXTrans.g:6488:3: ruleSimpleName
+            // InternalFortXTrans.g:6460:2: ( ruleSimpleName )
+            // InternalFortXTrans.g:6461:3: ruleSimpleName
             {
              before(grammarAccess.getSimpleNamesAccess().getNameListSimpleNameParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -20144,21 +20121,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SimpleNames__BrackAssignment_1_0"
-    // InternalFortXTrans.g:6497:1: rule__SimpleNames__BrackAssignment_1_0 : ( ( '{' ) ) ;
+    // InternalFortXTrans.g:6470:1: rule__SimpleNames__BrackAssignment_1_0 : ( ( '{' ) ) ;
     public final void rule__SimpleNames__BrackAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6501:1: ( ( ( '{' ) ) )
-            // InternalFortXTrans.g:6502:2: ( ( '{' ) )
+            // InternalFortXTrans.g:6474:1: ( ( ( '{' ) ) )
+            // InternalFortXTrans.g:6475:2: ( ( '{' ) )
             {
-            // InternalFortXTrans.g:6502:2: ( ( '{' ) )
-            // InternalFortXTrans.g:6503:3: ( '{' )
+            // InternalFortXTrans.g:6475:2: ( ( '{' ) )
+            // InternalFortXTrans.g:6476:3: ( '{' )
             {
              before(grammarAccess.getSimpleNamesAccess().getBrackLeftCurlyBracketKeyword_1_0_0()); 
-            // InternalFortXTrans.g:6504:3: ( '{' )
-            // InternalFortXTrans.g:6505:4: '{'
+            // InternalFortXTrans.g:6477:3: ( '{' )
+            // InternalFortXTrans.g:6478:4: '{'
             {
              before(grammarAccess.getSimpleNamesAccess().getBrackLeftCurlyBracketKeyword_1_0_0()); 
             match(input,26,FOLLOW_2); 
@@ -20189,17 +20166,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SimpleNames__NameListAssignment_1_1"
-    // InternalFortXTrans.g:6516:1: rule__SimpleNames__NameListAssignment_1_1 : ( ruleSimpleName ) ;
+    // InternalFortXTrans.g:6489:1: rule__SimpleNames__NameListAssignment_1_1 : ( ruleSimpleName ) ;
     public final void rule__SimpleNames__NameListAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6520:1: ( ( ruleSimpleName ) )
-            // InternalFortXTrans.g:6521:2: ( ruleSimpleName )
+            // InternalFortXTrans.g:6493:1: ( ( ruleSimpleName ) )
+            // InternalFortXTrans.g:6494:2: ( ruleSimpleName )
             {
-            // InternalFortXTrans.g:6521:2: ( ruleSimpleName )
-            // InternalFortXTrans.g:6522:3: ruleSimpleName
+            // InternalFortXTrans.g:6494:2: ( ruleSimpleName )
+            // InternalFortXTrans.g:6495:3: ruleSimpleName
             {
              before(grammarAccess.getSimpleNamesAccess().getNameListSimpleNameParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20230,17 +20207,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SimpleNames__NameListAssignment_1_2_1"
-    // InternalFortXTrans.g:6531:1: rule__SimpleNames__NameListAssignment_1_2_1 : ( ruleSimpleName ) ;
+    // InternalFortXTrans.g:6504:1: rule__SimpleNames__NameListAssignment_1_2_1 : ( ruleSimpleName ) ;
     public final void rule__SimpleNames__NameListAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6535:1: ( ( ruleSimpleName ) )
-            // InternalFortXTrans.g:6536:2: ( ruleSimpleName )
+            // InternalFortXTrans.g:6508:1: ( ( ruleSimpleName ) )
+            // InternalFortXTrans.g:6509:2: ( ruleSimpleName )
             {
-            // InternalFortXTrans.g:6536:2: ( ruleSimpleName )
-            // InternalFortXTrans.g:6537:3: ruleSimpleName
+            // InternalFortXTrans.g:6509:2: ( ruleSimpleName )
+            // InternalFortXTrans.g:6510:3: ruleSimpleName
             {
              before(grammarAccess.getSimpleNamesAccess().getNameListSimpleNameParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20271,17 +20248,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__SimpleName__NameAssignment"
-    // InternalFortXTrans.g:6546:1: rule__SimpleName__NameAssignment : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6519:1: rule__SimpleName__NameAssignment : ( RULE_ID ) ;
     public final void rule__SimpleName__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6550:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6551:2: ( RULE_ID )
+            // InternalFortXTrans.g:6523:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6524:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6551:2: ( RULE_ID )
-            // InternalFortXTrans.g:6552:3: RULE_ID
+            // InternalFortXTrans.g:6524:2: ( RULE_ID )
+            // InternalFortXTrans.g:6525:3: RULE_ID
             {
              before(grammarAccess.getSimpleNameAccess().getNameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -20308,17 +20285,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedSimpleName__OrigAssignment_0"
-    // InternalFortXTrans.g:6561:1: rule__AliasedSimpleName__OrigAssignment_0 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6534:1: rule__AliasedSimpleName__OrigAssignment_0 : ( RULE_ID ) ;
     public final void rule__AliasedSimpleName__OrigAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6565:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6566:2: ( RULE_ID )
+            // InternalFortXTrans.g:6538:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6539:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6566:2: ( RULE_ID )
-            // InternalFortXTrans.g:6567:3: RULE_ID
+            // InternalFortXTrans.g:6539:2: ( RULE_ID )
+            // InternalFortXTrans.g:6540:3: RULE_ID
             {
              before(grammarAccess.getAliasedSimpleNameAccess().getOrigIDTerminalRuleCall_0_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -20345,17 +20322,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedSimpleName__AsNameAssignment_1_1"
-    // InternalFortXTrans.g:6576:1: rule__AliasedSimpleName__AsNameAssignment_1_1 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6549:1: rule__AliasedSimpleName__AsNameAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__AliasedSimpleName__AsNameAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6580:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6581:2: ( RULE_ID )
+            // InternalFortXTrans.g:6553:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6554:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6581:2: ( RULE_ID )
-            // InternalFortXTrans.g:6582:3: RULE_ID
+            // InternalFortXTrans.g:6554:2: ( RULE_ID )
+            // InternalFortXTrans.g:6555:3: RULE_ID
             {
              before(grammarAccess.getAliasedSimpleNameAccess().getAsNameIDTerminalRuleCall_1_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -20382,17 +20359,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedAPINames__NameListAssignment_0"
-    // InternalFortXTrans.g:6591:1: rule__AliasedAPINames__NameListAssignment_0 : ( ruleAliasedAPIName ) ;
+    // InternalFortXTrans.g:6564:1: rule__AliasedAPINames__NameListAssignment_0 : ( ruleAliasedAPIName ) ;
     public final void rule__AliasedAPINames__NameListAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6595:1: ( ( ruleAliasedAPIName ) )
-            // InternalFortXTrans.g:6596:2: ( ruleAliasedAPIName )
+            // InternalFortXTrans.g:6568:1: ( ( ruleAliasedAPIName ) )
+            // InternalFortXTrans.g:6569:2: ( ruleAliasedAPIName )
             {
-            // InternalFortXTrans.g:6596:2: ( ruleAliasedAPIName )
-            // InternalFortXTrans.g:6597:3: ruleAliasedAPIName
+            // InternalFortXTrans.g:6569:2: ( ruleAliasedAPIName )
+            // InternalFortXTrans.g:6570:3: ruleAliasedAPIName
             {
              before(grammarAccess.getAliasedAPINamesAccess().getNameListAliasedAPINameParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -20423,21 +20400,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedAPINames__BrackAssignment_1_0"
-    // InternalFortXTrans.g:6606:1: rule__AliasedAPINames__BrackAssignment_1_0 : ( ( '{' ) ) ;
+    // InternalFortXTrans.g:6579:1: rule__AliasedAPINames__BrackAssignment_1_0 : ( ( '{' ) ) ;
     public final void rule__AliasedAPINames__BrackAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6610:1: ( ( ( '{' ) ) )
-            // InternalFortXTrans.g:6611:2: ( ( '{' ) )
+            // InternalFortXTrans.g:6583:1: ( ( ( '{' ) ) )
+            // InternalFortXTrans.g:6584:2: ( ( '{' ) )
             {
-            // InternalFortXTrans.g:6611:2: ( ( '{' ) )
-            // InternalFortXTrans.g:6612:3: ( '{' )
+            // InternalFortXTrans.g:6584:2: ( ( '{' ) )
+            // InternalFortXTrans.g:6585:3: ( '{' )
             {
              before(grammarAccess.getAliasedAPINamesAccess().getBrackLeftCurlyBracketKeyword_1_0_0()); 
-            // InternalFortXTrans.g:6613:3: ( '{' )
-            // InternalFortXTrans.g:6614:4: '{'
+            // InternalFortXTrans.g:6586:3: ( '{' )
+            // InternalFortXTrans.g:6587:4: '{'
             {
              before(grammarAccess.getAliasedAPINamesAccess().getBrackLeftCurlyBracketKeyword_1_0_0()); 
             match(input,26,FOLLOW_2); 
@@ -20468,17 +20445,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedAPINames__NameListAssignment_1_1"
-    // InternalFortXTrans.g:6625:1: rule__AliasedAPINames__NameListAssignment_1_1 : ( ruleAliasedAPIName ) ;
+    // InternalFortXTrans.g:6598:1: rule__AliasedAPINames__NameListAssignment_1_1 : ( ruleAliasedAPIName ) ;
     public final void rule__AliasedAPINames__NameListAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6629:1: ( ( ruleAliasedAPIName ) )
-            // InternalFortXTrans.g:6630:2: ( ruleAliasedAPIName )
+            // InternalFortXTrans.g:6602:1: ( ( ruleAliasedAPIName ) )
+            // InternalFortXTrans.g:6603:2: ( ruleAliasedAPIName )
             {
-            // InternalFortXTrans.g:6630:2: ( ruleAliasedAPIName )
-            // InternalFortXTrans.g:6631:3: ruleAliasedAPIName
+            // InternalFortXTrans.g:6603:2: ( ruleAliasedAPIName )
+            // InternalFortXTrans.g:6604:3: ruleAliasedAPIName
             {
              before(grammarAccess.getAliasedAPINamesAccess().getNameListAliasedAPINameParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20509,17 +20486,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedAPINames__NameListAssignment_1_2_1"
-    // InternalFortXTrans.g:6640:1: rule__AliasedAPINames__NameListAssignment_1_2_1 : ( ruleAliasedAPIName ) ;
+    // InternalFortXTrans.g:6613:1: rule__AliasedAPINames__NameListAssignment_1_2_1 : ( ruleAliasedAPIName ) ;
     public final void rule__AliasedAPINames__NameListAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6644:1: ( ( ruleAliasedAPIName ) )
-            // InternalFortXTrans.g:6645:2: ( ruleAliasedAPIName )
+            // InternalFortXTrans.g:6617:1: ( ( ruleAliasedAPIName ) )
+            // InternalFortXTrans.g:6618:2: ( ruleAliasedAPIName )
             {
-            // InternalFortXTrans.g:6645:2: ( ruleAliasedAPIName )
-            // InternalFortXTrans.g:6646:3: ruleAliasedAPIName
+            // InternalFortXTrans.g:6618:2: ( ruleAliasedAPIName )
+            // InternalFortXTrans.g:6619:3: ruleAliasedAPIName
             {
              before(grammarAccess.getAliasedAPINamesAccess().getNameListAliasedAPINameParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -20550,17 +20527,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedAPIName__OrigAssignment_0"
-    // InternalFortXTrans.g:6655:1: rule__AliasedAPIName__OrigAssignment_0 : ( ruleAPIName ) ;
+    // InternalFortXTrans.g:6628:1: rule__AliasedAPIName__OrigAssignment_0 : ( ruleAPIName ) ;
     public final void rule__AliasedAPIName__OrigAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6659:1: ( ( ruleAPIName ) )
-            // InternalFortXTrans.g:6660:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6632:1: ( ( ruleAPIName ) )
+            // InternalFortXTrans.g:6633:2: ( ruleAPIName )
             {
-            // InternalFortXTrans.g:6660:2: ( ruleAPIName )
-            // InternalFortXTrans.g:6661:3: ruleAPIName
+            // InternalFortXTrans.g:6633:2: ( ruleAPIName )
+            // InternalFortXTrans.g:6634:3: ruleAPIName
             {
              before(grammarAccess.getAliasedAPINameAccess().getOrigAPINameParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -20591,17 +20568,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__AliasedAPIName__AsNameAssignment_1_1"
-    // InternalFortXTrans.g:6670:1: rule__AliasedAPIName__AsNameAssignment_1_1 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6643:1: rule__AliasedAPIName__AsNameAssignment_1_1 : ( RULE_ID ) ;
     public final void rule__AliasedAPIName__AsNameAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6674:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6675:2: ( RULE_ID )
+            // InternalFortXTrans.g:6647:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6648:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6675:2: ( RULE_ID )
-            // InternalFortXTrans.g:6676:3: RULE_ID
+            // InternalFortXTrans.g:6648:2: ( RULE_ID )
+            // InternalFortXTrans.g:6649:3: RULE_ID
             {
              before(grammarAccess.getAliasedAPINameAccess().getAsNameIDTerminalRuleCall_1_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -20628,17 +20605,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Decls__DeclsAssignment"
-    // InternalFortXTrans.g:6685:1: rule__Decls__DeclsAssignment : ( ruleDecl ) ;
+    // InternalFortXTrans.g:6658:1: rule__Decls__DeclsAssignment : ( ruleDecl ) ;
     public final void rule__Decls__DeclsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6689:1: ( ( ruleDecl ) )
-            // InternalFortXTrans.g:6690:2: ( ruleDecl )
+            // InternalFortXTrans.g:6662:1: ( ( ruleDecl ) )
+            // InternalFortXTrans.g:6663:2: ( ruleDecl )
             {
-            // InternalFortXTrans.g:6690:2: ( ruleDecl )
-            // InternalFortXTrans.g:6691:3: ruleDecl
+            // InternalFortXTrans.g:6663:2: ( ruleDecl )
+            // InternalFortXTrans.g:6664:3: ruleDecl
             {
              before(grammarAccess.getDeclsAccess().getDeclsDeclParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -20669,17 +20646,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Decl__FunctionAssignment"
-    // InternalFortXTrans.g:6700:1: rule__Decl__FunctionAssignment : ( ruleFnDecl ) ;
+    // InternalFortXTrans.g:6673:1: rule__Decl__FunctionAssignment : ( ruleFnDecl ) ;
     public final void rule__Decl__FunctionAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6704:1: ( ( ruleFnDecl ) )
-            // InternalFortXTrans.g:6705:2: ( ruleFnDecl )
+            // InternalFortXTrans.g:6677:1: ( ( ruleFnDecl ) )
+            // InternalFortXTrans.g:6678:2: ( ruleFnDecl )
             {
-            // InternalFortXTrans.g:6705:2: ( ruleFnDecl )
-            // InternalFortXTrans.g:6706:3: ruleFnDecl
+            // InternalFortXTrans.g:6678:2: ( ruleFnDecl )
+            // InternalFortXTrans.g:6679:3: ruleFnDecl
             {
              before(grammarAccess.getDeclAccess().getFunctionFnDeclParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -20710,17 +20687,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnMods__ModsAssignment"
-    // InternalFortXTrans.g:6715:1: rule__FnMods__ModsAssignment : ( ruleFnMod ) ;
+    // InternalFortXTrans.g:6688:1: rule__FnMods__ModsAssignment : ( ruleFnMod ) ;
     public final void rule__FnMods__ModsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6719:1: ( ( ruleFnMod ) )
-            // InternalFortXTrans.g:6720:2: ( ruleFnMod )
+            // InternalFortXTrans.g:6692:1: ( ( ruleFnMod ) )
+            // InternalFortXTrans.g:6693:2: ( ruleFnMod )
             {
-            // InternalFortXTrans.g:6720:2: ( ruleFnMod )
-            // InternalFortXTrans.g:6721:3: ruleFnMod
+            // InternalFortXTrans.g:6693:2: ( ruleFnMod )
+            // InternalFortXTrans.g:6694:3: ruleFnMod
             {
              before(grammarAccess.getFnModsAccess().getModsFnModParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -20751,24 +20728,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnMod__ModtypeAssignment_0"
-    // InternalFortXTrans.g:6730:1: rule__FnMod__ModtypeAssignment_0 : ( ( 'private' ) ) ;
+    // InternalFortXTrans.g:6703:1: rule__FnMod__ModtypeAssignment_0 : ( ( 'private' ) ) ;
     public final void rule__FnMod__ModtypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6734:1: ( ( ( 'private' ) ) )
-            // InternalFortXTrans.g:6735:2: ( ( 'private' ) )
+            // InternalFortXTrans.g:6707:1: ( ( ( 'private' ) ) )
+            // InternalFortXTrans.g:6708:2: ( ( 'private' ) )
             {
-            // InternalFortXTrans.g:6735:2: ( ( 'private' ) )
-            // InternalFortXTrans.g:6736:3: ( 'private' )
-            {
-             before(grammarAccess.getFnModAccess().getModtypePrivateKeyword_0_0()); 
-            // InternalFortXTrans.g:6737:3: ( 'private' )
-            // InternalFortXTrans.g:6738:4: 'private'
+            // InternalFortXTrans.g:6708:2: ( ( 'private' ) )
+            // InternalFortXTrans.g:6709:3: ( 'private' )
             {
              before(grammarAccess.getFnModAccess().getModtypePrivateKeyword_0_0()); 
-            match(input,43,FOLLOW_2); 
+            // InternalFortXTrans.g:6710:3: ( 'private' )
+            // InternalFortXTrans.g:6711:4: 'private'
+            {
+             before(grammarAccess.getFnModAccess().getModtypePrivateKeyword_0_0()); 
+            match(input,40,FOLLOW_2); 
              after(grammarAccess.getFnModAccess().getModtypePrivateKeyword_0_0()); 
 
             }
@@ -20796,24 +20773,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnMod__ModtypeAssignment_1"
-    // InternalFortXTrans.g:6749:1: rule__FnMod__ModtypeAssignment_1 : ( ( 'test' ) ) ;
+    // InternalFortXTrans.g:6722:1: rule__FnMod__ModtypeAssignment_1 : ( ( 'test' ) ) ;
     public final void rule__FnMod__ModtypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6753:1: ( ( ( 'test' ) ) )
-            // InternalFortXTrans.g:6754:2: ( ( 'test' ) )
+            // InternalFortXTrans.g:6726:1: ( ( ( 'test' ) ) )
+            // InternalFortXTrans.g:6727:2: ( ( 'test' ) )
             {
-            // InternalFortXTrans.g:6754:2: ( ( 'test' ) )
-            // InternalFortXTrans.g:6755:3: ( 'test' )
-            {
-             before(grammarAccess.getFnModAccess().getModtypeTestKeyword_1_0()); 
-            // InternalFortXTrans.g:6756:3: ( 'test' )
-            // InternalFortXTrans.g:6757:4: 'test'
+            // InternalFortXTrans.g:6727:2: ( ( 'test' ) )
+            // InternalFortXTrans.g:6728:3: ( 'test' )
             {
              before(grammarAccess.getFnModAccess().getModtypeTestKeyword_1_0()); 
-            match(input,44,FOLLOW_2); 
+            // InternalFortXTrans.g:6729:3: ( 'test' )
+            // InternalFortXTrans.g:6730:4: 'test'
+            {
+             before(grammarAccess.getFnModAccess().getModtypeTestKeyword_1_0()); 
+            match(input,41,FOLLOW_2); 
              after(grammarAccess.getFnModAccess().getModtypeTestKeyword_1_0()); 
 
             }
@@ -20841,24 +20818,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnMod__ModtypeAssignment_2"
-    // InternalFortXTrans.g:6768:1: rule__FnMod__ModtypeAssignment_2 : ( ( 'atomic' ) ) ;
+    // InternalFortXTrans.g:6741:1: rule__FnMod__ModtypeAssignment_2 : ( ( 'atomic' ) ) ;
     public final void rule__FnMod__ModtypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6772:1: ( ( ( 'atomic' ) ) )
-            // InternalFortXTrans.g:6773:2: ( ( 'atomic' ) )
+            // InternalFortXTrans.g:6745:1: ( ( ( 'atomic' ) ) )
+            // InternalFortXTrans.g:6746:2: ( ( 'atomic' ) )
             {
-            // InternalFortXTrans.g:6773:2: ( ( 'atomic' ) )
-            // InternalFortXTrans.g:6774:3: ( 'atomic' )
-            {
-             before(grammarAccess.getFnModAccess().getModtypeAtomicKeyword_2_0()); 
-            // InternalFortXTrans.g:6775:3: ( 'atomic' )
-            // InternalFortXTrans.g:6776:4: 'atomic'
+            // InternalFortXTrans.g:6746:2: ( ( 'atomic' ) )
+            // InternalFortXTrans.g:6747:3: ( 'atomic' )
             {
              before(grammarAccess.getFnModAccess().getModtypeAtomicKeyword_2_0()); 
-            match(input,45,FOLLOW_2); 
+            // InternalFortXTrans.g:6748:3: ( 'atomic' )
+            // InternalFortXTrans.g:6749:4: 'atomic'
+            {
+             before(grammarAccess.getFnModAccess().getModtypeAtomicKeyword_2_0()); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getFnModAccess().getModtypeAtomicKeyword_2_0()); 
 
             }
@@ -20886,24 +20863,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnMod__ModtypeAssignment_3"
-    // InternalFortXTrans.g:6787:1: rule__FnMod__ModtypeAssignment_3 : ( ( 'io' ) ) ;
+    // InternalFortXTrans.g:6760:1: rule__FnMod__ModtypeAssignment_3 : ( ( 'io' ) ) ;
     public final void rule__FnMod__ModtypeAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6791:1: ( ( ( 'io' ) ) )
-            // InternalFortXTrans.g:6792:2: ( ( 'io' ) )
+            // InternalFortXTrans.g:6764:1: ( ( ( 'io' ) ) )
+            // InternalFortXTrans.g:6765:2: ( ( 'io' ) )
             {
-            // InternalFortXTrans.g:6792:2: ( ( 'io' ) )
-            // InternalFortXTrans.g:6793:3: ( 'io' )
-            {
-             before(grammarAccess.getFnModAccess().getModtypeIoKeyword_3_0()); 
-            // InternalFortXTrans.g:6794:3: ( 'io' )
-            // InternalFortXTrans.g:6795:4: 'io'
+            // InternalFortXTrans.g:6765:2: ( ( 'io' ) )
+            // InternalFortXTrans.g:6766:3: ( 'io' )
             {
              before(grammarAccess.getFnModAccess().getModtypeIoKeyword_3_0()); 
-            match(input,46,FOLLOW_2); 
+            // InternalFortXTrans.g:6767:3: ( 'io' )
+            // InternalFortXTrans.g:6768:4: 'io'
+            {
+             before(grammarAccess.getFnModAccess().getModtypeIoKeyword_3_0()); 
+            match(input,43,FOLLOW_2); 
              after(grammarAccess.getFnModAccess().getModtypeIoKeyword_3_0()); 
 
             }
@@ -20931,17 +20908,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValParam__ParamsAssignment_0"
-    // InternalFortXTrans.g:6806:1: rule__ValParam__ParamsAssignment_0 : ( ruleParam ) ;
+    // InternalFortXTrans.g:6779:1: rule__ValParam__ParamsAssignment_0 : ( ruleParam ) ;
     public final void rule__ValParam__ParamsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6810:1: ( ( ruleParam ) )
-            // InternalFortXTrans.g:6811:2: ( ruleParam )
+            // InternalFortXTrans.g:6783:1: ( ( ruleParam ) )
+            // InternalFortXTrans.g:6784:2: ( ruleParam )
             {
-            // InternalFortXTrans.g:6811:2: ( ruleParam )
-            // InternalFortXTrans.g:6812:3: ruleParam
+            // InternalFortXTrans.g:6784:2: ( ruleParam )
+            // InternalFortXTrans.g:6785:3: ruleParam
             {
              before(grammarAccess.getValParamAccess().getParamsParamParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -20972,24 +20949,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValParam__BrackAssignment_1_0"
-    // InternalFortXTrans.g:6821:1: rule__ValParam__BrackAssignment_1_0 : ( ( '(' ) ) ;
+    // InternalFortXTrans.g:6794:1: rule__ValParam__BrackAssignment_1_0 : ( ( '(' ) ) ;
     public final void rule__ValParam__BrackAssignment_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6825:1: ( ( ( '(' ) ) )
-            // InternalFortXTrans.g:6826:2: ( ( '(' ) )
+            // InternalFortXTrans.g:6798:1: ( ( ( '(' ) ) )
+            // InternalFortXTrans.g:6799:2: ( ( '(' ) )
             {
-            // InternalFortXTrans.g:6826:2: ( ( '(' ) )
-            // InternalFortXTrans.g:6827:3: ( '(' )
-            {
-             before(grammarAccess.getValParamAccess().getBrackLeftParenthesisKeyword_1_0_0()); 
-            // InternalFortXTrans.g:6828:3: ( '(' )
-            // InternalFortXTrans.g:6829:4: '('
+            // InternalFortXTrans.g:6799:2: ( ( '(' ) )
+            // InternalFortXTrans.g:6800:3: ( '(' )
             {
              before(grammarAccess.getValParamAccess().getBrackLeftParenthesisKeyword_1_0_0()); 
-            match(input,37,FOLLOW_2); 
+            // InternalFortXTrans.g:6801:3: ( '(' )
+            // InternalFortXTrans.g:6802:4: '('
+            {
+             before(grammarAccess.getValParamAccess().getBrackLeftParenthesisKeyword_1_0_0()); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getValParamAccess().getBrackLeftParenthesisKeyword_1_0_0()); 
 
             }
@@ -21017,17 +20994,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValParam__ParamsAssignment_1_1_0"
-    // InternalFortXTrans.g:6840:1: rule__ValParam__ParamsAssignment_1_1_0 : ( ruleParam ) ;
+    // InternalFortXTrans.g:6813:1: rule__ValParam__ParamsAssignment_1_1_0 : ( ruleParam ) ;
     public final void rule__ValParam__ParamsAssignment_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6844:1: ( ( ruleParam ) )
-            // InternalFortXTrans.g:6845:2: ( ruleParam )
+            // InternalFortXTrans.g:6817:1: ( ( ruleParam ) )
+            // InternalFortXTrans.g:6818:2: ( ruleParam )
             {
-            // InternalFortXTrans.g:6845:2: ( ruleParam )
-            // InternalFortXTrans.g:6846:3: ruleParam
+            // InternalFortXTrans.g:6818:2: ( ruleParam )
+            // InternalFortXTrans.g:6819:3: ruleParam
             {
              before(grammarAccess.getValParamAccess().getParamsParamParserRuleCall_1_1_0_0()); 
             pushFollow(FOLLOW_2);
@@ -21058,17 +21035,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ValParam__ParamsAssignment_1_1_1_1"
-    // InternalFortXTrans.g:6855:1: rule__ValParam__ParamsAssignment_1_1_1_1 : ( ruleParam ) ;
+    // InternalFortXTrans.g:6828:1: rule__ValParam__ParamsAssignment_1_1_1_1 : ( ruleParam ) ;
     public final void rule__ValParam__ParamsAssignment_1_1_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6859:1: ( ( ruleParam ) )
-            // InternalFortXTrans.g:6860:2: ( ruleParam )
+            // InternalFortXTrans.g:6832:1: ( ( ruleParam ) )
+            // InternalFortXTrans.g:6833:2: ( ruleParam )
             {
-            // InternalFortXTrans.g:6860:2: ( ruleParam )
-            // InternalFortXTrans.g:6861:3: ruleParam
+            // InternalFortXTrans.g:6833:2: ( ruleParam )
+            // InternalFortXTrans.g:6834:3: ruleParam
             {
              before(grammarAccess.getValParamAccess().getParamsParamParserRuleCall_1_1_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21099,17 +21076,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Param__BIdAssignment_0"
-    // InternalFortXTrans.g:6870:1: rule__Param__BIdAssignment_0 : ( ruleBindId ) ;
+    // InternalFortXTrans.g:6843:1: rule__Param__BIdAssignment_0 : ( ruleBindId ) ;
     public final void rule__Param__BIdAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6874:1: ( ( ruleBindId ) )
-            // InternalFortXTrans.g:6875:2: ( ruleBindId )
+            // InternalFortXTrans.g:6847:1: ( ( ruleBindId ) )
+            // InternalFortXTrans.g:6848:2: ( ruleBindId )
             {
-            // InternalFortXTrans.g:6875:2: ( ruleBindId )
-            // InternalFortXTrans.g:6876:3: ruleBindId
+            // InternalFortXTrans.g:6848:2: ( ruleBindId )
+            // InternalFortXTrans.g:6849:3: ruleBindId
             {
              before(grammarAccess.getParamAccess().getBIdBindIdParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -21140,17 +21117,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Param__IstypeAssignment_1"
-    // InternalFortXTrans.g:6885:1: rule__Param__IstypeAssignment_1 : ( ruleIsType ) ;
+    // InternalFortXTrans.g:6858:1: rule__Param__IstypeAssignment_1 : ( ruleIsType ) ;
     public final void rule__Param__IstypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6889:1: ( ( ruleIsType ) )
-            // InternalFortXTrans.g:6890:2: ( ruleIsType )
+            // InternalFortXTrans.g:6862:1: ( ( ruleIsType ) )
+            // InternalFortXTrans.g:6863:2: ( ruleIsType )
             {
-            // InternalFortXTrans.g:6890:2: ( ruleIsType )
-            // InternalFortXTrans.g:6891:3: ruleIsType
+            // InternalFortXTrans.g:6863:2: ( ruleIsType )
+            // InternalFortXTrans.g:6864:3: ruleIsType
             {
              before(grammarAccess.getParamAccess().getIstypeIsTypeParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21181,24 +21158,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RetType__EmptyAssignment_0_1"
-    // InternalFortXTrans.g:6900:1: rule__RetType__EmptyAssignment_0_1 : ( ( '(' ) ) ;
+    // InternalFortXTrans.g:6873:1: rule__RetType__EmptyAssignment_0_1 : ( ( '(' ) ) ;
     public final void rule__RetType__EmptyAssignment_0_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6904:1: ( ( ( '(' ) ) )
-            // InternalFortXTrans.g:6905:2: ( ( '(' ) )
+            // InternalFortXTrans.g:6877:1: ( ( ( '(' ) ) )
+            // InternalFortXTrans.g:6878:2: ( ( '(' ) )
             {
-            // InternalFortXTrans.g:6905:2: ( ( '(' ) )
-            // InternalFortXTrans.g:6906:3: ( '(' )
-            {
-             before(grammarAccess.getRetTypeAccess().getEmptyLeftParenthesisKeyword_0_1_0()); 
-            // InternalFortXTrans.g:6907:3: ( '(' )
-            // InternalFortXTrans.g:6908:4: '('
+            // InternalFortXTrans.g:6878:2: ( ( '(' ) )
+            // InternalFortXTrans.g:6879:3: ( '(' )
             {
              before(grammarAccess.getRetTypeAccess().getEmptyLeftParenthesisKeyword_0_1_0()); 
-            match(input,37,FOLLOW_2); 
+            // InternalFortXTrans.g:6880:3: ( '(' )
+            // InternalFortXTrans.g:6881:4: '('
+            {
+             before(grammarAccess.getRetTypeAccess().getEmptyLeftParenthesisKeyword_0_1_0()); 
+            match(input,34,FOLLOW_2); 
              after(grammarAccess.getRetTypeAccess().getEmptyLeftParenthesisKeyword_0_1_0()); 
 
             }
@@ -21226,17 +21203,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__RetType__TypeAssignment_1_1"
-    // InternalFortXTrans.g:6919:1: rule__RetType__TypeAssignment_1_1 : ( ruleType ) ;
+    // InternalFortXTrans.g:6892:1: rule__RetType__TypeAssignment_1_1 : ( ruleType ) ;
     public final void rule__RetType__TypeAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6923:1: ( ( ruleType ) )
-            // InternalFortXTrans.g:6924:2: ( ruleType )
+            // InternalFortXTrans.g:6896:1: ( ( ruleType ) )
+            // InternalFortXTrans.g:6897:2: ( ruleType )
             {
-            // InternalFortXTrans.g:6924:2: ( ruleType )
-            // InternalFortXTrans.g:6925:3: ruleType
+            // InternalFortXTrans.g:6897:2: ( ruleType )
+            // InternalFortXTrans.g:6898:3: ruleType
             {
              before(grammarAccess.getRetTypeAccess().getTypeTypeParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21267,17 +21244,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Type__TnameAssignment"
-    // InternalFortXTrans.g:6934:1: rule__Type__TnameAssignment : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6907:1: rule__Type__TnameAssignment : ( RULE_ID ) ;
     public final void rule__Type__TnameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6938:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6939:2: ( RULE_ID )
+            // InternalFortXTrans.g:6911:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6912:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6939:2: ( RULE_ID )
-            // InternalFortXTrans.g:6940:3: RULE_ID
+            // InternalFortXTrans.g:6912:2: ( RULE_ID )
+            // InternalFortXTrans.g:6913:3: RULE_ID
             {
              before(grammarAccess.getTypeAccess().getTnameIDTerminalRuleCall_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -21304,17 +21281,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnDecl__ModsAssignment_0"
-    // InternalFortXTrans.g:6949:1: rule__FnDecl__ModsAssignment_0 : ( ruleFnMods ) ;
+    // InternalFortXTrans.g:6922:1: rule__FnDecl__ModsAssignment_0 : ( ruleFnMods ) ;
     public final void rule__FnDecl__ModsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6953:1: ( ( ruleFnMods ) )
-            // InternalFortXTrans.g:6954:2: ( ruleFnMods )
+            // InternalFortXTrans.g:6926:1: ( ( ruleFnMods ) )
+            // InternalFortXTrans.g:6927:2: ( ruleFnMods )
             {
-            // InternalFortXTrans.g:6954:2: ( ruleFnMods )
-            // InternalFortXTrans.g:6955:3: ruleFnMods
+            // InternalFortXTrans.g:6927:2: ( ruleFnMods )
+            // InternalFortXTrans.g:6928:3: ruleFnMods
             {
              before(grammarAccess.getFnDeclAccess().getModsFnModsParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -21345,17 +21322,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnDecl__NameAssignment_1"
-    // InternalFortXTrans.g:6964:1: rule__FnDecl__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalFortXTrans.g:6937:1: rule__FnDecl__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__FnDecl__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6968:1: ( ( RULE_ID ) )
-            // InternalFortXTrans.g:6969:2: ( RULE_ID )
+            // InternalFortXTrans.g:6941:1: ( ( RULE_ID ) )
+            // InternalFortXTrans.g:6942:2: ( RULE_ID )
             {
-            // InternalFortXTrans.g:6969:2: ( RULE_ID )
-            // InternalFortXTrans.g:6970:3: RULE_ID
+            // InternalFortXTrans.g:6942:2: ( RULE_ID )
+            // InternalFortXTrans.g:6943:3: RULE_ID
             {
              before(grammarAccess.getFnDeclAccess().getNameIDTerminalRuleCall_1_0()); 
             match(input,RULE_ID,FOLLOW_2); 
@@ -21382,17 +21359,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnDecl__ParamsAssignment_2"
-    // InternalFortXTrans.g:6979:1: rule__FnDecl__ParamsAssignment_2 : ( ruleValParam ) ;
+    // InternalFortXTrans.g:6952:1: rule__FnDecl__ParamsAssignment_2 : ( ruleValParam ) ;
     public final void rule__FnDecl__ParamsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6983:1: ( ( ruleValParam ) )
-            // InternalFortXTrans.g:6984:2: ( ruleValParam )
+            // InternalFortXTrans.g:6956:1: ( ( ruleValParam ) )
+            // InternalFortXTrans.g:6957:2: ( ruleValParam )
             {
-            // InternalFortXTrans.g:6984:2: ( ruleValParam )
-            // InternalFortXTrans.g:6985:3: ruleValParam
+            // InternalFortXTrans.g:6957:2: ( ruleValParam )
+            // InternalFortXTrans.g:6958:3: ruleValParam
             {
              before(grammarAccess.getFnDeclAccess().getParamsValParamParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -21423,17 +21400,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnDecl__RetValAssignment_3"
-    // InternalFortXTrans.g:6994:1: rule__FnDecl__RetValAssignment_3 : ( ruleRetType ) ;
+    // InternalFortXTrans.g:6967:1: rule__FnDecl__RetValAssignment_3 : ( ruleRetType ) ;
     public final void rule__FnDecl__RetValAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:6998:1: ( ( ruleRetType ) )
-            // InternalFortXTrans.g:6999:2: ( ruleRetType )
+            // InternalFortXTrans.g:6971:1: ( ( ruleRetType ) )
+            // InternalFortXTrans.g:6972:2: ( ruleRetType )
             {
-            // InternalFortXTrans.g:6999:2: ( ruleRetType )
-            // InternalFortXTrans.g:7000:3: ruleRetType
+            // InternalFortXTrans.g:6972:2: ( ruleRetType )
+            // InternalFortXTrans.g:6973:3: ruleRetType
             {
              before(grammarAccess.getFnDeclAccess().getRetValRetTypeParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -21464,24 +21441,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnDecl__BodyAssignment_4_0"
-    // InternalFortXTrans.g:7009:1: rule__FnDecl__BodyAssignment_4_0 : ( ( '=' ) ) ;
+    // InternalFortXTrans.g:6982:1: rule__FnDecl__BodyAssignment_4_0 : ( ( '=' ) ) ;
     public final void rule__FnDecl__BodyAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7013:1: ( ( ( '=' ) ) )
-            // InternalFortXTrans.g:7014:2: ( ( '=' ) )
+            // InternalFortXTrans.g:6986:1: ( ( ( '=' ) ) )
+            // InternalFortXTrans.g:6987:2: ( ( '=' ) )
             {
-            // InternalFortXTrans.g:7014:2: ( ( '=' ) )
-            // InternalFortXTrans.g:7015:3: ( '=' )
-            {
-             before(grammarAccess.getFnDeclAccess().getBodyEqualsSignKeyword_4_0_0()); 
-            // InternalFortXTrans.g:7016:3: ( '=' )
-            // InternalFortXTrans.g:7017:4: '='
+            // InternalFortXTrans.g:6987:2: ( ( '=' ) )
+            // InternalFortXTrans.g:6988:3: ( '=' )
             {
              before(grammarAccess.getFnDeclAccess().getBodyEqualsSignKeyword_4_0_0()); 
-            match(input,47,FOLLOW_2); 
+            // InternalFortXTrans.g:6989:3: ( '=' )
+            // InternalFortXTrans.g:6990:4: '='
+            {
+             before(grammarAccess.getFnDeclAccess().getBodyEqualsSignKeyword_4_0_0()); 
+            match(input,44,FOLLOW_2); 
              after(grammarAccess.getFnDeclAccess().getBodyEqualsSignKeyword_4_0_0()); 
 
             }
@@ -21509,17 +21486,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FnDecl__FnItselfAssignment_4_1"
-    // InternalFortXTrans.g:7028:1: rule__FnDecl__FnItselfAssignment_4_1 : ( ruleExpression ) ;
+    // InternalFortXTrans.g:7001:1: rule__FnDecl__FnItselfAssignment_4_1 : ( ruleExpression ) ;
     public final void rule__FnDecl__FnItselfAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7032:1: ( ( ruleExpression ) )
-            // InternalFortXTrans.g:7033:2: ( ruleExpression )
+            // InternalFortXTrans.g:7005:1: ( ( ruleExpression ) )
+            // InternalFortXTrans.g:7006:2: ( ruleExpression )
             {
-            // InternalFortXTrans.g:7033:2: ( ruleExpression )
-            // InternalFortXTrans.g:7034:3: ruleExpression
+            // InternalFortXTrans.g:7006:2: ( ruleExpression )
+            // InternalFortXTrans.g:7007:3: ruleExpression
             {
              before(grammarAccess.getFnDeclAccess().getFnItselfExpressionParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21550,17 +21527,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Expression__ExpAssignment"
-    // InternalFortXTrans.g:7043:1: rule__Expression__ExpAssignment : ( ruleExpr ) ;
+    // InternalFortXTrans.g:7016:1: rule__Expression__ExpAssignment : ( ruleExpr ) ;
     public final void rule__Expression__ExpAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7047:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:7048:2: ( ruleExpr )
+            // InternalFortXTrans.g:7020:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7021:2: ( ruleExpr )
             {
-            // InternalFortXTrans.g:7048:2: ( ruleExpr )
-            // InternalFortXTrans.g:7049:3: ruleExpr
+            // InternalFortXTrans.g:7021:2: ( ruleExpr )
+            // InternalFortXTrans.g:7022:3: ruleExpr
             {
              before(grammarAccess.getExpressionAccess().getExpExprParserRuleCall_0()); 
             pushFollow(FOLLOW_2);
@@ -21591,17 +21568,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Expr__FrontAssignment_0"
-    // InternalFortXTrans.g:7058:1: rule__Expr__FrontAssignment_0 : ( ruleExprFront ) ;
+    // InternalFortXTrans.g:7031:1: rule__Expr__FrontAssignment_0 : ( ruleExprFront ) ;
     public final void rule__Expr__FrontAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7062:1: ( ( ruleExprFront ) )
-            // InternalFortXTrans.g:7063:2: ( ruleExprFront )
+            // InternalFortXTrans.g:7035:1: ( ( ruleExprFront ) )
+            // InternalFortXTrans.g:7036:2: ( ruleExprFront )
             {
-            // InternalFortXTrans.g:7063:2: ( ruleExprFront )
-            // InternalFortXTrans.g:7064:3: ruleExprFront
+            // InternalFortXTrans.g:7036:2: ( ruleExprFront )
+            // InternalFortXTrans.g:7037:3: ruleExprFront
             {
              before(grammarAccess.getExprAccess().getFrontExprFrontParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -21632,17 +21609,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Expr__TailsAssignment_1"
-    // InternalFortXTrans.g:7073:1: rule__Expr__TailsAssignment_1 : ( ruleExprTail ) ;
+    // InternalFortXTrans.g:7046:1: rule__Expr__TailsAssignment_1 : ( ruleExprTail ) ;
     public final void rule__Expr__TailsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7077:1: ( ( ruleExprTail ) )
-            // InternalFortXTrans.g:7078:2: ( ruleExprTail )
+            // InternalFortXTrans.g:7050:1: ( ( ruleExprTail ) )
+            // InternalFortXTrans.g:7051:2: ( ruleExprTail )
             {
-            // InternalFortXTrans.g:7078:2: ( ruleExprTail )
-            // InternalFortXTrans.g:7079:3: ruleExprTail
+            // InternalFortXTrans.g:7051:2: ( ruleExprTail )
+            // InternalFortXTrans.g:7052:3: ruleExprTail
             {
              before(grammarAccess.getExprAccess().getTailsExprTailParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21673,17 +21650,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ExprFront__DelimAssignment_0"
-    // InternalFortXTrans.g:7088:1: rule__ExprFront__DelimAssignment_0 : ( ruleDelimitedExpr ) ;
+    // InternalFortXTrans.g:7061:1: rule__ExprFront__DelimAssignment_0 : ( ruleDelimitedExpr ) ;
     public final void rule__ExprFront__DelimAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7092:1: ( ( ruleDelimitedExpr ) )
-            // InternalFortXTrans.g:7093:2: ( ruleDelimitedExpr )
+            // InternalFortXTrans.g:7065:1: ( ( ruleDelimitedExpr ) )
+            // InternalFortXTrans.g:7066:2: ( ruleDelimitedExpr )
             {
-            // InternalFortXTrans.g:7093:2: ( ruleDelimitedExpr )
-            // InternalFortXTrans.g:7094:3: ruleDelimitedExpr
+            // InternalFortXTrans.g:7066:2: ( ruleDelimitedExpr )
+            // InternalFortXTrans.g:7067:3: ruleDelimitedExpr
             {
              before(grammarAccess.getExprFrontAccess().getDelimDelimitedExprParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -21714,17 +21691,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ExprFront__IdAssignment_1"
-    // InternalFortXTrans.g:7103:1: rule__ExprFront__IdAssignment_1 : ( ruleQualifiedName ) ;
+    // InternalFortXTrans.g:7076:1: rule__ExprFront__IdAssignment_1 : ( ruleQualifiedName ) ;
     public final void rule__ExprFront__IdAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7107:1: ( ( ruleQualifiedName ) )
-            // InternalFortXTrans.g:7108:2: ( ruleQualifiedName )
+            // InternalFortXTrans.g:7080:1: ( ( ruleQualifiedName ) )
+            // InternalFortXTrans.g:7081:2: ( ruleQualifiedName )
             {
-            // InternalFortXTrans.g:7108:2: ( ruleQualifiedName )
-            // InternalFortXTrans.g:7109:3: ruleQualifiedName
+            // InternalFortXTrans.g:7081:2: ( ruleQualifiedName )
+            // InternalFortXTrans.g:7082:3: ruleQualifiedName
             {
              before(grammarAccess.getExprFrontAccess().getIdQualifiedNameParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21755,17 +21732,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ExprTail__TypeAssignment_1"
-    // InternalFortXTrans.g:7118:1: rule__ExprTail__TypeAssignment_1 : ( ruleType ) ;
+    // InternalFortXTrans.g:7091:1: rule__ExprTail__TypeAssignment_1 : ( ruleType ) ;
     public final void rule__ExprTail__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7122:1: ( ( ruleType ) )
-            // InternalFortXTrans.g:7123:2: ( ruleType )
+            // InternalFortXTrans.g:7095:1: ( ( ruleType ) )
+            // InternalFortXTrans.g:7096:2: ( ruleType )
             {
-            // InternalFortXTrans.g:7123:2: ( ruleType )
-            // InternalFortXTrans.g:7124:3: ruleType
+            // InternalFortXTrans.g:7096:2: ( ruleType )
+            // InternalFortXTrans.g:7097:3: ruleType
             {
              before(grammarAccess.getExprTailAccess().getTypeTypeParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21795,26 +21772,26 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__ExprTail__TypeAssignment_1"
 
 
-    // $ANTLR start "rule__DelimitedExpr__DoAssignment_0"
-    // InternalFortXTrans.g:7133:1: rule__DelimitedExpr__DoAssignment_0 : ( ruleDo ) ;
-    public final void rule__DelimitedExpr__DoAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__DelimitedExpr__DodAssignment_0"
+    // InternalFortXTrans.g:7106:1: rule__DelimitedExpr__DodAssignment_0 : ( ruleDo ) ;
+    public final void rule__DelimitedExpr__DodAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7137:1: ( ( ruleDo ) )
-            // InternalFortXTrans.g:7138:2: ( ruleDo )
+            // InternalFortXTrans.g:7110:1: ( ( ruleDo ) )
+            // InternalFortXTrans.g:7111:2: ( ruleDo )
             {
-            // InternalFortXTrans.g:7138:2: ( ruleDo )
-            // InternalFortXTrans.g:7139:3: ruleDo
+            // InternalFortXTrans.g:7111:2: ( ruleDo )
+            // InternalFortXTrans.g:7112:3: ruleDo
             {
-             before(grammarAccess.getDelimitedExprAccess().getDoDoParserRuleCall_0_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getDodDoParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
             ruleDo();
 
             state._fsp--;
 
-             after(grammarAccess.getDelimitedExprAccess().getDoDoParserRuleCall_0_0()); 
+             after(grammarAccess.getDelimitedExprAccess().getDodDoParserRuleCall_0_0()); 
 
             }
 
@@ -21833,21 +21810,66 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__DelimitedExpr__DoAssignment_0"
+    // $ANTLR end "rule__DelimitedExpr__DodAssignment_0"
+
+
+    // $ANTLR start "rule__DelimitedExpr__AwhileAssignment_1_0"
+    // InternalFortXTrans.g:7121:1: rule__DelimitedExpr__AwhileAssignment_1_0 : ( ( 'while' ) ) ;
+    public final void rule__DelimitedExpr__AwhileAssignment_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:7125:1: ( ( ( 'while' ) ) )
+            // InternalFortXTrans.g:7126:2: ( ( 'while' ) )
+            {
+            // InternalFortXTrans.g:7126:2: ( ( 'while' ) )
+            // InternalFortXTrans.g:7127:3: ( 'while' )
+            {
+             before(grammarAccess.getDelimitedExprAccess().getAwhileWhileKeyword_1_0_0()); 
+            // InternalFortXTrans.g:7128:3: ( 'while' )
+            // InternalFortXTrans.g:7129:4: 'while'
+            {
+             before(grammarAccess.getDelimitedExprAccess().getAwhileWhileKeyword_1_0_0()); 
+            match(input,45,FOLLOW_2); 
+             after(grammarAccess.getDelimitedExprAccess().getAwhileWhileKeyword_1_0_0()); 
+
+            }
+
+             after(grammarAccess.getDelimitedExprAccess().getAwhileWhileKeyword_1_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DelimitedExpr__AwhileAssignment_1_0"
 
 
     // $ANTLR start "rule__DelimitedExpr__ExprAssignment_1_1"
-    // InternalFortXTrans.g:7148:1: rule__DelimitedExpr__ExprAssignment_1_1 : ( ruleExpr ) ;
+    // InternalFortXTrans.g:7140:1: rule__DelimitedExpr__ExprAssignment_1_1 : ( ruleExpr ) ;
     public final void rule__DelimitedExpr__ExprAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7152:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:7153:2: ( ruleExpr )
+            // InternalFortXTrans.g:7144:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7145:2: ( ruleExpr )
             {
-            // InternalFortXTrans.g:7153:2: ( ruleExpr )
-            // InternalFortXTrans.g:7154:3: ruleExpr
+            // InternalFortXTrans.g:7145:2: ( ruleExpr )
+            // InternalFortXTrans.g:7146:3: ruleExpr
             {
              before(grammarAccess.getDelimitedExprAccess().getExprExprParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21877,26 +21899,26 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__DelimitedExpr__ExprAssignment_1_1"
 
 
-    // $ANTLR start "rule__DelimitedExpr__DoAssignment_1_2"
-    // InternalFortXTrans.g:7163:1: rule__DelimitedExpr__DoAssignment_1_2 : ( ruleDo ) ;
-    public final void rule__DelimitedExpr__DoAssignment_1_2() throws RecognitionException {
+    // $ANTLR start "rule__DelimitedExpr__WhiledodAssignment_1_2"
+    // InternalFortXTrans.g:7155:1: rule__DelimitedExpr__WhiledodAssignment_1_2 : ( ruleDo ) ;
+    public final void rule__DelimitedExpr__WhiledodAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7167:1: ( ( ruleDo ) )
-            // InternalFortXTrans.g:7168:2: ( ruleDo )
+            // InternalFortXTrans.g:7159:1: ( ( ruleDo ) )
+            // InternalFortXTrans.g:7160:2: ( ruleDo )
             {
-            // InternalFortXTrans.g:7168:2: ( ruleDo )
-            // InternalFortXTrans.g:7169:3: ruleDo
+            // InternalFortXTrans.g:7160:2: ( ruleDo )
+            // InternalFortXTrans.g:7161:3: ruleDo
             {
-             before(grammarAccess.getDelimitedExprAccess().getDoDoParserRuleCall_1_2_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getWhiledodDoParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_2);
             ruleDo();
 
             state._fsp--;
 
-             after(grammarAccess.getDelimitedExprAccess().getDoDoParserRuleCall_1_2_0()); 
+             after(grammarAccess.getDelimitedExprAccess().getWhiledodDoParserRuleCall_1_2_0()); 
 
             }
 
@@ -21915,21 +21937,66 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__DelimitedExpr__DoAssignment_1_2"
+    // $ANTLR end "rule__DelimitedExpr__WhiledodAssignment_1_2"
+
+
+    // $ANTLR start "rule__DelimitedExpr__AforAssignment_2_0"
+    // InternalFortXTrans.g:7170:1: rule__DelimitedExpr__AforAssignment_2_0 : ( ( 'for' ) ) ;
+    public final void rule__DelimitedExpr__AforAssignment_2_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:7174:1: ( ( ( 'for' ) ) )
+            // InternalFortXTrans.g:7175:2: ( ( 'for' ) )
+            {
+            // InternalFortXTrans.g:7175:2: ( ( 'for' ) )
+            // InternalFortXTrans.g:7176:3: ( 'for' )
+            {
+             before(grammarAccess.getDelimitedExprAccess().getAforForKeyword_2_0_0()); 
+            // InternalFortXTrans.g:7177:3: ( 'for' )
+            // InternalFortXTrans.g:7178:4: 'for'
+            {
+             before(grammarAccess.getDelimitedExprAccess().getAforForKeyword_2_0_0()); 
+            match(input,46,FOLLOW_2); 
+             after(grammarAccess.getDelimitedExprAccess().getAforForKeyword_2_0_0()); 
+
+            }
+
+             after(grammarAccess.getDelimitedExprAccess().getAforForKeyword_2_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DelimitedExpr__AforAssignment_2_0"
 
 
     // $ANTLR start "rule__DelimitedExpr__GenAssignment_2_1"
-    // InternalFortXTrans.g:7178:1: rule__DelimitedExpr__GenAssignment_2_1 : ( ruleGenerators ) ;
+    // InternalFortXTrans.g:7189:1: rule__DelimitedExpr__GenAssignment_2_1 : ( ruleGenerators ) ;
     public final void rule__DelimitedExpr__GenAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7182:1: ( ( ruleGenerators ) )
-            // InternalFortXTrans.g:7183:2: ( ruleGenerators )
+            // InternalFortXTrans.g:7193:1: ( ( ruleGenerators ) )
+            // InternalFortXTrans.g:7194:2: ( ruleGenerators )
             {
-            // InternalFortXTrans.g:7183:2: ( ruleGenerators )
-            // InternalFortXTrans.g:7184:3: ruleGenerators
+            // InternalFortXTrans.g:7194:2: ( ruleGenerators )
+            // InternalFortXTrans.g:7195:3: ruleGenerators
             {
              before(grammarAccess.getDelimitedExprAccess().getGenGeneratorsParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -21959,26 +22026,26 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__DelimitedExpr__GenAssignment_2_1"
 
 
-    // $ANTLR start "rule__DelimitedExpr__DorontAssignment_2_2"
-    // InternalFortXTrans.g:7193:1: rule__DelimitedExpr__DorontAssignment_2_2 : ( ruleDoFront ) ;
-    public final void rule__DelimitedExpr__DorontAssignment_2_2() throws RecognitionException {
+    // $ANTLR start "rule__DelimitedExpr__DofrontAssignment_2_2"
+    // InternalFortXTrans.g:7204:1: rule__DelimitedExpr__DofrontAssignment_2_2 : ( ruleDoFront ) ;
+    public final void rule__DelimitedExpr__DofrontAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7197:1: ( ( ruleDoFront ) )
-            // InternalFortXTrans.g:7198:2: ( ruleDoFront )
+            // InternalFortXTrans.g:7208:1: ( ( ruleDoFront ) )
+            // InternalFortXTrans.g:7209:2: ( ruleDoFront )
             {
-            // InternalFortXTrans.g:7198:2: ( ruleDoFront )
-            // InternalFortXTrans.g:7199:3: ruleDoFront
+            // InternalFortXTrans.g:7209:2: ( ruleDoFront )
+            // InternalFortXTrans.g:7210:3: ruleDoFront
             {
-             before(grammarAccess.getDelimitedExprAccess().getDorontDoFrontParserRuleCall_2_2_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getDofrontDoFrontParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_2);
             ruleDoFront();
 
             state._fsp--;
 
-             after(grammarAccess.getDelimitedExprAccess().getDorontDoFrontParserRuleCall_2_2_0()); 
+             after(grammarAccess.getDelimitedExprAccess().getDofrontDoFrontParserRuleCall_2_2_0()); 
 
             }
 
@@ -21997,29 +22064,74 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__DelimitedExpr__DorontAssignment_2_2"
+    // $ANTLR end "rule__DelimitedExpr__DofrontAssignment_2_2"
 
 
-    // $ANTLR start "rule__DelimitedExpr__ExprAssignment_3_1"
-    // InternalFortXTrans.g:7208:1: rule__DelimitedExpr__ExprAssignment_3_1 : ( ruleExpr ) ;
-    public final void rule__DelimitedExpr__ExprAssignment_3_1() throws RecognitionException {
+    // $ANTLR start "rule__DelimitedExpr__AnifAssignment_3_0"
+    // InternalFortXTrans.g:7219:1: rule__DelimitedExpr__AnifAssignment_3_0 : ( ( 'if' ) ) ;
+    public final void rule__DelimitedExpr__AnifAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7212:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:7213:2: ( ruleExpr )
+            // InternalFortXTrans.g:7223:1: ( ( ( 'if' ) ) )
+            // InternalFortXTrans.g:7224:2: ( ( 'if' ) )
             {
-            // InternalFortXTrans.g:7213:2: ( ruleExpr )
-            // InternalFortXTrans.g:7214:3: ruleExpr
+            // InternalFortXTrans.g:7224:2: ( ( 'if' ) )
+            // InternalFortXTrans.g:7225:3: ( 'if' )
             {
-             before(grammarAccess.getDelimitedExprAccess().getExprExprParserRuleCall_3_1_0()); 
+             before(grammarAccess.getDelimitedExprAccess().getAnifIfKeyword_3_0_0()); 
+            // InternalFortXTrans.g:7226:3: ( 'if' )
+            // InternalFortXTrans.g:7227:4: 'if'
+            {
+             before(grammarAccess.getDelimitedExprAccess().getAnifIfKeyword_3_0_0()); 
+            match(input,47,FOLLOW_2); 
+             after(grammarAccess.getDelimitedExprAccess().getAnifIfKeyword_3_0_0()); 
+
+            }
+
+             after(grammarAccess.getDelimitedExprAccess().getAnifIfKeyword_3_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DelimitedExpr__AnifAssignment_3_0"
+
+
+    // $ANTLR start "rule__DelimitedExpr__CondAssignment_3_1"
+    // InternalFortXTrans.g:7238:1: rule__DelimitedExpr__CondAssignment_3_1 : ( ruleExpr ) ;
+    public final void rule__DelimitedExpr__CondAssignment_3_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:7242:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7243:2: ( ruleExpr )
+            {
+            // InternalFortXTrans.g:7243:2: ( ruleExpr )
+            // InternalFortXTrans.g:7244:3: ruleExpr
+            {
+             before(grammarAccess.getDelimitedExprAccess().getCondExprParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_2);
             ruleExpr();
 
             state._fsp--;
 
-             after(grammarAccess.getDelimitedExprAccess().getExprExprParserRuleCall_3_1_0()); 
+             after(grammarAccess.getDelimitedExprAccess().getCondExprParserRuleCall_3_1_0()); 
 
             }
 
@@ -22038,21 +22150,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__DelimitedExpr__ExprAssignment_3_1"
+    // $ANTLR end "rule__DelimitedExpr__CondAssignment_3_1"
 
 
     // $ANTLR start "rule__DelimitedExpr__BlockAssignment_3_3"
-    // InternalFortXTrans.g:7223:1: rule__DelimitedExpr__BlockAssignment_3_3 : ( ruleBlockElems ) ;
+    // InternalFortXTrans.g:7253:1: rule__DelimitedExpr__BlockAssignment_3_3 : ( ruleBlockElems ) ;
     public final void rule__DelimitedExpr__BlockAssignment_3_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7227:1: ( ( ruleBlockElems ) )
-            // InternalFortXTrans.g:7228:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7257:1: ( ( ruleBlockElems ) )
+            // InternalFortXTrans.g:7258:2: ( ruleBlockElems )
             {
-            // InternalFortXTrans.g:7228:2: ( ruleBlockElems )
-            // InternalFortXTrans.g:7229:3: ruleBlockElems
+            // InternalFortXTrans.g:7258:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7259:3: ruleBlockElems
             {
              before(grammarAccess.getDelimitedExprAccess().getBlockBlockElemsParserRuleCall_3_3_0()); 
             pushFollow(FOLLOW_2);
@@ -22083,17 +22195,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__ElifsAssignment_3_4"
-    // InternalFortXTrans.g:7238:1: rule__DelimitedExpr__ElifsAssignment_3_4 : ( ruleElifs ) ;
+    // InternalFortXTrans.g:7268:1: rule__DelimitedExpr__ElifsAssignment_3_4 : ( ruleElifs ) ;
     public final void rule__DelimitedExpr__ElifsAssignment_3_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7242:1: ( ( ruleElifs ) )
-            // InternalFortXTrans.g:7243:2: ( ruleElifs )
+            // InternalFortXTrans.g:7272:1: ( ( ruleElifs ) )
+            // InternalFortXTrans.g:7273:2: ( ruleElifs )
             {
-            // InternalFortXTrans.g:7243:2: ( ruleElifs )
-            // InternalFortXTrans.g:7244:3: ruleElifs
+            // InternalFortXTrans.g:7273:2: ( ruleElifs )
+            // InternalFortXTrans.g:7274:3: ruleElifs
             {
              before(grammarAccess.getDelimitedExprAccess().getElifsElifsParserRuleCall_3_4_0()); 
             pushFollow(FOLLOW_2);
@@ -22124,17 +22236,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__ElseAssignment_3_5"
-    // InternalFortXTrans.g:7253:1: rule__DelimitedExpr__ElseAssignment_3_5 : ( ruleElse ) ;
+    // InternalFortXTrans.g:7283:1: rule__DelimitedExpr__ElseAssignment_3_5 : ( ruleElse ) ;
     public final void rule__DelimitedExpr__ElseAssignment_3_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7257:1: ( ( ruleElse ) )
-            // InternalFortXTrans.g:7258:2: ( ruleElse )
+            // InternalFortXTrans.g:7287:1: ( ( ruleElse ) )
+            // InternalFortXTrans.g:7288:2: ( ruleElse )
             {
-            // InternalFortXTrans.g:7258:2: ( ruleElse )
-            // InternalFortXTrans.g:7259:3: ruleElse
+            // InternalFortXTrans.g:7288:2: ( ruleElse )
+            // InternalFortXTrans.g:7289:3: ruleElse
             {
              before(grammarAccess.getDelimitedExprAccess().getElseElseParserRuleCall_3_5_0()); 
             pushFollow(FOLLOW_2);
@@ -22165,17 +22277,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DelimitedExpr__ParAssignment_4"
-    // InternalFortXTrans.g:7268:1: rule__DelimitedExpr__ParAssignment_4 : ( ruleParanthesized ) ;
+    // InternalFortXTrans.g:7298:1: rule__DelimitedExpr__ParAssignment_4 : ( ruleParanthesized ) ;
     public final void rule__DelimitedExpr__ParAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7272:1: ( ( ruleParanthesized ) )
-            // InternalFortXTrans.g:7273:2: ( ruleParanthesized )
+            // InternalFortXTrans.g:7302:1: ( ( ruleParanthesized ) )
+            // InternalFortXTrans.g:7303:2: ( ruleParanthesized )
             {
-            // InternalFortXTrans.g:7273:2: ( ruleParanthesized )
-            // InternalFortXTrans.g:7274:3: ruleParanthesized
+            // InternalFortXTrans.g:7303:2: ( ruleParanthesized )
+            // InternalFortXTrans.g:7304:3: ruleParanthesized
             {
              before(grammarAccess.getDelimitedExprAccess().getParParanthesizedParserRuleCall_4_0()); 
             pushFollow(FOLLOW_2);
@@ -22206,17 +22318,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Elifs__EAssignment_0"
-    // InternalFortXTrans.g:7283:1: rule__Elifs__EAssignment_0 : ( ruleElif ) ;
+    // InternalFortXTrans.g:7313:1: rule__Elifs__EAssignment_0 : ( ruleElif ) ;
     public final void rule__Elifs__EAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7287:1: ( ( ruleElif ) )
-            // InternalFortXTrans.g:7288:2: ( ruleElif )
+            // InternalFortXTrans.g:7317:1: ( ( ruleElif ) )
+            // InternalFortXTrans.g:7318:2: ( ruleElif )
             {
-            // InternalFortXTrans.g:7288:2: ( ruleElif )
-            // InternalFortXTrans.g:7289:3: ruleElif
+            // InternalFortXTrans.g:7318:2: ( ruleElif )
+            // InternalFortXTrans.g:7319:3: ruleElif
             {
              before(grammarAccess.getElifsAccess().getEElifParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -22247,17 +22359,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Elifs__EAssignment_1"
-    // InternalFortXTrans.g:7298:1: rule__Elifs__EAssignment_1 : ( ruleElif ) ;
+    // InternalFortXTrans.g:7328:1: rule__Elifs__EAssignment_1 : ( ruleElif ) ;
     public final void rule__Elifs__EAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7302:1: ( ( ruleElif ) )
-            // InternalFortXTrans.g:7303:2: ( ruleElif )
+            // InternalFortXTrans.g:7332:1: ( ( ruleElif ) )
+            // InternalFortXTrans.g:7333:2: ( ruleElif )
             {
-            // InternalFortXTrans.g:7303:2: ( ruleElif )
-            // InternalFortXTrans.g:7304:3: ruleElif
+            // InternalFortXTrans.g:7333:2: ( ruleElif )
+            // InternalFortXTrans.g:7334:3: ruleElif
             {
              before(grammarAccess.getElifsAccess().getEElifParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22288,17 +22400,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Elif__ExprAssignment_1"
-    // InternalFortXTrans.g:7313:1: rule__Elif__ExprAssignment_1 : ( ruleExpr ) ;
+    // InternalFortXTrans.g:7343:1: rule__Elif__ExprAssignment_1 : ( ruleExpr ) ;
     public final void rule__Elif__ExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7317:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:7318:2: ( ruleExpr )
+            // InternalFortXTrans.g:7347:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7348:2: ( ruleExpr )
             {
-            // InternalFortXTrans.g:7318:2: ( ruleExpr )
-            // InternalFortXTrans.g:7319:3: ruleExpr
+            // InternalFortXTrans.g:7348:2: ( ruleExpr )
+            // InternalFortXTrans.g:7349:3: ruleExpr
             {
              before(grammarAccess.getElifAccess().getExprExprParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22329,17 +22441,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Elif__BlockAssignment_3"
-    // InternalFortXTrans.g:7328:1: rule__Elif__BlockAssignment_3 : ( ruleBlockElems ) ;
+    // InternalFortXTrans.g:7358:1: rule__Elif__BlockAssignment_3 : ( ruleBlockElems ) ;
     public final void rule__Elif__BlockAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7332:1: ( ( ruleBlockElems ) )
-            // InternalFortXTrans.g:7333:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7362:1: ( ( ruleBlockElems ) )
+            // InternalFortXTrans.g:7363:2: ( ruleBlockElems )
             {
-            // InternalFortXTrans.g:7333:2: ( ruleBlockElems )
-            // InternalFortXTrans.g:7334:3: ruleBlockElems
+            // InternalFortXTrans.g:7363:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7364:3: ruleBlockElems
             {
              before(grammarAccess.getElifAccess().getBlockBlockElemsParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -22370,17 +22482,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Else__BlockAssignment_1"
-    // InternalFortXTrans.g:7343:1: rule__Else__BlockAssignment_1 : ( ruleBlockElems ) ;
+    // InternalFortXTrans.g:7373:1: rule__Else__BlockAssignment_1 : ( ruleBlockElems ) ;
     public final void rule__Else__BlockAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7347:1: ( ( ruleBlockElems ) )
-            // InternalFortXTrans.g:7348:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7377:1: ( ( ruleBlockElems ) )
+            // InternalFortXTrans.g:7378:2: ( ruleBlockElems )
             {
-            // InternalFortXTrans.g:7348:2: ( ruleBlockElems )
-            // InternalFortXTrans.g:7349:3: ruleBlockElems
+            // InternalFortXTrans.g:7378:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7379:3: ruleBlockElems
             {
              before(grammarAccess.getElseAccess().getBlockBlockElemsParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22411,17 +22523,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Generators__BindingAssignment_0"
-    // InternalFortXTrans.g:7358:1: rule__Generators__BindingAssignment_0 : ( ruleBinding ) ;
+    // InternalFortXTrans.g:7388:1: rule__Generators__BindingAssignment_0 : ( ruleBinding ) ;
     public final void rule__Generators__BindingAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7362:1: ( ( ruleBinding ) )
-            // InternalFortXTrans.g:7363:2: ( ruleBinding )
+            // InternalFortXTrans.g:7392:1: ( ( ruleBinding ) )
+            // InternalFortXTrans.g:7393:2: ( ruleBinding )
             {
-            // InternalFortXTrans.g:7363:2: ( ruleBinding )
-            // InternalFortXTrans.g:7364:3: ruleBinding
+            // InternalFortXTrans.g:7393:2: ( ruleBinding )
+            // InternalFortXTrans.g:7394:3: ruleBinding
             {
              before(grammarAccess.getGeneratorsAccess().getBindingBindingParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -22452,17 +22564,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Generators__ClauseAssignment_1_1"
-    // InternalFortXTrans.g:7373:1: rule__Generators__ClauseAssignment_1_1 : ( ruleGenClause ) ;
+    // InternalFortXTrans.g:7403:1: rule__Generators__ClauseAssignment_1_1 : ( ruleGenClause ) ;
     public final void rule__Generators__ClauseAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7377:1: ( ( ruleGenClause ) )
-            // InternalFortXTrans.g:7378:2: ( ruleGenClause )
+            // InternalFortXTrans.g:7407:1: ( ( ruleGenClause ) )
+            // InternalFortXTrans.g:7408:2: ( ruleGenClause )
             {
-            // InternalFortXTrans.g:7378:2: ( ruleGenClause )
-            // InternalFortXTrans.g:7379:3: ruleGenClause
+            // InternalFortXTrans.g:7408:2: ( ruleGenClause )
+            // InternalFortXTrans.g:7409:3: ruleGenClause
             {
              before(grammarAccess.getGeneratorsAccess().getClauseGenClauseParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22493,17 +22605,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__IdtupAssignment_0"
-    // InternalFortXTrans.g:7388:1: rule__Binding__IdtupAssignment_0 : ( ruleIdOrTuple ) ;
+    // InternalFortXTrans.g:7418:1: rule__Binding__IdtupAssignment_0 : ( ruleIdOrTuple ) ;
     public final void rule__Binding__IdtupAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7392:1: ( ( ruleIdOrTuple ) )
-            // InternalFortXTrans.g:7393:2: ( ruleIdOrTuple )
+            // InternalFortXTrans.g:7422:1: ( ( ruleIdOrTuple ) )
+            // InternalFortXTrans.g:7423:2: ( ruleIdOrTuple )
             {
-            // InternalFortXTrans.g:7393:2: ( ruleIdOrTuple )
-            // InternalFortXTrans.g:7394:3: ruleIdOrTuple
+            // InternalFortXTrans.g:7423:2: ( ruleIdOrTuple )
+            // InternalFortXTrans.g:7424:3: ruleIdOrTuple
             {
              before(grammarAccess.getBindingAccess().getIdtupIdOrTupleParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -22534,17 +22646,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Binding__ExprAssignment_2"
-    // InternalFortXTrans.g:7403:1: rule__Binding__ExprAssignment_2 : ( ruleExpr ) ;
+    // InternalFortXTrans.g:7433:1: rule__Binding__ExprAssignment_2 : ( ruleExpr ) ;
     public final void rule__Binding__ExprAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7407:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:7408:2: ( ruleExpr )
+            // InternalFortXTrans.g:7437:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7438:2: ( ruleExpr )
             {
-            // InternalFortXTrans.g:7408:2: ( ruleExpr )
-            // InternalFortXTrans.g:7409:3: ruleExpr
+            // InternalFortXTrans.g:7438:2: ( ruleExpr )
+            // InternalFortXTrans.g:7439:3: ruleExpr
             {
              before(grammarAccess.getBindingAccess().getExprExprParserRuleCall_2_0()); 
             pushFollow(FOLLOW_2);
@@ -22575,17 +22687,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__GenClause__BindingAssignment_0"
-    // InternalFortXTrans.g:7418:1: rule__GenClause__BindingAssignment_0 : ( ruleBinding ) ;
+    // InternalFortXTrans.g:7448:1: rule__GenClause__BindingAssignment_0 : ( ruleBinding ) ;
     public final void rule__GenClause__BindingAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7422:1: ( ( ruleBinding ) )
-            // InternalFortXTrans.g:7423:2: ( ruleBinding )
+            // InternalFortXTrans.g:7452:1: ( ( ruleBinding ) )
+            // InternalFortXTrans.g:7453:2: ( ruleBinding )
             {
-            // InternalFortXTrans.g:7423:2: ( ruleBinding )
-            // InternalFortXTrans.g:7424:3: ruleBinding
+            // InternalFortXTrans.g:7453:2: ( ruleBinding )
+            // InternalFortXTrans.g:7454:3: ruleBinding
             {
              before(grammarAccess.getGenClauseAccess().getBindingBindingParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -22616,17 +22728,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__GenClause__ExprAssignment_1"
-    // InternalFortXTrans.g:7433:1: rule__GenClause__ExprAssignment_1 : ( ruleExpr ) ;
+    // InternalFortXTrans.g:7463:1: rule__GenClause__ExprAssignment_1 : ( ruleExpr ) ;
     public final void rule__GenClause__ExprAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7437:1: ( ( ruleExpr ) )
-            // InternalFortXTrans.g:7438:2: ( ruleExpr )
+            // InternalFortXTrans.g:7467:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7468:2: ( ruleExpr )
             {
-            // InternalFortXTrans.g:7438:2: ( ruleExpr )
-            // InternalFortXTrans.g:7439:3: ruleExpr
+            // InternalFortXTrans.g:7468:2: ( ruleExpr )
+            // InternalFortXTrans.g:7469:3: ruleExpr
             {
              before(grammarAccess.getGenClauseAccess().getExprExprParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22656,26 +22768,26 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__GenClause__ExprAssignment_1"
 
 
-    // $ANTLR start "rule__BlockElems__MoreBlocksAssignment_2"
-    // InternalFortXTrans.g:7448:1: rule__BlockElems__MoreBlocksAssignment_2 : ( ruleBlockElem ) ;
-    public final void rule__BlockElems__MoreBlocksAssignment_2() throws RecognitionException {
+    // $ANTLR start "rule__BlockElems__BlockAssignment_0"
+    // InternalFortXTrans.g:7478:1: rule__BlockElems__BlockAssignment_0 : ( ruleBlockElem ) ;
+    public final void rule__BlockElems__BlockAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7452:1: ( ( ruleBlockElem ) )
-            // InternalFortXTrans.g:7453:2: ( ruleBlockElem )
+            // InternalFortXTrans.g:7482:1: ( ( ruleBlockElem ) )
+            // InternalFortXTrans.g:7483:2: ( ruleBlockElem )
             {
-            // InternalFortXTrans.g:7453:2: ( ruleBlockElem )
-            // InternalFortXTrans.g:7454:3: ruleBlockElem
+            // InternalFortXTrans.g:7483:2: ( ruleBlockElem )
+            // InternalFortXTrans.g:7484:3: ruleBlockElem
             {
-             before(grammarAccess.getBlockElemsAccess().getMoreBlocksBlockElemParserRuleCall_2_0()); 
+             before(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
             ruleBlockElem();
 
             state._fsp--;
 
-             after(grammarAccess.getBlockElemsAccess().getMoreBlocksBlockElemParserRuleCall_2_0()); 
+             after(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_0_0()); 
 
             }
 
@@ -22694,21 +22806,103 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__BlockElems__MoreBlocksAssignment_2"
+    // $ANTLR end "rule__BlockElems__BlockAssignment_0"
+
+
+    // $ANTLR start "rule__BlockElems__BlockAssignment_1"
+    // InternalFortXTrans.g:7493:1: rule__BlockElems__BlockAssignment_1 : ( ruleBlockElem ) ;
+    public final void rule__BlockElems__BlockAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:7497:1: ( ( ruleBlockElem ) )
+            // InternalFortXTrans.g:7498:2: ( ruleBlockElem )
+            {
+            // InternalFortXTrans.g:7498:2: ( ruleBlockElem )
+            // InternalFortXTrans.g:7499:3: ruleBlockElem
+            {
+             before(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleBlockElem();
+
+            state._fsp--;
+
+             after(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__BlockElems__BlockAssignment_1"
+
+
+    // $ANTLR start "rule__BlockElem__ExpAssignment"
+    // InternalFortXTrans.g:7508:1: rule__BlockElem__ExpAssignment : ( ruleExpr ) ;
+    public final void rule__BlockElem__ExpAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:7512:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7513:2: ( ruleExpr )
+            {
+            // InternalFortXTrans.g:7513:2: ( ruleExpr )
+            // InternalFortXTrans.g:7514:3: ruleExpr
+            {
+             before(grammarAccess.getBlockElemAccess().getExpExprParserRuleCall_0()); 
+            pushFollow(FOLLOW_2);
+            ruleExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getBlockElemAccess().getExpExprParserRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__BlockElem__ExpAssignment"
 
 
     // $ANTLR start "rule__Do__DofsAssignment_0"
-    // InternalFortXTrans.g:7463:1: rule__Do__DofsAssignment_0 : ( ruleDoFront ) ;
+    // InternalFortXTrans.g:7523:1: rule__Do__DofsAssignment_0 : ( ruleDoFront ) ;
     public final void rule__Do__DofsAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7467:1: ( ( ruleDoFront ) )
-            // InternalFortXTrans.g:7468:2: ( ruleDoFront )
+            // InternalFortXTrans.g:7527:1: ( ( ruleDoFront ) )
+            // InternalFortXTrans.g:7528:2: ( ruleDoFront )
             {
-            // InternalFortXTrans.g:7468:2: ( ruleDoFront )
-            // InternalFortXTrans.g:7469:3: ruleDoFront
+            // InternalFortXTrans.g:7528:2: ( ruleDoFront )
+            // InternalFortXTrans.g:7529:3: ruleDoFront
             {
              before(grammarAccess.getDoAccess().getDofsDoFrontParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -22739,17 +22933,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Do__DofsAssignment_1_1"
-    // InternalFortXTrans.g:7478:1: rule__Do__DofsAssignment_1_1 : ( ruleDoFront ) ;
+    // InternalFortXTrans.g:7538:1: rule__Do__DofsAssignment_1_1 : ( ruleDoFront ) ;
     public final void rule__Do__DofsAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7482:1: ( ( ruleDoFront ) )
-            // InternalFortXTrans.g:7483:2: ( ruleDoFront )
+            // InternalFortXTrans.g:7542:1: ( ( ruleDoFront ) )
+            // InternalFortXTrans.g:7543:2: ( ruleDoFront )
             {
-            // InternalFortXTrans.g:7483:2: ( ruleDoFront )
-            // InternalFortXTrans.g:7484:3: ruleDoFront
+            // InternalFortXTrans.g:7543:2: ( ruleDoFront )
+            // InternalFortXTrans.g:7544:3: ruleDoFront
             {
              before(grammarAccess.getDoAccess().getDofsDoFrontParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22779,30 +22973,30 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__Do__DofsAssignment_1_1"
 
 
-    // $ANTLR start "rule__DoFront__AtAssignment_0"
-    // InternalFortXTrans.g:7493:1: rule__DoFront__AtAssignment_0 : ( ( 'at' ) ) ;
-    public final void rule__DoFront__AtAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__DoFront__AtAssignment_0_0"
+    // InternalFortXTrans.g:7553:1: rule__DoFront__AtAssignment_0_0 : ( ( 'at' ) ) ;
+    public final void rule__DoFront__AtAssignment_0_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7497:1: ( ( ( 'at' ) ) )
-            // InternalFortXTrans.g:7498:2: ( ( 'at' ) )
+            // InternalFortXTrans.g:7557:1: ( ( ( 'at' ) ) )
+            // InternalFortXTrans.g:7558:2: ( ( 'at' ) )
             {
-            // InternalFortXTrans.g:7498:2: ( ( 'at' ) )
-            // InternalFortXTrans.g:7499:3: ( 'at' )
+            // InternalFortXTrans.g:7558:2: ( ( 'at' ) )
+            // InternalFortXTrans.g:7559:3: ( 'at' )
             {
-             before(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0()); 
-            // InternalFortXTrans.g:7500:3: ( 'at' )
-            // InternalFortXTrans.g:7501:4: 'at'
+             before(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0_0()); 
+            // InternalFortXTrans.g:7560:3: ( 'at' )
+            // InternalFortXTrans.g:7561:4: 'at'
             {
-             before(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0()); 
+             before(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0_0()); 
             match(input,48,FOLLOW_2); 
-             after(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0()); 
+             after(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0_0()); 
 
             }
 
-             after(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0()); 
+             after(grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0_0()); 
 
             }
 
@@ -22821,28 +23015,69 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__DoFront__AtAssignment_0"
+    // $ANTLR end "rule__DoFront__AtAssignment_0_0"
+
+
+    // $ANTLR start "rule__DoFront__ExpAssignment_0_1"
+    // InternalFortXTrans.g:7572:1: rule__DoFront__ExpAssignment_0_1 : ( ruleExpr ) ;
+    public final void rule__DoFront__ExpAssignment_0_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+        	
+        try {
+            // InternalFortXTrans.g:7576:1: ( ( ruleExpr ) )
+            // InternalFortXTrans.g:7577:2: ( ruleExpr )
+            {
+            // InternalFortXTrans.g:7577:2: ( ruleExpr )
+            // InternalFortXTrans.g:7578:3: ruleExpr
+            {
+             before(grammarAccess.getDoFrontAccess().getExpExprParserRuleCall_0_1_0()); 
+            pushFollow(FOLLOW_2);
+            ruleExpr();
+
+            state._fsp--;
+
+             after(grammarAccess.getDoFrontAccess().getExpExprParserRuleCall_0_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DoFront__ExpAssignment_0_1"
 
 
     // $ANTLR start "rule__DoFront__AtomAssignment_1"
-    // InternalFortXTrans.g:7512:1: rule__DoFront__AtomAssignment_1 : ( ( 'atomic' ) ) ;
+    // InternalFortXTrans.g:7587:1: rule__DoFront__AtomAssignment_1 : ( ( 'atomic' ) ) ;
     public final void rule__DoFront__AtomAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7516:1: ( ( ( 'atomic' ) ) )
-            // InternalFortXTrans.g:7517:2: ( ( 'atomic' ) )
+            // InternalFortXTrans.g:7591:1: ( ( ( 'atomic' ) ) )
+            // InternalFortXTrans.g:7592:2: ( ( 'atomic' ) )
             {
-            // InternalFortXTrans.g:7517:2: ( ( 'atomic' ) )
-            // InternalFortXTrans.g:7518:3: ( 'atomic' )
-            {
-             before(grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0()); 
-            // InternalFortXTrans.g:7519:3: ( 'atomic' )
-            // InternalFortXTrans.g:7520:4: 'atomic'
+            // InternalFortXTrans.g:7592:2: ( ( 'atomic' ) )
+            // InternalFortXTrans.g:7593:3: ( 'atomic' )
             {
              before(grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0()); 
-            match(input,45,FOLLOW_2); 
+            // InternalFortXTrans.g:7594:3: ( 'atomic' )
+            // InternalFortXTrans.g:7595:4: 'atomic'
+            {
+             before(grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0()); 
+            match(input,42,FOLLOW_2); 
              after(grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0()); 
 
             }
@@ -22870,17 +23105,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DoFront__BlockAssignment_3"
-    // InternalFortXTrans.g:7531:1: rule__DoFront__BlockAssignment_3 : ( ruleBlockElems ) ;
+    // InternalFortXTrans.g:7606:1: rule__DoFront__BlockAssignment_3 : ( ruleBlockElems ) ;
     public final void rule__DoFront__BlockAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7535:1: ( ( ruleBlockElems ) )
-            // InternalFortXTrans.g:7536:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7610:1: ( ( ruleBlockElems ) )
+            // InternalFortXTrans.g:7611:2: ( ruleBlockElems )
             {
-            // InternalFortXTrans.g:7536:2: ( ruleBlockElems )
-            // InternalFortXTrans.g:7537:3: ruleBlockElems
+            // InternalFortXTrans.g:7611:2: ( ruleBlockElems )
+            // InternalFortXTrans.g:7612:3: ruleBlockElems
             {
              before(grammarAccess.getDoFrontAccess().getBlockBlockElemsParserRuleCall_3_0()); 
             pushFollow(FOLLOW_2);
@@ -22911,17 +23146,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__BidAssignment_0"
-    // InternalFortXTrans.g:7546:1: rule__IdOrTuple__BidAssignment_0 : ( ruleBindId ) ;
+    // InternalFortXTrans.g:7621:1: rule__IdOrTuple__BidAssignment_0 : ( ruleBindId ) ;
     public final void rule__IdOrTuple__BidAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7550:1: ( ( ruleBindId ) )
-            // InternalFortXTrans.g:7551:2: ( ruleBindId )
+            // InternalFortXTrans.g:7625:1: ( ( ruleBindId ) )
+            // InternalFortXTrans.g:7626:2: ( ruleBindId )
             {
-            // InternalFortXTrans.g:7551:2: ( ruleBindId )
-            // InternalFortXTrans.g:7552:3: ruleBindId
+            // InternalFortXTrans.g:7626:2: ( ruleBindId )
+            // InternalFortXTrans.g:7627:3: ruleBindId
             {
              before(grammarAccess.getIdOrTupleAccess().getBidBindIdParserRuleCall_0_0()); 
             pushFollow(FOLLOW_2);
@@ -22952,17 +23187,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__BidAssignment_1_1"
-    // InternalFortXTrans.g:7561:1: rule__IdOrTuple__BidAssignment_1_1 : ( ruleBindId ) ;
+    // InternalFortXTrans.g:7636:1: rule__IdOrTuple__BidAssignment_1_1 : ( ruleBindId ) ;
     public final void rule__IdOrTuple__BidAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7565:1: ( ( ruleBindId ) )
-            // InternalFortXTrans.g:7566:2: ( ruleBindId )
+            // InternalFortXTrans.g:7640:1: ( ( ruleBindId ) )
+            // InternalFortXTrans.g:7641:2: ( ruleBindId )
             {
-            // InternalFortXTrans.g:7566:2: ( ruleBindId )
-            // InternalFortXTrans.g:7567:3: ruleBindId
+            // InternalFortXTrans.g:7641:2: ( ruleBindId )
+            // InternalFortXTrans.g:7642:3: ruleBindId
             {
              before(grammarAccess.getIdOrTupleAccess().getBidBindIdParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_2);
@@ -22993,17 +23228,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IdOrTuple__BidAssignment_1_2_1"
-    // InternalFortXTrans.g:7576:1: rule__IdOrTuple__BidAssignment_1_2_1 : ( ruleBindId ) ;
+    // InternalFortXTrans.g:7651:1: rule__IdOrTuple__BidAssignment_1_2_1 : ( ruleBindId ) ;
     public final void rule__IdOrTuple__BidAssignment_1_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7580:1: ( ( ruleBindId ) )
-            // InternalFortXTrans.g:7581:2: ( ruleBindId )
+            // InternalFortXTrans.g:7655:1: ( ( ruleBindId ) )
+            // InternalFortXTrans.g:7656:2: ( ruleBindId )
             {
-            // InternalFortXTrans.g:7581:2: ( ruleBindId )
-            // InternalFortXTrans.g:7582:3: ruleBindId
+            // InternalFortXTrans.g:7656:2: ( ruleBindId )
+            // InternalFortXTrans.g:7657:3: ruleBindId
             {
              before(grammarAccess.getIdOrTupleAccess().getBidBindIdParserRuleCall_1_2_1_0()); 
             pushFollow(FOLLOW_2);
@@ -23034,17 +23269,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__IsType__TypeAssignment_1"
-    // InternalFortXTrans.g:7591:1: rule__IsType__TypeAssignment_1 : ( ruleType ) ;
+    // InternalFortXTrans.g:7666:1: rule__IsType__TypeAssignment_1 : ( ruleType ) ;
     public final void rule__IsType__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
         	
         try {
-            // InternalFortXTrans.g:7595:1: ( ( ruleType ) )
-            // InternalFortXTrans.g:7596:2: ( ruleType )
+            // InternalFortXTrans.g:7670:1: ( ( ruleType ) )
+            // InternalFortXTrans.g:7671:2: ( ruleType )
             {
-            // InternalFortXTrans.g:7596:2: ( ruleType )
-            // InternalFortXTrans.g:7597:3: ruleType
+            // InternalFortXTrans.g:7671:2: ( ruleType )
+            // InternalFortXTrans.g:7672:3: ruleType
             {
              before(grammarAccess.getIsTypeAccess().getTypeTypeParserRuleCall_1_0()); 
             pushFollow(FOLLOW_2);
@@ -23083,21 +23318,21 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     static final String dfa_1s = "\32\uffff";
     static final String dfa_2s = "\1\1\31\uffff";
     static final String dfa_3s = "\1\4\1\uffff\11\4\2\35\2\4\2\35\2\uffff\1\4\1\30\1\4\2\35\1\4\1\30";
-    static final String dfa_4s = "\1\56\1\uffff\4\56\1\45\4\56\2\35\1\34\1\4\2\35\2\uffff\1\4\1\34\1\23\2\35\1\4\1\34";
+    static final String dfa_4s = "\1\53\1\uffff\4\53\1\42\4\53\2\35\1\34\1\4\2\35\2\uffff\1\4\1\34\1\23\2\35\1\4\1\34";
     static final String dfa_5s = "\1\uffff\1\2\17\uffff\2\1\7\uffff";
     static final String dfa_6s = "\32\uffff}>";
     static final String[] dfa_7s = {
-            "\1\6\20\uffff\1\1\25\uffff\1\2\1\3\1\4\1\5",
+            "\1\6\20\uffff\1\1\22\uffff\1\2\1\3\1\4\1\5",
             "",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\13\16\uffff\1\14\21\uffff\1\15",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
-            "\1\6\46\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\13\16\uffff\1\14\16\uffff\1\15",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
+            "\1\6\43\uffff\1\7\1\10\1\11\1\12",
             "\1\16",
             "\1\16",
             "\1\17\16\uffff\1\20\10\uffff\1\21",
@@ -23141,23 +23376,23 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
         }
     }
     static final String dfa_8s = "\13\uffff";
-    static final String dfa_9s = "\1\uffff\1\4\1\uffff\1\4\1\uffff\1\4\2\uffff\1\4\2\uffff";
-    static final String dfa_10s = "\1\4\1\5\1\4\1\25\1\uffff\1\5\1\4\1\32\1\25\2\uffff";
-    static final String dfa_11s = "\1\4\1\51\1\32\1\51\1\uffff\1\51\1\5\1\32\1\51\2\uffff";
-    static final String dfa_12s = "\4\uffff\1\3\4\uffff\1\1\1\2";
+    static final String dfa_9s = "\1\uffff\1\4\1\uffff\1\4\2\uffff\1\4\3\uffff\1\4";
+    static final String dfa_10s = "\1\4\1\5\1\4\1\25\1\uffff\1\4\1\5\1\32\2\uffff\1\25";
+    static final String dfa_11s = "\1\4\1\46\1\32\1\46\1\uffff\1\5\1\46\1\32\2\uffff\1\46";
+    static final String dfa_12s = "\4\uffff\1\3\3\uffff\1\2\1\1\1\uffff";
     static final String dfa_13s = "\13\uffff}>";
     static final String[] dfa_14s = {
             "\1\1",
-            "\1\3\17\uffff\1\4\3\uffff\1\2\1\uffff\1\4\14\uffff\2\4",
-            "\1\5\25\uffff\1\6",
-            "\1\4\3\uffff\1\7\1\uffff\1\4\14\uffff\2\4",
+            "\1\3\17\uffff\1\4\3\uffff\1\2\1\uffff\1\4\11\uffff\2\4",
+            "\1\6\25\uffff\1\5",
+            "\1\4\3\uffff\1\7\1\uffff\1\4\11\uffff\2\4",
             "",
-            "\1\10\17\uffff\1\4\3\uffff\1\2\1\uffff\1\4\14\uffff\2\4",
-            "\1\12\1\11",
-            "\1\6",
-            "\1\4\3\uffff\1\7\1\uffff\1\4\14\uffff\2\4",
+            "\1\10\1\11",
+            "\1\12\17\uffff\1\4\3\uffff\1\2\1\uffff\1\4\11\uffff\2\4",
+            "\1\5",
             "",
-            ""
+            "",
+            "\1\4\3\uffff\1\7\1\uffff\1\4\11\uffff\2\4"
     };
 
     static final short[] dfa_8 = DFA.unpackEncodedString(dfa_8s);
@@ -23187,17 +23422,17 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     }
     static final String dfa_15s = "\7\uffff";
     static final String dfa_16s = "\1\uffff\1\4\3\uffff\1\4\1\uffff";
-    static final String dfa_17s = "\3\4\2\uffff\1\4\1\uffff";
-    static final String dfa_18s = "\1\4\1\60\1\4\2\uffff\1\60\1\uffff";
-    static final String dfa_19s = "\3\uffff\1\1\1\3\1\uffff\1\2";
+    static final String dfa_17s = "\2\4\1\uffff\1\4\1\uffff\1\4\1\uffff";
+    static final String dfa_18s = "\1\4\1\60\1\uffff\1\4\1\uffff\1\60\1\uffff";
+    static final String dfa_19s = "\2\uffff\1\1\1\uffff\1\3\1\uffff\1\2";
     static final String dfa_20s = "\7\uffff}>";
     static final String[] dfa_21s = {
             "\1\1",
-            "\1\4\1\3\17\uffff\1\4\2\uffff\1\4\1\2\1\uffff\2\4\1\uffff\6\4\1\uffff\3\4\3\uffff\4\4\1\uffff\1\4",
+            "\1\4\1\2\17\uffff\1\4\2\uffff\1\4\1\3\1\uffff\2\4\1\uffff\3\4\1\uffff\3\4\3\uffff\4\4\1\uffff\4\4",
+            "",
             "\1\5",
             "",
-            "",
-            "\1\4\1\6\17\uffff\1\4\2\uffff\1\4\1\2\1\uffff\2\4\1\uffff\6\4\1\uffff\3\4\3\uffff\4\4\1\uffff\1\4",
+            "\1\4\1\6\17\uffff\1\4\2\uffff\1\4\1\3\1\uffff\2\4\1\uffff\3\4\1\uffff\3\4\3\uffff\4\4\1\uffff\4\4",
             ""
     };
 
@@ -23226,16 +23461,16 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
             return "1181:1: rule__QualifiedName__Alternatives : ( ( ( rule__QualifiedName__Group_0__0 ) ) | ( ( rule__QualifiedName__Group_1__0 ) ) | ( ( rule__QualifiedName__Group_2__0 ) ) );";
         }
     }
-    static final String dfa_22s = "\2\4\1\uffff\1\4\1\uffff\1\4\1\uffff";
-    static final String dfa_23s = "\1\4\1\56\1\uffff\1\32\1\uffff\1\56\1\uffff";
-    static final String dfa_24s = "\2\uffff\1\1\1\uffff\1\3\1\uffff\1\2";
+    static final String dfa_22s = "\3\4\2\uffff\1\4\1\uffff";
+    static final String dfa_23s = "\1\4\1\53\1\32\2\uffff\1\53\1\uffff";
+    static final String dfa_24s = "\3\uffff\1\1\1\3\1\uffff\1\2";
     static final String[] dfa_25s = {
             "\1\1",
-            "\1\4\1\2\17\uffff\1\4\1\uffff\2\4\1\3\1\uffff\1\4\14\uffff\2\4\1\uffff\4\4",
-            "",
+            "\1\4\1\3\17\uffff\1\4\1\uffff\2\4\1\2\1\uffff\1\4\11\uffff\2\4\1\uffff\4\4",
             "\1\5\25\uffff\1\4",
             "",
-            "\1\4\1\6\17\uffff\1\4\1\uffff\2\4\1\3\1\uffff\1\4\14\uffff\2\4\1\uffff\4\4",
+            "",
+            "\1\4\1\6\17\uffff\1\4\1\uffff\2\4\1\2\1\uffff\1\4\11\uffff\2\4\1\uffff\4\4",
             ""
     };
     static final char[] dfa_22 = DFA.unpackEncodedStringToUnsignedChars(dfa_22s);
@@ -23264,14 +23499,14 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000780000000012L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000780000000002L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x00000F0000000012L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x00000F0000000002L});
     public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000030000000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000780000200010L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000030000000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000010000200000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000006000000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000002000000002L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x00000F0000200010L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000006000000002L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000002000200000L});
     public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000000004000010L});
     public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000004000000L});
@@ -23280,7 +23515,7 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000020L});
     public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000008000000000L});
     public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000008000000L});
     public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000000002000020L});
     public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000000002000002L});
@@ -23288,24 +23523,24 @@ public class InternalFortXTransParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000000001000000L});
     public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0000000000080010L});
     public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000000400000000L});
     public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0000000010000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0000780000000010L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000002000080010L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000800020000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x000120A1C0000010L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x00000F0000000010L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0000000400080010L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0000100020000000L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0001E41400000010L});
     public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000008000002L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0001208000000000L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0001041000000000L});
     public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0000000000200000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000C00200000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000400000002L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x000120A1C0080010L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x000120A1C0000012L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000004000200000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000004000000002L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000000180200000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000000080000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000080000002L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0001E41400080010L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0001E41400000012L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000800200000L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000800000002L});
     public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000011000000L});
 
 }

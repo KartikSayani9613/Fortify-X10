@@ -122,13 +122,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DelimitedExpr">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="do" eType="#//Do" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dod" eType="#//Do" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="awhile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="whiledod" eType="#//Do"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="afor" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="gen" eType="#//Generators"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="doront" eType="#//DoFront"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dofront" eType="#//DoFront"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="anif" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cond" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//BlockElems"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elifs" eType="#//Elifs"
         containment="true"/>
@@ -142,11 +148,11 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Elif">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//BlockElems"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Else">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//BlockElems"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Generators">
@@ -165,14 +171,19 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockElems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+        eType="#//Expression" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Do">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dofs" upperBound="-1" eType="#//DoFront"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DoFront">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Expression"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="at" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="atom" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//BlockElems"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IdOrTuple">
@@ -181,15 +192,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BlockElems" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="moreBlocks" upperBound="-1"
-        eType="#//Expression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BlockELem" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Paranthesized" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>

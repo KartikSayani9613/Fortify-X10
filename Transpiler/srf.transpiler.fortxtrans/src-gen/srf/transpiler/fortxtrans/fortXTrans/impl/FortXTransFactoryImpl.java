@@ -96,12 +96,11 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.GENERATORS: return createGenerators();
       case FortXTransPackage.BINDING: return createBinding();
       case FortXTransPackage.GEN_CLAUSE: return createGenClause();
+      case FortXTransPackage.BLOCK_ELEMS: return createBlockElems();
       case FortXTransPackage.DO: return createDo();
       case FortXTransPackage.DO_FRONT: return createDoFront();
       case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
       case FortXTransPackage.IS_TYPE: return createIsType();
-      case FortXTransPackage.BLOCK_ELEMS: return createBlockElems();
-      case FortXTransPackage.BLOCK_ELEM: return createBlockELem();
       case FortXTransPackage.PARANTHESIZED: return createParanthesized();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -454,6 +453,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public BlockElems createBlockElems()
+  {
+    BlockElemsImpl blockElems = new BlockElemsImpl();
+    return blockElems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Do createDo()
   {
     DoImpl do_ = new DoImpl();
@@ -491,28 +501,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     IsTypeImpl isType = new IsTypeImpl();
     return isType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BlockElems createBlockElems()
-  {
-    BlockElemsImpl blockElems = new BlockElemsImpl();
-    return blockElems;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BlockELem createBlockELem()
-  {
-    BlockELemImpl blockELem = new BlockELemImpl();
-    return blockELem;
   }
 
   /**

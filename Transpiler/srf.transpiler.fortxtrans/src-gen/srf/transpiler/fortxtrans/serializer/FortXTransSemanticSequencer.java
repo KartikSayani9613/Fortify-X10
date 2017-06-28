@@ -19,7 +19,6 @@ import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
-import srf.transpiler.fortxtrans.fortXTrans.BlockELem;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
@@ -83,9 +82,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case FortXTransPackage.BINDING:
 				sequence_Binding(context, (Binding) semanticObject); 
 				return; 
-			case FortXTransPackage.BLOCK_ELEM:
-				sequence_BlockElem(context, (BlockELem) semanticObject); 
-				return; 
 			case FortXTransPackage.BLOCK_ELEMS:
 				sequence_BlockElems(context, (BlockElems) semanticObject); 
 				return; 
@@ -129,8 +125,15 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_ExprTail(context, (ExprTail) semanticObject); 
 				return; 
 			case FortXTransPackage.EXPRESSION:
-				sequence_Expression(context, (Expression) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getBlockElemRule()) {
+					sequence_BlockElem(context, (Expression) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getExpressionRule()) {
+					sequence_Expression(context, (Expression) semanticObject); 
+					return; 
+				}
+				else break;
 			case FortXTransPackage.FN_DECL:
 				sequence_FnDecl(context, (FnDecl) semanticObject); 
 				return; 
@@ -256,19 +259,18 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     BlockElems.BlockElems_1 returns BlockELem
-	 *     BlockElem returns BlockELem
+	 *     BlockElem returns Expression
 	 *
 	 * Constraint:
-	 *     expr=BlockElem_BlockELem_1
+	 *     exp=Expr
 	 */
-	protected void sequence_BlockElem(ISerializationContext context, BlockELem semanticObject) {
+	protected void sequence_BlockElem(ISerializationContext context, Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.BLOCK_ELEM__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.BLOCK_ELEM__EXPR));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPRESSION__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPRESSION__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBlockElemAccess().getBlockELemExprAction_1(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getBlockElemAccess().getExpExprParserRuleCall_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	
@@ -278,7 +280,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     BlockElems returns BlockElems
 	 *
 	 * Constraint:
-	 *     (block=BlockElems_BlockElems_1 moreBlocks+=BlockElem*)
+	 *     (block+=BlockElem block+=BlockElem*)
 	 */
 	protected void sequence_BlockElems(ISerializationContext context, BlockElems semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -333,7 +335,13 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     DelimitedExpr returns DelimitedExpr
 	 *
 	 * Constraint:
-	 *     (do=Do | (expr=Expr do=Do) | (gen=Generators doront=DoFront) | (expr=Expr block=BlockElems elifs=Elifs? else=Else?) | par=Paranthesized)
+	 *     (
+	 *         dod=Do | 
+	 *         (awhile='while' expr=Expr whiledod=Do) | 
+	 *         (afor='for' gen=Generators dofront=DoFront) | 
+	 *         (anif='if' cond=Expr block=BlockElems elifs=Elifs? else=Else?) | 
+	 *         par=Paranthesized
+	 *     )
 	 */
 	protected void sequence_DelimitedExpr(ISerializationContext context, DelimitedExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -345,7 +353,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     DoFront returns DoFront
 	 *
 	 * Constraint:
-	 *     (at='at'? atom='atomic'? block=BlockElems)
+	 *     ((at?='at' exp=Expr)? atom?='atomic'? block=BlockElems)
 	 */
 	protected void sequence_DoFront(ISerializationContext context, DoFront semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -460,7 +468,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Contexts:
 	 *     Expr returns Expr
-	 *     BlockElem.BlockELem_1 returns Expr
 	 *     Paranthesized.Paranthesized_2 returns Expr
 	 *
 	 * Constraint:

@@ -303,6 +303,15 @@ public interface FortXTransFactory extends EFactory
   GenClause createGenClause();
 
   /**
+   * Returns a new object of class '<em>Block Elems</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Block Elems</em>'.
+   * @generated
+   */
+  BlockElems createBlockElems();
+
+  /**
    * Returns a new object of class '<em>Do</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -337,24 +346,6 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   IsType createIsType();
-
-  /**
-   * Returns a new object of class '<em>Block Elems</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Block Elems</em>'.
-   * @generated
-   */
-  BlockElems createBlockElems();
-
-  /**
-   * Returns a new object of class '<em>Block ELem</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Block ELem</em>'.
-   * @generated
-   */
-  BlockELem createBlockELem();
 
   /**
    * Returns a new object of class '<em>Paranthesized</em>'.

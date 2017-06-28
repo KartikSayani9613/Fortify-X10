@@ -12,8 +12,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Else;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
@@ -39,7 +39,7 @@ public class ElseImpl extends MinimalEObjectImpl.Container implements Else
    * @generated
    * @ordered
    */
-  protected Expression block;
+  protected BlockElems block;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class ElseImpl extends MinimalEObjectImpl.Container implements Else
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getBlock()
+  public BlockElems getBlock()
   {
     return block;
   }
@@ -77,9 +77,9 @@ public class ElseImpl extends MinimalEObjectImpl.Container implements Else
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(Expression newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(BlockElems newBlock, NotificationChain msgs)
   {
-    Expression oldBlock = block;
+    BlockElems oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -94,7 +94,7 @@ public class ElseImpl extends MinimalEObjectImpl.Container implements Else
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(Expression newBlock)
+  public void setBlock(BlockElems newBlock)
   {
     if (newBlock != block)
     {
@@ -153,7 +153,7 @@ public class ElseImpl extends MinimalEObjectImpl.Container implements Else
     switch (featureID)
     {
       case FortXTransPackage.ELSE__BLOCK:
-        setBlock((Expression)newValue);
+        setBlock((BlockElems)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,7 +170,7 @@ public class ElseImpl extends MinimalEObjectImpl.Container implements Else
     switch (featureID)
     {
       case FortXTransPackage.ELSE__BLOCK:
-        setBlock((Expression)null);
+        setBlock((BlockElems)null);
         return;
     }
     super.eUnset(featureID);

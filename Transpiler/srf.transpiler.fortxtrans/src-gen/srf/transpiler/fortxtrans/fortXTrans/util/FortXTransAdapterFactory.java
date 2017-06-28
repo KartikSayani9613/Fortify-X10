@@ -231,6 +231,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createGenClauseAdapter();
       }
       @Override
+      public Adapter caseBlockElems(BlockElems object)
+      {
+        return createBlockElemsAdapter();
+      }
+      @Override
       public Adapter caseDo(Do object)
       {
         return createDoAdapter();
@@ -249,16 +254,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseIsType(IsType object)
       {
         return createIsTypeAdapter();
-      }
-      @Override
-      public Adapter caseBlockElems(BlockElems object)
-      {
-        return createBlockElemsAdapter();
-      }
-      @Override
-      public Adapter caseBlockELem(BlockELem object)
-      {
-        return createBlockELemAdapter();
       }
       @Override
       public Adapter caseParanthesized(Paranthesized object)
@@ -753,6 +748,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems <em>Block Elems</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElems
+   * @generated
+   */
+  public Adapter createBlockElemsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Do <em>Do</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -808,36 +818,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIsTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems <em>Block Elems</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElems
-   * @generated
-   */
-  public Adapter createBlockElemsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockELem <em>Block ELem</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.BlockELem
-   * @generated
-   */
-  public Adapter createBlockELemAdapter()
   {
     return null;
   }

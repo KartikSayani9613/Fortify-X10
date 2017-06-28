@@ -14,10 +14,15 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDo <em>Do</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDod <em>Dod</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAwhile <em>Awhile</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getExpr <em>Expr</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getWhiledod <em>Whiledod</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAfor <em>Afor</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getGen <em>Gen</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDoront <em>Doront</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDofront <em>Dofront</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAnif <em>Anif</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getCond <em>Cond</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse <em>Else</em>}</li>
@@ -31,30 +36,56 @@ import org.eclipse.emf.ecore.EObject;
 public interface DelimitedExpr extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Do</b></em>' containment reference.
+   * Returns the value of the '<em><b>Dod</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Do</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Dod</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Do</em>' containment reference.
-   * @see #setDo(Do)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Do()
+   * @return the value of the '<em>Dod</em>' containment reference.
+   * @see #setDod(Do)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Dod()
    * @model containment="true"
    * @generated
    */
-  Do getDo();
+  Do getDod();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDo <em>Do</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDod <em>Dod</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Do</em>' containment reference.
-   * @see #getDo()
+   * @param value the new value of the '<em>Dod</em>' containment reference.
+   * @see #getDod()
    * @generated
    */
-  void setDo(Do value);
+  void setDod(Do value);
+
+  /**
+   * Returns the value of the '<em><b>Awhile</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Awhile</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Awhile</em>' attribute.
+   * @see #setAwhile(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Awhile()
+   * @model
+   * @generated
+   */
+  String getAwhile();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAwhile <em>Awhile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Awhile</em>' attribute.
+   * @see #getAwhile()
+   * @generated
+   */
+  void setAwhile(String value);
 
   /**
    * Returns the value of the '<em><b>Expr</b></em>' containment reference.
@@ -83,6 +114,58 @@ public interface DelimitedExpr extends EObject
   void setExpr(Expr value);
 
   /**
+   * Returns the value of the '<em><b>Whiledod</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Whiledod</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Whiledod</em>' containment reference.
+   * @see #setWhiledod(Do)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Whiledod()
+   * @model containment="true"
+   * @generated
+   */
+  Do getWhiledod();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getWhiledod <em>Whiledod</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Whiledod</em>' containment reference.
+   * @see #getWhiledod()
+   * @generated
+   */
+  void setWhiledod(Do value);
+
+  /**
+   * Returns the value of the '<em><b>Afor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Afor</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Afor</em>' attribute.
+   * @see #setAfor(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Afor()
+   * @model
+   * @generated
+   */
+  String getAfor();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAfor <em>Afor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Afor</em>' attribute.
+   * @see #getAfor()
+   * @generated
+   */
+  void setAfor(String value);
+
+  /**
    * Returns the value of the '<em><b>Gen</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -109,30 +192,82 @@ public interface DelimitedExpr extends EObject
   void setGen(Generators value);
 
   /**
-   * Returns the value of the '<em><b>Doront</b></em>' containment reference.
+   * Returns the value of the '<em><b>Dofront</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Doront</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Dofront</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Doront</em>' containment reference.
-   * @see #setDoront(DoFront)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Doront()
+   * @return the value of the '<em>Dofront</em>' containment reference.
+   * @see #setDofront(DoFront)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Dofront()
    * @model containment="true"
    * @generated
    */
-  DoFront getDoront();
+  DoFront getDofront();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDoront <em>Doront</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDofront <em>Dofront</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Doront</em>' containment reference.
-   * @see #getDoront()
+   * @param value the new value of the '<em>Dofront</em>' containment reference.
+   * @see #getDofront()
    * @generated
    */
-  void setDoront(DoFront value);
+  void setDofront(DoFront value);
+
+  /**
+   * Returns the value of the '<em><b>Anif</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Anif</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Anif</em>' attribute.
+   * @see #setAnif(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Anif()
+   * @model
+   * @generated
+   */
+  String getAnif();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAnif <em>Anif</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Anif</em>' attribute.
+   * @see #getAnif()
+   * @generated
+   */
+  void setAnif(String value);
+
+  /**
+   * Returns the value of the '<em><b>Cond</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Cond</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Cond</em>' containment reference.
+   * @see #setCond(Expr)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Cond()
+   * @model containment="true"
+   * @generated
+   */
+  Expr getCond();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getCond <em>Cond</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Cond</em>' containment reference.
+   * @see #getCond()
+   * @generated
+   */
+  void setCond(Expr value);
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.
@@ -143,12 +278,12 @@ public interface DelimitedExpr extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(Expression)
+   * @see #setBlock(BlockElems)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Block()
    * @model containment="true"
    * @generated
    */
-  Expression getBlock();
+  BlockElems getBlock();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}' containment reference.
@@ -158,7 +293,7 @@ public interface DelimitedExpr extends EObject
    * @see #getBlock()
    * @generated
    */
-  void setBlock(Expression value);
+  void setBlock(BlockElems value);
 
   /**
    * Returns the value of the '<em><b>Elifs</b></em>' containment reference.

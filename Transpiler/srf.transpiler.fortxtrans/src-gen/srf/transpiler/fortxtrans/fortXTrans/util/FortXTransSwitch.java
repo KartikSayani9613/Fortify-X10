@@ -293,6 +293,13 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FortXTransPackage.BLOCK_ELEMS:
+      {
+        BlockElems blockElems = (BlockElems)theEObject;
+        T result = caseBlockElems(blockElems);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FortXTransPackage.DO:
       {
         Do do_ = (Do)theEObject;
@@ -318,22 +325,6 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         IsType isType = (IsType)theEObject;
         T result = caseIsType(isType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.BLOCK_ELEMS:
-      {
-        BlockElems blockElems = (BlockElems)theEObject;
-        T result = caseBlockElems(blockElems);
-        if (result == null) result = caseExpression(blockElems);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.BLOCK_ELEM:
-      {
-        BlockELem blockELem = (BlockELem)theEObject;
-        T result = caseBlockELem(blockELem);
-        if (result == null) result = caseExpression(blockELem);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -846,6 +837,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Block Elems</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Block Elems</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBlockElems(BlockElems object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Do</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -905,38 +912,6 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIsType(IsType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Block Elems</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Block Elems</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBlockElems(BlockElems object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Block ELem</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Block ELem</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBlockELem(BlockELem object)
   {
     return null;
   }

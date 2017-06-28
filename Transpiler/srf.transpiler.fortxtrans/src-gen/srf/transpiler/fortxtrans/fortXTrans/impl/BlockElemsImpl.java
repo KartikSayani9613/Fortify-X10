@@ -5,7 +5,6 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,7 +12,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -31,32 +30,21 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl#getBlock <em>Block</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl#getMoreBlocks <em>More Blocks</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BlockElemsImpl extends ExpressionImpl implements BlockElems
+public class BlockElemsImpl extends MinimalEObjectImpl.Container implements BlockElems
 {
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
+   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBlock()
    * @generated
    * @ordered
    */
-  protected Expression block;
-
-  /**
-   * The cached value of the '{@link #getMoreBlocks() <em>More Blocks</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMoreBlocks()
-   * @generated
-   * @ordered
-   */
-  protected EList<Expression> moreBlocks;
+  protected EList<Expression> block;
 
   /**
    * <!-- begin-user-doc -->
@@ -84,61 +72,13 @@ public class BlockElemsImpl extends ExpressionImpl implements BlockElems
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getBlock()
+  public EList<Expression> getBlock()
   {
+    if (block == null)
+    {
+      block = new EObjectContainmentEList<Expression>(Expression.class, this, FortXTransPackage.BLOCK_ELEMS__BLOCK);
+    }
     return block;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetBlock(Expression newBlock, NotificationChain msgs)
-  {
-    Expression oldBlock = block;
-    block = newBlock;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.BLOCK_ELEMS__BLOCK, oldBlock, newBlock);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBlock(Expression newBlock)
-  {
-    if (newBlock != block)
-    {
-      NotificationChain msgs = null;
-      if (block != null)
-        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BLOCK_ELEMS__BLOCK, null, msgs);
-      if (newBlock != null)
-        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BLOCK_ELEMS__BLOCK, null, msgs);
-      msgs = basicSetBlock(newBlock, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.BLOCK_ELEMS__BLOCK, newBlock, newBlock));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Expression> getMoreBlocks()
-  {
-    if (moreBlocks == null)
-    {
-      moreBlocks = new EObjectContainmentEList<Expression>(Expression.class, this, FortXTransPackage.BLOCK_ELEMS__MORE_BLOCKS);
-    }
-    return moreBlocks;
   }
 
   /**
@@ -152,9 +92,7 @@ public class BlockElemsImpl extends ExpressionImpl implements BlockElems
     switch (featureID)
     {
       case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return basicSetBlock(null, msgs);
-      case FortXTransPackage.BLOCK_ELEMS__MORE_BLOCKS:
-        return ((InternalEList<?>)getMoreBlocks()).basicRemove(otherEnd, msgs);
+        return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -171,8 +109,6 @@ public class BlockElemsImpl extends ExpressionImpl implements BlockElems
     {
       case FortXTransPackage.BLOCK_ELEMS__BLOCK:
         return getBlock();
-      case FortXTransPackage.BLOCK_ELEMS__MORE_BLOCKS:
-        return getMoreBlocks();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -189,11 +125,8 @@ public class BlockElemsImpl extends ExpressionImpl implements BlockElems
     switch (featureID)
     {
       case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        setBlock((Expression)newValue);
-        return;
-      case FortXTransPackage.BLOCK_ELEMS__MORE_BLOCKS:
-        getMoreBlocks().clear();
-        getMoreBlocks().addAll((Collection<? extends Expression>)newValue);
+        getBlock().clear();
+        getBlock().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -210,10 +143,7 @@ public class BlockElemsImpl extends ExpressionImpl implements BlockElems
     switch (featureID)
     {
       case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        setBlock((Expression)null);
-        return;
-      case FortXTransPackage.BLOCK_ELEMS__MORE_BLOCKS:
-        getMoreBlocks().clear();
+        getBlock().clear();
         return;
     }
     super.eUnset(featureID);
@@ -230,9 +160,7 @@ public class BlockElemsImpl extends ExpressionImpl implements BlockElems
     switch (featureID)
     {
       case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return block != null;
-      case FortXTransPackage.BLOCK_ELEMS__MORE_BLOCKS:
-        return moreBlocks != null && !moreBlocks.isEmpty();
+        return block != null && !block.isEmpty();
     }
     return super.eIsSet(featureID);
   }

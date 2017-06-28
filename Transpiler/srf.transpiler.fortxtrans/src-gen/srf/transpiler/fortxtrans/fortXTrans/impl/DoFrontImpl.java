@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
@@ -24,8 +25,9 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl#getAt <em>At</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl#getAtom <em>Atom</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl#isAt <em>At</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl#isAtom <em>Atom</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DoFrontImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
@@ -34,44 +36,54 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
 {
   /**
-   * The default value of the '{@link #getAt() <em>At</em>}' attribute.
+   * The default value of the '{@link #isAt() <em>At</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAt()
+   * @see #isAt()
    * @generated
    * @ordered
    */
-  protected static final String AT_EDEFAULT = null;
+  protected static final boolean AT_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getAt() <em>At</em>}' attribute.
+   * The cached value of the '{@link #isAt() <em>At</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAt()
+   * @see #isAt()
    * @generated
    * @ordered
    */
-  protected String at = AT_EDEFAULT;
+  protected boolean at = AT_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getAtom() <em>Atom</em>}' attribute.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAtom()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected static final String ATOM_EDEFAULT = null;
+  protected Expr exp;
 
   /**
-   * The cached value of the '{@link #getAtom() <em>Atom</em>}' attribute.
+   * The default value of the '{@link #isAtom() <em>Atom</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getAtom()
+   * @see #isAtom()
    * @generated
    * @ordered
    */
-  protected String atom = ATOM_EDEFAULT;
+  protected static final boolean ATOM_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAtom() <em>Atom</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAtom()
+   * @generated
+   * @ordered
+   */
+  protected boolean atom = ATOM_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -81,7 +93,7 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * @generated
    * @ordered
    */
-  protected Expression block;
+  protected BlockElems block;
 
   /**
    * <!-- begin-user-doc -->
@@ -109,7 +121,7 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getAt()
+  public boolean isAt()
   {
     return at;
   }
@@ -119,9 +131,9 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAt(String newAt)
+  public void setAt(boolean newAt)
   {
-    String oldAt = at;
+    boolean oldAt = at;
     at = newAt;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DO_FRONT__AT, oldAt, at));
@@ -132,7 +144,55 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getAtom()
+  public Expr getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
+  {
+    Expr oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DO_FRONT__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(Expr newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DO_FRONT__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DO_FRONT__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DO_FRONT__EXP, newExp, newExp));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isAtom()
   {
     return atom;
   }
@@ -142,9 +202,9 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setAtom(String newAtom)
+  public void setAtom(boolean newAtom)
   {
-    String oldAtom = atom;
+    boolean oldAtom = atom;
     atom = newAtom;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DO_FRONT__ATOM, oldAtom, atom));
@@ -155,7 +215,7 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getBlock()
+  public BlockElems getBlock()
   {
     return block;
   }
@@ -165,9 +225,9 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(Expression newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(BlockElems newBlock, NotificationChain msgs)
   {
-    Expression oldBlock = block;
+    BlockElems oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -182,7 +242,7 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(Expression newBlock)
+  public void setBlock(BlockElems newBlock)
   {
     if (newBlock != block)
     {
@@ -208,6 +268,8 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
   {
     switch (featureID)
     {
+      case FortXTransPackage.DO_FRONT__EXP:
+        return basicSetExp(null, msgs);
       case FortXTransPackage.DO_FRONT__BLOCK:
         return basicSetBlock(null, msgs);
     }
@@ -225,9 +287,11 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
     switch (featureID)
     {
       case FortXTransPackage.DO_FRONT__AT:
-        return getAt();
+        return isAt();
+      case FortXTransPackage.DO_FRONT__EXP:
+        return getExp();
       case FortXTransPackage.DO_FRONT__ATOM:
-        return getAtom();
+        return isAtom();
       case FortXTransPackage.DO_FRONT__BLOCK:
         return getBlock();
     }
@@ -245,13 +309,16 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
     switch (featureID)
     {
       case FortXTransPackage.DO_FRONT__AT:
-        setAt((String)newValue);
+        setAt((Boolean)newValue);
+        return;
+      case FortXTransPackage.DO_FRONT__EXP:
+        setExp((Expr)newValue);
         return;
       case FortXTransPackage.DO_FRONT__ATOM:
-        setAtom((String)newValue);
+        setAtom((Boolean)newValue);
         return;
       case FortXTransPackage.DO_FRONT__BLOCK:
-        setBlock((Expression)newValue);
+        setBlock((BlockElems)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -270,11 +337,14 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
       case FortXTransPackage.DO_FRONT__AT:
         setAt(AT_EDEFAULT);
         return;
+      case FortXTransPackage.DO_FRONT__EXP:
+        setExp((Expr)null);
+        return;
       case FortXTransPackage.DO_FRONT__ATOM:
         setAtom(ATOM_EDEFAULT);
         return;
       case FortXTransPackage.DO_FRONT__BLOCK:
-        setBlock((Expression)null);
+        setBlock((BlockElems)null);
         return;
     }
     super.eUnset(featureID);
@@ -291,9 +361,11 @@ public class DoFrontImpl extends MinimalEObjectImpl.Container implements DoFront
     switch (featureID)
     {
       case FortXTransPackage.DO_FRONT__AT:
-        return AT_EDEFAULT == null ? at != null : !AT_EDEFAULT.equals(at);
+        return at != AT_EDEFAULT;
+      case FortXTransPackage.DO_FRONT__EXP:
+        return exp != null;
       case FortXTransPackage.DO_FRONT__ATOM:
-        return ATOM_EDEFAULT == null ? atom != null : !ATOM_EDEFAULT.equals(atom);
+        return atom != ATOM_EDEFAULT;
       case FortXTransPackage.DO_FRONT__BLOCK:
         return block != null;
     }

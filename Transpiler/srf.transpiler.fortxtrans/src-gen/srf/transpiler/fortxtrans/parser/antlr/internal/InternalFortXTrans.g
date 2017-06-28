@@ -2085,17 +2085,17 @@ ruleDelimitedExpr returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDelimitedExprAccess().getDoDoParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getDelimitedExprAccess().getDodDoParserRuleCall_0_0());
 				}
-				lv_do_0_0=ruleDo
+				lv_dod_0_0=ruleDo
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
 					}
 					set(
 						$current,
-						"do",
-						lv_do_0_0,
+						"dod",
+						lv_dod_0_0,
 						"srf.transpiler.fortxtrans.FortXTrans.Do");
 					afterParserOrEnumRuleCall();
 				}
@@ -2103,10 +2103,20 @@ ruleDelimitedExpr returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_1='while'
-			{
-				newLeafNode(otherlv_1, grammarAccess.getDelimitedExprAccess().getWhileKeyword_1_0());
-			}
+			(
+				(
+					lv_awhile_1_0='while'
+					{
+						newLeafNode(lv_awhile_1_0, grammarAccess.getDelimitedExprAccess().getAwhileWhileKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDelimitedExprRule());
+						}
+						setWithLastConsumed($current, "awhile", lv_awhile_1_0, "while");
+					}
+				)
+			)
 			(
 				(
 					{
@@ -2129,17 +2139,17 @@ ruleDelimitedExpr returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDelimitedExprAccess().getDoDoParserRuleCall_1_2_0());
+						newCompositeNode(grammarAccess.getDelimitedExprAccess().getWhiledodDoParserRuleCall_1_2_0());
 					}
-					lv_do_3_0=ruleDo
+					lv_whiledod_3_0=ruleDo
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
 						}
 						set(
 							$current,
-							"do",
-							lv_do_3_0,
+							"whiledod",
+							lv_whiledod_3_0,
 							"srf.transpiler.fortxtrans.FortXTrans.Do");
 						afterParserOrEnumRuleCall();
 					}
@@ -2148,10 +2158,20 @@ ruleDelimitedExpr returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_4='for'
-			{
-				newLeafNode(otherlv_4, grammarAccess.getDelimitedExprAccess().getForKeyword_2_0());
-			}
+			(
+				(
+					lv_afor_4_0='for'
+					{
+						newLeafNode(lv_afor_4_0, grammarAccess.getDelimitedExprAccess().getAforForKeyword_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDelimitedExprRule());
+						}
+						setWithLastConsumed($current, "afor", lv_afor_4_0, "for");
+					}
+				)
+			)
 			(
 				(
 					{
@@ -2174,17 +2194,17 @@ ruleDelimitedExpr returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDelimitedExprAccess().getDorontDoFrontParserRuleCall_2_2_0());
+						newCompositeNode(grammarAccess.getDelimitedExprAccess().getDofrontDoFrontParserRuleCall_2_2_0());
 					}
-					lv_doront_6_0=ruleDoFront
+					lv_dofront_6_0=ruleDoFront
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
 						}
 						set(
 							$current,
-							"doront",
-							lv_doront_6_0,
+							"dofront",
+							lv_dofront_6_0,
 							"srf.transpiler.fortxtrans.FortXTrans.DoFront");
 						afterParserOrEnumRuleCall();
 					}
@@ -2197,24 +2217,34 @@ ruleDelimitedExpr returns [EObject current=null]
 		)
 		    |
 		(
-			otherlv_8='if'
-			{
-				newLeafNode(otherlv_8, grammarAccess.getDelimitedExprAccess().getIfKeyword_3_0());
-			}
+			(
+				(
+					lv_anif_8_0='if'
+					{
+						newLeafNode(lv_anif_8_0, grammarAccess.getDelimitedExprAccess().getAnifIfKeyword_3_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDelimitedExprRule());
+						}
+						setWithLastConsumed($current, "anif", lv_anif_8_0, "if");
+					}
+				)
+			)
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDelimitedExprAccess().getExprExprParserRuleCall_3_1_0());
+						newCompositeNode(grammarAccess.getDelimitedExprAccess().getCondExprParserRuleCall_3_1_0());
 					}
-					lv_expr_9_0=ruleExpr
+					lv_cond_9_0=ruleExpr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
 						}
 						set(
 							$current,
-							"expr",
-							lv_expr_9_0,
+							"cond",
+							lv_cond_9_0,
 							"srf.transpiler.fortxtrans.FortXTrans.Expr");
 						afterParserOrEnumRuleCall();
 					}
@@ -2671,35 +2701,39 @@ ruleBlockElems returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getBlockElemsAccess().getBlockElemParserRuleCall_0());
-		}
-		this_BlockElem_0=ruleBlockElem
-		{
-			$current = $this_BlockElem_0.current;
-			afterParserOrEnumRuleCall();
-		}
-		(
-			{
-				$current = forceCreateModelElementAndSet(
-					grammarAccess.getBlockElemsAccess().getBlockElemsBlockAction_1(),
-					$current);
-			}
-		)
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getBlockElemsAccess().getMoreBlocksBlockElemParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_0_0());
 				}
-				lv_moreBlocks_2_0=ruleBlockElem
+				lv_block_0_0=ruleBlockElem
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getBlockElemsRule());
 					}
 					add(
 						$current,
-						"moreBlocks",
-						lv_moreBlocks_2_0,
+						"block",
+						lv_block_0_0,
+						"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_1_0());
+				}
+				lv_block_1_0=ruleBlockElem
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getBlockElemsRule());
+					}
+					add(
+						$current,
+						"block",
+						lv_block_1_0,
 						"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
 					afterParserOrEnumRuleCall();
 				}
@@ -2724,19 +2758,21 @@ ruleBlockElem returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		{
-			newCompositeNode(grammarAccess.getBlockElemAccess().getExprParserRuleCall_0());
-		}
-		this_Expr_0=ruleExpr
-		{
-			$current = $this_Expr_0.current;
-			afterParserOrEnumRuleCall();
-		}
 		(
 			{
-				$current = forceCreateModelElementAndSet(
-					grammarAccess.getBlockElemAccess().getBlockELemExprAction_1(),
-					$current);
+				newCompositeNode(grammarAccess.getBlockElemAccess().getExpExprParserRuleCall_0());
+			}
+			lv_exp_0_0=ruleExpr
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getBlockElemRule());
+				}
+				set(
+					$current,
+					"exp",
+					lv_exp_0_0,
+					"srf.transpiler.fortxtrans.FortXTrans.Expr");
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)
@@ -2869,42 +2905,63 @@ ruleDoFront returns [EObject current=null]
 	(
 		(
 			(
-				lv_at_0_0='at'
-				{
-					newLeafNode(lv_at_0_0, grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0());
-				}
-				{
-					if ($current==null) {
-						$current = createModelElement(grammarAccess.getDoFrontRule());
+				(
+					lv_at_0_0='at'
+					{
+						newLeafNode(lv_at_0_0, grammarAccess.getDoFrontAccess().getAtAtKeyword_0_0_0());
 					}
-					setWithLastConsumed($current, "at", lv_at_0_0, "at");
-				}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getDoFrontRule());
+						}
+						setWithLastConsumed($current, "at", true, "at");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDoFrontAccess().getExpExprParserRuleCall_0_1_0());
+					}
+					lv_exp_1_0=ruleExpr
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDoFrontRule());
+						}
+						set(
+							$current,
+							"exp",
+							lv_exp_1_0,
+							"srf.transpiler.fortxtrans.FortXTrans.Expr");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)?
 		(
 			(
-				lv_atom_1_0='atomic'
+				lv_atom_2_0='atomic'
 				{
-					newLeafNode(lv_atom_1_0, grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0());
+					newLeafNode(lv_atom_2_0, grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0());
 				}
 				{
 					if ($current==null) {
 						$current = createModelElement(grammarAccess.getDoFrontRule());
 					}
-					setWithLastConsumed($current, "atom", lv_atom_1_0, "atomic");
+					setWithLastConsumed($current, "atom", true, "atomic");
 				}
 			)
 		)?
-		otherlv_2='do'
+		otherlv_3='do'
 		{
-			newLeafNode(otherlv_2, grammarAccess.getDoFrontAccess().getDoKeyword_2());
+			newLeafNode(otherlv_3, grammarAccess.getDoFrontAccess().getDoKeyword_2());
 		}
 		(
 			(
 				{
 					newCompositeNode(grammarAccess.getDoFrontAccess().getBlockBlockElemsParserRuleCall_3_0());
 				}
-				lv_block_3_0=ruleBlockElems
+				lv_block_4_0=ruleBlockElems
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getDoFrontRule());
@@ -2912,7 +2969,7 @@ ruleDoFront returns [EObject current=null]
 					set(
 						$current,
 						"block",
-						lv_block_3_0,
+						lv_block_4_0,
 						"srf.transpiler.fortxtrans.FortXTrans.BlockElems");
 					afterParserOrEnumRuleCall();
 				}

@@ -135,10 +135,10 @@ ExprTail:
 ;
 
 DelimitedExpr :
-	do=Do
-	|'while' expr=Expr do=Do
-	|'for' gen=Generators doront=DoFront 'end'
-	|'if' expr=Expr 'then' block=BlockElems (elifs=Elifs)? (else=Else)? 'end'
+	dod=Do
+	|awhile='while' expr=Expr  whiledod=Do
+	|afor='for' gen=Generators dofront=DoFront 'end'
+	|anif='if' cond=Expr 'then' block=BlockElems (elifs=Elifs)? (else=Else)? 'end'
 	|par=Paranthesized
 ;
 
@@ -167,12 +167,12 @@ GenClause:
 	|expr=Expr
 ;
 
-BlockElems returns Expression:
-	BlockElem {BlockElems.block=current} (moreBlocks+=BlockElem)*
+BlockElems:
+	block+=BlockElem (block+=BlockElem)*
 ;
 
 BlockElem returns Expression:
-	Expr {BlockELem.expr=current}
+	exp=Expr
 ;
 
 Paranthesized returns Expression:
@@ -180,11 +180,11 @@ Paranthesized returns Expression:
 ;
 
 Do:
-	dofs+=DoFront('also' dofs+=DoFront)* "end"
+	dofs+=DoFront ('also' dofs+=DoFront)* "end"
 ;
 
 DoFront:
-	(at='at')? (atom='atomic')? 'do' block=BlockElems
+	(at?='at' exp=Expr)? (atom?='atomic')? 'do' block=BlockElems
 ;
 
 

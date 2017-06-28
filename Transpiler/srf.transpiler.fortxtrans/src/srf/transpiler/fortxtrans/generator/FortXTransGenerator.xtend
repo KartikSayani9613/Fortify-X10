@@ -19,6 +19,11 @@ import srf.transpiler.fortxtrans.fortXTrans.ValParam
 import srf.transpiler.fortxtrans.fortXTrans.Expression
 import srf.transpiler.fortxtrans.fortXTrans.Expr
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront
+import srf.transpiler.fortxtrans.fortXTrans.ExprTail
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
+import srf.transpiler.fortxtrans.fortXTrans.Do
+import srf.transpiler.fortxtrans.fortXTrans.DoFront
+import srf.transpiler.fortxtrans.fortXTrans.BlockElems
 
 /**
  * Generates code from your model files on save.
@@ -128,6 +133,45 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«ENDIF»
 	'''
 	
+	def compile(ValParam p)
+	'''«IF p.params.length==0
+		»«
+	ELSE»«
+		IF p.brack===null
+			»«p.params.get(0)»«
+		ELSE»«
+			FOR s:0..<p.params.length»«
+				IF s==0
+					»«p.params.get(s).BId»:«
+				ELSE
+					», «p.params.get(s).BId
+				»:«ENDIF»«
+				IF p.params.get(s).istype.type.tname=="ZZ32"
+					»Int«
+				ELSE»«
+					IF p.params.get(s).istype.type.tname=="ZZ64"
+						»Long«
+					ELSE»«
+						IF p.params.get(s).istype.type.tname=="RR32"
+							»Float«
+						ELSE»«
+							IF p.params.get(s).istype.type.tname=="RR64"
+								»Double«
+							ELSE»«
+								IF p.params.get(s).istype.type.tname=="String"
+									»String«
+								ELSE»«
+									p.params.get(s).istype.type.tname»«
+									p.params.get(s).istype.type.tname									
+								»«ENDIF
+							»«ENDIF
+						»«ENDIF
+					»«ENDIF
+				»«ENDIF
+			»«ENDFOR
+		»«ENDIF
+	»«ENDIF»'''
+	
 	def compile(Export e)'''
 		«e.exp
 		» «IF e.brack!==null
@@ -144,6 +188,7 @@ class FortXTransGenerator extends AbstractGenerator {
 			»«e.exportedName.get(0)
 		»«ENDIF»
 	'''
+	
 	def compile(Decls d)'''
 		«FOR dec:d.decls»
 			«dec.compile»
@@ -192,60 +237,70 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«ENDIF
 		»«ENDIF»{	
 		«IF f.body
-			»«f.fnItself.compile»
+			»	«f.fnItself.compile»
 		«ENDIF»
 		}
 		'''
 	
-	def compile(Expression e)'''«e.exp.compile»'''
+	def String compile(Expression e)'''«e.exp.compile»'''
 	
+	def String compile(Expr e)
+	'''«e.front.compile»«IF e.tails!==null»«
+		FOR t:e.tails
+			»«t.compile
+		»«ENDFOR»«ENDIF»'''	
 	
-	def compile(Expr e)'''
-	«e.front.compile» 
+	def compile(ExprTail t)''' as «t.type»'''
+	
+	def compile(ExprFront ef)'''«IF ef.id!==null
+		»«ef.id
+		»«ELSE
+			»«IF ef.delim!==null
+				»«ef.delim.compile
+			»«ENDIF
+		»«ENDIF»'''
+	
+	def compile(DelimitedExpr d)'''
+		«IF d.dod!==null
+			»«d.dod.compile
+		»«ELSE
+			»«IF d.awhile!==null
+			»while(«d.expr.compile»){
+				«d.whiledod.compile»
+			}
+			«ELSE»
+				«IF d.afor!==null
+				»for()«d.dofront.compile»
+				«ENDIF»
+			«ENDIF»
+		«ENDIF»
 	'''
 	
-	def compile(ExprFront ef)'''
+	def compile(Do dobox)'''
+	«FOR d:0..<dobox.dofs.length
+		»«IF d!=0»
+			async «
+		ENDIF
+		»«dobox.dofs.get(d).compile
+	»«ENDFOR»
 	'''
 	
+	def compile(DoFront dof)
+	'''
+	«IF dof.at
+		»at(«dof.exp.compile») «
+	ENDIF
+	»«
+	IF dof.atom
+		»atomic{
+	«ENDIF
+		»«dof.block.compile»'''
 	
-	def compile(ValParam p)
-	'''«IF p.params.length==0
-		»«
-	ELSE»«
-		IF p.brack===null
-			»«p.params.get(0)»«
-		ELSE»«
-			FOR s:0..<p.params.length»«
-				IF s==0
-					»«p.params.get(s).BId»:«
-				ELSE
-					», «p.params.get(s).BId
-				»:«ENDIF»«
-				IF p.params.get(s).istype.type.tname=="ZZ32"
-					»Int«
-				ELSE»«
-					IF p.params.get(s).istype.type.tname=="ZZ64"
-						»Long«
-					ELSE»«
-						IF p.params.get(s).istype.type.tname=="RR32"
-							»Float«
-						ELSE»«
-							IF p.params.get(s).istype.type.tname=="RR64"
-								»Double«
-							ELSE»«
-								IF p.params.get(s).istype.type.tname=="String"
-									»String«
-								ELSE»«
-									p.params.get(s).istype.type.tname»«
-									p.params.get(s).istype.type.tname									
-								»«ENDIF
-							»«ENDIF
-						»«ENDIF
-					»«ENDIF
-				»«ENDIF
-			»«ENDFOR
-		»«ENDIF
-	»«ENDIF»'''
-    
+    def compile(BlockElems bs)
+    '''«IF bs.block.length!=1»{
+    «FOR b:0..<bs.block.length»
+    «bs.block.get(b).exp.compile»
+«ENDFOR»}«ELSE»«bs.block.get(0).exp.compile»«ENDIF»
+    '''
    
 }

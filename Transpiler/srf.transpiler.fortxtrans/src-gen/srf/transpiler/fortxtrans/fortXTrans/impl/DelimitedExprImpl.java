@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
@@ -30,10 +31,15 @@ import srf.transpiler.fortxtrans.fortXTrans.Generators;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getDo <em>Do</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getDod <em>Dod</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getAwhile <em>Awhile</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getWhiledod <em>Whiledod</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getAfor <em>Afor</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getGen <em>Gen</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getDoront <em>Doront</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getDofront <em>Dofront</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getAnif <em>Anif</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getCond <em>Cond</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getElifs <em>Elifs</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getElse <em>Else</em>}</li>
@@ -45,14 +51,34 @@ import srf.transpiler.fortxtrans.fortXTrans.Generators;
 public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements DelimitedExpr
 {
   /**
-   * The cached value of the '{@link #getDo() <em>Do</em>}' containment reference.
+   * The cached value of the '{@link #getDod() <em>Dod</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDo()
+   * @see #getDod()
    * @generated
    * @ordered
    */
-  protected Do do_;
+  protected Do dod;
+
+  /**
+   * The default value of the '{@link #getAwhile() <em>Awhile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAwhile()
+   * @generated
+   * @ordered
+   */
+  protected static final String AWHILE_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAwhile() <em>Awhile</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAwhile()
+   * @generated
+   * @ordered
+   */
+  protected String awhile = AWHILE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
@@ -65,6 +91,36 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   protected Expr expr;
 
   /**
+   * The cached value of the '{@link #getWhiledod() <em>Whiledod</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getWhiledod()
+   * @generated
+   * @ordered
+   */
+  protected Do whiledod;
+
+  /**
+   * The default value of the '{@link #getAfor() <em>Afor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAfor()
+   * @generated
+   * @ordered
+   */
+  protected static final String AFOR_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAfor() <em>Afor</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAfor()
+   * @generated
+   * @ordered
+   */
+  protected String afor = AFOR_EDEFAULT;
+
+  /**
    * The cached value of the '{@link #getGen() <em>Gen</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -75,14 +131,44 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   protected Generators gen;
 
   /**
-   * The cached value of the '{@link #getDoront() <em>Doront</em>}' containment reference.
+   * The cached value of the '{@link #getDofront() <em>Dofront</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDoront()
+   * @see #getDofront()
    * @generated
    * @ordered
    */
-  protected DoFront doront;
+  protected DoFront dofront;
+
+  /**
+   * The default value of the '{@link #getAnif() <em>Anif</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnif()
+   * @generated
+   * @ordered
+   */
+  protected static final String ANIF_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getAnif() <em>Anif</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAnif()
+   * @generated
+   * @ordered
+   */
+  protected String anif = ANIF_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getCond() <em>Cond</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCond()
+   * @generated
+   * @ordered
+   */
+  protected Expr cond;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -92,7 +178,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * @generated
    * @ordered
    */
-  protected Expression block;
+  protected BlockElems block;
 
   /**
    * The cached value of the '{@link #getElifs() <em>Elifs</em>}' containment reference.
@@ -150,9 +236,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Do getDo()
+  public Do getDod()
   {
-    return do_;
+    return dod;
   }
 
   /**
@@ -160,13 +246,13 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDo(Do newDo, NotificationChain msgs)
+  public NotificationChain basicSetDod(Do newDod, NotificationChain msgs)
   {
-    Do oldDo = do_;
-    do_ = newDo;
+    Do oldDod = dod;
+    dod = newDod;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DO, oldDo, newDo);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DOD, oldDod, newDod);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -177,20 +263,43 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDo(Do newDo)
+  public void setDod(Do newDod)
   {
-    if (newDo != do_)
+    if (newDod != dod)
     {
       NotificationChain msgs = null;
-      if (do_ != null)
-        msgs = ((InternalEObject)do_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DO, null, msgs);
-      if (newDo != null)
-        msgs = ((InternalEObject)newDo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DO, null, msgs);
-      msgs = basicSetDo(newDo, msgs);
+      if (dod != null)
+        msgs = ((InternalEObject)dod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DOD, null, msgs);
+      if (newDod != null)
+        msgs = ((InternalEObject)newDod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DOD, null, msgs);
+      msgs = basicSetDod(newDod, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DO, newDo, newDo));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DOD, newDod, newDod));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAwhile()
+  {
+    return awhile;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAwhile(String newAwhile)
+  {
+    String oldAwhile = awhile;
+    awhile = newAwhile;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__AWHILE, oldAwhile, awhile));
   }
 
   /**
@@ -246,6 +355,77 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
+  public Do getWhiledod()
+  {
+    return whiledod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetWhiledod(Do newWhiledod, NotificationChain msgs)
+  {
+    Do oldWhiledod = whiledod;
+    whiledod = newWhiledod;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__WHILEDOD, oldWhiledod, newWhiledod);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setWhiledod(Do newWhiledod)
+  {
+    if (newWhiledod != whiledod)
+    {
+      NotificationChain msgs = null;
+      if (whiledod != null)
+        msgs = ((InternalEObject)whiledod).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__WHILEDOD, null, msgs);
+      if (newWhiledod != null)
+        msgs = ((InternalEObject)newWhiledod).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__WHILEDOD, null, msgs);
+      msgs = basicSetWhiledod(newWhiledod, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__WHILEDOD, newWhiledod, newWhiledod));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getAfor()
+  {
+    return afor;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAfor(String newAfor)
+  {
+    String oldAfor = afor;
+    afor = newAfor;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__AFOR, oldAfor, afor));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Generators getGen()
   {
     return gen;
@@ -294,9 +474,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public DoFront getDoront()
+  public DoFront getDofront()
   {
-    return doront;
+    return dofront;
   }
 
   /**
@@ -304,13 +484,13 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDoront(DoFront newDoront, NotificationChain msgs)
+  public NotificationChain basicSetDofront(DoFront newDofront, NotificationChain msgs)
   {
-    DoFront oldDoront = doront;
-    doront = newDoront;
+    DoFront oldDofront = dofront;
+    dofront = newDofront;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DORONT, oldDoront, newDoront);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DOFRONT, oldDofront, newDofront);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -321,20 +501,20 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDoront(DoFront newDoront)
+  public void setDofront(DoFront newDofront)
   {
-    if (newDoront != doront)
+    if (newDofront != dofront)
     {
       NotificationChain msgs = null;
-      if (doront != null)
-        msgs = ((InternalEObject)doront).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DORONT, null, msgs);
-      if (newDoront != null)
-        msgs = ((InternalEObject)newDoront).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DORONT, null, msgs);
-      msgs = basicSetDoront(newDoront, msgs);
+      if (dofront != null)
+        msgs = ((InternalEObject)dofront).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DOFRONT, null, msgs);
+      if (newDofront != null)
+        msgs = ((InternalEObject)newDofront).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__DOFRONT, null, msgs);
+      msgs = basicSetDofront(newDofront, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DORONT, newDoront, newDoront));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__DOFRONT, newDofront, newDofront));
   }
 
   /**
@@ -342,7 +522,78 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getBlock()
+  public String getAnif()
+  {
+    return anif;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAnif(String newAnif)
+  {
+    String oldAnif = anif;
+    anif = newAnif;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__ANIF, oldAnif, anif));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expr getCond()
+  {
+    return cond;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCond(Expr newCond, NotificationChain msgs)
+  {
+    Expr oldCond = cond;
+    cond = newCond;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__COND, oldCond, newCond);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setCond(Expr newCond)
+  {
+    if (newCond != cond)
+    {
+      NotificationChain msgs = null;
+      if (cond != null)
+        msgs = ((InternalEObject)cond).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__COND, null, msgs);
+      if (newCond != null)
+        msgs = ((InternalEObject)newCond).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__COND, null, msgs);
+      msgs = basicSetCond(newCond, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__COND, newCond, newCond));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BlockElems getBlock()
   {
     return block;
   }
@@ -352,9 +603,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(Expression newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(BlockElems newBlock, NotificationChain msgs)
   {
-    Expression oldBlock = block;
+    BlockElems oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -369,7 +620,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(Expression newBlock)
+  public void setBlock(BlockElems newBlock)
   {
     if (newBlock != block)
     {
@@ -539,14 +790,18 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR__DO:
-        return basicSetDo(null, msgs);
+      case FortXTransPackage.DELIMITED_EXPR__DOD:
+        return basicSetDod(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__EXPR:
         return basicSetExpr(null, msgs);
+      case FortXTransPackage.DELIMITED_EXPR__WHILEDOD:
+        return basicSetWhiledod(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__GEN:
         return basicSetGen(null, msgs);
-      case FortXTransPackage.DELIMITED_EXPR__DORONT:
-        return basicSetDoront(null, msgs);
+      case FortXTransPackage.DELIMITED_EXPR__DOFRONT:
+        return basicSetDofront(null, msgs);
+      case FortXTransPackage.DELIMITED_EXPR__COND:
+        return basicSetCond(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
         return basicSetBlock(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
@@ -569,14 +824,24 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR__DO:
-        return getDo();
+      case FortXTransPackage.DELIMITED_EXPR__DOD:
+        return getDod();
+      case FortXTransPackage.DELIMITED_EXPR__AWHILE:
+        return getAwhile();
       case FortXTransPackage.DELIMITED_EXPR__EXPR:
         return getExpr();
+      case FortXTransPackage.DELIMITED_EXPR__WHILEDOD:
+        return getWhiledod();
+      case FortXTransPackage.DELIMITED_EXPR__AFOR:
+        return getAfor();
       case FortXTransPackage.DELIMITED_EXPR__GEN:
         return getGen();
-      case FortXTransPackage.DELIMITED_EXPR__DORONT:
-        return getDoront();
+      case FortXTransPackage.DELIMITED_EXPR__DOFRONT:
+        return getDofront();
+      case FortXTransPackage.DELIMITED_EXPR__ANIF:
+        return getAnif();
+      case FortXTransPackage.DELIMITED_EXPR__COND:
+        return getCond();
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
         return getBlock();
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
@@ -599,20 +864,35 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR__DO:
-        setDo((Do)newValue);
+      case FortXTransPackage.DELIMITED_EXPR__DOD:
+        setDod((Do)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__AWHILE:
+        setAwhile((String)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__EXPR:
         setExpr((Expr)newValue);
         return;
+      case FortXTransPackage.DELIMITED_EXPR__WHILEDOD:
+        setWhiledod((Do)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__AFOR:
+        setAfor((String)newValue);
+        return;
       case FortXTransPackage.DELIMITED_EXPR__GEN:
         setGen((Generators)newValue);
         return;
-      case FortXTransPackage.DELIMITED_EXPR__DORONT:
-        setDoront((DoFront)newValue);
+      case FortXTransPackage.DELIMITED_EXPR__DOFRONT:
+        setDofront((DoFront)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__ANIF:
+        setAnif((String)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__COND:
+        setCond((Expr)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
-        setBlock((Expression)newValue);
+        setBlock((BlockElems)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         setElifs((Elifs)newValue);
@@ -637,20 +917,35 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR__DO:
-        setDo((Do)null);
+      case FortXTransPackage.DELIMITED_EXPR__DOD:
+        setDod((Do)null);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__AWHILE:
+        setAwhile(AWHILE_EDEFAULT);
         return;
       case FortXTransPackage.DELIMITED_EXPR__EXPR:
         setExpr((Expr)null);
         return;
+      case FortXTransPackage.DELIMITED_EXPR__WHILEDOD:
+        setWhiledod((Do)null);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__AFOR:
+        setAfor(AFOR_EDEFAULT);
+        return;
       case FortXTransPackage.DELIMITED_EXPR__GEN:
         setGen((Generators)null);
         return;
-      case FortXTransPackage.DELIMITED_EXPR__DORONT:
-        setDoront((DoFront)null);
+      case FortXTransPackage.DELIMITED_EXPR__DOFRONT:
+        setDofront((DoFront)null);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__ANIF:
+        setAnif(ANIF_EDEFAULT);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__COND:
+        setCond((Expr)null);
         return;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
-        setBlock((Expression)null);
+        setBlock((BlockElems)null);
         return;
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         setElifs((Elifs)null);
@@ -675,14 +970,24 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR__DO:
-        return do_ != null;
+      case FortXTransPackage.DELIMITED_EXPR__DOD:
+        return dod != null;
+      case FortXTransPackage.DELIMITED_EXPR__AWHILE:
+        return AWHILE_EDEFAULT == null ? awhile != null : !AWHILE_EDEFAULT.equals(awhile);
       case FortXTransPackage.DELIMITED_EXPR__EXPR:
         return expr != null;
+      case FortXTransPackage.DELIMITED_EXPR__WHILEDOD:
+        return whiledod != null;
+      case FortXTransPackage.DELIMITED_EXPR__AFOR:
+        return AFOR_EDEFAULT == null ? afor != null : !AFOR_EDEFAULT.equals(afor);
       case FortXTransPackage.DELIMITED_EXPR__GEN:
         return gen != null;
-      case FortXTransPackage.DELIMITED_EXPR__DORONT:
-        return doront != null;
+      case FortXTransPackage.DELIMITED_EXPR__DOFRONT:
+        return dofront != null;
+      case FortXTransPackage.DELIMITED_EXPR__ANIF:
+        return ANIF_EDEFAULT == null ? anif != null : !ANIF_EDEFAULT.equals(anif);
+      case FortXTransPackage.DELIMITED_EXPR__COND:
+        return cond != null;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
         return block != null;
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
@@ -693,6 +998,27 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return par != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (awhile: ");
+    result.append(awhile);
+    result.append(", afor: ");
+    result.append(afor);
+    result.append(", anif: ");
+    result.append(anif);
+    result.append(')');
+    return result.toString();
   }
 
 } //DelimitedExprImpl

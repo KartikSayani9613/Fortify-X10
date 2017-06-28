@@ -1179,25 +1179,28 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	public class DelimitedExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Assignment cDoAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
-		private final RuleCall cDoDoParserRuleCall_0_0 = (RuleCall)cDoAssignment_0.eContents().get(0);
+		private final Assignment cDodAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cDodDoParserRuleCall_0_0 = (RuleCall)cDodAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Keyword cWhileKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cAwhileAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cAwhileWhileKeyword_1_0_0 = (Keyword)cAwhileAssignment_1_0.eContents().get(0);
 		private final Assignment cExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
 		private final RuleCall cExprExprParserRuleCall_1_1_0 = (RuleCall)cExprAssignment_1_1.eContents().get(0);
-		private final Assignment cDoAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cDoDoParserRuleCall_1_2_0 = (RuleCall)cDoAssignment_1_2.eContents().get(0);
+		private final Assignment cWhiledodAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cWhiledodDoParserRuleCall_1_2_0 = (RuleCall)cWhiledodAssignment_1_2.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Keyword cForKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cAforAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cAforForKeyword_2_0_0 = (Keyword)cAforAssignment_2_0.eContents().get(0);
 		private final Assignment cGenAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cGenGeneratorsParserRuleCall_2_1_0 = (RuleCall)cGenAssignment_2_1.eContents().get(0);
-		private final Assignment cDorontAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cDorontDoFrontParserRuleCall_2_2_0 = (RuleCall)cDorontAssignment_2_2.eContents().get(0);
+		private final Assignment cDofrontAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cDofrontDoFrontParserRuleCall_2_2_0 = (RuleCall)cDofrontAssignment_2_2.eContents().get(0);
 		private final Keyword cEndKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Keyword cIfKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
-		private final Assignment cExprAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cExprExprParserRuleCall_3_1_0 = (RuleCall)cExprAssignment_3_1.eContents().get(0);
+		private final Assignment cAnifAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cAnifIfKeyword_3_0_0 = (Keyword)cAnifAssignment_3_0.eContents().get(0);
+		private final Assignment cCondAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cCondExprParserRuleCall_3_1_0 = (RuleCall)cCondAssignment_3_1.eContents().get(0);
 		private final Keyword cThenKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Assignment cBlockAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
 		private final RuleCall cBlockBlockElemsParserRuleCall_3_3_0 = (RuleCall)cBlockAssignment_3_3.eContents().get(0);
@@ -1210,28 +1213,31 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParParanthesizedParserRuleCall_4_0 = (RuleCall)cParAssignment_4.eContents().get(0);
 		
 		//DelimitedExpr:
-		//	do=Do
-		//	| 'while' expr=Expr do=Do
-		//	| 'for' gen=Generators doront=DoFront 'end'
-		//	| 'if' expr=Expr 'then' block=BlockElems elifs=Elifs? else=Else? 'end'
+		//	dod=Do
+		//	| awhile='while' expr=Expr whiledod=Do
+		//	| afor='for' gen=Generators dofront=DoFront 'end'
+		//	| anif='if' cond=Expr 'then' block=BlockElems elifs=Elifs? else=Else? 'end'
 		//	| par=Paranthesized;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//do=Do | 'while' expr=Expr do=Do | 'for' gen=Generators doront=DoFront 'end' | 'if' expr=Expr 'then' block=BlockElems
-		//elifs=Elifs? else=Else? 'end' | par=Paranthesized
+		//dod=Do | awhile='while' expr=Expr whiledod=Do | afor='for' gen=Generators dofront=DoFront 'end' | anif='if' cond=Expr
+		//'then' block=BlockElems elifs=Elifs? else=Else? 'end' | par=Paranthesized
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//do=Do
-		public Assignment getDoAssignment_0() { return cDoAssignment_0; }
+		//dod=Do
+		public Assignment getDodAssignment_0() { return cDodAssignment_0; }
 		
 		//Do
-		public RuleCall getDoDoParserRuleCall_0_0() { return cDoDoParserRuleCall_0_0; }
+		public RuleCall getDodDoParserRuleCall_0_0() { return cDodDoParserRuleCall_0_0; }
 		
-		//'while' expr=Expr do=Do
+		//awhile='while' expr=Expr whiledod=Do
 		public Group getGroup_1() { return cGroup_1; }
 		
+		//awhile='while'
+		public Assignment getAwhileAssignment_1_0() { return cAwhileAssignment_1_0; }
+		
 		//'while'
-		public Keyword getWhileKeyword_1_0() { return cWhileKeyword_1_0; }
+		public Keyword getAwhileWhileKeyword_1_0_0() { return cAwhileWhileKeyword_1_0_0; }
 		
 		//expr=Expr
 		public Assignment getExprAssignment_1_1() { return cExprAssignment_1_1; }
@@ -1239,17 +1245,20 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//Expr
 		public RuleCall getExprExprParserRuleCall_1_1_0() { return cExprExprParserRuleCall_1_1_0; }
 		
-		//do=Do
-		public Assignment getDoAssignment_1_2() { return cDoAssignment_1_2; }
+		//whiledod=Do
+		public Assignment getWhiledodAssignment_1_2() { return cWhiledodAssignment_1_2; }
 		
 		//Do
-		public RuleCall getDoDoParserRuleCall_1_2_0() { return cDoDoParserRuleCall_1_2_0; }
+		public RuleCall getWhiledodDoParserRuleCall_1_2_0() { return cWhiledodDoParserRuleCall_1_2_0; }
 		
-		//'for' gen=Generators doront=DoFront 'end'
+		//afor='for' gen=Generators dofront=DoFront 'end'
 		public Group getGroup_2() { return cGroup_2; }
 		
+		//afor='for'
+		public Assignment getAforAssignment_2_0() { return cAforAssignment_2_0; }
+		
 		//'for'
-		public Keyword getForKeyword_2_0() { return cForKeyword_2_0; }
+		public Keyword getAforForKeyword_2_0_0() { return cAforForKeyword_2_0_0; }
 		
 		//gen=Generators
 		public Assignment getGenAssignment_2_1() { return cGenAssignment_2_1; }
@@ -1257,26 +1266,29 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//Generators
 		public RuleCall getGenGeneratorsParserRuleCall_2_1_0() { return cGenGeneratorsParserRuleCall_2_1_0; }
 		
-		//doront=DoFront
-		public Assignment getDorontAssignment_2_2() { return cDorontAssignment_2_2; }
+		//dofront=DoFront
+		public Assignment getDofrontAssignment_2_2() { return cDofrontAssignment_2_2; }
 		
 		//DoFront
-		public RuleCall getDorontDoFrontParserRuleCall_2_2_0() { return cDorontDoFrontParserRuleCall_2_2_0; }
+		public RuleCall getDofrontDoFrontParserRuleCall_2_2_0() { return cDofrontDoFrontParserRuleCall_2_2_0; }
 		
 		//'end'
 		public Keyword getEndKeyword_2_3() { return cEndKeyword_2_3; }
 		
-		//'if' expr=Expr 'then' block=BlockElems elifs=Elifs? else=Else? 'end'
+		//anif='if' cond=Expr 'then' block=BlockElems elifs=Elifs? else=Else? 'end'
 		public Group getGroup_3() { return cGroup_3; }
 		
-		//'if'
-		public Keyword getIfKeyword_3_0() { return cIfKeyword_3_0; }
+		//anif='if'
+		public Assignment getAnifAssignment_3_0() { return cAnifAssignment_3_0; }
 		
-		//expr=Expr
-		public Assignment getExprAssignment_3_1() { return cExprAssignment_3_1; }
+		//'if'
+		public Keyword getAnifIfKeyword_3_0_0() { return cAnifIfKeyword_3_0_0; }
+		
+		//cond=Expr
+		public Assignment getCondAssignment_3_1() { return cCondAssignment_3_1; }
 		
 		//Expr
-		public RuleCall getExprExprParserRuleCall_3_1_0() { return cExprExprParserRuleCall_3_1_0; }
+		public RuleCall getCondExprParserRuleCall_3_1_0() { return cCondExprParserRuleCall_3_1_0; }
 		
 		//'then'
 		public Keyword getThenKeyword_3_2() { return cThenKeyword_3_2; }
@@ -1490,48 +1502,44 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	public class BlockElemsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.BlockElems");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cBlockElemParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Action cBlockElemsBlockAction_1 = (Action)cGroup.eContents().get(1);
-		private final Assignment cMoreBlocksAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cMoreBlocksBlockElemParserRuleCall_2_0 = (RuleCall)cMoreBlocksAssignment_2.eContents().get(0);
+		private final Assignment cBlockAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cBlockBlockElemParserRuleCall_0_0 = (RuleCall)cBlockAssignment_0.eContents().get(0);
+		private final Assignment cBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cBlockBlockElemParserRuleCall_1_0 = (RuleCall)cBlockAssignment_1.eContents().get(0);
 		
-		//BlockElems Expression:
-		//	BlockElem {BlockElems.block=current} moreBlocks+=BlockElem*;
+		//BlockElems:
+		//	block+=BlockElem block+=BlockElem*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//BlockElem {BlockElems.block=current} moreBlocks+=BlockElem*
+		//block+=BlockElem block+=BlockElem*
 		public Group getGroup() { return cGroup; }
 		
-		//BlockElem
-		public RuleCall getBlockElemParserRuleCall_0() { return cBlockElemParserRuleCall_0; }
-		
-		//{BlockElems.block=current}
-		public Action getBlockElemsBlockAction_1() { return cBlockElemsBlockAction_1; }
-		
-		//moreBlocks+=BlockElem*
-		public Assignment getMoreBlocksAssignment_2() { return cMoreBlocksAssignment_2; }
+		//block+=BlockElem
+		public Assignment getBlockAssignment_0() { return cBlockAssignment_0; }
 		
 		//BlockElem
-		public RuleCall getMoreBlocksBlockElemParserRuleCall_2_0() { return cMoreBlocksBlockElemParserRuleCall_2_0; }
+		public RuleCall getBlockBlockElemParserRuleCall_0_0() { return cBlockBlockElemParserRuleCall_0_0; }
+		
+		//block+=BlockElem*
+		public Assignment getBlockAssignment_1() { return cBlockAssignment_1; }
+		
+		//BlockElem
+		public RuleCall getBlockBlockElemParserRuleCall_1_0() { return cBlockBlockElemParserRuleCall_1_0; }
 	}
 	public class BlockElemElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.BlockElem");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cExprParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
-		private final Action cBlockELemExprAction_1 = (Action)cGroup.eContents().get(1);
+		private final Assignment cExpAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cExpExprParserRuleCall_0 = (RuleCall)cExpAssignment.eContents().get(0);
 		
 		//BlockElem Expression:
-		//	Expr {BlockELem.expr=current};
+		//	exp=Expr;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//Expr {BlockELem.expr=current}
-		public Group getGroup() { return cGroup; }
+		//exp=Expr
+		public Assignment getExpAssignment() { return cExpAssignment; }
 		
 		//Expr
-		public RuleCall getExprParserRuleCall_0() { return cExprParserRuleCall_0; }
-		
-		//{BlockELem.expr=current}
-		public Action getBlockELemExprAction_1() { return cBlockELemExprAction_1; }
+		public RuleCall getExpExprParserRuleCall_0() { return cExpExprParserRuleCall_0; }
 	}
 	public class ParanthesizedElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Paranthesized");
@@ -1602,8 +1610,11 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	public class DoFrontElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.DoFront");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cAtAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cAtAtKeyword_0_0 = (Keyword)cAtAssignment_0.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Assignment cAtAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cAtAtKeyword_0_0_0 = (Keyword)cAtAssignment_0_0.eContents().get(0);
+		private final Assignment cExpAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cExpExprParserRuleCall_0_1_0 = (RuleCall)cExpAssignment_0_1.eContents().get(0);
 		private final Assignment cAtomAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Keyword cAtomAtomicKeyword_1_0 = (Keyword)cAtomAssignment_1.eContents().get(0);
 		private final Keyword cDoKeyword_2 = (Keyword)cGroup.eContents().get(2);
@@ -1611,19 +1622,28 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBlockBlockElemsParserRuleCall_3_0 = (RuleCall)cBlockAssignment_3.eContents().get(0);
 		
 		//DoFront:
-		//	at='at'? atom='atomic'? 'do' block=BlockElems;
+		//	(at?='at' exp=Expr)? atom?='atomic'? 'do' block=BlockElems;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//at='at'? atom='atomic'? 'do' block=BlockElems
+		//(at?='at' exp=Expr)? atom?='atomic'? 'do' block=BlockElems
 		public Group getGroup() { return cGroup; }
 		
-		//at='at'?
-		public Assignment getAtAssignment_0() { return cAtAssignment_0; }
+		//(at?='at' exp=Expr)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//at?='at'
+		public Assignment getAtAssignment_0_0() { return cAtAssignment_0_0; }
 		
 		//'at'
-		public Keyword getAtAtKeyword_0_0() { return cAtAtKeyword_0_0; }
+		public Keyword getAtAtKeyword_0_0_0() { return cAtAtKeyword_0_0_0; }
 		
-		//atom='atomic'?
+		//exp=Expr
+		public Assignment getExpAssignment_0_1() { return cExpAssignment_0_1; }
+		
+		//Expr
+		public RuleCall getExpExprParserRuleCall_0_1_0() { return cExpExprParserRuleCall_0_1_0; }
+		
+		//atom?='atomic'?
 		public Assignment getAtomAssignment_1() { return cAtomAssignment_1; }
 		
 		//'atomic'
@@ -2160,10 +2180,10 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DelimitedExpr:
-	//	do=Do
-	//	| 'while' expr=Expr do=Do
-	//	| 'for' gen=Generators doront=DoFront 'end'
-	//	| 'if' expr=Expr 'then' block=BlockElems elifs=Elifs? else=Else? 'end'
+	//	dod=Do
+	//	| awhile='while' expr=Expr whiledod=Do
+	//	| afor='for' gen=Generators dofront=DoFront 'end'
+	//	| anif='if' cond=Expr 'then' block=BlockElems elifs=Elifs? else=Else? 'end'
 	//	| par=Paranthesized;
 	public DelimitedExprElements getDelimitedExprAccess() {
 		return pDelimitedExpr;
@@ -2234,8 +2254,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getGenClauseAccess().getRule();
 	}
 	
-	//BlockElems Expression:
-	//	BlockElem {BlockElems.block=current} moreBlocks+=BlockElem*;
+	//BlockElems:
+	//	block+=BlockElem block+=BlockElem*;
 	public BlockElemsElements getBlockElemsAccess() {
 		return pBlockElems;
 	}
@@ -2245,7 +2265,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//BlockElem Expression:
-	//	Expr {BlockELem.expr=current};
+	//	exp=Expr;
 	public BlockElemElements getBlockElemAccess() {
 		return pBlockElem;
 	}
@@ -2275,7 +2295,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//DoFront:
-	//	at='at'? atom='atomic'? 'do' block=BlockElems;
+	//	(at?='at' exp=Expr)? atom?='atomic'? 'do' block=BlockElems;
 	public DoFrontElements getDoFrontAccess() {
 		return pDoFront;
 	}

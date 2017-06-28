@@ -2,52 +2,12 @@ component sample
 import array
 export Executable
 
-Code(s:String):() = do
-	print Imma Code s
-end
-
-Eat(s:String): () = do
-	print I ate s
-end
-
-Drink(s:String):() = do 
-	print I drank s
-end
-
-Piss():ZZ64 = do
-	return Fourty Four ml of Piss
-end
-
-Movie(s:String, time:ZZ32): () = do
-	watching s foor the time th time 
-end
-
-Sleep(r:ZZ64) = do
-	I slept foor r long hours
-end
-
 run():() = do
-	name
-	name
-	name
-	for i<-DaysOfInternship do
-		while ItsNight do
-			Code
-			if YetToOneAM then
-				Eat
-			elif YetToFourAM then
-				Eat
-				Drink
-				if Pissy then
-					Piss
-				end
-			else
-				BreakFast
-			end
+	while name do 
+		for i<-name do
+			name
+			name
 		end
-		
-		Movie
-		Sleep
 	end
 end
 

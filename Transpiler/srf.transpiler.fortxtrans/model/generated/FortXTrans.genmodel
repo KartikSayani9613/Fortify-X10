@@ -104,10 +104,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ExprTail/type"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//DelimitedExpr">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/do"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/dod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//DelimitedExpr/awhile"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/expr"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/whiledod"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//DelimitedExpr/afor"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/gen"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/doront"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/dofront"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//DelimitedExpr/anif"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/block"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/elifs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/else"/>
@@ -135,11 +140,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//GenClause/binding"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//GenClause/expr"/>
     </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//BlockElems">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//BlockElems/block"/>
+    </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Do">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Do/dofs"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//DoFront">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//DoFront/at"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DoFront/exp"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//DoFront/atom"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DoFront/block"/>
     </genClasses>
@@ -148,13 +157,6 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//IsType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//IsType/type"/>
-    </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//BlockElems">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//BlockElems/block"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//BlockElems/moreBlocks"/>
-    </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//BlockELem">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//BlockELem/expr"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Paranthesized">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Paranthesized/expr"/>

@@ -59,12 +59,12 @@ public interface Elif extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(Expression)
+   * @see #setBlock(BlockElems)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getElif_Block()
    * @model containment="true"
    * @generated
    */
-  Expression getBlock();
+  BlockElems getBlock();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Elif#getBlock <em>Block</em>}' containment reference.
@@ -74,6 +74,6 @@ public interface Elif extends EObject
    * @see #getBlock()
    * @generated
    */
-  void setBlock(Expression value);
+  void setBlock(BlockElems value);
 
 } // Elif

@@ -18,16 +18,25 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
 import srf.transpiler.fortxtrans.fortXTrans.Decls;
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.Do;
+import srf.transpiler.fortxtrans.fortXTrans.DoFront;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
+import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
+import srf.transpiler.fortxtrans.fortXTrans.FnMod;
+import srf.transpiler.fortxtrans.fortXTrans.FnMods;
 import srf.transpiler.fortxtrans.fortXTrans.Import;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
+import srf.transpiler.fortxtrans.fortXTrans.RetType;
+import srf.transpiler.fortxtrans.fortXTrans.Type;
 import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 
 /**
@@ -262,89 +271,6 @@ public class FortXTransGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final Export e) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _exp = e.getExp();
-    _builder.append(_exp);
-    _builder.append(" ");
-    {
-      String _brack = e.getBrack();
-      boolean _tripleNotEquals = (_brack != null);
-      if (_tripleNotEquals) {
-        _builder.append("{");
-        {
-          int _length = ((Object[])Conversions.unwrapArray(e.getExportedName(), Object.class)).length;
-          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
-          for(final Integer s : _doubleDotLessThan) {
-            {
-              if (((s).intValue() == 0)) {
-                String _get = e.getExportedName().get((s).intValue());
-                _builder.append(_get);
-              } else {
-                _builder.append(", ");
-                String _get_1 = e.getExportedName().get((s).intValue());
-                _builder.append(_get_1);
-              }
-            }
-          }
-        }
-        _builder.append("}");
-      } else {
-        String _get_2 = e.getExportedName().get(0);
-        _builder.append(_get_2);
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public CharSequence compile(final Decls d) {
-    StringConcatenation _builder = new StringConcatenation();
-    {
-      EList<Decl> _decls = d.getDecls();
-      for(final Decl dec : _decls) {
-        CharSequence _compile = this.compile(dec);
-        _builder.append(_compile);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  public CharSequence compile(final Decl d) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _compile = this.compile(d.getFunction());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public CharSequence compile(final FnDecl f) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nType mismatch: cannot convert from String to boolean");
-  }
-  
-  public CharSequence compile(final Expression e) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _compile = this.compile(e.getExp());
-    _builder.append(_compile);
-    return _builder;
-  }
-  
-  public CharSequence compile(final Expr e) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _compile = this.compile(e.getFront());
-    _builder.append(_compile);
-    _builder.append(" ");
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public CharSequence compile(final ExprFront ef) {
-    StringConcatenation _builder = new StringConcatenation();
-    return _builder;
-  }
-  
   public CharSequence compile(final ValParam p) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -425,6 +351,343 @@ public class FortXTransGenerator extends AbstractGenerator {
         }
       }
     }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Export e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _exp = e.getExp();
+    _builder.append(_exp);
+    _builder.append(" ");
+    {
+      String _brack = e.getBrack();
+      boolean _tripleNotEquals = (_brack != null);
+      if (_tripleNotEquals) {
+        _builder.append("{");
+        {
+          int _length = ((Object[])Conversions.unwrapArray(e.getExportedName(), Object.class)).length;
+          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+          for(final Integer s : _doubleDotLessThan) {
+            {
+              if (((s).intValue() == 0)) {
+                String _get = e.getExportedName().get((s).intValue());
+                _builder.append(_get);
+              } else {
+                _builder.append(", ");
+                String _get_1 = e.getExportedName().get((s).intValue());
+                _builder.append(_get_1);
+              }
+            }
+          }
+        }
+        _builder.append("}");
+      } else {
+        String _get_2 = e.getExportedName().get(0);
+        _builder.append(_get_2);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final Decls d) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Decl> _decls = d.getDecls();
+      for(final Decl dec : _decls) {
+        CharSequence _compile = this.compile(dec);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Decl d) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compile = this.compile(d.getFunction());
+    _builder.append(_compile);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final FnDecl f) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _name = f.getName();
+      boolean _equals = Objects.equal(_name, "run");
+      if (_equals) {
+        _builder.append("public static def main(args:Rail[String])");
+      } else {
+        {
+          FnMods _mods = f.getMods();
+          boolean _tripleNotEquals = (_mods != null);
+          if (_tripleNotEquals) {
+            {
+              EList<FnMod> _mods_1 = f.getMods().getMods();
+              for(final FnMod mod : _mods_1) {
+                String _modtype = mod.getModtype();
+                _builder.append(_modtype);
+              }
+            }
+          }
+        }
+        _builder.append(" static def ");
+        String _name_1 = f.getName();
+        _builder.append(_name_1);
+        _builder.append("(");
+        {
+          ValParam _params = f.getParams();
+          boolean _tripleNotEquals_1 = (_params != null);
+          if (_tripleNotEquals_1) {
+            CharSequence _compile = this.compile(f.getParams());
+            _builder.append(_compile);
+          }
+        }
+        _builder.append(")");
+        {
+          RetType _retVal = f.getRetVal();
+          boolean _tripleNotEquals_2 = (_retVal != null);
+          if (_tripleNotEquals_2) {
+            _builder.append(":");
+            {
+              String _empty = f.getRetVal().getEmpty();
+              boolean _equals_1 = Objects.equal(_empty, "(");
+              if (_equals_1) {
+                _builder.append("void");
+              } else {
+                {
+                  String _tname = f.getRetVal().getType().getTname();
+                  boolean _equals_2 = Objects.equal(_tname, "ZZ32");
+                  if (_equals_2) {
+                    _builder.append("Int");
+                  } else {
+                    {
+                      String _tname_1 = f.getRetVal().getType().getTname();
+                      boolean _equals_3 = Objects.equal(_tname_1, "ZZ64");
+                      if (_equals_3) {
+                        _builder.append("Long");
+                      } else {
+                        {
+                          String _tname_2 = f.getRetVal().getType().getTname();
+                          boolean _equals_4 = Objects.equal(_tname_2, "RR32");
+                          if (_equals_4) {
+                            _builder.append("Float");
+                          } else {
+                            {
+                              String _tname_3 = f.getRetVal().getType().getTname();
+                              boolean _equals_5 = Objects.equal(_tname_3, "RR64");
+                              if (_equals_5) {
+                                _builder.append("Double");
+                              } else {
+                                {
+                                  String _tname_4 = f.getRetVal().getType().getTname();
+                                  boolean _equals_6 = Objects.equal(_tname_4, "String");
+                                  if (_equals_6) {
+                                    _builder.append("String");
+                                  } else {
+                                    String _tname_5 = f.getRetVal().getType().getTname();
+                                    _builder.append(_tname_5);
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    _builder.append("{\t");
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _isBody = f.isBody();
+      if (_isBody) {
+        _builder.append("\t");
+        String _compile_1 = this.compile(f.getFnItself());
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append("}");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  public String compile(final Expression e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _compile = this.compile(e.getExp());
+    _builder.append(_compile);
+    return _builder.toString();
+  }
+  
+  public String compile(final Expr e) {
+    StringConcatenation _builder = new StringConcatenation();
+    CharSequence _compile = this.compile(e.getFront());
+    _builder.append(_compile);
+    {
+      EList<ExprTail> _tails = e.getTails();
+      boolean _tripleNotEquals = (_tails != null);
+      if (_tripleNotEquals) {
+        {
+          EList<ExprTail> _tails_1 = e.getTails();
+          for(final ExprTail t : _tails_1) {
+            CharSequence _compile_1 = this.compile(t);
+            _builder.append(_compile_1);
+          }
+        }
+      }
+    }
+    return _builder.toString();
+  }
+  
+  public CharSequence compile(final ExprTail t) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append(" ");
+    _builder.append("as ");
+    Type _type = t.getType();
+    _builder.append(_type, " ");
+    return _builder;
+  }
+  
+  public CharSequence compile(final ExprFront ef) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      String _id = ef.getId();
+      boolean _tripleNotEquals = (_id != null);
+      if (_tripleNotEquals) {
+        String _id_1 = ef.getId();
+        _builder.append(_id_1);
+      } else {
+        {
+          DelimitedExpr _delim = ef.getDelim();
+          boolean _tripleNotEquals_1 = (_delim != null);
+          if (_tripleNotEquals_1) {
+            CharSequence _compile = this.compile(ef.getDelim());
+            _builder.append(_compile);
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final DelimitedExpr d) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Do _dod = d.getDod();
+      boolean _tripleNotEquals = (_dod != null);
+      if (_tripleNotEquals) {
+        CharSequence _compile = this.compile(d.getDod());
+        _builder.append(_compile);
+      } else {
+        {
+          String _awhile = d.getAwhile();
+          boolean _tripleNotEquals_1 = (_awhile != null);
+          if (_tripleNotEquals_1) {
+            _builder.append("while(");
+            String _compile_1 = this.compile(d.getExpr());
+            _builder.append(_compile_1);
+            _builder.append("){");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t\t");
+            CharSequence _compile_2 = this.compile(d.getWhiledod());
+            _builder.append(_compile_2, "\t\t");
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+            _builder.append("}");
+            _builder.newLine();
+          } else {
+            {
+              String _afor = d.getAfor();
+              boolean _tripleNotEquals_2 = (_afor != null);
+              if (_tripleNotEquals_2) {
+                _builder.append("for()");
+                CharSequence _compile_3 = this.compile(d.getDofront());
+                _builder.append(_compile_3);
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Do dobox) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      int _length = ((Object[])Conversions.unwrapArray(dobox.getDofs(), Object.class)).length;
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+      for(final Integer d : _doubleDotLessThan) {
+        {
+          if (((d).intValue() != 0)) {
+            _builder.append("async ");
+          }
+        }
+        CharSequence _compile = this.compile(dobox.getDofs().get((d).intValue()));
+        _builder.append(_compile);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final DoFront dof) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _isAt = dof.isAt();
+      if (_isAt) {
+        _builder.append("at(");
+        String _compile = this.compile(dof.getExp());
+        _builder.append(_compile);
+        _builder.append(") ");
+      }
+    }
+    {
+      boolean _isAtom = dof.isAtom();
+      if (_isAtom) {
+        _builder.append("atomic{");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    CharSequence _compile_1 = this.compile(dof.getBlock());
+    _builder.append(_compile_1);
+    return _builder;
+  }
+  
+  public CharSequence compile(final BlockElems bs) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      int _length = ((Object[])Conversions.unwrapArray(bs.getBlock(), Object.class)).length;
+      boolean _notEquals = (_length != 1);
+      if (_notEquals) {
+        _builder.append("{");
+        _builder.newLineIfNotEmpty();
+        {
+          int _length_1 = ((Object[])Conversions.unwrapArray(bs.getBlock(), Object.class)).length;
+          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
+          for(final Integer b : _doubleDotLessThan) {
+            _builder.append("    ");
+            String _compile = this.compile(bs.getBlock().get((b).intValue()).getExp());
+            _builder.append(_compile, "    ");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.append("}");
+      } else {
+        String _compile_1 = this.compile(bs.getBlock().get(0).getExp());
+        _builder.append(_compile_1);
+      }
+    }
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
 }
