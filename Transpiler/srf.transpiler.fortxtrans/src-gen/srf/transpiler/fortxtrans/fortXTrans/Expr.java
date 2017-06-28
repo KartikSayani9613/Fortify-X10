@@ -5,6 +5,8 @@ package srf.transpiler.fortxtrans.fortXTrans;
 
 import org.eclipse.emf.common.util.EList;
 
+import org.eclipse.emf.ecore.EObject;
+
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Expr</b></em>'.
@@ -22,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Expr extends Expression
+public interface Expr extends EObject
 {
   /**
    * Returns the value of the '<em><b>Front</b></em>' containment reference.

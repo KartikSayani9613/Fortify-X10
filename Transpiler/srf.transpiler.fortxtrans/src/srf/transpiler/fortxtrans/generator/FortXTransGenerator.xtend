@@ -24,6 +24,8 @@ import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
 import srf.transpiler.fortxtrans.fortXTrans.Do
 import srf.transpiler.fortxtrans.fortXTrans.DoFront
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems
+import srf.transpiler.fortxtrans.fortXTrans.Binding
+import srf.transpiler.fortxtrans.fortXTrans.Elifs
 
 /**
  * Generates code from your model files on save.
@@ -261,20 +263,62 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«ENDIF»'''
 	
 	def compile(DelimitedExpr d)'''
+«««				THE DO BLOCK
 		«IF d.dod!==null
 			»«d.dod.compile
-		»«ELSE
-			»«IF d.awhile!==null
-			»while(«d.expr.compile»){
-				«d.whiledod.compile»
-			}
+		»«ELSE»
+«««				THE WHILE PART
+			«IF d.awhile!==null
+			»while(«d.expr.compile»)«d.whiledod.compile»
 			«ELSE»
+«««				THE FOR PART
 				«IF d.afor!==null
-				»for()«d.dofront.compile»
+					»«IF d.gen.binding.seq===null»
+					finish «ENDIF»for(«d.gen.binding.compile» in «d.gen.binding.expr.compile
+						»)«IF d.gen.binding.seq===null»
+						async «ENDIF»«
+					IF d.gen.clause!==null
+					»«FOR c:d.gen.clause»{
+					«IF c.binding.seq===null»
+					finish «ENDIF
+					»for(«c.binding.compile» in «c.binding.expr.compile
+					»)«IF c.binding.seq===null»
+					async «ENDIF»«ENDFOR»«d.dofront.compile
+					
+					»«FOR c:0..<d.gen.clause.length»
+					}«ENDFOR»«
+					ELSE»«d.dofront.compile
+					»«ENDIF»
+«««				THE IF ELSE IF PART
+				«ELSE
+					»«IF d.anif!==null
+					»if(«d.cond.compile») «d.block.compile
+					»«IF d.elifs!==null
+					»«d.elifs.compile»«
+					ENDIF
+					»«IF d.els!==null»
+					else 
+						«d.els.block.compile»
+					«ENDIF»
+					«ELSE»
+						«IF d.par!==null»(«d.par.exp»)
+						«ENDIF»
+					«ENDIF»
 				«ENDIF»
 			«ENDIF»
 		«ENDIF»
 	'''
+	
+	def compile(Elifs el)'''
+	«FOR e:el.e»
+	else if(«e.expr.compile»)«e.block.compile»
+	«ENDFOR»
+	'''
+	
+	def compile(Binding b)'''«IF b.idtup.bid.length==1
+							»«b.idtup.bid.get(0)
+						»«ELSE
+							»«b.idtup.bid»«ENDIF»'''
 	
 	def compile(Do dobox)'''
 	«FOR d:0..<dobox.dofs.length
@@ -284,23 +328,23 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«dobox.dofs.get(d).compile
 	»«ENDFOR»
 	'''
-	
+
 	def compile(DoFront dof)
-	'''
-	«IF dof.at
-		»at(«dof.exp.compile») «
-	ENDIF
-	»«
-	IF dof.atom
-		»atomic{
-	«ENDIF
+		'''«IF dof.at
+			»at(«dof.exp.compile») «
+		ENDIF
+		»«
+		IF dof.atom
+			»atomic «
+		ENDIF
 		»«dof.block.compile»'''
 	
     def compile(BlockElems bs)
-    '''«IF bs.block.length!=1»{
+    '''
+    {
     «FOR b:0..<bs.block.length»
     «bs.block.get(b).exp.compile»
-«ENDFOR»}«ELSE»«bs.block.get(0).exp.compile»«ENDIF»
-    '''
+	«ENDFOR»}
+'''
    
 }

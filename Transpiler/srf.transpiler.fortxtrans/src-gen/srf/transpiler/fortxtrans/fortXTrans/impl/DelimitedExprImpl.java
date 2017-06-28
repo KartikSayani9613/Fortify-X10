@@ -42,7 +42,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Generators;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getCond <em>Cond</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getBlock <em>Block</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getElifs <em>Elifs</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getElse <em>Else</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getEls <em>Els</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getPar <em>Par</em>}</li>
  * </ul>
  *
@@ -191,14 +191,14 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   protected Elifs elifs;
 
   /**
-   * The cached value of the '{@link #getElse() <em>Else</em>}' containment reference.
+   * The cached value of the '{@link #getEls() <em>Els</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElse()
+   * @see #getEls()
    * @generated
    * @ordered
    */
-  protected Else else_;
+  protected Else els;
 
   /**
    * The cached value of the '{@link #getPar() <em>Par</em>}' containment reference.
@@ -689,9 +689,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Else getElse()
+  public Else getEls()
   {
-    return else_;
+    return els;
   }
 
   /**
@@ -699,13 +699,13 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElse(Else newElse, NotificationChain msgs)
+  public NotificationChain basicSetEls(Else newEls, NotificationChain msgs)
   {
-    Else oldElse = else_;
-    else_ = newElse;
+    Else oldEls = els;
+    els = newEls;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__ELSE, oldElse, newElse);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__ELS, oldEls, newEls);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -716,20 +716,20 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setElse(Else newElse)
+  public void setEls(Else newEls)
   {
-    if (newElse != else_)
+    if (newEls != els)
     {
       NotificationChain msgs = null;
-      if (else_ != null)
-        msgs = ((InternalEObject)else_).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__ELSE, null, msgs);
-      if (newElse != null)
-        msgs = ((InternalEObject)newElse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__ELSE, null, msgs);
-      msgs = basicSetElse(newElse, msgs);
+      if (els != null)
+        msgs = ((InternalEObject)els).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__ELS, null, msgs);
+      if (newEls != null)
+        msgs = ((InternalEObject)newEls).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__ELS, null, msgs);
+      msgs = basicSetEls(newEls, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__ELSE, newElse, newElse));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__ELS, newEls, newEls));
   }
 
   /**
@@ -806,8 +806,8 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return basicSetBlock(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         return basicSetElifs(null, msgs);
-      case FortXTransPackage.DELIMITED_EXPR__ELSE:
-        return basicSetElse(null, msgs);
+      case FortXTransPackage.DELIMITED_EXPR__ELS:
+        return basicSetEls(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__PAR:
         return basicSetPar(null, msgs);
     }
@@ -846,8 +846,8 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return getBlock();
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         return getElifs();
-      case FortXTransPackage.DELIMITED_EXPR__ELSE:
-        return getElse();
+      case FortXTransPackage.DELIMITED_EXPR__ELS:
+        return getEls();
       case FortXTransPackage.DELIMITED_EXPR__PAR:
         return getPar();
     }
@@ -897,8 +897,8 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         setElifs((Elifs)newValue);
         return;
-      case FortXTransPackage.DELIMITED_EXPR__ELSE:
-        setElse((Else)newValue);
+      case FortXTransPackage.DELIMITED_EXPR__ELS:
+        setEls((Else)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__PAR:
         setPar((Expression)newValue);
@@ -950,8 +950,8 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         setElifs((Elifs)null);
         return;
-      case FortXTransPackage.DELIMITED_EXPR__ELSE:
-        setElse((Else)null);
+      case FortXTransPackage.DELIMITED_EXPR__ELS:
+        setEls((Else)null);
         return;
       case FortXTransPackage.DELIMITED_EXPR__PAR:
         setPar((Expression)null);
@@ -992,8 +992,8 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return block != null;
       case FortXTransPackage.DELIMITED_EXPR__ELIFS:
         return elifs != null;
-      case FortXTransPackage.DELIMITED_EXPR__ELSE:
-        return else_ != null;
+      case FortXTransPackage.DELIMITED_EXPR__ELS:
+        return els != null;
       case FortXTransPackage.DELIMITED_EXPR__PAR:
         return par != null;
     }

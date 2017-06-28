@@ -256,11 +256,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createIsTypeAdapter();
       }
       @Override
-      public Adapter caseParanthesized(Paranthesized object)
-      {
-        return createParanthesizedAdapter();
-      }
-      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -818,21 +813,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIsTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized <em>Paranthesized</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized
-   * @generated
-   */
-  public Adapter createParanthesizedAdapter()
   {
     return null;
   }

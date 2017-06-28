@@ -348,15 +348,6 @@ public interface FortXTransFactory extends EFactory
   IsType createIsType();
 
   /**
-   * Returns a new object of class '<em>Paranthesized</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Paranthesized</em>'.
-   * @generated
-   */
-  Paranthesized createParanthesized();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

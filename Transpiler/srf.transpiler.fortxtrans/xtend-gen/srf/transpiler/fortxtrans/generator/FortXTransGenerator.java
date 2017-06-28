@@ -18,6 +18,7 @@ import org.eclipse.xtext.xbase.lib.Conversions;
 import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import srf.transpiler.fortxtrans.fortXTrans.Binding;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
@@ -25,6 +26,9 @@ import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
+import srf.transpiler.fortxtrans.fortXTrans.Elif;
+import srf.transpiler.fortxtrans.fortXTrans.Elifs;
+import srf.transpiler.fortxtrans.fortXTrans.Else;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
@@ -33,6 +37,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnMod;
 import srf.transpiler.fortxtrans.fortXTrans.FnMods;
+import srf.transpiler.fortxtrans.fortXTrans.GenClause;
 import srf.transpiler.fortxtrans.fortXTrans.Import;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
 import srf.transpiler.fortxtrans.fortXTrans.RetType;
@@ -587,6 +592,7 @@ public class FortXTransGenerator extends AbstractGenerator {
         CharSequence _compile = this.compile(d.getDod());
         _builder.append(_compile);
       } else {
+        _builder.newLineIfNotEmpty();
         {
           String _awhile = d.getAwhile();
           boolean _tripleNotEquals_1 = (_awhile != null);
@@ -594,28 +600,171 @@ public class FortXTransGenerator extends AbstractGenerator {
             _builder.append("while(");
             String _compile_1 = this.compile(d.getExpr());
             _builder.append(_compile_1);
-            _builder.append("){");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
+            _builder.append(")");
             CharSequence _compile_2 = this.compile(d.getWhiledod());
-            _builder.append(_compile_2, "\t\t");
+            _builder.append(_compile_2);
             _builder.newLineIfNotEmpty();
-            _builder.append("\t");
-            _builder.append("}");
-            _builder.newLine();
           } else {
             {
               String _afor = d.getAfor();
               boolean _tripleNotEquals_2 = (_afor != null);
               if (_tripleNotEquals_2) {
-                _builder.append("for()");
-                CharSequence _compile_3 = this.compile(d.getDofront());
+                {
+                  String _seq = d.getGen().getBinding().getSeq();
+                  boolean _tripleEquals = (_seq == null);
+                  if (_tripleEquals) {
+                    _builder.append("finish ");
+                  }
+                }
+                _builder.append("for(");
+                CharSequence _compile_3 = this.compile(d.getGen().getBinding());
                 _builder.append(_compile_3);
+                _builder.append(" in ");
+                String _compile_4 = this.compile(d.getGen().getBinding().getExpr());
+                _builder.append(_compile_4);
+                _builder.append(")");
+                {
+                  String _seq_1 = d.getGen().getBinding().getSeq();
+                  boolean _tripleEquals_1 = (_seq_1 == null);
+                  if (_tripleEquals_1) {
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("async ");
+                  }
+                }
+                {
+                  EList<GenClause> _clause = d.getGen().getClause();
+                  boolean _tripleNotEquals_3 = (_clause != null);
+                  if (_tripleNotEquals_3) {
+                    {
+                      EList<GenClause> _clause_1 = d.getGen().getClause();
+                      for(final GenClause c : _clause_1) {
+                        _builder.append("{");
+                        _builder.newLineIfNotEmpty();
+                        {
+                          String _seq_2 = c.getBinding().getSeq();
+                          boolean _tripleEquals_2 = (_seq_2 == null);
+                          if (_tripleEquals_2) {
+                            _builder.append("\t");
+                            _builder.append("finish ");
+                          }
+                        }
+                        _builder.append("for(");
+                        CharSequence _compile_5 = this.compile(c.getBinding());
+                        _builder.append(_compile_5, "\t");
+                        _builder.append(" in ");
+                        String _compile_6 = this.compile(c.getBinding().getExpr());
+                        _builder.append(_compile_6, "\t");
+                        _builder.append(")");
+                        {
+                          String _seq_3 = c.getBinding().getSeq();
+                          boolean _tripleEquals_3 = (_seq_3 == null);
+                          if (_tripleEquals_3) {
+                            _builder.newLineIfNotEmpty();
+                            _builder.append("\t");
+                            _builder.append("async ");
+                          }
+                        }
+                      }
+                    }
+                    CharSequence _compile_7 = this.compile(d.getDofront());
+                    _builder.append(_compile_7);
+                    {
+                      int _length = ((Object[])Conversions.unwrapArray(d.getGen().getClause(), Object.class)).length;
+                      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+                      for(final Integer c_1 : _doubleDotLessThan) {
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("}");
+                      }
+                    }
+                  } else {
+                    CharSequence _compile_8 = this.compile(d.getDofront());
+                    _builder.append(_compile_8);
+                  }
+                }
                 _builder.newLineIfNotEmpty();
+              } else {
+                {
+                  String _anif = d.getAnif();
+                  boolean _tripleNotEquals_4 = (_anif != null);
+                  if (_tripleNotEquals_4) {
+                    _builder.append("if(");
+                    String _compile_9 = this.compile(d.getCond());
+                    _builder.append(_compile_9);
+                    _builder.append(") ");
+                    CharSequence _compile_10 = this.compile(d.getBlock());
+                    _builder.append(_compile_10);
+                    {
+                      Elifs _elifs = d.getElifs();
+                      boolean _tripleNotEquals_5 = (_elifs != null);
+                      if (_tripleNotEquals_5) {
+                        CharSequence _compile_11 = this.compile(d.getElifs());
+                        _builder.append(_compile_11);
+                      }
+                    }
+                    {
+                      Else _els = d.getEls();
+                      boolean _tripleNotEquals_6 = (_els != null);
+                      if (_tripleNotEquals_6) {
+                        _builder.newLineIfNotEmpty();
+                        _builder.append("else ");
+                        _builder.newLine();
+                        _builder.append("\t");
+                        CharSequence _compile_12 = this.compile(d.getEls().getBlock());
+                        _builder.append(_compile_12, "\t");
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                  } else {
+                    {
+                      Expression _par = d.getPar();
+                      boolean _tripleNotEquals_7 = (_par != null);
+                      if (_tripleNotEquals_7) {
+                        _builder.append("(");
+                        Expr _exp = d.getPar().getExp();
+                        _builder.append(_exp);
+                        _builder.append(")");
+                        _builder.newLineIfNotEmpty();
+                      }
+                    }
+                  }
+                }
               }
             }
           }
         }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Elifs el) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Elif> _e = el.getE();
+      for(final Elif e : _e) {
+        _builder.append("else if(");
+        String _compile = this.compile(e.getExpr());
+        _builder.append(_compile);
+        _builder.append(")");
+        CharSequence _compile_1 = this.compile(e.getBlock());
+        _builder.append(_compile_1);
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Binding b) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      int _length = ((Object[])Conversions.unwrapArray(b.getIdtup().getBid(), Object.class)).length;
+      boolean _equals = (_length == 1);
+      if (_equals) {
+        String _get = b.getIdtup().getBid().get(0);
+        _builder.append(_get);
+      } else {
+        EList<String> _bid = b.getIdtup().getBid();
+        _builder.append(_bid);
       }
     }
     return _builder;
@@ -654,8 +803,7 @@ public class FortXTransGenerator extends AbstractGenerator {
     {
       boolean _isAtom = dof.isAtom();
       if (_isAtom) {
-        _builder.append("atomic{");
-        _builder.newLineIfNotEmpty();
+        _builder.append("atomic ");
       }
     }
     CharSequence _compile_1 = this.compile(dof.getBlock());
@@ -665,28 +813,19 @@ public class FortXTransGenerator extends AbstractGenerator {
   
   public CharSequence compile(final BlockElems bs) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("{");
+    _builder.newLine();
     {
       int _length = ((Object[])Conversions.unwrapArray(bs.getBlock(), Object.class)).length;
-      boolean _notEquals = (_length != 1);
-      if (_notEquals) {
-        _builder.append("{");
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+      for(final Integer b : _doubleDotLessThan) {
+        String _compile = this.compile(bs.getBlock().get((b).intValue()).getExp());
+        _builder.append(_compile);
         _builder.newLineIfNotEmpty();
-        {
-          int _length_1 = ((Object[])Conversions.unwrapArray(bs.getBlock(), Object.class)).length;
-          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
-          for(final Integer b : _doubleDotLessThan) {
-            _builder.append("    ");
-            String _compile = this.compile(bs.getBlock().get((b).intValue()).getExp());
-            _builder.append(_compile, "    ");
-            _builder.newLineIfNotEmpty();
-          }
-        }
-        _builder.append("}");
-      } else {
-        String _compile_1 = this.compile(bs.getBlock().get(0).getExp());
-        _builder.append(_compile_1);
+        _builder.append("\t");
       }
     }
+    _builder.append("}");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

@@ -101,7 +101,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.DO_FRONT: return createDoFront();
       case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
       case FortXTransPackage.IS_TYPE: return createIsType();
-      case FortXTransPackage.PARANTHESIZED: return createParanthesized();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -501,17 +500,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     IsTypeImpl isType = new IsTypeImpl();
     return isType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Paranthesized createParanthesized()
-  {
-    ParanthesizedImpl paranthesized = new ParanthesizedImpl();
-    return paranthesized;
   }
 
   /**

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +38,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  *
  * @generated
  */
-public class ExprImpl extends ExpressionImpl implements Expr
+public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
 {
   /**
    * The cached value of the '{@link #getFront() <em>Front</em>}' containment reference.

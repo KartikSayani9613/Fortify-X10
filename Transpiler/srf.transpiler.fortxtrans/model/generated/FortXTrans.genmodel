@@ -91,6 +91,7 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Expression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expression/exp"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expression/expr"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/front"/>
@@ -115,7 +116,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/cond"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/block"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/elifs"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/else"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/els"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExpr/par"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Elifs">
@@ -135,6 +136,7 @@
     <genClasses ecoreClass="FortXTrans.ecore#//Binding">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Binding/idtup"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Binding/expr"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Binding/seq"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//GenClause">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//GenClause/binding"/>
@@ -157,9 +159,6 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//IsType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//IsType/type"/>
-    </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//Paranthesized">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Paranthesized/expr"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

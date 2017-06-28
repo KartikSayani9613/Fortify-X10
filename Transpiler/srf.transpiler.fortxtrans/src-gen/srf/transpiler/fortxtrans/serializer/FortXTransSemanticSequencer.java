@@ -45,7 +45,6 @@ import srf.transpiler.fortxtrans.fortXTrans.Import;
 import srf.transpiler.fortxtrans.fortXTrans.ImportedNames;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
-import srf.transpiler.fortxtrans.fortXTrans.Paranthesized;
 import srf.transpiler.fortxtrans.fortXTrans.RetType;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
@@ -133,6 +132,10 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 					sequence_Expression(context, (Expression) semanticObject); 
 					return; 
 				}
+				else if (rule == grammarAccess.getParanthesizedRule()) {
+					sequence_Paranthesized(context, (Expression) semanticObject); 
+					return; 
+				}
 				else break;
 			case FortXTransPackage.FN_DECL:
 				sequence_FnDecl(context, (FnDecl) semanticObject); 
@@ -163,9 +166,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case FortXTransPackage.PARAM:
 				sequence_Param(context, (Param) semanticObject); 
-				return; 
-			case FortXTransPackage.PARANTHESIZED:
-				sequence_Paranthesized(context, (Paranthesized) semanticObject); 
 				return; 
 			case FortXTransPackage.RET_TYPE:
 				sequence_RetType(context, (RetType) semanticObject); 
@@ -241,19 +241,10 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Binding returns Binding
 	 *
 	 * Constraint:
-	 *     (idtup=IdOrTuple expr=Expr)
+	 *     ((idtup=IdOrTuple expr=Expr) | (idtup=IdOrTuple seq='seq' expr=Expr))
 	 */
 	protected void sequence_Binding(ISerializationContext context, Binding semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.BINDING__IDTUP) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.BINDING__IDTUP));
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.BINDING__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.BINDING__EXPR));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBindingAccess().getIdtupIdOrTupleParserRuleCall_0_0(), semanticObject.getIdtup());
-		feeder.accept(grammarAccess.getBindingAccess().getExprExprParserRuleCall_2_0(), semanticObject.getExpr());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -339,7 +330,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *         dod=Do | 
 	 *         (awhile='while' expr=Expr whiledod=Do) | 
 	 *         (afor='for' gen=Generators dofront=DoFront) | 
-	 *         (anif='if' cond=Expr block=BlockElems elifs=Elifs? else=Else?) | 
+	 *         (anif='if' cond=Expr block=BlockElems elifs=Elifs? els=Else?) | 
 	 *         par=Paranthesized
 	 *     )
 	 */
@@ -468,7 +459,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	/**
 	 * Contexts:
 	 *     Expr returns Expr
-	 *     Paranthesized.Paranthesized_2 returns Expr
 	 *
 	 * Constraint:
 	 *     (front=ExprFront tails+=ExprTail*)
@@ -637,18 +627,18 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     Paranthesized returns Paranthesized
+	 *     Paranthesized returns Expression
 	 *
 	 * Constraint:
-	 *     expr=Paranthesized_Paranthesized_2
+	 *     expr=Expr
 	 */
-	protected void sequence_Paranthesized(ISerializationContext context, Paranthesized semanticObject) {
+	protected void sequence_Paranthesized(ISerializationContext context, Expression semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.PARANTHESIZED__EXPR) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.PARANTHESIZED__EXPR));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPRESSION__EXPR) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPRESSION__EXPR));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getParanthesizedAccess().getParanthesizedExprAction_2(), semanticObject.getExpr());
+		feeder.accept(grammarAccess.getParanthesizedAccess().getExprExprParserRuleCall_1_0(), semanticObject.getExpr());
 		feeder.finish();
 	}
 	

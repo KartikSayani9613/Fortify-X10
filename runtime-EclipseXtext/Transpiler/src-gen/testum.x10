@@ -4,18 +4,28 @@ import x10.array.Array_1;
 import x10.array.Array_2;
 import x10.array.Array_3;
 /*needs to import
-import array.{...}
 */
 /*exports
 export Executable
 */
 
-public class sample{
+public class testum{
 	public static def main(args:Rail[String]){	
-		while(name){
-			for(){
-			    name
-			    name
+		{
+	for(i in name){
+	name
+		}
+		}
+	}
+	 static def fac(i:Int, x:Long):Long{	
+		{
+	if(x) {
+	name
+		}
+	else 
+		{
+		x
+			f
 			}
 		}
 	}

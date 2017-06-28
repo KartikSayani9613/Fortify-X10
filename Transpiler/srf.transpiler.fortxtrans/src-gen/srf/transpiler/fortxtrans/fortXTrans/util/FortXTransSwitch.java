@@ -226,7 +226,6 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         Expr expr = (Expr)theEObject;
         T result = caseExpr(expr);
-        if (result == null) result = caseExpression(expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -325,14 +324,6 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         IsType isType = (IsType)theEObject;
         T result = caseIsType(isType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.PARANTHESIZED:
-      {
-        Paranthesized paranthesized = (Paranthesized)theEObject;
-        T result = caseParanthesized(paranthesized);
-        if (result == null) result = caseExpression(paranthesized);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -912,22 +903,6 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIsType(IsType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Paranthesized</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Paranthesized</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParanthesized(Paranthesized object)
   {
     return null;
   }

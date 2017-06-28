@@ -42,7 +42,6 @@ import srf.transpiler.fortxtrans.fortXTrans.ImportedNames;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.Model;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
-import srf.transpiler.fortxtrans.fortXTrans.Paranthesized;
 import srf.transpiler.fortxtrans.fortXTrans.RetType;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
@@ -308,13 +307,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * @generated
    */
   private EClass isTypeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass paranthesizedEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -1044,6 +1036,16 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getExpression_Expr()
+  {
+    return (EReference)expressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getExpr()
   {
     return exprEClass;
@@ -1244,7 +1246,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDelimitedExpr_Else()
+  public EReference getDelimitedExpr_Els()
   {
     return (EReference)delimitedExprEClass.getEStructuralFeatures().get(11);
   }
@@ -1387,6 +1389,16 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
   public EReference getBinding_Expr()
   {
     return (EReference)bindingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getBinding_Seq()
+  {
+    return (EAttribute)bindingEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1554,26 +1566,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getParanthesized()
-  {
-    return paranthesizedEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getParanthesized_Expr()
-  {
-    return (EReference)paranthesizedEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public FortXTransFactory getFortXTransFactory()
   {
     return (FortXTransFactory)getEFactoryInstance();
@@ -1685,6 +1677,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     expressionEClass = createEClass(EXPRESSION);
     createEReference(expressionEClass, EXPRESSION__EXP);
+    createEReference(expressionEClass, EXPRESSION__EXPR);
 
     exprEClass = createEClass(EXPR);
     createEReference(exprEClass, EXPR__FRONT);
@@ -1709,7 +1702,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     createEReference(delimitedExprEClass, DELIMITED_EXPR__COND);
     createEReference(delimitedExprEClass, DELIMITED_EXPR__BLOCK);
     createEReference(delimitedExprEClass, DELIMITED_EXPR__ELIFS);
-    createEReference(delimitedExprEClass, DELIMITED_EXPR__ELSE);
+    createEReference(delimitedExprEClass, DELIMITED_EXPR__ELS);
     createEReference(delimitedExprEClass, DELIMITED_EXPR__PAR);
 
     elifsEClass = createEClass(ELIFS);
@@ -1729,6 +1722,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     bindingEClass = createEClass(BINDING);
     createEReference(bindingEClass, BINDING__IDTUP);
     createEReference(bindingEClass, BINDING__EXPR);
+    createEAttribute(bindingEClass, BINDING__SEQ);
 
     genClauseEClass = createEClass(GEN_CLAUSE);
     createEReference(genClauseEClass, GEN_CLAUSE__BINDING);
@@ -1751,9 +1745,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     isTypeEClass = createEClass(IS_TYPE);
     createEReference(isTypeEClass, IS_TYPE__TYPE);
-
-    paranthesizedEClass = createEClass(PARANTHESIZED);
-    createEReference(paranthesizedEClass, PARANTHESIZED__EXPR);
   }
 
   /**
@@ -1787,8 +1778,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     // Add supertypes to classes
     componentEClass.getESuperTypes().add(this.getModel());
     apiEClass.getESuperTypes().add(this.getModel());
-    exprEClass.getESuperTypes().add(this.getExpression());
-    paranthesizedEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1877,6 +1866,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpression_Exp(), this.getExpr(), null, "exp", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpression_Expr(), this.getExpr(), null, "expr", null, 0, 1, Expression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpr_Front(), this.getExprFront(), null, "front", null, 0, 1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1901,7 +1891,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     initEReference(getDelimitedExpr_Cond(), this.getExpr(), null, "cond", null, 0, 1, DelimitedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDelimitedExpr_Block(), this.getBlockElems(), null, "block", null, 0, 1, DelimitedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDelimitedExpr_Elifs(), this.getElifs(), null, "elifs", null, 0, 1, DelimitedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getDelimitedExpr_Else(), this.getElse(), null, "else", null, 0, 1, DelimitedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDelimitedExpr_Els(), this.getElse(), null, "els", null, 0, 1, DelimitedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDelimitedExpr_Par(), this.getExpression(), null, "par", null, 0, 1, DelimitedExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(elifsEClass, Elifs.class, "Elifs", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1921,6 +1911,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     initEClass(bindingEClass, Binding.class, "Binding", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBinding_Idtup(), this.getIdOrTuple(), null, "idtup", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getBinding_Expr(), this.getExpr(), null, "expr", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getBinding_Seq(), ecorePackage.getEString(), "seq", null, 0, 1, Binding.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(genClauseEClass, GenClause.class, "GenClause", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getGenClause_Binding(), this.getBinding(), null, "binding", null, 0, 1, GenClause.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1943,9 +1934,6 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     initEClass(isTypeEClass, IsType.class, "IsType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getIsType_Type(), this.getType(), null, "type", null, 0, 1, IsType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(paranthesizedEClass, Paranthesized.class, "Paranthesized", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getParanthesized_Expr(), this.getExpr(), null, "expr", null, 0, 1, Paranthesized.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

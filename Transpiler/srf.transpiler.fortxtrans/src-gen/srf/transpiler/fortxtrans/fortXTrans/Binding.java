@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getIdtup <em>Idtup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getExpr <em>Expr</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getSeq <em>Seq</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBinding()
@@ -75,5 +76,31 @@ public interface Binding extends EObject
    * @generated
    */
   void setExpr(Expr value);
+
+  /**
+   * Returns the value of the '<em><b>Seq</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Seq</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Seq</em>' attribute.
+   * @see #setSeq(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBinding_Seq()
+   * @model
+   * @generated
+   */
+  String getSeq();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getSeq <em>Seq</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Seq</em>' attribute.
+   * @see #getSeq()
+   * @generated
+   */
+  void setSeq(String value);
 
 } // Binding

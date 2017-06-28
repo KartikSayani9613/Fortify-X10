@@ -27,6 +27,7 @@ import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getIdtup <em>Idtup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getSeq <em>Seq</em>}</li>
  * </ul>
  *
  * @generated
@@ -52,6 +53,26 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * @ordered
    */
   protected Expr expr;
+
+  /**
+   * The default value of the '{@link #getSeq() <em>Seq</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSeq()
+   * @generated
+   * @ordered
+   */
+  protected static final String SEQ_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSeq() <em>Seq</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSeq()
+   * @generated
+   * @ordered
+   */
+  protected String seq = SEQ_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -175,6 +196,29 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getSeq()
+  {
+    return seq;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSeq(String newSeq)
+  {
+    String oldSeq = seq;
+    seq = newSeq;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.BINDING__SEQ, oldSeq, seq));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -202,6 +246,8 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
         return getIdtup();
       case FortXTransPackage.BINDING__EXPR:
         return getExpr();
+      case FortXTransPackage.BINDING__SEQ:
+        return getSeq();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -221,6 +267,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
         return;
       case FortXTransPackage.BINDING__EXPR:
         setExpr((Expr)newValue);
+        return;
+      case FortXTransPackage.BINDING__SEQ:
+        setSeq((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -242,6 +291,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
       case FortXTransPackage.BINDING__EXPR:
         setExpr((Expr)null);
         return;
+      case FortXTransPackage.BINDING__SEQ:
+        setSeq(SEQ_EDEFAULT);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -260,8 +312,27 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
         return idtup != null;
       case FortXTransPackage.BINDING__EXPR:
         return expr != null;
+      case FortXTransPackage.BINDING__SEQ:
+        return SEQ_EDEFAULT == null ? seq != null : !SEQ_EDEFAULT.equals(seq);
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (seq: ");
+    result.append(seq);
+    result.append(')');
+    return result.toString();
   }
 
 } //BindingImpl

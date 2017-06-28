@@ -16,7 +16,6 @@ API:
 	'api' name=ID (imports+=Import)* /*(absDecls+=AbsDecls)**/ 'end'
 ;
 
-
 Import:
 	imps='import' importedNames=ImportedNames
 	|imps='import' api='api' aliasedimportedNames=AliasedAPINames
@@ -79,8 +78,6 @@ Decl:
 //	|trait=TraitDecl
 ;
 
-
-
 FnMods:
 	(mods+=FnMod)+
 ;
@@ -91,7 +88,6 @@ FnMod:
 	|modtype='atomic'
 	|modtype='io'
 ;
-
 
 ValParam:
 	params+=Param
@@ -110,8 +106,6 @@ RetType:
 Type:
 	tname=ID
 ;
-
-
 
 FnDecl:
 	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Expression)?
@@ -138,7 +132,7 @@ DelimitedExpr :
 	dod=Do
 	|awhile='while' expr=Expr  whiledod=Do
 	|afor='for' gen=Generators dofront=DoFront 'end'
-	|anif='if' cond=Expr 'then' block=BlockElems (elifs=Elifs)? (else=Else)? 'end'
+	|anif='if' cond=Expr 'then' block=BlockElems (elifs=Elifs)? (els=Else)? 'end'
 	|par=Paranthesized
 ;
 
@@ -160,6 +154,7 @@ Generators:
 
 Binding:
 	idtup=IdOrTuple '<-' expr=Expr
+	|idtup=IdOrTuple '<-' seq='seq' '('expr=Expr')'
 ;
 
 GenClause:
@@ -176,7 +171,7 @@ BlockElem returns Expression:
 ;
 
 Paranthesized returns Expression:
-	'(' Expr {Paranthesized.expr=current} ')'
+	'(' expr=Expr')'
 ;
 
 Do:
@@ -204,6 +199,11 @@ IsType:
 
 @Override 
 terminal ML_COMMENT:
+	'(*' -> '*)'
+;
+
+@Override 
+terminal SL_COMMENT:
 	'(*' -> '*)'
 ;
 

@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getCond <em>Cond</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse <em>Else</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls <em>Els</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}</li>
  * </ul>
  *
@@ -322,30 +322,30 @@ public interface DelimitedExpr extends EObject
   void setElifs(Elifs value);
 
   /**
-   * Returns the value of the '<em><b>Else</b></em>' containment reference.
+   * Returns the value of the '<em><b>Els</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Else</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Els</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Else</em>' containment reference.
-   * @see #setElse(Else)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Else()
+   * @return the value of the '<em>Els</em>' containment reference.
+   * @see #setEls(Else)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Els()
    * @model containment="true"
    * @generated
    */
-  Else getElse();
+  Else getEls();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse <em>Else</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls <em>Els</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Else</em>' containment reference.
-   * @see #getElse()
+   * @param value the new value of the '<em>Els</em>' containment reference.
+   * @see #getEls()
    * @generated
    */
-  void setElse(Else value);
+  void setEls(Else value);
 
   /**
    * Returns the value of the '<em><b>Par</b></em>' containment reference.

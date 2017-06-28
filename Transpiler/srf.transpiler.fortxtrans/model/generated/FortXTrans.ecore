@@ -106,8 +106,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expr" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="front" eType="#//ExprFront"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tails" upperBound="-1"
@@ -138,7 +139,7 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elifs" eType="#//Elifs"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="#//Else" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="els" eType="#//Else" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="par" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
@@ -165,6 +166,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="idtup" eType="#//IdOrTuple"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="seq" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="GenClause">
     <eStructuralFeatures xsi:type="ecore:EReference" name="binding" eType="#//Binding"
@@ -192,8 +194,5 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IsType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Paranthesized" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

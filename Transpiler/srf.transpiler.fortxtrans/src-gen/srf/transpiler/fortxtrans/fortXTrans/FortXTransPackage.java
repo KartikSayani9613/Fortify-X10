@@ -889,13 +889,22 @@ public interface FortXTransPackage extends EPackage
   int EXPRESSION__EXP = 0;
 
   /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION__EXPR = 1;
+
+  /**
    * The number of structural features of the '<em>Expression</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = 1;
+  int EXPRESSION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl <em>Expr</em>}' class.
@@ -908,22 +917,13 @@ public interface FortXTransPackage extends EPackage
   int EXPR = 21;
 
   /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int EXPR__EXP = EXPRESSION__EXP;
-
-  /**
    * The feature id for the '<em><b>Front</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__FRONT = EXPRESSION_FEATURE_COUNT + 0;
+  int EXPR__FRONT = 0;
 
   /**
    * The feature id for the '<em><b>Tails</b></em>' containment reference list.
@@ -932,7 +932,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR__TAILS = EXPRESSION_FEATURE_COUNT + 1;
+  int EXPR__TAILS = 1;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -941,7 +941,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int EXPR_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl <em>Expr Front</em>}' class.
@@ -1118,13 +1118,13 @@ public interface FortXTransPackage extends EPackage
   int DELIMITED_EXPR__ELIFS = 10;
 
   /**
-   * The feature id for the '<em><b>Else</b></em>' containment reference.
+   * The feature id for the '<em><b>Els</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__ELSE = 11;
+  int DELIMITED_EXPR__ELS = 11;
 
   /**
    * The feature id for the '<em><b>Par</b></em>' containment reference.
@@ -1303,13 +1303,22 @@ public interface FortXTransPackage extends EPackage
   int BINDING__EXPR = 1;
 
   /**
+   * The feature id for the '<em><b>Seq</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BINDING__SEQ = 2;
+
+  /**
    * The number of structural features of the '<em>Binding</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int BINDING_FEATURE_COUNT = 2;
+  int BINDING_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.GenClauseImpl <em>Gen Clause</em>}' class.
@@ -1514,43 +1523,6 @@ public interface FortXTransPackage extends EPackage
    * @ordered
    */
   int IS_TYPE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl <em>Paranthesized</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParanthesized()
-   * @generated
-   */
-  int PARANTHESIZED = 36;
-
-  /**
-   * The feature id for the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED__EXP = EXPRESSION__EXP;
-
-  /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED__EXPR = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Paranthesized</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARANTHESIZED_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
 
   /**
@@ -2259,6 +2231,17 @@ public interface FortXTransPackage extends EPackage
   EReference getExpression_Exp();
 
   /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Expression#getExpr <em>Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expr</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Expression#getExpr()
+   * @see #getExpression()
+   * @generated
+   */
+  EReference getExpression_Expr();
+
+  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Expr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2475,15 +2458,15 @@ public interface FortXTransPackage extends EPackage
   EReference getDelimitedExpr_Elifs();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse <em>Else</em>}'.
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls <em>Els</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Else</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElse()
+   * @return the meta object for the containment reference '<em>Els</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls()
    * @see #getDelimitedExpr()
    * @generated
    */
-  EReference getDelimitedExpr_Else();
+  EReference getDelimitedExpr_Els();
 
   /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}'.
@@ -2633,6 +2616,17 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getBinding_Expr();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getSeq <em>Seq</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Seq</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Binding#getSeq()
+   * @see #getBinding()
+   * @generated
+   */
+  EAttribute getBinding_Seq();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.GenClause <em>Gen Clause</em>}'.
@@ -2803,27 +2797,6 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getIsType_Type();
-
-  /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized <em>Paranthesized</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Paranthesized</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized
-   * @generated
-   */
-  EClass getParanthesized();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr <em>Expr</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Expr</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Paranthesized#getExpr()
-   * @see #getParanthesized()
-   * @generated
-   */
-  EReference getParanthesized_Expr();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -3419,6 +3392,14 @@ public interface FortXTransPackage extends EPackage
     EReference EXPRESSION__EXP = eINSTANCE.getExpression_Exp();
 
     /**
+     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPRESSION__EXPR = eINSTANCE.getExpression_Expr();
+
+    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl <em>Expr</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3587,12 +3568,12 @@ public interface FortXTransPackage extends EPackage
     EReference DELIMITED_EXPR__ELIFS = eINSTANCE.getDelimitedExpr_Elifs();
 
     /**
-     * The meta object literal for the '<em><b>Else</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Els</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DELIMITED_EXPR__ELSE = eINSTANCE.getDelimitedExpr_Else();
+    EReference DELIMITED_EXPR__ELS = eINSTANCE.getDelimitedExpr_Els();
 
     /**
      * The meta object literal for the '<em><b>Par</b></em>' containment reference feature.
@@ -3715,6 +3696,14 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference BINDING__EXPR = eINSTANCE.getBinding_Expr();
+
+    /**
+     * The meta object literal for the '<em><b>Seq</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute BINDING__SEQ = eINSTANCE.getBinding_Seq();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.GenClauseImpl <em>Gen Clause</em>}' class.
@@ -3855,24 +3844,6 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference IS_TYPE__TYPE = eINSTANCE.getIsType_Type();
-
-    /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl <em>Paranthesized</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanthesizedImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParanthesized()
-     * @generated
-     */
-    EClass PARANTHESIZED = eINSTANCE.getParanthesized();
-
-    /**
-     * The meta object literal for the '<em><b>Expr</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PARANTHESIZED__EXPR = eINSTANCE.getParanthesized_Expr();
 
   }
 
