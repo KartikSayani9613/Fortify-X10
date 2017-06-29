@@ -107,6 +107,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.INIT_VAL: return createInitVal();
       case FortXTransPackage.LITERAL_TUPLE: return createLiteralTuple();
       case FortXTransPackage.LITERAL: return createLiteral();
+      case FortXTransPackage.LOCAL_VAR_DECL: return createLocalVarDecl();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -572,6 +573,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     LiteralImpl literal = new LiteralImpl();
     return literal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LocalVarDecl createLocalVarDecl()
+  {
+    LocalVarDeclImpl localVarDecl = new LocalVarDeclImpl();
+    return localVarDecl;
   }
 
   /**

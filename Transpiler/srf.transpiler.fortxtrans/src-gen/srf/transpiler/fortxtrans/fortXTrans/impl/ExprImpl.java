@@ -23,6 +23,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,6 +35,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getFront <em>Front</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getTails <em>Tails</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getLocVar <em>Loc Var</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getExp <em>Exp</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getExpr <em>Expr</em>}</li>
  * </ul>
@@ -61,6 +63,16 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected EList<ExprTail> tails;
+
+  /**
+   * The cached value of the '{@link #getLocVar() <em>Loc Var</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLocVar()
+   * @generated
+   * @ordered
+   */
+  protected LocalVarDecl locVar;
 
   /**
    * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
@@ -163,6 +175,54 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
       tails = new EObjectContainmentEList<ExprTail>(ExprTail.class, this, FortXTransPackage.EXPR__TAILS);
     }
     return tails;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LocalVarDecl getLocVar()
+  {
+    return locVar;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLocVar(LocalVarDecl newLocVar, NotificationChain msgs)
+  {
+    LocalVarDecl oldLocVar = locVar;
+    locVar = newLocVar;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__LOC_VAR, oldLocVar, newLocVar);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLocVar(LocalVarDecl newLocVar)
+  {
+    if (newLocVar != locVar)
+    {
+      NotificationChain msgs = null;
+      if (locVar != null)
+        msgs = ((InternalEObject)locVar).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__LOC_VAR, null, msgs);
+      if (newLocVar != null)
+        msgs = ((InternalEObject)newLocVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__LOC_VAR, null, msgs);
+      msgs = basicSetLocVar(newLocVar, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__LOC_VAR, newLocVar, newLocVar));
   }
 
   /**
@@ -275,6 +335,8 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return basicSetFront(null, msgs);
       case FortXTransPackage.EXPR__TAILS:
         return ((InternalEList<?>)getTails()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.EXPR__LOC_VAR:
+        return basicSetLocVar(null, msgs);
       case FortXTransPackage.EXPR__EXP:
         return basicSetExp(null, msgs);
       case FortXTransPackage.EXPR__EXPR:
@@ -297,6 +359,8 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return getFront();
       case FortXTransPackage.EXPR__TAILS:
         return getTails();
+      case FortXTransPackage.EXPR__LOC_VAR:
+        return getLocVar();
       case FortXTransPackage.EXPR__EXP:
         return getExp();
       case FortXTransPackage.EXPR__EXPR:
@@ -322,6 +386,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
       case FortXTransPackage.EXPR__TAILS:
         getTails().clear();
         getTails().addAll((Collection<? extends ExprTail>)newValue);
+        return;
+      case FortXTransPackage.EXPR__LOC_VAR:
+        setLocVar((LocalVarDecl)newValue);
         return;
       case FortXTransPackage.EXPR__EXP:
         setExp((Expr)newValue);
@@ -349,6 +416,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
       case FortXTransPackage.EXPR__TAILS:
         getTails().clear();
         return;
+      case FortXTransPackage.EXPR__LOC_VAR:
+        setLocVar((LocalVarDecl)null);
+        return;
       case FortXTransPackage.EXPR__EXP:
         setExp((Expr)null);
         return;
@@ -373,6 +443,8 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return front != null;
       case FortXTransPackage.EXPR__TAILS:
         return tails != null && !tails.isEmpty();
+      case FortXTransPackage.EXPR__LOC_VAR:
+        return locVar != null;
       case FortXTransPackage.EXPR__EXP:
         return exp != null;
       case FortXTransPackage.EXPR__EXPR:

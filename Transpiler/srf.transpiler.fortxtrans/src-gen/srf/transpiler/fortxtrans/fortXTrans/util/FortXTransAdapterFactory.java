@@ -286,6 +286,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createLiteralAdapter();
       }
       @Override
+      public Adapter caseLocalVarDecl(LocalVarDecl object)
+      {
+        return createLocalVarDeclAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -933,6 +938,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl <em>Local Var Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
+   * @generated
+   */
+  public Adapter createLocalVarDeclAdapter()
   {
     return null;
   }

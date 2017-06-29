@@ -47,6 +47,7 @@ import srf.transpiler.fortxtrans.fortXTrans.InitVal;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.Literal;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
+import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
@@ -178,6 +179,9 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case FortXTransPackage.LITERAL_TUPLE:
 				sequence_LiteralTuple(context, (LiteralTuple) semanticObject); 
+				return; 
+			case FortXTransPackage.LOCAL_VAR_DECL:
+				sequence_LocalVarDecl(context, (LocalVarDecl) semanticObject); 
 				return; 
 			case FortXTransPackage.NO_NEWLINE_VAR_WTYPE:
 				sequence_NoNewlineVarWType(context, (NoNewlineVarWType) semanticObject); 
@@ -479,7 +483,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Expr returns Expr
 	 *
 	 * Constraint:
-	 *     (front=ExprFront tails+=ExprTail*)
+	 *     ((front=ExprFront tails+=ExprTail*) | locVar=LocalVarDecl)
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -650,9 +654,26 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Literal returns Literal
 	 *
 	 * Constraint:
-	 *     (intg=INT | flot=FLOAT | str=STRING)
+	 *     (intg=INT | flot=FLOAT | str=STRING | q=QualifiedName)
 	 */
 	protected void sequence_Literal(ISerializationContext context, Literal semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     LocalVarDecl returns LocalVarDecl
+	 *
+	 * Constraint:
+	 *     (
+	 *         (mut='var'? vars=NoNewlineVarWTypes init=InitVal) | 
+	 *         (idtup=IdOrTuple litTup=LiteralTuple) | 
+	 *         (mut='var'? idtup=IdOrTuple type=Type init=InitVal) | 
+	 *         (mut='var'? idtup=IdOrTuple tuptype=TupleType init=InitVal)
+	 *     )
+	 */
+	protected void sequence_LocalVarDecl(ISerializationContext context, LocalVarDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

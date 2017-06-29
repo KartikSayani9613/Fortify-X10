@@ -935,13 +935,22 @@ public interface FortXTransPackage extends EPackage
   int EXPR__TAILS = 1;
 
   /**
+   * The feature id for the '<em><b>Loc Var</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR__LOC_VAR = 2;
+
+  /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR__EXP = 2;
+  int EXPR__EXP = 3;
 
   /**
    * The feature id for the '<em><b>Expr</b></em>' containment reference.
@@ -950,7 +959,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR__EXPR = 3;
+  int EXPR__EXPR = 4;
 
   /**
    * The number of structural features of the '<em>Expr</em>' class.
@@ -959,7 +968,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPR_FEATURE_COUNT = 4;
+  int EXPR_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl <em>Expr Front</em>}' class.
@@ -1828,13 +1837,104 @@ public interface FortXTransPackage extends EPackage
   int LITERAL__STR = 2;
 
   /**
+   * The feature id for the '<em><b>Q</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LITERAL__Q = 3;
+
+  /**
    * The number of structural features of the '<em>Literal</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LITERAL_FEATURE_COUNT = 3;
+  int LITERAL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl <em>Local Var Decl</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLocalVarDecl()
+   * @generated
+   */
+  int LOCAL_VAR_DECL = 42;
+
+  /**
+   * The feature id for the '<em><b>Mut</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__MUT = 0;
+
+  /**
+   * The feature id for the '<em><b>Vars</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__VARS = 1;
+
+  /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__INIT = 2;
+
+  /**
+   * The feature id for the '<em><b>Idtup</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__IDTUP = 3;
+
+  /**
+   * The feature id for the '<em><b>Lit Tup</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__LIT_TUP = 4;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__TYPE = 5;
+
+  /**
+   * The feature id for the '<em><b>Tuptype</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__TUPTYPE = 6;
+
+  /**
+   * The number of structural features of the '<em>Local Var Decl</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL_FEATURE_COUNT = 7;
 
 
   /**
@@ -2584,6 +2684,17 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getExpr_Tails();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLocVar <em>Loc Var</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Loc Var</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Expr#getLocVar()
+   * @see #getExpr()
+   * @generated
+   */
+  EReference getExpr_LocVar();
 
   /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExp <em>Exp</em>}'.
@@ -3413,6 +3524,104 @@ public interface FortXTransPackage extends EPackage
   EAttribute getLiteral_Str();
 
   /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Literal#getQ <em>Q</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Q</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Literal#getQ()
+   * @see #getLiteral()
+   * @generated
+   */
+  EAttribute getLiteral_Q();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl <em>Local Var Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Local Var Decl</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
+   * @generated
+   */
+  EClass getLocalVarDecl();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMut <em>Mut</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Mut</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMut()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EAttribute getLocalVarDecl_Mut();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getVars <em>Vars</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Vars</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getVars()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EReference getLocalVarDecl_Vars();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EReference getLocalVarDecl_Init();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getIdtup <em>Idtup</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Idtup</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getIdtup()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EReference getLocalVarDecl_Idtup();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup <em>Lit Tup</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lit Tup</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EReference getLocalVarDecl_LitTup();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getType()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EReference getLocalVarDecl_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getTuptype <em>Tuptype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tuptype</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getTuptype()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EReference getLocalVarDecl_Tuptype();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4038,6 +4247,14 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference EXPR__TAILS = eINSTANCE.getExpr_Tails();
+
+    /**
+     * The meta object literal for the '<em><b>Loc Var</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR__LOC_VAR = eINSTANCE.getExpr_LocVar();
 
     /**
      * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
@@ -4694,6 +4911,80 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EAttribute LITERAL__STR = eINSTANCE.getLiteral_Str();
+
+    /**
+     * The meta object literal for the '<em><b>Q</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LITERAL__Q = eINSTANCE.getLiteral_Q();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl <em>Local Var Decl</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLocalVarDecl()
+     * @generated
+     */
+    EClass LOCAL_VAR_DECL = eINSTANCE.getLocalVarDecl();
+
+    /**
+     * The meta object literal for the '<em><b>Mut</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOCAL_VAR_DECL__MUT = eINSTANCE.getLocalVarDecl_Mut();
+
+    /**
+     * The meta object literal for the '<em><b>Vars</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VAR_DECL__VARS = eINSTANCE.getLocalVarDecl_Vars();
+
+    /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VAR_DECL__INIT = eINSTANCE.getLocalVarDecl_Init();
+
+    /**
+     * The meta object literal for the '<em><b>Idtup</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VAR_DECL__IDTUP = eINSTANCE.getLocalVarDecl_Idtup();
+
+    /**
+     * The meta object literal for the '<em><b>Lit Tup</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VAR_DECL__LIT_TUP = eINSTANCE.getLocalVarDecl_LitTup();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VAR_DECL__TYPE = eINSTANCE.getLocalVarDecl_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Tuptype</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOCAL_VAR_DECL__TUPTYPE = eINSTANCE.getLocalVarDecl_Tuptype();
 
   }
 

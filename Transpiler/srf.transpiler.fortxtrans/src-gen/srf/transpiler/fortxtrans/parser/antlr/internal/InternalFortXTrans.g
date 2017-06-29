@@ -1984,42 +1984,64 @@ ruleExpr returns [EObject current=null]
 	(
 		(
 			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprAccess().getFrontExprFrontParserRuleCall_0_0_0());
+					}
+					lv_front_0_0=ruleExprFront
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprRule());
+						}
+						set(
+							$current,
+							"front",
+							lv_front_0_0,
+							"srf.transpiler.fortxtrans.FortXTrans.ExprFront");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExprAccess().getTailsExprTailParserRuleCall_0_1_0());
+					}
+					lv_tails_1_0=ruleExprTail
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExprRule());
+						}
+						add(
+							$current,
+							"tails",
+							lv_tails_1_0,
+							"srf.transpiler.fortxtrans.FortXTrans.ExprTail");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)*
+		)
+		    |
+		(
+			(
 				{
-					newCompositeNode(grammarAccess.getExprAccess().getFrontExprFrontParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getExprAccess().getLocVarLocalVarDeclParserRuleCall_1_0());
 				}
-				lv_front_0_0=ruleExprFront
+				lv_locVar_2_0=ruleLocalVarDecl
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getExprRule());
 					}
 					set(
 						$current,
-						"front",
-						lv_front_0_0,
-						"srf.transpiler.fortxtrans.FortXTrans.ExprFront");
+						"locVar",
+						lv_locVar_2_0,
+						"srf.transpiler.fortxtrans.FortXTrans.LocalVarDecl");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		(
-			(
-				{
-					newCompositeNode(grammarAccess.getExprAccess().getTailsExprTailParserRuleCall_1_0());
-				}
-				lv_tails_1_0=ruleExprTail
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getExprRule());
-					}
-					add(
-						$current,
-						"tails",
-						lv_tails_1_0,
-						"srf.transpiler.fortxtrans.FortXTrans.ExprTail");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)*
 	)
 ;
 
@@ -4012,6 +4034,304 @@ ruleLiteral returns [EObject current=null]
 						lv_str_2_0,
 						"org.eclipse.xtext.common.Terminals.STRING");
 				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLiteralAccess().getQQualifiedNameParserRuleCall_3_0());
+				}
+				lv_q_3_0=ruleQualifiedName
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLiteralRule());
+					}
+					set(
+						$current,
+						"q",
+						lv_q_3_0,
+						"srf.transpiler.fortxtrans.FortXTrans.QualifiedName");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleLocalVarDecl
+entryRuleLocalVarDecl returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLocalVarDeclRule()); }
+	iv_ruleLocalVarDecl=ruleLocalVarDecl
+	{ $current=$iv_ruleLocalVarDecl.current; }
+	EOF;
+
+// Rule LocalVarDecl
+ruleLocalVarDecl returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					lv_mut_0_0='var'
+					{
+						newLeafNode(lv_mut_0_0, grammarAccess.getLocalVarDeclAccess().getMutVarKeyword_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getLocalVarDeclRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_0_0, "var");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getVarsNoNewlineVarWTypesParserRuleCall_0_1_0());
+					}
+					lv_vars_1_0=ruleNoNewlineVarWTypes
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"vars",
+							lv_vars_1_0,
+							"srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWTypes");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitInitValParserRuleCall_0_2_0());
+					}
+					lv_init_2_0=ruleInitVal
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_2_0,
+							"srf.transpiler.fortxtrans.FortXTrans.InitVal");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getIdtupIdOrTupleParserRuleCall_1_0_0());
+					}
+					lv_idtup_3_0=ruleIdOrTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"idtup",
+							lv_idtup_3_0,
+							"srf.transpiler.fortxtrans.FortXTrans.IdOrTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_4='='
+			{
+				newLeafNode(otherlv_4, grammarAccess.getLocalVarDeclAccess().getEqualsSignKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getLitTupLiteralTupleParserRuleCall_1_2_0());
+					}
+					lv_litTup_5_0=ruleLiteralTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"litTup",
+							lv_litTup_5_0,
+							"srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_mut_6_0='var'
+					{
+						newLeafNode(lv_mut_6_0, grammarAccess.getLocalVarDeclAccess().getMutVarKeyword_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getLocalVarDeclRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_6_0, "var");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getIdtupIdOrTupleParserRuleCall_2_1_0());
+					}
+					lv_idtup_7_0=ruleIdOrTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"idtup",
+							lv_idtup_7_0,
+							"srf.transpiler.fortxtrans.FortXTrans.IdOrTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_8=':'
+			{
+				newLeafNode(otherlv_8, grammarAccess.getLocalVarDeclAccess().getColonKeyword_2_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getTypeTypeParserRuleCall_2_3_0());
+					}
+					lv_type_9_0=ruleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"type",
+							lv_type_9_0,
+							"srf.transpiler.fortxtrans.FortXTrans.Type");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_DOTS_10=RULE_DOTS
+			{
+				newLeafNode(this_DOTS_10, grammarAccess.getLocalVarDeclAccess().getDOTSTerminalRuleCall_2_4());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitInitValParserRuleCall_2_5_0());
+					}
+					lv_init_11_0=ruleInitVal
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_11_0,
+							"srf.transpiler.fortxtrans.FortXTrans.InitVal");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_mut_12_0='var'
+					{
+						newLeafNode(lv_mut_12_0, grammarAccess.getLocalVarDeclAccess().getMutVarKeyword_3_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getLocalVarDeclRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_12_0, "var");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getIdtupIdOrTupleParserRuleCall_3_1_0());
+					}
+					lv_idtup_13_0=ruleIdOrTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"idtup",
+							lv_idtup_13_0,
+							"srf.transpiler.fortxtrans.FortXTrans.IdOrTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_14=':'
+			{
+				newLeafNode(otherlv_14, grammarAccess.getLocalVarDeclAccess().getColonKeyword_3_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getTuptypeTupleTypeParserRuleCall_3_3_0());
+					}
+					lv_tuptype_15_0=ruleTupleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"tuptype",
+							lv_tuptype_15_0,
+							"srf.transpiler.fortxtrans.FortXTrans.TupleType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitInitValParserRuleCall_3_4_0());
+					}
+					lv_init_16_0=ruleInitVal
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLocalVarDeclRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_16_0,
+							"srf.transpiler.fortxtrans.FortXTrans.InitVal");
+						afterParserOrEnumRuleCall();
+					}
+				)
 			)
 		)
 	)

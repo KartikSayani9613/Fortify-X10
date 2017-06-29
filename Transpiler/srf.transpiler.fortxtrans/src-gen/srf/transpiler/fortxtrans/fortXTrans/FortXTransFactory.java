@@ -402,6 +402,15 @@ public interface FortXTransFactory extends EFactory
   Literal createLiteral();
 
   /**
+   * Returns a new object of class '<em>Local Var Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Local Var Decl</em>'.
+   * @generated
+   */
+  LocalVarDecl createLocalVarDecl();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

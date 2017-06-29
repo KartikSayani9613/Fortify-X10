@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Literal#getIntg <em>Intg</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Literal#getFlot <em>Flot</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Literal#getStr <em>Str</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Literal#getQ <em>Q</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLiteral()
@@ -102,5 +103,31 @@ public interface Literal extends EObject
    * @generated
    */
   void setStr(String value);
+
+  /**
+   * Returns the value of the '<em><b>Q</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Q</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Q</em>' attribute.
+   * @see #setQ(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLiteral_Q()
+   * @model
+   * @generated
+   */
+  String getQ();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Literal#getQ <em>Q</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Q</em>' attribute.
+   * @see #getQ()
+   * @generated
+   */
+  void setQ(String value);
 
 } // Literal

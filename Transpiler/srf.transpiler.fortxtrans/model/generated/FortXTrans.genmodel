@@ -96,6 +96,7 @@
     <genClasses ecoreClass="FortXTrans.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/front"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/tails"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/locVar"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/exp"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/expr"/>
     </genClasses>
@@ -193,6 +194,16 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Literal/intg"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Literal/flot"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Literal/str"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Literal/q"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//LocalVarDecl">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//LocalVarDecl/mut"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/vars"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/init"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/idtup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/litTup"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/tuptype"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

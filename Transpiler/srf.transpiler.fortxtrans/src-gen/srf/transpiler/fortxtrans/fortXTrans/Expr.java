@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getTails <em>Tails</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLocVar <em>Loc Var</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExp <em>Exp</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExpr <em>Expr</em>}</li>
  * </ul>
@@ -69,6 +70,32 @@ public interface Expr extends EObject
    * @generated
    */
   EList<ExprTail> getTails();
+
+  /**
+   * Returns the value of the '<em><b>Loc Var</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Loc Var</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Loc Var</em>' containment reference.
+   * @see #setLocVar(LocalVarDecl)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_LocVar()
+   * @model containment="true"
+   * @generated
+   */
+  LocalVarDecl getLocVar();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLocVar <em>Loc Var</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Loc Var</em>' containment reference.
+   * @see #getLocVar()
+   * @generated
+   */
+  void setLocVar(LocalVarDecl value);
 
   /**
    * Returns the value of the '<em><b>Exp</b></em>' containment reference.

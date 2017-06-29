@@ -115,6 +115,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tails" upperBound="-1"
         eType="#//ExprTail" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locVar" eType="#//LocalVarDecl"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
@@ -240,5 +242,20 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="intg" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="flot" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="str" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="q" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LocalVarDecl">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mut" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="vars" eType="#//NoNewlineVarWTypes"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//InitVal"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="idtup" eType="#//IdOrTuple"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="litTup" eType="#//LiteralTuple"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tuptype" eType="#//TupleType"
+        containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

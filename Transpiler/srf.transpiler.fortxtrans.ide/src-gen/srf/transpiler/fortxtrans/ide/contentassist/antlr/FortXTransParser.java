@@ -43,6 +43,7 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFnModAccess().getAlternatives(), "rule__FnMod__Alternatives");
 					put(grammarAccess.getValParamAccess().getAlternatives(), "rule__ValParam__Alternatives");
 					put(grammarAccess.getRetTypeAccess().getAlternatives(), "rule__RetType__Alternatives");
+					put(grammarAccess.getExprAccess().getAlternatives(), "rule__Expr__Alternatives");
 					put(grammarAccess.getExprFrontAccess().getAlternatives(), "rule__ExprFront__Alternatives");
 					put(grammarAccess.getDelimitedExprAccess().getAlternatives(), "rule__DelimitedExpr__Alternatives");
 					put(grammarAccess.getBindingAccess().getAlternatives(), "rule__Binding__Alternatives");
@@ -54,6 +55,7 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInitValAccess().getAlternatives(), "rule__InitVal__Alternatives");
 					put(grammarAccess.getLiteralTupleAccess().getAlternatives(), "rule__LiteralTuple__Alternatives");
 					put(grammarAccess.getLiteralAccess().getAlternatives(), "rule__Literal__Alternatives");
+					put(grammarAccess.getLocalVarDeclAccess().getAlternatives(), "rule__LocalVarDecl__Alternatives");
 					put(grammarAccess.getComponentAccess().getGroup(), "rule__Component__Group__0");
 					put(grammarAccess.getAPIAccess().getGroup(), "rule__API__Group__0");
 					put(grammarAccess.getImportAccess().getGroup_0(), "rule__Import__Group_0__0");
@@ -96,7 +98,7 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTupleTypeAccess().getGroup_2(), "rule__TupleType__Group_2__0");
 					put(grammarAccess.getFnDeclAccess().getGroup(), "rule__FnDecl__Group__0");
 					put(grammarAccess.getFnDeclAccess().getGroup_4(), "rule__FnDecl__Group_4__0");
-					put(grammarAccess.getExprAccess().getGroup(), "rule__Expr__Group__0");
+					put(grammarAccess.getExprAccess().getGroup_0(), "rule__Expr__Group_0__0");
 					put(grammarAccess.getExprTailAccess().getGroup(), "rule__ExprTail__Group__0");
 					put(grammarAccess.getDelimitedExprAccess().getGroup_1(), "rule__DelimitedExpr__Group_1__0");
 					put(grammarAccess.getDelimitedExprAccess().getGroup_2(), "rule__DelimitedExpr__Group_2__0");
@@ -128,6 +130,10 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInitValAccess().getGroup_1(), "rule__InitVal__Group_1__0");
 					put(grammarAccess.getLiteralTupleAccess().getGroup_1(), "rule__LiteralTuple__Group_1__0");
 					put(grammarAccess.getLiteralTupleAccess().getGroup_1_2(), "rule__LiteralTuple__Group_1_2__0");
+					put(grammarAccess.getLocalVarDeclAccess().getGroup_0(), "rule__LocalVarDecl__Group_0__0");
+					put(grammarAccess.getLocalVarDeclAccess().getGroup_1(), "rule__LocalVarDecl__Group_1__0");
+					put(grammarAccess.getLocalVarDeclAccess().getGroup_2(), "rule__LocalVarDecl__Group_2__0");
+					put(grammarAccess.getLocalVarDeclAccess().getGroup_3(), "rule__LocalVarDecl__Group_3__0");
 					put(grammarAccess.getComponentAccess().getNameAssignment_1(), "rule__Component__NameAssignment_1");
 					put(grammarAccess.getComponentAccess().getImportsAssignment_2(), "rule__Component__ImportsAssignment_2");
 					put(grammarAccess.getComponentAccess().getExportsAssignment_3(), "rule__Component__ExportsAssignment_3");
@@ -193,8 +199,9 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getFnDeclAccess().getRetValAssignment_3(), "rule__FnDecl__RetValAssignment_3");
 					put(grammarAccess.getFnDeclAccess().getBodyAssignment_4_0(), "rule__FnDecl__BodyAssignment_4_0");
 					put(grammarAccess.getFnDeclAccess().getFnItselfAssignment_4_1(), "rule__FnDecl__FnItselfAssignment_4_1");
-					put(grammarAccess.getExprAccess().getFrontAssignment_0(), "rule__Expr__FrontAssignment_0");
-					put(grammarAccess.getExprAccess().getTailsAssignment_1(), "rule__Expr__TailsAssignment_1");
+					put(grammarAccess.getExprAccess().getFrontAssignment_0_0(), "rule__Expr__FrontAssignment_0_0");
+					put(grammarAccess.getExprAccess().getTailsAssignment_0_1(), "rule__Expr__TailsAssignment_0_1");
+					put(grammarAccess.getExprAccess().getLocVarAssignment_1(), "rule__Expr__LocVarAssignment_1");
 					put(grammarAccess.getExprFrontAccess().getDelimAssignment_0(), "rule__ExprFront__DelimAssignment_0");
 					put(grammarAccess.getExprFrontAccess().getIdAssignment_1(), "rule__ExprFront__IdAssignment_1");
 					put(grammarAccess.getExprTailAccess().getTypeAssignment_1(), "rule__ExprTail__TypeAssignment_1");
@@ -271,6 +278,20 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getLiteralAccess().getIntgAssignment_0(), "rule__Literal__IntgAssignment_0");
 					put(grammarAccess.getLiteralAccess().getFlotAssignment_1(), "rule__Literal__FlotAssignment_1");
 					put(grammarAccess.getLiteralAccess().getStrAssignment_2(), "rule__Literal__StrAssignment_2");
+					put(grammarAccess.getLiteralAccess().getQAssignment_3(), "rule__Literal__QAssignment_3");
+					put(grammarAccess.getLocalVarDeclAccess().getMutAssignment_0_0(), "rule__LocalVarDecl__MutAssignment_0_0");
+					put(grammarAccess.getLocalVarDeclAccess().getVarsAssignment_0_1(), "rule__LocalVarDecl__VarsAssignment_0_1");
+					put(grammarAccess.getLocalVarDeclAccess().getInitAssignment_0_2(), "rule__LocalVarDecl__InitAssignment_0_2");
+					put(grammarAccess.getLocalVarDeclAccess().getIdtupAssignment_1_0(), "rule__LocalVarDecl__IdtupAssignment_1_0");
+					put(grammarAccess.getLocalVarDeclAccess().getLitTupAssignment_1_2(), "rule__LocalVarDecl__LitTupAssignment_1_2");
+					put(grammarAccess.getLocalVarDeclAccess().getMutAssignment_2_0(), "rule__LocalVarDecl__MutAssignment_2_0");
+					put(grammarAccess.getLocalVarDeclAccess().getIdtupAssignment_2_1(), "rule__LocalVarDecl__IdtupAssignment_2_1");
+					put(grammarAccess.getLocalVarDeclAccess().getTypeAssignment_2_3(), "rule__LocalVarDecl__TypeAssignment_2_3");
+					put(grammarAccess.getLocalVarDeclAccess().getInitAssignment_2_5(), "rule__LocalVarDecl__InitAssignment_2_5");
+					put(grammarAccess.getLocalVarDeclAccess().getMutAssignment_3_0(), "rule__LocalVarDecl__MutAssignment_3_0");
+					put(grammarAccess.getLocalVarDeclAccess().getIdtupAssignment_3_1(), "rule__LocalVarDecl__IdtupAssignment_3_1");
+					put(grammarAccess.getLocalVarDeclAccess().getTuptypeAssignment_3_3(), "rule__LocalVarDecl__TuptypeAssignment_3_3");
+					put(grammarAccess.getLocalVarDeclAccess().getInitAssignment_3_4(), "rule__LocalVarDecl__InitAssignment_3_4");
 				}
 			};
 		}
