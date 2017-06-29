@@ -250,6 +250,13 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FortXTransPackage.PAR_BLOCK_ELEMS:
+      {
+        ParBlockElems parBlockElems = (ParBlockElems)theEObject;
+        T result = caseParBlockElems(parBlockElems);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FortXTransPackage.ELIFS:
       {
         Elifs elifs = (Elifs)theEObject;
@@ -296,6 +303,13 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         BlockElems blockElems = (BlockElems)theEObject;
         T result = caseBlockElems(blockElems);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.EXP:
+      {
+        Exp exp = (Exp)theEObject;
+        T result = caseExp(exp);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -781,6 +795,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Par Block Elems</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Par Block Elems</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParBlockElems(ParBlockElems object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Elifs</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -888,6 +918,22 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseBlockElems(BlockElems object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Exp</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExp(Exp object)
   {
     return null;
   }

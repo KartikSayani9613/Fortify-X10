@@ -90,6 +90,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.EXPR_FRONT: return createExprFront();
       case FortXTransPackage.EXPR_TAIL: return createExprTail();
       case FortXTransPackage.DELIMITED_EXPR: return createDelimitedExpr();
+      case FortXTransPackage.PAR_BLOCK_ELEMS: return createParBlockElems();
       case FortXTransPackage.ELIFS: return createElifs();
       case FortXTransPackage.ELIF: return createElif();
       case FortXTransPackage.ELSE: return createElse();
@@ -97,6 +98,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.BINDING: return createBinding();
       case FortXTransPackage.GEN_CLAUSE: return createGenClause();
       case FortXTransPackage.BLOCK_ELEMS: return createBlockElems();
+      case FortXTransPackage.EXP: return createExp();
       case FortXTransPackage.DO: return createDo();
       case FortXTransPackage.DO_FRONT: return createDoFront();
       case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
@@ -393,6 +395,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public ParBlockElems createParBlockElems()
+  {
+    ParBlockElemsImpl parBlockElems = new ParBlockElemsImpl();
+    return parBlockElems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Elifs createElifs()
   {
     ElifsImpl elifs = new ElifsImpl();
@@ -463,6 +476,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     BlockElemsImpl blockElems = new BlockElemsImpl();
     return blockElems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Exp createExp()
+  {
+    ExpImpl exp = new ExpImpl();
+    return exp;
   }
 
   /**

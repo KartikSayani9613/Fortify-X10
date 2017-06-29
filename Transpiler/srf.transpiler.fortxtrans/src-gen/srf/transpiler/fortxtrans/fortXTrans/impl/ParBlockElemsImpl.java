@@ -17,24 +17,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Exp;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Block Elems</b></em>'.
+ * An implementation of the model object '<em><b>Par Block Elems</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParBlockElemsImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BlockElemsImpl extends MinimalEObjectImpl.Container implements BlockElems
+public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements ParBlockElems
 {
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
@@ -51,7 +51,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BlockElemsImpl()
+  protected ParBlockElemsImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.BLOCK_ELEMS;
+    return FortXTransPackage.Literals.PAR_BLOCK_ELEMS;
   }
 
   /**
@@ -76,7 +76,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     if (block == null)
     {
-      block = new EObjectContainmentEList<Exp>(Exp.class, this, FortXTransPackage.BLOCK_ELEMS__BLOCK);
+      block = new EObjectContainmentEList<Exp>(Exp.class, this, FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK);
     }
     return block;
   }
@@ -91,7 +91,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +107,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,7 +124,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         getBlock().clear();
         getBlock().addAll((Collection<? extends Exp>)newValue);
         return;
@@ -142,7 +142,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         getBlock().clear();
         return;
     }
@@ -159,10 +159,10 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         return block != null && !block.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //BlockElemsImpl
+} //ParBlockElemsImpl

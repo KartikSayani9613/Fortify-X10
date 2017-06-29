@@ -103,6 +103,9 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelimitedExprAccess().getGroup_1(), "rule__DelimitedExpr__Group_1__0");
 					put(grammarAccess.getDelimitedExprAccess().getGroup_2(), "rule__DelimitedExpr__Group_2__0");
 					put(grammarAccess.getDelimitedExprAccess().getGroup_3(), "rule__DelimitedExpr__Group_3__0");
+					put(grammarAccess.getDelimitedExprAccess().getGroup_5(), "rule__DelimitedExpr__Group_5__0");
+					put(grammarAccess.getParBlockElemsAccess().getGroup(), "rule__ParBlockElems__Group__0");
+					put(grammarAccess.getParBlockElemsAccess().getGroup_2(), "rule__ParBlockElems__Group_2__0");
 					put(grammarAccess.getElifsAccess().getGroup(), "rule__Elifs__Group__0");
 					put(grammarAccess.getElifAccess().getGroup(), "rule__Elif__Group__0");
 					put(grammarAccess.getElseAccess().getGroup(), "rule__Else__Group__0");
@@ -218,6 +221,9 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDelimitedExprAccess().getElifsAssignment_3_4(), "rule__DelimitedExpr__ElifsAssignment_3_4");
 					put(grammarAccess.getDelimitedExprAccess().getElsAssignment_3_5(), "rule__DelimitedExpr__ElsAssignment_3_5");
 					put(grammarAccess.getDelimitedExprAccess().getParAssignment_4(), "rule__DelimitedExpr__ParAssignment_4");
+					put(grammarAccess.getDelimitedExprAccess().getParblockAssignment_5_1(), "rule__DelimitedExpr__ParblockAssignment_5_1");
+					put(grammarAccess.getParBlockElemsAccess().getBlockAssignment_1(), "rule__ParBlockElems__BlockAssignment_1");
+					put(grammarAccess.getParBlockElemsAccess().getBlockAssignment_2_1(), "rule__ParBlockElems__BlockAssignment_2_1");
 					put(grammarAccess.getElifsAccess().getEAssignment_0(), "rule__Elifs__EAssignment_0");
 					put(grammarAccess.getElifsAccess().getEAssignment_1(), "rule__Elifs__EAssignment_1");
 					put(grammarAccess.getElifAccess().getExprAssignment_1(), "rule__Elif__ExprAssignment_1");
@@ -235,7 +241,7 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBlockElemsAccess().getBlockAssignment_0(), "rule__BlockElems__BlockAssignment_0");
 					put(grammarAccess.getBlockElemsAccess().getBlockAssignment_1(), "rule__BlockElems__BlockAssignment_1");
 					put(grammarAccess.getBlockElemAccess().getExpAssignment(), "rule__BlockElem__ExpAssignment");
-					put(grammarAccess.getParanthesizedAccess().getExprAssignment_1(), "rule__Paranthesized__ExprAssignment_1");
+					put(grammarAccess.getParanthesizedAccess().getExpAssignment_1(), "rule__Paranthesized__ExpAssignment_1");
 					put(grammarAccess.getDoAccess().getDofsAssignment_0(), "rule__Do__DofsAssignment_0");
 					put(grammarAccess.getDoAccess().getDofsAssignment_1_1(), "rule__Do__DofsAssignment_1_1");
 					put(grammarAccess.getDoFrontAccess().getAtAssignment_0_0(), "rule__DoFront__AtAssignment_0_0");

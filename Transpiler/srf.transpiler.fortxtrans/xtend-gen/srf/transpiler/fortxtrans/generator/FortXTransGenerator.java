@@ -29,6 +29,7 @@ import srf.transpiler.fortxtrans.fortXTrans.DoFront;
 import srf.transpiler.fortxtrans.fortXTrans.Elif;
 import srf.transpiler.fortxtrans.fortXTrans.Elifs;
 import srf.transpiler.fortxtrans.fortXTrans.Else;
+import srf.transpiler.fortxtrans.fortXTrans.Exp;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
@@ -2476,7 +2477,7 @@ public class FortXTransGenerator extends AbstractGenerator {
                     }
                   } else {
                     {
-                      Expr _par = d.getPar();
+                      Exp _par = d.getPar();
                       boolean _tripleNotEquals_7 = (_par != null);
                       if (_tripleNotEquals_7) {
                         _builder.append("(");

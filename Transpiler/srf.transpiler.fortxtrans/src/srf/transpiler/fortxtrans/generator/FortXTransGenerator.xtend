@@ -707,6 +707,8 @@ class FortXTransGenerator extends AbstractGenerator {
 						«IF d.par!==null»(«d.par.exp»)
 						«ENDIF»
 					«ENDIF»
+«««				«ELSE
+«««					»«IF d.»«ENDIF»
 				«ENDIF»
 			«ENDIF»
 		«ENDIF»
@@ -752,7 +754,5 @@ class FortXTransGenerator extends AbstractGenerator {
 		    «bs.block.get(b).exp.compile»
 		«ENDFOR»}
 	'''
-	
-	
    
 }

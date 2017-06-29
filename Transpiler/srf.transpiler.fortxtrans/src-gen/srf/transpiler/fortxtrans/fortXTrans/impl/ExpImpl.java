@@ -3,55 +3,50 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
-import java.util.Collection;
-
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Exp;
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Block Elems</b></em>'.
+ * An implementation of the model object '<em><b>Exp</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BlockElemsImpl extends MinimalEObjectImpl.Container implements BlockElems
+public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
 {
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBlock()
+   * @see #getExp()
    * @generated
    * @ordered
    */
-  protected EList<Exp> block;
+  protected Expr exp;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BlockElemsImpl()
+  protected ExpImpl()
   {
     super();
   }
@@ -64,7 +59,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.BLOCK_ELEMS;
+    return FortXTransPackage.Literals.EXP;
   }
 
   /**
@@ -72,13 +67,47 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Exp> getBlock()
+  public Expr getExp()
   {
-    if (block == null)
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
+  {
+    Expr oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
     {
-      block = new EObjectContainmentEList<Exp>(Exp.class, this, FortXTransPackage.BLOCK_ELEMS__BLOCK);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXP__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return block;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(Expr newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXP__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXP__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXP__EXP, newExp, newExp));
   }
 
   /**
@@ -91,8 +120,8 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.EXP__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +136,8 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return getBlock();
+      case FortXTransPackage.EXP__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -118,15 +147,13 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        getBlock().clear();
-        getBlock().addAll((Collection<? extends Exp>)newValue);
+      case FortXTransPackage.EXP__EXP:
+        setExp((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +169,8 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        getBlock().clear();
+      case FortXTransPackage.EXP__EXP:
+        setExp((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +186,10 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return block != null && !block.isEmpty();
+      case FortXTransPackage.EXP__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //BlockElemsImpl
+} //ExpImpl

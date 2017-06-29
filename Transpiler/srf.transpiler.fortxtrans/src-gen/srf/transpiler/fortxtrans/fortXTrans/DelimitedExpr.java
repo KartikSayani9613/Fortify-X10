@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls <em>Els</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getParblock <em>Parblock</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr()
@@ -356,12 +357,12 @@ public interface DelimitedExpr extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Par</em>' containment reference.
-   * @see #setPar(Expr)
+   * @see #setPar(Exp)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Par()
    * @model containment="true"
    * @generated
    */
-  Expr getPar();
+  Exp getPar();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}' containment reference.
@@ -371,6 +372,32 @@ public interface DelimitedExpr extends EObject
    * @see #getPar()
    * @generated
    */
-  void setPar(Expr value);
+  void setPar(Exp value);
+
+  /**
+   * Returns the value of the '<em><b>Parblock</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parblock</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parblock</em>' containment reference.
+   * @see #setParblock(ParBlockElems)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Parblock()
+   * @model containment="true"
+   * @generated
+   */
+  ParBlockElems getParblock();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getParblock <em>Parblock</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Parblock</em>' containment reference.
+   * @see #getParblock()
+   * @generated
+   */
+  void setParblock(ParBlockElems value);
 
 } // DelimitedExpr

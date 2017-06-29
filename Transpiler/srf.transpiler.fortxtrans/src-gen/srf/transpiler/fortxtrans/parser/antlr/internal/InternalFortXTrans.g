@@ -2415,6 +2415,107 @@ ruleDelimitedExpr returns [EObject current=null]
 				}
 			)
 		)
+		    |
+		(
+			otherlv_16='|'
+			{
+				newLeafNode(otherlv_16, grammarAccess.getDelimitedExprAccess().getVerticalLineKeyword_5_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getDelimitedExprAccess().getParblockParBlockElemsParserRuleCall_5_1_0());
+					}
+					lv_parblock_17_0=ruleParBlockElems
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
+						}
+						set(
+							$current,
+							"parblock",
+							lv_parblock_17_0,
+							"srf.transpiler.fortxtrans.FortXTrans.ParBlockElems");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_18='|'
+			{
+				newLeafNode(otherlv_18, grammarAccess.getDelimitedExprAccess().getVerticalLineKeyword_5_2());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleParBlockElems
+entryRuleParBlockElems returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getParBlockElemsRule()); }
+	iv_ruleParBlockElems=ruleParBlockElems
+	{ $current=$iv_ruleParBlockElems.current; }
+	EOF;
+
+// Rule ParBlockElems
+ruleParBlockElems returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getParBlockElemsAccess().getLeftParenthesisKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getParBlockElemsAccess().getBlockBlockElemParserRuleCall_1_0());
+				}
+				lv_block_1_0=ruleBlockElem
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getParBlockElemsRule());
+					}
+					add(
+						$current,
+						"block",
+						lv_block_1_0,
+						"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_2=','
+			{
+				newLeafNode(otherlv_2, grammarAccess.getParBlockElemsAccess().getCommaKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getParBlockElemsAccess().getBlockBlockElemParserRuleCall_2_1_0());
+					}
+					lv_block_3_0=ruleBlockElem
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getParBlockElemsRule());
+						}
+						add(
+							$current,
+							"block",
+							lv_block_3_0,
+							"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)+
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getParBlockElemsAccess().getRightParenthesisKeyword_3());
+		}
 	)
 ;
 
@@ -2949,17 +3050,17 @@ ruleParanthesized returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getParanthesizedAccess().getExprExprParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getParanthesizedAccess().getExpExprParserRuleCall_1_0());
 				}
-				lv_expr_1_0=ruleExpr
+				lv_exp_1_0=ruleExpr
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getParanthesizedRule());
 					}
 					set(
 						$current,
-						"expr",
-						lv_expr_1_0,
+						"exp",
+						lv_exp_1_0,
 						"srf.transpiler.fortxtrans.FortXTrans.Expr");
 					afterParserOrEnumRuleCall();
 				}

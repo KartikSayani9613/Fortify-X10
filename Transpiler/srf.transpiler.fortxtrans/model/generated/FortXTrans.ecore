@@ -117,8 +117,6 @@
         eType="#//ExprTail" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="locVar" eType="#//LocalVarDecl"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExprFront">
     <eStructuralFeatures xsi:type="ecore:EReference" name="delim" eType="#//DelimitedExpr"
@@ -146,7 +144,13 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="elifs" eType="#//Elifs"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="els" eType="#//Else" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="par" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="par" eType="#//Exp" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parblock" eType="#//ParBlockElems"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ParBlockElems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
+        eType="#//Exp" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Elifs">
     <eStructuralFeatures xsi:type="ecore:EReference" name="e" upperBound="-1" eType="#//Elif"
@@ -180,7 +184,10 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="BlockElems">
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" upperBound="-1"
-        eType="#//Expr" containment="true"/>
+        eType="#//Exp" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Exp">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Do">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dofs" upperBound="-1" eType="#//DoFront"

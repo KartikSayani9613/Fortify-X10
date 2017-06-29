@@ -249,6 +249,15 @@ public interface FortXTransFactory extends EFactory
   DelimitedExpr createDelimitedExpr();
 
   /**
+   * Returns a new object of class '<em>Par Block Elems</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Par Block Elems</em>'.
+   * @generated
+   */
+  ParBlockElems createParBlockElems();
+
+  /**
    * Returns a new object of class '<em>Elifs</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -310,6 +319,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   BlockElems createBlockElems();
+
+  /**
+   * Returns a new object of class '<em>Exp</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Exp</em>'.
+   * @generated
+   */
+  Exp createExp();
 
   /**
    * Returns a new object of class '<em>Do</em>'.

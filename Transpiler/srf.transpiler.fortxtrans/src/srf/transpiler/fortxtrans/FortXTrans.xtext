@@ -115,9 +115,11 @@ FnDecl:
 	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Expr)?
 ;
 
+
 Expr:
 	front=ExprFront (tails+=ExprTail)*
 	|locVar=LocalVarDecl
+//	|assign=AssignExpr
 ;
 
 ExprFront:
@@ -135,6 +137,11 @@ DelimitedExpr :
 	|afor='for' gen=Generators dofront=DoFront 'end'
 	|anif='if' cond=Expr 'then' block=BlockElems (elifs=Elifs)? (els=Else)? 'end'
 	|par=Paranthesized
+	|'|' parblock=ParBlockElems '|'
+;
+
+ParBlockElems:
+	 '(' block+=BlockElem (',' block+=BlockElem)+ ')' 
 ;
 
 Elifs:
@@ -167,13 +174,13 @@ BlockElems:
 	block+=BlockElem (block+=BlockElem)*
 ;
 
-BlockElem returns Expr:
+BlockElem returns Exp:
 	exp=Expr
 //	|locVar+=LocalVarDecl
 ;
 
-Paranthesized returns Expr:
-	'(' expr=Expr')'
+Paranthesized returns Exp:
+	'(' exp=Expr')'
 ;
 
 Do:

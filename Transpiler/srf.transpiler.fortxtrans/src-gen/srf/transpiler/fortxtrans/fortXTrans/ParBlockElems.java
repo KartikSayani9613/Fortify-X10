@@ -9,21 +9,21 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Block Elems</b></em>'.
+ * A representation of the model object '<em><b>Par Block Elems</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.BlockElems#getBlock <em>Block</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBlock <em>Block</em>}</li>
  * </ul>
  *
- * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBlockElems()
+ * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParBlockElems()
  * @model
  * @generated
  */
-public interface BlockElems extends EObject
+public interface ParBlockElems extends EObject
 {
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference list.
@@ -35,10 +35,10 @@ public interface BlockElems extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference list.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBlockElems_Block()
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParBlockElems_Block()
    * @model containment="true"
    * @generated
    */
   EList<Exp> getBlock();
 
-} // BlockElems
+} // ParBlockElems
