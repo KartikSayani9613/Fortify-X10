@@ -1345,21 +1345,43 @@ ruleDecl returns [EObject current=null]
 }:
 	(
 		(
-			{
-				newCompositeNode(grammarAccess.getDeclAccess().getFunctionFnDeclParserRuleCall_0());
-			}
-			lv_function_0_0=ruleFnDecl
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getDeclRule());
+			(
+				{
+					newCompositeNode(grammarAccess.getDeclAccess().getFunctionFnDeclParserRuleCall_0_0());
 				}
-				set(
-					$current,
-					"function",
-					lv_function_0_0,
-					"srf.transpiler.fortxtrans.FortXTrans.FnDecl");
-				afterParserOrEnumRuleCall();
-			}
+				lv_function_0_0=ruleFnDecl
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDeclRule());
+					}
+					set(
+						$current,
+						"function",
+						lv_function_0_0,
+						"srf.transpiler.fortxtrans.FortXTrans.FnDecl");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDeclAccess().getFieldFieldDeclParserRuleCall_1_0());
+				}
+				lv_field_1_0=ruleFieldDecl
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDeclRule());
+					}
+					set(
+						$current,
+						"field",
+						lv_field_1_0,
+						"srf.transpiler.fortxtrans.FortXTrans.FieldDecl");
+					afterParserOrEnumRuleCall();
+				}
+			)
 		)
 	)
 ;
@@ -1709,6 +1731,77 @@ ruleRetType returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleTupleType
+entryRuleTupleType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getTupleTypeRule()); }
+	iv_ruleTupleType=ruleTupleType
+	{ $current=$iv_ruleTupleType.current; }
+	EOF;
+
+// Rule TupleType
+ruleTupleType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getTupleTypeAccess().getLeftParenthesisKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getTupleTypeAccess().getTypesTypeParserRuleCall_1_0());
+				}
+				lv_types_1_0=ruleType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getTupleTypeRule());
+					}
+					add(
+						$current,
+						"types",
+						lv_types_1_0,
+						"srf.transpiler.fortxtrans.FortXTrans.Type");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			otherlv_2=','
+			{
+				newLeafNode(otherlv_2, grammarAccess.getTupleTypeAccess().getCommaKeyword_2_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getTupleTypeAccess().getTypesTypeParserRuleCall_2_1_0());
+					}
+					lv_types_3_0=ruleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getTupleTypeRule());
+						}
+						add(
+							$current,
+							"types",
+							lv_types_3_0,
+							"srf.transpiler.fortxtrans.FortXTrans.Type");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)*
+		otherlv_4=')'
+		{
+			newLeafNode(otherlv_4, grammarAccess.getTupleTypeAccess().getRightParenthesisKeyword_3());
+		}
+	)
+;
+
 // Entry rule entryRuleType
 entryRuleType returns [EObject current=null]:
 	{ newCompositeNode(grammarAccess.getTypeRule()); }
@@ -1853,9 +1946,9 @@ ruleFnDecl returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getFnDeclAccess().getFnItselfExpressionParserRuleCall_4_1_0());
+						newCompositeNode(grammarAccess.getFnDeclAccess().getFnItselfExprParserRuleCall_4_1_0());
 					}
-					lv_fnItself_5_0=ruleExpression
+					lv_fnItself_5_0=ruleExpr
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getFnDeclRule());
@@ -1864,48 +1957,12 @@ ruleFnDecl returns [EObject current=null]
 							$current,
 							"fnItself",
 							lv_fnItself_5_0,
-							"srf.transpiler.fortxtrans.FortXTrans.Expression");
+							"srf.transpiler.fortxtrans.FortXTrans.Expr");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
-	)
-;
-
-// Entry rule entryRuleExpression
-entryRuleExpression returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExpressionRule()); }
-	iv_ruleExpression=ruleExpression
-	{ $current=$iv_ruleExpression.current; }
-	EOF;
-
-// Rule Expression
-ruleExpression returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	(
-		(
-			{
-				newCompositeNode(grammarAccess.getExpressionAccess().getExpExprParserRuleCall_0());
-			}
-			lv_exp_0_0=ruleExpr
-			{
-				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getExpressionRule());
-				}
-				set(
-					$current,
-					"exp",
-					lv_exp_0_0,
-					"srf.transpiler.fortxtrans.FortXTrans.Expr");
-				afterParserOrEnumRuleCall();
-			}
-		)
 	)
 ;
 
@@ -3218,7 +3275,751 @@ ruleIsType returns [EObject current=null]
 	)
 ;
 
+// Entry rule entryRuleFieldDecl
+entryRuleFieldDecl returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getFieldDeclRule()); }
+	iv_ruleFieldDecl=ruleFieldDecl
+	{ $current=$iv_ruleFieldDecl.current; }
+	EOF;
+
+// Rule FieldDecl
+ruleFieldDecl returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					lv_pri_0_0='private'
+					{
+						newLeafNode(lv_pri_0_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "pri", lv_pri_0_0, "private");
+					}
+				)
+			)?
+			(
+				(
+					lv_mut_1_0='var'
+					{
+						newLeafNode(lv_mut_1_0, grammarAccess.getFieldDeclAccess().getMutVarKeyword_0_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_1_0, "var");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getVarsNoNewlineVarWTypesParserRuleCall_0_2_0());
+					}
+					lv_vars_2_0=ruleNoNewlineVarWTypes
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"vars",
+							lv_vars_2_0,
+							"srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWTypes");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getInitInitValParserRuleCall_0_3_0());
+					}
+					lv_init_3_0=ruleInitVal
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_3_0,
+							"srf.transpiler.fortxtrans.FortXTrans.InitVal");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_pri_4_0='private'
+					{
+						newLeafNode(lv_pri_4_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "pri", lv_pri_4_0, "private");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getIdtupIdOrTupleParserRuleCall_1_1_0());
+					}
+					lv_idtup_5_0=ruleIdOrTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"idtup",
+							lv_idtup_5_0,
+							"srf.transpiler.fortxtrans.FortXTrans.IdOrTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_6='='
+			{
+				newLeafNode(otherlv_6, grammarAccess.getFieldDeclAccess().getEqualsSignKeyword_1_2());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getLitTupLiteralTupleParserRuleCall_1_3_0());
+					}
+					lv_litTup_7_0=ruleLiteralTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"litTup",
+							lv_litTup_7_0,
+							"srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_pri_8_0='private'
+					{
+						newLeafNode(lv_pri_8_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_2_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "pri", lv_pri_8_0, "private");
+					}
+				)
+			)?
+			(
+				(
+					lv_mut_9_0='var'
+					{
+						newLeafNode(lv_mut_9_0, grammarAccess.getFieldDeclAccess().getMutVarKeyword_2_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_9_0, "var");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getIdtupIdOrTupleParserRuleCall_2_2_0());
+					}
+					lv_idtup_10_0=ruleIdOrTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"idtup",
+							lv_idtup_10_0,
+							"srf.transpiler.fortxtrans.FortXTrans.IdOrTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_11=':'
+			{
+				newLeafNode(otherlv_11, grammarAccess.getFieldDeclAccess().getColonKeyword_2_3());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getTypeTypeParserRuleCall_2_4_0());
+					}
+					lv_type_12_0=ruleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"type",
+							lv_type_12_0,
+							"srf.transpiler.fortxtrans.FortXTrans.Type");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			this_DOTS_13=RULE_DOTS
+			{
+				newLeafNode(this_DOTS_13, grammarAccess.getFieldDeclAccess().getDOTSTerminalRuleCall_2_5());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getInitInitValParserRuleCall_2_6_0());
+					}
+					lv_init_14_0=ruleInitVal
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_14_0,
+							"srf.transpiler.fortxtrans.FortXTrans.InitVal");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_pri_15_0='private'
+					{
+						newLeafNode(lv_pri_15_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_3_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "pri", lv_pri_15_0, "private");
+					}
+				)
+			)?
+			(
+				(
+					lv_mut_16_0='var'
+					{
+						newLeafNode(lv_mut_16_0, grammarAccess.getFieldDeclAccess().getMutVarKeyword_3_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getFieldDeclRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_16_0, "var");
+					}
+				)
+			)?
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getIdtupIdOrTupleParserRuleCall_3_2_0());
+					}
+					lv_idtup_17_0=ruleIdOrTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"idtup",
+							lv_idtup_17_0,
+							"srf.transpiler.fortxtrans.FortXTrans.IdOrTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_18=':'
+			{
+				newLeafNode(otherlv_18, grammarAccess.getFieldDeclAccess().getColonKeyword_3_3());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getTuptypeTupleTypeParserRuleCall_3_4_0());
+					}
+					lv_tuptype_19_0=ruleTupleType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"tuptype",
+							lv_tuptype_19_0,
+							"srf.transpiler.fortxtrans.FortXTrans.TupleType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getFieldDeclAccess().getInitInitValParserRuleCall_3_5_0());
+					}
+					lv_init_20_0=ruleInitVal
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getFieldDeclRule());
+						}
+						set(
+							$current,
+							"init",
+							lv_init_20_0,
+							"srf.transpiler.fortxtrans.FortXTrans.InitVal");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleNoNewlineVarWTypes
+entryRuleNoNewlineVarWTypes returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNoNewlineVarWTypesRule()); }
+	iv_ruleNoNewlineVarWTypes=ruleNoNewlineVarWTypes
+	{ $current=$iv_ruleNoNewlineVarWTypes.current; }
+	EOF;
+
+// Rule NoNewlineVarWTypes
+ruleNoNewlineVarWTypes returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNoNewlineVarWTypesAccess().getSingleNoNewlineVarWTypeParserRuleCall_0_0());
+				}
+				lv_single_0_0=ruleNoNewlineVarWType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNoNewlineVarWTypesRule());
+					}
+					set(
+						$current,
+						"single",
+						lv_single_0_0,
+						"srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		(
+			otherlv_1='('
+			{
+				newLeafNode(otherlv_1, grammarAccess.getNoNewlineVarWTypesAccess().getLeftParenthesisKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getNoNewlineVarWTypesAccess().getMultipleNoNewlineVarWTypeParserRuleCall_1_1_0());
+					}
+					lv_multiple_2_0=ruleNoNewlineVarWType
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getNoNewlineVarWTypesRule());
+						}
+						add(
+							$current,
+							"multiple",
+							lv_multiple_2_0,
+							"srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWType");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_3=','
+				{
+					newLeafNode(otherlv_3, grammarAccess.getNoNewlineVarWTypesAccess().getCommaKeyword_1_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getNoNewlineVarWTypesAccess().getMultipleNoNewlineVarWTypeParserRuleCall_1_2_1_0());
+						}
+						lv_multiple_4_0=ruleNoNewlineVarWType
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getNoNewlineVarWTypesRule());
+							}
+							add(
+								$current,
+								"multiple",
+								lv_multiple_4_0,
+								"srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWType");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)+
+			otherlv_5=')'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getNoNewlineVarWTypesAccess().getRightParenthesisKeyword_1_3());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleNoNewlineVarWType
+entryRuleNoNewlineVarWType returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getNoNewlineVarWTypeRule()); }
+	iv_ruleNoNewlineVarWType=ruleNoNewlineVarWType
+	{ $current=$iv_ruleNoNewlineVarWType.current; }
+	EOF;
+
+// Rule NoNewlineVarWType
+ruleNoNewlineVarWType returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNoNewlineVarWTypeAccess().getBidBindIdParserRuleCall_0_0());
+				}
+				lv_bid_0_0=ruleBindId
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNoNewlineVarWTypeRule());
+					}
+					set(
+						$current,
+						"bid",
+						lv_bid_0_0,
+						"srf.transpiler.fortxtrans.FortXTrans.BindId");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getNoNewlineVarWTypeAccess().getIstypeIsTypeParserRuleCall_1_0());
+				}
+				lv_istype_1_0=ruleIsType
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getNoNewlineVarWTypeRule());
+					}
+					set(
+						$current,
+						"istype",
+						lv_istype_1_0,
+						"srf.transpiler.fortxtrans.FortXTrans.IsType");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleInitVal
+entryRuleInitVal returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getInitValRule()); }
+	iv_ruleInitVal=ruleInitVal
+	{ $current=$iv_ruleInitVal.current; }
+	EOF;
+
+// Rule InitVal
+ruleInitVal returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				(
+					lv_mut_0_0=':='
+					{
+						newLeafNode(lv_mut_0_0, grammarAccess.getInitValAccess().getMutColonEqualsSignKeyword_0_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getInitValRule());
+						}
+						setWithLastConsumed($current, "mut", lv_mut_0_0, ":=");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getInitValAccess().getLitLiteralTupleParserRuleCall_0_1_0());
+					}
+					lv_lit_1_0=ruleLiteralTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getInitValRule());
+						}
+						set(
+							$current,
+							"lit",
+							lv_lit_1_0,
+							"srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				(
+					lv_immut_2_0='='
+					{
+						newLeafNode(lv_immut_2_0, grammarAccess.getInitValAccess().getImmutEqualsSignKeyword_1_0_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getInitValRule());
+						}
+						setWithLastConsumed($current, "immut", lv_immut_2_0, "=");
+					}
+				)
+			)
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getInitValAccess().getLitLiteralTupleParserRuleCall_1_1_0());
+					}
+					lv_lit_3_0=ruleLiteralTuple
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getInitValRule());
+						}
+						set(
+							$current,
+							"lit",
+							lv_lit_3_0,
+							"srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleLiteralTuple
+entryRuleLiteralTuple returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLiteralTupleRule()); }
+	iv_ruleLiteralTuple=ruleLiteralTuple
+	{ $current=$iv_ruleLiteralTuple.current; }
+	EOF;
+
+// Rule LiteralTuple
+ruleLiteralTuple returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getLiteralTupleAccess().getLitLiteralParserRuleCall_0_0());
+				}
+				lv_lit_0_0=ruleLiteral
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getLiteralTupleRule());
+					}
+					set(
+						$current,
+						"lit",
+						lv_lit_0_0,
+						"srf.transpiler.fortxtrans.FortXTrans.Literal");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		    |
+		(
+			otherlv_1='('
+			{
+				newLeafNode(otherlv_1, grammarAccess.getLiteralTupleAccess().getLeftParenthesisKeyword_1_0());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getLiteralTupleAccess().getLitsLiteralParserRuleCall_1_1_0());
+					}
+					lv_lits_2_0=ruleLiteral
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getLiteralTupleRule());
+						}
+						add(
+							$current,
+							"lits",
+							lv_lits_2_0,
+							"srf.transpiler.fortxtrans.FortXTrans.Literal");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			(
+				otherlv_3=','
+				{
+					newLeafNode(otherlv_3, grammarAccess.getLiteralTupleAccess().getCommaKeyword_1_2_0());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getLiteralTupleAccess().getLitsLiteralParserRuleCall_1_2_1_0());
+						}
+						lv_lits_4_0=ruleLiteral
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getLiteralTupleRule());
+							}
+							add(
+								$current,
+								"lits",
+								lv_lits_4_0,
+								"srf.transpiler.fortxtrans.FortXTrans.Literal");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)+
+			otherlv_5=')'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getLiteralTupleAccess().getRightParenthesisKeyword_1_3());
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleLiteral
+entryRuleLiteral returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getLiteralRule()); }
+	iv_ruleLiteral=ruleLiteral
+	{ $current=$iv_ruleLiteral.current; }
+	EOF;
+
+// Rule Literal
+ruleLiteral returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_intg_0_0=RULE_INT
+				{
+					newLeafNode(lv_intg_0_0, grammarAccess.getLiteralAccess().getIntgINTTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"intg",
+						lv_intg_0_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_flot_1_0=RULE_FLOAT
+				{
+					newLeafNode(lv_flot_1_0, grammarAccess.getLiteralAccess().getFlotFLOATTerminalRuleCall_1_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"flot",
+						lv_flot_1_0,
+						"srf.transpiler.fortxtrans.FortXTrans.FLOAT");
+				}
+			)
+		)
+		    |
+		(
+			(
+				lv_str_2_0=RULE_STRING
+				{
+					newLeafNode(lv_str_2_0, grammarAccess.getLiteralAccess().getStrSTRINGTerminalRuleCall_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getLiteralRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"str",
+						lv_str_2_0,
+						"org.eclipse.xtext.common.Terminals.STRING");
+				}
+			)
+		)
+	)
+;
+
 RULE_ML_COMMENT : '(*' ( options {greedy=false;} : . )*'*)';
+
+RULE_FLOAT : RULE_INT '.' RULE_INT;
 
 fragment RULE_GREATERS : '>' (RULE_SD '>')*;
 

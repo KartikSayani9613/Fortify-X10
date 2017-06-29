@@ -19,7 +19,6 @@ import srf.transpiler.fortxtrans.fortXTrans.DoFront;
 import srf.transpiler.fortxtrans.fortXTrans.Elifs;
 import srf.transpiler.fortxtrans.fortXTrans.Else;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.Generators;
 
@@ -208,7 +207,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * @generated
    * @ordered
    */
-  protected Expression par;
+  protected Expr par;
 
   /**
    * <!-- begin-user-doc -->
@@ -737,7 +736,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getPar()
+  public Expr getPar()
   {
     return par;
   }
@@ -747,9 +746,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetPar(Expression newPar, NotificationChain msgs)
+  public NotificationChain basicSetPar(Expr newPar, NotificationChain msgs)
   {
-    Expression oldPar = par;
+    Expr oldPar = par;
     par = newPar;
     if (eNotificationRequired())
     {
@@ -764,7 +763,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPar(Expression newPar)
+  public void setPar(Expr newPar)
   {
     if (newPar != par)
     {
@@ -901,7 +900,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         setEls((Else)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__PAR:
-        setPar((Expression)newValue);
+        setPar((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -954,7 +953,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         setEls((Else)null);
         return;
       case FortXTransPackage.DELIMITED_EXPR__PAR:
-        setPar((Expression)null);
+        setPar((Expr)null);
         return;
     }
     super.eUnset(featureID);

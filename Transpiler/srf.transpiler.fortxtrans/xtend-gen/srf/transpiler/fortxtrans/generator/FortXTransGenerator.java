@@ -33,14 +33,18 @@ import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
-import srf.transpiler.fortxtrans.fortXTrans.Expression;
+import srf.transpiler.fortxtrans.fortXTrans.FieldDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnMod;
 import srf.transpiler.fortxtrans.fortXTrans.FnMods;
 import srf.transpiler.fortxtrans.fortXTrans.GenClause;
 import srf.transpiler.fortxtrans.fortXTrans.Import;
+import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
+import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
+import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
 import srf.transpiler.fortxtrans.fortXTrans.RetType;
+import srf.transpiler.fortxtrans.fortXTrans.TupleType;
 import srf.transpiler.fortxtrans.fortXTrans.Type;
 import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 
@@ -276,6 +280,42 @@ public class FortXTransGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  public CharSequence compile(final Export e) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _exp = e.getExp();
+    _builder.append(_exp);
+    _builder.append(" ");
+    {
+      String _brack = e.getBrack();
+      boolean _tripleNotEquals = (_brack != null);
+      if (_tripleNotEquals) {
+        _builder.append("{");
+        {
+          int _length = ((Object[])Conversions.unwrapArray(e.getExportedName(), Object.class)).length;
+          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+          for(final Integer s : _doubleDotLessThan) {
+            {
+              if (((s).intValue() == 0)) {
+                String _get = e.getExportedName().get((s).intValue());
+                _builder.append(_get);
+              } else {
+                _builder.append(", ");
+                String _get_1 = e.getExportedName().get((s).intValue());
+                _builder.append(_get_1);
+              }
+            }
+          }
+        }
+        _builder.append("}");
+      } else {
+        String _get_2 = e.getExportedName().get(0);
+        _builder.append(_get_2);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public CharSequence compile(final ValParam p) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -338,8 +378,6 @@ public class FortXTransGenerator extends AbstractGenerator {
                                   } else {
                                     String _tname_5 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
                                     _builder.append(_tname_5);
-                                    String _tname_6 = p.getParams().get((s).intValue()).getIstype().getType().getTname();
-                                    _builder.append(_tname_6);
                                   }
                                 }
                               }
@@ -359,42 +397,6 @@ public class FortXTransGenerator extends AbstractGenerator {
     return _builder;
   }
   
-  public CharSequence compile(final Export e) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _exp = e.getExp();
-    _builder.append(_exp);
-    _builder.append(" ");
-    {
-      String _brack = e.getBrack();
-      boolean _tripleNotEquals = (_brack != null);
-      if (_tripleNotEquals) {
-        _builder.append("{");
-        {
-          int _length = ((Object[])Conversions.unwrapArray(e.getExportedName(), Object.class)).length;
-          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
-          for(final Integer s : _doubleDotLessThan) {
-            {
-              if (((s).intValue() == 0)) {
-                String _get = e.getExportedName().get((s).intValue());
-                _builder.append(_get);
-              } else {
-                _builder.append(", ");
-                String _get_1 = e.getExportedName().get((s).intValue());
-                _builder.append(_get_1);
-              }
-            }
-          }
-        }
-        _builder.append("}");
-      } else {
-        String _get_2 = e.getExportedName().get(0);
-        _builder.append(_get_2);
-      }
-    }
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
   public CharSequence compile(final Decls d) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -410,8 +412,520 @@ public class FortXTransGenerator extends AbstractGenerator {
   
   public CharSequence compile(final Decl d) {
     StringConcatenation _builder = new StringConcatenation();
-    CharSequence _compile = this.compile(d.getFunction());
-    _builder.append(_compile);
+    {
+      FnDecl _function = d.getFunction();
+      boolean _tripleNotEquals = (_function != null);
+      if (_tripleNotEquals) {
+        CharSequence _compile = this.compile(d.getFunction());
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      } else {
+        {
+          FieldDecl _field = d.getField();
+          boolean _tripleNotEquals_1 = (_field != null);
+          if (_tripleNotEquals_1) {
+            CharSequence _compile_1 = this.compile(d.getField());
+            _builder.append(_compile_1);
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final FieldDecl f) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      NoNewlineVarWTypes _vars = f.getVars();
+      boolean _tripleNotEquals = (_vars != null);
+      if (_tripleNotEquals) {
+        {
+          NoNewlineVarWType _single = f.getVars().getSingle();
+          boolean _tripleNotEquals_1 = (_single != null);
+          if (_tripleNotEquals_1) {
+            {
+              String _pri = f.getPri();
+              boolean _tripleNotEquals_2 = (_pri != null);
+              if (_tripleNotEquals_2) {
+                _builder.append("private");
+              }
+            }
+            _builder.append(" static ");
+            {
+              String _mut = f.getMut();
+              boolean _tripleEquals = (_mut == null);
+              if (_tripleEquals) {
+                {
+                  String _immut = f.getInit().getImmut();
+                  boolean _tripleNotEquals_3 = (_immut != null);
+                  if (_tripleNotEquals_3) {
+                    _builder.append(" val ");
+                  } else {
+                    _builder.append("var ");
+                  }
+                }
+              }
+            }
+            String _bid = f.getVars().getSingle().getBid();
+            _builder.append(_bid);
+            _builder.append(":");
+            {
+              String _tname = f.getVars().getSingle().getIstype().getType().getTname();
+              boolean _equals = Objects.equal(_tname, "ZZ32");
+              if (_equals) {
+                _builder.append("Int = ");
+                int _intg = f.getInit().getLit().getLit().getIntg();
+                _builder.append(_intg);
+                _builder.append("n;");
+              } else {
+                {
+                  String _tname_1 = f.getVars().getSingle().getIstype().getType().getTname();
+                  boolean _equals_1 = Objects.equal(_tname_1, "ZZ64");
+                  if (_equals_1) {
+                    _builder.append("Long = ");
+                    int _intg_1 = f.getInit().getLit().getLit().getIntg();
+                    _builder.append(_intg_1);
+                    _builder.append("l;");
+                  } else {
+                    {
+                      String _tname_2 = f.getVars().getSingle().getIstype().getType().getTname();
+                      boolean _equals_2 = Objects.equal(_tname_2, "RR32");
+                      if (_equals_2) {
+                        _builder.append("Float = ");
+                        String _flot = f.getInit().getLit().getLit().getFlot();
+                        _builder.append(_flot);
+                        _builder.append("f;");
+                      } else {
+                        {
+                          String _tname_3 = f.getVars().getSingle().getIstype().getType().getTname();
+                          boolean _equals_3 = Objects.equal(_tname_3, "RR64");
+                          if (_equals_3) {
+                            _builder.append("Double = ");
+                            String _flot_1 = f.getInit().getLit().getLit().getFlot();
+                            _builder.append(_flot_1);
+                            _builder.append("d;");
+                          } else {
+                            {
+                              String _tname_4 = f.getVars().getSingle().getIstype().getType().getTname();
+                              boolean _equals_4 = Objects.equal(_tname_4, "String");
+                              if (_equals_4) {
+                                _builder.append("String = \"");
+                                String _str = f.getInit().getLit().getLit().getStr();
+                                _builder.append(_str);
+                                _builder.append("\";");
+                              } else {
+                                String _tname_5 = f.getVars().getSingle().getIstype().getType().getTname();
+                                _builder.append(_tname_5);
+                                _builder.append(" = ");
+                                int _intg_2 = f.getInit().getLit().getLit().getIntg();
+                                _builder.append(_intg_2);
+                                _builder.append(";");
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          } else {
+            {
+              int _length = ((Object[])Conversions.unwrapArray(f.getVars().getMultiple(), Object.class)).length;
+              ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+              for(final Integer m : _doubleDotLessThan) {
+                _builder.newLineIfNotEmpty();
+                {
+                  String _pri_1 = f.getPri();
+                  boolean _tripleNotEquals_4 = (_pri_1 != null);
+                  if (_tripleNotEquals_4) {
+                    _builder.append("private");
+                  }
+                }
+                _builder.append(" static ");
+                {
+                  String _mut_1 = f.getMut();
+                  boolean _tripleEquals_1 = (_mut_1 == null);
+                  if (_tripleEquals_1) {
+                    {
+                      String _immut_1 = f.getInit().getImmut();
+                      boolean _tripleNotEquals_5 = (_immut_1 != null);
+                      if (_tripleNotEquals_5) {
+                        _builder.append("val ");
+                      } else {
+                        _builder.append("var ");
+                      }
+                    }
+                  }
+                }
+                String _bid_1 = f.getVars().getMultiple().get((m).intValue()).getBid();
+                _builder.append(_bid_1);
+                _builder.append(":");
+                {
+                  String _tname_6 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getTname();
+                  boolean _equals_5 = Objects.equal(_tname_6, "ZZ32");
+                  if (_equals_5) {
+                    _builder.append("Int = ");
+                    int _intg_3 = f.getInit().getLit().getLits().get((m).intValue()).getIntg();
+                    _builder.append(_intg_3);
+                    _builder.append("n;");
+                  } else {
+                    {
+                      String _tname_7 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getTname();
+                      boolean _equals_6 = Objects.equal(_tname_7, "ZZ64");
+                      if (_equals_6) {
+                        _builder.append("Long = ");
+                        int _intg_4 = f.getInit().getLit().getLits().get((m).intValue()).getIntg();
+                        _builder.append(_intg_4);
+                        _builder.append("l;");
+                      } else {
+                        {
+                          String _tname_8 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getTname();
+                          boolean _equals_7 = Objects.equal(_tname_8, "RR32");
+                          if (_equals_7) {
+                            _builder.append("Float = ");
+                            String _flot_2 = f.getInit().getLit().getLits().get((m).intValue()).getFlot();
+                            _builder.append(_flot_2);
+                            _builder.append("f;");
+                          } else {
+                            {
+                              String _tname_9 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getTname();
+                              boolean _equals_8 = Objects.equal(_tname_9, "RR64");
+                              if (_equals_8) {
+                                _builder.append("Double = ");
+                                String _flot_3 = f.getInit().getLit().getLits().get((m).intValue()).getFlot();
+                                _builder.append(_flot_3);
+                                _builder.append("d;");
+                              } else {
+                                {
+                                  String _tname_10 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getTname();
+                                  boolean _equals_9 = Objects.equal(_tname_10, "String");
+                                  if (_equals_9) {
+                                    _builder.append("String = \"");
+                                    String _str_1 = f.getInit().getLit().getLits().get((m).intValue()).getStr();
+                                    _builder.append(_str_1);
+                                    _builder.append("\";");
+                                  } else {
+                                    String _tname_11 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getTname();
+                                    _builder.append(_tname_11);
+                                    _builder.append(" = ");
+                                    int _intg_5 = f.getInit().getLit().getLits().get((m).intValue()).getIntg();
+                                    _builder.append(_intg_5);
+                                    _builder.append(";");
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            _builder.newLineIfNotEmpty();
+          }
+        }
+      } else {
+        {
+          Type _type = f.getType();
+          boolean _tripleNotEquals_6 = (_type != null);
+          if (_tripleNotEquals_6) {
+            {
+              int _length_1 = ((Object[])Conversions.unwrapArray(f.getIdtup().getBid(), Object.class)).length;
+              ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_1, true);
+              for(final Integer m_1 : _doubleDotLessThan_1) {
+                {
+                  String _pri_2 = f.getPri();
+                  boolean _tripleNotEquals_7 = (_pri_2 != null);
+                  if (_tripleNotEquals_7) {
+                    _builder.append("private");
+                  }
+                }
+                _builder.append(" static ");
+                {
+                  String _mut_2 = f.getMut();
+                  boolean _tripleEquals_2 = (_mut_2 == null);
+                  if (_tripleEquals_2) {
+                    {
+                      String _immut_2 = f.getInit().getImmut();
+                      boolean _tripleNotEquals_8 = (_immut_2 != null);
+                      if (_tripleNotEquals_8) {
+                        _builder.append("val ");
+                      } else {
+                        _builder.append("var ");
+                      }
+                    }
+                  }
+                }
+                String _get = f.getIdtup().getBid().get((m_1).intValue());
+                _builder.append(_get);
+                _builder.append(": ");
+                {
+                  String _tname_12 = f.getType().getTname();
+                  boolean _equals_10 = Objects.equal(_tname_12, "ZZ32");
+                  if (_equals_10) {
+                    _builder.append("Int = ");
+                    int _intg_6 = f.getInit().getLit().getLits().get((m_1).intValue()).getIntg();
+                    _builder.append(_intg_6);
+                    _builder.append("n;");
+                  } else {
+                    {
+                      String _tname_13 = f.getType().getTname();
+                      boolean _equals_11 = Objects.equal(_tname_13, "ZZ64");
+                      if (_equals_11) {
+                        _builder.append("Long = ");
+                        int _intg_7 = f.getInit().getLit().getLits().get((m_1).intValue()).getIntg();
+                        _builder.append(_intg_7);
+                        _builder.append("l;");
+                      } else {
+                        {
+                          String _tname_14 = f.getType().getTname();
+                          boolean _equals_12 = Objects.equal(_tname_14, "RR32");
+                          if (_equals_12) {
+                            _builder.append("Float = ");
+                            String _flot_4 = f.getInit().getLit().getLits().get((m_1).intValue()).getFlot();
+                            _builder.append(_flot_4);
+                            _builder.append("f;");
+                          } else {
+                            {
+                              String _tname_15 = f.getType().getTname();
+                              boolean _equals_13 = Objects.equal(_tname_15, "RR64");
+                              if (_equals_13) {
+                                _builder.append("Double = ");
+                                String _flot_5 = f.getInit().getLit().getLits().get((m_1).intValue()).getFlot();
+                                _builder.append(_flot_5);
+                                _builder.append("d;");
+                              } else {
+                                {
+                                  String _tname_16 = f.getType().getTname();
+                                  boolean _equals_14 = Objects.equal(_tname_16, "String");
+                                  if (_equals_14) {
+                                    _builder.append("String = \"");
+                                    String _str_2 = f.getInit().getLit().getLits().get((m_1).intValue()).getStr();
+                                    _builder.append(_str_2);
+                                    _builder.append("\";");
+                                  } else {
+                                    String _tname_17 = f.getType().getTname();
+                                    _builder.append(_tname_17);
+                                    _builder.append(" = ");
+                                    int _intg_8 = f.getInit().getLit().getLits().get((m_1).intValue()).getIntg();
+                                    _builder.append(_intg_8);
+                                    _builder.append(";");
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            _builder.newLineIfNotEmpty();
+          } else {
+            {
+              TupleType _tuptype = f.getTuptype();
+              boolean _tripleNotEquals_9 = (_tuptype != null);
+              if (_tripleNotEquals_9) {
+                {
+                  int _length_2 = ((Object[])Conversions.unwrapArray(f.getIdtup().getBid(), Object.class)).length;
+                  ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
+                  for(final Integer m_2 : _doubleDotLessThan_2) {
+                    {
+                      String _pri_3 = f.getPri();
+                      boolean _tripleNotEquals_10 = (_pri_3 != null);
+                      if (_tripleNotEquals_10) {
+                        _builder.append("private");
+                      }
+                    }
+                    _builder.append(" static ");
+                    {
+                      String _mut_3 = f.getMut();
+                      boolean _tripleEquals_3 = (_mut_3 == null);
+                      if (_tripleEquals_3) {
+                        {
+                          String _immut_3 = f.getInit().getImmut();
+                          boolean _tripleNotEquals_11 = (_immut_3 != null);
+                          if (_tripleNotEquals_11) {
+                            _builder.append("val ");
+                          } else {
+                            _builder.append("var ");
+                          }
+                        }
+                      }
+                    }
+                    String _get_1 = f.getIdtup().getBid().get((m_2).intValue());
+                    _builder.append(_get_1);
+                    _builder.append(": ");
+                    {
+                      String _tname_18 = f.getTuptype().getTypes().get((m_2).intValue()).getTname();
+                      boolean _equals_15 = Objects.equal(_tname_18, "ZZ32");
+                      if (_equals_15) {
+                        _builder.append("Int = ");
+                        int _intg_9 = f.getInit().getLit().getLits().get((m_2).intValue()).getIntg();
+                        _builder.append(_intg_9);
+                        _builder.append("n;");
+                      } else {
+                        {
+                          String _tname_19 = f.getTuptype().getTypes().get((m_2).intValue()).getTname();
+                          boolean _equals_16 = Objects.equal(_tname_19, "ZZ64");
+                          if (_equals_16) {
+                            _builder.append("Long = ");
+                            int _intg_10 = f.getInit().getLit().getLits().get((m_2).intValue()).getIntg();
+                            _builder.append(_intg_10);
+                            _builder.append("l;");
+                          } else {
+                            {
+                              String _tname_20 = f.getTuptype().getTypes().get((m_2).intValue()).getTname();
+                              boolean _equals_17 = Objects.equal(_tname_20, "RR32");
+                              if (_equals_17) {
+                                _builder.append("Float = ");
+                                String _flot_6 = f.getInit().getLit().getLits().get((m_2).intValue()).getFlot();
+                                _builder.append(_flot_6);
+                                _builder.append("f;");
+                              } else {
+                                {
+                                  String _tname_21 = f.getTuptype().getTypes().get((m_2).intValue()).getTname();
+                                  boolean _equals_18 = Objects.equal(_tname_21, "RR64");
+                                  if (_equals_18) {
+                                    _builder.append("Double = ");
+                                    String _flot_7 = f.getInit().getLit().getLits().get((m_2).intValue()).getFlot();
+                                    _builder.append(_flot_7);
+                                    _builder.append("d;");
+                                  } else {
+                                    {
+                                      String _tname_22 = f.getTuptype().getTypes().get((m_2).intValue()).getTname();
+                                      boolean _equals_19 = Objects.equal(_tname_22, "String");
+                                      if (_equals_19) {
+                                        _builder.append("String = \"");
+                                        String _str_3 = f.getInit().getLit().getLits().get((m_2).intValue()).getStr();
+                                        _builder.append(_str_3);
+                                        _builder.append("\";");
+                                      } else {
+                                        String _tname_23 = f.getTuptype().getTypes().get((m_2).intValue()).getTname();
+                                        _builder.append(_tname_23);
+                                        _builder.append(" = ");
+                                        int _intg_11 = f.getInit().getLit().getLits().get((m_2).intValue()).getIntg();
+                                        _builder.append(_intg_11);
+                                        _builder.append(";");
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+                _builder.append("\t");
+              } else {
+                {
+                  LiteralTuple _litTup = f.getLitTup();
+                  boolean _tripleNotEquals_12 = (_litTup != null);
+                  if (_tripleNotEquals_12) {
+                    {
+                      int _length_3 = ((Object[])Conversions.unwrapArray(f.getIdtup().getBid(), Object.class)).length;
+                      boolean _equals_20 = (_length_3 == 1);
+                      if (_equals_20) {
+                        {
+                          String _pri_4 = f.getPri();
+                          boolean _tripleNotEquals_13 = (_pri_4 != null);
+                          if (_tripleNotEquals_13) {
+                            _builder.append("private");
+                          }
+                        }
+                        _builder.append(" static val ");
+                        String _get_2 = f.getIdtup().getBid().get(0);
+                        _builder.append(_get_2);
+                        _builder.append(" = ");
+                        {
+                          String _flot_8 = f.getLitTup().getLit().getFlot();
+                          boolean _tripleNotEquals_14 = (_flot_8 != null);
+                          if (_tripleNotEquals_14) {
+                            String _flot_9 = f.getLitTup().getLit().getFlot();
+                            _builder.append(_flot_9);
+                            _builder.append("f");
+                          } else {
+                            {
+                              String _str_4 = f.getLitTup().getLit().getStr();
+                              boolean _tripleNotEquals_15 = (_str_4 != null);
+                              if (_tripleNotEquals_15) {
+                                _builder.append("\"");
+                                String _str_5 = f.getLitTup().getLit().getStr();
+                                _builder.append(_str_5);
+                                _builder.append("\"");
+                              } else {
+                                int _intg_12 = f.getLitTup().getLit().getIntg();
+                                _builder.append(_intg_12);
+                                _builder.append("n");
+                              }
+                            }
+                          }
+                        }
+                        _builder.append(";");
+                      } else {
+                        {
+                          int _length_4 = ((Object[])Conversions.unwrapArray(f.getIdtup().getBid(), Object.class)).length;
+                          ExclusiveRange _doubleDotLessThan_3 = new ExclusiveRange(0, _length_4, true);
+                          for(final Integer m_3 : _doubleDotLessThan_3) {
+                            {
+                              String _pri_5 = f.getPri();
+                              boolean _tripleNotEquals_16 = (_pri_5 != null);
+                              if (_tripleNotEquals_16) {
+                                _builder.append("private");
+                              }
+                            }
+                            _builder.append(" static val ");
+                            String _get_3 = f.getIdtup().getBid().get((m_3).intValue());
+                            _builder.append(_get_3);
+                            _builder.append(" = ");
+                            {
+                              String _flot_10 = f.getLitTup().getLits().get((m_3).intValue()).getFlot();
+                              boolean _tripleNotEquals_17 = (_flot_10 != null);
+                              if (_tripleNotEquals_17) {
+                                String _flot_11 = f.getLitTup().getLits().get((m_3).intValue()).getFlot();
+                                _builder.append(_flot_11);
+                                _builder.append("f");
+                              } else {
+                                {
+                                  String _str_6 = f.getLitTup().getLits().get((m_3).intValue()).getStr();
+                                  boolean _tripleNotEquals_18 = (_str_6 != null);
+                                  if (_tripleNotEquals_18) {
+                                    _builder.append("\"");
+                                    String _str_7 = f.getLitTup().getLits().get((m_3).intValue()).getStr();
+                                    _builder.append(_str_7);
+                                    _builder.append("\"");
+                                  } else {
+                                    int _intg_13 = f.getLitTup().getLits().get((m_3).intValue()).getIntg();
+                                    _builder.append(_intg_13);
+                                    _builder.append("n");
+                                  }
+                                }
+                              }
+                            }
+                            _builder.append(";");
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     _builder.newLineIfNotEmpty();
     return _builder;
   }
@@ -514,7 +1028,6 @@ public class FortXTransGenerator extends AbstractGenerator {
     {
       boolean _isBody = f.isBody();
       if (_isBody) {
-        _builder.append("\t");
         String _compile_1 = this.compile(f.getFnItself());
         _builder.append(_compile_1);
         _builder.newLineIfNotEmpty();
@@ -523,13 +1036,6 @@ public class FortXTransGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     return _builder;
-  }
-  
-  public String compile(final Expression e) {
-    StringConcatenation _builder = new StringConcatenation();
-    String _compile = this.compile(e.getExp());
-    _builder.append(_compile);
-    return _builder.toString();
   }
   
   public String compile(final Expr e) {
@@ -716,7 +1222,7 @@ public class FortXTransGenerator extends AbstractGenerator {
                     }
                   } else {
                     {
-                      Expression _par = d.getPar();
+                      Expr _par = d.getPar();
                       boolean _tripleNotEquals_7 = (_par != null);
                       if (_tripleNotEquals_7) {
                         _builder.append("(");
@@ -813,19 +1319,30 @@ public class FortXTransGenerator extends AbstractGenerator {
   
   public CharSequence compile(final BlockElems bs) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("{");
-    _builder.newLine();
     {
       int _length = ((Object[])Conversions.unwrapArray(bs.getBlock(), Object.class)).length;
-      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
-      for(final Integer b : _doubleDotLessThan) {
-        String _compile = this.compile(bs.getBlock().get((b).intValue()).getExp());
+      boolean _equals = (_length == 1);
+      if (_equals) {
+        _builder.newLineIfNotEmpty();
+        String _compile = this.compile(bs.getBlock().get(0).getExp());
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
+      } else {
+        _builder.append("{");
+        _builder.newLine();
+        {
+          int _length_1 = ((Object[])Conversions.unwrapArray(bs.getBlock(), Object.class)).length;
+          ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
+          for(final Integer b : _doubleDotLessThan) {
+            String _compile_1 = this.compile(bs.getBlock().get((b).intValue()).getExp());
+            _builder.append(_compile_1);
+            _builder.newLineIfNotEmpty();
+            _builder.append("\t");
+          }
+        }
+        _builder.append("}");
       }
     }
-    _builder.append("}");
     _builder.newLineIfNotEmpty();
     return _builder;
   }

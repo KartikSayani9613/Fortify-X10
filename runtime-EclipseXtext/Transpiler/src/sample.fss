@@ -9,9 +9,13 @@
 
  ******************************************************************************)
 
-component testum
+component fact64
 export Executable
-
+	n:ZZ64 := 20
+	private var k:String = "myboi"
+	(i, j) : ZZ32... = (0,0)
+	(i, j) = (0.0, "yolo")
+	
 (* Computing factorial, in 64 bits.  Notice the call to "widen";
    this is necessary at least with the current interpreter, which 
    otherwise cheerfully multiplies two 32-bit integers giving a 32-bit
@@ -19,18 +23,18 @@ export Executable
    in the least. *)
 
 run() = do 
-   for i <- seq(name) do
-		(*j:ZZ64 = widen(i)*)     
-//     println("fact(" j ")= " fac(i, j))
-		name
+   for i <- seq(n) do
+//     j:ZZ64 = widen(i)
+//     println("fact(" j ")= " f(j))
+		something
    end
 end
 
-fac(i:ZZ32,x:ZZ64):ZZ64 = do
-    if x then
-        name 
+f(x:ZZ64):ZZ64 = do
+    if x then//< 2 then
+        One//1 
     else 
-        x f 
+        x //f(x-1) 
     end
 end
 

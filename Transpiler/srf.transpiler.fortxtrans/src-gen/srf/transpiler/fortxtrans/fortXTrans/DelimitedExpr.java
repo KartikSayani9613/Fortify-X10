@@ -356,12 +356,12 @@ public interface DelimitedExpr extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Par</em>' containment reference.
-   * @see #setPar(Expression)
+   * @see #setPar(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Par()
    * @model containment="true"
    * @generated
    */
-  Expression getPar();
+  Expr getPar();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}' containment reference.
@@ -371,6 +371,6 @@ public interface DelimitedExpr extends EObject
    * @see #getPar()
    * @generated
    */
-  void setPar(Expression value);
+  void setPar(Expr value);
 
 } // DelimitedExpr

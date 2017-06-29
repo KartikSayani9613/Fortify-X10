@@ -73,7 +73,7 @@ Decls:
 
 Decl:
 	function=FnDecl
-	|var=FieldDecl
+	|field=FieldDecl
 //	|object=ObjDecl
 //	|trait=TraitDecl
 ;
@@ -103,16 +103,16 @@ RetType:
 	|':' type=Type
 ;
 
+TupleType:
+	'(' types+=Type (',' types+=Type)* ')'
+;
+
 Type:
 	tname=ID
 ;
 
 FnDecl:
-	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Expression)?
-;
-
-Expression:
-	exp=Expr
+	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Expr)?
 ;
 
 Expr:
@@ -121,6 +121,7 @@ Expr:
 
 ExprFront:
 	delim=DelimitedExpr
+	|locVar=LocalVarDecl
 	|id=QualifiedName
 ;
 
@@ -166,11 +167,11 @@ BlockElems:
 	block+=BlockElem (block+=BlockElem)*
 ;
 
-BlockElem returns Expression:
+BlockElem returns Expr:
 	exp=Expr
 ;
 
-Paranthesized returns Expression:
+Paranthesized returns Expr:
 	'(' expr=Expr')'
 ;
 
@@ -196,11 +197,56 @@ BindId:
 IsType:
 	':' type=Type
 ;
+//For a field Decl, If you 'var' has been used it will be mutable. 
+//If 'var' has not been used check '=' for immutable and ':=' for mutable.
+FieldDecl:
+	(pri='private')? (mut='var')? vars=NoNewlineVarWTypes init=InitVal
+	|(pri='private')? idtup=IdOrTuple '=' litTup=LiteralTuple
+	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+;
+
+NoNewlineVarWTypes:
+	single=NoNewlineVarWType
+	| "(" multiple+=NoNewlineVarWType ( "," multiple+=NoNewlineVarWType)+ ")"
+;
+NoNewlineVarWType:
+	bid=BindId istype=IsType
+;
+
+InitVal:
+	mut=':=' lit=LiteralTuple
+	|immut='=' lit=LiteralTuple
+;
+
+LiteralTuple:
+	lit=Literal
+	|'(' lits+=Literal (',' lits+=Literal)+ ')'
+;
+
+Literal:
+	intg=INT
+	|flot=FLOAT
+	|str=STRING
+	|q=QualifiedName
+;
+
+LocalVarDecl:
+	(mut='var')? vars=NoNewlineVarWTypes init=InitVal
+	|idtup=IdOrTuple '=' litTup=LiteralTuple
+	|(mut='var')? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+;
 
 @Override 
 terminal ML_COMMENT:
 	'(*' -> '*)'
 ;
+
+terminal FLOAT:
+	INT'.'INT
+;
+
 terminal GREATERS:
 	'>' (SD '>')*
 ;

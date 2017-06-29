@@ -201,6 +201,13 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FortXTransPackage.TUPLE_TYPE:
+      {
+        TupleType tupleType = (TupleType)theEObject;
+        T result = caseTupleType(tupleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FortXTransPackage.TYPE:
       {
         Type type = (Type)theEObject;
@@ -212,13 +219,6 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         FnDecl fnDecl = (FnDecl)theEObject;
         T result = caseFnDecl(fnDecl);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -324,6 +324,48 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         IsType isType = (IsType)theEObject;
         T result = caseIsType(isType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.FIELD_DECL:
+      {
+        FieldDecl fieldDecl = (FieldDecl)theEObject;
+        T result = caseFieldDecl(fieldDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES:
+      {
+        NoNewlineVarWTypes noNewlineVarWTypes = (NoNewlineVarWTypes)theEObject;
+        T result = caseNoNewlineVarWTypes(noNewlineVarWTypes);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPE:
+      {
+        NoNewlineVarWType noNewlineVarWType = (NoNewlineVarWType)theEObject;
+        T result = caseNoNewlineVarWType(noNewlineVarWType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.INIT_VAL:
+      {
+        InitVal initVal = (InitVal)theEObject;
+        T result = caseInitVal(initVal);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.LITERAL_TUPLE:
+      {
+        LiteralTuple literalTuple = (LiteralTuple)theEObject;
+        T result = caseLiteralTuple(literalTuple);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.LITERAL:
+      {
+        Literal literal = (Literal)theEObject;
+        T result = caseLiteral(literal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -620,6 +662,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Tuple Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Tuple Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTupleType(TupleType object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -647,22 +705,6 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFnDecl(FnDecl object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExpression(Expression object)
   {
     return null;
   }
@@ -903,6 +945,102 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseIsType(IsType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Field Decl</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Field Decl</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFieldDecl(FieldDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>No Newline Var WTypes</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>No Newline Var WTypes</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNoNewlineVarWTypes(NoNewlineVarWTypes object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>No Newline Var WType</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>No Newline Var WType</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNoNewlineVarWType(NoNewlineVarWType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Init Val</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Init Val</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseInitVal(InitVal object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Literal Tuple</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Literal Tuple</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLiteralTuple(LiteralTuple object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLiteral(Literal object)
   {
     return null;
   }

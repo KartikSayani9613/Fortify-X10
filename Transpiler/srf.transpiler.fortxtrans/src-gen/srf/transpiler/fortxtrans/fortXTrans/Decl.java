@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Decl#getFunction <em>Function</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Decl#getField <em>Field</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDecl()
@@ -48,5 +49,31 @@ public interface Decl extends EObject
    * @generated
    */
   void setFunction(FnDecl value);
+
+  /**
+   * Returns the value of the '<em><b>Field</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Field</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Field</em>' containment reference.
+   * @see #setField(FieldDecl)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDecl_Field()
+   * @model containment="true"
+   * @generated
+   */
+  FieldDecl getField();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Decl#getField <em>Field</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Field</em>' containment reference.
+   * @see #getField()
+   * @generated
+   */
+  void setField(FieldDecl value);
 
 } // Decl

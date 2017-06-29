@@ -83,9 +83,9 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.VAL_PARAM: return createValParam();
       case FortXTransPackage.PARAM: return createParam();
       case FortXTransPackage.RET_TYPE: return createRetType();
+      case FortXTransPackage.TUPLE_TYPE: return createTupleType();
       case FortXTransPackage.TYPE: return createType();
       case FortXTransPackage.FN_DECL: return createFnDecl();
-      case FortXTransPackage.EXPRESSION: return createExpression();
       case FortXTransPackage.EXPR: return createExpr();
       case FortXTransPackage.EXPR_FRONT: return createExprFront();
       case FortXTransPackage.EXPR_TAIL: return createExprTail();
@@ -101,6 +101,12 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.DO_FRONT: return createDoFront();
       case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
       case FortXTransPackage.IS_TYPE: return createIsType();
+      case FortXTransPackage.FIELD_DECL: return createFieldDecl();
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES: return createNoNewlineVarWTypes();
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPE: return createNoNewlineVarWType();
+      case FortXTransPackage.INIT_VAL: return createInitVal();
+      case FortXTransPackage.LITERAL_TUPLE: return createLiteralTuple();
+      case FortXTransPackage.LITERAL: return createLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -309,6 +315,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public TupleType createTupleType()
+  {
+    TupleTypeImpl tupleType = new TupleTypeImpl();
+    return tupleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Type createType()
   {
     TypeImpl type = new TypeImpl();
@@ -324,17 +341,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     FnDeclImpl fnDecl = new FnDeclImpl();
     return fnDecl;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression createExpression()
-  {
-    ExpressionImpl expression = new ExpressionImpl();
-    return expression;
   }
 
   /**
@@ -500,6 +506,72 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     IsTypeImpl isType = new IsTypeImpl();
     return isType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FieldDecl createFieldDecl()
+  {
+    FieldDeclImpl fieldDecl = new FieldDeclImpl();
+    return fieldDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NoNewlineVarWTypes createNoNewlineVarWTypes()
+  {
+    NoNewlineVarWTypesImpl noNewlineVarWTypes = new NoNewlineVarWTypesImpl();
+    return noNewlineVarWTypes;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NoNewlineVarWType createNoNewlineVarWType()
+  {
+    NoNewlineVarWTypeImpl noNewlineVarWType = new NoNewlineVarWTypeImpl();
+    return noNewlineVarWType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public InitVal createInitVal()
+  {
+    InitValImpl initVal = new InitValImpl();
+    return initVal;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LiteralTuple createLiteralTuple()
+  {
+    LiteralTupleImpl literalTuple = new LiteralTupleImpl();
+    return literalTuple;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Literal createLiteral()
+  {
+    LiteralImpl literal = new LiteralImpl();
+    return literal;
   }
 
   /**

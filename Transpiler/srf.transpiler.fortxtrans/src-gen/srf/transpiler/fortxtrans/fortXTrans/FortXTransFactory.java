@@ -186,6 +186,15 @@ public interface FortXTransFactory extends EFactory
   RetType createRetType();
 
   /**
+   * Returns a new object of class '<em>Tuple Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Tuple Type</em>'.
+   * @generated
+   */
+  TupleType createTupleType();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -202,15 +211,6 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   FnDecl createFnDecl();
-
-  /**
-   * Returns a new object of class '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
-   * @generated
-   */
-  Expression createExpression();
 
   /**
    * Returns a new object of class '<em>Expr</em>'.
@@ -346,6 +346,60 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   IsType createIsType();
+
+  /**
+   * Returns a new object of class '<em>Field Decl</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Field Decl</em>'.
+   * @generated
+   */
+  FieldDecl createFieldDecl();
+
+  /**
+   * Returns a new object of class '<em>No Newline Var WTypes</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>No Newline Var WTypes</em>'.
+   * @generated
+   */
+  NoNewlineVarWTypes createNoNewlineVarWTypes();
+
+  /**
+   * Returns a new object of class '<em>No Newline Var WType</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>No Newline Var WType</em>'.
+   * @generated
+   */
+  NoNewlineVarWType createNoNewlineVarWType();
+
+  /**
+   * Returns a new object of class '<em>Init Val</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Init Val</em>'.
+   * @generated
+   */
+  InitVal createInitVal();
+
+  /**
+   * Returns a new object of class '<em>Literal Tuple</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Literal Tuple</em>'.
+   * @generated
+   */
+  LiteralTuple createLiteralTuple();
+
+  /**
+   * Returns a new object of class '<em>Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Literal</em>'.
+   * @generated
+   */
+  Literal createLiteral();
 
   /**
    * Returns the package supported by this factory.

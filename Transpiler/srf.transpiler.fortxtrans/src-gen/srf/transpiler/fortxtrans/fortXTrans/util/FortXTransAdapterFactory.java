@@ -166,6 +166,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createRetTypeAdapter();
       }
       @Override
+      public Adapter caseTupleType(TupleType object)
+      {
+        return createTupleTypeAdapter();
+      }
+      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
@@ -174,11 +179,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFnDecl(FnDecl object)
       {
         return createFnDeclAdapter();
-      }
-      @Override
-      public Adapter caseExpression(Expression object)
-      {
-        return createExpressionAdapter();
       }
       @Override
       public Adapter caseExpr(Expr object)
@@ -254,6 +254,36 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseIsType(IsType object)
       {
         return createIsTypeAdapter();
+      }
+      @Override
+      public Adapter caseFieldDecl(FieldDecl object)
+      {
+        return createFieldDeclAdapter();
+      }
+      @Override
+      public Adapter caseNoNewlineVarWTypes(NoNewlineVarWTypes object)
+      {
+        return createNoNewlineVarWTypesAdapter();
+      }
+      @Override
+      public Adapter caseNoNewlineVarWType(NoNewlineVarWType object)
+      {
+        return createNoNewlineVarWTypeAdapter();
+      }
+      @Override
+      public Adapter caseInitVal(InitVal object)
+      {
+        return createInitValAdapter();
+      }
+      @Override
+      public Adapter caseLiteralTuple(LiteralTuple object)
+      {
+        return createLiteralTupleAdapter();
+      }
+      @Override
+      public Adapter caseLiteral(Literal object)
+      {
+        return createLiteralAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -548,6 +578,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.TupleType <em>Tuple Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.TupleType
+   * @generated
+   */
+  public Adapter createTupleTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -573,21 +618,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFnDeclAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Expression <em>Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Expression
-   * @generated
-   */
-  public Adapter createExpressionAdapter()
   {
     return null;
   }
@@ -813,6 +843,96 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createIsTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl <em>Field Decl</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FieldDecl
+   * @generated
+   */
+  public Adapter createFieldDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes <em>No Newline Var WTypes</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes
+   * @generated
+   */
+  public Adapter createNoNewlineVarWTypesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType <em>No Newline Var WType</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType
+   * @generated
+   */
+  public Adapter createNoNewlineVarWTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.InitVal <em>Init Val</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.InitVal
+   * @generated
+   */
+  public Adapter createInitValAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.LiteralTuple <em>Literal Tuple</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LiteralTuple
+   * @generated
+   */
+  public Adapter createLiteralTupleAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Literal <em>Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Literal
+   * @generated
+   */
+  public Adapter createLiteralAdapter()
   {
     return null;
   }

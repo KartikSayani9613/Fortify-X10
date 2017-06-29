@@ -787,22 +787,34 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	public class DeclElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Decl");
-		private final Assignment cFunctionAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cFunctionFnDeclParserRuleCall_0 = (RuleCall)cFunctionAssignment.eContents().get(0);
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cFunctionAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cFunctionFnDeclParserRuleCall_0_0 = (RuleCall)cFunctionAssignment_0.eContents().get(0);
+		private final Assignment cFieldAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cFieldFieldDeclParserRuleCall_1_0 = (RuleCall)cFieldAssignment_1.eContents().get(0);
 		
 		//Decl:
 		//	function=FnDecl
-		//	//	|var=VarDecl
+		//	| field=FieldDecl
 		//	//	|object=ObjDecl
 		//	//	|trait=TraitDecl
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
+		//function=FnDecl | field=FieldDecl
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
 		//function=FnDecl
-		public Assignment getFunctionAssignment() { return cFunctionAssignment; }
+		public Assignment getFunctionAssignment_0() { return cFunctionAssignment_0; }
 		
 		//FnDecl
-		public RuleCall getFunctionFnDeclParserRuleCall_0() { return cFunctionFnDeclParserRuleCall_0; }
+		public RuleCall getFunctionFnDeclParserRuleCall_0_0() { return cFunctionFnDeclParserRuleCall_0_0; }
+		
+		//field=FieldDecl
+		public Assignment getFieldAssignment_1() { return cFieldAssignment_1; }
+		
+		//FieldDecl
+		public RuleCall getFieldFieldDeclParserRuleCall_1_0() { return cFieldFieldDeclParserRuleCall_1_0; }
 	}
 	public class FnModsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FnMods");
@@ -1004,6 +1016,49 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//Type
 		public RuleCall getTypeTypeParserRuleCall_1_1_0() { return cTypeTypeParserRuleCall_1_1_0; }
 	}
+	public class TupleTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.TupleType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypesAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cTypesTypeParserRuleCall_1_0 = (RuleCall)cTypesAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cTypesAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cTypesTypeParserRuleCall_2_1_0 = (RuleCall)cTypesAssignment_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//TupleType:
+		//	'(' types+=Type (',' types+=Type)* ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'(' types+=Type (',' types+=Type)* ')'
+		public Group getGroup() { return cGroup; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//types+=Type
+		public Assignment getTypesAssignment_1() { return cTypesAssignment_1; }
+		
+		//Type
+		public RuleCall getTypesTypeParserRuleCall_1_0() { return cTypesTypeParserRuleCall_1_0; }
+		
+		//(',' types+=Type)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+		
+		//types+=Type
+		public Assignment getTypesAssignment_2_1() { return cTypesAssignment_2_1; }
+		
+		//Type
+		public RuleCall getTypesTypeParserRuleCall_2_1_0() { return cTypesTypeParserRuleCall_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
+	}
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Type");
 		private final Assignment cTnameAssignment = (Assignment)rule.eContents().get(1);
@@ -1034,13 +1089,13 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBodyAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
 		private final Keyword cBodyEqualsSignKeyword_4_0_0 = (Keyword)cBodyAssignment_4_0.eContents().get(0);
 		private final Assignment cFnItselfAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
-		private final RuleCall cFnItselfExpressionParserRuleCall_4_1_0 = (RuleCall)cFnItselfAssignment_4_1.eContents().get(0);
+		private final RuleCall cFnItselfExprParserRuleCall_4_1_0 = (RuleCall)cFnItselfAssignment_4_1.eContents().get(0);
 		
 		//FnDecl:
-		//	mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Expression)?;
+		//	mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Expr)?;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Expression)?
+		//mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Expr)?
 		public Group getGroup() { return cGroup; }
 		
 		//mods=FnMods?
@@ -1067,7 +1122,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//RetType
 		public RuleCall getRetValRetTypeParserRuleCall_3_0() { return cRetValRetTypeParserRuleCall_3_0; }
 		
-		//(body?='=' fnItself=Expression)?
+		//(body?='=' fnItself=Expr)?
 		public Group getGroup_4() { return cGroup_4; }
 		
 		//body?='='
@@ -1076,26 +1131,11 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//'='
 		public Keyword getBodyEqualsSignKeyword_4_0_0() { return cBodyEqualsSignKeyword_4_0_0; }
 		
-		//fnItself=Expression
+		//fnItself=Expr
 		public Assignment getFnItselfAssignment_4_1() { return cFnItselfAssignment_4_1; }
 		
-		//Expression
-		public RuleCall getFnItselfExpressionParserRuleCall_4_1_0() { return cFnItselfExpressionParserRuleCall_4_1_0; }
-	}
-	public class ExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Expression");
-		private final Assignment cExpAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cExpExprParserRuleCall_0 = (RuleCall)cExpAssignment.eContents().get(0);
-		
-		//Expression:
-		//	exp=Expr;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//exp=Expr
-		public Assignment getExpAssignment() { return cExpAssignment; }
-		
 		//Expr
-		public RuleCall getExpExprParserRuleCall_0() { return cExpExprParserRuleCall_0; }
+		public RuleCall getFnItselfExprParserRuleCall_4_1_0() { return cFnItselfExprParserRuleCall_4_1_0; }
 	}
 	public class ExprElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Expr");
@@ -1575,7 +1615,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cExpExprParserRuleCall_0 = (RuleCall)cExpAssignment.eContents().get(0);
 		
-		//BlockElem Expression:
+		//BlockElem Expr:
 		//	exp=Expr;
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1593,7 +1633,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExprExprParserRuleCall_1_0 = (RuleCall)cExprAssignment_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//Paranthesized Expression:
+		//Paranthesized Expr:
 		//	'(' expr=Expr ')';
 		@Override public ParserRule getRule() { return rule; }
 		
@@ -1801,6 +1841,420 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//Type
 		public RuleCall getTypeTypeParserRuleCall_1_0() { return cTypeTypeParserRuleCall_1_0; }
 	}
+	public class FieldDeclElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FieldDecl");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cPriAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cPriPrivateKeyword_0_0_0 = (Keyword)cPriAssignment_0_0.eContents().get(0);
+		private final Assignment cMutAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final Keyword cMutVarKeyword_0_1_0 = (Keyword)cMutAssignment_0_1.eContents().get(0);
+		private final Assignment cVarsAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cVarsNoNewlineVarWTypesParserRuleCall_0_2_0 = (RuleCall)cVarsAssignment_0_2.eContents().get(0);
+		private final Assignment cInitAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cInitInitValParserRuleCall_0_3_0 = (RuleCall)cInitAssignment_0_3.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cPriAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cPriPrivateKeyword_1_0_0 = (Keyword)cPriAssignment_1_0.eContents().get(0);
+		private final Assignment cIdtupAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cIdtupIdOrTupleParserRuleCall_1_1_0 = (RuleCall)cIdtupAssignment_1_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1_2 = (Keyword)cGroup_1.eContents().get(2);
+		private final Assignment cLitTupAssignment_1_3 = (Assignment)cGroup_1.eContents().get(3);
+		private final RuleCall cLitTupLiteralTupleParserRuleCall_1_3_0 = (RuleCall)cLitTupAssignment_1_3.eContents().get(0);
+		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
+		private final Assignment cPriAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cPriPrivateKeyword_2_0_0 = (Keyword)cPriAssignment_2_0.eContents().get(0);
+		private final Assignment cMutAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final Keyword cMutVarKeyword_2_1_0 = (Keyword)cMutAssignment_2_1.eContents().get(0);
+		private final Assignment cIdtupAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
+		private final RuleCall cIdtupIdOrTupleParserRuleCall_2_2_0 = (RuleCall)cIdtupAssignment_2_2.eContents().get(0);
+		private final Keyword cColonKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cTypeAssignment_2_4 = (Assignment)cGroup_2.eContents().get(4);
+		private final RuleCall cTypeTypeParserRuleCall_2_4_0 = (RuleCall)cTypeAssignment_2_4.eContents().get(0);
+		private final RuleCall cDOTSTerminalRuleCall_2_5 = (RuleCall)cGroup_2.eContents().get(5);
+		private final Assignment cInitAssignment_2_6 = (Assignment)cGroup_2.eContents().get(6);
+		private final RuleCall cInitInitValParserRuleCall_2_6_0 = (RuleCall)cInitAssignment_2_6.eContents().get(0);
+		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
+		private final Assignment cPriAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cPriPrivateKeyword_3_0_0 = (Keyword)cPriAssignment_3_0.eContents().get(0);
+		private final Assignment cMutAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final Keyword cMutVarKeyword_3_1_0 = (Keyword)cMutAssignment_3_1.eContents().get(0);
+		private final Assignment cIdtupAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cIdtupIdOrTupleParserRuleCall_3_2_0 = (RuleCall)cIdtupAssignment_3_2.eContents().get(0);
+		private final Keyword cColonKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Assignment cTuptypeAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
+		private final RuleCall cTuptypeTupleTypeParserRuleCall_3_4_0 = (RuleCall)cTuptypeAssignment_3_4.eContents().get(0);
+		private final Assignment cInitAssignment_3_5 = (Assignment)cGroup_3.eContents().get(5);
+		private final RuleCall cInitInitValParserRuleCall_3_5_0 = (RuleCall)cInitAssignment_3_5.eContents().get(0);
+		
+		////For a field Decl, If you 'var' has been used it will be mutable. 
+		////If 'var' has not been used check '=' for immutable and ':=' for mutable.
+		//FieldDecl:
+		//	pri='private'? mut='var'? vars=NoNewlineVarWTypes init=InitVal
+		//	| pri='private'? idtup=IdOrTuple '=' litTup=LiteralTuple
+		//	| pri='private'? mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+		//	| pri='private'? mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//pri='private'? mut='var'? vars=NoNewlineVarWTypes init=InitVal | pri='private'? idtup=IdOrTuple '=' litTup=LiteralTuple
+		//| pri='private'? mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal | pri='private'? mut='var'? idtup=IdOrTuple
+		//':' tuptype=TupleType init=InitVal
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//pri='private'? mut='var'? vars=NoNewlineVarWTypes init=InitVal
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//pri='private'?
+		public Assignment getPriAssignment_0_0() { return cPriAssignment_0_0; }
+		
+		//'private'
+		public Keyword getPriPrivateKeyword_0_0_0() { return cPriPrivateKeyword_0_0_0; }
+		
+		//mut='var'?
+		public Assignment getMutAssignment_0_1() { return cMutAssignment_0_1; }
+		
+		//'var'
+		public Keyword getMutVarKeyword_0_1_0() { return cMutVarKeyword_0_1_0; }
+		
+		//vars=NoNewlineVarWTypes
+		public Assignment getVarsAssignment_0_2() { return cVarsAssignment_0_2; }
+		
+		//NoNewlineVarWTypes
+		public RuleCall getVarsNoNewlineVarWTypesParserRuleCall_0_2_0() { return cVarsNoNewlineVarWTypesParserRuleCall_0_2_0; }
+		
+		//init=InitVal
+		public Assignment getInitAssignment_0_3() { return cInitAssignment_0_3; }
+		
+		//InitVal
+		public RuleCall getInitInitValParserRuleCall_0_3_0() { return cInitInitValParserRuleCall_0_3_0; }
+		
+		//pri='private'? idtup=IdOrTuple '=' litTup=LiteralTuple
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//pri='private'?
+		public Assignment getPriAssignment_1_0() { return cPriAssignment_1_0; }
+		
+		//'private'
+		public Keyword getPriPrivateKeyword_1_0_0() { return cPriPrivateKeyword_1_0_0; }
+		
+		//idtup=IdOrTuple
+		public Assignment getIdtupAssignment_1_1() { return cIdtupAssignment_1_1; }
+		
+		//IdOrTuple
+		public RuleCall getIdtupIdOrTupleParserRuleCall_1_1_0() { return cIdtupIdOrTupleParserRuleCall_1_1_0; }
+		
+		//'='
+		public Keyword getEqualsSignKeyword_1_2() { return cEqualsSignKeyword_1_2; }
+		
+		//litTup=LiteralTuple
+		public Assignment getLitTupAssignment_1_3() { return cLitTupAssignment_1_3; }
+		
+		//LiteralTuple
+		public RuleCall getLitTupLiteralTupleParserRuleCall_1_3_0() { return cLitTupLiteralTupleParserRuleCall_1_3_0; }
+		
+		//pri='private'? mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//pri='private'?
+		public Assignment getPriAssignment_2_0() { return cPriAssignment_2_0; }
+		
+		//'private'
+		public Keyword getPriPrivateKeyword_2_0_0() { return cPriPrivateKeyword_2_0_0; }
+		
+		//mut='var'?
+		public Assignment getMutAssignment_2_1() { return cMutAssignment_2_1; }
+		
+		//'var'
+		public Keyword getMutVarKeyword_2_1_0() { return cMutVarKeyword_2_1_0; }
+		
+		//idtup=IdOrTuple
+		public Assignment getIdtupAssignment_2_2() { return cIdtupAssignment_2_2; }
+		
+		//IdOrTuple
+		public RuleCall getIdtupIdOrTupleParserRuleCall_2_2_0() { return cIdtupIdOrTupleParserRuleCall_2_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_2_3() { return cColonKeyword_2_3; }
+		
+		//type=Type
+		public Assignment getTypeAssignment_2_4() { return cTypeAssignment_2_4; }
+		
+		//Type
+		public RuleCall getTypeTypeParserRuleCall_2_4_0() { return cTypeTypeParserRuleCall_2_4_0; }
+		
+		//DOTS
+		public RuleCall getDOTSTerminalRuleCall_2_5() { return cDOTSTerminalRuleCall_2_5; }
+		
+		//init=InitVal
+		public Assignment getInitAssignment_2_6() { return cInitAssignment_2_6; }
+		
+		//InitVal
+		public RuleCall getInitInitValParserRuleCall_2_6_0() { return cInitInitValParserRuleCall_2_6_0; }
+		
+		//pri='private'? mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//pri='private'?
+		public Assignment getPriAssignment_3_0() { return cPriAssignment_3_0; }
+		
+		//'private'
+		public Keyword getPriPrivateKeyword_3_0_0() { return cPriPrivateKeyword_3_0_0; }
+		
+		//mut='var'?
+		public Assignment getMutAssignment_3_1() { return cMutAssignment_3_1; }
+		
+		//'var'
+		public Keyword getMutVarKeyword_3_1_0() { return cMutVarKeyword_3_1_0; }
+		
+		//idtup=IdOrTuple
+		public Assignment getIdtupAssignment_3_2() { return cIdtupAssignment_3_2; }
+		
+		//IdOrTuple
+		public RuleCall getIdtupIdOrTupleParserRuleCall_3_2_0() { return cIdtupIdOrTupleParserRuleCall_3_2_0; }
+		
+		//':'
+		public Keyword getColonKeyword_3_3() { return cColonKeyword_3_3; }
+		
+		//tuptype=TupleType
+		public Assignment getTuptypeAssignment_3_4() { return cTuptypeAssignment_3_4; }
+		
+		//TupleType
+		public RuleCall getTuptypeTupleTypeParserRuleCall_3_4_0() { return cTuptypeTupleTypeParserRuleCall_3_4_0; }
+		
+		//init=InitVal
+		public Assignment getInitAssignment_3_5() { return cInitAssignment_3_5; }
+		
+		//InitVal
+		public RuleCall getInitInitValParserRuleCall_3_5_0() { return cInitInitValParserRuleCall_3_5_0; }
+	}
+	public class NoNewlineVarWTypesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWTypes");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cSingleAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cSingleNoNewlineVarWTypeParserRuleCall_0_0 = (RuleCall)cSingleAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cMultipleAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cMultipleNoNewlineVarWTypeParserRuleCall_1_1_0 = (RuleCall)cMultipleAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cMultipleAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cMultipleNoNewlineVarWTypeParserRuleCall_1_2_1_0 = (RuleCall)cMultipleAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		
+		//NoNewlineVarWTypes:
+		//	single=NoNewlineVarWType
+		//	| "(" multiple+=NoNewlineVarWType ("," multiple+=NoNewlineVarWType)+ ")";
+		@Override public ParserRule getRule() { return rule; }
+		
+		//single=NoNewlineVarWType | "(" multiple+=NoNewlineVarWType ("," multiple+=NoNewlineVarWType)+ ")"
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//single=NoNewlineVarWType
+		public Assignment getSingleAssignment_0() { return cSingleAssignment_0; }
+		
+		//NoNewlineVarWType
+		public RuleCall getSingleNoNewlineVarWTypeParserRuleCall_0_0() { return cSingleNoNewlineVarWTypeParserRuleCall_0_0; }
+		
+		//"(" multiple+=NoNewlineVarWType ("," multiple+=NoNewlineVarWType)+ ")"
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//"("
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		
+		//multiple+=NoNewlineVarWType
+		public Assignment getMultipleAssignment_1_1() { return cMultipleAssignment_1_1; }
+		
+		//NoNewlineVarWType
+		public RuleCall getMultipleNoNewlineVarWTypeParserRuleCall_1_1_0() { return cMultipleNoNewlineVarWTypeParserRuleCall_1_1_0; }
+		
+		//("," multiple+=NoNewlineVarWType)+
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//","
+		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
+		
+		//multiple+=NoNewlineVarWType
+		public Assignment getMultipleAssignment_1_2_1() { return cMultipleAssignment_1_2_1; }
+		
+		//NoNewlineVarWType
+		public RuleCall getMultipleNoNewlineVarWTypeParserRuleCall_1_2_1_0() { return cMultipleNoNewlineVarWTypeParserRuleCall_1_2_1_0; }
+		
+		//")"
+		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+	}
+	public class NoNewlineVarWTypeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.NoNewlineVarWType");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cBidAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cBidBindIdParserRuleCall_0_0 = (RuleCall)cBidAssignment_0.eContents().get(0);
+		private final Assignment cIstypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cIstypeIsTypeParserRuleCall_1_0 = (RuleCall)cIstypeAssignment_1.eContents().get(0);
+		
+		//NoNewlineVarWType:
+		//	bid=BindId istype=IsType;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//bid=BindId istype=IsType
+		public Group getGroup() { return cGroup; }
+		
+		//bid=BindId
+		public Assignment getBidAssignment_0() { return cBidAssignment_0; }
+		
+		//BindId
+		public RuleCall getBidBindIdParserRuleCall_0_0() { return cBidBindIdParserRuleCall_0_0; }
+		
+		//istype=IsType
+		public Assignment getIstypeAssignment_1() { return cIstypeAssignment_1; }
+		
+		//IsType
+		public RuleCall getIstypeIsTypeParserRuleCall_1_0() { return cIstypeIsTypeParserRuleCall_1_0; }
+	}
+	public class InitValElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.InitVal");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
+		private final Assignment cMutAssignment_0_0 = (Assignment)cGroup_0.eContents().get(0);
+		private final Keyword cMutColonEqualsSignKeyword_0_0_0 = (Keyword)cMutAssignment_0_0.eContents().get(0);
+		private final Assignment cLitAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cLitLiteralTupleParserRuleCall_0_1_0 = (RuleCall)cLitAssignment_0_1.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Assignment cImmutAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final Keyword cImmutEqualsSignKeyword_1_0_0 = (Keyword)cImmutAssignment_1_0.eContents().get(0);
+		private final Assignment cLitAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cLitLiteralTupleParserRuleCall_1_1_0 = (RuleCall)cLitAssignment_1_1.eContents().get(0);
+		
+		//InitVal:
+		//	mut=':=' lit=LiteralTuple
+		//	| immut='=' lit=LiteralTuple;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//mut=':=' lit=LiteralTuple | immut='=' lit=LiteralTuple
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//mut=':=' lit=LiteralTuple
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//mut=':='
+		public Assignment getMutAssignment_0_0() { return cMutAssignment_0_0; }
+		
+		//':='
+		public Keyword getMutColonEqualsSignKeyword_0_0_0() { return cMutColonEqualsSignKeyword_0_0_0; }
+		
+		//lit=LiteralTuple
+		public Assignment getLitAssignment_0_1() { return cLitAssignment_0_1; }
+		
+		//LiteralTuple
+		public RuleCall getLitLiteralTupleParserRuleCall_0_1_0() { return cLitLiteralTupleParserRuleCall_0_1_0; }
+		
+		//immut='=' lit=LiteralTuple
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//immut='='
+		public Assignment getImmutAssignment_1_0() { return cImmutAssignment_1_0; }
+		
+		//'='
+		public Keyword getImmutEqualsSignKeyword_1_0_0() { return cImmutEqualsSignKeyword_1_0_0; }
+		
+		//lit=LiteralTuple
+		public Assignment getLitAssignment_1_1() { return cLitAssignment_1_1; }
+		
+		//LiteralTuple
+		public RuleCall getLitLiteralTupleParserRuleCall_1_1_0() { return cLitLiteralTupleParserRuleCall_1_1_0; }
+	}
+	public class LiteralTupleElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cLitAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cLitLiteralParserRuleCall_0_0 = (RuleCall)cLitAssignment_0.eContents().get(0);
+		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Assignment cLitsAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cLitsLiteralParserRuleCall_1_1_0 = (RuleCall)cLitsAssignment_1_1.eContents().get(0);
+		private final Group cGroup_1_2 = (Group)cGroup_1.eContents().get(2);
+		private final Keyword cCommaKeyword_1_2_0 = (Keyword)cGroup_1_2.eContents().get(0);
+		private final Assignment cLitsAssignment_1_2_1 = (Assignment)cGroup_1_2.eContents().get(1);
+		private final RuleCall cLitsLiteralParserRuleCall_1_2_1_0 = (RuleCall)cLitsAssignment_1_2_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_1_3 = (Keyword)cGroup_1.eContents().get(3);
+		
+		//LiteralTuple:
+		//	lit=Literal
+		//	| '(' lits+=Literal (',' lits+=Literal)+ ')';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//lit=Literal | '(' lits+=Literal (',' lits+=Literal)+ ')'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//lit=Literal
+		public Assignment getLitAssignment_0() { return cLitAssignment_0; }
+		
+		//Literal
+		public RuleCall getLitLiteralParserRuleCall_0_0() { return cLitLiteralParserRuleCall_0_0; }
+		
+		//'(' lits+=Literal (',' lits+=Literal)+ ')'
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_1_0() { return cLeftParenthesisKeyword_1_0; }
+		
+		//lits+=Literal
+		public Assignment getLitsAssignment_1_1() { return cLitsAssignment_1_1; }
+		
+		//Literal
+		public RuleCall getLitsLiteralParserRuleCall_1_1_0() { return cLitsLiteralParserRuleCall_1_1_0; }
+		
+		//(',' lits+=Literal)+
+		public Group getGroup_1_2() { return cGroup_1_2; }
+		
+		//','
+		public Keyword getCommaKeyword_1_2_0() { return cCommaKeyword_1_2_0; }
+		
+		//lits+=Literal
+		public Assignment getLitsAssignment_1_2_1() { return cLitsAssignment_1_2_1; }
+		
+		//Literal
+		public RuleCall getLitsLiteralParserRuleCall_1_2_1_0() { return cLitsLiteralParserRuleCall_1_2_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_1_3() { return cRightParenthesisKeyword_1_3; }
+	}
+	public class LiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.Literal");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final Assignment cIntgAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
+		private final RuleCall cIntgINTTerminalRuleCall_0_0 = (RuleCall)cIntgAssignment_0.eContents().get(0);
+		private final Assignment cFlotAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
+		private final RuleCall cFlotFLOATTerminalRuleCall_1_0 = (RuleCall)cFlotAssignment_1.eContents().get(0);
+		private final Assignment cStrAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cStrSTRINGTerminalRuleCall_2_0 = (RuleCall)cStrAssignment_2.eContents().get(0);
+		
+		//Literal:
+		//	intg=INT
+		//	| flot=FLOAT
+		//	| str=STRING;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//intg=INT | flot=FLOAT | str=STRING
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//intg=INT
+		public Assignment getIntgAssignment_0() { return cIntgAssignment_0; }
+		
+		//INT
+		public RuleCall getIntgINTTerminalRuleCall_0_0() { return cIntgINTTerminalRuleCall_0_0; }
+		
+		//flot=FLOAT
+		public Assignment getFlotAssignment_1() { return cFlotAssignment_1; }
+		
+		//FLOAT
+		public RuleCall getFlotFLOATTerminalRuleCall_1_0() { return cFlotFLOATTerminalRuleCall_1_0; }
+		
+		//str=STRING
+		public Assignment getStrAssignment_2() { return cStrAssignment_2; }
+		
+		//STRING
+		public RuleCall getStrSTRINGTerminalRuleCall_2_0() { return cStrSTRINGTerminalRuleCall_2_0; }
+	}
 	
 	
 	private final ModelElements pModel;
@@ -1823,9 +2277,9 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	private final ValParamElements pValParam;
 	private final ParamElements pParam;
 	private final RetTypeElements pRetType;
+	private final TupleTypeElements pTupleType;
 	private final TypeElements pType;
 	private final FnDeclElements pFnDecl;
-	private final ExpressionElements pExpression;
 	private final ExprElements pExpr;
 	private final ExprFrontElements pExprFront;
 	private final ExprTailElements pExprTail;
@@ -1844,7 +2298,14 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	private final IdOrTupleElements pIdOrTuple;
 	private final BindIdElements pBindId;
 	private final IsTypeElements pIsType;
+	private final FieldDeclElements pFieldDecl;
+	private final NoNewlineVarWTypesElements pNoNewlineVarWTypes;
+	private final NoNewlineVarWTypeElements pNoNewlineVarWType;
+	private final InitValElements pInitVal;
+	private final LiteralTupleElements pLiteralTuple;
+	private final LiteralElements pLiteral;
 	private final TerminalRule tML_COMMENT;
+	private final TerminalRule tFLOAT;
 	private final TerminalRule tGREATERS;
 	private final TerminalRule tLESSES;
 	private final TerminalRule tBARS;
@@ -1883,9 +2344,9 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		this.pValParam = new ValParamElements();
 		this.pParam = new ParamElements();
 		this.pRetType = new RetTypeElements();
+		this.pTupleType = new TupleTypeElements();
 		this.pType = new TypeElements();
 		this.pFnDecl = new FnDeclElements();
-		this.pExpression = new ExpressionElements();
 		this.pExpr = new ExprElements();
 		this.pExprFront = new ExprFrontElements();
 		this.pExprTail = new ExprTailElements();
@@ -1904,7 +2365,14 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		this.pIdOrTuple = new IdOrTupleElements();
 		this.pBindId = new BindIdElements();
 		this.pIsType = new IsTypeElements();
+		this.pFieldDecl = new FieldDeclElements();
+		this.pNoNewlineVarWTypes = new NoNewlineVarWTypesElements();
+		this.pNoNewlineVarWType = new NoNewlineVarWTypeElements();
+		this.pInitVal = new InitValElements();
+		this.pLiteralTuple = new LiteralTupleElements();
+		this.pLiteral = new LiteralElements();
 		this.tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ML_COMMENT");
+		this.tFLOAT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.FLOAT");
 		this.tGREATERS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.GREATERS");
 		this.tLESSES = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.LESSES");
 		this.tBARS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.BARS");
@@ -2095,7 +2563,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//Decl:
 	//	function=FnDecl
-	//	//	|var=VarDecl
+	//	| field=FieldDecl
 	//	//	|object=ObjDecl
 	//	//	|trait=TraitDecl
 	//;
@@ -2162,6 +2630,16 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getRetTypeAccess().getRule();
 	}
 	
+	//TupleType:
+	//	'(' types+=Type (',' types+=Type)* ')';
+	public TupleTypeElements getTupleTypeAccess() {
+		return pTupleType;
+	}
+	
+	public ParserRule getTupleTypeRule() {
+		return getTupleTypeAccess().getRule();
+	}
+	
 	//Type:
 	//	tname=ID;
 	public TypeElements getTypeAccess() {
@@ -2173,23 +2651,13 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//FnDecl:
-	//	mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Expression)?;
+	//	mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Expr)?;
 	public FnDeclElements getFnDeclAccess() {
 		return pFnDecl;
 	}
 	
 	public ParserRule getFnDeclRule() {
 		return getFnDeclAccess().getRule();
-	}
-	
-	//Expression:
-	//	exp=Expr;
-	public ExpressionElements getExpressionAccess() {
-		return pExpression;
-	}
-	
-	public ParserRule getExpressionRule() {
-		return getExpressionAccess().getRule();
 	}
 	
 	//Expr:
@@ -2309,7 +2777,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockElemsAccess().getRule();
 	}
 	
-	//BlockElem Expression:
+	//BlockElem Expr:
 	//	exp=Expr;
 	public BlockElemElements getBlockElemAccess() {
 		return pBlockElem;
@@ -2319,7 +2787,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockElemAccess().getRule();
 	}
 	
-	//Paranthesized Expression:
+	//Paranthesized Expr:
 	//	'(' expr=Expr ')';
 	public ParanthesizedElements getParanthesizedAccess() {
 		return pParanthesized;
@@ -2381,10 +2849,86 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		return getIsTypeAccess().getRule();
 	}
 	
+	////For a field Decl, If you 'var' has been used it will be mutable. 
+	////If 'var' has not been used check '=' for immutable and ':=' for mutable.
+	//FieldDecl:
+	//	pri='private'? mut='var'? vars=NoNewlineVarWTypes init=InitVal
+	//	| pri='private'? idtup=IdOrTuple '=' litTup=LiteralTuple
+	//	| pri='private'? mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+	//	| pri='private'? mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal;
+	public FieldDeclElements getFieldDeclAccess() {
+		return pFieldDecl;
+	}
+	
+	public ParserRule getFieldDeclRule() {
+		return getFieldDeclAccess().getRule();
+	}
+	
+	//NoNewlineVarWTypes:
+	//	single=NoNewlineVarWType
+	//	| "(" multiple+=NoNewlineVarWType ("," multiple+=NoNewlineVarWType)+ ")";
+	public NoNewlineVarWTypesElements getNoNewlineVarWTypesAccess() {
+		return pNoNewlineVarWTypes;
+	}
+	
+	public ParserRule getNoNewlineVarWTypesRule() {
+		return getNoNewlineVarWTypesAccess().getRule();
+	}
+	
+	//NoNewlineVarWType:
+	//	bid=BindId istype=IsType;
+	public NoNewlineVarWTypeElements getNoNewlineVarWTypeAccess() {
+		return pNoNewlineVarWType;
+	}
+	
+	public ParserRule getNoNewlineVarWTypeRule() {
+		return getNoNewlineVarWTypeAccess().getRule();
+	}
+	
+	//InitVal:
+	//	mut=':=' lit=LiteralTuple
+	//	| immut='=' lit=LiteralTuple;
+	public InitValElements getInitValAccess() {
+		return pInitVal;
+	}
+	
+	public ParserRule getInitValRule() {
+		return getInitValAccess().getRule();
+	}
+	
+	//LiteralTuple:
+	//	lit=Literal
+	//	| '(' lits+=Literal (',' lits+=Literal)+ ')';
+	public LiteralTupleElements getLiteralTupleAccess() {
+		return pLiteralTuple;
+	}
+	
+	public ParserRule getLiteralTupleRule() {
+		return getLiteralTupleAccess().getRule();
+	}
+	
+	//Literal:
+	//	intg=INT
+	//	| flot=FLOAT
+	//	| str=STRING;
+	public LiteralElements getLiteralAccess() {
+		return pLiteral;
+	}
+	
+	public ParserRule getLiteralRule() {
+		return getLiteralAccess().getRule();
+	}
+	
 	//@ Override terminal ML_COMMENT:
 	//	'(*'->'*)';
 	public TerminalRule getML_COMMENTRule() {
 		return tML_COMMENT;
+	}
+	
+	//terminal FLOAT:
+	//	INT '.' INT;
+	public TerminalRule getFLOATRule() {
+		return tFLOAT;
 	}
 	
 	//terminal GREATERS:

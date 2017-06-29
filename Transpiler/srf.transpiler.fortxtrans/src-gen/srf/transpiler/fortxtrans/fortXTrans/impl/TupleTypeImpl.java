@@ -17,41 +17,41 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
-import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.TupleType;
+import srf.transpiler.fortxtrans.fortXTrans.Type;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Block Elems</b></em>'.
+ * An implementation of the model object '<em><b>Tuple Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemsImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.TupleTypeImpl#getTypes <em>Types</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class BlockElemsImpl extends MinimalEObjectImpl.Container implements BlockElems
+public class TupleTypeImpl extends MinimalEObjectImpl.Container implements TupleType
 {
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
+   * The cached value of the '{@link #getTypes() <em>Types</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBlock()
+   * @see #getTypes()
    * @generated
    * @ordered
    */
-  protected EList<Expr> block;
+  protected EList<Type> types;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected BlockElemsImpl()
+  protected TupleTypeImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.BLOCK_ELEMS;
+    return FortXTransPackage.Literals.TUPLE_TYPE;
   }
 
   /**
@@ -72,13 +72,13 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expr> getBlock()
+  public EList<Type> getTypes()
   {
-    if (block == null)
+    if (types == null)
     {
-      block = new EObjectContainmentEList<Expr>(Expr.class, this, FortXTransPackage.BLOCK_ELEMS__BLOCK);
+      types = new EObjectContainmentEList<Type>(Type.class, this, FortXTransPackage.TUPLE_TYPE__TYPES);
     }
-    return block;
+    return types;
   }
 
   /**
@@ -91,8 +91,8 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.TUPLE_TYPE__TYPES:
+        return ((InternalEList<?>)getTypes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return getBlock();
+      case FortXTransPackage.TUPLE_TYPE__TYPES:
+        return getTypes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        getBlock().clear();
-        getBlock().addAll((Collection<? extends Expr>)newValue);
+      case FortXTransPackage.TUPLE_TYPE__TYPES:
+        getTypes().clear();
+        getTypes().addAll((Collection<? extends Type>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        getBlock().clear();
+      case FortXTransPackage.TUPLE_TYPE__TYPES:
+        getTypes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +159,10 @@ public class BlockElemsImpl extends MinimalEObjectImpl.Container implements Bloc
   {
     switch (featureID)
     {
-      case FortXTransPackage.BLOCK_ELEMS__BLOCK:
-        return block != null && !block.isEmpty();
+      case FortXTransPackage.TUPLE_TYPE__TYPES:
+        return types != null && !types.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //BlockElemsImpl
+} //TupleTypeImpl

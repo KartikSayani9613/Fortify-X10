@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
+import srf.transpiler.fortxtrans.fortXTrans.FieldDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
@@ -25,6 +26,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DeclImpl#getFunction <em>Function</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DeclImpl#getField <em>Field</em>}</li>
  * </ul>
  *
  * @generated
@@ -40,6 +42,16 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
    * @ordered
    */
   protected FnDecl function;
+
+  /**
+   * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getField()
+   * @generated
+   * @ordered
+   */
+  protected FieldDecl field;
 
   /**
    * <!-- begin-user-doc -->
@@ -115,6 +127,54 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
    * <!-- end-user-doc -->
    * @generated
    */
+  public FieldDecl getField()
+  {
+    return field;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetField(FieldDecl newField, NotificationChain msgs)
+  {
+    FieldDecl oldField = field;
+    field = newField;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DECL__FIELD, oldField, newField);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setField(FieldDecl newField)
+  {
+    if (newField != field)
+    {
+      NotificationChain msgs = null;
+      if (field != null)
+        msgs = ((InternalEObject)field).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DECL__FIELD, null, msgs);
+      if (newField != null)
+        msgs = ((InternalEObject)newField).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DECL__FIELD, null, msgs);
+      msgs = basicSetField(newField, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DECL__FIELD, newField, newField));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -122,6 +182,8 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case FortXTransPackage.DECL__FUNCTION:
         return basicSetFunction(null, msgs);
+      case FortXTransPackage.DECL__FIELD:
+        return basicSetField(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -138,6 +200,8 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case FortXTransPackage.DECL__FUNCTION:
         return getFunction();
+      case FortXTransPackage.DECL__FIELD:
+        return getField();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -154,6 +218,9 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case FortXTransPackage.DECL__FUNCTION:
         setFunction((FnDecl)newValue);
+        return;
+      case FortXTransPackage.DECL__FIELD:
+        setField((FieldDecl)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -172,6 +239,9 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
       case FortXTransPackage.DECL__FUNCTION:
         setFunction((FnDecl)null);
         return;
+      case FortXTransPackage.DECL__FIELD:
+        setField((FieldDecl)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -188,6 +258,8 @@ public class DeclImpl extends MinimalEObjectImpl.Container implements Decl
     {
       case FortXTransPackage.DECL__FUNCTION:
         return function != null;
+      case FortXTransPackage.DECL__FIELD:
+        return field != null;
     }
     return super.eIsSet(featureID);
   }
