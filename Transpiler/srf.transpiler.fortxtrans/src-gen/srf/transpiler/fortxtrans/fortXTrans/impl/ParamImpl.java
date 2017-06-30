@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.BindId;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
@@ -33,24 +34,14 @@ import srf.transpiler.fortxtrans.fortXTrans.Param;
 public class ParamImpl extends MinimalEObjectImpl.Container implements Param
 {
   /**
-   * The default value of the '{@link #getBId() <em>BId</em>}' attribute.
+   * The cached value of the '{@link #getBId() <em>BId</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBId()
    * @generated
    * @ordered
    */
-  protected static final String BID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBId() <em>BId</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBId()
-   * @generated
-   * @ordered
-   */
-  protected String bId = BID_EDEFAULT;
+  protected BindId bId;
 
   /**
    * The cached value of the '{@link #getIstype() <em>Istype</em>}' containment reference.
@@ -88,7 +79,7 @@ public class ParamImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBId()
+  public BindId getBId()
   {
     return bId;
   }
@@ -98,12 +89,37 @@ public class ParamImpl extends MinimalEObjectImpl.Container implements Param
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBId(String newBId)
+  public NotificationChain basicSetBId(BindId newBId, NotificationChain msgs)
   {
-    String oldBId = bId;
+    BindId oldBId = bId;
     bId = newBId;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.PARAM__BID, oldBId, bId));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.PARAM__BID, oldBId, newBId);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBId(BindId newBId)
+  {
+    if (newBId != bId)
+    {
+      NotificationChain msgs = null;
+      if (bId != null)
+        msgs = ((InternalEObject)bId).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.PARAM__BID, null, msgs);
+      if (newBId != null)
+        msgs = ((InternalEObject)newBId).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.PARAM__BID, null, msgs);
+      msgs = basicSetBId(newBId, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.PARAM__BID, newBId, newBId));
   }
 
   /**
@@ -164,6 +180,8 @@ public class ParamImpl extends MinimalEObjectImpl.Container implements Param
   {
     switch (featureID)
     {
+      case FortXTransPackage.PARAM__BID:
+        return basicSetBId(null, msgs);
       case FortXTransPackage.PARAM__ISTYPE:
         return basicSetIstype(null, msgs);
     }
@@ -199,7 +217,7 @@ public class ParamImpl extends MinimalEObjectImpl.Container implements Param
     switch (featureID)
     {
       case FortXTransPackage.PARAM__BID:
-        setBId((String)newValue);
+        setBId((BindId)newValue);
         return;
       case FortXTransPackage.PARAM__ISTYPE:
         setIstype((IsType)newValue);
@@ -219,7 +237,7 @@ public class ParamImpl extends MinimalEObjectImpl.Container implements Param
     switch (featureID)
     {
       case FortXTransPackage.PARAM__BID:
-        setBId(BID_EDEFAULT);
+        setBId((BindId)null);
         return;
       case FortXTransPackage.PARAM__ISTYPE:
         setIstype((IsType)null);
@@ -239,28 +257,11 @@ public class ParamImpl extends MinimalEObjectImpl.Container implements Param
     switch (featureID)
     {
       case FortXTransPackage.PARAM__BID:
-        return BID_EDEFAULT == null ? bId != null : !BID_EDEFAULT.equals(bId);
+        return bId != null;
       case FortXTransPackage.PARAM__ISTYPE:
         return istype != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (bId: ");
-    result.append(bId);
-    result.append(')');
-    return result.toString();
   }
 
 } //ParamImpl

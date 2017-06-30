@@ -15,16 +15,21 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import srf.transpiler.fortxtrans.fortXTrans.API;
+import srf.transpiler.fortxtrans.fortXTrans.AddExpr;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
+import srf.transpiler.fortxtrans.fortXTrans.BindId;
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
+import srf.transpiler.fortxtrans.fortXTrans.CommaExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
 import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList;
+import srf.transpiler.fortxtrans.fortXTrans.DivExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
 import srf.transpiler.fortxtrans.fortXTrans.Elif;
@@ -33,7 +38,6 @@ import srf.transpiler.fortxtrans.fortXTrans.Else;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
-import srf.transpiler.fortxtrans.fortXTrans.ExprList;
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.FieldDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
@@ -48,18 +52,24 @@ import srf.transpiler.fortxtrans.fortXTrans.ImportedNames;
 import srf.transpiler.fortxtrans.fortXTrans.InitVal;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.Literal;
+import srf.transpiler.fortxtrans.fortXTrans.LiteralTup;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
+import srf.transpiler.fortxtrans.fortXTrans.MultExpr;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
-import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
+import srf.transpiler.fortxtrans.fortXTrans.Primary;
+import srf.transpiler.fortxtrans.fortXTrans.Qualified;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple;
 import srf.transpiler.fortxtrans.fortXTrans.RetType;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
+import srf.transpiler.fortxtrans.fortXTrans.SubExpr;
 import srf.transpiler.fortxtrans.fortXTrans.TupleType;
-import srf.transpiler.fortxtrans.fortXTrans.Type;
 import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 import srf.transpiler.fortxtrans.services.FortXTransGrammarAccess;
 
@@ -80,6 +90,9 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case FortXTransPackage.API:
 				sequence_API(context, (API) semanticObject); 
 				return; 
+			case FortXTransPackage.ADD_EXPR:
+				sequence_AddExpr(context, (AddExpr) semanticObject); 
+				return; 
 			case FortXTransPackage.ALIASED_API_NAME:
 				sequence_AliasedAPIName(context, (AliasedAPIName) semanticObject); 
 				return; 
@@ -89,6 +102,9 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case FortXTransPackage.ALIASED_SIMPLE_NAME:
 				sequence_AliasedSimpleName(context, (AliasedSimpleName) semanticObject); 
 				return; 
+			case FortXTransPackage.BIND_ID:
+				sequence_BindId(context, (BindId) semanticObject); 
+				return; 
 			case FortXTransPackage.BINDING:
 				sequence_Binding(context, (Binding) semanticObject); 
 				return; 
@@ -97,6 +113,9 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case FortXTransPackage.BLOCK_ELEMS:
 				sequence_BlockElems(context, (BlockElems) semanticObject); 
+				return; 
+			case FortXTransPackage.COMMA_EXPR:
+				sequence_CommaExpr(context, (CommaExpr) semanticObject); 
 				return; 
 			case FortXTransPackage.COMPONENT:
 				sequence_Component(context, (Component) semanticObject); 
@@ -109,6 +128,12 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case FortXTransPackage.DELIMITED_EXPR:
 				sequence_DelimitedExpr(context, (DelimitedExpr) semanticObject); 
+				return; 
+			case FortXTransPackage.DELIMITED_EXPR_LIST:
+				sequence_DelimitedExprList(context, (DelimitedExprList) semanticObject); 
+				return; 
+			case FortXTransPackage.DIV_EXPR:
+				sequence_DivExpr(context, (DivExpr) semanticObject); 
 				return; 
 			case FortXTransPackage.DO:
 				sequence_Do(context, (Do) semanticObject); 
@@ -129,13 +154,27 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				sequence_Export(context, (Export) semanticObject); 
 				return; 
 			case FortXTransPackage.EXPR:
-				sequence_Expr(context, (Expr) semanticObject); 
-				return; 
+				if (rule == grammarAccess.getExprRule()) {
+					sequence_Expr(context, (Expr) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getCommaExprRule()
+						|| action == grammarAccess.getCommaExprAccess().getCommaExprLeftAction_1_0()
+						|| rule == grammarAccess.getAddExprRule()
+						|| action == grammarAccess.getAddExprAccess().getAddExprLeftAction_1_0()
+						|| rule == grammarAccess.getSubExprRule()
+						|| action == grammarAccess.getSubExprAccess().getSubExprLeftAction_1_0()
+						|| rule == grammarAccess.getDivExprRule()
+						|| action == grammarAccess.getDivExprAccess().getDivExprLeftAction_1_0()
+						|| rule == grammarAccess.getMultExprRule()
+						|| action == grammarAccess.getMultExprAccess().getMultExprLeftAction_1_0()
+						|| rule == grammarAccess.getPrimaryRule()) {
+					sequence_Primary(context, (Expr) semanticObject); 
+					return; 
+				}
+				else break;
 			case FortXTransPackage.EXPR_FRONT:
 				sequence_ExprFront(context, (ExprFront) semanticObject); 
-				return; 
-			case FortXTransPackage.EXPR_LIST:
-				sequence_ExprList(context, (ExprList) semanticObject); 
 				return; 
 			case FortXTransPackage.EXPR_TAIL:
 				sequence_ExprTail(context, (ExprTail) semanticObject); 
@@ -176,11 +215,17 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case FortXTransPackage.LITERAL:
 				sequence_Literal(context, (Literal) semanticObject); 
 				return; 
+			case FortXTransPackage.LITERAL_TUP:
+				sequence_LiteralTup(context, (LiteralTup) semanticObject); 
+				return; 
 			case FortXTransPackage.LITERAL_TUPLE:
 				sequence_LiteralTuple(context, (LiteralTuple) semanticObject); 
 				return; 
 			case FortXTransPackage.LOCAL_VAR_DECL:
 				sequence_LocalVarDecl(context, (LocalVarDecl) semanticObject); 
+				return; 
+			case FortXTransPackage.MULT_EXPR:
+				sequence_MultExpr(context, (MultExpr) semanticObject); 
 				return; 
 			case FortXTransPackage.NO_NEWLINE_VAR_WTYPE:
 				sequence_NoNewlineVarWType(context, (NoNewlineVarWType) semanticObject); 
@@ -188,11 +233,37 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case FortXTransPackage.NO_NEWLINE_VAR_WTYPES:
 				sequence_NoNewlineVarWTypes(context, (NoNewlineVarWTypes) semanticObject); 
 				return; 
-			case FortXTransPackage.PAR_BLOCK_ELEMS:
-				sequence_ParBlockElems(context, (ParBlockElems) semanticObject); 
-				return; 
 			case FortXTransPackage.PARAM:
 				sequence_Param(context, (Param) semanticObject); 
+				return; 
+			case FortXTransPackage.PRIMARY:
+				if (rule == grammarAccess.getCommaExprRule()
+						|| action == grammarAccess.getCommaExprAccess().getCommaExprLeftAction_1_0()
+						|| rule == grammarAccess.getAddExprRule()
+						|| action == grammarAccess.getAddExprAccess().getAddExprLeftAction_1_0()
+						|| rule == grammarAccess.getSubExprRule()
+						|| action == grammarAccess.getSubExprAccess().getSubExprLeftAction_1_0()
+						|| rule == grammarAccess.getDivExprRule()
+						|| action == grammarAccess.getDivExprAccess().getDivExprLeftAction_1_0()
+						|| rule == grammarAccess.getMultExprRule()
+						|| action == grammarAccess.getMultExprAccess().getMultExprLeftAction_1_0()
+						|| rule == grammarAccess.getPrimaryRule()) {
+					sequence_Primary(context, (Primary) semanticObject); 
+					return; 
+				}
+				else if (action == grammarAccess.getPrimaryAccess().getPrimaryFnameAction_0_2_0()) {
+					sequence_Primary_Primary_0_2_0(context, (Primary) semanticObject); 
+					return; 
+				}
+				else break;
+			case FortXTransPackage.QUALIFIED:
+				sequence_Qualified(context, (Qualified) semanticObject); 
+				return; 
+			case FortXTransPackage.QUALIFIED_NAME:
+				sequence_QualifiedName(context, (QualifiedName) semanticObject); 
+				return; 
+			case FortXTransPackage.QUALIFIED_NAME_TUPLE:
+				sequence_QualifiedNameTuple(context, (QualifiedNameTuple) semanticObject); 
 				return; 
 			case FortXTransPackage.RET_TYPE:
 				sequence_RetType(context, (RetType) semanticObject); 
@@ -206,11 +277,14 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 			case FortXTransPackage.STMNT:
 				sequence_Stmnt(context, (Stmnt) semanticObject); 
 				return; 
+			case FortXTransPackage.STMNTS:
+				sequence_Stmnts(context, (Stmnts) semanticObject); 
+				return; 
+			case FortXTransPackage.SUB_EXPR:
+				sequence_SubExpr(context, (SubExpr) semanticObject); 
+				return; 
 			case FortXTransPackage.TUPLE_TYPE:
 				sequence_TupleType(context, (TupleType) semanticObject); 
-				return; 
-			case FortXTransPackage.TYPE:
-				sequence_Type(context, (Type) semanticObject); 
 				return; 
 			case FortXTransPackage.VAL_PARAM:
 				sequence_ValParam(context, (ValParam) semanticObject); 
@@ -235,10 +309,34 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     CommaExpr returns AddExpr
+	 *     CommaExpr.CommaExpr_1_0 returns AddExpr
+	 *     AddExpr returns AddExpr
+	 *     AddExpr.AddExpr_1_0 returns AddExpr
+	 *
+	 * Constraint:
+	 *     (left=AddExpr_AddExpr_1_0 right=SubExpr)
+	 */
+	protected void sequence_AddExpr(ISerializationContext context, AddExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAddExprAccess().getAddExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getAddExprAccess().getRightSubExprParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     AliasedAPIName returns AliasedAPIName
 	 *
 	 * Constraint:
-	 *     (orig=APIName asName=ID?)
+	 *     (orig=QualifiedName asName=ID?)
 	 */
 	protected void sequence_AliasedAPIName(ISerializationContext context, AliasedAPIName semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -271,6 +369,18 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     BindId returns BindId
+	 *
+	 * Constraint:
+	 *     (s=SimpleName | undsc='_')
+	 */
+	protected void sequence_BindId(ISerializationContext context, BindId semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Binding returns Binding
 	 *
 	 * Constraint:
@@ -286,7 +396,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     BlockElem returns BlockElem
 	 *
 	 * Constraint:
-	 *     st=Stmnt
+	 *     st=Stmnts
 	 */
 	protected void sequence_BlockElem(ISerializationContext context, BlockElem semanticObject) {
 		if (errorAcceptor != null) {
@@ -294,7 +404,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.BLOCK_ELEM__ST));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getBlockElemAccess().getStStmntParserRuleCall_0(), semanticObject.getSt());
+		feeder.accept(grammarAccess.getBlockElemAccess().getStStmntsParserRuleCall_0(), semanticObject.getSt());
 		feeder.finish();
 	}
 	
@@ -308,6 +418,28 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_BlockElems(ISerializationContext context, BlockElems semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CommaExpr returns CommaExpr
+	 *     CommaExpr.CommaExpr_1_0 returns CommaExpr
+	 *
+	 * Constraint:
+	 *     (left=CommaExpr_CommaExpr_1_0 right=AddExpr)
+	 */
+	protected void sequence_CommaExpr(ISerializationContext context, CommaExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCommaExprAccess().getCommaExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getCommaExprAccess().getRightAddExprParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -350,22 +482,59 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     DelimitedExprList returns DelimitedExprList
+	 *
+	 * Constraint:
+	 *     (delim+=DelimitedExpr delim+=DelimitedExpr+)
+	 */
+	protected void sequence_DelimitedExprList(ISerializationContext context, DelimitedExprList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     DelimitedExpr returns DelimitedExpr
 	 *
 	 * Constraint:
 	 *     (
 	 *         dod=Do | 
-	 *         (lits=LiteralTuple eqop=':=' pblock=ParBlockElems) | 
 	 *         (ret='return' block=BlockElem) | 
 	 *         (awhile='while' expr=Expr whiledod=Do) | 
 	 *         (afor='for' gen=Generators dofront=DoFront) | 
-	 *         (anif='if' cond=Expr blocks=BlockElems elifs=Elifs? els=Else?) | 
-	 *         parblock=ParBlockElems | 
-	 *         (fname=QualifiedName brack='(' fargs=ExprList)
+	 *         (anif='if' cond=Expr blocks=BlockElems elifs=Elifs? els=Else?)
 	 *     )
 	 */
 	protected void sequence_DelimitedExpr(ISerializationContext context, DelimitedExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CommaExpr returns DivExpr
+	 *     CommaExpr.CommaExpr_1_0 returns DivExpr
+	 *     AddExpr returns DivExpr
+	 *     AddExpr.AddExpr_1_0 returns DivExpr
+	 *     SubExpr returns DivExpr
+	 *     SubExpr.SubExpr_1_0 returns DivExpr
+	 *     DivExpr returns DivExpr
+	 *     DivExpr.DivExpr_1_0 returns DivExpr
+	 *
+	 * Constraint:
+	 *     (left=DivExpr_DivExpr_1_0 right=MultExpr)
+	 */
+	protected void sequence_DivExpr(ISerializationContext context, DivExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDivExprAccess().getDivExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getDivExprAccess().getRightMultExprParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -449,7 +618,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Export returns Export
 	 *
 	 * Constraint:
-	 *     ((exp='export' exportedName+=APIName) | (exp='export' brack='{' exportedName+=APIName exportedName+=APIName*))
+	 *     ((exp='export' exportedName+=QualifiedName) | (exp='export' brack='{' exportedName+=QualifiedName exportedName+=QualifiedName*))
 	 */
 	protected void sequence_Export(ISerializationContext context, Export semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -461,28 +630,16 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExprFront returns ExprFront
 	 *
 	 * Constraint:
-	 *     delim=DelimitedExpr
+	 *     add=CommaExpr
 	 */
 	protected void sequence_ExprFront(ISerializationContext context, ExprFront semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPR_FRONT__DELIM) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPR_FRONT__DELIM));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPR_FRONT__ADD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPR_FRONT__ADD));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExprFrontAccess().getDelimDelimitedExprParserRuleCall_0(), semanticObject.getDelim());
+		feeder.accept(grammarAccess.getExprFrontAccess().getAddCommaExprParserRuleCall_0(), semanticObject.getAdd());
 		feeder.finish();
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     ExprList returns ExprList
-	 *
-	 * Constraint:
-	 *     (exp+=Expr exp+=Expr*)
-	 */
-	protected void sequence_ExprList(ISerializationContext context, ExprList semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -491,7 +648,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExprTail returns ExprTail
 	 *
 	 * Constraint:
-	 *     type=Type
+	 *     type=SimpleName
 	 */
 	protected void sequence_ExprTail(ISerializationContext context, ExprTail semanticObject) {
 		if (errorAcceptor != null) {
@@ -499,7 +656,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPR_TAIL__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExprTailAccess().getTypeTypeParserRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getExprTailAccess().getTypeSimpleNameParserRuleCall_1_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
@@ -509,16 +666,10 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Expr returns Expr
 	 *
 	 * Constraint:
-	 *     lit=LiteralTuple
+	 *     (front=ExprFront tail+=ExprTail*)
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPR__LIT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPR__LIT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getExprAccess().getLitLiteralTupleParserRuleCall_0(), semanticObject.getLit());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -530,7 +681,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (
 	 *         (pri='private'? mut='var'? vars=NoNewlineVarWTypes init=InitVal) | 
 	 *         (pri='private'? idtup=IdOrTuple litTup=LiteralTuple) | 
-	 *         (pri='private'? mut='var'? idtup=IdOrTuple type=Type init=InitVal) | 
+	 *         (pri='private'? mut='var'? idtup=IdOrTuple type=SimpleName init=InitVal) | 
 	 *         (pri='private'? mut='var'? idtup=IdOrTuple tuptype=TupleType init=InitVal)
 	 *     )
 	 */
@@ -544,7 +695,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     FnDecl returns FnDecl
 	 *
 	 * Constraint:
-	 *     (mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Stmnt)?)
+	 *     (mods=FnMods? name=ID params=ValParam retVal=RetType? (body?='=' fnItself=Stmnts)?)
 	 */
 	protected void sequence_FnDecl(ISerializationContext context, FnDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -629,9 +780,9 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (impname=APIName (except?='except' simp=SimpleNames)?) | 
-	 *         (impname=APIName simpList+=AliasedSimpleName simpList+=AliasedSimpleName* (comma?=',' dots?=DOTS)?) | 
-	 *         (impname=APIName asname=ID?)
+	 *         (impname=QualifiedName (except?='except' simp=SimpleNames)?) | 
+	 *         (impname=QualifiedName simpList+=AliasedSimpleName simpList+=AliasedSimpleName* (comma?=',' dots?=DOTS)?) | 
+	 *         (impname=QualifiedName asname=ID?)
 	 *     )
 	 */
 	protected void sequence_ImportedNames(ISerializationContext context, ImportedNames semanticObject) {
@@ -656,7 +807,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     IsType returns IsType
 	 *
 	 * Constraint:
-	 *     type=Type
+	 *     type=SimpleName
 	 */
 	protected void sequence_IsType(ISerializationContext context, IsType semanticObject) {
 		if (errorAcceptor != null) {
@@ -664,17 +815,40 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.IS_TYPE__TYPE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getIsTypeAccess().getTypeTypeParserRuleCall_1_0(), semanticObject.getType());
+		feeder.accept(grammarAccess.getIsTypeAccess().getTypeSimpleNameParserRuleCall_1_0(), semanticObject.getType());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     LiteralTuple returns LiteralTuple
+	 *     LiteralTup returns LiteralTup
 	 *
 	 * Constraint:
 	 *     (lit=Literal | (lits+=Literal lits+=Literal+))
+	 */
+	protected void sequence_LiteralTup(ISerializationContext context, LiteralTup semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CommaExpr returns LiteralTuple
+	 *     CommaExpr.CommaExpr_1_0 returns LiteralTuple
+	 *     AddExpr returns LiteralTuple
+	 *     AddExpr.AddExpr_1_0 returns LiteralTuple
+	 *     SubExpr returns LiteralTuple
+	 *     SubExpr.SubExpr_1_0 returns LiteralTuple
+	 *     DivExpr returns LiteralTuple
+	 *     DivExpr.DivExpr_1_0 returns LiteralTuple
+	 *     MultExpr returns LiteralTuple
+	 *     MultExpr.MultExpr_1_0 returns LiteralTuple
+	 *     Primary returns LiteralTuple
+	 *     LiteralTuple returns LiteralTuple
+	 *
+	 * Constraint:
+	 *     (lit=LiteralTup | qname=QualifiedName | qlist=QualifiedNameTuple)
 	 */
 	protected void sequence_LiteralTuple(ISerializationContext context, LiteralTuple semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -686,7 +860,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Literal returns Literal
 	 *
 	 * Constraint:
-	 *     (intg=INT | flot=FLOAT | str=STRING | q=QualifiedName)
+	 *     (intg=INT | flot=FLOAT | str=STRING)
 	 */
 	protected void sequence_Literal(ISerializationContext context, Literal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -699,14 +873,44 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (mut='var'? vars=NoNewlineVarWTypes (muta=':=' | immut='=') init=Expr) | 
+	 *         (mut='var'? vars=NoNewlineVarWTypes init=Expr) | 
 	 *         (idtup=IdOrTuple litTup=LiteralTuple) | 
-	 *         (mut='var'? idtup=IdOrTuple type=Type (muta=':=' | immut='=') init=Expr) | 
-	 *         (mut='var'? idtup=IdOrTuple tuptype=TupleType (muta=':=' | immut='=') init=Expr)
+	 *         (mut='var'? idtup=IdOrTuple type=SimpleName init=Expr) | 
+	 *         (mut='var'? idtup=IdOrTuple tuptype=TupleType init=Expr)
 	 *     )
 	 */
 	protected void sequence_LocalVarDecl(ISerializationContext context, LocalVarDecl semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CommaExpr returns MultExpr
+	 *     CommaExpr.CommaExpr_1_0 returns MultExpr
+	 *     AddExpr returns MultExpr
+	 *     AddExpr.AddExpr_1_0 returns MultExpr
+	 *     SubExpr returns MultExpr
+	 *     SubExpr.SubExpr_1_0 returns MultExpr
+	 *     DivExpr returns MultExpr
+	 *     DivExpr.DivExpr_1_0 returns MultExpr
+	 *     MultExpr returns MultExpr
+	 *     MultExpr.MultExpr_1_0 returns MultExpr
+	 *
+	 * Constraint:
+	 *     (left=MultExpr_MultExpr_1_0 right=Primary)
+	 */
+	protected void sequence_MultExpr(ISerializationContext context, MultExpr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMultExprAccess().getMultExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getMultExprAccess().getRightPrimaryParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	
@@ -745,18 +949,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     ParBlockElems returns ParBlockElems
-	 *
-	 * Constraint:
-	 *     (brack='(' block+=BlockElem block+=BlockElem*)
-	 */
-	protected void sequence_ParBlockElems(ISerializationContext context, ParBlockElems semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     Param returns Param
 	 *
 	 * Constraint:
@@ -778,10 +970,130 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     CommaExpr returns Expr
+	 *     CommaExpr.CommaExpr_1_0 returns Expr
+	 *     AddExpr returns Expr
+	 *     AddExpr.AddExpr_1_0 returns Expr
+	 *     SubExpr returns Expr
+	 *     SubExpr.SubExpr_1_0 returns Expr
+	 *     DivExpr returns Expr
+	 *     DivExpr.DivExpr_1_0 returns Expr
+	 *     MultExpr returns Expr
+	 *     MultExpr.MultExpr_1_0 returns Expr
+	 *     Primary returns Expr
+	 *
+	 * Constraint:
+	 *     exp=Expr
+	 */
+	protected void sequence_Primary(ISerializationContext context, Expr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPR__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPR__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpExprParserRuleCall_2_1_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     CommaExpr returns Primary
+	 *     CommaExpr.CommaExpr_1_0 returns Primary
+	 *     AddExpr returns Primary
+	 *     AddExpr.AddExpr_1_0 returns Primary
+	 *     SubExpr returns Primary
+	 *     SubExpr.SubExpr_1_0 returns Primary
+	 *     DivExpr returns Primary
+	 *     DivExpr.DivExpr_1_0 returns Primary
+	 *     MultExpr returns Primary
+	 *     MultExpr.MultExpr_1_0 returns Primary
+	 *     Primary returns Primary
+	 *
+	 * Constraint:
+	 *     ((left=Primary_Primary_0_1_0 exp=Expr) | (Fname=Primary_Primary_0_2_0 fargs=Expr))
+	 */
+	protected void sequence_Primary(ISerializationContext context, Primary semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Primary.Primary_0_2_0 returns Primary
+	 *
+	 * Constraint:
+	 *     (left=Primary_Primary_0_1_0 exp=Expr)
+	 */
+	protected void sequence_Primary_Primary_0_2_0(ISerializationContext context, Primary semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPR__EXP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPR__EXP));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getPrimaryLeftAction_0_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpExprParserRuleCall_0_1_2_0(), semanticObject.getExp());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     QualifiedNameTuple returns QualifiedNameTuple
+	 *
+	 * Constraint:
+	 *     (qlist+=QualifiedName qlist+=QualifiedName*)
+	 */
+	protected void sequence_QualifiedNameTuple(ISerializationContext context, QualifiedNameTuple semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     QualifiedName returns QualifiedName
+	 *
+	 * Constraint:
+	 *     ((s+=SimpleName dots=DOTS?) | (s+=SimpleName s+=SimpleName+ dots=DOTS?))
+	 */
+	protected void sequence_QualifiedName(ISerializationContext context, QualifiedName semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Qualified returns Qualified
+	 *     CommaExpr returns Qualified
+	 *     CommaExpr.CommaExpr_1_0 returns Qualified
+	 *     AddExpr returns Qualified
+	 *     AddExpr.AddExpr_1_0 returns Qualified
+	 *     SubExpr returns Qualified
+	 *     SubExpr.SubExpr_1_0 returns Qualified
+	 *     DivExpr returns Qualified
+	 *     DivExpr.DivExpr_1_0 returns Qualified
+	 *     MultExpr returns Qualified
+	 *     MultExpr.MultExpr_1_0 returns Qualified
+	 *     Primary returns Qualified
+	 *     Primary.Primary_0_1_0 returns Qualified
+	 *     Primary.Primary_0_2_0 returns Qualified
+	 *
+	 * Constraint:
+	 *     (q=QualifiedName | qlist=QualifiedNameTuple)
+	 */
+	protected void sequence_Qualified(ISerializationContext context, Qualified semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     RetType returns RetType
 	 *
 	 * Constraint:
-	 *     (empty='(' | type=Type)
+	 *     (empty='(' | type=SimpleName)
 	 */
 	protected void sequence_RetType(ISerializationContext context, RetType semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -823,7 +1135,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Stmnt returns Stmnt
 	 *
 	 * Constraint:
-	 *     ((front=ExprFront tails+=ExprTail*) | locVar=LocalVarDecl | exp=Expr)
+	 *     (delim=DelimitedExpr | (brack='(' delimList=DelimitedExprList))
 	 */
 	protected void sequence_Stmnt(ISerializationContext context, Stmnt semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -832,31 +1144,51 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     TupleType returns TupleType
+	 *     Stmnts returns Stmnts
 	 *
 	 * Constraint:
-	 *     (types+=Type types+=Type*)
+	 *     (front=Stmnt | locVar=LocalVarDecl | exp=Expr)
 	 */
-	protected void sequence_TupleType(ISerializationContext context, TupleType semanticObject) {
+	protected void sequence_Stmnts(ISerializationContext context, Stmnts semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Type returns Type
+	 *     CommaExpr returns SubExpr
+	 *     CommaExpr.CommaExpr_1_0 returns SubExpr
+	 *     AddExpr returns SubExpr
+	 *     AddExpr.AddExpr_1_0 returns SubExpr
+	 *     SubExpr returns SubExpr
+	 *     SubExpr.SubExpr_1_0 returns SubExpr
 	 *
 	 * Constraint:
-	 *     tname=ID
+	 *     (left=SubExpr_SubExpr_1_0 right=DivExpr)
 	 */
-	protected void sequence_Type(ISerializationContext context, Type semanticObject) {
+	protected void sequence_SubExpr(ISerializationContext context, SubExpr semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.TYPE__TNAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.TYPE__TNAME));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.COMMA_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTypeAccess().getTnameIDTerminalRuleCall_0(), semanticObject.getTname());
+		feeder.accept(grammarAccess.getSubExprAccess().getSubExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getSubExprAccess().getRightDivExprParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     TupleType returns TupleType
+	 *
+	 * Constraint:
+	 *     (types+=SimpleName types+=SimpleName*)
+	 */
+	protected void sequence_TupleType(ISerializationContext context, TupleType semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

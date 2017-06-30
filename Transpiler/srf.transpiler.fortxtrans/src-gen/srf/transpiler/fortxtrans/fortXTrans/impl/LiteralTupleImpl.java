@@ -3,25 +3,19 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.Literal;
+import srf.transpiler.fortxtrans.fortXTrans.LiteralTup;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple;
 
 /**
  * <!-- begin-user-doc -->
@@ -32,12 +26,13 @@ import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupleImpl#getLit <em>Lit</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupleImpl#getLits <em>Lits</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupleImpl#getQname <em>Qname</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupleImpl#getQlist <em>Qlist</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements LiteralTuple
+public class LiteralTupleImpl extends ExprImpl implements LiteralTuple
 {
   /**
    * The cached value of the '{@link #getLit() <em>Lit</em>}' containment reference.
@@ -47,17 +42,27 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
    * @generated
    * @ordered
    */
-  protected Literal lit;
+  protected LiteralTup lit;
 
   /**
-   * The cached value of the '{@link #getLits() <em>Lits</em>}' containment reference list.
+   * The cached value of the '{@link #getQname() <em>Qname</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLits()
+   * @see #getQname()
    * @generated
    * @ordered
    */
-  protected EList<Literal> lits;
+  protected QualifiedName qname;
+
+  /**
+   * The cached value of the '{@link #getQlist() <em>Qlist</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQlist()
+   * @generated
+   * @ordered
+   */
+  protected QualifiedNameTuple qlist;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,7 +90,7 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
    * <!-- end-user-doc -->
    * @generated
    */
-  public Literal getLit()
+  public LiteralTup getLit()
   {
     return lit;
   }
@@ -95,9 +100,9 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLit(Literal newLit, NotificationChain msgs)
+  public NotificationChain basicSetLit(LiteralTup newLit, NotificationChain msgs)
   {
-    Literal oldLit = lit;
+    LiteralTup oldLit = lit;
     lit = newLit;
     if (eNotificationRequired())
     {
@@ -112,7 +117,7 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLit(Literal newLit)
+  public void setLit(LiteralTup newLit)
   {
     if (newLit != lit)
     {
@@ -133,13 +138,95 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Literal> getLits()
+  public QualifiedName getQname()
   {
-    if (lits == null)
+    return qname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetQname(QualifiedName newQname, NotificationChain msgs)
+  {
+    QualifiedName oldQname = qname;
+    qname = newQname;
+    if (eNotificationRequired())
     {
-      lits = new EObjectContainmentEList<Literal>(Literal.class, this, FortXTransPackage.LITERAL_TUPLE__LITS);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL_TUPLE__QNAME, oldQname, newQname);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
     }
-    return lits;
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQname(QualifiedName newQname)
+  {
+    if (newQname != qname)
+    {
+      NotificationChain msgs = null;
+      if (qname != null)
+        msgs = ((InternalEObject)qname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.LITERAL_TUPLE__QNAME, null, msgs);
+      if (newQname != null)
+        msgs = ((InternalEObject)newQname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.LITERAL_TUPLE__QNAME, null, msgs);
+      msgs = basicSetQname(newQname, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL_TUPLE__QNAME, newQname, newQname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QualifiedNameTuple getQlist()
+  {
+    return qlist;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetQlist(QualifiedNameTuple newQlist, NotificationChain msgs)
+  {
+    QualifiedNameTuple oldQlist = qlist;
+    qlist = newQlist;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL_TUPLE__QLIST, oldQlist, newQlist);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQlist(QualifiedNameTuple newQlist)
+  {
+    if (newQlist != qlist)
+    {
+      NotificationChain msgs = null;
+      if (qlist != null)
+        msgs = ((InternalEObject)qlist).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.LITERAL_TUPLE__QLIST, null, msgs);
+      if (newQlist != null)
+        msgs = ((InternalEObject)newQlist).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.LITERAL_TUPLE__QLIST, null, msgs);
+      msgs = basicSetQlist(newQlist, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL_TUPLE__QLIST, newQlist, newQlist));
   }
 
   /**
@@ -154,8 +241,10 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
     {
       case FortXTransPackage.LITERAL_TUPLE__LIT:
         return basicSetLit(null, msgs);
-      case FortXTransPackage.LITERAL_TUPLE__LITS:
-        return ((InternalEList<?>)getLits()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.LITERAL_TUPLE__QNAME:
+        return basicSetQname(null, msgs);
+      case FortXTransPackage.LITERAL_TUPLE__QLIST:
+        return basicSetQlist(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -172,8 +261,10 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
     {
       case FortXTransPackage.LITERAL_TUPLE__LIT:
         return getLit();
-      case FortXTransPackage.LITERAL_TUPLE__LITS:
-        return getLits();
+      case FortXTransPackage.LITERAL_TUPLE__QNAME:
+        return getQname();
+      case FortXTransPackage.LITERAL_TUPLE__QLIST:
+        return getQlist();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -183,18 +274,19 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
       case FortXTransPackage.LITERAL_TUPLE__LIT:
-        setLit((Literal)newValue);
+        setLit((LiteralTup)newValue);
         return;
-      case FortXTransPackage.LITERAL_TUPLE__LITS:
-        getLits().clear();
-        getLits().addAll((Collection<? extends Literal>)newValue);
+      case FortXTransPackage.LITERAL_TUPLE__QNAME:
+        setQname((QualifiedName)newValue);
+        return;
+      case FortXTransPackage.LITERAL_TUPLE__QLIST:
+        setQlist((QualifiedNameTuple)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -211,10 +303,13 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
     switch (featureID)
     {
       case FortXTransPackage.LITERAL_TUPLE__LIT:
-        setLit((Literal)null);
+        setLit((LiteralTup)null);
         return;
-      case FortXTransPackage.LITERAL_TUPLE__LITS:
-        getLits().clear();
+      case FortXTransPackage.LITERAL_TUPLE__QNAME:
+        setQname((QualifiedName)null);
+        return;
+      case FortXTransPackage.LITERAL_TUPLE__QLIST:
+        setQlist((QualifiedNameTuple)null);
         return;
     }
     super.eUnset(featureID);
@@ -232,8 +327,10 @@ public class LiteralTupleImpl extends MinimalEObjectImpl.Container implements Li
     {
       case FortXTransPackage.LITERAL_TUPLE__LIT:
         return lit != null;
-      case FortXTransPackage.LITERAL_TUPLE__LITS:
-        return lits != null && !lits.isEmpty();
+      case FortXTransPackage.LITERAL_TUPLE__QNAME:
+        return qname != null;
+      case FortXTransPackage.LITERAL_TUPLE__QLIST:
+        return qlist != null;
     }
     return super.eIsSet(featureID);
   }

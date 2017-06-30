@@ -3,18 +3,25 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
+import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
+import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,22 +31,44 @@ import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getLit <em>Lit</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getFront <em>Front</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getTail <em>Tail</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
+public class ExprImpl extends CommaExprImpl implements Expr
 {
   /**
-   * The cached value of the '{@link #getLit() <em>Lit</em>}' containment reference.
+   * The cached value of the '{@link #getFront() <em>Front</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLit()
+   * @see #getFront()
    * @generated
    * @ordered
    */
-  protected LiteralTuple lit;
+  protected ExprFront front;
+
+  /**
+   * The cached value of the '{@link #getTail() <em>Tail</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTail()
+   * @generated
+   * @ordered
+   */
+  protected EList<ExprTail> tail;
+
+  /**
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getExp()
+   * @generated
+   * @ordered
+   */
+  protected Expr exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +96,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public LiteralTuple getLit()
+  public ExprFront getFront()
   {
-    return lit;
+    return front;
   }
 
   /**
@@ -77,13 +106,13 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLit(LiteralTuple newLit, NotificationChain msgs)
+  public NotificationChain basicSetFront(ExprFront newFront, NotificationChain msgs)
   {
-    LiteralTuple oldLit = lit;
-    lit = newLit;
+    ExprFront oldFront = front;
+    front = newFront;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__LIT, oldLit, newLit);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__FRONT, oldFront, newFront);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +123,82 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLit(LiteralTuple newLit)
+  public void setFront(ExprFront newFront)
   {
-    if (newLit != lit)
+    if (newFront != front)
     {
       NotificationChain msgs = null;
-      if (lit != null)
-        msgs = ((InternalEObject)lit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__LIT, null, msgs);
-      if (newLit != null)
-        msgs = ((InternalEObject)newLit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__LIT, null, msgs);
-      msgs = basicSetLit(newLit, msgs);
+      if (front != null)
+        msgs = ((InternalEObject)front).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__FRONT, null, msgs);
+      if (newFront != null)
+        msgs = ((InternalEObject)newFront).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__FRONT, null, msgs);
+      msgs = basicSetFront(newFront, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__LIT, newLit, newLit));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__FRONT, newFront, newFront));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<ExprTail> getTail()
+  {
+    if (tail == null)
+    {
+      tail = new EObjectContainmentEList<ExprTail>(ExprTail.class, this, FortXTransPackage.EXPR__TAIL);
+    }
+    return tail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expr getExp()
+  {
+    return exp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
+  {
+    Expr oldExp = exp;
+    exp = newExp;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__EXP, oldExp, newExp);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setExp(Expr newExp)
+  {
+    if (newExp != exp)
+    {
+      NotificationChain msgs = null;
+      if (exp != null)
+        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__EXP, null, msgs);
+      if (newExp != null)
+        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__EXP, null, msgs);
+      msgs = basicSetExp(newExp, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__EXP, newExp, newExp));
   }
 
   /**
@@ -120,8 +211,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__LIT:
-        return basicSetLit(null, msgs);
+      case FortXTransPackage.EXPR__FRONT:
+        return basicSetFront(null, msgs);
+      case FortXTransPackage.EXPR__TAIL:
+        return ((InternalEList<?>)getTail()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.EXPR__EXP:
+        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +231,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__LIT:
-        return getLit();
+      case FortXTransPackage.EXPR__FRONT:
+        return getFront();
+      case FortXTransPackage.EXPR__TAIL:
+        return getTail();
+      case FortXTransPackage.EXPR__EXP:
+        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -147,13 +246,21 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__LIT:
-        setLit((LiteralTuple)newValue);
+      case FortXTransPackage.EXPR__FRONT:
+        setFront((ExprFront)newValue);
+        return;
+      case FortXTransPackage.EXPR__TAIL:
+        getTail().clear();
+        getTail().addAll((Collection<? extends ExprTail>)newValue);
+        return;
+      case FortXTransPackage.EXPR__EXP:
+        setExp((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +276,14 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__LIT:
-        setLit((LiteralTuple)null);
+      case FortXTransPackage.EXPR__FRONT:
+        setFront((ExprFront)null);
+        return;
+      case FortXTransPackage.EXPR__TAIL:
+        getTail().clear();
+        return;
+      case FortXTransPackage.EXPR__EXP:
+        setExp((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,8 +299,12 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__LIT:
-        return lit != null;
+      case FortXTransPackage.EXPR__FRONT:
+        return front != null;
+      case FortXTransPackage.EXPR__TAIL:
+        return tail != null && !tail.isEmpty();
+      case FortXTransPackage.EXPR__EXP:
+        return exp != null;
     }
     return super.eIsSet(featureID);
   }

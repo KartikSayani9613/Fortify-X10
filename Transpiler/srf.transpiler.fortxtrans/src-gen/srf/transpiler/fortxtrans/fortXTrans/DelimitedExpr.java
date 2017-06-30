@@ -15,9 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDod <em>Dod</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getLits <em>Lits</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEqop <em>Eqop</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPblock <em>Pblock</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getRet <em>Ret</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAwhile <em>Awhile</em>}</li>
@@ -31,10 +28,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls <em>Els</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getParblock <em>Parblock</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getFname <em>Fname</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBrack <em>Brack</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getFargs <em>Fargs</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr()
@@ -68,84 +61,6 @@ public interface DelimitedExpr extends EObject
    * @generated
    */
   void setDod(Do value);
-
-  /**
-   * Returns the value of the '<em><b>Lits</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Lits</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lits</em>' containment reference.
-   * @see #setLits(LiteralTuple)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Lits()
-   * @model containment="true"
-   * @generated
-   */
-  LiteralTuple getLits();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getLits <em>Lits</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lits</em>' containment reference.
-   * @see #getLits()
-   * @generated
-   */
-  void setLits(LiteralTuple value);
-
-  /**
-   * Returns the value of the '<em><b>Eqop</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Eqop</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Eqop</em>' attribute.
-   * @see #setEqop(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Eqop()
-   * @model
-   * @generated
-   */
-  String getEqop();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEqop <em>Eqop</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Eqop</em>' attribute.
-   * @see #getEqop()
-   * @generated
-   */
-  void setEqop(String value);
-
-  /**
-   * Returns the value of the '<em><b>Pblock</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Pblock</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Pblock</em>' containment reference.
-   * @see #setPblock(ParBlockElems)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Pblock()
-   * @model containment="true"
-   * @generated
-   */
-  ParBlockElems getPblock();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPblock <em>Pblock</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Pblock</em>' containment reference.
-   * @see #getPblock()
-   * @generated
-   */
-  void setPblock(ParBlockElems value);
 
   /**
    * Returns the value of the '<em><b>Ret</b></em>' attribute.
@@ -484,109 +399,5 @@ public interface DelimitedExpr extends EObject
    * @generated
    */
   void setEls(Else value);
-
-  /**
-   * Returns the value of the '<em><b>Parblock</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Parblock</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Parblock</em>' containment reference.
-   * @see #setParblock(ParBlockElems)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Parblock()
-   * @model containment="true"
-   * @generated
-   */
-  ParBlockElems getParblock();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getParblock <em>Parblock</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parblock</em>' containment reference.
-   * @see #getParblock()
-   * @generated
-   */
-  void setParblock(ParBlockElems value);
-
-  /**
-   * Returns the value of the '<em><b>Fname</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fname</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fname</em>' attribute.
-   * @see #setFname(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Fname()
-   * @model
-   * @generated
-   */
-  String getFname();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getFname <em>Fname</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fname</em>' attribute.
-   * @see #getFname()
-   * @generated
-   */
-  void setFname(String value);
-
-  /**
-   * Returns the value of the '<em><b>Brack</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Brack</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Brack</em>' attribute.
-   * @see #setBrack(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Brack()
-   * @model
-   * @generated
-   */
-  String getBrack();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBrack <em>Brack</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Brack</em>' attribute.
-   * @see #getBrack()
-   * @generated
-   */
-  void setBrack(String value);
-
-  /**
-   * Returns the value of the '<em><b>Fargs</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Fargs</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Fargs</em>' containment reference.
-   * @see #setFargs(ExprList)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Fargs()
-   * @model containment="true"
-   * @generated
-   */
-  ExprList getFargs();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getFargs <em>Fargs</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Fargs</em>' containment reference.
-   * @see #getFargs()
-   * @generated
-   */
-  void setFargs(ExprList value);
 
 } // DelimitedExpr

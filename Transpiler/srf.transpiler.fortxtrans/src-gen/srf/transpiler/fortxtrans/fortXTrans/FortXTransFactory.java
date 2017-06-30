@@ -78,6 +78,33 @@ public interface FortXTransFactory extends EFactory
   ImportedNames createImportedNames();
 
   /**
+   * Returns a new object of class '<em>Qualified Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Qualified Name</em>'.
+   * @generated
+   */
+  QualifiedName createQualifiedName();
+
+  /**
+   * Returns a new object of class '<em>Qualified</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Qualified</em>'.
+   * @generated
+   */
+  Qualified createQualified();
+
+  /**
+   * Returns a new object of class '<em>Qualified Name Tuple</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Qualified Name Tuple</em>'.
+   * @generated
+   */
+  QualifiedNameTuple createQualifiedNameTuple();
+
+  /**
    * Returns a new object of class '<em>Simple Names</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -195,15 +222,6 @@ public interface FortXTransFactory extends EFactory
   TupleType createTupleType();
 
   /**
-   * Returns a new object of class '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type</em>'.
-   * @generated
-   */
-  Type createType();
-
-  /**
    * Returns a new object of class '<em>Fn Decl</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -213,6 +231,15 @@ public interface FortXTransFactory extends EFactory
   FnDecl createFnDecl();
 
   /**
+   * Returns a new object of class '<em>Stmnts</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stmnts</em>'.
+   * @generated
+   */
+  Stmnts createStmnts();
+
+  /**
    * Returns a new object of class '<em>Stmnt</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,6 +247,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   Stmnt createStmnt();
+
+  /**
+   * Returns a new object of class '<em>Delimited Expr List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Delimited Expr List</em>'.
+   * @generated
+   */
+  DelimitedExprList createDelimitedExprList();
 
   /**
    * Returns a new object of class '<em>Expr</em>'.
@@ -240,6 +276,15 @@ public interface FortXTransFactory extends EFactory
   ExprFront createExprFront();
 
   /**
+   * Returns a new object of class '<em>Comma Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comma Expr</em>'.
+   * @generated
+   */
+  CommaExpr createCommaExpr();
+
+  /**
    * Returns a new object of class '<em>Expr Tail</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -256,24 +301,6 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   DelimitedExpr createDelimitedExpr();
-
-  /**
-   * Returns a new object of class '<em>Expr List</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr List</em>'.
-   * @generated
-   */
-  ExprList createExprList();
-
-  /**
-   * Returns a new object of class '<em>Par Block Elems</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Par Block Elems</em>'.
-   * @generated
-   */
-  ParBlockElems createParBlockElems();
 
   /**
    * Returns a new object of class '<em>Elifs</em>'.
@@ -375,6 +402,15 @@ public interface FortXTransFactory extends EFactory
   IdOrTuple createIdOrTuple();
 
   /**
+   * Returns a new object of class '<em>Bind Id</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bind Id</em>'.
+   * @generated
+   */
+  BindId createBindId();
+
+  /**
    * Returns a new object of class '<em>Is Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -429,6 +465,15 @@ public interface FortXTransFactory extends EFactory
   LiteralTuple createLiteralTuple();
 
   /**
+   * Returns a new object of class '<em>Literal Tup</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Literal Tup</em>'.
+   * @generated
+   */
+  LiteralTup createLiteralTup();
+
+  /**
    * Returns a new object of class '<em>Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -445,6 +490,51 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   LocalVarDecl createLocalVarDecl();
+
+  /**
+   * Returns a new object of class '<em>Add Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Add Expr</em>'.
+   * @generated
+   */
+  AddExpr createAddExpr();
+
+  /**
+   * Returns a new object of class '<em>Sub Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Sub Expr</em>'.
+   * @generated
+   */
+  SubExpr createSubExpr();
+
+  /**
+   * Returns a new object of class '<em>Div Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Div Expr</em>'.
+   * @generated
+   */
+  DivExpr createDivExpr();
+
+  /**
+   * Returns a new object of class '<em>Mult Expr</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mult Expr</em>'.
+   * @generated
+   */
+  MultExpr createMultExpr();
+
+  /**
+   * Returns a new object of class '<em>Primary</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Primary</em>'.
+   * @generated
+   */
+  Primary createPrimary();
 
   /**
    * Returns the package supported by this factory.

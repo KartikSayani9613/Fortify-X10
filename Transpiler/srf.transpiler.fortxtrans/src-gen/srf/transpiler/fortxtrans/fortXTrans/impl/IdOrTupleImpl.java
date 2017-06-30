@@ -5,14 +5,19 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
+import srf.transpiler.fortxtrans.fortXTrans.BindId;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
 
@@ -32,14 +37,14 @@ import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
 public class IdOrTupleImpl extends MinimalEObjectImpl.Container implements IdOrTuple
 {
   /**
-   * The cached value of the '{@link #getBid() <em>Bid</em>}' attribute list.
+   * The cached value of the '{@link #getBid() <em>Bid</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBid()
    * @generated
    * @ordered
    */
-  protected EList<String> bid;
+  protected EList<BindId> bid;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,13 +72,29 @@ public class IdOrTupleImpl extends MinimalEObjectImpl.Container implements IdOrT
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getBid()
+  public EList<BindId> getBid()
   {
     if (bid == null)
     {
-      bid = new EDataTypeEList<String>(String.class, this, FortXTransPackage.ID_OR_TUPLE__BID);
+      bid = new EObjectContainmentEList<BindId>(BindId.class, this, FortXTransPackage.ID_OR_TUPLE__BID);
     }
     return bid;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case FortXTransPackage.ID_OR_TUPLE__BID:
+        return ((InternalEList<?>)getBid()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -105,7 +126,7 @@ public class IdOrTupleImpl extends MinimalEObjectImpl.Container implements IdOrT
     {
       case FortXTransPackage.ID_OR_TUPLE__BID:
         getBid().clear();
-        getBid().addAll((Collection<? extends String>)newValue);
+        getBid().addAll((Collection<? extends BindId>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,23 +163,6 @@ public class IdOrTupleImpl extends MinimalEObjectImpl.Container implements IdOrT
         return bid != null && !bid.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (bid: ");
-    result.append(bid);
-    result.append(')');
-    return result.toString();
   }
 
 } //IdOrTupleImpl

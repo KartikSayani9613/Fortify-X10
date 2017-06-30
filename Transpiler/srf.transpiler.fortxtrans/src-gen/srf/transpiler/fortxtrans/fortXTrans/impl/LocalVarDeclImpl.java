@@ -18,8 +18,8 @@ import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.TupleType;
-import srf.transpiler.fortxtrans.fortXTrans.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,8 +31,6 @@ import srf.transpiler.fortxtrans.fortXTrans.Type;
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getMut <em>Mut</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getVars <em>Vars</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getMuta <em>Muta</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getImmut <em>Immut</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getInit <em>Init</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getIdtup <em>Idtup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LocalVarDeclImpl#getLitTup <em>Lit Tup</em>}</li>
@@ -75,46 +73,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
   protected NoNewlineVarWTypes vars;
 
   /**
-   * The default value of the '{@link #getMuta() <em>Muta</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMuta()
-   * @generated
-   * @ordered
-   */
-  protected static final String MUTA_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getMuta() <em>Muta</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getMuta()
-   * @generated
-   * @ordered
-   */
-  protected String muta = MUTA_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getImmut() <em>Immut</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImmut()
-   * @generated
-   * @ordered
-   */
-  protected static final String IMMUT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getImmut() <em>Immut</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImmut()
-   * @generated
-   * @ordered
-   */
-  protected String immut = IMMUT_EDEFAULT;
-
-  /**
    * The cached value of the '{@link #getInit() <em>Init</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -152,7 +110,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * @generated
    * @ordered
    */
-  protected Type type;
+  protected SimpleName type;
 
   /**
    * The cached value of the '{@link #getTuptype() <em>Tuptype</em>}' containment reference.
@@ -254,52 +212,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LOCAL_VAR_DECL__VARS, newVars, newVars));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getMuta()
-  {
-    return muta;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setMuta(String newMuta)
-  {
-    String oldMuta = muta;
-    muta = newMuta;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LOCAL_VAR_DECL__MUTA, oldMuta, muta));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String getImmut()
-  {
-    return immut;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setImmut(String newImmut)
-  {
-    String oldImmut = immut;
-    immut = newImmut;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LOCAL_VAR_DECL__IMMUT, oldImmut, immut));
   }
 
   /**
@@ -451,7 +363,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getType()
+  public SimpleName getType()
   {
     return type;
   }
@@ -461,9 +373,9 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  public NotificationChain basicSetType(SimpleName newType, NotificationChain msgs)
   {
-    Type oldType = type;
+    SimpleName oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -478,7 +390,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(Type newType)
+  public void setType(SimpleName newType)
   {
     if (newType != type)
     {
@@ -582,10 +494,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
         return getMut();
       case FortXTransPackage.LOCAL_VAR_DECL__VARS:
         return getVars();
-      case FortXTransPackage.LOCAL_VAR_DECL__MUTA:
-        return getMuta();
-      case FortXTransPackage.LOCAL_VAR_DECL__IMMUT:
-        return getImmut();
       case FortXTransPackage.LOCAL_VAR_DECL__INIT:
         return getInit();
       case FortXTransPackage.LOCAL_VAR_DECL__IDTUP:
@@ -616,12 +524,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
       case FortXTransPackage.LOCAL_VAR_DECL__VARS:
         setVars((NoNewlineVarWTypes)newValue);
         return;
-      case FortXTransPackage.LOCAL_VAR_DECL__MUTA:
-        setMuta((String)newValue);
-        return;
-      case FortXTransPackage.LOCAL_VAR_DECL__IMMUT:
-        setImmut((String)newValue);
-        return;
       case FortXTransPackage.LOCAL_VAR_DECL__INIT:
         setInit((Expr)newValue);
         return;
@@ -632,7 +534,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
         setLitTup((LiteralTuple)newValue);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__TYPE:
-        setType((Type)newValue);
+        setType((SimpleName)newValue);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__TUPTYPE:
         setTuptype((TupleType)newValue);
@@ -657,12 +559,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
       case FortXTransPackage.LOCAL_VAR_DECL__VARS:
         setVars((NoNewlineVarWTypes)null);
         return;
-      case FortXTransPackage.LOCAL_VAR_DECL__MUTA:
-        setMuta(MUTA_EDEFAULT);
-        return;
-      case FortXTransPackage.LOCAL_VAR_DECL__IMMUT:
-        setImmut(IMMUT_EDEFAULT);
-        return;
       case FortXTransPackage.LOCAL_VAR_DECL__INIT:
         setInit((Expr)null);
         return;
@@ -673,7 +569,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
         setLitTup((LiteralTuple)null);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__TYPE:
-        setType((Type)null);
+        setType((SimpleName)null);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__TUPTYPE:
         setTuptype((TupleType)null);
@@ -696,10 +592,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
         return MUT_EDEFAULT == null ? mut != null : !MUT_EDEFAULT.equals(mut);
       case FortXTransPackage.LOCAL_VAR_DECL__VARS:
         return vars != null;
-      case FortXTransPackage.LOCAL_VAR_DECL__MUTA:
-        return MUTA_EDEFAULT == null ? muta != null : !MUTA_EDEFAULT.equals(muta);
-      case FortXTransPackage.LOCAL_VAR_DECL__IMMUT:
-        return IMMUT_EDEFAULT == null ? immut != null : !IMMUT_EDEFAULT.equals(immut);
       case FortXTransPackage.LOCAL_VAR_DECL__INIT:
         return init != null;
       case FortXTransPackage.LOCAL_VAR_DECL__IDTUP:
@@ -727,10 +619,6 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (mut: ");
     result.append(mut);
-    result.append(", muta: ");
-    result.append(muta);
-    result.append(", immut: ");
-    result.append(immut);
     result.append(')');
     return result.toString();
   }

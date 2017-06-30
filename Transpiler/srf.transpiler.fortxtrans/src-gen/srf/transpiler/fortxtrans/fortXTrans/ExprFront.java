@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getAdd <em>Add</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront()
@@ -24,29 +24,29 @@ import org.eclipse.emf.ecore.EObject;
 public interface ExprFront extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Delim</b></em>' containment reference.
+   * Returns the value of the '<em><b>Add</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Delim</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Add</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Delim</em>' containment reference.
-   * @see #setDelim(DelimitedExpr)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront_Delim()
+   * @return the value of the '<em>Add</em>' containment reference.
+   * @see #setAdd(CommaExpr)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront_Add()
    * @model containment="true"
    * @generated
    */
-  DelimitedExpr getDelim();
+  CommaExpr getAdd();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getDelim <em>Delim</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getAdd <em>Add</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Delim</em>' containment reference.
-   * @see #getDelim()
+   * @param value the new value of the '<em>Add</em>' containment reference.
+   * @see #getAdd()
    * @generated
    */
-  void setDelim(DelimitedExpr value);
+  void setAdd(CommaExpr value);
 
 } // ExprFront

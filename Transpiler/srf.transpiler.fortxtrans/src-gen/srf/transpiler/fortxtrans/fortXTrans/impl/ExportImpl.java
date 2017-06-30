@@ -6,18 +6,22 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
 
 /**
  * <!-- begin-user-doc -->
@@ -57,14 +61,14 @@ public class ExportImpl extends MinimalEObjectImpl.Container implements Export
   protected String exp = EXP_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExportedName() <em>Exported Name</em>}' attribute list.
+   * The cached value of the '{@link #getExportedName() <em>Exported Name</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExportedName()
    * @generated
    * @ordered
    */
-  protected EList<String> exportedName;
+  protected EList<QualifiedName> exportedName;
 
   /**
    * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
@@ -135,11 +139,11 @@ public class ExportImpl extends MinimalEObjectImpl.Container implements Export
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getExportedName()
+  public EList<QualifiedName> getExportedName()
   {
     if (exportedName == null)
     {
-      exportedName = new EDataTypeEList<String>(String.class, this, FortXTransPackage.EXPORT__EXPORTED_NAME);
+      exportedName = new EObjectContainmentEList<QualifiedName>(QualifiedName.class, this, FortXTransPackage.EXPORT__EXPORTED_NAME);
     }
     return exportedName;
   }
@@ -165,6 +169,22 @@ public class ExportImpl extends MinimalEObjectImpl.Container implements Export
     brack = newBrack;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPORT__BRACK, oldBrack, brack));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case FortXTransPackage.EXPORT__EXPORTED_NAME:
+        return ((InternalEList<?>)getExportedName()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -203,7 +223,7 @@ public class ExportImpl extends MinimalEObjectImpl.Container implements Export
         return;
       case FortXTransPackage.EXPORT__EXPORTED_NAME:
         getExportedName().clear();
-        getExportedName().addAll((Collection<? extends String>)newValue);
+        getExportedName().addAll((Collection<? extends QualifiedName>)newValue);
         return;
       case FortXTransPackage.EXPORT__BRACK:
         setBrack((String)newValue);
@@ -268,8 +288,6 @@ public class ExportImpl extends MinimalEObjectImpl.Container implements Export
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (exp: ");
     result.append(exp);
-    result.append(", exportedName: ");
-    result.append(exportedName);
     result.append(", brack: ");
     result.append(brack);
     result.append(')');

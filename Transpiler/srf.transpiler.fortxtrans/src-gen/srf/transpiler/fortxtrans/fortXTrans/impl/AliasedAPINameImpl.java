@@ -4,14 +4,17 @@
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,24 +33,14 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements AliasedAPIName
 {
   /**
-   * The default value of the '{@link #getOrig() <em>Orig</em>}' attribute.
+   * The cached value of the '{@link #getOrig() <em>Orig</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getOrig()
    * @generated
    * @ordered
    */
-  protected static final String ORIG_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getOrig() <em>Orig</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getOrig()
-   * @generated
-   * @ordered
-   */
-  protected String orig = ORIG_EDEFAULT;
+  protected QualifiedName orig;
 
   /**
    * The default value of the '{@link #getAsName() <em>As Name</em>}' attribute.
@@ -95,7 +88,7 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getOrig()
+  public QualifiedName getOrig()
   {
     return orig;
   }
@@ -105,12 +98,37 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOrig(String newOrig)
+  public NotificationChain basicSetOrig(QualifiedName newOrig, NotificationChain msgs)
   {
-    String oldOrig = orig;
+    QualifiedName oldOrig = orig;
     orig = newOrig;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.ALIASED_API_NAME__ORIG, oldOrig, orig));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.ALIASED_API_NAME__ORIG, oldOrig, newOrig);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrig(QualifiedName newOrig)
+  {
+    if (newOrig != orig)
+    {
+      NotificationChain msgs = null;
+      if (orig != null)
+        msgs = ((InternalEObject)orig).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ALIASED_API_NAME__ORIG, null, msgs);
+      if (newOrig != null)
+        msgs = ((InternalEObject)newOrig).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ALIASED_API_NAME__ORIG, null, msgs);
+      msgs = basicSetOrig(newOrig, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.ALIASED_API_NAME__ORIG, newOrig, newOrig));
   }
 
   /**
@@ -142,6 +160,22 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
    * @generated
    */
   @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case FortXTransPackage.ALIASED_API_NAME__ORIG:
+        return basicSetOrig(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
     switch (featureID)
@@ -165,7 +199,7 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case FortXTransPackage.ALIASED_API_NAME__ORIG:
-        setOrig((String)newValue);
+        setOrig((QualifiedName)newValue);
         return;
       case FortXTransPackage.ALIASED_API_NAME__AS_NAME:
         setAsName((String)newValue);
@@ -185,7 +219,7 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case FortXTransPackage.ALIASED_API_NAME__ORIG:
-        setOrig(ORIG_EDEFAULT);
+        setOrig((QualifiedName)null);
         return;
       case FortXTransPackage.ALIASED_API_NAME__AS_NAME:
         setAsName(AS_NAME_EDEFAULT);
@@ -205,7 +239,7 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
     switch (featureID)
     {
       case FortXTransPackage.ALIASED_API_NAME__ORIG:
-        return ORIG_EDEFAULT == null ? orig != null : !ORIG_EDEFAULT.equals(orig);
+        return orig != null;
       case FortXTransPackage.ALIASED_API_NAME__AS_NAME:
         return AS_NAME_EDEFAULT == null ? asName != null : !AS_NAME_EDEFAULT.equals(asName);
     }
@@ -223,9 +257,7 @@ public class AliasedAPINameImpl extends MinimalEObjectImpl.Container implements 
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (orig: ");
-    result.append(orig);
-    result.append(", asName: ");
+    result.append(" (asName: ");
     result.append(asName);
     result.append(')');
     return result.toString();

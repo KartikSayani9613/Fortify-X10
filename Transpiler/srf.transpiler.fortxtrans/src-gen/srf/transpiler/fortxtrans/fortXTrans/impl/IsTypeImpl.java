@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
-import srf.transpiler.fortxtrans.fortXTrans.Type;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class IsTypeImpl extends MinimalEObjectImpl.Container implements IsType
    * @generated
    * @ordered
    */
-  protected Type type;
+  protected SimpleName type;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class IsTypeImpl extends MinimalEObjectImpl.Container implements IsType
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getType()
+  public SimpleName getType()
   {
     return type;
   }
@@ -77,9 +77,9 @@ public class IsTypeImpl extends MinimalEObjectImpl.Container implements IsType
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  public NotificationChain basicSetType(SimpleName newType, NotificationChain msgs)
   {
-    Type oldType = type;
+    SimpleName oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -94,7 +94,7 @@ public class IsTypeImpl extends MinimalEObjectImpl.Container implements IsType
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(Type newType)
+  public void setType(SimpleName newType)
   {
     if (newType != type)
     {
@@ -153,7 +153,7 @@ public class IsTypeImpl extends MinimalEObjectImpl.Container implements IsType
     switch (featureID)
     {
       case FortXTransPackage.IS_TYPE__TYPE:
-        setType((Type)newValue);
+        setType((SimpleName)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,7 +170,7 @@ public class IsTypeImpl extends MinimalEObjectImpl.Container implements IsType
     switch (featureID)
     {
       case FortXTransPackage.IS_TYPE__TYPE:
-        setType((Type)null);
+        setType((SimpleName)null);
         return;
     }
     super.eUnset(featureID);

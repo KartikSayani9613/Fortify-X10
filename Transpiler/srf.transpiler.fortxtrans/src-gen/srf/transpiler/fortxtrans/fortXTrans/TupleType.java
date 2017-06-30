@@ -27,7 +27,7 @@ public interface TupleType extends EObject
 {
   /**
    * Returns the value of the '<em><b>Types</b></em>' containment reference list.
-   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Type}.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.SimpleName}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Types</em>' containment reference list isn't clear,
@@ -39,6 +39,6 @@ public interface TupleType extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Type> getTypes();
+  EList<SimpleName> getTypes();
 
 } // TupleType

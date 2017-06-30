@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class BlockElemImpl extends MinimalEObjectImpl.Container implements Block
    * @generated
    * @ordered
    */
-  protected Stmnt st;
+  protected Stmnts st;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,7 +67,7 @@ public class BlockElemImpl extends MinimalEObjectImpl.Container implements Block
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stmnt getSt()
+  public Stmnts getSt()
   {
     return st;
   }
@@ -77,9 +77,9 @@ public class BlockElemImpl extends MinimalEObjectImpl.Container implements Block
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetSt(Stmnt newSt, NotificationChain msgs)
+  public NotificationChain basicSetSt(Stmnts newSt, NotificationChain msgs)
   {
-    Stmnt oldSt = st;
+    Stmnts oldSt = st;
     st = newSt;
     if (eNotificationRequired())
     {
@@ -94,7 +94,7 @@ public class BlockElemImpl extends MinimalEObjectImpl.Container implements Block
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setSt(Stmnt newSt)
+  public void setSt(Stmnts newSt)
   {
     if (newSt != st)
     {
@@ -153,7 +153,7 @@ public class BlockElemImpl extends MinimalEObjectImpl.Container implements Block
     switch (featureID)
     {
       case FortXTransPackage.BLOCK_ELEM__ST:
-        setSt((Stmnt)newValue);
+        setSt((Stmnts)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,7 +170,7 @@ public class BlockElemImpl extends MinimalEObjectImpl.Container implements Block
     switch (featureID)
     {
       case FortXTransPackage.BLOCK_ELEM__ST:
-        setSt((Stmnt)null);
+        setSt((Stmnts)null);
         return;
     }
     super.eUnset(featureID);

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.BindId;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
@@ -33,24 +34,14 @@ import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implements NoNewlineVarWType
 {
   /**
-   * The default value of the '{@link #getBid() <em>Bid</em>}' attribute.
+   * The cached value of the '{@link #getBid() <em>Bid</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBid()
    * @generated
    * @ordered
    */
-  protected static final String BID_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBid() <em>Bid</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBid()
-   * @generated
-   * @ordered
-   */
-  protected String bid = BID_EDEFAULT;
+  protected BindId bid;
 
   /**
    * The cached value of the '{@link #getIstype() <em>Istype</em>}' containment reference.
@@ -88,7 +79,7 @@ public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBid()
+  public BindId getBid()
   {
     return bid;
   }
@@ -98,12 +89,37 @@ public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBid(String newBid)
+  public NotificationChain basicSetBid(BindId newBid, NotificationChain msgs)
   {
-    String oldBid = bid;
+    BindId oldBid = bid;
     bid = newBid;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID, oldBid, bid));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID, oldBid, newBid);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBid(BindId newBid)
+  {
+    if (newBid != bid)
+    {
+      NotificationChain msgs = null;
+      if (bid != null)
+        msgs = ((InternalEObject)bid).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID, null, msgs);
+      if (newBid != null)
+        msgs = ((InternalEObject)newBid).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID, null, msgs);
+      msgs = basicSetBid(newBid, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID, newBid, newBid));
   }
 
   /**
@@ -164,6 +180,8 @@ public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID:
+        return basicSetBid(null, msgs);
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__ISTYPE:
         return basicSetIstype(null, msgs);
     }
@@ -199,7 +217,7 @@ public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID:
-        setBid((String)newValue);
+        setBid((BindId)newValue);
         return;
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__ISTYPE:
         setIstype((IsType)newValue);
@@ -219,7 +237,7 @@ public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID:
-        setBid(BID_EDEFAULT);
+        setBid((BindId)null);
         return;
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__ISTYPE:
         setIstype((IsType)null);
@@ -239,28 +257,11 @@ public class NoNewlineVarWTypeImpl extends MinimalEObjectImpl.Container implemen
     switch (featureID)
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__BID:
-        return BID_EDEFAULT == null ? bid != null : !BID_EDEFAULT.equals(bid);
+        return bid != null;
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE__ISTYPE:
         return istype != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (bid: ");
-    result.append(bid);
-    result.append(')');
-    return result.toString();
   }
 
 } //NoNewlineVarWTypeImpl

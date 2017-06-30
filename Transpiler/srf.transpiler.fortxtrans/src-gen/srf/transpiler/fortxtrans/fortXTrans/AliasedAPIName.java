@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface AliasedAPIName extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Orig</b></em>' attribute.
+   * Returns the value of the '<em><b>Orig</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Orig</em>' attribute isn't clear,
+   * If the meaning of the '<em>Orig</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Orig</em>' attribute.
-   * @see #setOrig(String)
+   * @return the value of the '<em>Orig</em>' containment reference.
+   * @see #setOrig(QualifiedName)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getAliasedAPIName_Orig()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getOrig();
+  QualifiedName getOrig();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName#getOrig <em>Orig</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName#getOrig <em>Orig</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Orig</em>' attribute.
+   * @param value the new value of the '<em>Orig</em>' containment reference.
    * @see #getOrig()
    * @generated
    */
-  void setOrig(String value);
+  void setOrig(QualifiedName value);
 
   /**
    * Returns the value of the '<em><b>As Name</b></em>' attribute.

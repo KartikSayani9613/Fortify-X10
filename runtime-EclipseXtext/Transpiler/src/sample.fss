@@ -1,20 +1,8 @@
-component fact64
-export Executable
-
-	private var n:String = "Hello"
+component sample
+export Executable...
 
 	run():() = do
-		var n:ZZ32 = 20
-		for i<-n do
-			fact(i)
-		end
+		var x:ZZ32 = 20+20
 	end
-	
-	fact(i:ZZ32):ZZ32 = do
-		if i then
-			return 1
-		else
-			return nfact(n)
-		end
-	end
+
 end

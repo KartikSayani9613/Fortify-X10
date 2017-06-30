@@ -19,62 +19,62 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Par Block Elems</b></em>'.
+ * An implementation of the model object '<em><b>Qualified Name</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParBlockElemsImpl#getBrack <em>Brack</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParBlockElemsImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.QualifiedNameImpl#getS <em>S</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.QualifiedNameImpl#getDots <em>Dots</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements ParBlockElems
+public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements QualifiedName
 {
   /**
-   * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * The cached value of the '{@link #getS() <em>S</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBrack()
+   * @see #getS()
    * @generated
    * @ordered
    */
-  protected static final String BRACK_EDEFAULT = null;
+  protected EList<SimpleName> s;
 
   /**
-   * The cached value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * The default value of the '{@link #getDots() <em>Dots</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBrack()
+   * @see #getDots()
    * @generated
    * @ordered
    */
-  protected String brack = BRACK_EDEFAULT;
+  protected static final String DOTS_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
+   * The cached value of the '{@link #getDots() <em>Dots</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBlock()
+   * @see #getDots()
    * @generated
    * @ordered
    */
-  protected EList<BlockElem> block;
+  protected String dots = DOTS_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ParBlockElemsImpl()
+  protected QualifiedNameImpl()
   {
     super();
   }
@@ -87,7 +87,7 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.PAR_BLOCK_ELEMS;
+    return FortXTransPackage.Literals.QUALIFIED_NAME;
   }
 
   /**
@@ -95,36 +95,36 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBrack()
+  public EList<SimpleName> getS()
   {
-    return brack;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setBrack(String newBrack)
-  {
-    String oldBrack = brack;
-    brack = newBrack;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.PAR_BLOCK_ELEMS__BRACK, oldBrack, brack));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<BlockElem> getBlock()
-  {
-    if (block == null)
+    if (s == null)
     {
-      block = new EObjectContainmentEList<BlockElem>(BlockElem.class, this, FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK);
+      s = new EObjectContainmentEList<SimpleName>(SimpleName.class, this, FortXTransPackage.QUALIFIED_NAME__S);
     }
-    return block;
+    return s;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getDots()
+  {
+    return dots;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDots(String newDots)
+  {
+    String oldDots = dots;
+    dots = newDots;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.QUALIFIED_NAME__DOTS, oldDots, dots));
   }
 
   /**
@@ -137,8 +137,8 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
-        return ((InternalEList<?>)getBlock()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.QUALIFIED_NAME__S:
+        return ((InternalEList<?>)getS()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -153,10 +153,10 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
-        return getBrack();
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
-        return getBlock();
+      case FortXTransPackage.QUALIFIED_NAME__S:
+        return getS();
+      case FortXTransPackage.QUALIFIED_NAME__DOTS:
+        return getDots();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -172,12 +172,12 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
-        setBrack((String)newValue);
+      case FortXTransPackage.QUALIFIED_NAME__S:
+        getS().clear();
+        getS().addAll((Collection<? extends SimpleName>)newValue);
         return;
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
-        getBlock().clear();
-        getBlock().addAll((Collection<? extends BlockElem>)newValue);
+      case FortXTransPackage.QUALIFIED_NAME__DOTS:
+        setDots((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -193,11 +193,11 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
-        setBrack(BRACK_EDEFAULT);
+      case FortXTransPackage.QUALIFIED_NAME__S:
+        getS().clear();
         return;
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
-        getBlock().clear();
+      case FortXTransPackage.QUALIFIED_NAME__DOTS:
+        setDots(DOTS_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -213,10 +213,10 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
-        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
-      case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
-        return block != null && !block.isEmpty();
+      case FortXTransPackage.QUALIFIED_NAME__S:
+        return s != null && !s.isEmpty();
+      case FortXTransPackage.QUALIFIED_NAME__DOTS:
+        return DOTS_EDEFAULT == null ? dots != null : !DOTS_EDEFAULT.equals(dots);
     }
     return super.eIsSet(featureID);
   }
@@ -232,10 +232,10 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (brack: ");
-    result.append(brack);
+    result.append(" (dots: ");
+    result.append(dots);
     result.append(')');
     return result.toString();
   }
 
-} //ParBlockElemsImpl
+} //QualifiedNameImpl

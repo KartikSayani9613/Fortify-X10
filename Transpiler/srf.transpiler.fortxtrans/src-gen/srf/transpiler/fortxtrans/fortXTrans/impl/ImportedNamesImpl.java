@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.ImportedNames;
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 
 /**
@@ -46,24 +47,14 @@ import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements ImportedNames
 {
   /**
-   * The default value of the '{@link #getImpname() <em>Impname</em>}' attribute.
+   * The cached value of the '{@link #getImpname() <em>Impname</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getImpname()
    * @generated
    * @ordered
    */
-  protected static final String IMPNAME_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getImpname() <em>Impname</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getImpname()
-   * @generated
-   * @ordered
-   */
-  protected String impname = IMPNAME_EDEFAULT;
+  protected QualifiedName impname;
 
   /**
    * The default value of the '{@link #isExcept() <em>Except</em>}' attribute.
@@ -191,7 +182,7 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getImpname()
+  public QualifiedName getImpname()
   {
     return impname;
   }
@@ -201,12 +192,37 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setImpname(String newImpname)
+  public NotificationChain basicSetImpname(QualifiedName newImpname, NotificationChain msgs)
   {
-    String oldImpname = impname;
+    QualifiedName oldImpname = impname;
     impname = newImpname;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.IMPORTED_NAMES__IMPNAME, oldImpname, impname));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.IMPORTED_NAMES__IMPNAME, oldImpname, newImpname);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setImpname(QualifiedName newImpname)
+  {
+    if (newImpname != impname)
+    {
+      NotificationChain msgs = null;
+      if (impname != null)
+        msgs = ((InternalEObject)impname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.IMPORTED_NAMES__IMPNAME, null, msgs);
+      if (newImpname != null)
+        msgs = ((InternalEObject)newImpname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.IMPORTED_NAMES__IMPNAME, null, msgs);
+      msgs = basicSetImpname(newImpname, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.IMPORTED_NAMES__IMPNAME, newImpname, newImpname));
   }
 
   /**
@@ -373,6 +389,8 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
   {
     switch (featureID)
     {
+      case FortXTransPackage.IMPORTED_NAMES__IMPNAME:
+        return basicSetImpname(null, msgs);
       case FortXTransPackage.IMPORTED_NAMES__SIMP:
         return basicSetSimp(null, msgs);
       case FortXTransPackage.IMPORTED_NAMES__SIMP_LIST:
@@ -421,7 +439,7 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
     switch (featureID)
     {
       case FortXTransPackage.IMPORTED_NAMES__IMPNAME:
-        setImpname((String)newValue);
+        setImpname((QualifiedName)newValue);
         return;
       case FortXTransPackage.IMPORTED_NAMES__EXCEPT:
         setExcept((Boolean)newValue);
@@ -457,7 +475,7 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
     switch (featureID)
     {
       case FortXTransPackage.IMPORTED_NAMES__IMPNAME:
-        setImpname(IMPNAME_EDEFAULT);
+        setImpname((QualifiedName)null);
         return;
       case FortXTransPackage.IMPORTED_NAMES__EXCEPT:
         setExcept(EXCEPT_EDEFAULT);
@@ -492,7 +510,7 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
     switch (featureID)
     {
       case FortXTransPackage.IMPORTED_NAMES__IMPNAME:
-        return IMPNAME_EDEFAULT == null ? impname != null : !IMPNAME_EDEFAULT.equals(impname);
+        return impname != null;
       case FortXTransPackage.IMPORTED_NAMES__EXCEPT:
         return except != EXCEPT_EDEFAULT;
       case FortXTransPackage.IMPORTED_NAMES__SIMP:
@@ -520,9 +538,7 @@ public class ImportedNamesImpl extends MinimalEObjectImpl.Container implements I
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (impname: ");
-    result.append(impname);
-    result.append(", except: ");
+    result.append(" (except: ");
     result.append(except);
     result.append(", comma: ");
     result.append(comma);

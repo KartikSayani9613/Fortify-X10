@@ -3,7 +3,7 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans;
 
-import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,39 +14,83 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLit <em>Lit</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getTail <em>Tail</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr()
  * @model
  * @generated
  */
-public interface Expr extends EObject
+public interface Expr extends CommaExpr
 {
   /**
-   * Returns the value of the '<em><b>Lit</b></em>' containment reference.
+   * Returns the value of the '<em><b>Front</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Lit</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Front</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Lit</em>' containment reference.
-   * @see #setLit(LiteralTuple)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Lit()
+   * @return the value of the '<em>Front</em>' containment reference.
+   * @see #setFront(ExprFront)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Front()
    * @model containment="true"
    * @generated
    */
-  LiteralTuple getLit();
+  ExprFront getFront();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLit <em>Lit</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lit</em>' containment reference.
-   * @see #getLit()
+   * @param value the new value of the '<em>Front</em>' containment reference.
+   * @see #getFront()
    * @generated
    */
-  void setLit(LiteralTuple value);
+  void setFront(ExprFront value);
+
+  /**
+   * Returns the value of the '<em><b>Tail</b></em>' containment reference list.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.ExprTail}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Tail</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Tail</em>' containment reference list.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Tail()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ExprTail> getTail();
+
+  /**
+   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Exp</em>' containment reference.
+   * @see #setExp(Expr)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Exp()
+   * @model containment="true"
+   * @generated
+   */
+  Expr getExp();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExp <em>Exp</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Exp</em>' containment reference.
+   * @see #getExp()
+   * @generated
+   */
+  void setExp(Expr value);
 
 } // Expr

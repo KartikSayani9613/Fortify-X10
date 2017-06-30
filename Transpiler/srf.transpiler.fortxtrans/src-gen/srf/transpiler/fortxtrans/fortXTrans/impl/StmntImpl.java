@@ -3,12 +3,8 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
-import java.util.Collection;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -16,14 +12,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
-
-import srf.transpiler.fortxtrans.fortXTrans.Expr;
-import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
-import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
 
 /**
@@ -34,10 +25,9 @@ import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getFront <em>Front</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getTails <em>Tails</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getLocVar <em>Loc Var</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getBrack <em>Brack</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getDelimList <em>Delim List</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,44 +35,44 @@ import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
 public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
 {
   /**
-   * The cached value of the '{@link #getFront() <em>Front</em>}' containment reference.
+   * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFront()
+   * @see #getDelim()
    * @generated
    * @ordered
    */
-  protected ExprFront front;
+  protected DelimitedExpr delim;
 
   /**
-   * The cached value of the '{@link #getTails() <em>Tails</em>}' containment reference list.
+   * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getTails()
+   * @see #getBrack()
    * @generated
    * @ordered
    */
-  protected EList<ExprTail> tails;
+  protected static final String BRACK_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getLocVar() <em>Loc Var</em>}' containment reference.
+   * The cached value of the '{@link #getBrack() <em>Brack</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLocVar()
+   * @see #getBrack()
    * @generated
    * @ordered
    */
-  protected LocalVarDecl locVar;
+  protected String brack = BRACK_EDEFAULT;
 
   /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * The cached value of the '{@link #getDelimList() <em>Delim List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp()
+   * @see #getDelimList()
    * @generated
    * @ordered
    */
-  protected Expr exp;
+  protected DelimitedExprList delimList;
 
   /**
    * <!-- begin-user-doc -->
@@ -110,9 +100,9 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprFront getFront()
+  public DelimitedExpr getDelim()
   {
-    return front;
+    return delim;
   }
 
   /**
@@ -120,13 +110,13 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFront(ExprFront newFront, NotificationChain msgs)
+  public NotificationChain basicSetDelim(DelimitedExpr newDelim, NotificationChain msgs)
   {
-    ExprFront oldFront = front;
-    front = newFront;
+    DelimitedExpr oldDelim = delim;
+    delim = newDelim;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__FRONT, oldFront, newFront);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM, oldDelim, newDelim);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -137,20 +127,20 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFront(ExprFront newFront)
+  public void setDelim(DelimitedExpr newDelim)
   {
-    if (newFront != front)
+    if (newDelim != delim)
     {
       NotificationChain msgs = null;
-      if (front != null)
-        msgs = ((InternalEObject)front).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__FRONT, null, msgs);
-      if (newFront != null)
-        msgs = ((InternalEObject)newFront).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__FRONT, null, msgs);
-      msgs = basicSetFront(newFront, msgs);
+      if (delim != null)
+        msgs = ((InternalEObject)delim).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM, null, msgs);
+      if (newDelim != null)
+        msgs = ((InternalEObject)newDelim).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM, null, msgs);
+      msgs = basicSetDelim(newDelim, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__FRONT, newFront, newFront));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM, newDelim, newDelim));
   }
 
   /**
@@ -158,13 +148,9 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ExprTail> getTails()
+  public String getBrack()
   {
-    if (tails == null)
-    {
-      tails = new EObjectContainmentEList<ExprTail>(ExprTail.class, this, FortXTransPackage.STMNT__TAILS);
-    }
-    return tails;
+    return brack;
   }
 
   /**
@@ -172,9 +158,12 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public LocalVarDecl getLocVar()
+  public void setBrack(String newBrack)
   {
-    return locVar;
+    String oldBrack = brack;
+    brack = newBrack;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__BRACK, oldBrack, brack));
   }
 
   /**
@@ -182,13 +171,23 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLocVar(LocalVarDecl newLocVar, NotificationChain msgs)
+  public DelimitedExprList getDelimList()
   {
-    LocalVarDecl oldLocVar = locVar;
-    locVar = newLocVar;
+    return delimList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDelimList(DelimitedExprList newDelimList, NotificationChain msgs)
+  {
+    DelimitedExprList oldDelimList = delimList;
+    delimList = newDelimList;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__LOC_VAR, oldLocVar, newLocVar);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM_LIST, oldDelimList, newDelimList);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -199,68 +198,20 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLocVar(LocalVarDecl newLocVar)
+  public void setDelimList(DelimitedExprList newDelimList)
   {
-    if (newLocVar != locVar)
+    if (newDelimList != delimList)
     {
       NotificationChain msgs = null;
-      if (locVar != null)
-        msgs = ((InternalEObject)locVar).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__LOC_VAR, null, msgs);
-      if (newLocVar != null)
-        msgs = ((InternalEObject)newLocVar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__LOC_VAR, null, msgs);
-      msgs = basicSetLocVar(newLocVar, msgs);
+      if (delimList != null)
+        msgs = ((InternalEObject)delimList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM_LIST, null, msgs);
+      if (newDelimList != null)
+        msgs = ((InternalEObject)newDelimList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM_LIST, null, msgs);
+      msgs = basicSetDelimList(newDelimList, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__LOC_VAR, newLocVar, newLocVar));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expr getExp()
-  {
-    return exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
-  {
-    Expr oldExp = exp;
-    exp = newExp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__EXP, oldExp, newExp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExp(Expr newExp)
-  {
-    if (newExp != exp)
-    {
-      NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__EXP, newExp, newExp));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM_LIST, newDelimList, newDelimList));
   }
 
   /**
@@ -273,14 +224,10 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__FRONT:
-        return basicSetFront(null, msgs);
-      case FortXTransPackage.STMNT__TAILS:
-        return ((InternalEList<?>)getTails()).basicRemove(otherEnd, msgs);
-      case FortXTransPackage.STMNT__LOC_VAR:
-        return basicSetLocVar(null, msgs);
-      case FortXTransPackage.STMNT__EXP:
-        return basicSetExp(null, msgs);
+      case FortXTransPackage.STMNT__DELIM:
+        return basicSetDelim(null, msgs);
+      case FortXTransPackage.STMNT__DELIM_LIST:
+        return basicSetDelimList(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -295,14 +242,12 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__FRONT:
-        return getFront();
-      case FortXTransPackage.STMNT__TAILS:
-        return getTails();
-      case FortXTransPackage.STMNT__LOC_VAR:
-        return getLocVar();
-      case FortXTransPackage.STMNT__EXP:
-        return getExp();
+      case FortXTransPackage.STMNT__DELIM:
+        return getDelim();
+      case FortXTransPackage.STMNT__BRACK:
+        return getBrack();
+      case FortXTransPackage.STMNT__DELIM_LIST:
+        return getDelimList();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -312,24 +257,19 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__FRONT:
-        setFront((ExprFront)newValue);
+      case FortXTransPackage.STMNT__DELIM:
+        setDelim((DelimitedExpr)newValue);
         return;
-      case FortXTransPackage.STMNT__TAILS:
-        getTails().clear();
-        getTails().addAll((Collection<? extends ExprTail>)newValue);
+      case FortXTransPackage.STMNT__BRACK:
+        setBrack((String)newValue);
         return;
-      case FortXTransPackage.STMNT__LOC_VAR:
-        setLocVar((LocalVarDecl)newValue);
-        return;
-      case FortXTransPackage.STMNT__EXP:
-        setExp((Expr)newValue);
+      case FortXTransPackage.STMNT__DELIM_LIST:
+        setDelimList((DelimitedExprList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -345,17 +285,14 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__FRONT:
-        setFront((ExprFront)null);
+      case FortXTransPackage.STMNT__DELIM:
+        setDelim((DelimitedExpr)null);
         return;
-      case FortXTransPackage.STMNT__TAILS:
-        getTails().clear();
+      case FortXTransPackage.STMNT__BRACK:
+        setBrack(BRACK_EDEFAULT);
         return;
-      case FortXTransPackage.STMNT__LOC_VAR:
-        setLocVar((LocalVarDecl)null);
-        return;
-      case FortXTransPackage.STMNT__EXP:
-        setExp((Expr)null);
+      case FortXTransPackage.STMNT__DELIM_LIST:
+        setDelimList((DelimitedExprList)null);
         return;
     }
     super.eUnset(featureID);
@@ -371,16 +308,31 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__FRONT:
-        return front != null;
-      case FortXTransPackage.STMNT__TAILS:
-        return tails != null && !tails.isEmpty();
-      case FortXTransPackage.STMNT__LOC_VAR:
-        return locVar != null;
-      case FortXTransPackage.STMNT__EXP:
-        return exp != null;
+      case FortXTransPackage.STMNT__DELIM:
+        return delim != null;
+      case FortXTransPackage.STMNT__BRACK:
+        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
+      case FortXTransPackage.STMNT__DELIM_LIST:
+        return delimList != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (brack: ");
+    result.append(brack);
+    result.append(')');
+    return result.toString();
   }
 
 } //StmntImpl

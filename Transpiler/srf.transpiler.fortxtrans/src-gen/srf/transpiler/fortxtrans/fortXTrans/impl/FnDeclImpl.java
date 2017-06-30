@@ -16,7 +16,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnMods;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.RetType;
-import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
 import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 
 /**
@@ -117,7 +117,7 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * @generated
    * @ordered
    */
-  protected Stmnt fnItself;
+  protected Stmnts fnItself;
 
   /**
    * <!-- begin-user-doc -->
@@ -335,7 +335,7 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public Stmnt getFnItself()
+  public Stmnts getFnItself()
   {
     return fnItself;
   }
@@ -345,9 +345,9 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFnItself(Stmnt newFnItself, NotificationChain msgs)
+  public NotificationChain basicSetFnItself(Stmnts newFnItself, NotificationChain msgs)
   {
-    Stmnt oldFnItself = fnItself;
+    Stmnts oldFnItself = fnItself;
     fnItself = newFnItself;
     if (eNotificationRequired())
     {
@@ -362,7 +362,7 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFnItself(Stmnt newFnItself)
+  public void setFnItself(Stmnts newFnItself)
   {
     if (newFnItself != fnItself)
     {
@@ -452,7 +452,7 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
         setBody((Boolean)newValue);
         return;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
-        setFnItself((Stmnt)newValue);
+        setFnItself((Stmnts)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -484,7 +484,7 @@ public class FnDeclImpl extends MinimalEObjectImpl.Container implements FnDecl
         setBody(BODY_EDEFAULT);
         return;
       case FortXTransPackage.FN_DECL__FN_ITSELF:
-        setFnItself((Stmnt)null);
+        setFnItself((Stmnts)null);
         return;
     }
     super.eUnset(featureID);

@@ -24,7 +24,6 @@ import srf.transpiler.fortxtrans.fortXTrans.Literal;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralImpl#getIntg <em>Intg</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralImpl#getFlot <em>Flot</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralImpl#getStr <em>Str</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralImpl#getQ <em>Q</em>}</li>
  * </ul>
  *
  * @generated
@@ -90,26 +89,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
    * @ordered
    */
   protected String str = STR_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #getQ() <em>Q</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQ()
-   * @generated
-   * @ordered
-   */
-  protected static final String Q_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getQ() <em>Q</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQ()
-   * @generated
-   * @ordered
-   */
-  protected String q = Q_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -206,29 +185,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getQ()
-  {
-    return q;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setQ(String newQ)
-  {
-    String oldQ = q;
-    q = newQ;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL__Q, oldQ, q));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -240,8 +196,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
         return getFlot();
       case FortXTransPackage.LITERAL__STR:
         return getStr();
-      case FortXTransPackage.LITERAL__Q:
-        return getQ();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -264,9 +218,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
         return;
       case FortXTransPackage.LITERAL__STR:
         setStr((String)newValue);
-        return;
-      case FortXTransPackage.LITERAL__Q:
-        setQ((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -291,9 +242,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
       case FortXTransPackage.LITERAL__STR:
         setStr(STR_EDEFAULT);
         return;
-      case FortXTransPackage.LITERAL__Q:
-        setQ(Q_EDEFAULT);
-        return;
     }
     super.eUnset(featureID);
   }
@@ -314,8 +262,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
         return FLOT_EDEFAULT == null ? flot != null : !FLOT_EDEFAULT.equals(flot);
       case FortXTransPackage.LITERAL__STR:
         return STR_EDEFAULT == null ? str != null : !STR_EDEFAULT.equals(str);
-      case FortXTransPackage.LITERAL__Q:
-        return Q_EDEFAULT == null ? q != null : !Q_EDEFAULT.equals(q);
     }
     return super.eIsSet(featureID);
   }
@@ -337,8 +283,6 @@ public class LiteralImpl extends MinimalEObjectImpl.Container implements Literal
     result.append(flot);
     result.append(", str: ");
     result.append(str);
-    result.append(", q: ");
-    result.append(q);
     result.append(')');
     return result.toString();
   }

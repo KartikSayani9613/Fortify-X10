@@ -18,8 +18,8 @@ import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
 import srf.transpiler.fortxtrans.fortXTrans.InitVal;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.TupleType;
-import srf.transpiler.fortxtrans.fortXTrans.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -131,7 +131,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected Type type;
+  protected SimpleName type;
 
   /**
    * The cached value of the '{@link #getTuptype() <em>Tuptype</em>}' containment reference.
@@ -407,7 +407,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getType()
+  public SimpleName getType()
   {
     return type;
   }
@@ -417,9 +417,9 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetType(Type newType, NotificationChain msgs)
+  public NotificationChain basicSetType(SimpleName newType, NotificationChain msgs)
   {
-    Type oldType = type;
+    SimpleName oldType = type;
     type = newType;
     if (eNotificationRequired())
     {
@@ -434,7 +434,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setType(Type newType)
+  public void setType(SimpleName newType)
   {
     if (newType != type)
     {
@@ -583,7 +583,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         setLitTup((LiteralTuple)newValue);
         return;
       case FortXTransPackage.FIELD_DECL__TYPE:
-        setType((Type)newValue);
+        setType((SimpleName)newValue);
         return;
       case FortXTransPackage.FIELD_DECL__TUPTYPE:
         setTuptype((TupleType)newValue);
@@ -621,7 +621,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         setLitTup((LiteralTuple)null);
         return;
       case FortXTransPackage.FIELD_DECL__TYPE:
-        setType((Type)null);
+        setType((SimpleName)null);
         return;
       case FortXTransPackage.FIELD_DECL__TUPTYPE:
         setTuptype((TupleType)null);

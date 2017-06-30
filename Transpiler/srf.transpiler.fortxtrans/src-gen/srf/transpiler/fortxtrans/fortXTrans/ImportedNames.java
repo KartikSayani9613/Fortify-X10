@@ -32,30 +32,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface ImportedNames extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Impname</b></em>' attribute.
+   * Returns the value of the '<em><b>Impname</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Impname</em>' attribute isn't clear,
+   * If the meaning of the '<em>Impname</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Impname</em>' attribute.
-   * @see #setImpname(String)
+   * @return the value of the '<em>Impname</em>' containment reference.
+   * @see #setImpname(QualifiedName)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getImportedNames_Impname()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getImpname();
+  QualifiedName getImpname();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getImpname <em>Impname</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ImportedNames#getImpname <em>Impname</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Impname</em>' attribute.
+   * @param value the new value of the '<em>Impname</em>' containment reference.
    * @see #getImpname()
    * @generated
    */
-  void setImpname(String value);
+  void setImpname(QualifiedName value);
 
   /**
    * Returns the value of the '<em><b>Except</b></em>' attribute.

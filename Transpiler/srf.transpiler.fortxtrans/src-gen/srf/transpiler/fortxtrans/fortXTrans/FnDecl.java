@@ -167,12 +167,12 @@ public interface FnDecl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Fn Itself</em>' containment reference.
-   * @see #setFnItself(Stmnt)
+   * @see #setFnItself(Stmnts)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFnDecl_FnItself()
    * @model containment="true"
    * @generated
    */
-  Stmnt getFnItself();
+  Stmnts getFnItself();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl#getFnItself <em>Fn Itself</em>}' containment reference.
@@ -182,6 +182,6 @@ public interface FnDecl extends EObject
    * @see #getFnItself()
    * @generated
    */
-  void setFnItself(Stmnt value);
+  void setFnItself(Stmnts value);
 
 } // FnDecl

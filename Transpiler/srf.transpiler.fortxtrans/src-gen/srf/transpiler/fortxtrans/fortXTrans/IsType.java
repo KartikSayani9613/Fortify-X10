@@ -32,12 +32,12 @@ public interface IsType extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Type</em>' containment reference.
-   * @see #setType(Type)
+   * @see #setType(SimpleName)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getIsType_Type()
    * @model containment="true"
    * @generated
    */
-  Type getType();
+  SimpleName getType();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.IsType#getType <em>Type</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface IsType extends EObject
    * @see #getType()
    * @generated
    */
-  void setType(Type value);
+  void setType(SimpleName value);
 
 } // IsType

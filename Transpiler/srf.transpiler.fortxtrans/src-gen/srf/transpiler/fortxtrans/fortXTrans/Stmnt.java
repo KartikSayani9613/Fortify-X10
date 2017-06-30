@@ -3,8 +3,6 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans;
 
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -16,10 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getFront <em>Front</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getTails <em>Tails</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getLocVar <em>Loc Var</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getExp <em>Exp</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getBrack <em>Brack</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelimList <em>Delim List</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt()
@@ -29,97 +26,81 @@ import org.eclipse.emf.ecore.EObject;
 public interface Stmnt extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Front</b></em>' containment reference.
+   * Returns the value of the '<em><b>Delim</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Front</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Delim</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Front</em>' containment reference.
-   * @see #setFront(ExprFront)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_Front()
+   * @return the value of the '<em>Delim</em>' containment reference.
+   * @see #setDelim(DelimitedExpr)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_Delim()
    * @model containment="true"
    * @generated
    */
-  ExprFront getFront();
+  DelimitedExpr getDelim();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getFront <em>Front</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelim <em>Delim</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Front</em>' containment reference.
-   * @see #getFront()
+   * @param value the new value of the '<em>Delim</em>' containment reference.
+   * @see #getDelim()
    * @generated
    */
-  void setFront(ExprFront value);
+  void setDelim(DelimitedExpr value);
 
   /**
-   * Returns the value of the '<em><b>Tails</b></em>' containment reference list.
-   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.ExprTail}.
+   * Returns the value of the '<em><b>Brack</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Tails</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Brack</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Tails</em>' containment reference list.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_Tails()
-   * @model containment="true"
+   * @return the value of the '<em>Brack</em>' attribute.
+   * @see #setBrack(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_Brack()
+   * @model
    * @generated
    */
-  EList<ExprTail> getTails();
+  String getBrack();
 
   /**
-   * Returns the value of the '<em><b>Loc Var</b></em>' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getBrack <em>Brack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Brack</em>' attribute.
+   * @see #getBrack()
+   * @generated
+   */
+  void setBrack(String value);
+
+  /**
+   * Returns the value of the '<em><b>Delim List</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Loc Var</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Delim List</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Loc Var</em>' containment reference.
-   * @see #setLocVar(LocalVarDecl)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_LocVar()
+   * @return the value of the '<em>Delim List</em>' containment reference.
+   * @see #setDelimList(DelimitedExprList)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_DelimList()
    * @model containment="true"
    * @generated
    */
-  LocalVarDecl getLocVar();
+  DelimitedExprList getDelimList();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getLocVar <em>Loc Var</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelimList <em>Delim List</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Loc Var</em>' containment reference.
-   * @see #getLocVar()
+   * @param value the new value of the '<em>Delim List</em>' containment reference.
+   * @see #getDelimList()
    * @generated
    */
-  void setLocVar(LocalVarDecl value);
-
-  /**
-   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp</em>' containment reference.
-   * @see #setExp(Expr)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_Exp()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getExp();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getExp <em>Exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp</em>' containment reference.
-   * @see #getExp()
-   * @generated
-   */
-  void setExp(Expr value);
+  void setDelimList(DelimitedExprList value);
 
 } // Stmnt

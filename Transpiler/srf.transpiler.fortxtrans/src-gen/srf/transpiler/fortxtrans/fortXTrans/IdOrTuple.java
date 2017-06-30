@@ -26,19 +26,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface IdOrTuple extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Bid</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Bid</b></em>' containment reference list.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.BindId}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bid</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Bid</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bid</em>' attribute list.
+   * @return the value of the '<em>Bid</em>' containment reference list.
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getIdOrTuple_Bid()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getBid();
+  EList<BindId> getBid();
 
 } // IdOrTuple

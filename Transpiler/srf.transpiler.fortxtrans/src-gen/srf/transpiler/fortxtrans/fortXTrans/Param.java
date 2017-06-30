@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Param extends EObject
 {
   /**
-   * Returns the value of the '<em><b>BId</b></em>' attribute.
+   * Returns the value of the '<em><b>BId</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>BId</em>' attribute isn't clear,
+   * If the meaning of the '<em>BId</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>BId</em>' attribute.
-   * @see #setBId(String)
+   * @return the value of the '<em>BId</em>' containment reference.
+   * @see #setBId(BindId)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParam_BId()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getBId();
+  BindId getBId();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getBId <em>BId</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getBId <em>BId</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>BId</em>' attribute.
+   * @param value the new value of the '<em>BId</em>' containment reference.
    * @see #getBId()
    * @generated
    */
-  void setBId(String value);
+  void setBId(BindId value);
 
   /**
    * Returns the value of the '<em><b>Istype</b></em>' containment reference.

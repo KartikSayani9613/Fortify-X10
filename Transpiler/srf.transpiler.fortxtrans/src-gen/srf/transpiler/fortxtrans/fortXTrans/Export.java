@@ -54,20 +54,20 @@ public interface Export extends EObject
   void setExp(String value);
 
   /**
-   * Returns the value of the '<em><b>Exported Name</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
+   * Returns the value of the '<em><b>Exported Name</b></em>' containment reference list.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.QualifiedName}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Exported Name</em>' attribute list isn't clear,
+   * If the meaning of the '<em>Exported Name</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Exported Name</em>' attribute list.
+   * @return the value of the '<em>Exported Name</em>' containment reference list.
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExport_ExportedName()
-   * @model unique="false"
+   * @model containment="true"
    * @generated
    */
-  EList<String> getExportedName();
+  EList<QualifiedName> getExportedName();
 
   /**
    * Returns the value of the '<em><b>Brack</b></em>' attribute.

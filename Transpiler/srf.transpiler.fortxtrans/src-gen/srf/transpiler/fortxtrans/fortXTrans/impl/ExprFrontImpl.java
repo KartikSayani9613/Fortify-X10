@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.CommaExpr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
@@ -24,7 +24,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl#getAdd <em>Add</em>}</li>
  * </ul>
  *
  * @generated
@@ -32,14 +32,14 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprFront
 {
   /**
-   * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference.
+   * The cached value of the '{@link #getAdd() <em>Add</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDelim()
+   * @see #getAdd()
    * @generated
    * @ordered
    */
-  protected DelimitedExpr delim;
+  protected CommaExpr add;
 
   /**
    * <!-- begin-user-doc -->
@@ -67,9 +67,9 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
    * <!-- end-user-doc -->
    * @generated
    */
-  public DelimitedExpr getDelim()
+  public CommaExpr getAdd()
   {
-    return delim;
+    return add;
   }
 
   /**
@@ -77,13 +77,13 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDelim(DelimitedExpr newDelim, NotificationChain msgs)
+  public NotificationChain basicSetAdd(CommaExpr newAdd, NotificationChain msgs)
   {
-    DelimitedExpr oldDelim = delim;
-    delim = newDelim;
+    CommaExpr oldAdd = add;
+    add = newAdd;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__DELIM, oldDelim, newDelim);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__ADD, oldAdd, newAdd);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +94,20 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDelim(DelimitedExpr newDelim)
+  public void setAdd(CommaExpr newAdd)
   {
-    if (newDelim != delim)
+    if (newAdd != add)
     {
       NotificationChain msgs = null;
-      if (delim != null)
-        msgs = ((InternalEObject)delim).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR_FRONT__DELIM, null, msgs);
-      if (newDelim != null)
-        msgs = ((InternalEObject)newDelim).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR_FRONT__DELIM, null, msgs);
-      msgs = basicSetDelim(newDelim, msgs);
+      if (add != null)
+        msgs = ((InternalEObject)add).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR_FRONT__ADD, null, msgs);
+      if (newAdd != null)
+        msgs = ((InternalEObject)newAdd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR_FRONT__ADD, null, msgs);
+      msgs = basicSetAdd(newAdd, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__DELIM, newDelim, newDelim));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__ADD, newAdd, newAdd));
   }
 
   /**
@@ -120,8 +120,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        return basicSetDelim(null, msgs);
+      case FortXTransPackage.EXPR_FRONT__ADD:
+        return basicSetAdd(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +136,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        return getDelim();
+      case FortXTransPackage.EXPR_FRONT__ADD:
+        return getAdd();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +152,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        setDelim((DelimitedExpr)newValue);
+      case FortXTransPackage.EXPR_FRONT__ADD:
+        setAdd((CommaExpr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        setDelim((DelimitedExpr)null);
+      case FortXTransPackage.EXPR_FRONT__ADD:
+        setAdd((CommaExpr)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,8 +186,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        return delim != null;
+      case FortXTransPackage.EXPR_FRONT__ADD:
+        return add != null;
     }
     return super.eIsSet(featureID);
   }

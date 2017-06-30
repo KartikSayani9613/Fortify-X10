@@ -106,6 +106,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createImportedNamesAdapter();
       }
       @Override
+      public Adapter caseQualifiedName(QualifiedName object)
+      {
+        return createQualifiedNameAdapter();
+      }
+      @Override
+      public Adapter caseQualified(Qualified object)
+      {
+        return createQualifiedAdapter();
+      }
+      @Override
+      public Adapter caseQualifiedNameTuple(QualifiedNameTuple object)
+      {
+        return createQualifiedNameTupleAdapter();
+      }
+      @Override
       public Adapter caseSimpleNames(SimpleNames object)
       {
         return createSimpleNamesAdapter();
@@ -171,19 +186,24 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createTupleTypeAdapter();
       }
       @Override
-      public Adapter caseType(Type object)
-      {
-        return createTypeAdapter();
-      }
-      @Override
       public Adapter caseFnDecl(FnDecl object)
       {
         return createFnDeclAdapter();
       }
       @Override
+      public Adapter caseStmnts(Stmnts object)
+      {
+        return createStmntsAdapter();
+      }
+      @Override
       public Adapter caseStmnt(Stmnt object)
       {
         return createStmntAdapter();
+      }
+      @Override
+      public Adapter caseDelimitedExprList(DelimitedExprList object)
+      {
+        return createDelimitedExprListAdapter();
       }
       @Override
       public Adapter caseExpr(Expr object)
@@ -196,6 +216,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createExprFrontAdapter();
       }
       @Override
+      public Adapter caseCommaExpr(CommaExpr object)
+      {
+        return createCommaExprAdapter();
+      }
+      @Override
       public Adapter caseExprTail(ExprTail object)
       {
         return createExprTailAdapter();
@@ -204,16 +229,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDelimitedExpr(DelimitedExpr object)
       {
         return createDelimitedExprAdapter();
-      }
-      @Override
-      public Adapter caseExprList(ExprList object)
-      {
-        return createExprListAdapter();
-      }
-      @Override
-      public Adapter caseParBlockElems(ParBlockElems object)
-      {
-        return createParBlockElemsAdapter();
       }
       @Override
       public Adapter caseElifs(Elifs object)
@@ -271,6 +286,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createIdOrTupleAdapter();
       }
       @Override
+      public Adapter caseBindId(BindId object)
+      {
+        return createBindIdAdapter();
+      }
+      @Override
       public Adapter caseIsType(IsType object)
       {
         return createIsTypeAdapter();
@@ -301,6 +321,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createLiteralTupleAdapter();
       }
       @Override
+      public Adapter caseLiteralTup(LiteralTup object)
+      {
+        return createLiteralTupAdapter();
+      }
+      @Override
       public Adapter caseLiteral(Literal object)
       {
         return createLiteralAdapter();
@@ -309,6 +334,31 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLocalVarDecl(LocalVarDecl object)
       {
         return createLocalVarDeclAdapter();
+      }
+      @Override
+      public Adapter caseAddExpr(AddExpr object)
+      {
+        return createAddExprAdapter();
+      }
+      @Override
+      public Adapter caseSubExpr(SubExpr object)
+      {
+        return createSubExprAdapter();
+      }
+      @Override
+      public Adapter caseDivExpr(DivExpr object)
+      {
+        return createDivExprAdapter();
+      }
+      @Override
+      public Adapter caseMultExpr(MultExpr object)
+      {
+        return createMultExprAdapter();
+      }
+      @Override
+      public Adapter casePrimary(Primary object)
+      {
+        return createPrimaryAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -418,6 +468,51 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createImportedNamesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.QualifiedName <em>Qualified Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.QualifiedName
+   * @generated
+   */
+  public Adapter createQualifiedNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Qualified <em>Qualified</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Qualified
+   * @generated
+   */
+  public Adapter createQualifiedAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple <em>Qualified Name Tuple</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple
+   * @generated
+   */
+  public Adapter createQualifiedNameTupleAdapter()
   {
     return null;
   }
@@ -618,21 +713,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Type <em>Type</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Type
-   * @generated
-   */
-  public Adapter createTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl <em>Fn Decl</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -648,6 +728,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts <em>Stmnts</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnts
+   * @generated
+   */
+  public Adapter createStmntsAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt <em>Stmnt</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -658,6 +753,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStmntAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList <em>Delimited Expr List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList
+   * @generated
+   */
+  public Adapter createDelimitedExprListAdapter()
   {
     return null;
   }
@@ -693,6 +803,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.CommaExpr <em>Comma Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.CommaExpr
+   * @generated
+   */
+  public Adapter createCommaExprAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprTail <em>Expr Tail</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -718,36 +843,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDelimitedExprAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprList <em>Expr List</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.ExprList
-   * @generated
-   */
-  public Adapter createExprListAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems <em>Par Block Elems</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.ParBlockElems
-   * @generated
-   */
-  public Adapter createParBlockElemsAdapter()
   {
     return null;
   }
@@ -918,6 +1013,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BindId <em>Bind Id</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.BindId
+   * @generated
+   */
+  public Adapter createBindIdAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1008,6 +1118,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.LiteralTup <em>Literal Tup</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LiteralTup
+   * @generated
+   */
+  public Adapter createLiteralTupAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Literal <em>Literal</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1033,6 +1158,81 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLocalVarDeclAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.AddExpr <em>Add Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.AddExpr
+   * @generated
+   */
+  public Adapter createAddExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.SubExpr <em>Sub Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.SubExpr
+   * @generated
+   */
+  public Adapter createSubExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.DivExpr <em>Div Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DivExpr
+   * @generated
+   */
+  public Adapter createDivExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.MultExpr <em>Mult Expr</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.MultExpr
+   * @generated
+   */
+  public Adapter createMultExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Primary <em>Primary</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Primary
+   * @generated
+   */
+  public Adapter createPrimaryAdapter()
   {
     return null;
   }

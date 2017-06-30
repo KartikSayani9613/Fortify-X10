@@ -71,6 +71,9 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.IMPORT: return createImport();
       case FortXTransPackage.EXPORT: return createExport();
       case FortXTransPackage.IMPORTED_NAMES: return createImportedNames();
+      case FortXTransPackage.QUALIFIED_NAME: return createQualifiedName();
+      case FortXTransPackage.QUALIFIED: return createQualified();
+      case FortXTransPackage.QUALIFIED_NAME_TUPLE: return createQualifiedNameTuple();
       case FortXTransPackage.SIMPLE_NAMES: return createSimpleNames();
       case FortXTransPackage.SIMPLE_NAME: return createSimpleName();
       case FortXTransPackage.ALIASED_SIMPLE_NAME: return createAliasedSimpleName();
@@ -84,15 +87,15 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.PARAM: return createParam();
       case FortXTransPackage.RET_TYPE: return createRetType();
       case FortXTransPackage.TUPLE_TYPE: return createTupleType();
-      case FortXTransPackage.TYPE: return createType();
       case FortXTransPackage.FN_DECL: return createFnDecl();
+      case FortXTransPackage.STMNTS: return createStmnts();
       case FortXTransPackage.STMNT: return createStmnt();
+      case FortXTransPackage.DELIMITED_EXPR_LIST: return createDelimitedExprList();
       case FortXTransPackage.EXPR: return createExpr();
       case FortXTransPackage.EXPR_FRONT: return createExprFront();
+      case FortXTransPackage.COMMA_EXPR: return createCommaExpr();
       case FortXTransPackage.EXPR_TAIL: return createExprTail();
       case FortXTransPackage.DELIMITED_EXPR: return createDelimitedExpr();
-      case FortXTransPackage.EXPR_LIST: return createExprList();
-      case FortXTransPackage.PAR_BLOCK_ELEMS: return createParBlockElems();
       case FortXTransPackage.ELIFS: return createElifs();
       case FortXTransPackage.ELIF: return createElif();
       case FortXTransPackage.ELSE: return createElse();
@@ -104,14 +107,21 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.DO: return createDo();
       case FortXTransPackage.DO_FRONT: return createDoFront();
       case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
+      case FortXTransPackage.BIND_ID: return createBindId();
       case FortXTransPackage.IS_TYPE: return createIsType();
       case FortXTransPackage.FIELD_DECL: return createFieldDecl();
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES: return createNoNewlineVarWTypes();
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE: return createNoNewlineVarWType();
       case FortXTransPackage.INIT_VAL: return createInitVal();
       case FortXTransPackage.LITERAL_TUPLE: return createLiteralTuple();
+      case FortXTransPackage.LITERAL_TUP: return createLiteralTup();
       case FortXTransPackage.LITERAL: return createLiteral();
       case FortXTransPackage.LOCAL_VAR_DECL: return createLocalVarDecl();
+      case FortXTransPackage.ADD_EXPR: return createAddExpr();
+      case FortXTransPackage.SUB_EXPR: return createSubExpr();
+      case FortXTransPackage.DIV_EXPR: return createDivExpr();
+      case FortXTransPackage.MULT_EXPR: return createMultExpr();
+      case FortXTransPackage.PRIMARY: return createPrimary();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -181,6 +191,39 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     ImportedNamesImpl importedNames = new ImportedNamesImpl();
     return importedNames;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QualifiedName createQualifiedName()
+  {
+    QualifiedNameImpl qualifiedName = new QualifiedNameImpl();
+    return qualifiedName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Qualified createQualified()
+  {
+    QualifiedImpl qualified = new QualifiedImpl();
+    return qualified;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public QualifiedNameTuple createQualifiedNameTuple()
+  {
+    QualifiedNameTupleImpl qualifiedNameTuple = new QualifiedNameTupleImpl();
+    return qualifiedNameTuple;
   }
 
   /**
@@ -331,17 +374,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type createType()
-  {
-    TypeImpl type = new TypeImpl();
-    return type;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public FnDecl createFnDecl()
   {
     FnDeclImpl fnDecl = new FnDeclImpl();
@@ -353,10 +385,32 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Stmnts createStmnts()
+  {
+    StmntsImpl stmnts = new StmntsImpl();
+    return stmnts;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Stmnt createStmnt()
   {
     StmntImpl stmnt = new StmntImpl();
     return stmnt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DelimitedExprList createDelimitedExprList()
+  {
+    DelimitedExprListImpl delimitedExprList = new DelimitedExprListImpl();
+    return delimitedExprList;
   }
 
   /**
@@ -386,6 +440,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public CommaExpr createCommaExpr()
+  {
+    CommaExprImpl commaExpr = new CommaExprImpl();
+    return commaExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ExprTail createExprTail()
   {
     ExprTailImpl exprTail = new ExprTailImpl();
@@ -401,28 +466,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     DelimitedExprImpl delimitedExpr = new DelimitedExprImpl();
     return delimitedExpr;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExprList createExprList()
-  {
-    ExprListImpl exprList = new ExprListImpl();
-    return exprList;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ParBlockElems createParBlockElems()
-  {
-    ParBlockElemsImpl parBlockElems = new ParBlockElemsImpl();
-    return parBlockElems;
   }
 
   /**
@@ -551,6 +594,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public BindId createBindId()
+  {
+    BindIdImpl bindId = new BindIdImpl();
+    return bindId;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public IsType createIsType()
   {
     IsTypeImpl isType = new IsTypeImpl();
@@ -617,6 +671,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public LiteralTup createLiteralTup()
+  {
+    LiteralTupImpl literalTup = new LiteralTupImpl();
+    return literalTup;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Literal createLiteral()
   {
     LiteralImpl literal = new LiteralImpl();
@@ -632,6 +697,61 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     LocalVarDeclImpl localVarDecl = new LocalVarDeclImpl();
     return localVarDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AddExpr createAddExpr()
+  {
+    AddExprImpl addExpr = new AddExprImpl();
+    return addExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SubExpr createSubExpr()
+  {
+    SubExprImpl subExpr = new SubExprImpl();
+    return subExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DivExpr createDivExpr()
+  {
+    DivExprImpl divExpr = new DivExprImpl();
+    return divExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MultExpr createMultExpr()
+  {
+    MultExprImpl multExpr = new MultExprImpl();
+    return multExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Primary createPrimary()
+  {
+    PrimaryImpl primary = new PrimaryImpl();
+    return primary;
   }
 
   /**

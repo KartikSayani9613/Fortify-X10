@@ -18,8 +18,8 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.TupleType;
-import srf.transpiler.fortxtrans.fortXTrans.Type;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class TupleTypeImpl extends MinimalEObjectImpl.Container implements Tuple
    * @generated
    * @ordered
    */
-  protected EList<Type> types;
+  protected EList<SimpleName> types;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +72,11 @@ public class TupleTypeImpl extends MinimalEObjectImpl.Container implements Tuple
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Type> getTypes()
+  public EList<SimpleName> getTypes()
   {
     if (types == null)
     {
-      types = new EObjectContainmentEList<Type>(Type.class, this, FortXTransPackage.TUPLE_TYPE__TYPES);
+      types = new EObjectContainmentEList<SimpleName>(SimpleName.class, this, FortXTransPackage.TUPLE_TYPE__TYPES);
     }
     return types;
   }
@@ -126,7 +126,7 @@ public class TupleTypeImpl extends MinimalEObjectImpl.Container implements Tuple
     {
       case FortXTransPackage.TUPLE_TYPE__TYPES:
         getTypes().clear();
-        getTypes().addAll((Collection<? extends Type>)newValue);
+        getTypes().addAll((Collection<? extends SimpleName>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

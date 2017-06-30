@@ -23,26 +23,28 @@ Import:
 ;
 
 Export:
-	exp='export' exportedName+=APIName
-	|exp='export' brack='{' exportedName+=APIName ("," exportedName+=APIName)* '}'
+	exp='export' exportedName+=QualifiedName
+	|exp='export' brack='{' exportedName+=QualifiedName ("," exportedName+=QualifiedName)* '}'
 ;
 
 ImportedNames:
-	impname=APIName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)?
-	|impname=APIName '.' '{' simpList+=AliasedSimpleName (',' simpList+= AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}'
-	|impname=APIName ('as' asname=ID)?
+	impname=QualifiedName '.' '{' DOTS '}' (except?='except' simp=SimpleNames)?
+	|impname=QualifiedName '.' '{' simpList+=AliasedSimpleName (',' simpList+= AliasedSimpleName)* (comma?=',' dots?=DOTS)? '}'
+	|impname=QualifiedName ('as' asname=ID)?
 ;
 
 QualifiedName:
-	ID DOTS
-	|ID ('.'ID)* DOTS
-	|ID ('.'ID)*
+	s+=SimpleName (dots=DOTS)?
+	|s+=SimpleName ('.'s+=SimpleName)+ (dots=DOTS)?
 ;
 
-APIName:
-	ID DOTS
-	|ID ('.'ID)* DOTS
-	|ID ('.'ID)*
+Qualified:
+	q=QualifiedName
+	|qlist=QualifiedNameTuple
+;
+
+QualifiedNameTuple:
+	'('qlist+=QualifiedName (',' qlist+=QualifiedName)* ')'
 ;
 
 SimpleNames:
@@ -64,7 +66,7 @@ AliasedAPINames:
 ;
 
 AliasedAPIName:
-	orig=APIName ('as' asName=ID)?
+	orig=QualifiedName ('as' asName=ID)?
 ;
 
 Decls:
@@ -100,56 +102,77 @@ Param:
 
 RetType:
 	':' empty='(' ')'
-	|':' type=Type
+	|':' type=SimpleName
 ;
 
 TupleType:
-	'(' types+=Type (',' types+=Type)* ')'
-;
-
-Type:
-	tname=ID
+	'(' types+=SimpleName (',' types+=SimpleName)* ')'
 ;
 
 FnDecl:
-	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Stmnt)?
+	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Stmnts)?
 ;
 
-Stmnt:
-	front=ExprFront (tails+=ExprTail)*
+Stmnts:
+	front=Stmnt
 	|locVar=LocalVarDecl
 	|exp=Expr
 ;
 
+Stmnt:
+	delim=DelimitedExpr
+	|brack='(' delimList=DelimitedExprList ')'
+;
+
+DelimitedExprList:
+	delim+=DelimitedExpr (',' delim+=DelimitedExpr)+
+;
+
 Expr:
-	lit=LiteralTuple
+	front=ExprFront (tail+=ExprTail)*
 ;
 
 ExprFront:
-	delim=DelimitedExpr
+	add=CommaExpr 
 ;
 
+CommaExpr:
+	AddExpr ({CommaExpr.left=current} ',' right=AddExpr)*
+;
+
+AddExpr returns Expr:
+	SubExpr ({AddExpr.left=current}'+' right=SubExpr)*
+;
+
+SubExpr returns Expr:
+	DivExpr ({SubExpr.left=current}'-' right=DivExpr)*
+;
+
+DivExpr returns Expr:
+	MultExpr ({DivExpr.left=current}'/' right=MultExpr)*
+;
+
+MultExpr returns Expr:
+	Primary ({MultExpr.left=current}'*' right=Primary)*
+;
+
+Primary returns Expr:
+	Qualified ({Primary.left=current}':=' exp=Expr)? ({Primary.Fname=current}'(' fargs = Expr ')')?
+	|LiteralTuple
+	|'('exp=Expr')'
+;
+
+
 ExprTail:
-	'as' type=Type
+	'as' type=SimpleName
 ;
 
 DelimitedExpr :
 	dod=Do
-	|lits=LiteralTuple eqop=':=' pblock=ParBlockElems
 	|ret='return' block=BlockElem
 	|awhile='while' expr=Expr  whiledod=Do
 	|afor='for' gen=Generators dofront=DoFront 'end'
 	|anif='if' cond=Expr 'then' blocks=BlockElems (elifs=Elifs)? (els=Else)? 'end'
-	|'|' parblock=ParBlockElems '|'
-	|fname=QualifiedName brack='(' fargs=ExprList ')'
-;
-
-ExprList:
-	exp+=Expr (',' exp+=Expr)*
-;
-
-ParBlockElems:
-	 brack='(' block+=BlockElem (',' block+=BlockElem)* ')'
 ;
 
 Elifs:
@@ -183,7 +206,7 @@ BlockElems:
 ;
 
 BlockElem:
-	st=Stmnt
+	st=Stmnts
 //	|locVar+=LocalVarDecl
 ;
 
@@ -202,19 +225,19 @@ IdOrTuple:
 ;
 
 BindId:
-	ID
-	|'_'
+	s=SimpleName
+	|undsc='_'
 ;
 
 IsType:
-	':' type=Type
+	':' type=SimpleName
 ;
 //For a field Decl, If you 'var' has been used it will be mutable. 
 //If 'var' has not been used check '=' for immutable and ':=' for mutable.
 FieldDecl:
 	(pri='private')? (mut='var')? vars=NoNewlineVarWTypes init=InitVal
 	|(pri='private')? idtup=IdOrTuple '=' litTup=LiteralTuple
-	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' type=SimpleName DOTS init=InitVal
 	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
 ;
 
@@ -232,6 +255,12 @@ InitVal:
 ;
 
 LiteralTuple:
+	lit=LiteralTup
+	|qname=QualifiedName
+	|qlist=QualifiedNameTuple
+;
+
+LiteralTup:
 	lit=Literal
 	|'(' lits+=Literal (',' lits+=Literal)+ ')'
 ;
@@ -240,15 +269,13 @@ Literal:
 	intg=INT
 	|flot=FLOAT
 	|str=STRING
-	|q=QualifiedName
 ;
 
-
 LocalVarDecl:
-	(mut='var')? vars=NoNewlineVarWTypes (muta=':='|immut='=') init=Expr
+	(mut='var')? vars=NoNewlineVarWTypes '=' init=Expr
 	|idtup=IdOrTuple '=' litTup=LiteralTuple
-	|(mut='var')? idtup=IdOrTuple ':' type=Type DOTS (muta=':='|immut='=') init=Expr
-	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType (muta=':='|immut='=') init=Expr
+	|(mut='var')? idtup=IdOrTuple ':' type=SimpleName DOTS "=" init=Expr
+	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType '=' init=Expr
 ;
 
 @Override 
@@ -260,48 +287,6 @@ terminal FLOAT:
 	INT'.'INT
 ;
 
-terminal GREATERS:
-	'>' (SD '>')*
-;
-
-terminal LESSES:
-	'<' (SD '<')*
-;
-
-terminal BARS:
-	'|' (SD '|')*
-;
-
-terminal SLASHES:
-	 "/" (SD "/")*
-;
-
-terminal SD:
-	('.'|'*')?
-;
-
-terminal LEFT_ENCLOSER:
-	'(' ('/'+ | '\\'+)
-	|'[/\\/\\/' | '[/\\/'
-	|'[' (SD SLASHES)
-	|LESSES SD (SLASHES |BARS)
-	|BARS SD SLASHES
-	|('{*' | '[*')
-	|('((>' | '(<')
-; 
-
-terminal RIGHT_ENCLOSER:
-	'/'+ ')'
-	|'\\'+ ')'
-	|SLASHES SD (GREATERS | BARS | ('\\'|']'))
-	|BARS SD GREATERS
-	|('*]' | '*}')
-	|"]"
-	|(">)" | "<))")
-	| "/\\/\\/]" | "/\\/]"
-;
-
 terminal DOTS:
 	'...'
 ;
-

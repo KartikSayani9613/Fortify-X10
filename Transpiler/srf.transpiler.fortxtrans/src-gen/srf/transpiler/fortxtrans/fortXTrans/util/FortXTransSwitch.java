@@ -117,6 +117,29 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FortXTransPackage.QUALIFIED_NAME:
+      {
+        QualifiedName qualifiedName = (QualifiedName)theEObject;
+        T result = caseQualifiedName(qualifiedName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.QUALIFIED:
+      {
+        Qualified qualified = (Qualified)theEObject;
+        T result = caseQualified(qualified);
+        if (result == null) result = caseExpr(qualified);
+        if (result == null) result = caseCommaExpr(qualified);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.QUALIFIED_NAME_TUPLE:
+      {
+        QualifiedNameTuple qualifiedNameTuple = (QualifiedNameTuple)theEObject;
+        T result = caseQualifiedNameTuple(qualifiedNameTuple);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FortXTransPackage.SIMPLE_NAMES:
       {
         SimpleNames simpleNames = (SimpleNames)theEObject;
@@ -208,17 +231,17 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.TYPE:
-      {
-        Type type = (Type)theEObject;
-        T result = caseType(type);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case FortXTransPackage.FN_DECL:
       {
         FnDecl fnDecl = (FnDecl)theEObject;
         T result = caseFnDecl(fnDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.STMNTS:
+      {
+        Stmnts stmnts = (Stmnts)theEObject;
+        T result = caseStmnts(stmnts);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -229,10 +252,18 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FortXTransPackage.DELIMITED_EXPR_LIST:
+      {
+        DelimitedExprList delimitedExprList = (DelimitedExprList)theEObject;
+        T result = caseDelimitedExprList(delimitedExprList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FortXTransPackage.EXPR:
       {
         Expr expr = (Expr)theEObject;
         T result = caseExpr(expr);
+        if (result == null) result = caseCommaExpr(expr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -240,6 +271,13 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         ExprFront exprFront = (ExprFront)theEObject;
         T result = caseExprFront(exprFront);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.COMMA_EXPR:
+      {
+        CommaExpr commaExpr = (CommaExpr)theEObject;
+        T result = caseCommaExpr(commaExpr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -254,20 +292,6 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         DelimitedExpr delimitedExpr = (DelimitedExpr)theEObject;
         T result = caseDelimitedExpr(delimitedExpr);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.EXPR_LIST:
-      {
-        ExprList exprList = (ExprList)theEObject;
-        T result = caseExprList(exprList);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.PAR_BLOCK_ELEMS:
-      {
-        ParBlockElems parBlockElems = (ParBlockElems)theEObject;
-        T result = caseParBlockElems(parBlockElems);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -348,6 +372,13 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case FortXTransPackage.BIND_ID:
+      {
+        BindId bindId = (BindId)theEObject;
+        T result = caseBindId(bindId);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case FortXTransPackage.IS_TYPE:
       {
         IsType isType = (IsType)theEObject;
@@ -387,6 +418,15 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         LiteralTuple literalTuple = (LiteralTuple)theEObject;
         T result = caseLiteralTuple(literalTuple);
+        if (result == null) result = caseExpr(literalTuple);
+        if (result == null) result = caseCommaExpr(literalTuple);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.LITERAL_TUP:
+      {
+        LiteralTup literalTup = (LiteralTup)theEObject;
+        T result = caseLiteralTup(literalTup);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -401,6 +441,51 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         LocalVarDecl localVarDecl = (LocalVarDecl)theEObject;
         T result = caseLocalVarDecl(localVarDecl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.ADD_EXPR:
+      {
+        AddExpr addExpr = (AddExpr)theEObject;
+        T result = caseAddExpr(addExpr);
+        if (result == null) result = caseExpr(addExpr);
+        if (result == null) result = caseCommaExpr(addExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.SUB_EXPR:
+      {
+        SubExpr subExpr = (SubExpr)theEObject;
+        T result = caseSubExpr(subExpr);
+        if (result == null) result = caseExpr(subExpr);
+        if (result == null) result = caseCommaExpr(subExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.DIV_EXPR:
+      {
+        DivExpr divExpr = (DivExpr)theEObject;
+        T result = caseDivExpr(divExpr);
+        if (result == null) result = caseExpr(divExpr);
+        if (result == null) result = caseCommaExpr(divExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.MULT_EXPR:
+      {
+        MultExpr multExpr = (MultExpr)theEObject;
+        T result = caseMultExpr(multExpr);
+        if (result == null) result = caseExpr(multExpr);
+        if (result == null) result = caseCommaExpr(multExpr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.PRIMARY:
+      {
+        Primary primary = (Primary)theEObject;
+        T result = casePrimary(primary);
+        if (result == null) result = caseExpr(primary);
+        if (result == null) result = caseCommaExpr(primary);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -500,6 +585,54 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseImportedNames(ImportedNames object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Qualified Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Qualified Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQualifiedName(QualifiedName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Qualified</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Qualified</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQualified(Qualified object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Qualified Name Tuple</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Qualified Name Tuple</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseQualifiedNameTuple(QualifiedNameTuple object)
   {
     return null;
   }
@@ -713,22 +846,6 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseType(Type object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Fn Decl</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -745,6 +862,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Stmnts</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Stmnts</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStmnts(Stmnts object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Stmnt</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -756,6 +889,22 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStmnt(Stmnt object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Delimited Expr List</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Delimited Expr List</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDelimitedExprList(DelimitedExprList object)
   {
     return null;
   }
@@ -793,6 +942,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Comma Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Comma Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCommaExpr(CommaExpr object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Expr Tail</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -820,38 +985,6 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDelimitedExpr(DelimitedExpr object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Expr List</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Expr List</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseExprList(ExprList object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Par Block Elems</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Par Block Elems</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseParBlockElems(ParBlockElems object)
   {
     return null;
   }
@@ -1033,6 +1166,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Bind Id</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Bind Id</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseBindId(BindId object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Is Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1129,6 +1278,22 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Literal Tup</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Literal Tup</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLiteralTup(LiteralTup object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Literal</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1156,6 +1321,86 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLocalVarDecl(LocalVarDecl object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Add Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Add Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAddExpr(AddExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Sub Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Sub Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSubExpr(SubExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Div Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Div Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDivExpr(DivExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mult Expr</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mult Expr</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMultExpr(MultExpr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Primary</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Primary</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePrimary(Primary object)
   {
     return null;
   }

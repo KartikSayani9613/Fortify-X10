@@ -32,12 +32,12 @@ public interface BlockElem extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>St</em>' containment reference.
-   * @see #setSt(Stmnt)
+   * @see #setSt(Stmnts)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBlockElem_St()
    * @model containment="true"
    * @generated
    */
-  Stmnt getSt();
+  Stmnts getSt();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElem#getSt <em>St</em>}' containment reference.
@@ -47,6 +47,6 @@ public interface BlockElem extends EObject
    * @see #getSt()
    * @generated
    */
-  void setSt(Stmnt value);
+  void setSt(Stmnts value);
 
 } // BlockElem

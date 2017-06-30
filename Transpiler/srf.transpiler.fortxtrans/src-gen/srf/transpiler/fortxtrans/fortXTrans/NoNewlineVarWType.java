@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface NoNewlineVarWType extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Bid</b></em>' attribute.
+   * Returns the value of the '<em><b>Bid</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Bid</em>' attribute isn't clear,
+   * If the meaning of the '<em>Bid</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Bid</em>' attribute.
-   * @see #setBid(String)
+   * @return the value of the '<em>Bid</em>' containment reference.
+   * @see #setBid(BindId)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getNoNewlineVarWType_Bid()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getBid();
+  BindId getBid();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType#getBid <em>Bid</em>}' attribute.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType#getBid <em>Bid</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Bid</em>' attribute.
+   * @param value the new value of the '<em>Bid</em>' containment reference.
    * @see #getBid()
    * @generated
    */
-  void setBid(String value);
+  void setBid(BindId value);
 
   /**
    * Returns the value of the '<em><b>Istype</b></em>' containment reference.

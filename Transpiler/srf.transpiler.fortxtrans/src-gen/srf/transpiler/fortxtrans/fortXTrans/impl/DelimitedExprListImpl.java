@@ -17,41 +17,41 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import srf.transpiler.fortxtrans.fortXTrans.Expr;
-import srf.transpiler.fortxtrans.fortXTrans.ExprList;
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expr List</b></em>'.
+ * An implementation of the model object '<em><b>Delimited Expr List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprListImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl#getDelim <em>Delim</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprList
+public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implements DelimitedExprList
 {
   /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference list.
+   * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExp()
+   * @see #getDelim()
    * @generated
    * @ordered
    */
-  protected EList<Expr> exp;
+  protected EList<DelimitedExpr> delim;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExprListImpl()
+  protected DelimitedExprListImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.EXPR_LIST;
+    return FortXTransPackage.Literals.DELIMITED_EXPR_LIST;
   }
 
   /**
@@ -72,13 +72,13 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expr> getExp()
+  public EList<DelimitedExpr> getDelim()
   {
-    if (exp == null)
+    if (delim == null)
     {
-      exp = new EObjectContainmentEList<Expr>(Expr.class, this, FortXTransPackage.EXPR_LIST__EXP);
+      delim = new EObjectContainmentEList<DelimitedExpr>(DelimitedExpr.class, this, FortXTransPackage.DELIMITED_EXPR_LIST__DELIM);
     }
-    return exp;
+    return delim;
   }
 
   /**
@@ -91,8 +91,8 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_LIST__EXP:
-        return ((InternalEList<?>)getExp()).basicRemove(otherEnd, msgs);
+      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+        return ((InternalEList<?>)getDelim()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_LIST__EXP:
-        return getExp();
+      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+        return getDelim();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_LIST__EXP:
-        getExp().clear();
-        getExp().addAll((Collection<? extends Expr>)newValue);
+      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+        getDelim().clear();
+        getDelim().addAll((Collection<? extends DelimitedExpr>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_LIST__EXP:
-        getExp().clear();
+      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+        getDelim().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,10 +159,10 @@ public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprLi
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_LIST__EXP:
-        return exp != null && !exp.isEmpty();
+      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+        return delim != null && !delim.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ExprListImpl
+} //DelimitedExprListImpl
