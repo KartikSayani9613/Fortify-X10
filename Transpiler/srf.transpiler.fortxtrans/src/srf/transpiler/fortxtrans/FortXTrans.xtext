@@ -112,19 +112,21 @@ Type:
 ;
 
 FnDecl:
-	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Expr)?
+	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Stmnt)?
 ;
 
-
-Expr:
+Stmnt:
 	front=ExprFront (tails+=ExprTail)*
 	|locVar=LocalVarDecl
-	|lit=LiteralTuple
+	|exp=Expr
+;
+
+Expr:
+	lit=LiteralTuple
 ;
 
 ExprFront:
 	delim=DelimitedExpr
-	|id=QualifiedName
 ;
 
 ExprTail:
@@ -138,12 +140,16 @@ DelimitedExpr :
 	|awhile='while' expr=Expr  whiledod=Do
 	|afor='for' gen=Generators dofront=DoFront 'end'
 	|anif='if' cond=Expr 'then' blocks=BlockElems (elifs=Elifs)? (els=Else)? 'end'
-	|par=Paranthesized
 	|'|' parblock=ParBlockElems '|'
+	|fname=QualifiedName brack='(' fargs=ExprList ')'
+;
+
+ExprList:
+	exp+=Expr (',' exp+=Expr)*
 ;
 
 ParBlockElems:
-	 brack='(' block+=BlockElem (',' block+=BlockElem)+ ')'
+	 brack='(' block+=BlockElem (',' block+=BlockElem)* ')'
 ;
 
 Elifs:
@@ -176,13 +182,9 @@ BlockElems:
 	block+=BlockElem (block+=BlockElem)*
 ;
 
-BlockElem returns Exp:
-	exp=Expr
+BlockElem:
+	st=Stmnt
 //	|locVar+=LocalVarDecl
-;
-
-Paranthesized returns Exp:
-	'(' exp=Expr')'
 ;
 
 Do:
@@ -243,10 +245,10 @@ Literal:
 
 
 LocalVarDecl:
-	(mut='var')? vars=NoNewlineVarWTypes (muta=':='|immut='=') init=BlockElem
+	(mut='var')? vars=NoNewlineVarWTypes (muta=':='|immut='=') init=Expr
 	|idtup=IdOrTuple '=' litTup=LiteralTuple
-	|(mut='var')? idtup=IdOrTuple ':' type=Type DOTS (muta=':='|immut='=') init=BlockElem
-	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType (muta=':='|immut='=') init=BlockElem
+	|(mut='var')? idtup=IdOrTuple ':' type=Type DOTS (muta=':='|immut='=') init=Expr
+	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType (muta=':='|immut='=') init=Expr
 ;
 
 @Override 

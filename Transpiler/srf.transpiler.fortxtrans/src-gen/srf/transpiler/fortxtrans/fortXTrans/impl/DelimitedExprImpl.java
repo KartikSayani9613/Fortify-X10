@@ -12,14 +12,15 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
 import srf.transpiler.fortxtrans.fortXTrans.Elifs;
 import srf.transpiler.fortxtrans.fortXTrans.Else;
-import srf.transpiler.fortxtrans.fortXTrans.Exp;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
+import srf.transpiler.fortxtrans.fortXTrans.ExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.Generators;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
@@ -50,8 +51,10 @@ import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getElifs <em>Elifs</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getEls <em>Els</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getPar <em>Par</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getParblock <em>Parblock</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getFname <em>Fname</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getBrack <em>Brack</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprImpl#getFargs <em>Fargs</em>}</li>
  * </ul>
  *
  * @generated
@@ -136,7 +139,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * @generated
    * @ordered
    */
-  protected Exp block;
+  protected BlockElem block;
 
   /**
    * The default value of the '{@link #getAwhile() <em>Awhile</em>}' attribute.
@@ -279,16 +282,6 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
   protected Else els;
 
   /**
-   * The cached value of the '{@link #getPar() <em>Par</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPar()
-   * @generated
-   * @ordered
-   */
-  protected Exp par;
-
-  /**
    * The cached value of the '{@link #getParblock() <em>Parblock</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -297,6 +290,56 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * @ordered
    */
   protected ParBlockElems parblock;
+
+  /**
+   * The default value of the '{@link #getFname() <em>Fname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFname()
+   * @generated
+   * @ordered
+   */
+  protected static final String FNAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getFname() <em>Fname</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFname()
+   * @generated
+   * @ordered
+   */
+  protected String fname = FNAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBrack()
+   * @generated
+   * @ordered
+   */
+  protected static final String BRACK_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBrack()
+   * @generated
+   * @ordered
+   */
+  protected String brack = BRACK_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getFargs() <em>Fargs</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFargs()
+   * @generated
+   * @ordered
+   */
+  protected ExprList fargs;
 
   /**
    * <!-- begin-user-doc -->
@@ -514,7 +557,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exp getBlock()
+  public BlockElem getBlock()
   {
     return block;
   }
@@ -524,9 +567,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(Exp newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(BlockElem newBlock, NotificationChain msgs)
   {
-    Exp oldBlock = block;
+    BlockElem oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -541,7 +584,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(Exp newBlock)
+  public void setBlock(BlockElem newBlock)
   {
     if (newBlock != block)
     {
@@ -1015,54 +1058,6 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exp getPar()
-  {
-    return par;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetPar(Exp newPar, NotificationChain msgs)
-  {
-    Exp oldPar = par;
-    par = newPar;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__PAR, oldPar, newPar);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setPar(Exp newPar)
-  {
-    if (newPar != par)
-    {
-      NotificationChain msgs = null;
-      if (par != null)
-        msgs = ((InternalEObject)par).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__PAR, null, msgs);
-      if (newPar != null)
-        msgs = ((InternalEObject)newPar).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__PAR, null, msgs);
-      msgs = basicSetPar(newPar, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__PAR, newPar, newPar));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public ParBlockElems getParblock()
   {
     return parblock;
@@ -1111,6 +1106,100 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getFname()
+  {
+    return fname;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFname(String newFname)
+  {
+    String oldFname = fname;
+    fname = newFname;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__FNAME, oldFname, fname));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBrack()
+  {
+    return brack;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBrack(String newBrack)
+  {
+    String oldBrack = brack;
+    brack = newBrack;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__BRACK, oldBrack, brack));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprList getFargs()
+  {
+    return fargs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFargs(ExprList newFargs, NotificationChain msgs)
+  {
+    ExprList oldFargs = fargs;
+    fargs = newFargs;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__FARGS, oldFargs, newFargs);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFargs(ExprList newFargs)
+  {
+    if (newFargs != fargs)
+    {
+      NotificationChain msgs = null;
+      if (fargs != null)
+        msgs = ((InternalEObject)fargs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__FARGS, null, msgs);
+      if (newFargs != null)
+        msgs = ((InternalEObject)newFargs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.DELIMITED_EXPR__FARGS, null, msgs);
+      msgs = basicSetFargs(newFargs, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.DELIMITED_EXPR__FARGS, newFargs, newFargs));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -1140,10 +1229,10 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return basicSetElifs(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__ELS:
         return basicSetEls(null, msgs);
-      case FortXTransPackage.DELIMITED_EXPR__PAR:
-        return basicSetPar(null, msgs);
       case FortXTransPackage.DELIMITED_EXPR__PARBLOCK:
         return basicSetParblock(null, msgs);
+      case FortXTransPackage.DELIMITED_EXPR__FARGS:
+        return basicSetFargs(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -1192,10 +1281,14 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return getElifs();
       case FortXTransPackage.DELIMITED_EXPR__ELS:
         return getEls();
-      case FortXTransPackage.DELIMITED_EXPR__PAR:
-        return getPar();
       case FortXTransPackage.DELIMITED_EXPR__PARBLOCK:
         return getParblock();
+      case FortXTransPackage.DELIMITED_EXPR__FNAME:
+        return getFname();
+      case FortXTransPackage.DELIMITED_EXPR__BRACK:
+        return getBrack();
+      case FortXTransPackage.DELIMITED_EXPR__FARGS:
+        return getFargs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -1226,7 +1319,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         setRet((String)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
-        setBlock((Exp)newValue);
+        setBlock((BlockElem)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__AWHILE:
         setAwhile((String)newValue);
@@ -1261,11 +1354,17 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
       case FortXTransPackage.DELIMITED_EXPR__ELS:
         setEls((Else)newValue);
         return;
-      case FortXTransPackage.DELIMITED_EXPR__PAR:
-        setPar((Exp)newValue);
-        return;
       case FortXTransPackage.DELIMITED_EXPR__PARBLOCK:
         setParblock((ParBlockElems)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__FNAME:
+        setFname((String)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__BRACK:
+        setBrack((String)newValue);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__FARGS:
+        setFargs((ExprList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -1297,7 +1396,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         setRet(RET_EDEFAULT);
         return;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
-        setBlock((Exp)null);
+        setBlock((BlockElem)null);
         return;
       case FortXTransPackage.DELIMITED_EXPR__AWHILE:
         setAwhile(AWHILE_EDEFAULT);
@@ -1332,11 +1431,17 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
       case FortXTransPackage.DELIMITED_EXPR__ELS:
         setEls((Else)null);
         return;
-      case FortXTransPackage.DELIMITED_EXPR__PAR:
-        setPar((Exp)null);
-        return;
       case FortXTransPackage.DELIMITED_EXPR__PARBLOCK:
         setParblock((ParBlockElems)null);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__FNAME:
+        setFname(FNAME_EDEFAULT);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__BRACK:
+        setBrack(BRACK_EDEFAULT);
+        return;
+      case FortXTransPackage.DELIMITED_EXPR__FARGS:
+        setFargs((ExprList)null);
         return;
     }
     super.eUnset(featureID);
@@ -1386,10 +1491,14 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         return elifs != null;
       case FortXTransPackage.DELIMITED_EXPR__ELS:
         return els != null;
-      case FortXTransPackage.DELIMITED_EXPR__PAR:
-        return par != null;
       case FortXTransPackage.DELIMITED_EXPR__PARBLOCK:
         return parblock != null;
+      case FortXTransPackage.DELIMITED_EXPR__FNAME:
+        return FNAME_EDEFAULT == null ? fname != null : !FNAME_EDEFAULT.equals(fname);
+      case FortXTransPackage.DELIMITED_EXPR__BRACK:
+        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
+      case FortXTransPackage.DELIMITED_EXPR__FARGS:
+        return fargs != null;
     }
     return super.eIsSet(featureID);
   }
@@ -1415,6 +1524,10 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
     result.append(afor);
     result.append(", anif: ");
     result.append(anif);
+    result.append(", fname: ");
+    result.append(fname);
+    result.append(", brack: ");
+    result.append(brack);
     result.append(')');
     return result.toString();
   }

@@ -4793,7 +4793,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFnDecl"
-    // InternalFortXTrans.g:1848:1: ruleFnDecl returns [EObject current=null] : ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) ) )? ) ;
+    // InternalFortXTrans.g:1848:1: ruleFnDecl returns [EObject current=null] : ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) ) )? ) ;
     public final EObject ruleFnDecl() throws RecognitionException {
         EObject current = null;
 
@@ -4812,11 +4812,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:1854:2: ( ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) ) )? ) )
-            // InternalFortXTrans.g:1855:2: ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) ) )? )
+            // InternalFortXTrans.g:1854:2: ( ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) ) )? ) )
+            // InternalFortXTrans.g:1855:2: ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) ) )? )
             {
-            // InternalFortXTrans.g:1855:2: ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) ) )? )
-            // InternalFortXTrans.g:1856:3: ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) ) )?
+            // InternalFortXTrans.g:1855:2: ( ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) ) )? )
+            // InternalFortXTrans.g:1856:3: ( (lv_mods_0_0= ruleFnMods ) )? ( (lv_name_1_0= RULE_ID ) ) ( (lv_params_2_0= ruleValParam ) ) ( (lv_retVal_3_0= ruleRetType ) )? ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) ) )?
             {
             // InternalFortXTrans.g:1856:3: ( (lv_mods_0_0= ruleFnMods ) )?
             int alt35=2;
@@ -4959,7 +4959,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:1931:3: ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) ) )?
+            // InternalFortXTrans.g:1931:3: ( ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) ) )?
             int alt37=2;
             int LA37_0 = input.LA(1);
 
@@ -4968,7 +4968,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt37) {
                 case 1 :
-                    // InternalFortXTrans.g:1932:4: ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleExpr ) )
+                    // InternalFortXTrans.g:1932:4: ( (lv_body_4_0= '=' ) ) ( (lv_fnItself_5_0= ruleStmnt ) )
                     {
                     // InternalFortXTrans.g:1932:4: ( (lv_body_4_0= '=' ) )
                     // InternalFortXTrans.g:1933:5: (lv_body_4_0= '=' )
@@ -4992,17 +4992,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:1946:4: ( (lv_fnItself_5_0= ruleExpr ) )
-                    // InternalFortXTrans.g:1947:5: (lv_fnItself_5_0= ruleExpr )
+                    // InternalFortXTrans.g:1946:4: ( (lv_fnItself_5_0= ruleStmnt ) )
+                    // InternalFortXTrans.g:1947:5: (lv_fnItself_5_0= ruleStmnt )
                     {
-                    // InternalFortXTrans.g:1947:5: (lv_fnItself_5_0= ruleExpr )
-                    // InternalFortXTrans.g:1948:6: lv_fnItself_5_0= ruleExpr
+                    // InternalFortXTrans.g:1947:5: (lv_fnItself_5_0= ruleStmnt )
+                    // InternalFortXTrans.g:1948:6: lv_fnItself_5_0= ruleStmnt
                     {
 
-                    						newCompositeNode(grammarAccess.getFnDeclAccess().getFnItselfExprParserRuleCall_4_1_0());
+                    						newCompositeNode(grammarAccess.getFnDeclAccess().getFnItselfStmntParserRuleCall_4_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_fnItself_5_0=ruleExpr();
+                    lv_fnItself_5_0=ruleStmnt();
 
                     state._fsp--;
 
@@ -5014,7 +5014,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     							current,
                     							"fnItself",
                     							lv_fnItself_5_0,
-                    							"srf.transpiler.fortxtrans.FortXTrans.Expr");
+                    							"srf.transpiler.fortxtrans.FortXTrans.Stmnt");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -5051,25 +5051,25 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleFnDecl"
 
 
-    // $ANTLR start "entryRuleExpr"
-    // InternalFortXTrans.g:1970:1: entryRuleExpr returns [EObject current=null] : iv_ruleExpr= ruleExpr EOF ;
-    public final EObject entryRuleExpr() throws RecognitionException {
+    // $ANTLR start "entryRuleStmnt"
+    // InternalFortXTrans.g:1970:1: entryRuleStmnt returns [EObject current=null] : iv_ruleStmnt= ruleStmnt EOF ;
+    public final EObject entryRuleStmnt() throws RecognitionException {
         EObject current = null;
 
-        EObject iv_ruleExpr = null;
+        EObject iv_ruleStmnt = null;
 
 
         try {
-            // InternalFortXTrans.g:1970:45: (iv_ruleExpr= ruleExpr EOF )
-            // InternalFortXTrans.g:1971:2: iv_ruleExpr= ruleExpr EOF
+            // InternalFortXTrans.g:1970:46: (iv_ruleStmnt= ruleStmnt EOF )
+            // InternalFortXTrans.g:1971:2: iv_ruleStmnt= ruleStmnt EOF
             {
-             newCompositeNode(grammarAccess.getExprRule()); 
+             newCompositeNode(grammarAccess.getStmntRule()); 
             pushFollow(FOLLOW_1);
-            iv_ruleExpr=ruleExpr();
+            iv_ruleStmnt=ruleStmnt();
 
             state._fsp--;
 
-             current =iv_ruleExpr; 
+             current =iv_ruleStmnt; 
             match(input,EOF,FOLLOW_2); 
 
             }
@@ -5084,12 +5084,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRuleExpr"
+    // $ANTLR end "entryRuleStmnt"
 
 
-    // $ANTLR start "ruleExpr"
-    // InternalFortXTrans.g:1977:1: ruleExpr returns [EObject current=null] : ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_lit_3_0= ruleLiteralTuple ) ) ) ;
-    public final EObject ruleExpr() throws RecognitionException {
+    // $ANTLR start "ruleStmnt"
+    // InternalFortXTrans.g:1977:1: ruleStmnt returns [EObject current=null] : ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_exp_3_0= ruleExpr ) ) ) ;
+    public final EObject ruleStmnt() throws RecognitionException {
         EObject current = null;
 
         EObject lv_front_0_0 = null;
@@ -5098,17 +5098,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
         EObject lv_locVar_2_0 = null;
 
-        EObject lv_lit_3_0 = null;
+        EObject lv_exp_3_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:1983:2: ( ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_lit_3_0= ruleLiteralTuple ) ) ) )
-            // InternalFortXTrans.g:1984:2: ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_lit_3_0= ruleLiteralTuple ) ) )
+            // InternalFortXTrans.g:1983:2: ( ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_exp_3_0= ruleExpr ) ) ) )
+            // InternalFortXTrans.g:1984:2: ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_exp_3_0= ruleExpr ) ) )
             {
-            // InternalFortXTrans.g:1984:2: ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_lit_3_0= ruleLiteralTuple ) ) )
+            // InternalFortXTrans.g:1984:2: ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_exp_3_0= ruleExpr ) ) )
             int alt39=3;
             alt39 = dfa39.predict(input);
             switch (alt39) {
@@ -5125,7 +5125,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     // InternalFortXTrans.g:1988:6: lv_front_0_0= ruleExprFront
                     {
 
-                    						newCompositeNode(grammarAccess.getExprAccess().getFrontExprFrontParserRuleCall_0_0_0());
+                    						newCompositeNode(grammarAccess.getStmntAccess().getFrontExprFrontParserRuleCall_0_0_0());
                     					
                     pushFollow(FOLLOW_16);
                     lv_front_0_0=ruleExprFront();
@@ -5134,7 +5134,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
                     						if (current==null) {
-                    							current = createModelElementForParent(grammarAccess.getExprRule());
+                    							current = createModelElementForParent(grammarAccess.getStmntRule());
                     						}
                     						set(
                     							current,
@@ -5168,7 +5168,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     	    // InternalFortXTrans.g:2007:6: lv_tails_1_0= ruleExprTail
                     	    {
 
-                    	    						newCompositeNode(grammarAccess.getExprAccess().getTailsExprTailParserRuleCall_0_1_0());
+                    	    						newCompositeNode(grammarAccess.getStmntAccess().getTailsExprTailParserRuleCall_0_1_0());
                     	    					
                     	    pushFollow(FOLLOW_16);
                     	    lv_tails_1_0=ruleExprTail();
@@ -5177,7 +5177,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
                     	    						if (current==null) {
-                    	    							current = createModelElementForParent(grammarAccess.getExprRule());
+                    	    							current = createModelElementForParent(grammarAccess.getStmntRule());
                     	    						}
                     	    						add(
                     	    							current,
@@ -5214,7 +5214,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     // InternalFortXTrans.g:2028:5: lv_locVar_2_0= ruleLocalVarDecl
                     {
 
-                    					newCompositeNode(grammarAccess.getExprAccess().getLocVarLocalVarDeclParserRuleCall_1_0());
+                    					newCompositeNode(grammarAccess.getStmntAccess().getLocVarLocalVarDeclParserRuleCall_1_0());
                     				
                     pushFollow(FOLLOW_2);
                     lv_locVar_2_0=ruleLocalVarDecl();
@@ -5223,7 +5223,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
                     					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getExprRule());
+                    						current = createModelElementForParent(grammarAccess.getStmntRule());
                     					}
                     					set(
                     						current,
@@ -5242,31 +5242,31 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalFortXTrans.g:2046:3: ( (lv_lit_3_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:2046:3: ( (lv_exp_3_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:2046:3: ( (lv_lit_3_0= ruleLiteralTuple ) )
-                    // InternalFortXTrans.g:2047:4: (lv_lit_3_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:2046:3: ( (lv_exp_3_0= ruleExpr ) )
+                    // InternalFortXTrans.g:2047:4: (lv_exp_3_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:2047:4: (lv_lit_3_0= ruleLiteralTuple )
-                    // InternalFortXTrans.g:2048:5: lv_lit_3_0= ruleLiteralTuple
+                    // InternalFortXTrans.g:2047:4: (lv_exp_3_0= ruleExpr )
+                    // InternalFortXTrans.g:2048:5: lv_exp_3_0= ruleExpr
                     {
 
-                    					newCompositeNode(grammarAccess.getExprAccess().getLitLiteralTupleParserRuleCall_2_0());
+                    					newCompositeNode(grammarAccess.getStmntAccess().getExpExprParserRuleCall_2_0());
                     				
                     pushFollow(FOLLOW_2);
-                    lv_lit_3_0=ruleLiteralTuple();
+                    lv_exp_3_0=ruleExpr();
 
                     state._fsp--;
 
 
                     					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getExprRule());
+                    						current = createModelElementForParent(grammarAccess.getStmntRule());
                     					}
                     					set(
                     						current,
-                    						"lit",
-                    						lv_lit_3_0,
-                    						"srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+                    						"exp",
+                    						lv_exp_3_0,
+                    						"srf.transpiler.fortxtrans.FortXTrans.Expr");
                     					afterParserOrEnumRuleCall();
                     				
 
@@ -5297,11 +5297,112 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
+    // $ANTLR end "ruleStmnt"
+
+
+    // $ANTLR start "entryRuleExpr"
+    // InternalFortXTrans.g:2069:1: entryRuleExpr returns [EObject current=null] : iv_ruleExpr= ruleExpr EOF ;
+    public final EObject entryRuleExpr() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExpr = null;
+
+
+        try {
+            // InternalFortXTrans.g:2069:45: (iv_ruleExpr= ruleExpr EOF )
+            // InternalFortXTrans.g:2070:2: iv_ruleExpr= ruleExpr EOF
+            {
+             newCompositeNode(grammarAccess.getExprRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExpr=ruleExpr();
+
+            state._fsp--;
+
+             current =iv_ruleExpr; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExpr"
+
+
+    // $ANTLR start "ruleExpr"
+    // InternalFortXTrans.g:2076:1: ruleExpr returns [EObject current=null] : ( (lv_lit_0_0= ruleLiteralTuple ) ) ;
+    public final EObject ruleExpr() throws RecognitionException {
+        EObject current = null;
+
+        EObject lv_lit_0_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalFortXTrans.g:2082:2: ( ( (lv_lit_0_0= ruleLiteralTuple ) ) )
+            // InternalFortXTrans.g:2083:2: ( (lv_lit_0_0= ruleLiteralTuple ) )
+            {
+            // InternalFortXTrans.g:2083:2: ( (lv_lit_0_0= ruleLiteralTuple ) )
+            // InternalFortXTrans.g:2084:3: (lv_lit_0_0= ruleLiteralTuple )
+            {
+            // InternalFortXTrans.g:2084:3: (lv_lit_0_0= ruleLiteralTuple )
+            // InternalFortXTrans.g:2085:4: lv_lit_0_0= ruleLiteralTuple
+            {
+
+            				newCompositeNode(grammarAccess.getExprAccess().getLitLiteralTupleParserRuleCall_0());
+            			
+            pushFollow(FOLLOW_2);
+            lv_lit_0_0=ruleLiteralTuple();
+
+            state._fsp--;
+
+
+            				if (current==null) {
+            					current = createModelElementForParent(grammarAccess.getExprRule());
+            				}
+            				set(
+            					current,
+            					"lit",
+            					lv_lit_0_0,
+            					"srf.transpiler.fortxtrans.FortXTrans.LiteralTuple");
+            				afterParserOrEnumRuleCall();
+            			
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
     // $ANTLR end "ruleExpr"
 
 
     // $ANTLR start "entryRuleExprFront"
-    // InternalFortXTrans.g:2069:1: entryRuleExprFront returns [EObject current=null] : iv_ruleExprFront= ruleExprFront EOF ;
+    // InternalFortXTrans.g:2105:1: entryRuleExprFront returns [EObject current=null] : iv_ruleExprFront= ruleExprFront EOF ;
     public final EObject entryRuleExprFront() throws RecognitionException {
         EObject current = null;
 
@@ -5309,8 +5410,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2069:50: (iv_ruleExprFront= ruleExprFront EOF )
-            // InternalFortXTrans.g:2070:2: iv_ruleExprFront= ruleExprFront EOF
+            // InternalFortXTrans.g:2105:50: (iv_ruleExprFront= ruleExprFront EOF )
+            // InternalFortXTrans.g:2106:2: iv_ruleExprFront= ruleExprFront EOF
             {
              newCompositeNode(grammarAccess.getExprFrontRule()); 
             pushFollow(FOLLOW_1);
@@ -5337,100 +5438,48 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExprFront"
-    // InternalFortXTrans.g:2076:1: ruleExprFront returns [EObject current=null] : ( ( (lv_delim_0_0= ruleDelimitedExpr ) ) | ( (lv_id_1_0= ruleQualifiedName ) ) ) ;
+    // InternalFortXTrans.g:2112:1: ruleExprFront returns [EObject current=null] : ( (lv_delim_0_0= ruleDelimitedExpr ) ) ;
     public final EObject ruleExprFront() throws RecognitionException {
         EObject current = null;
 
         EObject lv_delim_0_0 = null;
-
-        AntlrDatatypeRuleToken lv_id_1_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2082:2: ( ( ( (lv_delim_0_0= ruleDelimitedExpr ) ) | ( (lv_id_1_0= ruleQualifiedName ) ) ) )
-            // InternalFortXTrans.g:2083:2: ( ( (lv_delim_0_0= ruleDelimitedExpr ) ) | ( (lv_id_1_0= ruleQualifiedName ) ) )
+            // InternalFortXTrans.g:2118:2: ( ( (lv_delim_0_0= ruleDelimitedExpr ) ) )
+            // InternalFortXTrans.g:2119:2: ( (lv_delim_0_0= ruleDelimitedExpr ) )
             {
-            // InternalFortXTrans.g:2083:2: ( ( (lv_delim_0_0= ruleDelimitedExpr ) ) | ( (lv_id_1_0= ruleQualifiedName ) ) )
-            int alt40=2;
-            alt40 = dfa40.predict(input);
-            switch (alt40) {
-                case 1 :
-                    // InternalFortXTrans.g:2084:3: ( (lv_delim_0_0= ruleDelimitedExpr ) )
-                    {
-                    // InternalFortXTrans.g:2084:3: ( (lv_delim_0_0= ruleDelimitedExpr ) )
-                    // InternalFortXTrans.g:2085:4: (lv_delim_0_0= ruleDelimitedExpr )
-                    {
-                    // InternalFortXTrans.g:2085:4: (lv_delim_0_0= ruleDelimitedExpr )
-                    // InternalFortXTrans.g:2086:5: lv_delim_0_0= ruleDelimitedExpr
-                    {
+            // InternalFortXTrans.g:2119:2: ( (lv_delim_0_0= ruleDelimitedExpr ) )
+            // InternalFortXTrans.g:2120:3: (lv_delim_0_0= ruleDelimitedExpr )
+            {
+            // InternalFortXTrans.g:2120:3: (lv_delim_0_0= ruleDelimitedExpr )
+            // InternalFortXTrans.g:2121:4: lv_delim_0_0= ruleDelimitedExpr
+            {
 
-                    					newCompositeNode(grammarAccess.getExprFrontAccess().getDelimDelimitedExprParserRuleCall_0_0());
-                    				
-                    pushFollow(FOLLOW_2);
-                    lv_delim_0_0=ruleDelimitedExpr();
+            				newCompositeNode(grammarAccess.getExprFrontAccess().getDelimDelimitedExprParserRuleCall_0());
+            			
+            pushFollow(FOLLOW_2);
+            lv_delim_0_0=ruleDelimitedExpr();
 
-                    state._fsp--;
+            state._fsp--;
 
 
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getExprFrontRule());
-                    					}
-                    					set(
-                    						current,
-                    						"delim",
-                    						lv_delim_0_0,
-                    						"srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
-                    					afterParserOrEnumRuleCall();
-                    				
+            				if (current==null) {
+            					current = createModelElementForParent(grammarAccess.getExprFrontRule());
+            				}
+            				set(
+            					current,
+            					"delim",
+            					lv_delim_0_0,
+            					"srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
+            				afterParserOrEnumRuleCall();
+            			
 
-                    }
+            }
 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalFortXTrans.g:2104:3: ( (lv_id_1_0= ruleQualifiedName ) )
-                    {
-                    // InternalFortXTrans.g:2104:3: ( (lv_id_1_0= ruleQualifiedName ) )
-                    // InternalFortXTrans.g:2105:4: (lv_id_1_0= ruleQualifiedName )
-                    {
-                    // InternalFortXTrans.g:2105:4: (lv_id_1_0= ruleQualifiedName )
-                    // InternalFortXTrans.g:2106:5: lv_id_1_0= ruleQualifiedName
-                    {
-
-                    					newCompositeNode(grammarAccess.getExprFrontAccess().getIdQualifiedNameParserRuleCall_1_0());
-                    				
-                    pushFollow(FOLLOW_2);
-                    lv_id_1_0=ruleQualifiedName();
-
-                    state._fsp--;
-
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getExprFrontRule());
-                    					}
-                    					set(
-                    						current,
-                    						"id",
-                    						lv_id_1_0,
-                    						"srf.transpiler.fortxtrans.FortXTrans.QualifiedName");
-                    					afterParserOrEnumRuleCall();
-                    				
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
 
             }
 
@@ -5454,7 +5503,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleExprTail"
-    // InternalFortXTrans.g:2127:1: entryRuleExprTail returns [EObject current=null] : iv_ruleExprTail= ruleExprTail EOF ;
+    // InternalFortXTrans.g:2141:1: entryRuleExprTail returns [EObject current=null] : iv_ruleExprTail= ruleExprTail EOF ;
     public final EObject entryRuleExprTail() throws RecognitionException {
         EObject current = null;
 
@@ -5462,8 +5511,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2127:49: (iv_ruleExprTail= ruleExprTail EOF )
-            // InternalFortXTrans.g:2128:2: iv_ruleExprTail= ruleExprTail EOF
+            // InternalFortXTrans.g:2141:49: (iv_ruleExprTail= ruleExprTail EOF )
+            // InternalFortXTrans.g:2142:2: iv_ruleExprTail= ruleExprTail EOF
             {
              newCompositeNode(grammarAccess.getExprTailRule()); 
             pushFollow(FOLLOW_1);
@@ -5490,7 +5539,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExprTail"
-    // InternalFortXTrans.g:2134:1: ruleExprTail returns [EObject current=null] : (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) ) ;
+    // InternalFortXTrans.g:2148:1: ruleExprTail returns [EObject current=null] : (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) ) ;
     public final EObject ruleExprTail() throws RecognitionException {
         EObject current = null;
 
@@ -5502,21 +5551,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2140:2: ( (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) ) )
-            // InternalFortXTrans.g:2141:2: (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) )
+            // InternalFortXTrans.g:2154:2: ( (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) ) )
+            // InternalFortXTrans.g:2155:2: (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) )
             {
-            // InternalFortXTrans.g:2141:2: (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) )
-            // InternalFortXTrans.g:2142:3: otherlv_0= 'as' ( (lv_type_1_0= ruleType ) )
+            // InternalFortXTrans.g:2155:2: (otherlv_0= 'as' ( (lv_type_1_0= ruleType ) ) )
+            // InternalFortXTrans.g:2156:3: otherlv_0= 'as' ( (lv_type_1_0= ruleType ) )
             {
             otherlv_0=(Token)match(input,30,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getExprTailAccess().getAsKeyword_0());
             		
-            // InternalFortXTrans.g:2146:3: ( (lv_type_1_0= ruleType ) )
-            // InternalFortXTrans.g:2147:4: (lv_type_1_0= ruleType )
+            // InternalFortXTrans.g:2160:3: ( (lv_type_1_0= ruleType ) )
+            // InternalFortXTrans.g:2161:4: (lv_type_1_0= ruleType )
             {
-            // InternalFortXTrans.g:2147:4: (lv_type_1_0= ruleType )
-            // InternalFortXTrans.g:2148:5: lv_type_1_0= ruleType
+            // InternalFortXTrans.g:2161:4: (lv_type_1_0= ruleType )
+            // InternalFortXTrans.g:2162:5: lv_type_1_0= ruleType
             {
 
             					newCompositeNode(grammarAccess.getExprTailAccess().getTypeTypeParserRuleCall_1_0());
@@ -5566,7 +5615,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDelimitedExpr"
-    // InternalFortXTrans.g:2169:1: entryRuleDelimitedExpr returns [EObject current=null] : iv_ruleDelimitedExpr= ruleDelimitedExpr EOF ;
+    // InternalFortXTrans.g:2183:1: entryRuleDelimitedExpr returns [EObject current=null] : iv_ruleDelimitedExpr= ruleDelimitedExpr EOF ;
     public final EObject entryRuleDelimitedExpr() throws RecognitionException {
         EObject current = null;
 
@@ -5574,8 +5623,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2169:54: (iv_ruleDelimitedExpr= ruleDelimitedExpr EOF )
-            // InternalFortXTrans.g:2170:2: iv_ruleDelimitedExpr= ruleDelimitedExpr EOF
+            // InternalFortXTrans.g:2183:54: (iv_ruleDelimitedExpr= ruleDelimitedExpr EOF )
+            // InternalFortXTrans.g:2184:2: iv_ruleDelimitedExpr= ruleDelimitedExpr EOF
             {
              newCompositeNode(grammarAccess.getDelimitedExprRule()); 
             pushFollow(FOLLOW_1);
@@ -5602,7 +5651,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDelimitedExpr"
-    // InternalFortXTrans.g:2176:1: ruleDelimitedExpr returns [EObject current=null] : ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | ( (lv_par_20_0= ruleParanthesized ) ) | (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' ) ) ;
+    // InternalFortXTrans.g:2190:1: ruleDelimitedExpr returns [EObject current=null] : ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' ) | ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' ) ) ;
     public final EObject ruleDelimitedExpr() throws RecognitionException {
         EObject current = null;
 
@@ -5614,8 +5663,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         Token lv_anif_13_0=null;
         Token otherlv_15=null;
         Token otherlv_19=null;
-        Token otherlv_21=null;
-        Token otherlv_23=null;
+        Token otherlv_20=null;
+        Token otherlv_22=null;
+        Token lv_brack_24_0=null;
+        Token otherlv_26=null;
         EObject lv_dod_0_0 = null;
 
         EObject lv_lits_1_0 = null;
@@ -5640,30 +5691,32 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
         EObject lv_els_18_0 = null;
 
-        EObject lv_par_20_0 = null;
+        EObject lv_parblock_21_0 = null;
 
-        EObject lv_parblock_22_0 = null;
+        AntlrDatatypeRuleToken lv_fname_23_0 = null;
+
+        EObject lv_fargs_25_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2182:2: ( ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | ( (lv_par_20_0= ruleParanthesized ) ) | (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' ) ) )
-            // InternalFortXTrans.g:2183:2: ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | ( (lv_par_20_0= ruleParanthesized ) ) | (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' ) )
+            // InternalFortXTrans.g:2196:2: ( ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' ) | ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' ) ) )
+            // InternalFortXTrans.g:2197:2: ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' ) | ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' ) )
             {
-            // InternalFortXTrans.g:2183:2: ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | ( (lv_par_20_0= ruleParanthesized ) ) | (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' ) )
-            int alt43=8;
-            alt43 = dfa43.predict(input);
-            switch (alt43) {
+            // InternalFortXTrans.g:2197:2: ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' ) | ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' ) )
+            int alt42=8;
+            alt42 = dfa42.predict(input);
+            switch (alt42) {
                 case 1 :
-                    // InternalFortXTrans.g:2184:3: ( (lv_dod_0_0= ruleDo ) )
+                    // InternalFortXTrans.g:2198:3: ( (lv_dod_0_0= ruleDo ) )
                     {
-                    // InternalFortXTrans.g:2184:3: ( (lv_dod_0_0= ruleDo ) )
-                    // InternalFortXTrans.g:2185:4: (lv_dod_0_0= ruleDo )
+                    // InternalFortXTrans.g:2198:3: ( (lv_dod_0_0= ruleDo ) )
+                    // InternalFortXTrans.g:2199:4: (lv_dod_0_0= ruleDo )
                     {
-                    // InternalFortXTrans.g:2185:4: (lv_dod_0_0= ruleDo )
-                    // InternalFortXTrans.g:2186:5: lv_dod_0_0= ruleDo
+                    // InternalFortXTrans.g:2199:4: (lv_dod_0_0= ruleDo )
+                    // InternalFortXTrans.g:2200:5: lv_dod_0_0= ruleDo
                     {
 
                     					newCompositeNode(grammarAccess.getDelimitedExprAccess().getDodDoParserRuleCall_0_0());
@@ -5694,16 +5747,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:2204:3: ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) )
+                    // InternalFortXTrans.g:2218:3: ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) )
                     {
-                    // InternalFortXTrans.g:2204:3: ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) )
-                    // InternalFortXTrans.g:2205:4: ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) )
+                    // InternalFortXTrans.g:2218:3: ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) )
+                    // InternalFortXTrans.g:2219:4: ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) )
                     {
-                    // InternalFortXTrans.g:2205:4: ( (lv_lits_1_0= ruleLiteralTuple ) )
-                    // InternalFortXTrans.g:2206:5: (lv_lits_1_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:2219:4: ( (lv_lits_1_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:2220:5: (lv_lits_1_0= ruleLiteralTuple )
                     {
-                    // InternalFortXTrans.g:2206:5: (lv_lits_1_0= ruleLiteralTuple )
-                    // InternalFortXTrans.g:2207:6: lv_lits_1_0= ruleLiteralTuple
+                    // InternalFortXTrans.g:2220:5: (lv_lits_1_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:2221:6: lv_lits_1_0= ruleLiteralTuple
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getLitsLiteralTupleParserRuleCall_1_0_0());
@@ -5730,11 +5783,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2224:4: ( (lv_eqop_2_0= ':=' ) )
-                    // InternalFortXTrans.g:2225:5: (lv_eqop_2_0= ':=' )
+                    // InternalFortXTrans.g:2238:4: ( (lv_eqop_2_0= ':=' ) )
+                    // InternalFortXTrans.g:2239:5: (lv_eqop_2_0= ':=' )
                     {
-                    // InternalFortXTrans.g:2225:5: (lv_eqop_2_0= ':=' )
-                    // InternalFortXTrans.g:2226:6: lv_eqop_2_0= ':='
+                    // InternalFortXTrans.g:2239:5: (lv_eqop_2_0= ':=' )
+                    // InternalFortXTrans.g:2240:6: lv_eqop_2_0= ':='
                     {
                     lv_eqop_2_0=(Token)match(input,39,FOLLOW_25); 
 
@@ -5752,11 +5805,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2238:4: ( (lv_pblock_3_0= ruleParBlockElems ) )
-                    // InternalFortXTrans.g:2239:5: (lv_pblock_3_0= ruleParBlockElems )
+                    // InternalFortXTrans.g:2252:4: ( (lv_pblock_3_0= ruleParBlockElems ) )
+                    // InternalFortXTrans.g:2253:5: (lv_pblock_3_0= ruleParBlockElems )
                     {
-                    // InternalFortXTrans.g:2239:5: (lv_pblock_3_0= ruleParBlockElems )
-                    // InternalFortXTrans.g:2240:6: lv_pblock_3_0= ruleParBlockElems
+                    // InternalFortXTrans.g:2253:5: (lv_pblock_3_0= ruleParBlockElems )
+                    // InternalFortXTrans.g:2254:6: lv_pblock_3_0= ruleParBlockElems
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getPblockParBlockElemsParserRuleCall_1_2_0());
@@ -5790,16 +5843,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalFortXTrans.g:2259:3: ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) )
+                    // InternalFortXTrans.g:2273:3: ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) )
                     {
-                    // InternalFortXTrans.g:2259:3: ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) )
-                    // InternalFortXTrans.g:2260:4: ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) )
+                    // InternalFortXTrans.g:2273:3: ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) )
+                    // InternalFortXTrans.g:2274:4: ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) )
                     {
-                    // InternalFortXTrans.g:2260:4: ( (lv_ret_4_0= 'return' ) )
-                    // InternalFortXTrans.g:2261:5: (lv_ret_4_0= 'return' )
+                    // InternalFortXTrans.g:2274:4: ( (lv_ret_4_0= 'return' ) )
+                    // InternalFortXTrans.g:2275:5: (lv_ret_4_0= 'return' )
                     {
-                    // InternalFortXTrans.g:2261:5: (lv_ret_4_0= 'return' )
-                    // InternalFortXTrans.g:2262:6: lv_ret_4_0= 'return'
+                    // InternalFortXTrans.g:2275:5: (lv_ret_4_0= 'return' )
+                    // InternalFortXTrans.g:2276:6: lv_ret_4_0= 'return'
                     {
                     lv_ret_4_0=(Token)match(input,40,FOLLOW_30); 
 
@@ -5817,11 +5870,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2274:4: ( (lv_block_5_0= ruleBlockElem ) )
-                    // InternalFortXTrans.g:2275:5: (lv_block_5_0= ruleBlockElem )
+                    // InternalFortXTrans.g:2288:4: ( (lv_block_5_0= ruleBlockElem ) )
+                    // InternalFortXTrans.g:2289:5: (lv_block_5_0= ruleBlockElem )
                     {
-                    // InternalFortXTrans.g:2275:5: (lv_block_5_0= ruleBlockElem )
-                    // InternalFortXTrans.g:2276:6: lv_block_5_0= ruleBlockElem
+                    // InternalFortXTrans.g:2289:5: (lv_block_5_0= ruleBlockElem )
+                    // InternalFortXTrans.g:2290:6: lv_block_5_0= ruleBlockElem
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getBlockBlockElemParserRuleCall_2_1_0());
@@ -5855,16 +5908,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalFortXTrans.g:2295:3: ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) )
+                    // InternalFortXTrans.g:2309:3: ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) )
                     {
-                    // InternalFortXTrans.g:2295:3: ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) )
-                    // InternalFortXTrans.g:2296:4: ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) )
+                    // InternalFortXTrans.g:2309:3: ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) )
+                    // InternalFortXTrans.g:2310:4: ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) )
                     {
-                    // InternalFortXTrans.g:2296:4: ( (lv_awhile_6_0= 'while' ) )
-                    // InternalFortXTrans.g:2297:5: (lv_awhile_6_0= 'while' )
+                    // InternalFortXTrans.g:2310:4: ( (lv_awhile_6_0= 'while' ) )
+                    // InternalFortXTrans.g:2311:5: (lv_awhile_6_0= 'while' )
                     {
-                    // InternalFortXTrans.g:2297:5: (lv_awhile_6_0= 'while' )
-                    // InternalFortXTrans.g:2298:6: lv_awhile_6_0= 'while'
+                    // InternalFortXTrans.g:2311:5: (lv_awhile_6_0= 'while' )
+                    // InternalFortXTrans.g:2312:6: lv_awhile_6_0= 'while'
                     {
                     lv_awhile_6_0=(Token)match(input,41,FOLLOW_30); 
 
@@ -5882,11 +5935,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2310:4: ( (lv_expr_7_0= ruleExpr ) )
-                    // InternalFortXTrans.g:2311:5: (lv_expr_7_0= ruleExpr )
+                    // InternalFortXTrans.g:2324:4: ( (lv_expr_7_0= ruleExpr ) )
+                    // InternalFortXTrans.g:2325:5: (lv_expr_7_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:2311:5: (lv_expr_7_0= ruleExpr )
-                    // InternalFortXTrans.g:2312:6: lv_expr_7_0= ruleExpr
+                    // InternalFortXTrans.g:2325:5: (lv_expr_7_0= ruleExpr )
+                    // InternalFortXTrans.g:2326:6: lv_expr_7_0= ruleExpr
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getExprExprParserRuleCall_3_1_0());
@@ -5913,11 +5966,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2329:4: ( (lv_whiledod_8_0= ruleDo ) )
-                    // InternalFortXTrans.g:2330:5: (lv_whiledod_8_0= ruleDo )
+                    // InternalFortXTrans.g:2343:4: ( (lv_whiledod_8_0= ruleDo ) )
+                    // InternalFortXTrans.g:2344:5: (lv_whiledod_8_0= ruleDo )
                     {
-                    // InternalFortXTrans.g:2330:5: (lv_whiledod_8_0= ruleDo )
-                    // InternalFortXTrans.g:2331:6: lv_whiledod_8_0= ruleDo
+                    // InternalFortXTrans.g:2344:5: (lv_whiledod_8_0= ruleDo )
+                    // InternalFortXTrans.g:2345:6: lv_whiledod_8_0= ruleDo
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getWhiledodDoParserRuleCall_3_2_0());
@@ -5951,16 +6004,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // InternalFortXTrans.g:2350:3: ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' )
+                    // InternalFortXTrans.g:2364:3: ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' )
                     {
-                    // InternalFortXTrans.g:2350:3: ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' )
-                    // InternalFortXTrans.g:2351:4: ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end'
+                    // InternalFortXTrans.g:2364:3: ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' )
+                    // InternalFortXTrans.g:2365:4: ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end'
                     {
-                    // InternalFortXTrans.g:2351:4: ( (lv_afor_9_0= 'for' ) )
-                    // InternalFortXTrans.g:2352:5: (lv_afor_9_0= 'for' )
+                    // InternalFortXTrans.g:2365:4: ( (lv_afor_9_0= 'for' ) )
+                    // InternalFortXTrans.g:2366:5: (lv_afor_9_0= 'for' )
                     {
-                    // InternalFortXTrans.g:2352:5: (lv_afor_9_0= 'for' )
-                    // InternalFortXTrans.g:2353:6: lv_afor_9_0= 'for'
+                    // InternalFortXTrans.g:2366:5: (lv_afor_9_0= 'for' )
+                    // InternalFortXTrans.g:2367:6: lv_afor_9_0= 'for'
                     {
                     lv_afor_9_0=(Token)match(input,42,FOLLOW_33); 
 
@@ -5978,11 +6031,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2365:4: ( (lv_gen_10_0= ruleGenerators ) )
-                    // InternalFortXTrans.g:2366:5: (lv_gen_10_0= ruleGenerators )
+                    // InternalFortXTrans.g:2379:4: ( (lv_gen_10_0= ruleGenerators ) )
+                    // InternalFortXTrans.g:2380:5: (lv_gen_10_0= ruleGenerators )
                     {
-                    // InternalFortXTrans.g:2366:5: (lv_gen_10_0= ruleGenerators )
-                    // InternalFortXTrans.g:2367:6: lv_gen_10_0= ruleGenerators
+                    // InternalFortXTrans.g:2380:5: (lv_gen_10_0= ruleGenerators )
+                    // InternalFortXTrans.g:2381:6: lv_gen_10_0= ruleGenerators
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getGenGeneratorsParserRuleCall_4_1_0());
@@ -6009,11 +6062,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2384:4: ( (lv_dofront_11_0= ruleDoFront ) )
-                    // InternalFortXTrans.g:2385:5: (lv_dofront_11_0= ruleDoFront )
+                    // InternalFortXTrans.g:2398:4: ( (lv_dofront_11_0= ruleDoFront ) )
+                    // InternalFortXTrans.g:2399:5: (lv_dofront_11_0= ruleDoFront )
                     {
-                    // InternalFortXTrans.g:2385:5: (lv_dofront_11_0= ruleDoFront )
-                    // InternalFortXTrans.g:2386:6: lv_dofront_11_0= ruleDoFront
+                    // InternalFortXTrans.g:2399:5: (lv_dofront_11_0= ruleDoFront )
+                    // InternalFortXTrans.g:2400:6: lv_dofront_11_0= ruleDoFront
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getDofrontDoFrontParserRuleCall_4_2_0());
@@ -6051,16 +6104,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // InternalFortXTrans.g:2409:3: ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' )
+                    // InternalFortXTrans.g:2423:3: ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' )
                     {
-                    // InternalFortXTrans.g:2409:3: ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' )
-                    // InternalFortXTrans.g:2410:4: ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end'
+                    // InternalFortXTrans.g:2423:3: ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' )
+                    // InternalFortXTrans.g:2424:4: ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end'
                     {
-                    // InternalFortXTrans.g:2410:4: ( (lv_anif_13_0= 'if' ) )
-                    // InternalFortXTrans.g:2411:5: (lv_anif_13_0= 'if' )
+                    // InternalFortXTrans.g:2424:4: ( (lv_anif_13_0= 'if' ) )
+                    // InternalFortXTrans.g:2425:5: (lv_anif_13_0= 'if' )
                     {
-                    // InternalFortXTrans.g:2411:5: (lv_anif_13_0= 'if' )
-                    // InternalFortXTrans.g:2412:6: lv_anif_13_0= 'if'
+                    // InternalFortXTrans.g:2425:5: (lv_anif_13_0= 'if' )
+                    // InternalFortXTrans.g:2426:6: lv_anif_13_0= 'if'
                     {
                     lv_anif_13_0=(Token)match(input,43,FOLLOW_30); 
 
@@ -6078,11 +6131,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2424:4: ( (lv_cond_14_0= ruleExpr ) )
-                    // InternalFortXTrans.g:2425:5: (lv_cond_14_0= ruleExpr )
+                    // InternalFortXTrans.g:2438:4: ( (lv_cond_14_0= ruleExpr ) )
+                    // InternalFortXTrans.g:2439:5: (lv_cond_14_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:2425:5: (lv_cond_14_0= ruleExpr )
-                    // InternalFortXTrans.g:2426:6: lv_cond_14_0= ruleExpr
+                    // InternalFortXTrans.g:2439:5: (lv_cond_14_0= ruleExpr )
+                    // InternalFortXTrans.g:2440:6: lv_cond_14_0= ruleExpr
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getCondExprParserRuleCall_5_1_0());
@@ -6113,11 +6166,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_15, grammarAccess.getDelimitedExprAccess().getThenKeyword_5_2());
                     			
-                    // InternalFortXTrans.g:2447:4: ( (lv_blocks_16_0= ruleBlockElems ) )
-                    // InternalFortXTrans.g:2448:5: (lv_blocks_16_0= ruleBlockElems )
+                    // InternalFortXTrans.g:2461:4: ( (lv_blocks_16_0= ruleBlockElems ) )
+                    // InternalFortXTrans.g:2462:5: (lv_blocks_16_0= ruleBlockElems )
                     {
-                    // InternalFortXTrans.g:2448:5: (lv_blocks_16_0= ruleBlockElems )
-                    // InternalFortXTrans.g:2449:6: lv_blocks_16_0= ruleBlockElems
+                    // InternalFortXTrans.g:2462:5: (lv_blocks_16_0= ruleBlockElems )
+                    // InternalFortXTrans.g:2463:6: lv_blocks_16_0= ruleBlockElems
                     {
 
                     						newCompositeNode(grammarAccess.getDelimitedExprAccess().getBlocksBlockElemsParserRuleCall_5_3_0());
@@ -6144,19 +6197,19 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2466:4: ( (lv_elifs_17_0= ruleElifs ) )?
-                    int alt41=2;
-                    int LA41_0 = input.LA(1);
+                    // InternalFortXTrans.g:2480:4: ( (lv_elifs_17_0= ruleElifs ) )?
+                    int alt40=2;
+                    int LA40_0 = input.LA(1);
 
-                    if ( (LA41_0==46) ) {
-                        alt41=1;
+                    if ( (LA40_0==46) ) {
+                        alt40=1;
                     }
-                    switch (alt41) {
+                    switch (alt40) {
                         case 1 :
-                            // InternalFortXTrans.g:2467:5: (lv_elifs_17_0= ruleElifs )
+                            // InternalFortXTrans.g:2481:5: (lv_elifs_17_0= ruleElifs )
                             {
-                            // InternalFortXTrans.g:2467:5: (lv_elifs_17_0= ruleElifs )
-                            // InternalFortXTrans.g:2468:6: lv_elifs_17_0= ruleElifs
+                            // InternalFortXTrans.g:2481:5: (lv_elifs_17_0= ruleElifs )
+                            // InternalFortXTrans.g:2482:6: lv_elifs_17_0= ruleElifs
                             {
 
                             						newCompositeNode(grammarAccess.getDelimitedExprAccess().getElifsElifsParserRuleCall_5_4_0());
@@ -6186,19 +6239,19 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:2485:4: ( (lv_els_18_0= ruleElse ) )?
-                    int alt42=2;
-                    int LA42_0 = input.LA(1);
+                    // InternalFortXTrans.g:2499:4: ( (lv_els_18_0= ruleElse ) )?
+                    int alt41=2;
+                    int LA41_0 = input.LA(1);
 
-                    if ( (LA42_0==47) ) {
-                        alt42=1;
+                    if ( (LA41_0==47) ) {
+                        alt41=1;
                     }
-                    switch (alt42) {
+                    switch (alt41) {
                         case 1 :
-                            // InternalFortXTrans.g:2486:5: (lv_els_18_0= ruleElse )
+                            // InternalFortXTrans.g:2500:5: (lv_els_18_0= ruleElse )
                             {
-                            // InternalFortXTrans.g:2486:5: (lv_els_18_0= ruleElse )
-                            // InternalFortXTrans.g:2487:6: lv_els_18_0= ruleElse
+                            // InternalFortXTrans.g:2500:5: (lv_els_18_0= ruleElse )
+                            // InternalFortXTrans.g:2501:6: lv_els_18_0= ruleElse
                             {
 
                             						newCompositeNode(grammarAccess.getDelimitedExprAccess().getElsElseParserRuleCall_5_5_0());
@@ -6239,63 +6292,26 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 7 :
-                    // InternalFortXTrans.g:2510:3: ( (lv_par_20_0= ruleParanthesized ) )
+                    // InternalFortXTrans.g:2524:3: (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' )
                     {
-                    // InternalFortXTrans.g:2510:3: ( (lv_par_20_0= ruleParanthesized ) )
-                    // InternalFortXTrans.g:2511:4: (lv_par_20_0= ruleParanthesized )
+                    // InternalFortXTrans.g:2524:3: (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' )
+                    // InternalFortXTrans.g:2525:4: otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|'
                     {
-                    // InternalFortXTrans.g:2511:4: (lv_par_20_0= ruleParanthesized )
-                    // InternalFortXTrans.g:2512:5: lv_par_20_0= ruleParanthesized
-                    {
+                    otherlv_20=(Token)match(input,45,FOLLOW_25); 
 
-                    					newCompositeNode(grammarAccess.getDelimitedExprAccess().getParParanthesizedParserRuleCall_6_0());
-                    				
-                    pushFollow(FOLLOW_2);
-                    lv_par_20_0=ruleParanthesized();
-
-                    state._fsp--;
-
-
-                    					if (current==null) {
-                    						current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
-                    					}
-                    					set(
-                    						current,
-                    						"par",
-                    						lv_par_20_0,
-                    						"srf.transpiler.fortxtrans.FortXTrans.Paranthesized");
-                    					afterParserOrEnumRuleCall();
-                    				
-
-                    }
-
-
-                    }
-
-
-                    }
-                    break;
-                case 8 :
-                    // InternalFortXTrans.g:2530:3: (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' )
-                    {
-                    // InternalFortXTrans.g:2530:3: (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' )
-                    // InternalFortXTrans.g:2531:4: otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|'
-                    {
-                    otherlv_21=(Token)match(input,45,FOLLOW_25); 
-
-                    				newLeafNode(otherlv_21, grammarAccess.getDelimitedExprAccess().getVerticalLineKeyword_7_0());
+                    				newLeafNode(otherlv_20, grammarAccess.getDelimitedExprAccess().getVerticalLineKeyword_6_0());
                     			
-                    // InternalFortXTrans.g:2535:4: ( (lv_parblock_22_0= ruleParBlockElems ) )
-                    // InternalFortXTrans.g:2536:5: (lv_parblock_22_0= ruleParBlockElems )
+                    // InternalFortXTrans.g:2529:4: ( (lv_parblock_21_0= ruleParBlockElems ) )
+                    // InternalFortXTrans.g:2530:5: (lv_parblock_21_0= ruleParBlockElems )
                     {
-                    // InternalFortXTrans.g:2536:5: (lv_parblock_22_0= ruleParBlockElems )
-                    // InternalFortXTrans.g:2537:6: lv_parblock_22_0= ruleParBlockElems
+                    // InternalFortXTrans.g:2530:5: (lv_parblock_21_0= ruleParBlockElems )
+                    // InternalFortXTrans.g:2531:6: lv_parblock_21_0= ruleParBlockElems
                     {
 
-                    						newCompositeNode(grammarAccess.getDelimitedExprAccess().getParblockParBlockElemsParserRuleCall_7_1_0());
+                    						newCompositeNode(grammarAccess.getDelimitedExprAccess().getParblockParBlockElemsParserRuleCall_6_1_0());
                     					
                     pushFollow(FOLLOW_38);
-                    lv_parblock_22_0=ruleParBlockElems();
+                    lv_parblock_21_0=ruleParBlockElems();
 
                     state._fsp--;
 
@@ -6306,7 +6322,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     						set(
                     							current,
                     							"parblock",
-                    							lv_parblock_22_0,
+                    							lv_parblock_21_0,
                     							"srf.transpiler.fortxtrans.FortXTrans.ParBlockElems");
                     						afterParserOrEnumRuleCall();
                     					
@@ -6316,9 +6332,109 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_23=(Token)match(input,45,FOLLOW_2); 
+                    otherlv_22=(Token)match(input,45,FOLLOW_2); 
 
-                    				newLeafNode(otherlv_23, grammarAccess.getDelimitedExprAccess().getVerticalLineKeyword_7_2());
+                    				newLeafNode(otherlv_22, grammarAccess.getDelimitedExprAccess().getVerticalLineKeyword_6_2());
+                    			
+
+                    }
+
+
+                    }
+                    break;
+                case 8 :
+                    // InternalFortXTrans.g:2554:3: ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' )
+                    {
+                    // InternalFortXTrans.g:2554:3: ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' )
+                    // InternalFortXTrans.g:2555:4: ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')'
+                    {
+                    // InternalFortXTrans.g:2555:4: ( (lv_fname_23_0= ruleQualifiedName ) )
+                    // InternalFortXTrans.g:2556:5: (lv_fname_23_0= ruleQualifiedName )
+                    {
+                    // InternalFortXTrans.g:2556:5: (lv_fname_23_0= ruleQualifiedName )
+                    // InternalFortXTrans.g:2557:6: lv_fname_23_0= ruleQualifiedName
+                    {
+
+                    						newCompositeNode(grammarAccess.getDelimitedExprAccess().getFnameQualifiedNameParserRuleCall_7_0_0());
+                    					
+                    pushFollow(FOLLOW_25);
+                    lv_fname_23_0=ruleQualifiedName();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
+                    						}
+                    						set(
+                    							current,
+                    							"fname",
+                    							lv_fname_23_0,
+                    							"srf.transpiler.fortxtrans.FortXTrans.QualifiedName");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+                    // InternalFortXTrans.g:2574:4: ( (lv_brack_24_0= '(' ) )
+                    // InternalFortXTrans.g:2575:5: (lv_brack_24_0= '(' )
+                    {
+                    // InternalFortXTrans.g:2575:5: (lv_brack_24_0= '(' )
+                    // InternalFortXTrans.g:2576:6: lv_brack_24_0= '('
+                    {
+                    lv_brack_24_0=(Token)match(input,35,FOLLOW_30); 
+
+                    						newLeafNode(lv_brack_24_0, grammarAccess.getDelimitedExprAccess().getBrackLeftParenthesisKeyword_7_1_0());
+                    					
+
+                    						if (current==null) {
+                    							current = createModelElement(grammarAccess.getDelimitedExprRule());
+                    						}
+                    						setWithLastConsumed(current, "brack", lv_brack_24_0, "(");
+                    					
+
+                    }
+
+
+                    }
+
+                    // InternalFortXTrans.g:2588:4: ( (lv_fargs_25_0= ruleExprList ) )
+                    // InternalFortXTrans.g:2589:5: (lv_fargs_25_0= ruleExprList )
+                    {
+                    // InternalFortXTrans.g:2589:5: (lv_fargs_25_0= ruleExprList )
+                    // InternalFortXTrans.g:2590:6: lv_fargs_25_0= ruleExprList
+                    {
+
+                    						newCompositeNode(grammarAccess.getDelimitedExprAccess().getFargsExprListParserRuleCall_7_2_0());
+                    					
+                    pushFollow(FOLLOW_26);
+                    lv_fargs_25_0=ruleExprList();
+
+                    state._fsp--;
+
+
+                    						if (current==null) {
+                    							current = createModelElementForParent(grammarAccess.getDelimitedExprRule());
+                    						}
+                    						set(
+                    							current,
+                    							"fargs",
+                    							lv_fargs_25_0,
+                    							"srf.transpiler.fortxtrans.FortXTrans.ExprList");
+                    						afterParserOrEnumRuleCall();
+                    					
+
+                    }
+
+
+                    }
+
+                    otherlv_26=(Token)match(input,36,FOLLOW_2); 
+
+                    				newLeafNode(otherlv_26, grammarAccess.getDelimitedExprAccess().getRightParenthesisKeyword_7_3());
                     			
 
                     }
@@ -6348,8 +6464,177 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleDelimitedExpr"
 
 
+    // $ANTLR start "entryRuleExprList"
+    // InternalFortXTrans.g:2616:1: entryRuleExprList returns [EObject current=null] : iv_ruleExprList= ruleExprList EOF ;
+    public final EObject entryRuleExprList() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleExprList = null;
+
+
+        try {
+            // InternalFortXTrans.g:2616:49: (iv_ruleExprList= ruleExprList EOF )
+            // InternalFortXTrans.g:2617:2: iv_ruleExprList= ruleExprList EOF
+            {
+             newCompositeNode(grammarAccess.getExprListRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleExprList=ruleExprList();
+
+            state._fsp--;
+
+             current =iv_ruleExprList; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleExprList"
+
+
+    // $ANTLR start "ruleExprList"
+    // InternalFortXTrans.g:2623:1: ruleExprList returns [EObject current=null] : ( ( (lv_exp_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) ) )* ) ;
+    public final EObject ruleExprList() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        EObject lv_exp_0_0 = null;
+
+        EObject lv_exp_2_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalFortXTrans.g:2629:2: ( ( ( (lv_exp_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) ) )* ) )
+            // InternalFortXTrans.g:2630:2: ( ( (lv_exp_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) ) )* )
+            {
+            // InternalFortXTrans.g:2630:2: ( ( (lv_exp_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) ) )* )
+            // InternalFortXTrans.g:2631:3: ( (lv_exp_0_0= ruleExpr ) ) (otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) ) )*
+            {
+            // InternalFortXTrans.g:2631:3: ( (lv_exp_0_0= ruleExpr ) )
+            // InternalFortXTrans.g:2632:4: (lv_exp_0_0= ruleExpr )
+            {
+            // InternalFortXTrans.g:2632:4: (lv_exp_0_0= ruleExpr )
+            // InternalFortXTrans.g:2633:5: lv_exp_0_0= ruleExpr
+            {
+
+            					newCompositeNode(grammarAccess.getExprListAccess().getExpExprParserRuleCall_0_0());
+            				
+            pushFollow(FOLLOW_39);
+            lv_exp_0_0=ruleExpr();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getExprListRule());
+            					}
+            					add(
+            						current,
+            						"exp",
+            						lv_exp_0_0,
+            						"srf.transpiler.fortxtrans.FortXTrans.Expr");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+            // InternalFortXTrans.g:2650:3: (otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) ) )*
+            loop43:
+            do {
+                int alt43=2;
+                int LA43_0 = input.LA(1);
+
+                if ( (LA43_0==26) ) {
+                    alt43=1;
+                }
+
+
+                switch (alt43) {
+            	case 1 :
+            	    // InternalFortXTrans.g:2651:4: otherlv_1= ',' ( (lv_exp_2_0= ruleExpr ) )
+            	    {
+            	    otherlv_1=(Token)match(input,26,FOLLOW_30); 
+
+            	    				newLeafNode(otherlv_1, grammarAccess.getExprListAccess().getCommaKeyword_1_0());
+            	    			
+            	    // InternalFortXTrans.g:2655:4: ( (lv_exp_2_0= ruleExpr ) )
+            	    // InternalFortXTrans.g:2656:5: (lv_exp_2_0= ruleExpr )
+            	    {
+            	    // InternalFortXTrans.g:2656:5: (lv_exp_2_0= ruleExpr )
+            	    // InternalFortXTrans.g:2657:6: lv_exp_2_0= ruleExpr
+            	    {
+
+            	    						newCompositeNode(grammarAccess.getExprListAccess().getExpExprParserRuleCall_1_1_0());
+            	    					
+            	    pushFollow(FOLLOW_39);
+            	    lv_exp_2_0=ruleExpr();
+
+            	    state._fsp--;
+
+
+            	    						if (current==null) {
+            	    							current = createModelElementForParent(grammarAccess.getExprListRule());
+            	    						}
+            	    						add(
+            	    							current,
+            	    							"exp",
+            	    							lv_exp_2_0,
+            	    							"srf.transpiler.fortxtrans.FortXTrans.Expr");
+            	    						afterParserOrEnumRuleCall();
+            	    					
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop43;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleExprList"
+
+
     // $ANTLR start "entryRuleParBlockElems"
-    // InternalFortXTrans.g:2563:1: entryRuleParBlockElems returns [EObject current=null] : iv_ruleParBlockElems= ruleParBlockElems EOF ;
+    // InternalFortXTrans.g:2679:1: entryRuleParBlockElems returns [EObject current=null] : iv_ruleParBlockElems= ruleParBlockElems EOF ;
     public final EObject entryRuleParBlockElems() throws RecognitionException {
         EObject current = null;
 
@@ -6357,8 +6642,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2563:54: (iv_ruleParBlockElems= ruleParBlockElems EOF )
-            // InternalFortXTrans.g:2564:2: iv_ruleParBlockElems= ruleParBlockElems EOF
+            // InternalFortXTrans.g:2679:54: (iv_ruleParBlockElems= ruleParBlockElems EOF )
+            // InternalFortXTrans.g:2680:2: iv_ruleParBlockElems= ruleParBlockElems EOF
             {
              newCompositeNode(grammarAccess.getParBlockElemsRule()); 
             pushFollow(FOLLOW_1);
@@ -6385,7 +6670,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleParBlockElems"
-    // InternalFortXTrans.g:2570:1: ruleParBlockElems returns [EObject current=null] : ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )+ otherlv_4= ')' ) ;
+    // InternalFortXTrans.g:2686:1: ruleParBlockElems returns [EObject current=null] : ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )* otherlv_4= ')' ) ;
     public final EObject ruleParBlockElems() throws RecognitionException {
         EObject current = null;
 
@@ -6401,17 +6686,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2576:2: ( ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )+ otherlv_4= ')' ) )
-            // InternalFortXTrans.g:2577:2: ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )+ otherlv_4= ')' )
+            // InternalFortXTrans.g:2692:2: ( ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )* otherlv_4= ')' ) )
+            // InternalFortXTrans.g:2693:2: ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )* otherlv_4= ')' )
             {
-            // InternalFortXTrans.g:2577:2: ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )+ otherlv_4= ')' )
-            // InternalFortXTrans.g:2578:3: ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )+ otherlv_4= ')'
+            // InternalFortXTrans.g:2693:2: ( ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )* otherlv_4= ')' )
+            // InternalFortXTrans.g:2694:3: ( (lv_brack_0_0= '(' ) ) ( (lv_block_1_0= ruleBlockElem ) ) (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )* otherlv_4= ')'
             {
-            // InternalFortXTrans.g:2578:3: ( (lv_brack_0_0= '(' ) )
-            // InternalFortXTrans.g:2579:4: (lv_brack_0_0= '(' )
+            // InternalFortXTrans.g:2694:3: ( (lv_brack_0_0= '(' ) )
+            // InternalFortXTrans.g:2695:4: (lv_brack_0_0= '(' )
             {
-            // InternalFortXTrans.g:2579:4: (lv_brack_0_0= '(' )
-            // InternalFortXTrans.g:2580:5: lv_brack_0_0= '('
+            // InternalFortXTrans.g:2695:4: (lv_brack_0_0= '(' )
+            // InternalFortXTrans.g:2696:5: lv_brack_0_0= '('
             {
             lv_brack_0_0=(Token)match(input,35,FOLLOW_30); 
 
@@ -6429,16 +6714,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:2592:3: ( (lv_block_1_0= ruleBlockElem ) )
-            // InternalFortXTrans.g:2593:4: (lv_block_1_0= ruleBlockElem )
+            // InternalFortXTrans.g:2708:3: ( (lv_block_1_0= ruleBlockElem ) )
+            // InternalFortXTrans.g:2709:4: (lv_block_1_0= ruleBlockElem )
             {
-            // InternalFortXTrans.g:2593:4: (lv_block_1_0= ruleBlockElem )
-            // InternalFortXTrans.g:2594:5: lv_block_1_0= ruleBlockElem
+            // InternalFortXTrans.g:2709:4: (lv_block_1_0= ruleBlockElem )
+            // InternalFortXTrans.g:2710:5: lv_block_1_0= ruleBlockElem
             {
 
             					newCompositeNode(grammarAccess.getParBlockElemsAccess().getBlockBlockElemParserRuleCall_1_0());
             				
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_22);
             lv_block_1_0=ruleBlockElem();
 
             state._fsp--;
@@ -6460,8 +6745,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:2611:3: (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )+
-            int cnt44=0;
+            // InternalFortXTrans.g:2727:3: (otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) ) )*
             loop44:
             do {
                 int alt44=2;
@@ -6474,17 +6758,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                 switch (alt44) {
             	case 1 :
-            	    // InternalFortXTrans.g:2612:4: otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) )
+            	    // InternalFortXTrans.g:2728:4: otherlv_2= ',' ( (lv_block_3_0= ruleBlockElem ) )
             	    {
             	    otherlv_2=(Token)match(input,26,FOLLOW_30); 
 
             	    				newLeafNode(otherlv_2, grammarAccess.getParBlockElemsAccess().getCommaKeyword_2_0());
             	    			
-            	    // InternalFortXTrans.g:2616:4: ( (lv_block_3_0= ruleBlockElem ) )
-            	    // InternalFortXTrans.g:2617:5: (lv_block_3_0= ruleBlockElem )
+            	    // InternalFortXTrans.g:2732:4: ( (lv_block_3_0= ruleBlockElem ) )
+            	    // InternalFortXTrans.g:2733:5: (lv_block_3_0= ruleBlockElem )
             	    {
-            	    // InternalFortXTrans.g:2617:5: (lv_block_3_0= ruleBlockElem )
-            	    // InternalFortXTrans.g:2618:6: lv_block_3_0= ruleBlockElem
+            	    // InternalFortXTrans.g:2733:5: (lv_block_3_0= ruleBlockElem )
+            	    // InternalFortXTrans.g:2734:6: lv_block_3_0= ruleBlockElem
             	    {
 
             	    						newCompositeNode(grammarAccess.getParBlockElemsAccess().getBlockBlockElemParserRuleCall_2_1_0());
@@ -6516,12 +6800,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             	    break;
 
             	default :
-            	    if ( cnt44 >= 1 ) break loop44;
-                        EarlyExitException eee =
-                            new EarlyExitException(44, input);
-                        throw eee;
+            	    break loop44;
                 }
-                cnt44++;
             } while (true);
 
             otherlv_4=(Token)match(input,36,FOLLOW_2); 
@@ -6551,7 +6831,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleElifs"
-    // InternalFortXTrans.g:2644:1: entryRuleElifs returns [EObject current=null] : iv_ruleElifs= ruleElifs EOF ;
+    // InternalFortXTrans.g:2760:1: entryRuleElifs returns [EObject current=null] : iv_ruleElifs= ruleElifs EOF ;
     public final EObject entryRuleElifs() throws RecognitionException {
         EObject current = null;
 
@@ -6559,8 +6839,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2644:46: (iv_ruleElifs= ruleElifs EOF )
-            // InternalFortXTrans.g:2645:2: iv_ruleElifs= ruleElifs EOF
+            // InternalFortXTrans.g:2760:46: (iv_ruleElifs= ruleElifs EOF )
+            // InternalFortXTrans.g:2761:2: iv_ruleElifs= ruleElifs EOF
             {
              newCompositeNode(grammarAccess.getElifsRule()); 
             pushFollow(FOLLOW_1);
@@ -6587,7 +6867,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElifs"
-    // InternalFortXTrans.g:2651:1: ruleElifs returns [EObject current=null] : ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* ) ;
+    // InternalFortXTrans.g:2767:1: ruleElifs returns [EObject current=null] : ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* ) ;
     public final EObject ruleElifs() throws RecognitionException {
         EObject current = null;
 
@@ -6600,17 +6880,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2657:2: ( ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* ) )
-            // InternalFortXTrans.g:2658:2: ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* )
+            // InternalFortXTrans.g:2773:2: ( ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* ) )
+            // InternalFortXTrans.g:2774:2: ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* )
             {
-            // InternalFortXTrans.g:2658:2: ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* )
-            // InternalFortXTrans.g:2659:3: ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )*
+            // InternalFortXTrans.g:2774:2: ( ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )* )
+            // InternalFortXTrans.g:2775:3: ( (lv_e_0_0= ruleElif ) ) ( (lv_e_1_0= ruleElif ) )*
             {
-            // InternalFortXTrans.g:2659:3: ( (lv_e_0_0= ruleElif ) )
-            // InternalFortXTrans.g:2660:4: (lv_e_0_0= ruleElif )
+            // InternalFortXTrans.g:2775:3: ( (lv_e_0_0= ruleElif ) )
+            // InternalFortXTrans.g:2776:4: (lv_e_0_0= ruleElif )
             {
-            // InternalFortXTrans.g:2660:4: (lv_e_0_0= ruleElif )
-            // InternalFortXTrans.g:2661:5: lv_e_0_0= ruleElif
+            // InternalFortXTrans.g:2776:4: (lv_e_0_0= ruleElif )
+            // InternalFortXTrans.g:2777:5: lv_e_0_0= ruleElif
             {
 
             					newCompositeNode(grammarAccess.getElifsAccess().getEElifParserRuleCall_0_0());
@@ -6637,7 +6917,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:2678:3: ( (lv_e_1_0= ruleElif ) )*
+            // InternalFortXTrans.g:2794:3: ( (lv_e_1_0= ruleElif ) )*
             loop45:
             do {
                 int alt45=2;
@@ -6650,10 +6930,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                 switch (alt45) {
             	case 1 :
-            	    // InternalFortXTrans.g:2679:4: (lv_e_1_0= ruleElif )
+            	    // InternalFortXTrans.g:2795:4: (lv_e_1_0= ruleElif )
             	    {
-            	    // InternalFortXTrans.g:2679:4: (lv_e_1_0= ruleElif )
-            	    // InternalFortXTrans.g:2680:5: lv_e_1_0= ruleElif
+            	    // InternalFortXTrans.g:2795:4: (lv_e_1_0= ruleElif )
+            	    // InternalFortXTrans.g:2796:5: lv_e_1_0= ruleElif
             	    {
 
             	    					newCompositeNode(grammarAccess.getElifsAccess().getEElifParserRuleCall_1_0());
@@ -6709,7 +6989,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleElif"
-    // InternalFortXTrans.g:2701:1: entryRuleElif returns [EObject current=null] : iv_ruleElif= ruleElif EOF ;
+    // InternalFortXTrans.g:2817:1: entryRuleElif returns [EObject current=null] : iv_ruleElif= ruleElif EOF ;
     public final EObject entryRuleElif() throws RecognitionException {
         EObject current = null;
 
@@ -6717,8 +6997,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2701:45: (iv_ruleElif= ruleElif EOF )
-            // InternalFortXTrans.g:2702:2: iv_ruleElif= ruleElif EOF
+            // InternalFortXTrans.g:2817:45: (iv_ruleElif= ruleElif EOF )
+            // InternalFortXTrans.g:2818:2: iv_ruleElif= ruleElif EOF
             {
              newCompositeNode(grammarAccess.getElifRule()); 
             pushFollow(FOLLOW_1);
@@ -6745,7 +7025,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElif"
-    // InternalFortXTrans.g:2708:1: ruleElif returns [EObject current=null] : (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) ) ;
+    // InternalFortXTrans.g:2824:1: ruleElif returns [EObject current=null] : (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) ) ;
     public final EObject ruleElif() throws RecognitionException {
         EObject current = null;
 
@@ -6760,21 +7040,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2714:2: ( (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) ) )
-            // InternalFortXTrans.g:2715:2: (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) )
+            // InternalFortXTrans.g:2830:2: ( (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) ) )
+            // InternalFortXTrans.g:2831:2: (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) )
             {
-            // InternalFortXTrans.g:2715:2: (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) )
-            // InternalFortXTrans.g:2716:3: otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) )
+            // InternalFortXTrans.g:2831:2: (otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) ) )
+            // InternalFortXTrans.g:2832:3: otherlv_0= 'elif' ( (lv_expr_1_0= ruleExpr ) ) otherlv_2= 'then' ( (lv_block_3_0= ruleBlockElems ) )
             {
             otherlv_0=(Token)match(input,46,FOLLOW_30); 
 
             			newLeafNode(otherlv_0, grammarAccess.getElifAccess().getElifKeyword_0());
             		
-            // InternalFortXTrans.g:2720:3: ( (lv_expr_1_0= ruleExpr ) )
-            // InternalFortXTrans.g:2721:4: (lv_expr_1_0= ruleExpr )
+            // InternalFortXTrans.g:2836:3: ( (lv_expr_1_0= ruleExpr ) )
+            // InternalFortXTrans.g:2837:4: (lv_expr_1_0= ruleExpr )
             {
-            // InternalFortXTrans.g:2721:4: (lv_expr_1_0= ruleExpr )
-            // InternalFortXTrans.g:2722:5: lv_expr_1_0= ruleExpr
+            // InternalFortXTrans.g:2837:4: (lv_expr_1_0= ruleExpr )
+            // InternalFortXTrans.g:2838:5: lv_expr_1_0= ruleExpr
             {
 
             					newCompositeNode(grammarAccess.getElifAccess().getExprExprParserRuleCall_1_0());
@@ -6805,11 +7085,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_2, grammarAccess.getElifAccess().getThenKeyword_2());
             		
-            // InternalFortXTrans.g:2743:3: ( (lv_block_3_0= ruleBlockElems ) )
-            // InternalFortXTrans.g:2744:4: (lv_block_3_0= ruleBlockElems )
+            // InternalFortXTrans.g:2859:3: ( (lv_block_3_0= ruleBlockElems ) )
+            // InternalFortXTrans.g:2860:4: (lv_block_3_0= ruleBlockElems )
             {
-            // InternalFortXTrans.g:2744:4: (lv_block_3_0= ruleBlockElems )
-            // InternalFortXTrans.g:2745:5: lv_block_3_0= ruleBlockElems
+            // InternalFortXTrans.g:2860:4: (lv_block_3_0= ruleBlockElems )
+            // InternalFortXTrans.g:2861:5: lv_block_3_0= ruleBlockElems
             {
 
             					newCompositeNode(grammarAccess.getElifAccess().getBlockBlockElemsParserRuleCall_3_0());
@@ -6859,7 +7139,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleElse"
-    // InternalFortXTrans.g:2766:1: entryRuleElse returns [EObject current=null] : iv_ruleElse= ruleElse EOF ;
+    // InternalFortXTrans.g:2882:1: entryRuleElse returns [EObject current=null] : iv_ruleElse= ruleElse EOF ;
     public final EObject entryRuleElse() throws RecognitionException {
         EObject current = null;
 
@@ -6867,8 +7147,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2766:45: (iv_ruleElse= ruleElse EOF )
-            // InternalFortXTrans.g:2767:2: iv_ruleElse= ruleElse EOF
+            // InternalFortXTrans.g:2882:45: (iv_ruleElse= ruleElse EOF )
+            // InternalFortXTrans.g:2883:2: iv_ruleElse= ruleElse EOF
             {
              newCompositeNode(grammarAccess.getElseRule()); 
             pushFollow(FOLLOW_1);
@@ -6895,7 +7175,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleElse"
-    // InternalFortXTrans.g:2773:1: ruleElse returns [EObject current=null] : (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) ) ;
+    // InternalFortXTrans.g:2889:1: ruleElse returns [EObject current=null] : (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) ) ;
     public final EObject ruleElse() throws RecognitionException {
         EObject current = null;
 
@@ -6907,21 +7187,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2779:2: ( (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) ) )
-            // InternalFortXTrans.g:2780:2: (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) )
+            // InternalFortXTrans.g:2895:2: ( (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) ) )
+            // InternalFortXTrans.g:2896:2: (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) )
             {
-            // InternalFortXTrans.g:2780:2: (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) )
-            // InternalFortXTrans.g:2781:3: otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) )
+            // InternalFortXTrans.g:2896:2: (otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) ) )
+            // InternalFortXTrans.g:2897:3: otherlv_0= 'else' ( (lv_block_1_0= ruleBlockElems ) )
             {
             otherlv_0=(Token)match(input,47,FOLLOW_30); 
 
             			newLeafNode(otherlv_0, grammarAccess.getElseAccess().getElseKeyword_0());
             		
-            // InternalFortXTrans.g:2785:3: ( (lv_block_1_0= ruleBlockElems ) )
-            // InternalFortXTrans.g:2786:4: (lv_block_1_0= ruleBlockElems )
+            // InternalFortXTrans.g:2901:3: ( (lv_block_1_0= ruleBlockElems ) )
+            // InternalFortXTrans.g:2902:4: (lv_block_1_0= ruleBlockElems )
             {
-            // InternalFortXTrans.g:2786:4: (lv_block_1_0= ruleBlockElems )
-            // InternalFortXTrans.g:2787:5: lv_block_1_0= ruleBlockElems
+            // InternalFortXTrans.g:2902:4: (lv_block_1_0= ruleBlockElems )
+            // InternalFortXTrans.g:2903:5: lv_block_1_0= ruleBlockElems
             {
 
             					newCompositeNode(grammarAccess.getElseAccess().getBlockBlockElemsParserRuleCall_1_0());
@@ -6971,7 +7251,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGenerators"
-    // InternalFortXTrans.g:2808:1: entryRuleGenerators returns [EObject current=null] : iv_ruleGenerators= ruleGenerators EOF ;
+    // InternalFortXTrans.g:2924:1: entryRuleGenerators returns [EObject current=null] : iv_ruleGenerators= ruleGenerators EOF ;
     public final EObject entryRuleGenerators() throws RecognitionException {
         EObject current = null;
 
@@ -6979,8 +7259,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2808:51: (iv_ruleGenerators= ruleGenerators EOF )
-            // InternalFortXTrans.g:2809:2: iv_ruleGenerators= ruleGenerators EOF
+            // InternalFortXTrans.g:2924:51: (iv_ruleGenerators= ruleGenerators EOF )
+            // InternalFortXTrans.g:2925:2: iv_ruleGenerators= ruleGenerators EOF
             {
              newCompositeNode(grammarAccess.getGeneratorsRule()); 
             pushFollow(FOLLOW_1);
@@ -7007,7 +7287,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGenerators"
-    // InternalFortXTrans.g:2815:1: ruleGenerators returns [EObject current=null] : ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* ) ;
+    // InternalFortXTrans.g:2931:1: ruleGenerators returns [EObject current=null] : ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* ) ;
     public final EObject ruleGenerators() throws RecognitionException {
         EObject current = null;
 
@@ -7021,22 +7301,22 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2821:2: ( ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* ) )
-            // InternalFortXTrans.g:2822:2: ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* )
+            // InternalFortXTrans.g:2937:2: ( ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* ) )
+            // InternalFortXTrans.g:2938:2: ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* )
             {
-            // InternalFortXTrans.g:2822:2: ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* )
-            // InternalFortXTrans.g:2823:3: ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )*
+            // InternalFortXTrans.g:2938:2: ( ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )* )
+            // InternalFortXTrans.g:2939:3: ( (lv_binding_0_0= ruleBinding ) ) (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )*
             {
-            // InternalFortXTrans.g:2823:3: ( (lv_binding_0_0= ruleBinding ) )
-            // InternalFortXTrans.g:2824:4: (lv_binding_0_0= ruleBinding )
+            // InternalFortXTrans.g:2939:3: ( (lv_binding_0_0= ruleBinding ) )
+            // InternalFortXTrans.g:2940:4: (lv_binding_0_0= ruleBinding )
             {
-            // InternalFortXTrans.g:2824:4: (lv_binding_0_0= ruleBinding )
-            // InternalFortXTrans.g:2825:5: lv_binding_0_0= ruleBinding
+            // InternalFortXTrans.g:2940:4: (lv_binding_0_0= ruleBinding )
+            // InternalFortXTrans.g:2941:5: lv_binding_0_0= ruleBinding
             {
 
             					newCompositeNode(grammarAccess.getGeneratorsAccess().getBindingBindingParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_39);
             lv_binding_0_0=ruleBinding();
 
             state._fsp--;
@@ -7058,7 +7338,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:2842:3: (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )*
+            // InternalFortXTrans.g:2958:3: (otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) ) )*
             loop46:
             do {
                 int alt46=2;
@@ -7071,22 +7351,22 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                 switch (alt46) {
             	case 1 :
-            	    // InternalFortXTrans.g:2843:4: otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) )
+            	    // InternalFortXTrans.g:2959:4: otherlv_1= ',' ( (lv_clause_2_0= ruleGenClause ) )
             	    {
             	    otherlv_1=(Token)match(input,26,FOLLOW_30); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getGeneratorsAccess().getCommaKeyword_1_0());
             	    			
-            	    // InternalFortXTrans.g:2847:4: ( (lv_clause_2_0= ruleGenClause ) )
-            	    // InternalFortXTrans.g:2848:5: (lv_clause_2_0= ruleGenClause )
+            	    // InternalFortXTrans.g:2963:4: ( (lv_clause_2_0= ruleGenClause ) )
+            	    // InternalFortXTrans.g:2964:5: (lv_clause_2_0= ruleGenClause )
             	    {
-            	    // InternalFortXTrans.g:2848:5: (lv_clause_2_0= ruleGenClause )
-            	    // InternalFortXTrans.g:2849:6: lv_clause_2_0= ruleGenClause
+            	    // InternalFortXTrans.g:2964:5: (lv_clause_2_0= ruleGenClause )
+            	    // InternalFortXTrans.g:2965:6: lv_clause_2_0= ruleGenClause
             	    {
 
             	    						newCompositeNode(grammarAccess.getGeneratorsAccess().getClauseGenClauseParserRuleCall_1_1_0());
             	    					
-            	    pushFollow(FOLLOW_41);
+            	    pushFollow(FOLLOW_39);
             	    lv_clause_2_0=ruleGenClause();
 
             	    state._fsp--;
@@ -7140,7 +7420,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBinding"
-    // InternalFortXTrans.g:2871:1: entryRuleBinding returns [EObject current=null] : iv_ruleBinding= ruleBinding EOF ;
+    // InternalFortXTrans.g:2987:1: entryRuleBinding returns [EObject current=null] : iv_ruleBinding= ruleBinding EOF ;
     public final EObject entryRuleBinding() throws RecognitionException {
         EObject current = null;
 
@@ -7148,8 +7428,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:2871:48: (iv_ruleBinding= ruleBinding EOF )
-            // InternalFortXTrans.g:2872:2: iv_ruleBinding= ruleBinding EOF
+            // InternalFortXTrans.g:2987:48: (iv_ruleBinding= ruleBinding EOF )
+            // InternalFortXTrans.g:2988:2: iv_ruleBinding= ruleBinding EOF
             {
              newCompositeNode(grammarAccess.getBindingRule()); 
             pushFollow(FOLLOW_1);
@@ -7176,7 +7456,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBinding"
-    // InternalFortXTrans.g:2878:1: ruleBinding returns [EObject current=null] : ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) ) ;
+    // InternalFortXTrans.g:2994:1: ruleBinding returns [EObject current=null] : ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) ) ;
     public final EObject ruleBinding() throws RecognitionException {
         EObject current = null;
 
@@ -7198,29 +7478,29 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:2884:2: ( ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) ) )
-            // InternalFortXTrans.g:2885:2: ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) )
+            // InternalFortXTrans.g:3000:2: ( ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) ) )
+            // InternalFortXTrans.g:3001:2: ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) )
             {
-            // InternalFortXTrans.g:2885:2: ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) )
+            // InternalFortXTrans.g:3001:2: ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) )
             int alt47=2;
             alt47 = dfa47.predict(input);
             switch (alt47) {
                 case 1 :
-                    // InternalFortXTrans.g:2886:3: ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) )
+                    // InternalFortXTrans.g:3002:3: ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) )
                     {
-                    // InternalFortXTrans.g:2886:3: ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) )
-                    // InternalFortXTrans.g:2887:4: ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3002:3: ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) )
+                    // InternalFortXTrans.g:3003:4: ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:2887:4: ( (lv_idtup_0_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:2888:5: (lv_idtup_0_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3003:4: ( (lv_idtup_0_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:3004:5: (lv_idtup_0_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:2888:5: (lv_idtup_0_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:2889:6: lv_idtup_0_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:3004:5: (lv_idtup_0_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3005:6: lv_idtup_0_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getBindingAccess().getIdtupIdOrTupleParserRuleCall_0_0_0());
                     					
-                    pushFollow(FOLLOW_42);
+                    pushFollow(FOLLOW_41);
                     lv_idtup_0_0=ruleIdOrTuple();
 
                     state._fsp--;
@@ -7246,11 +7526,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_1, grammarAccess.getBindingAccess().getLessThanSignHyphenMinusKeyword_0_1());
                     			
-                    // InternalFortXTrans.g:2910:4: ( (lv_expr_2_0= ruleExpr ) )
-                    // InternalFortXTrans.g:2911:5: (lv_expr_2_0= ruleExpr )
+                    // InternalFortXTrans.g:3026:4: ( (lv_expr_2_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3027:5: (lv_expr_2_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:2911:5: (lv_expr_2_0= ruleExpr )
-                    // InternalFortXTrans.g:2912:6: lv_expr_2_0= ruleExpr
+                    // InternalFortXTrans.g:3027:5: (lv_expr_2_0= ruleExpr )
+                    // InternalFortXTrans.g:3028:6: lv_expr_2_0= ruleExpr
                     {
 
                     						newCompositeNode(grammarAccess.getBindingAccess().getExprExprParserRuleCall_0_2_0());
@@ -7284,21 +7564,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:2931:3: ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' )
+                    // InternalFortXTrans.g:3047:3: ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' )
                     {
-                    // InternalFortXTrans.g:2931:3: ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' )
-                    // InternalFortXTrans.g:2932:4: ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')'
+                    // InternalFortXTrans.g:3047:3: ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' )
+                    // InternalFortXTrans.g:3048:4: ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')'
                     {
-                    // InternalFortXTrans.g:2932:4: ( (lv_idtup_3_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:2933:5: (lv_idtup_3_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3048:4: ( (lv_idtup_3_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:3049:5: (lv_idtup_3_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:2933:5: (lv_idtup_3_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:2934:6: lv_idtup_3_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:3049:5: (lv_idtup_3_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3050:6: lv_idtup_3_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getBindingAccess().getIdtupIdOrTupleParserRuleCall_1_0_0());
                     					
-                    pushFollow(FOLLOW_42);
+                    pushFollow(FOLLOW_41);
                     lv_idtup_3_0=ruleIdOrTuple();
 
                     state._fsp--;
@@ -7320,15 +7600,15 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,48,FOLLOW_43); 
+                    otherlv_4=(Token)match(input,48,FOLLOW_42); 
 
                     				newLeafNode(otherlv_4, grammarAccess.getBindingAccess().getLessThanSignHyphenMinusKeyword_1_1());
                     			
-                    // InternalFortXTrans.g:2955:4: ( (lv_seq_5_0= 'seq' ) )
-                    // InternalFortXTrans.g:2956:5: (lv_seq_5_0= 'seq' )
+                    // InternalFortXTrans.g:3071:4: ( (lv_seq_5_0= 'seq' ) )
+                    // InternalFortXTrans.g:3072:5: (lv_seq_5_0= 'seq' )
                     {
-                    // InternalFortXTrans.g:2956:5: (lv_seq_5_0= 'seq' )
-                    // InternalFortXTrans.g:2957:6: lv_seq_5_0= 'seq'
+                    // InternalFortXTrans.g:3072:5: (lv_seq_5_0= 'seq' )
+                    // InternalFortXTrans.g:3073:6: lv_seq_5_0= 'seq'
                     {
                     lv_seq_5_0=(Token)match(input,49,FOLLOW_25); 
 
@@ -7350,11 +7630,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_6, grammarAccess.getBindingAccess().getLeftParenthesisKeyword_1_3());
                     			
-                    // InternalFortXTrans.g:2973:4: ( (lv_expr_7_0= ruleExpr ) )
-                    // InternalFortXTrans.g:2974:5: (lv_expr_7_0= ruleExpr )
+                    // InternalFortXTrans.g:3089:4: ( (lv_expr_7_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3090:5: (lv_expr_7_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:2974:5: (lv_expr_7_0= ruleExpr )
-                    // InternalFortXTrans.g:2975:6: lv_expr_7_0= ruleExpr
+                    // InternalFortXTrans.g:3090:5: (lv_expr_7_0= ruleExpr )
+                    // InternalFortXTrans.g:3091:6: lv_expr_7_0= ruleExpr
                     {
 
                     						newCompositeNode(grammarAccess.getBindingAccess().getExprExprParserRuleCall_1_4_0());
@@ -7414,7 +7694,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleGenClause"
-    // InternalFortXTrans.g:3001:1: entryRuleGenClause returns [EObject current=null] : iv_ruleGenClause= ruleGenClause EOF ;
+    // InternalFortXTrans.g:3117:1: entryRuleGenClause returns [EObject current=null] : iv_ruleGenClause= ruleGenClause EOF ;
     public final EObject entryRuleGenClause() throws RecognitionException {
         EObject current = null;
 
@@ -7422,8 +7702,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3001:50: (iv_ruleGenClause= ruleGenClause EOF )
-            // InternalFortXTrans.g:3002:2: iv_ruleGenClause= ruleGenClause EOF
+            // InternalFortXTrans.g:3117:50: (iv_ruleGenClause= ruleGenClause EOF )
+            // InternalFortXTrans.g:3118:2: iv_ruleGenClause= ruleGenClause EOF
             {
              newCompositeNode(grammarAccess.getGenClauseRule()); 
             pushFollow(FOLLOW_1);
@@ -7450,7 +7730,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleGenClause"
-    // InternalFortXTrans.g:3008:1: ruleGenClause returns [EObject current=null] : ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) ) ;
+    // InternalFortXTrans.g:3124:1: ruleGenClause returns [EObject current=null] : ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) ) ;
     public final EObject ruleGenClause() throws RecognitionException {
         EObject current = null;
 
@@ -7463,21 +7743,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3014:2: ( ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) ) )
-            // InternalFortXTrans.g:3015:2: ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) )
+            // InternalFortXTrans.g:3130:2: ( ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) ) )
+            // InternalFortXTrans.g:3131:2: ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) )
             {
-            // InternalFortXTrans.g:3015:2: ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) )
+            // InternalFortXTrans.g:3131:2: ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) )
             int alt48=2;
             alt48 = dfa48.predict(input);
             switch (alt48) {
                 case 1 :
-                    // InternalFortXTrans.g:3016:3: ( (lv_binding_0_0= ruleBinding ) )
+                    // InternalFortXTrans.g:3132:3: ( (lv_binding_0_0= ruleBinding ) )
                     {
-                    // InternalFortXTrans.g:3016:3: ( (lv_binding_0_0= ruleBinding ) )
-                    // InternalFortXTrans.g:3017:4: (lv_binding_0_0= ruleBinding )
+                    // InternalFortXTrans.g:3132:3: ( (lv_binding_0_0= ruleBinding ) )
+                    // InternalFortXTrans.g:3133:4: (lv_binding_0_0= ruleBinding )
                     {
-                    // InternalFortXTrans.g:3017:4: (lv_binding_0_0= ruleBinding )
-                    // InternalFortXTrans.g:3018:5: lv_binding_0_0= ruleBinding
+                    // InternalFortXTrans.g:3133:4: (lv_binding_0_0= ruleBinding )
+                    // InternalFortXTrans.g:3134:5: lv_binding_0_0= ruleBinding
                     {
 
                     					newCompositeNode(grammarAccess.getGenClauseAccess().getBindingBindingParserRuleCall_0_0());
@@ -7508,13 +7788,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:3036:3: ( (lv_expr_1_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3152:3: ( (lv_expr_1_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:3036:3: ( (lv_expr_1_0= ruleExpr ) )
-                    // InternalFortXTrans.g:3037:4: (lv_expr_1_0= ruleExpr )
+                    // InternalFortXTrans.g:3152:3: ( (lv_expr_1_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3153:4: (lv_expr_1_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:3037:4: (lv_expr_1_0= ruleExpr )
-                    // InternalFortXTrans.g:3038:5: lv_expr_1_0= ruleExpr
+                    // InternalFortXTrans.g:3153:4: (lv_expr_1_0= ruleExpr )
+                    // InternalFortXTrans.g:3154:5: lv_expr_1_0= ruleExpr
                     {
 
                     					newCompositeNode(grammarAccess.getGenClauseAccess().getExprExprParserRuleCall_1_0());
@@ -7567,7 +7847,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBlockElems"
-    // InternalFortXTrans.g:3059:1: entryRuleBlockElems returns [EObject current=null] : iv_ruleBlockElems= ruleBlockElems EOF ;
+    // InternalFortXTrans.g:3175:1: entryRuleBlockElems returns [EObject current=null] : iv_ruleBlockElems= ruleBlockElems EOF ;
     public final EObject entryRuleBlockElems() throws RecognitionException {
         EObject current = null;
 
@@ -7575,8 +7855,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3059:51: (iv_ruleBlockElems= ruleBlockElems EOF )
-            // InternalFortXTrans.g:3060:2: iv_ruleBlockElems= ruleBlockElems EOF
+            // InternalFortXTrans.g:3175:51: (iv_ruleBlockElems= ruleBlockElems EOF )
+            // InternalFortXTrans.g:3176:2: iv_ruleBlockElems= ruleBlockElems EOF
             {
              newCompositeNode(grammarAccess.getBlockElemsRule()); 
             pushFollow(FOLLOW_1);
@@ -7603,7 +7883,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBlockElems"
-    // InternalFortXTrans.g:3066:1: ruleBlockElems returns [EObject current=null] : ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* ) ;
+    // InternalFortXTrans.g:3182:1: ruleBlockElems returns [EObject current=null] : ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* ) ;
     public final EObject ruleBlockElems() throws RecognitionException {
         EObject current = null;
 
@@ -7616,22 +7896,22 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3072:2: ( ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* ) )
-            // InternalFortXTrans.g:3073:2: ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* )
+            // InternalFortXTrans.g:3188:2: ( ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* ) )
+            // InternalFortXTrans.g:3189:2: ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* )
             {
-            // InternalFortXTrans.g:3073:2: ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* )
-            // InternalFortXTrans.g:3074:3: ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )*
+            // InternalFortXTrans.g:3189:2: ( ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )* )
+            // InternalFortXTrans.g:3190:3: ( (lv_block_0_0= ruleBlockElem ) ) ( (lv_block_1_0= ruleBlockElem ) )*
             {
-            // InternalFortXTrans.g:3074:3: ( (lv_block_0_0= ruleBlockElem ) )
-            // InternalFortXTrans.g:3075:4: (lv_block_0_0= ruleBlockElem )
+            // InternalFortXTrans.g:3190:3: ( (lv_block_0_0= ruleBlockElem ) )
+            // InternalFortXTrans.g:3191:4: (lv_block_0_0= ruleBlockElem )
             {
-            // InternalFortXTrans.g:3075:4: (lv_block_0_0= ruleBlockElem )
-            // InternalFortXTrans.g:3076:5: lv_block_0_0= ruleBlockElem
+            // InternalFortXTrans.g:3191:4: (lv_block_0_0= ruleBlockElem )
+            // InternalFortXTrans.g:3192:5: lv_block_0_0= ruleBlockElem
             {
 
             					newCompositeNode(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_44);
+            pushFollow(FOLLOW_43);
             lv_block_0_0=ruleBlockElem();
 
             state._fsp--;
@@ -7653,7 +7933,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:3093:3: ( (lv_block_1_0= ruleBlockElem ) )*
+            // InternalFortXTrans.g:3209:3: ( (lv_block_1_0= ruleBlockElem ) )*
             loop49:
             do {
                 int alt49=2;
@@ -7666,15 +7946,15 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                 switch (alt49) {
             	case 1 :
-            	    // InternalFortXTrans.g:3094:4: (lv_block_1_0= ruleBlockElem )
+            	    // InternalFortXTrans.g:3210:4: (lv_block_1_0= ruleBlockElem )
             	    {
-            	    // InternalFortXTrans.g:3094:4: (lv_block_1_0= ruleBlockElem )
-            	    // InternalFortXTrans.g:3095:5: lv_block_1_0= ruleBlockElem
+            	    // InternalFortXTrans.g:3210:4: (lv_block_1_0= ruleBlockElem )
+            	    // InternalFortXTrans.g:3211:5: lv_block_1_0= ruleBlockElem
             	    {
 
             	    					newCompositeNode(grammarAccess.getBlockElemsAccess().getBlockBlockElemParserRuleCall_1_0());
             	    				
-            	    pushFollow(FOLLOW_44);
+            	    pushFollow(FOLLOW_43);
             	    lv_block_1_0=ruleBlockElem();
 
             	    state._fsp--;
@@ -7725,7 +8005,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBlockElem"
-    // InternalFortXTrans.g:3116:1: entryRuleBlockElem returns [EObject current=null] : iv_ruleBlockElem= ruleBlockElem EOF ;
+    // InternalFortXTrans.g:3232:1: entryRuleBlockElem returns [EObject current=null] : iv_ruleBlockElem= ruleBlockElem EOF ;
     public final EObject entryRuleBlockElem() throws RecognitionException {
         EObject current = null;
 
@@ -7733,8 +8013,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3116:50: (iv_ruleBlockElem= ruleBlockElem EOF )
-            // InternalFortXTrans.g:3117:2: iv_ruleBlockElem= ruleBlockElem EOF
+            // InternalFortXTrans.g:3232:50: (iv_ruleBlockElem= ruleBlockElem EOF )
+            // InternalFortXTrans.g:3233:2: iv_ruleBlockElem= ruleBlockElem EOF
             {
              newCompositeNode(grammarAccess.getBlockElemRule()); 
             pushFollow(FOLLOW_1);
@@ -7761,31 +8041,31 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBlockElem"
-    // InternalFortXTrans.g:3123:1: ruleBlockElem returns [EObject current=null] : ( (lv_exp_0_0= ruleExpr ) ) ;
+    // InternalFortXTrans.g:3239:1: ruleBlockElem returns [EObject current=null] : ( (lv_st_0_0= ruleStmnt ) ) ;
     public final EObject ruleBlockElem() throws RecognitionException {
         EObject current = null;
 
-        EObject lv_exp_0_0 = null;
+        EObject lv_st_0_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3129:2: ( ( (lv_exp_0_0= ruleExpr ) ) )
-            // InternalFortXTrans.g:3130:2: ( (lv_exp_0_0= ruleExpr ) )
+            // InternalFortXTrans.g:3245:2: ( ( (lv_st_0_0= ruleStmnt ) ) )
+            // InternalFortXTrans.g:3246:2: ( (lv_st_0_0= ruleStmnt ) )
             {
-            // InternalFortXTrans.g:3130:2: ( (lv_exp_0_0= ruleExpr ) )
-            // InternalFortXTrans.g:3131:3: (lv_exp_0_0= ruleExpr )
+            // InternalFortXTrans.g:3246:2: ( (lv_st_0_0= ruleStmnt ) )
+            // InternalFortXTrans.g:3247:3: (lv_st_0_0= ruleStmnt )
             {
-            // InternalFortXTrans.g:3131:3: (lv_exp_0_0= ruleExpr )
-            // InternalFortXTrans.g:3132:4: lv_exp_0_0= ruleExpr
+            // InternalFortXTrans.g:3247:3: (lv_st_0_0= ruleStmnt )
+            // InternalFortXTrans.g:3248:4: lv_st_0_0= ruleStmnt
             {
 
-            				newCompositeNode(grammarAccess.getBlockElemAccess().getExpExprParserRuleCall_0());
+            				newCompositeNode(grammarAccess.getBlockElemAccess().getStStmntParserRuleCall_0());
             			
             pushFollow(FOLLOW_2);
-            lv_exp_0_0=ruleExpr();
+            lv_st_0_0=ruleStmnt();
 
             state._fsp--;
 
@@ -7795,9 +8075,9 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             				}
             				set(
             					current,
-            					"exp",
-            					lv_exp_0_0,
-            					"srf.transpiler.fortxtrans.FortXTrans.Expr");
+            					"st",
+            					lv_st_0_0,
+            					"srf.transpiler.fortxtrans.FortXTrans.Stmnt");
             				afterParserOrEnumRuleCall();
             			
 
@@ -7825,125 +8105,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleBlockElem"
 
 
-    // $ANTLR start "entryRuleParanthesized"
-    // InternalFortXTrans.g:3152:1: entryRuleParanthesized returns [EObject current=null] : iv_ruleParanthesized= ruleParanthesized EOF ;
-    public final EObject entryRuleParanthesized() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleParanthesized = null;
-
-
-        try {
-            // InternalFortXTrans.g:3152:54: (iv_ruleParanthesized= ruleParanthesized EOF )
-            // InternalFortXTrans.g:3153:2: iv_ruleParanthesized= ruleParanthesized EOF
-            {
-             newCompositeNode(grammarAccess.getParanthesizedRule()); 
-            pushFollow(FOLLOW_1);
-            iv_ruleParanthesized=ruleParanthesized();
-
-            state._fsp--;
-
-             current =iv_ruleParanthesized; 
-            match(input,EOF,FOLLOW_2); 
-
-            }
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleParanthesized"
-
-
-    // $ANTLR start "ruleParanthesized"
-    // InternalFortXTrans.g:3159:1: ruleParanthesized returns [EObject current=null] : (otherlv_0= '(' ( (lv_exp_1_0= ruleExpr ) ) otherlv_2= ')' ) ;
-    public final EObject ruleParanthesized() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_0=null;
-        Token otherlv_2=null;
-        EObject lv_exp_1_0 = null;
-
-
-
-        	enterRule();
-
-        try {
-            // InternalFortXTrans.g:3165:2: ( (otherlv_0= '(' ( (lv_exp_1_0= ruleExpr ) ) otherlv_2= ')' ) )
-            // InternalFortXTrans.g:3166:2: (otherlv_0= '(' ( (lv_exp_1_0= ruleExpr ) ) otherlv_2= ')' )
-            {
-            // InternalFortXTrans.g:3166:2: (otherlv_0= '(' ( (lv_exp_1_0= ruleExpr ) ) otherlv_2= ')' )
-            // InternalFortXTrans.g:3167:3: otherlv_0= '(' ( (lv_exp_1_0= ruleExpr ) ) otherlv_2= ')'
-            {
-            otherlv_0=(Token)match(input,35,FOLLOW_30); 
-
-            			newLeafNode(otherlv_0, grammarAccess.getParanthesizedAccess().getLeftParenthesisKeyword_0());
-            		
-            // InternalFortXTrans.g:3171:3: ( (lv_exp_1_0= ruleExpr ) )
-            // InternalFortXTrans.g:3172:4: (lv_exp_1_0= ruleExpr )
-            {
-            // InternalFortXTrans.g:3172:4: (lv_exp_1_0= ruleExpr )
-            // InternalFortXTrans.g:3173:5: lv_exp_1_0= ruleExpr
-            {
-
-            					newCompositeNode(grammarAccess.getParanthesizedAccess().getExpExprParserRuleCall_1_0());
-            				
-            pushFollow(FOLLOW_26);
-            lv_exp_1_0=ruleExpr();
-
-            state._fsp--;
-
-
-            					if (current==null) {
-            						current = createModelElementForParent(grammarAccess.getParanthesizedRule());
-            					}
-            					set(
-            						current,
-            						"exp",
-            						lv_exp_1_0,
-            						"srf.transpiler.fortxtrans.FortXTrans.Expr");
-            					afterParserOrEnumRuleCall();
-            				
-
-            }
-
-
-            }
-
-            otherlv_2=(Token)match(input,36,FOLLOW_2); 
-
-            			newLeafNode(otherlv_2, grammarAccess.getParanthesizedAccess().getRightParenthesisKeyword_2());
-            		
-
-            }
-
-
-            }
-
-
-            	leaveRule();
-
-        }
-
-            catch (RecognitionException re) {
-                recover(input,re);
-                appendSkippedTokens();
-            }
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleParanthesized"
-
-
     // $ANTLR start "entryRuleDo"
-    // InternalFortXTrans.g:3198:1: entryRuleDo returns [EObject current=null] : iv_ruleDo= ruleDo EOF ;
+    // InternalFortXTrans.g:3268:1: entryRuleDo returns [EObject current=null] : iv_ruleDo= ruleDo EOF ;
     public final EObject entryRuleDo() throws RecognitionException {
         EObject current = null;
 
@@ -7951,8 +8114,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3198:43: (iv_ruleDo= ruleDo EOF )
-            // InternalFortXTrans.g:3199:2: iv_ruleDo= ruleDo EOF
+            // InternalFortXTrans.g:3268:43: (iv_ruleDo= ruleDo EOF )
+            // InternalFortXTrans.g:3269:2: iv_ruleDo= ruleDo EOF
             {
              newCompositeNode(grammarAccess.getDoRule()); 
             pushFollow(FOLLOW_1);
@@ -7979,7 +8142,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDo"
-    // InternalFortXTrans.g:3205:1: ruleDo returns [EObject current=null] : ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' ) ;
+    // InternalFortXTrans.g:3275:1: ruleDo returns [EObject current=null] : ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' ) ;
     public final EObject ruleDo() throws RecognitionException {
         EObject current = null;
 
@@ -7994,22 +8157,22 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3211:2: ( ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' ) )
-            // InternalFortXTrans.g:3212:2: ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' )
+            // InternalFortXTrans.g:3281:2: ( ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' ) )
+            // InternalFortXTrans.g:3282:2: ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' )
             {
-            // InternalFortXTrans.g:3212:2: ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' )
-            // InternalFortXTrans.g:3213:3: ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end'
+            // InternalFortXTrans.g:3282:2: ( ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end' )
+            // InternalFortXTrans.g:3283:3: ( (lv_dofs_0_0= ruleDoFront ) ) (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )* otherlv_3= 'end'
             {
-            // InternalFortXTrans.g:3213:3: ( (lv_dofs_0_0= ruleDoFront ) )
-            // InternalFortXTrans.g:3214:4: (lv_dofs_0_0= ruleDoFront )
+            // InternalFortXTrans.g:3283:3: ( (lv_dofs_0_0= ruleDoFront ) )
+            // InternalFortXTrans.g:3284:4: (lv_dofs_0_0= ruleDoFront )
             {
-            // InternalFortXTrans.g:3214:4: (lv_dofs_0_0= ruleDoFront )
-            // InternalFortXTrans.g:3215:5: lv_dofs_0_0= ruleDoFront
+            // InternalFortXTrans.g:3284:4: (lv_dofs_0_0= ruleDoFront )
+            // InternalFortXTrans.g:3285:5: lv_dofs_0_0= ruleDoFront
             {
 
             					newCompositeNode(grammarAccess.getDoAccess().getDofsDoFrontParserRuleCall_0_0());
             				
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_44);
             lv_dofs_0_0=ruleDoFront();
 
             state._fsp--;
@@ -8031,7 +8194,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:3232:3: (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )*
+            // InternalFortXTrans.g:3302:3: (otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) ) )*
             loop50:
             do {
                 int alt50=2;
@@ -8044,22 +8207,22 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                 switch (alt50) {
             	case 1 :
-            	    // InternalFortXTrans.g:3233:4: otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) )
+            	    // InternalFortXTrans.g:3303:4: otherlv_1= 'also' ( (lv_dofs_2_0= ruleDoFront ) )
             	    {
             	    otherlv_1=(Token)match(input,50,FOLLOW_32); 
 
             	    				newLeafNode(otherlv_1, grammarAccess.getDoAccess().getAlsoKeyword_1_0());
             	    			
-            	    // InternalFortXTrans.g:3237:4: ( (lv_dofs_2_0= ruleDoFront ) )
-            	    // InternalFortXTrans.g:3238:5: (lv_dofs_2_0= ruleDoFront )
+            	    // InternalFortXTrans.g:3307:4: ( (lv_dofs_2_0= ruleDoFront ) )
+            	    // InternalFortXTrans.g:3308:5: (lv_dofs_2_0= ruleDoFront )
             	    {
-            	    // InternalFortXTrans.g:3238:5: (lv_dofs_2_0= ruleDoFront )
-            	    // InternalFortXTrans.g:3239:6: lv_dofs_2_0= ruleDoFront
+            	    // InternalFortXTrans.g:3308:5: (lv_dofs_2_0= ruleDoFront )
+            	    // InternalFortXTrans.g:3309:6: lv_dofs_2_0= ruleDoFront
             	    {
 
             	    						newCompositeNode(grammarAccess.getDoAccess().getDofsDoFrontParserRuleCall_1_1_0());
             	    					
-            	    pushFollow(FOLLOW_45);
+            	    pushFollow(FOLLOW_44);
             	    lv_dofs_2_0=ruleDoFront();
 
             	    state._fsp--;
@@ -8117,7 +8280,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleDoFront"
-    // InternalFortXTrans.g:3265:1: entryRuleDoFront returns [EObject current=null] : iv_ruleDoFront= ruleDoFront EOF ;
+    // InternalFortXTrans.g:3335:1: entryRuleDoFront returns [EObject current=null] : iv_ruleDoFront= ruleDoFront EOF ;
     public final EObject entryRuleDoFront() throws RecognitionException {
         EObject current = null;
 
@@ -8125,8 +8288,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3265:48: (iv_ruleDoFront= ruleDoFront EOF )
-            // InternalFortXTrans.g:3266:2: iv_ruleDoFront= ruleDoFront EOF
+            // InternalFortXTrans.g:3335:48: (iv_ruleDoFront= ruleDoFront EOF )
+            // InternalFortXTrans.g:3336:2: iv_ruleDoFront= ruleDoFront EOF
             {
              newCompositeNode(grammarAccess.getDoFrontRule()); 
             pushFollow(FOLLOW_1);
@@ -8153,7 +8316,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDoFront"
-    // InternalFortXTrans.g:3272:1: ruleDoFront returns [EObject current=null] : ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) ) ;
+    // InternalFortXTrans.g:3342:1: ruleDoFront returns [EObject current=null] : ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) ) ;
     public final EObject ruleDoFront() throws RecognitionException {
         EObject current = null;
 
@@ -8169,13 +8332,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3278:2: ( ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) ) )
-            // InternalFortXTrans.g:3279:2: ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) )
+            // InternalFortXTrans.g:3348:2: ( ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) ) )
+            // InternalFortXTrans.g:3349:2: ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) )
             {
-            // InternalFortXTrans.g:3279:2: ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) )
-            // InternalFortXTrans.g:3280:3: ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) )
+            // InternalFortXTrans.g:3349:2: ( ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) ) )
+            // InternalFortXTrans.g:3350:3: ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )? ( (lv_atom_2_0= 'atomic' ) )? otherlv_3= 'do' ( (lv_block_4_0= ruleBlockElems ) )
             {
-            // InternalFortXTrans.g:3280:3: ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )?
+            // InternalFortXTrans.g:3350:3: ( ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) ) )?
             int alt51=2;
             int LA51_0 = input.LA(1);
 
@@ -8184,13 +8347,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt51) {
                 case 1 :
-                    // InternalFortXTrans.g:3281:4: ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3351:4: ( (lv_at_0_0= 'at' ) ) ( (lv_exp_1_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:3281:4: ( (lv_at_0_0= 'at' ) )
-                    // InternalFortXTrans.g:3282:5: (lv_at_0_0= 'at' )
+                    // InternalFortXTrans.g:3351:4: ( (lv_at_0_0= 'at' ) )
+                    // InternalFortXTrans.g:3352:5: (lv_at_0_0= 'at' )
                     {
-                    // InternalFortXTrans.g:3282:5: (lv_at_0_0= 'at' )
-                    // InternalFortXTrans.g:3283:6: lv_at_0_0= 'at'
+                    // InternalFortXTrans.g:3352:5: (lv_at_0_0= 'at' )
+                    // InternalFortXTrans.g:3353:6: lv_at_0_0= 'at'
                     {
                     lv_at_0_0=(Token)match(input,51,FOLLOW_30); 
 
@@ -8208,16 +8371,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3295:4: ( (lv_exp_1_0= ruleExpr ) )
-                    // InternalFortXTrans.g:3296:5: (lv_exp_1_0= ruleExpr )
+                    // InternalFortXTrans.g:3365:4: ( (lv_exp_1_0= ruleExpr ) )
+                    // InternalFortXTrans.g:3366:5: (lv_exp_1_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:3296:5: (lv_exp_1_0= ruleExpr )
-                    // InternalFortXTrans.g:3297:6: lv_exp_1_0= ruleExpr
+                    // InternalFortXTrans.g:3366:5: (lv_exp_1_0= ruleExpr )
+                    // InternalFortXTrans.g:3367:6: lv_exp_1_0= ruleExpr
                     {
 
                     						newCompositeNode(grammarAccess.getDoFrontAccess().getExpExprParserRuleCall_0_1_0());
                     					
-                    pushFollow(FOLLOW_46);
+                    pushFollow(FOLLOW_45);
                     lv_exp_1_0=ruleExpr();
 
                     state._fsp--;
@@ -8245,7 +8408,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:3315:3: ( (lv_atom_2_0= 'atomic' ) )?
+            // InternalFortXTrans.g:3385:3: ( (lv_atom_2_0= 'atomic' ) )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
@@ -8254,12 +8417,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt52) {
                 case 1 :
-                    // InternalFortXTrans.g:3316:4: (lv_atom_2_0= 'atomic' )
+                    // InternalFortXTrans.g:3386:4: (lv_atom_2_0= 'atomic' )
                     {
-                    // InternalFortXTrans.g:3316:4: (lv_atom_2_0= 'atomic' )
-                    // InternalFortXTrans.g:3317:5: lv_atom_2_0= 'atomic'
+                    // InternalFortXTrans.g:3386:4: (lv_atom_2_0= 'atomic' )
+                    // InternalFortXTrans.g:3387:5: lv_atom_2_0= 'atomic'
                     {
-                    lv_atom_2_0=(Token)match(input,33,FOLLOW_47); 
+                    lv_atom_2_0=(Token)match(input,33,FOLLOW_46); 
 
                     					newLeafNode(lv_atom_2_0, grammarAccess.getDoFrontAccess().getAtomAtomicKeyword_1_0());
                     				
@@ -8282,11 +8445,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             			newLeafNode(otherlv_3, grammarAccess.getDoFrontAccess().getDoKeyword_2());
             		
-            // InternalFortXTrans.g:3333:3: ( (lv_block_4_0= ruleBlockElems ) )
-            // InternalFortXTrans.g:3334:4: (lv_block_4_0= ruleBlockElems )
+            // InternalFortXTrans.g:3403:3: ( (lv_block_4_0= ruleBlockElems ) )
+            // InternalFortXTrans.g:3404:4: (lv_block_4_0= ruleBlockElems )
             {
-            // InternalFortXTrans.g:3334:4: (lv_block_4_0= ruleBlockElems )
-            // InternalFortXTrans.g:3335:5: lv_block_4_0= ruleBlockElems
+            // InternalFortXTrans.g:3404:4: (lv_block_4_0= ruleBlockElems )
+            // InternalFortXTrans.g:3405:5: lv_block_4_0= ruleBlockElems
             {
 
             					newCompositeNode(grammarAccess.getDoFrontAccess().getBlockBlockElemsParserRuleCall_3_0());
@@ -8336,7 +8499,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIdOrTuple"
-    // InternalFortXTrans.g:3356:1: entryRuleIdOrTuple returns [EObject current=null] : iv_ruleIdOrTuple= ruleIdOrTuple EOF ;
+    // InternalFortXTrans.g:3426:1: entryRuleIdOrTuple returns [EObject current=null] : iv_ruleIdOrTuple= ruleIdOrTuple EOF ;
     public final EObject entryRuleIdOrTuple() throws RecognitionException {
         EObject current = null;
 
@@ -8344,8 +8507,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3356:50: (iv_ruleIdOrTuple= ruleIdOrTuple EOF )
-            // InternalFortXTrans.g:3357:2: iv_ruleIdOrTuple= ruleIdOrTuple EOF
+            // InternalFortXTrans.g:3426:50: (iv_ruleIdOrTuple= ruleIdOrTuple EOF )
+            // InternalFortXTrans.g:3427:2: iv_ruleIdOrTuple= ruleIdOrTuple EOF
             {
              newCompositeNode(grammarAccess.getIdOrTupleRule()); 
             pushFollow(FOLLOW_1);
@@ -8372,7 +8535,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIdOrTuple"
-    // InternalFortXTrans.g:3363:1: ruleIdOrTuple returns [EObject current=null] : ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) ) ;
+    // InternalFortXTrans.g:3433:1: ruleIdOrTuple returns [EObject current=null] : ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) ) ;
     public final EObject ruleIdOrTuple() throws RecognitionException {
         EObject current = null;
 
@@ -8390,10 +8553,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3369:2: ( ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) ) )
-            // InternalFortXTrans.g:3370:2: ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) )
+            // InternalFortXTrans.g:3439:2: ( ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) ) )
+            // InternalFortXTrans.g:3440:2: ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) )
             {
-            // InternalFortXTrans.g:3370:2: ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) )
+            // InternalFortXTrans.g:3440:2: ( ( (lv_bid_0_0= ruleBindId ) ) | (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' ) )
             int alt54=2;
             int LA54_0 = input.LA(1);
 
@@ -8411,13 +8574,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt54) {
                 case 1 :
-                    // InternalFortXTrans.g:3371:3: ( (lv_bid_0_0= ruleBindId ) )
+                    // InternalFortXTrans.g:3441:3: ( (lv_bid_0_0= ruleBindId ) )
                     {
-                    // InternalFortXTrans.g:3371:3: ( (lv_bid_0_0= ruleBindId ) )
-                    // InternalFortXTrans.g:3372:4: (lv_bid_0_0= ruleBindId )
+                    // InternalFortXTrans.g:3441:3: ( (lv_bid_0_0= ruleBindId ) )
+                    // InternalFortXTrans.g:3442:4: (lv_bid_0_0= ruleBindId )
                     {
-                    // InternalFortXTrans.g:3372:4: (lv_bid_0_0= ruleBindId )
-                    // InternalFortXTrans.g:3373:5: lv_bid_0_0= ruleBindId
+                    // InternalFortXTrans.g:3442:4: (lv_bid_0_0= ruleBindId )
+                    // InternalFortXTrans.g:3443:5: lv_bid_0_0= ruleBindId
                     {
 
                     					newCompositeNode(grammarAccess.getIdOrTupleAccess().getBidBindIdParserRuleCall_0_0());
@@ -8448,20 +8611,20 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:3391:3: (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' )
+                    // InternalFortXTrans.g:3461:3: (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' )
                     {
-                    // InternalFortXTrans.g:3391:3: (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' )
-                    // InternalFortXTrans.g:3392:4: otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')'
+                    // InternalFortXTrans.g:3461:3: (otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')' )
+                    // InternalFortXTrans.g:3462:4: otherlv_1= '(' ( (lv_bid_2_0= ruleBindId ) ) (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )* otherlv_5= ')'
                     {
                     otherlv_1=(Token)match(input,35,FOLLOW_23); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getIdOrTupleAccess().getLeftParenthesisKeyword_1_0());
                     			
-                    // InternalFortXTrans.g:3396:4: ( (lv_bid_2_0= ruleBindId ) )
-                    // InternalFortXTrans.g:3397:5: (lv_bid_2_0= ruleBindId )
+                    // InternalFortXTrans.g:3466:4: ( (lv_bid_2_0= ruleBindId ) )
+                    // InternalFortXTrans.g:3467:5: (lv_bid_2_0= ruleBindId )
                     {
-                    // InternalFortXTrans.g:3397:5: (lv_bid_2_0= ruleBindId )
-                    // InternalFortXTrans.g:3398:6: lv_bid_2_0= ruleBindId
+                    // InternalFortXTrans.g:3467:5: (lv_bid_2_0= ruleBindId )
+                    // InternalFortXTrans.g:3468:6: lv_bid_2_0= ruleBindId
                     {
 
                     						newCompositeNode(grammarAccess.getIdOrTupleAccess().getBidBindIdParserRuleCall_1_1_0());
@@ -8488,7 +8651,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3415:4: (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )*
+                    // InternalFortXTrans.g:3485:4: (otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) ) )*
                     loop53:
                     do {
                         int alt53=2;
@@ -8501,17 +8664,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                         switch (alt53) {
                     	case 1 :
-                    	    // InternalFortXTrans.g:3416:5: otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) )
+                    	    // InternalFortXTrans.g:3486:5: otherlv_3= ',' ( (lv_bid_4_0= ruleBindId ) )
                     	    {
                     	    otherlv_3=(Token)match(input,26,FOLLOW_23); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getIdOrTupleAccess().getCommaKeyword_1_2_0());
                     	    				
-                    	    // InternalFortXTrans.g:3420:5: ( (lv_bid_4_0= ruleBindId ) )
-                    	    // InternalFortXTrans.g:3421:6: (lv_bid_4_0= ruleBindId )
+                    	    // InternalFortXTrans.g:3490:5: ( (lv_bid_4_0= ruleBindId ) )
+                    	    // InternalFortXTrans.g:3491:6: (lv_bid_4_0= ruleBindId )
                     	    {
-                    	    // InternalFortXTrans.g:3421:6: (lv_bid_4_0= ruleBindId )
-                    	    // InternalFortXTrans.g:3422:7: lv_bid_4_0= ruleBindId
+                    	    // InternalFortXTrans.g:3491:6: (lv_bid_4_0= ruleBindId )
+                    	    // InternalFortXTrans.g:3492:7: lv_bid_4_0= ruleBindId
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getIdOrTupleAccess().getBidBindIdParserRuleCall_1_2_1_0());
@@ -8580,7 +8743,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBindId"
-    // InternalFortXTrans.g:3449:1: entryRuleBindId returns [String current=null] : iv_ruleBindId= ruleBindId EOF ;
+    // InternalFortXTrans.g:3519:1: entryRuleBindId returns [String current=null] : iv_ruleBindId= ruleBindId EOF ;
     public final String entryRuleBindId() throws RecognitionException {
         String current = null;
 
@@ -8588,8 +8751,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3449:46: (iv_ruleBindId= ruleBindId EOF )
-            // InternalFortXTrans.g:3450:2: iv_ruleBindId= ruleBindId EOF
+            // InternalFortXTrans.g:3519:46: (iv_ruleBindId= ruleBindId EOF )
+            // InternalFortXTrans.g:3520:2: iv_ruleBindId= ruleBindId EOF
             {
              newCompositeNode(grammarAccess.getBindIdRule()); 
             pushFollow(FOLLOW_1);
@@ -8616,7 +8779,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBindId"
-    // InternalFortXTrans.g:3456:1: ruleBindId returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | kw= '_' ) ;
+    // InternalFortXTrans.g:3526:1: ruleBindId returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID | kw= '_' ) ;
     public final AntlrDatatypeRuleToken ruleBindId() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -8627,10 +8790,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3462:2: ( (this_ID_0= RULE_ID | kw= '_' ) )
-            // InternalFortXTrans.g:3463:2: (this_ID_0= RULE_ID | kw= '_' )
+            // InternalFortXTrans.g:3532:2: ( (this_ID_0= RULE_ID | kw= '_' ) )
+            // InternalFortXTrans.g:3533:2: (this_ID_0= RULE_ID | kw= '_' )
             {
-            // InternalFortXTrans.g:3463:2: (this_ID_0= RULE_ID | kw= '_' )
+            // InternalFortXTrans.g:3533:2: (this_ID_0= RULE_ID | kw= '_' )
             int alt55=2;
             int LA55_0 = input.LA(1);
 
@@ -8648,7 +8811,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt55) {
                 case 1 :
-                    // InternalFortXTrans.g:3464:3: this_ID_0= RULE_ID
+                    // InternalFortXTrans.g:3534:3: this_ID_0= RULE_ID
                     {
                     this_ID_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -8661,7 +8824,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:3472:3: kw= '_'
+                    // InternalFortXTrans.g:3542:3: kw= '_'
                     {
                     kw=(Token)match(input,53,FOLLOW_2); 
 
@@ -8694,7 +8857,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIsType"
-    // InternalFortXTrans.g:3481:1: entryRuleIsType returns [EObject current=null] : iv_ruleIsType= ruleIsType EOF ;
+    // InternalFortXTrans.g:3551:1: entryRuleIsType returns [EObject current=null] : iv_ruleIsType= ruleIsType EOF ;
     public final EObject entryRuleIsType() throws RecognitionException {
         EObject current = null;
 
@@ -8702,8 +8865,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3481:47: (iv_ruleIsType= ruleIsType EOF )
-            // InternalFortXTrans.g:3482:2: iv_ruleIsType= ruleIsType EOF
+            // InternalFortXTrans.g:3551:47: (iv_ruleIsType= ruleIsType EOF )
+            // InternalFortXTrans.g:3552:2: iv_ruleIsType= ruleIsType EOF
             {
              newCompositeNode(grammarAccess.getIsTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -8730,7 +8893,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIsType"
-    // InternalFortXTrans.g:3488:1: ruleIsType returns [EObject current=null] : (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) ) ;
+    // InternalFortXTrans.g:3558:1: ruleIsType returns [EObject current=null] : (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) ) ;
     public final EObject ruleIsType() throws RecognitionException {
         EObject current = null;
 
@@ -8742,21 +8905,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3494:2: ( (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) ) )
-            // InternalFortXTrans.g:3495:2: (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) )
+            // InternalFortXTrans.g:3564:2: ( (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) ) )
+            // InternalFortXTrans.g:3565:2: (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) )
             {
-            // InternalFortXTrans.g:3495:2: (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) )
-            // InternalFortXTrans.g:3496:3: otherlv_0= ':' ( (lv_type_1_0= ruleType ) )
+            // InternalFortXTrans.g:3565:2: (otherlv_0= ':' ( (lv_type_1_0= ruleType ) ) )
+            // InternalFortXTrans.g:3566:3: otherlv_0= ':' ( (lv_type_1_0= ruleType ) )
             {
             otherlv_0=(Token)match(input,37,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getIsTypeAccess().getColonKeyword_0());
             		
-            // InternalFortXTrans.g:3500:3: ( (lv_type_1_0= ruleType ) )
-            // InternalFortXTrans.g:3501:4: (lv_type_1_0= ruleType )
+            // InternalFortXTrans.g:3570:3: ( (lv_type_1_0= ruleType ) )
+            // InternalFortXTrans.g:3571:4: (lv_type_1_0= ruleType )
             {
-            // InternalFortXTrans.g:3501:4: (lv_type_1_0= ruleType )
-            // InternalFortXTrans.g:3502:5: lv_type_1_0= ruleType
+            // InternalFortXTrans.g:3571:4: (lv_type_1_0= ruleType )
+            // InternalFortXTrans.g:3572:5: lv_type_1_0= ruleType
             {
 
             					newCompositeNode(grammarAccess.getIsTypeAccess().getTypeTypeParserRuleCall_1_0());
@@ -8806,7 +8969,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleFieldDecl"
-    // InternalFortXTrans.g:3523:1: entryRuleFieldDecl returns [EObject current=null] : iv_ruleFieldDecl= ruleFieldDecl EOF ;
+    // InternalFortXTrans.g:3593:1: entryRuleFieldDecl returns [EObject current=null] : iv_ruleFieldDecl= ruleFieldDecl EOF ;
     public final EObject entryRuleFieldDecl() throws RecognitionException {
         EObject current = null;
 
@@ -8814,8 +8977,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3523:50: (iv_ruleFieldDecl= ruleFieldDecl EOF )
-            // InternalFortXTrans.g:3524:2: iv_ruleFieldDecl= ruleFieldDecl EOF
+            // InternalFortXTrans.g:3593:50: (iv_ruleFieldDecl= ruleFieldDecl EOF )
+            // InternalFortXTrans.g:3594:2: iv_ruleFieldDecl= ruleFieldDecl EOF
             {
              newCompositeNode(grammarAccess.getFieldDeclRule()); 
             pushFollow(FOLLOW_1);
@@ -8842,7 +9005,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleFieldDecl"
-    // InternalFortXTrans.g:3530:1: ruleFieldDecl returns [EObject current=null] : ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) ) ;
+    // InternalFortXTrans.g:3600:1: ruleFieldDecl returns [EObject current=null] : ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) ) ;
     public final EObject ruleFieldDecl() throws RecognitionException {
         EObject current = null;
 
@@ -8882,20 +9045,20 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3536:2: ( ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) ) )
-            // InternalFortXTrans.g:3537:2: ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) )
+            // InternalFortXTrans.g:3606:2: ( ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) ) )
+            // InternalFortXTrans.g:3607:2: ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) )
             {
-            // InternalFortXTrans.g:3537:2: ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) )
+            // InternalFortXTrans.g:3607:2: ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) )
             int alt63=4;
             alt63 = dfa63.predict(input);
             switch (alt63) {
                 case 1 :
-                    // InternalFortXTrans.g:3538:3: ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) )
+                    // InternalFortXTrans.g:3608:3: ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) )
                     {
-                    // InternalFortXTrans.g:3538:3: ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) )
-                    // InternalFortXTrans.g:3539:4: ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) )
+                    // InternalFortXTrans.g:3608:3: ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) )
+                    // InternalFortXTrans.g:3609:4: ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) )
                     {
-                    // InternalFortXTrans.g:3539:4: ( (lv_pri_0_0= 'private' ) )?
+                    // InternalFortXTrans.g:3609:4: ( (lv_pri_0_0= 'private' ) )?
                     int alt56=2;
                     int LA56_0 = input.LA(1);
 
@@ -8904,12 +9067,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt56) {
                         case 1 :
-                            // InternalFortXTrans.g:3540:5: (lv_pri_0_0= 'private' )
+                            // InternalFortXTrans.g:3610:5: (lv_pri_0_0= 'private' )
                             {
-                            // InternalFortXTrans.g:3540:5: (lv_pri_0_0= 'private' )
-                            // InternalFortXTrans.g:3541:6: lv_pri_0_0= 'private'
+                            // InternalFortXTrans.g:3610:5: (lv_pri_0_0= 'private' )
+                            // InternalFortXTrans.g:3611:6: lv_pri_0_0= 'private'
                             {
-                            lv_pri_0_0=(Token)match(input,31,FOLLOW_48); 
+                            lv_pri_0_0=(Token)match(input,31,FOLLOW_47); 
 
                             						newLeafNode(lv_pri_0_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_0_0_0());
                             					
@@ -8928,7 +9091,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3553:4: ( (lv_mut_1_0= 'var' ) )?
+                    // InternalFortXTrans.g:3623:4: ( (lv_mut_1_0= 'var' ) )?
                     int alt57=2;
                     int LA57_0 = input.LA(1);
 
@@ -8937,12 +9100,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt57) {
                         case 1 :
-                            // InternalFortXTrans.g:3554:5: (lv_mut_1_0= 'var' )
+                            // InternalFortXTrans.g:3624:5: (lv_mut_1_0= 'var' )
                             {
-                            // InternalFortXTrans.g:3554:5: (lv_mut_1_0= 'var' )
-                            // InternalFortXTrans.g:3555:6: lv_mut_1_0= 'var'
+                            // InternalFortXTrans.g:3624:5: (lv_mut_1_0= 'var' )
+                            // InternalFortXTrans.g:3625:6: lv_mut_1_0= 'var'
                             {
-                            lv_mut_1_0=(Token)match(input,54,FOLLOW_48); 
+                            lv_mut_1_0=(Token)match(input,54,FOLLOW_47); 
 
                             						newLeafNode(lv_mut_1_0, grammarAccess.getFieldDeclAccess().getMutVarKeyword_0_1_0());
                             					
@@ -8961,16 +9124,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3567:4: ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) )
-                    // InternalFortXTrans.g:3568:5: (lv_vars_2_0= ruleNoNewlineVarWTypes )
+                    // InternalFortXTrans.g:3637:4: ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) )
+                    // InternalFortXTrans.g:3638:5: (lv_vars_2_0= ruleNoNewlineVarWTypes )
                     {
-                    // InternalFortXTrans.g:3568:5: (lv_vars_2_0= ruleNoNewlineVarWTypes )
-                    // InternalFortXTrans.g:3569:6: lv_vars_2_0= ruleNoNewlineVarWTypes
+                    // InternalFortXTrans.g:3638:5: (lv_vars_2_0= ruleNoNewlineVarWTypes )
+                    // InternalFortXTrans.g:3639:6: lv_vars_2_0= ruleNoNewlineVarWTypes
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getVarsNoNewlineVarWTypesParserRuleCall_0_2_0());
                     					
-                    pushFollow(FOLLOW_49);
+                    pushFollow(FOLLOW_48);
                     lv_vars_2_0=ruleNoNewlineVarWTypes();
 
                     state._fsp--;
@@ -8992,11 +9155,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3586:4: ( (lv_init_3_0= ruleInitVal ) )
-                    // InternalFortXTrans.g:3587:5: (lv_init_3_0= ruleInitVal )
+                    // InternalFortXTrans.g:3656:4: ( (lv_init_3_0= ruleInitVal ) )
+                    // InternalFortXTrans.g:3657:5: (lv_init_3_0= ruleInitVal )
                     {
-                    // InternalFortXTrans.g:3587:5: (lv_init_3_0= ruleInitVal )
-                    // InternalFortXTrans.g:3588:6: lv_init_3_0= ruleInitVal
+                    // InternalFortXTrans.g:3657:5: (lv_init_3_0= ruleInitVal )
+                    // InternalFortXTrans.g:3658:6: lv_init_3_0= ruleInitVal
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getInitInitValParserRuleCall_0_3_0());
@@ -9030,12 +9193,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:3607:3: ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:3677:3: ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
                     {
-                    // InternalFortXTrans.g:3607:3: ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
-                    // InternalFortXTrans.g:3608:4: ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:3677:3: ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:3678:4: ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) )
                     {
-                    // InternalFortXTrans.g:3608:4: ( (lv_pri_4_0= 'private' ) )?
+                    // InternalFortXTrans.g:3678:4: ( (lv_pri_4_0= 'private' ) )?
                     int alt58=2;
                     int LA58_0 = input.LA(1);
 
@@ -9044,10 +9207,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt58) {
                         case 1 :
-                            // InternalFortXTrans.g:3609:5: (lv_pri_4_0= 'private' )
+                            // InternalFortXTrans.g:3679:5: (lv_pri_4_0= 'private' )
                             {
-                            // InternalFortXTrans.g:3609:5: (lv_pri_4_0= 'private' )
-                            // InternalFortXTrans.g:3610:6: lv_pri_4_0= 'private'
+                            // InternalFortXTrans.g:3679:5: (lv_pri_4_0= 'private' )
+                            // InternalFortXTrans.g:3680:6: lv_pri_4_0= 'private'
                             {
                             lv_pri_4_0=(Token)match(input,31,FOLLOW_33); 
 
@@ -9068,16 +9231,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3622:4: ( (lv_idtup_5_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:3623:5: (lv_idtup_5_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3692:4: ( (lv_idtup_5_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:3693:5: (lv_idtup_5_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:3623:5: (lv_idtup_5_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:3624:6: lv_idtup_5_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:3693:5: (lv_idtup_5_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3694:6: lv_idtup_5_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getIdtupIdOrTupleParserRuleCall_1_1_0());
                     					
-                    pushFollow(FOLLOW_50);
+                    pushFollow(FOLLOW_49);
                     lv_idtup_5_0=ruleIdOrTuple();
 
                     state._fsp--;
@@ -9099,15 +9262,15 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,38,FOLLOW_51); 
+                    otherlv_6=(Token)match(input,38,FOLLOW_50); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getFieldDeclAccess().getEqualsSignKeyword_1_2());
                     			
-                    // InternalFortXTrans.g:3645:4: ( (lv_litTup_7_0= ruleLiteralTuple ) )
-                    // InternalFortXTrans.g:3646:5: (lv_litTup_7_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:3715:4: ( (lv_litTup_7_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:3716:5: (lv_litTup_7_0= ruleLiteralTuple )
                     {
-                    // InternalFortXTrans.g:3646:5: (lv_litTup_7_0= ruleLiteralTuple )
-                    // InternalFortXTrans.g:3647:6: lv_litTup_7_0= ruleLiteralTuple
+                    // InternalFortXTrans.g:3716:5: (lv_litTup_7_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:3717:6: lv_litTup_7_0= ruleLiteralTuple
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getLitTupLiteralTupleParserRuleCall_1_3_0());
@@ -9141,12 +9304,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalFortXTrans.g:3666:3: ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) )
+                    // InternalFortXTrans.g:3736:3: ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) )
                     {
-                    // InternalFortXTrans.g:3666:3: ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) )
-                    // InternalFortXTrans.g:3667:4: ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) )
+                    // InternalFortXTrans.g:3736:3: ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) )
+                    // InternalFortXTrans.g:3737:4: ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) )
                     {
-                    // InternalFortXTrans.g:3667:4: ( (lv_pri_8_0= 'private' ) )?
+                    // InternalFortXTrans.g:3737:4: ( (lv_pri_8_0= 'private' ) )?
                     int alt59=2;
                     int LA59_0 = input.LA(1);
 
@@ -9155,12 +9318,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt59) {
                         case 1 :
-                            // InternalFortXTrans.g:3668:5: (lv_pri_8_0= 'private' )
+                            // InternalFortXTrans.g:3738:5: (lv_pri_8_0= 'private' )
                             {
-                            // InternalFortXTrans.g:3668:5: (lv_pri_8_0= 'private' )
-                            // InternalFortXTrans.g:3669:6: lv_pri_8_0= 'private'
+                            // InternalFortXTrans.g:3738:5: (lv_pri_8_0= 'private' )
+                            // InternalFortXTrans.g:3739:6: lv_pri_8_0= 'private'
                             {
-                            lv_pri_8_0=(Token)match(input,31,FOLLOW_48); 
+                            lv_pri_8_0=(Token)match(input,31,FOLLOW_47); 
 
                             						newLeafNode(lv_pri_8_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_2_0_0());
                             					
@@ -9179,7 +9342,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3681:4: ( (lv_mut_9_0= 'var' ) )?
+                    // InternalFortXTrans.g:3751:4: ( (lv_mut_9_0= 'var' ) )?
                     int alt60=2;
                     int LA60_0 = input.LA(1);
 
@@ -9188,10 +9351,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt60) {
                         case 1 :
-                            // InternalFortXTrans.g:3682:5: (lv_mut_9_0= 'var' )
+                            // InternalFortXTrans.g:3752:5: (lv_mut_9_0= 'var' )
                             {
-                            // InternalFortXTrans.g:3682:5: (lv_mut_9_0= 'var' )
-                            // InternalFortXTrans.g:3683:6: lv_mut_9_0= 'var'
+                            // InternalFortXTrans.g:3752:5: (lv_mut_9_0= 'var' )
+                            // InternalFortXTrans.g:3753:6: lv_mut_9_0= 'var'
                             {
                             lv_mut_9_0=(Token)match(input,54,FOLLOW_33); 
 
@@ -9212,11 +9375,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3695:4: ( (lv_idtup_10_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:3696:5: (lv_idtup_10_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3765:4: ( (lv_idtup_10_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:3766:5: (lv_idtup_10_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:3696:5: (lv_idtup_10_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:3697:6: lv_idtup_10_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:3766:5: (lv_idtup_10_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3767:6: lv_idtup_10_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getIdtupIdOrTupleParserRuleCall_2_2_0());
@@ -9247,11 +9410,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_11, grammarAccess.getFieldDeclAccess().getColonKeyword_2_3());
                     			
-                    // InternalFortXTrans.g:3718:4: ( (lv_type_12_0= ruleType ) )
-                    // InternalFortXTrans.g:3719:5: (lv_type_12_0= ruleType )
+                    // InternalFortXTrans.g:3788:4: ( (lv_type_12_0= ruleType ) )
+                    // InternalFortXTrans.g:3789:5: (lv_type_12_0= ruleType )
                     {
-                    // InternalFortXTrans.g:3719:5: (lv_type_12_0= ruleType )
-                    // InternalFortXTrans.g:3720:6: lv_type_12_0= ruleType
+                    // InternalFortXTrans.g:3789:5: (lv_type_12_0= ruleType )
+                    // InternalFortXTrans.g:3790:6: lv_type_12_0= ruleType
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getTypeTypeParserRuleCall_2_4_0());
@@ -9278,15 +9441,15 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    this_DOTS_13=(Token)match(input,RULE_DOTS,FOLLOW_49); 
+                    this_DOTS_13=(Token)match(input,RULE_DOTS,FOLLOW_48); 
 
                     				newLeafNode(this_DOTS_13, grammarAccess.getFieldDeclAccess().getDOTSTerminalRuleCall_2_5());
                     			
-                    // InternalFortXTrans.g:3741:4: ( (lv_init_14_0= ruleInitVal ) )
-                    // InternalFortXTrans.g:3742:5: (lv_init_14_0= ruleInitVal )
+                    // InternalFortXTrans.g:3811:4: ( (lv_init_14_0= ruleInitVal ) )
+                    // InternalFortXTrans.g:3812:5: (lv_init_14_0= ruleInitVal )
                     {
-                    // InternalFortXTrans.g:3742:5: (lv_init_14_0= ruleInitVal )
-                    // InternalFortXTrans.g:3743:6: lv_init_14_0= ruleInitVal
+                    // InternalFortXTrans.g:3812:5: (lv_init_14_0= ruleInitVal )
+                    // InternalFortXTrans.g:3813:6: lv_init_14_0= ruleInitVal
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getInitInitValParserRuleCall_2_6_0());
@@ -9320,12 +9483,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalFortXTrans.g:3762:3: ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) )
+                    // InternalFortXTrans.g:3832:3: ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) )
                     {
-                    // InternalFortXTrans.g:3762:3: ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) )
-                    // InternalFortXTrans.g:3763:4: ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) )
+                    // InternalFortXTrans.g:3832:3: ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) )
+                    // InternalFortXTrans.g:3833:4: ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) )
                     {
-                    // InternalFortXTrans.g:3763:4: ( (lv_pri_15_0= 'private' ) )?
+                    // InternalFortXTrans.g:3833:4: ( (lv_pri_15_0= 'private' ) )?
                     int alt61=2;
                     int LA61_0 = input.LA(1);
 
@@ -9334,12 +9497,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt61) {
                         case 1 :
-                            // InternalFortXTrans.g:3764:5: (lv_pri_15_0= 'private' )
+                            // InternalFortXTrans.g:3834:5: (lv_pri_15_0= 'private' )
                             {
-                            // InternalFortXTrans.g:3764:5: (lv_pri_15_0= 'private' )
-                            // InternalFortXTrans.g:3765:6: lv_pri_15_0= 'private'
+                            // InternalFortXTrans.g:3834:5: (lv_pri_15_0= 'private' )
+                            // InternalFortXTrans.g:3835:6: lv_pri_15_0= 'private'
                             {
-                            lv_pri_15_0=(Token)match(input,31,FOLLOW_48); 
+                            lv_pri_15_0=(Token)match(input,31,FOLLOW_47); 
 
                             						newLeafNode(lv_pri_15_0, grammarAccess.getFieldDeclAccess().getPriPrivateKeyword_3_0_0());
                             					
@@ -9358,7 +9521,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3777:4: ( (lv_mut_16_0= 'var' ) )?
+                    // InternalFortXTrans.g:3847:4: ( (lv_mut_16_0= 'var' ) )?
                     int alt62=2;
                     int LA62_0 = input.LA(1);
 
@@ -9367,10 +9530,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt62) {
                         case 1 :
-                            // InternalFortXTrans.g:3778:5: (lv_mut_16_0= 'var' )
+                            // InternalFortXTrans.g:3848:5: (lv_mut_16_0= 'var' )
                             {
-                            // InternalFortXTrans.g:3778:5: (lv_mut_16_0= 'var' )
-                            // InternalFortXTrans.g:3779:6: lv_mut_16_0= 'var'
+                            // InternalFortXTrans.g:3848:5: (lv_mut_16_0= 'var' )
+                            // InternalFortXTrans.g:3849:6: lv_mut_16_0= 'var'
                             {
                             lv_mut_16_0=(Token)match(input,54,FOLLOW_33); 
 
@@ -9391,11 +9554,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3791:4: ( (lv_idtup_17_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:3792:5: (lv_idtup_17_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3861:4: ( (lv_idtup_17_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:3862:5: (lv_idtup_17_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:3792:5: (lv_idtup_17_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:3793:6: lv_idtup_17_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:3862:5: (lv_idtup_17_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:3863:6: lv_idtup_17_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getIdtupIdOrTupleParserRuleCall_3_2_0());
@@ -9426,16 +9589,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_18, grammarAccess.getFieldDeclAccess().getColonKeyword_3_3());
                     			
-                    // InternalFortXTrans.g:3814:4: ( (lv_tuptype_19_0= ruleTupleType ) )
-                    // InternalFortXTrans.g:3815:5: (lv_tuptype_19_0= ruleTupleType )
+                    // InternalFortXTrans.g:3884:4: ( (lv_tuptype_19_0= ruleTupleType ) )
+                    // InternalFortXTrans.g:3885:5: (lv_tuptype_19_0= ruleTupleType )
                     {
-                    // InternalFortXTrans.g:3815:5: (lv_tuptype_19_0= ruleTupleType )
-                    // InternalFortXTrans.g:3816:6: lv_tuptype_19_0= ruleTupleType
+                    // InternalFortXTrans.g:3885:5: (lv_tuptype_19_0= ruleTupleType )
+                    // InternalFortXTrans.g:3886:6: lv_tuptype_19_0= ruleTupleType
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getTuptypeTupleTypeParserRuleCall_3_4_0());
                     					
-                    pushFollow(FOLLOW_49);
+                    pushFollow(FOLLOW_48);
                     lv_tuptype_19_0=ruleTupleType();
 
                     state._fsp--;
@@ -9457,11 +9620,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3833:4: ( (lv_init_20_0= ruleInitVal ) )
-                    // InternalFortXTrans.g:3834:5: (lv_init_20_0= ruleInitVal )
+                    // InternalFortXTrans.g:3903:4: ( (lv_init_20_0= ruleInitVal ) )
+                    // InternalFortXTrans.g:3904:5: (lv_init_20_0= ruleInitVal )
                     {
-                    // InternalFortXTrans.g:3834:5: (lv_init_20_0= ruleInitVal )
-                    // InternalFortXTrans.g:3835:6: lv_init_20_0= ruleInitVal
+                    // InternalFortXTrans.g:3904:5: (lv_init_20_0= ruleInitVal )
+                    // InternalFortXTrans.g:3905:6: lv_init_20_0= ruleInitVal
                     {
 
                     						newCompositeNode(grammarAccess.getFieldDeclAccess().getInitInitValParserRuleCall_3_5_0());
@@ -9517,7 +9680,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNoNewlineVarWTypes"
-    // InternalFortXTrans.g:3857:1: entryRuleNoNewlineVarWTypes returns [EObject current=null] : iv_ruleNoNewlineVarWTypes= ruleNoNewlineVarWTypes EOF ;
+    // InternalFortXTrans.g:3927:1: entryRuleNoNewlineVarWTypes returns [EObject current=null] : iv_ruleNoNewlineVarWTypes= ruleNoNewlineVarWTypes EOF ;
     public final EObject entryRuleNoNewlineVarWTypes() throws RecognitionException {
         EObject current = null;
 
@@ -9525,8 +9688,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3857:59: (iv_ruleNoNewlineVarWTypes= ruleNoNewlineVarWTypes EOF )
-            // InternalFortXTrans.g:3858:2: iv_ruleNoNewlineVarWTypes= ruleNoNewlineVarWTypes EOF
+            // InternalFortXTrans.g:3927:59: (iv_ruleNoNewlineVarWTypes= ruleNoNewlineVarWTypes EOF )
+            // InternalFortXTrans.g:3928:2: iv_ruleNoNewlineVarWTypes= ruleNoNewlineVarWTypes EOF
             {
              newCompositeNode(grammarAccess.getNoNewlineVarWTypesRule()); 
             pushFollow(FOLLOW_1);
@@ -9553,7 +9716,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNoNewlineVarWTypes"
-    // InternalFortXTrans.g:3864:1: ruleNoNewlineVarWTypes returns [EObject current=null] : ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) ) ;
+    // InternalFortXTrans.g:3934:1: ruleNoNewlineVarWTypes returns [EObject current=null] : ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) ) ;
     public final EObject ruleNoNewlineVarWTypes() throws RecognitionException {
         EObject current = null;
 
@@ -9571,10 +9734,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3870:2: ( ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) ) )
-            // InternalFortXTrans.g:3871:2: ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) )
+            // InternalFortXTrans.g:3940:2: ( ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) ) )
+            // InternalFortXTrans.g:3941:2: ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) )
             {
-            // InternalFortXTrans.g:3871:2: ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) )
+            // InternalFortXTrans.g:3941:2: ( ( (lv_single_0_0= ruleNoNewlineVarWType ) ) | (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' ) )
             int alt65=2;
             int LA65_0 = input.LA(1);
 
@@ -9592,13 +9755,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt65) {
                 case 1 :
-                    // InternalFortXTrans.g:3872:3: ( (lv_single_0_0= ruleNoNewlineVarWType ) )
+                    // InternalFortXTrans.g:3942:3: ( (lv_single_0_0= ruleNoNewlineVarWType ) )
                     {
-                    // InternalFortXTrans.g:3872:3: ( (lv_single_0_0= ruleNoNewlineVarWType ) )
-                    // InternalFortXTrans.g:3873:4: (lv_single_0_0= ruleNoNewlineVarWType )
+                    // InternalFortXTrans.g:3942:3: ( (lv_single_0_0= ruleNoNewlineVarWType ) )
+                    // InternalFortXTrans.g:3943:4: (lv_single_0_0= ruleNoNewlineVarWType )
                     {
-                    // InternalFortXTrans.g:3873:4: (lv_single_0_0= ruleNoNewlineVarWType )
-                    // InternalFortXTrans.g:3874:5: lv_single_0_0= ruleNoNewlineVarWType
+                    // InternalFortXTrans.g:3943:4: (lv_single_0_0= ruleNoNewlineVarWType )
+                    // InternalFortXTrans.g:3944:5: lv_single_0_0= ruleNoNewlineVarWType
                     {
 
                     					newCompositeNode(grammarAccess.getNoNewlineVarWTypesAccess().getSingleNoNewlineVarWTypeParserRuleCall_0_0());
@@ -9629,25 +9792,25 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:3892:3: (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' )
+                    // InternalFortXTrans.g:3962:3: (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' )
                     {
-                    // InternalFortXTrans.g:3892:3: (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' )
-                    // InternalFortXTrans.g:3893:4: otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')'
+                    // InternalFortXTrans.g:3962:3: (otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')' )
+                    // InternalFortXTrans.g:3963:4: otherlv_1= '(' ( (lv_multiple_2_0= ruleNoNewlineVarWType ) ) (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+ otherlv_5= ')'
                     {
                     otherlv_1=(Token)match(input,35,FOLLOW_23); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getNoNewlineVarWTypesAccess().getLeftParenthesisKeyword_1_0());
                     			
-                    // InternalFortXTrans.g:3897:4: ( (lv_multiple_2_0= ruleNoNewlineVarWType ) )
-                    // InternalFortXTrans.g:3898:5: (lv_multiple_2_0= ruleNoNewlineVarWType )
+                    // InternalFortXTrans.g:3967:4: ( (lv_multiple_2_0= ruleNoNewlineVarWType ) )
+                    // InternalFortXTrans.g:3968:5: (lv_multiple_2_0= ruleNoNewlineVarWType )
                     {
-                    // InternalFortXTrans.g:3898:5: (lv_multiple_2_0= ruleNoNewlineVarWType )
-                    // InternalFortXTrans.g:3899:6: lv_multiple_2_0= ruleNoNewlineVarWType
+                    // InternalFortXTrans.g:3968:5: (lv_multiple_2_0= ruleNoNewlineVarWType )
+                    // InternalFortXTrans.g:3969:6: lv_multiple_2_0= ruleNoNewlineVarWType
                     {
 
                     						newCompositeNode(grammarAccess.getNoNewlineVarWTypesAccess().getMultipleNoNewlineVarWTypeParserRuleCall_1_1_0());
                     					
-                    pushFollow(FOLLOW_39);
+                    pushFollow(FOLLOW_51);
                     lv_multiple_2_0=ruleNoNewlineVarWType();
 
                     state._fsp--;
@@ -9669,7 +9832,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:3916:4: (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+
+                    // InternalFortXTrans.g:3986:4: (otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) ) )+
                     int cnt64=0;
                     loop64:
                     do {
@@ -9683,17 +9846,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                         switch (alt64) {
                     	case 1 :
-                    	    // InternalFortXTrans.g:3917:5: otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) )
+                    	    // InternalFortXTrans.g:3987:5: otherlv_3= ',' ( (lv_multiple_4_0= ruleNoNewlineVarWType ) )
                     	    {
                     	    otherlv_3=(Token)match(input,26,FOLLOW_23); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getNoNewlineVarWTypesAccess().getCommaKeyword_1_2_0());
                     	    				
-                    	    // InternalFortXTrans.g:3921:5: ( (lv_multiple_4_0= ruleNoNewlineVarWType ) )
-                    	    // InternalFortXTrans.g:3922:6: (lv_multiple_4_0= ruleNoNewlineVarWType )
+                    	    // InternalFortXTrans.g:3991:5: ( (lv_multiple_4_0= ruleNoNewlineVarWType ) )
+                    	    // InternalFortXTrans.g:3992:6: (lv_multiple_4_0= ruleNoNewlineVarWType )
                     	    {
-                    	    // InternalFortXTrans.g:3922:6: (lv_multiple_4_0= ruleNoNewlineVarWType )
-                    	    // InternalFortXTrans.g:3923:7: lv_multiple_4_0= ruleNoNewlineVarWType
+                    	    // InternalFortXTrans.g:3992:6: (lv_multiple_4_0= ruleNoNewlineVarWType )
+                    	    // InternalFortXTrans.g:3993:7: lv_multiple_4_0= ruleNoNewlineVarWType
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getNoNewlineVarWTypesAccess().getMultipleNoNewlineVarWTypeParserRuleCall_1_2_1_0());
@@ -9766,7 +9929,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNoNewlineVarWType"
-    // InternalFortXTrans.g:3950:1: entryRuleNoNewlineVarWType returns [EObject current=null] : iv_ruleNoNewlineVarWType= ruleNoNewlineVarWType EOF ;
+    // InternalFortXTrans.g:4020:1: entryRuleNoNewlineVarWType returns [EObject current=null] : iv_ruleNoNewlineVarWType= ruleNoNewlineVarWType EOF ;
     public final EObject entryRuleNoNewlineVarWType() throws RecognitionException {
         EObject current = null;
 
@@ -9774,8 +9937,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:3950:58: (iv_ruleNoNewlineVarWType= ruleNoNewlineVarWType EOF )
-            // InternalFortXTrans.g:3951:2: iv_ruleNoNewlineVarWType= ruleNoNewlineVarWType EOF
+            // InternalFortXTrans.g:4020:58: (iv_ruleNoNewlineVarWType= ruleNoNewlineVarWType EOF )
+            // InternalFortXTrans.g:4021:2: iv_ruleNoNewlineVarWType= ruleNoNewlineVarWType EOF
             {
              newCompositeNode(grammarAccess.getNoNewlineVarWTypeRule()); 
             pushFollow(FOLLOW_1);
@@ -9802,7 +9965,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNoNewlineVarWType"
-    // InternalFortXTrans.g:3957:1: ruleNoNewlineVarWType returns [EObject current=null] : ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) ) ;
+    // InternalFortXTrans.g:4027:1: ruleNoNewlineVarWType returns [EObject current=null] : ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) ) ;
     public final EObject ruleNoNewlineVarWType() throws RecognitionException {
         EObject current = null;
 
@@ -9815,17 +9978,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:3963:2: ( ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) ) )
-            // InternalFortXTrans.g:3964:2: ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) )
+            // InternalFortXTrans.g:4033:2: ( ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) ) )
+            // InternalFortXTrans.g:4034:2: ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) )
             {
-            // InternalFortXTrans.g:3964:2: ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) )
-            // InternalFortXTrans.g:3965:3: ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) )
+            // InternalFortXTrans.g:4034:2: ( ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) ) )
+            // InternalFortXTrans.g:4035:3: ( (lv_bid_0_0= ruleBindId ) ) ( (lv_istype_1_0= ruleIsType ) )
             {
-            // InternalFortXTrans.g:3965:3: ( (lv_bid_0_0= ruleBindId ) )
-            // InternalFortXTrans.g:3966:4: (lv_bid_0_0= ruleBindId )
+            // InternalFortXTrans.g:4035:3: ( (lv_bid_0_0= ruleBindId ) )
+            // InternalFortXTrans.g:4036:4: (lv_bid_0_0= ruleBindId )
             {
-            // InternalFortXTrans.g:3966:4: (lv_bid_0_0= ruleBindId )
-            // InternalFortXTrans.g:3967:5: lv_bid_0_0= ruleBindId
+            // InternalFortXTrans.g:4036:4: (lv_bid_0_0= ruleBindId )
+            // InternalFortXTrans.g:4037:5: lv_bid_0_0= ruleBindId
             {
 
             					newCompositeNode(grammarAccess.getNoNewlineVarWTypeAccess().getBidBindIdParserRuleCall_0_0());
@@ -9852,11 +10015,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalFortXTrans.g:3984:3: ( (lv_istype_1_0= ruleIsType ) )
-            // InternalFortXTrans.g:3985:4: (lv_istype_1_0= ruleIsType )
+            // InternalFortXTrans.g:4054:3: ( (lv_istype_1_0= ruleIsType ) )
+            // InternalFortXTrans.g:4055:4: (lv_istype_1_0= ruleIsType )
             {
-            // InternalFortXTrans.g:3985:4: (lv_istype_1_0= ruleIsType )
-            // InternalFortXTrans.g:3986:5: lv_istype_1_0= ruleIsType
+            // InternalFortXTrans.g:4055:4: (lv_istype_1_0= ruleIsType )
+            // InternalFortXTrans.g:4056:5: lv_istype_1_0= ruleIsType
             {
 
             					newCompositeNode(grammarAccess.getNoNewlineVarWTypeAccess().getIstypeIsTypeParserRuleCall_1_0());
@@ -9906,7 +10069,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleInitVal"
-    // InternalFortXTrans.g:4007:1: entryRuleInitVal returns [EObject current=null] : iv_ruleInitVal= ruleInitVal EOF ;
+    // InternalFortXTrans.g:4077:1: entryRuleInitVal returns [EObject current=null] : iv_ruleInitVal= ruleInitVal EOF ;
     public final EObject entryRuleInitVal() throws RecognitionException {
         EObject current = null;
 
@@ -9914,8 +10077,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:4007:48: (iv_ruleInitVal= ruleInitVal EOF )
-            // InternalFortXTrans.g:4008:2: iv_ruleInitVal= ruleInitVal EOF
+            // InternalFortXTrans.g:4077:48: (iv_ruleInitVal= ruleInitVal EOF )
+            // InternalFortXTrans.g:4078:2: iv_ruleInitVal= ruleInitVal EOF
             {
              newCompositeNode(grammarAccess.getInitValRule()); 
             pushFollow(FOLLOW_1);
@@ -9942,7 +10105,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleInitVal"
-    // InternalFortXTrans.g:4014:1: ruleInitVal returns [EObject current=null] : ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) ) ;
+    // InternalFortXTrans.g:4084:1: ruleInitVal returns [EObject current=null] : ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) ) ;
     public final EObject ruleInitVal() throws RecognitionException {
         EObject current = null;
 
@@ -9957,10 +10120,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:4020:2: ( ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) ) )
-            // InternalFortXTrans.g:4021:2: ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) )
+            // InternalFortXTrans.g:4090:2: ( ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) ) )
+            // InternalFortXTrans.g:4091:2: ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) )
             {
-            // InternalFortXTrans.g:4021:2: ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) )
+            // InternalFortXTrans.g:4091:2: ( ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) ) | ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) ) )
             int alt66=2;
             int LA66_0 = input.LA(1);
 
@@ -9978,18 +10141,18 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt66) {
                 case 1 :
-                    // InternalFortXTrans.g:4022:3: ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:4092:3: ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) )
                     {
-                    // InternalFortXTrans.g:4022:3: ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) )
-                    // InternalFortXTrans.g:4023:4: ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:4092:3: ( ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:4093:4: ( (lv_mut_0_0= ':=' ) ) ( (lv_lit_1_0= ruleLiteralTuple ) )
                     {
-                    // InternalFortXTrans.g:4023:4: ( (lv_mut_0_0= ':=' ) )
-                    // InternalFortXTrans.g:4024:5: (lv_mut_0_0= ':=' )
+                    // InternalFortXTrans.g:4093:4: ( (lv_mut_0_0= ':=' ) )
+                    // InternalFortXTrans.g:4094:5: (lv_mut_0_0= ':=' )
                     {
-                    // InternalFortXTrans.g:4024:5: (lv_mut_0_0= ':=' )
-                    // InternalFortXTrans.g:4025:6: lv_mut_0_0= ':='
+                    // InternalFortXTrans.g:4094:5: (lv_mut_0_0= ':=' )
+                    // InternalFortXTrans.g:4095:6: lv_mut_0_0= ':='
                     {
-                    lv_mut_0_0=(Token)match(input,39,FOLLOW_51); 
+                    lv_mut_0_0=(Token)match(input,39,FOLLOW_50); 
 
                     						newLeafNode(lv_mut_0_0, grammarAccess.getInitValAccess().getMutColonEqualsSignKeyword_0_0_0());
                     					
@@ -10005,11 +10168,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4037:4: ( (lv_lit_1_0= ruleLiteralTuple ) )
-                    // InternalFortXTrans.g:4038:5: (lv_lit_1_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:4107:4: ( (lv_lit_1_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:4108:5: (lv_lit_1_0= ruleLiteralTuple )
                     {
-                    // InternalFortXTrans.g:4038:5: (lv_lit_1_0= ruleLiteralTuple )
-                    // InternalFortXTrans.g:4039:6: lv_lit_1_0= ruleLiteralTuple
+                    // InternalFortXTrans.g:4108:5: (lv_lit_1_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:4109:6: lv_lit_1_0= ruleLiteralTuple
                     {
 
                     						newCompositeNode(grammarAccess.getInitValAccess().getLitLiteralTupleParserRuleCall_0_1_0());
@@ -10043,18 +10206,18 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:4058:3: ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:4128:3: ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) )
                     {
-                    // InternalFortXTrans.g:4058:3: ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) )
-                    // InternalFortXTrans.g:4059:4: ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:4128:3: ( ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:4129:4: ( (lv_immut_2_0= '=' ) ) ( (lv_lit_3_0= ruleLiteralTuple ) )
                     {
-                    // InternalFortXTrans.g:4059:4: ( (lv_immut_2_0= '=' ) )
-                    // InternalFortXTrans.g:4060:5: (lv_immut_2_0= '=' )
+                    // InternalFortXTrans.g:4129:4: ( (lv_immut_2_0= '=' ) )
+                    // InternalFortXTrans.g:4130:5: (lv_immut_2_0= '=' )
                     {
-                    // InternalFortXTrans.g:4060:5: (lv_immut_2_0= '=' )
-                    // InternalFortXTrans.g:4061:6: lv_immut_2_0= '='
+                    // InternalFortXTrans.g:4130:5: (lv_immut_2_0= '=' )
+                    // InternalFortXTrans.g:4131:6: lv_immut_2_0= '='
                     {
-                    lv_immut_2_0=(Token)match(input,38,FOLLOW_51); 
+                    lv_immut_2_0=(Token)match(input,38,FOLLOW_50); 
 
                     						newLeafNode(lv_immut_2_0, grammarAccess.getInitValAccess().getImmutEqualsSignKeyword_1_0_0());
                     					
@@ -10070,11 +10233,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4073:4: ( (lv_lit_3_0= ruleLiteralTuple ) )
-                    // InternalFortXTrans.g:4074:5: (lv_lit_3_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:4143:4: ( (lv_lit_3_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:4144:5: (lv_lit_3_0= ruleLiteralTuple )
                     {
-                    // InternalFortXTrans.g:4074:5: (lv_lit_3_0= ruleLiteralTuple )
-                    // InternalFortXTrans.g:4075:6: lv_lit_3_0= ruleLiteralTuple
+                    // InternalFortXTrans.g:4144:5: (lv_lit_3_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:4145:6: lv_lit_3_0= ruleLiteralTuple
                     {
 
                     						newCompositeNode(grammarAccess.getInitValAccess().getLitLiteralTupleParserRuleCall_1_1_0());
@@ -10130,7 +10293,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteralTuple"
-    // InternalFortXTrans.g:4097:1: entryRuleLiteralTuple returns [EObject current=null] : iv_ruleLiteralTuple= ruleLiteralTuple EOF ;
+    // InternalFortXTrans.g:4167:1: entryRuleLiteralTuple returns [EObject current=null] : iv_ruleLiteralTuple= ruleLiteralTuple EOF ;
     public final EObject entryRuleLiteralTuple() throws RecognitionException {
         EObject current = null;
 
@@ -10138,8 +10301,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:4097:53: (iv_ruleLiteralTuple= ruleLiteralTuple EOF )
-            // InternalFortXTrans.g:4098:2: iv_ruleLiteralTuple= ruleLiteralTuple EOF
+            // InternalFortXTrans.g:4167:53: (iv_ruleLiteralTuple= ruleLiteralTuple EOF )
+            // InternalFortXTrans.g:4168:2: iv_ruleLiteralTuple= ruleLiteralTuple EOF
             {
              newCompositeNode(grammarAccess.getLiteralTupleRule()); 
             pushFollow(FOLLOW_1);
@@ -10166,7 +10329,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteralTuple"
-    // InternalFortXTrans.g:4104:1: ruleLiteralTuple returns [EObject current=null] : ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) ) ;
+    // InternalFortXTrans.g:4174:1: ruleLiteralTuple returns [EObject current=null] : ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) ) ;
     public final EObject ruleLiteralTuple() throws RecognitionException {
         EObject current = null;
 
@@ -10184,10 +10347,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:4110:2: ( ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) ) )
-            // InternalFortXTrans.g:4111:2: ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) )
+            // InternalFortXTrans.g:4180:2: ( ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) ) )
+            // InternalFortXTrans.g:4181:2: ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) )
             {
-            // InternalFortXTrans.g:4111:2: ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) )
+            // InternalFortXTrans.g:4181:2: ( ( (lv_lit_0_0= ruleLiteral ) ) | (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' ) )
             int alt68=2;
             int LA68_0 = input.LA(1);
 
@@ -10205,13 +10368,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             }
             switch (alt68) {
                 case 1 :
-                    // InternalFortXTrans.g:4112:3: ( (lv_lit_0_0= ruleLiteral ) )
+                    // InternalFortXTrans.g:4182:3: ( (lv_lit_0_0= ruleLiteral ) )
                     {
-                    // InternalFortXTrans.g:4112:3: ( (lv_lit_0_0= ruleLiteral ) )
-                    // InternalFortXTrans.g:4113:4: (lv_lit_0_0= ruleLiteral )
+                    // InternalFortXTrans.g:4182:3: ( (lv_lit_0_0= ruleLiteral ) )
+                    // InternalFortXTrans.g:4183:4: (lv_lit_0_0= ruleLiteral )
                     {
-                    // InternalFortXTrans.g:4113:4: (lv_lit_0_0= ruleLiteral )
-                    // InternalFortXTrans.g:4114:5: lv_lit_0_0= ruleLiteral
+                    // InternalFortXTrans.g:4183:4: (lv_lit_0_0= ruleLiteral )
+                    // InternalFortXTrans.g:4184:5: lv_lit_0_0= ruleLiteral
                     {
 
                     					newCompositeNode(grammarAccess.getLiteralTupleAccess().getLitLiteralParserRuleCall_0_0());
@@ -10242,25 +10405,25 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:4132:3: (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' )
+                    // InternalFortXTrans.g:4202:3: (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' )
                     {
-                    // InternalFortXTrans.g:4132:3: (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' )
-                    // InternalFortXTrans.g:4133:4: otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')'
+                    // InternalFortXTrans.g:4202:3: (otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')' )
+                    // InternalFortXTrans.g:4203:4: otherlv_1= '(' ( (lv_lits_2_0= ruleLiteral ) ) (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+ otherlv_5= ')'
                     {
                     otherlv_1=(Token)match(input,35,FOLLOW_52); 
 
                     				newLeafNode(otherlv_1, grammarAccess.getLiteralTupleAccess().getLeftParenthesisKeyword_1_0());
                     			
-                    // InternalFortXTrans.g:4137:4: ( (lv_lits_2_0= ruleLiteral ) )
-                    // InternalFortXTrans.g:4138:5: (lv_lits_2_0= ruleLiteral )
+                    // InternalFortXTrans.g:4207:4: ( (lv_lits_2_0= ruleLiteral ) )
+                    // InternalFortXTrans.g:4208:5: (lv_lits_2_0= ruleLiteral )
                     {
-                    // InternalFortXTrans.g:4138:5: (lv_lits_2_0= ruleLiteral )
-                    // InternalFortXTrans.g:4139:6: lv_lits_2_0= ruleLiteral
+                    // InternalFortXTrans.g:4208:5: (lv_lits_2_0= ruleLiteral )
+                    // InternalFortXTrans.g:4209:6: lv_lits_2_0= ruleLiteral
                     {
 
                     						newCompositeNode(grammarAccess.getLiteralTupleAccess().getLitsLiteralParserRuleCall_1_1_0());
                     					
-                    pushFollow(FOLLOW_39);
+                    pushFollow(FOLLOW_51);
                     lv_lits_2_0=ruleLiteral();
 
                     state._fsp--;
@@ -10282,7 +10445,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4156:4: (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+
+                    // InternalFortXTrans.g:4226:4: (otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) ) )+
                     int cnt67=0;
                     loop67:
                     do {
@@ -10296,17 +10459,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                         switch (alt67) {
                     	case 1 :
-                    	    // InternalFortXTrans.g:4157:5: otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) )
+                    	    // InternalFortXTrans.g:4227:5: otherlv_3= ',' ( (lv_lits_4_0= ruleLiteral ) )
                     	    {
                     	    otherlv_3=(Token)match(input,26,FOLLOW_52); 
 
                     	    					newLeafNode(otherlv_3, grammarAccess.getLiteralTupleAccess().getCommaKeyword_1_2_0());
                     	    				
-                    	    // InternalFortXTrans.g:4161:5: ( (lv_lits_4_0= ruleLiteral ) )
-                    	    // InternalFortXTrans.g:4162:6: (lv_lits_4_0= ruleLiteral )
+                    	    // InternalFortXTrans.g:4231:5: ( (lv_lits_4_0= ruleLiteral ) )
+                    	    // InternalFortXTrans.g:4232:6: (lv_lits_4_0= ruleLiteral )
                     	    {
-                    	    // InternalFortXTrans.g:4162:6: (lv_lits_4_0= ruleLiteral )
-                    	    // InternalFortXTrans.g:4163:7: lv_lits_4_0= ruleLiteral
+                    	    // InternalFortXTrans.g:4232:6: (lv_lits_4_0= ruleLiteral )
+                    	    // InternalFortXTrans.g:4233:7: lv_lits_4_0= ruleLiteral
                     	    {
 
                     	    							newCompositeNode(grammarAccess.getLiteralTupleAccess().getLitsLiteralParserRuleCall_1_2_1_0());
@@ -10379,7 +10542,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLiteral"
-    // InternalFortXTrans.g:4190:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
+    // InternalFortXTrans.g:4260:1: entryRuleLiteral returns [EObject current=null] : iv_ruleLiteral= ruleLiteral EOF ;
     public final EObject entryRuleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10387,8 +10550,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:4190:48: (iv_ruleLiteral= ruleLiteral EOF )
-            // InternalFortXTrans.g:4191:2: iv_ruleLiteral= ruleLiteral EOF
+            // InternalFortXTrans.g:4260:48: (iv_ruleLiteral= ruleLiteral EOF )
+            // InternalFortXTrans.g:4261:2: iv_ruleLiteral= ruleLiteral EOF
             {
              newCompositeNode(grammarAccess.getLiteralRule()); 
             pushFollow(FOLLOW_1);
@@ -10415,7 +10578,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLiteral"
-    // InternalFortXTrans.g:4197:1: ruleLiteral returns [EObject current=null] : ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) ) ;
+    // InternalFortXTrans.g:4267:1: ruleLiteral returns [EObject current=null] : ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) ) ;
     public final EObject ruleLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -10429,10 +10592,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:4203:2: ( ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) ) )
-            // InternalFortXTrans.g:4204:2: ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) )
+            // InternalFortXTrans.g:4273:2: ( ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) ) )
+            // InternalFortXTrans.g:4274:2: ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) )
             {
-            // InternalFortXTrans.g:4204:2: ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) )
+            // InternalFortXTrans.g:4274:2: ( ( (lv_intg_0_0= RULE_INT ) ) | ( (lv_flot_1_0= RULE_FLOAT ) ) | ( (lv_str_2_0= RULE_STRING ) ) | ( (lv_q_3_0= ruleQualifiedName ) ) )
             int alt69=4;
             switch ( input.LA(1) ) {
             case RULE_INT:
@@ -10464,13 +10627,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
             switch (alt69) {
                 case 1 :
-                    // InternalFortXTrans.g:4205:3: ( (lv_intg_0_0= RULE_INT ) )
+                    // InternalFortXTrans.g:4275:3: ( (lv_intg_0_0= RULE_INT ) )
                     {
-                    // InternalFortXTrans.g:4205:3: ( (lv_intg_0_0= RULE_INT ) )
-                    // InternalFortXTrans.g:4206:4: (lv_intg_0_0= RULE_INT )
+                    // InternalFortXTrans.g:4275:3: ( (lv_intg_0_0= RULE_INT ) )
+                    // InternalFortXTrans.g:4276:4: (lv_intg_0_0= RULE_INT )
                     {
-                    // InternalFortXTrans.g:4206:4: (lv_intg_0_0= RULE_INT )
-                    // InternalFortXTrans.g:4207:5: lv_intg_0_0= RULE_INT
+                    // InternalFortXTrans.g:4276:4: (lv_intg_0_0= RULE_INT )
+                    // InternalFortXTrans.g:4277:5: lv_intg_0_0= RULE_INT
                     {
                     lv_intg_0_0=(Token)match(input,RULE_INT,FOLLOW_2); 
 
@@ -10496,13 +10659,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:4224:3: ( (lv_flot_1_0= RULE_FLOAT ) )
+                    // InternalFortXTrans.g:4294:3: ( (lv_flot_1_0= RULE_FLOAT ) )
                     {
-                    // InternalFortXTrans.g:4224:3: ( (lv_flot_1_0= RULE_FLOAT ) )
-                    // InternalFortXTrans.g:4225:4: (lv_flot_1_0= RULE_FLOAT )
+                    // InternalFortXTrans.g:4294:3: ( (lv_flot_1_0= RULE_FLOAT ) )
+                    // InternalFortXTrans.g:4295:4: (lv_flot_1_0= RULE_FLOAT )
                     {
-                    // InternalFortXTrans.g:4225:4: (lv_flot_1_0= RULE_FLOAT )
-                    // InternalFortXTrans.g:4226:5: lv_flot_1_0= RULE_FLOAT
+                    // InternalFortXTrans.g:4295:4: (lv_flot_1_0= RULE_FLOAT )
+                    // InternalFortXTrans.g:4296:5: lv_flot_1_0= RULE_FLOAT
                     {
                     lv_flot_1_0=(Token)match(input,RULE_FLOAT,FOLLOW_2); 
 
@@ -10528,13 +10691,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalFortXTrans.g:4243:3: ( (lv_str_2_0= RULE_STRING ) )
+                    // InternalFortXTrans.g:4313:3: ( (lv_str_2_0= RULE_STRING ) )
                     {
-                    // InternalFortXTrans.g:4243:3: ( (lv_str_2_0= RULE_STRING ) )
-                    // InternalFortXTrans.g:4244:4: (lv_str_2_0= RULE_STRING )
+                    // InternalFortXTrans.g:4313:3: ( (lv_str_2_0= RULE_STRING ) )
+                    // InternalFortXTrans.g:4314:4: (lv_str_2_0= RULE_STRING )
                     {
-                    // InternalFortXTrans.g:4244:4: (lv_str_2_0= RULE_STRING )
-                    // InternalFortXTrans.g:4245:5: lv_str_2_0= RULE_STRING
+                    // InternalFortXTrans.g:4314:4: (lv_str_2_0= RULE_STRING )
+                    // InternalFortXTrans.g:4315:5: lv_str_2_0= RULE_STRING
                     {
                     lv_str_2_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -10560,13 +10723,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalFortXTrans.g:4262:3: ( (lv_q_3_0= ruleQualifiedName ) )
+                    // InternalFortXTrans.g:4332:3: ( (lv_q_3_0= ruleQualifiedName ) )
                     {
-                    // InternalFortXTrans.g:4262:3: ( (lv_q_3_0= ruleQualifiedName ) )
-                    // InternalFortXTrans.g:4263:4: (lv_q_3_0= ruleQualifiedName )
+                    // InternalFortXTrans.g:4332:3: ( (lv_q_3_0= ruleQualifiedName ) )
+                    // InternalFortXTrans.g:4333:4: (lv_q_3_0= ruleQualifiedName )
                     {
-                    // InternalFortXTrans.g:4263:4: (lv_q_3_0= ruleQualifiedName )
-                    // InternalFortXTrans.g:4264:5: lv_q_3_0= ruleQualifiedName
+                    // InternalFortXTrans.g:4333:4: (lv_q_3_0= ruleQualifiedName )
+                    // InternalFortXTrans.g:4334:5: lv_q_3_0= ruleQualifiedName
                     {
 
                     					newCompositeNode(grammarAccess.getLiteralAccess().getQQualifiedNameParserRuleCall_3_0());
@@ -10619,7 +10782,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLocalVarDecl"
-    // InternalFortXTrans.g:4285:1: entryRuleLocalVarDecl returns [EObject current=null] : iv_ruleLocalVarDecl= ruleLocalVarDecl EOF ;
+    // InternalFortXTrans.g:4355:1: entryRuleLocalVarDecl returns [EObject current=null] : iv_ruleLocalVarDecl= ruleLocalVarDecl EOF ;
     public final EObject entryRuleLocalVarDecl() throws RecognitionException {
         EObject current = null;
 
@@ -10627,8 +10790,8 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalFortXTrans.g:4285:53: (iv_ruleLocalVarDecl= ruleLocalVarDecl EOF )
-            // InternalFortXTrans.g:4286:2: iv_ruleLocalVarDecl= ruleLocalVarDecl EOF
+            // InternalFortXTrans.g:4355:53: (iv_ruleLocalVarDecl= ruleLocalVarDecl EOF )
+            // InternalFortXTrans.g:4356:2: iv_ruleLocalVarDecl= ruleLocalVarDecl EOF
             {
              newCompositeNode(grammarAccess.getLocalVarDeclRule()); 
             pushFollow(FOLLOW_1);
@@ -10655,7 +10818,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLocalVarDecl"
-    // InternalFortXTrans.g:4292:1: ruleLocalVarDecl returns [EObject current=null] : ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) ) ) ;
+    // InternalFortXTrans.g:4362:1: ruleLocalVarDecl returns [EObject current=null] : ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) ) ) ;
     public final EObject ruleLocalVarDecl() throws RecognitionException {
         EObject current = null;
 
@@ -10697,20 +10860,20 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalFortXTrans.g:4298:2: ( ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) ) ) )
-            // InternalFortXTrans.g:4299:2: ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) ) )
+            // InternalFortXTrans.g:4368:2: ( ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) ) ) )
+            // InternalFortXTrans.g:4369:2: ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) ) )
             {
-            // InternalFortXTrans.g:4299:2: ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) ) )
+            // InternalFortXTrans.g:4369:2: ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) ) )
             int alt76=4;
             alt76 = dfa76.predict(input);
             switch (alt76) {
                 case 1 :
-                    // InternalFortXTrans.g:4300:3: ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) )
+                    // InternalFortXTrans.g:4370:3: ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) )
                     {
-                    // InternalFortXTrans.g:4300:3: ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) )
-                    // InternalFortXTrans.g:4301:4: ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) )
+                    // InternalFortXTrans.g:4370:3: ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) )
+                    // InternalFortXTrans.g:4371:4: ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:4301:4: ( (lv_mut_0_0= 'var' ) )?
+                    // InternalFortXTrans.g:4371:4: ( (lv_mut_0_0= 'var' ) )?
                     int alt70=2;
                     int LA70_0 = input.LA(1);
 
@@ -10719,12 +10882,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt70) {
                         case 1 :
-                            // InternalFortXTrans.g:4302:5: (lv_mut_0_0= 'var' )
+                            // InternalFortXTrans.g:4372:5: (lv_mut_0_0= 'var' )
                             {
-                            // InternalFortXTrans.g:4302:5: (lv_mut_0_0= 'var' )
-                            // InternalFortXTrans.g:4303:6: lv_mut_0_0= 'var'
+                            // InternalFortXTrans.g:4372:5: (lv_mut_0_0= 'var' )
+                            // InternalFortXTrans.g:4373:6: lv_mut_0_0= 'var'
                             {
-                            lv_mut_0_0=(Token)match(input,54,FOLLOW_48); 
+                            lv_mut_0_0=(Token)match(input,54,FOLLOW_47); 
 
                             						newLeafNode(lv_mut_0_0, grammarAccess.getLocalVarDeclAccess().getMutVarKeyword_0_0_0());
                             					
@@ -10743,16 +10906,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4315:4: ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) )
-                    // InternalFortXTrans.g:4316:5: (lv_vars_1_0= ruleNoNewlineVarWTypes )
+                    // InternalFortXTrans.g:4385:4: ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) )
+                    // InternalFortXTrans.g:4386:5: (lv_vars_1_0= ruleNoNewlineVarWTypes )
                     {
-                    // InternalFortXTrans.g:4316:5: (lv_vars_1_0= ruleNoNewlineVarWTypes )
-                    // InternalFortXTrans.g:4317:6: lv_vars_1_0= ruleNoNewlineVarWTypes
+                    // InternalFortXTrans.g:4386:5: (lv_vars_1_0= ruleNoNewlineVarWTypes )
+                    // InternalFortXTrans.g:4387:6: lv_vars_1_0= ruleNoNewlineVarWTypes
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getVarsNoNewlineVarWTypesParserRuleCall_0_1_0());
                     					
-                    pushFollow(FOLLOW_49);
+                    pushFollow(FOLLOW_48);
                     lv_vars_1_0=ruleNoNewlineVarWTypes();
 
                     state._fsp--;
@@ -10774,7 +10937,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4334:4: ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) )
+                    // InternalFortXTrans.g:4404:4: ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) )
                     int alt71=2;
                     int LA71_0 = input.LA(1);
 
@@ -10792,13 +10955,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt71) {
                         case 1 :
-                            // InternalFortXTrans.g:4335:5: ( (lv_muta_2_0= ':=' ) )
+                            // InternalFortXTrans.g:4405:5: ( (lv_muta_2_0= ':=' ) )
                             {
-                            // InternalFortXTrans.g:4335:5: ( (lv_muta_2_0= ':=' ) )
-                            // InternalFortXTrans.g:4336:6: (lv_muta_2_0= ':=' )
+                            // InternalFortXTrans.g:4405:5: ( (lv_muta_2_0= ':=' ) )
+                            // InternalFortXTrans.g:4406:6: (lv_muta_2_0= ':=' )
                             {
-                            // InternalFortXTrans.g:4336:6: (lv_muta_2_0= ':=' )
-                            // InternalFortXTrans.g:4337:7: lv_muta_2_0= ':='
+                            // InternalFortXTrans.g:4406:6: (lv_muta_2_0= ':=' )
+                            // InternalFortXTrans.g:4407:7: lv_muta_2_0= ':='
                             {
                             lv_muta_2_0=(Token)match(input,39,FOLLOW_30); 
 
@@ -10820,13 +10983,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalFortXTrans.g:4350:5: ( (lv_immut_3_0= '=' ) )
+                            // InternalFortXTrans.g:4420:5: ( (lv_immut_3_0= '=' ) )
                             {
-                            // InternalFortXTrans.g:4350:5: ( (lv_immut_3_0= '=' ) )
-                            // InternalFortXTrans.g:4351:6: (lv_immut_3_0= '=' )
+                            // InternalFortXTrans.g:4420:5: ( (lv_immut_3_0= '=' ) )
+                            // InternalFortXTrans.g:4421:6: (lv_immut_3_0= '=' )
                             {
-                            // InternalFortXTrans.g:4351:6: (lv_immut_3_0= '=' )
-                            // InternalFortXTrans.g:4352:7: lv_immut_3_0= '='
+                            // InternalFortXTrans.g:4421:6: (lv_immut_3_0= '=' )
+                            // InternalFortXTrans.g:4422:7: lv_immut_3_0= '='
                             {
                             lv_immut_3_0=(Token)match(input,38,FOLLOW_30); 
 
@@ -10850,17 +11013,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4365:4: ( (lv_init_4_0= ruleBlockElem ) )
-                    // InternalFortXTrans.g:4366:5: (lv_init_4_0= ruleBlockElem )
+                    // InternalFortXTrans.g:4435:4: ( (lv_init_4_0= ruleExpr ) )
+                    // InternalFortXTrans.g:4436:5: (lv_init_4_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:4366:5: (lv_init_4_0= ruleBlockElem )
-                    // InternalFortXTrans.g:4367:6: lv_init_4_0= ruleBlockElem
+                    // InternalFortXTrans.g:4436:5: (lv_init_4_0= ruleExpr )
+                    // InternalFortXTrans.g:4437:6: lv_init_4_0= ruleExpr
                     {
 
-                    						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitBlockElemParserRuleCall_0_3_0());
+                    						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitExprParserRuleCall_0_3_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_init_4_0=ruleBlockElem();
+                    lv_init_4_0=ruleExpr();
 
                     state._fsp--;
 
@@ -10872,7 +11035,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     							current,
                     							"init",
                     							lv_init_4_0,
-                    							"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+                    							"srf.transpiler.fortxtrans.FortXTrans.Expr");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -10888,21 +11051,21 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalFortXTrans.g:4386:3: ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:4456:3: ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
                     {
-                    // InternalFortXTrans.g:4386:3: ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
-                    // InternalFortXTrans.g:4387:4: ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:4456:3: ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) )
+                    // InternalFortXTrans.g:4457:4: ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) )
                     {
-                    // InternalFortXTrans.g:4387:4: ( (lv_idtup_5_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:4388:5: (lv_idtup_5_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:4457:4: ( (lv_idtup_5_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:4458:5: (lv_idtup_5_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:4388:5: (lv_idtup_5_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:4389:6: lv_idtup_5_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:4458:5: (lv_idtup_5_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:4459:6: lv_idtup_5_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getIdtupIdOrTupleParserRuleCall_1_0_0());
                     					
-                    pushFollow(FOLLOW_50);
+                    pushFollow(FOLLOW_49);
                     lv_idtup_5_0=ruleIdOrTuple();
 
                     state._fsp--;
@@ -10924,15 +11087,15 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_6=(Token)match(input,38,FOLLOW_51); 
+                    otherlv_6=(Token)match(input,38,FOLLOW_50); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getLocalVarDeclAccess().getEqualsSignKeyword_1_1());
                     			
-                    // InternalFortXTrans.g:4410:4: ( (lv_litTup_7_0= ruleLiteralTuple ) )
-                    // InternalFortXTrans.g:4411:5: (lv_litTup_7_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:4480:4: ( (lv_litTup_7_0= ruleLiteralTuple ) )
+                    // InternalFortXTrans.g:4481:5: (lv_litTup_7_0= ruleLiteralTuple )
                     {
-                    // InternalFortXTrans.g:4411:5: (lv_litTup_7_0= ruleLiteralTuple )
-                    // InternalFortXTrans.g:4412:6: lv_litTup_7_0= ruleLiteralTuple
+                    // InternalFortXTrans.g:4481:5: (lv_litTup_7_0= ruleLiteralTuple )
+                    // InternalFortXTrans.g:4482:6: lv_litTup_7_0= ruleLiteralTuple
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getLitTupLiteralTupleParserRuleCall_1_2_0());
@@ -10966,12 +11129,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalFortXTrans.g:4431:3: ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) )
+                    // InternalFortXTrans.g:4501:3: ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) )
                     {
-                    // InternalFortXTrans.g:4431:3: ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) )
-                    // InternalFortXTrans.g:4432:4: ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) )
+                    // InternalFortXTrans.g:4501:3: ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) )
+                    // InternalFortXTrans.g:4502:4: ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:4432:4: ( (lv_mut_8_0= 'var' ) )?
+                    // InternalFortXTrans.g:4502:4: ( (lv_mut_8_0= 'var' ) )?
                     int alt72=2;
                     int LA72_0 = input.LA(1);
 
@@ -10980,10 +11143,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt72) {
                         case 1 :
-                            // InternalFortXTrans.g:4433:5: (lv_mut_8_0= 'var' )
+                            // InternalFortXTrans.g:4503:5: (lv_mut_8_0= 'var' )
                             {
-                            // InternalFortXTrans.g:4433:5: (lv_mut_8_0= 'var' )
-                            // InternalFortXTrans.g:4434:6: lv_mut_8_0= 'var'
+                            // InternalFortXTrans.g:4503:5: (lv_mut_8_0= 'var' )
+                            // InternalFortXTrans.g:4504:6: lv_mut_8_0= 'var'
                             {
                             lv_mut_8_0=(Token)match(input,54,FOLLOW_33); 
 
@@ -11004,11 +11167,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4446:4: ( (lv_idtup_9_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:4447:5: (lv_idtup_9_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:4516:4: ( (lv_idtup_9_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:4517:5: (lv_idtup_9_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:4447:5: (lv_idtup_9_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:4448:6: lv_idtup_9_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:4517:5: (lv_idtup_9_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:4518:6: lv_idtup_9_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getIdtupIdOrTupleParserRuleCall_2_1_0());
@@ -11039,11 +11202,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_10, grammarAccess.getLocalVarDeclAccess().getColonKeyword_2_2());
                     			
-                    // InternalFortXTrans.g:4469:4: ( (lv_type_11_0= ruleType ) )
-                    // InternalFortXTrans.g:4470:5: (lv_type_11_0= ruleType )
+                    // InternalFortXTrans.g:4539:4: ( (lv_type_11_0= ruleType ) )
+                    // InternalFortXTrans.g:4540:5: (lv_type_11_0= ruleType )
                     {
-                    // InternalFortXTrans.g:4470:5: (lv_type_11_0= ruleType )
-                    // InternalFortXTrans.g:4471:6: lv_type_11_0= ruleType
+                    // InternalFortXTrans.g:4540:5: (lv_type_11_0= ruleType )
+                    // InternalFortXTrans.g:4541:6: lv_type_11_0= ruleType
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getTypeTypeParserRuleCall_2_3_0());
@@ -11070,11 +11233,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    this_DOTS_12=(Token)match(input,RULE_DOTS,FOLLOW_49); 
+                    this_DOTS_12=(Token)match(input,RULE_DOTS,FOLLOW_48); 
 
                     				newLeafNode(this_DOTS_12, grammarAccess.getLocalVarDeclAccess().getDOTSTerminalRuleCall_2_4());
                     			
-                    // InternalFortXTrans.g:4492:4: ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) )
+                    // InternalFortXTrans.g:4562:4: ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) )
                     int alt73=2;
                     int LA73_0 = input.LA(1);
 
@@ -11092,13 +11255,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt73) {
                         case 1 :
-                            // InternalFortXTrans.g:4493:5: ( (lv_muta_13_0= ':=' ) )
+                            // InternalFortXTrans.g:4563:5: ( (lv_muta_13_0= ':=' ) )
                             {
-                            // InternalFortXTrans.g:4493:5: ( (lv_muta_13_0= ':=' ) )
-                            // InternalFortXTrans.g:4494:6: (lv_muta_13_0= ':=' )
+                            // InternalFortXTrans.g:4563:5: ( (lv_muta_13_0= ':=' ) )
+                            // InternalFortXTrans.g:4564:6: (lv_muta_13_0= ':=' )
                             {
-                            // InternalFortXTrans.g:4494:6: (lv_muta_13_0= ':=' )
-                            // InternalFortXTrans.g:4495:7: lv_muta_13_0= ':='
+                            // InternalFortXTrans.g:4564:6: (lv_muta_13_0= ':=' )
+                            // InternalFortXTrans.g:4565:7: lv_muta_13_0= ':='
                             {
                             lv_muta_13_0=(Token)match(input,39,FOLLOW_30); 
 
@@ -11120,13 +11283,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalFortXTrans.g:4508:5: ( (lv_immut_14_0= '=' ) )
+                            // InternalFortXTrans.g:4578:5: ( (lv_immut_14_0= '=' ) )
                             {
-                            // InternalFortXTrans.g:4508:5: ( (lv_immut_14_0= '=' ) )
-                            // InternalFortXTrans.g:4509:6: (lv_immut_14_0= '=' )
+                            // InternalFortXTrans.g:4578:5: ( (lv_immut_14_0= '=' ) )
+                            // InternalFortXTrans.g:4579:6: (lv_immut_14_0= '=' )
                             {
-                            // InternalFortXTrans.g:4509:6: (lv_immut_14_0= '=' )
-                            // InternalFortXTrans.g:4510:7: lv_immut_14_0= '='
+                            // InternalFortXTrans.g:4579:6: (lv_immut_14_0= '=' )
+                            // InternalFortXTrans.g:4580:7: lv_immut_14_0= '='
                             {
                             lv_immut_14_0=(Token)match(input,38,FOLLOW_30); 
 
@@ -11150,17 +11313,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4523:4: ( (lv_init_15_0= ruleBlockElem ) )
-                    // InternalFortXTrans.g:4524:5: (lv_init_15_0= ruleBlockElem )
+                    // InternalFortXTrans.g:4593:4: ( (lv_init_15_0= ruleExpr ) )
+                    // InternalFortXTrans.g:4594:5: (lv_init_15_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:4524:5: (lv_init_15_0= ruleBlockElem )
-                    // InternalFortXTrans.g:4525:6: lv_init_15_0= ruleBlockElem
+                    // InternalFortXTrans.g:4594:5: (lv_init_15_0= ruleExpr )
+                    // InternalFortXTrans.g:4595:6: lv_init_15_0= ruleExpr
                     {
 
-                    						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitBlockElemParserRuleCall_2_6_0());
+                    						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitExprParserRuleCall_2_6_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_init_15_0=ruleBlockElem();
+                    lv_init_15_0=ruleExpr();
 
                     state._fsp--;
 
@@ -11172,7 +11335,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     							current,
                     							"init",
                     							lv_init_15_0,
-                    							"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+                    							"srf.transpiler.fortxtrans.FortXTrans.Expr");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -11188,12 +11351,12 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalFortXTrans.g:4544:3: ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) )
+                    // InternalFortXTrans.g:4614:3: ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) )
                     {
-                    // InternalFortXTrans.g:4544:3: ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) )
-                    // InternalFortXTrans.g:4545:4: ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) )
+                    // InternalFortXTrans.g:4614:3: ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) )
+                    // InternalFortXTrans.g:4615:4: ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) )
                     {
-                    // InternalFortXTrans.g:4545:4: ( (lv_mut_16_0= 'var' ) )?
+                    // InternalFortXTrans.g:4615:4: ( (lv_mut_16_0= 'var' ) )?
                     int alt74=2;
                     int LA74_0 = input.LA(1);
 
@@ -11202,10 +11365,10 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt74) {
                         case 1 :
-                            // InternalFortXTrans.g:4546:5: (lv_mut_16_0= 'var' )
+                            // InternalFortXTrans.g:4616:5: (lv_mut_16_0= 'var' )
                             {
-                            // InternalFortXTrans.g:4546:5: (lv_mut_16_0= 'var' )
-                            // InternalFortXTrans.g:4547:6: lv_mut_16_0= 'var'
+                            // InternalFortXTrans.g:4616:5: (lv_mut_16_0= 'var' )
+                            // InternalFortXTrans.g:4617:6: lv_mut_16_0= 'var'
                             {
                             lv_mut_16_0=(Token)match(input,54,FOLLOW_33); 
 
@@ -11226,11 +11389,11 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4559:4: ( (lv_idtup_17_0= ruleIdOrTuple ) )
-                    // InternalFortXTrans.g:4560:5: (lv_idtup_17_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:4629:4: ( (lv_idtup_17_0= ruleIdOrTuple ) )
+                    // InternalFortXTrans.g:4630:5: (lv_idtup_17_0= ruleIdOrTuple )
                     {
-                    // InternalFortXTrans.g:4560:5: (lv_idtup_17_0= ruleIdOrTuple )
-                    // InternalFortXTrans.g:4561:6: lv_idtup_17_0= ruleIdOrTuple
+                    // InternalFortXTrans.g:4630:5: (lv_idtup_17_0= ruleIdOrTuple )
+                    // InternalFortXTrans.g:4631:6: lv_idtup_17_0= ruleIdOrTuple
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getIdtupIdOrTupleParserRuleCall_3_1_0());
@@ -11261,16 +11424,16 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     				newLeafNode(otherlv_18, grammarAccess.getLocalVarDeclAccess().getColonKeyword_3_2());
                     			
-                    // InternalFortXTrans.g:4582:4: ( (lv_tuptype_19_0= ruleTupleType ) )
-                    // InternalFortXTrans.g:4583:5: (lv_tuptype_19_0= ruleTupleType )
+                    // InternalFortXTrans.g:4652:4: ( (lv_tuptype_19_0= ruleTupleType ) )
+                    // InternalFortXTrans.g:4653:5: (lv_tuptype_19_0= ruleTupleType )
                     {
-                    // InternalFortXTrans.g:4583:5: (lv_tuptype_19_0= ruleTupleType )
-                    // InternalFortXTrans.g:4584:6: lv_tuptype_19_0= ruleTupleType
+                    // InternalFortXTrans.g:4653:5: (lv_tuptype_19_0= ruleTupleType )
+                    // InternalFortXTrans.g:4654:6: lv_tuptype_19_0= ruleTupleType
                     {
 
                     						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getTuptypeTupleTypeParserRuleCall_3_3_0());
                     					
-                    pushFollow(FOLLOW_49);
+                    pushFollow(FOLLOW_48);
                     lv_tuptype_19_0=ruleTupleType();
 
                     state._fsp--;
@@ -11292,7 +11455,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4601:4: ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) )
+                    // InternalFortXTrans.g:4671:4: ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) )
                     int alt75=2;
                     int LA75_0 = input.LA(1);
 
@@ -11310,13 +11473,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     }
                     switch (alt75) {
                         case 1 :
-                            // InternalFortXTrans.g:4602:5: ( (lv_muta_20_0= ':=' ) )
+                            // InternalFortXTrans.g:4672:5: ( (lv_muta_20_0= ':=' ) )
                             {
-                            // InternalFortXTrans.g:4602:5: ( (lv_muta_20_0= ':=' ) )
-                            // InternalFortXTrans.g:4603:6: (lv_muta_20_0= ':=' )
+                            // InternalFortXTrans.g:4672:5: ( (lv_muta_20_0= ':=' ) )
+                            // InternalFortXTrans.g:4673:6: (lv_muta_20_0= ':=' )
                             {
-                            // InternalFortXTrans.g:4603:6: (lv_muta_20_0= ':=' )
-                            // InternalFortXTrans.g:4604:7: lv_muta_20_0= ':='
+                            // InternalFortXTrans.g:4673:6: (lv_muta_20_0= ':=' )
+                            // InternalFortXTrans.g:4674:7: lv_muta_20_0= ':='
                             {
                             lv_muta_20_0=(Token)match(input,39,FOLLOW_30); 
 
@@ -11338,13 +11501,13 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                             }
                             break;
                         case 2 :
-                            // InternalFortXTrans.g:4617:5: ( (lv_immut_21_0= '=' ) )
+                            // InternalFortXTrans.g:4687:5: ( (lv_immut_21_0= '=' ) )
                             {
-                            // InternalFortXTrans.g:4617:5: ( (lv_immut_21_0= '=' ) )
-                            // InternalFortXTrans.g:4618:6: (lv_immut_21_0= '=' )
+                            // InternalFortXTrans.g:4687:5: ( (lv_immut_21_0= '=' ) )
+                            // InternalFortXTrans.g:4688:6: (lv_immut_21_0= '=' )
                             {
-                            // InternalFortXTrans.g:4618:6: (lv_immut_21_0= '=' )
-                            // InternalFortXTrans.g:4619:7: lv_immut_21_0= '='
+                            // InternalFortXTrans.g:4688:6: (lv_immut_21_0= '=' )
+                            // InternalFortXTrans.g:4689:7: lv_immut_21_0= '='
                             {
                             lv_immut_21_0=(Token)match(input,38,FOLLOW_30); 
 
@@ -11368,17 +11531,17 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // InternalFortXTrans.g:4632:4: ( (lv_init_22_0= ruleBlockElem ) )
-                    // InternalFortXTrans.g:4633:5: (lv_init_22_0= ruleBlockElem )
+                    // InternalFortXTrans.g:4702:4: ( (lv_init_22_0= ruleExpr ) )
+                    // InternalFortXTrans.g:4703:5: (lv_init_22_0= ruleExpr )
                     {
-                    // InternalFortXTrans.g:4633:5: (lv_init_22_0= ruleBlockElem )
-                    // InternalFortXTrans.g:4634:6: lv_init_22_0= ruleBlockElem
+                    // InternalFortXTrans.g:4703:5: (lv_init_22_0= ruleExpr )
+                    // InternalFortXTrans.g:4704:6: lv_init_22_0= ruleExpr
                     {
 
-                    						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitBlockElemParserRuleCall_3_5_0());
+                    						newCompositeNode(grammarAccess.getLocalVarDeclAccess().getInitExprParserRuleCall_3_5_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_init_22_0=ruleBlockElem();
+                    lv_init_22_0=ruleExpr();
 
                     state._fsp--;
 
@@ -11390,7 +11553,7 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
                     							current,
                     							"init",
                     							lv_init_22_0,
-                    							"srf.transpiler.fortxtrans.FortXTrans.BlockElem");
+                    							"srf.transpiler.fortxtrans.FortXTrans.Expr");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -11434,30 +11597,29 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
     protected DFA19 dfa19 = new DFA19(this);
     protected DFA26 dfa26 = new DFA26(this);
     protected DFA39 dfa39 = new DFA39(this);
-    protected DFA40 dfa40 = new DFA40(this);
-    protected DFA43 dfa43 = new DFA43(this);
+    protected DFA42 dfa42 = new DFA42(this);
     protected DFA47 dfa47 = new DFA47(this);
     protected DFA48 dfa48 = new DFA48(this);
     protected DFA63 dfa63 = new DFA63(this);
     protected DFA76 dfa76 = new DFA76(this);
     static final String dfa_1s = "\13\uffff";
-    static final String dfa_2s = "\1\uffff\1\3\2\uffff\2\3\2\uffff\1\3\2\uffff";
-    static final String dfa_3s = "\1\4\1\5\1\4\1\uffff\1\25\1\5\1\4\1\31\1\25\2\uffff";
-    static final String dfa_4s = "\1\4\1\36\1\31\1\uffff\2\36\1\5\1\31\1\36\2\uffff";
-    static final String dfa_5s = "\3\uffff\1\3\5\uffff\1\1\1\2";
+    static final String dfa_2s = "\1\uffff\2\4\4\uffff\1\4\2\uffff\1\4";
+    static final String dfa_3s = "\1\4\1\5\1\25\1\4\1\uffff\1\31\1\4\1\5\2\uffff\1\25";
+    static final String dfa_4s = "\1\4\2\36\1\31\1\uffff\1\31\1\5\1\36\2\uffff\1\36";
+    static final String dfa_5s = "\4\uffff\1\3\3\uffff\1\2\1\1\1\uffff";
     static final String dfa_6s = "\13\uffff}>";
     static final String[] dfa_7s = {
             "\1\1",
-            "\1\4\17\uffff\1\3\1\uffff\2\3\3\uffff\1\2\1\uffff\1\3",
-            "\1\5\24\uffff\1\6",
+            "\1\2\17\uffff\1\4\1\uffff\2\4\3\uffff\1\3\1\uffff\1\4",
+            "\1\4\1\uffff\2\4\3\uffff\1\5\1\uffff\1\4",
+            "\1\7\24\uffff\1\6",
             "",
-            "\1\3\1\uffff\2\3\3\uffff\1\7\1\uffff\1\3",
-            "\1\10\17\uffff\1\3\1\uffff\2\3\3\uffff\1\2\1\uffff\1\3",
-            "\1\12\1\11",
             "\1\6",
-            "\1\3\1\uffff\2\3\3\uffff\1\7\1\uffff\1\3",
+            "\1\10\1\11",
+            "\1\12\17\uffff\1\4\1\uffff\2\4\3\uffff\1\3\1\uffff\1\4",
             "",
-            ""
+            "",
+            "\1\4\1\uffff\2\4\3\uffff\1\5\1\uffff\1\4"
     };
 
     static final short[] dfa_1 = DFA.unpackEncodedString(dfa_1s);
@@ -11526,22 +11688,18 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             return "766:2: ( (this_ID_0= RULE_ID this_DOTS_1= RULE_DOTS ) | (this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )* this_DOTS_5= RULE_DOTS ) | (this_ID_6= RULE_ID (kw= '.' this_ID_8= RULE_ID )* ) )";
         }
     }
-    static final String dfa_15s = "\1\uffff\1\4\3\uffff\1\4\1\uffff";
-    static final String dfa_16s = "\1\4\1\66\1\31\2\uffff\1\66\1\uffff";
-    static final String dfa_17s = "\3\uffff\1\1\1\3\1\uffff\1\2";
-    static final String[] dfa_18s = {
+    static final String dfa_15s = "\1\4\1\66\1\31\2\uffff\1\66\1\uffff";
+    static final String[] dfa_16s = {
             "\1\1",
-            "\1\4\1\3\17\uffff\1\4\1\uffff\2\4\1\uffff\2\4\1\2\1\uffff\6\4\21\uffff\2\4",
-            "\1\5\24\uffff\1\4",
+            "\1\3\1\4\17\uffff\1\3\1\uffff\2\3\1\uffff\2\3\1\2\1\uffff\6\3\21\uffff\2\3",
+            "\1\5\24\uffff\1\3",
             "",
             "",
-            "\1\4\1\6\17\uffff\1\4\1\uffff\2\4\1\uffff\2\4\1\2\1\uffff\6\4\21\uffff\2\4",
+            "\1\3\1\6\17\uffff\1\3\1\uffff\2\3\1\uffff\2\3\1\2\1\uffff\6\3\21\uffff\2\3",
             ""
     };
-    static final short[] dfa_15 = DFA.unpackEncodedString(dfa_15s);
-    static final char[] dfa_16 = DFA.unpackEncodedStringToUnsignedChars(dfa_16s);
-    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
-    static final short[][] dfa_18 = unpackEncodedStringArray(dfa_18s);
+    static final char[] dfa_15 = DFA.unpackEncodedStringToUnsignedChars(dfa_15s);
+    static final short[][] dfa_16 = unpackEncodedStringArray(dfa_16s);
 
     class DFA19 extends DFA {
 
@@ -11549,24 +11707,24 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             this.recognizer = recognizer;
             this.decisionNumber = 19;
             this.eot = dfa_8;
-            this.eof = dfa_15;
+            this.eof = dfa_9;
             this.min = dfa_10;
-            this.max = dfa_16;
-            this.accept = dfa_17;
+            this.max = dfa_15;
+            this.accept = dfa_12;
             this.special = dfa_13;
-            this.transition = dfa_18;
+            this.transition = dfa_16;
         }
         public String getDescription() {
             return "856:2: ( (this_ID_0= RULE_ID this_DOTS_1= RULE_DOTS ) | (this_ID_2= RULE_ID (kw= '.' this_ID_4= RULE_ID )* this_DOTS_5= RULE_DOTS ) | (this_ID_6= RULE_ID (kw= '.' this_ID_8= RULE_ID )* ) )";
         }
     }
-    static final String dfa_19s = "\12\uffff";
-    static final String dfa_20s = "\1\1\11\uffff";
-    static final String dfa_21s = "\1\4\11\uffff";
-    static final String dfa_22s = "\1\66\11\uffff";
-    static final String dfa_23s = "\1\uffff\1\2\10\1";
-    static final String dfa_24s = "\12\uffff}>";
-    static final String[] dfa_25s = {
+    static final String dfa_17s = "\12\uffff";
+    static final String dfa_18s = "\1\1\11\uffff";
+    static final String dfa_19s = "\1\4\11\uffff";
+    static final String dfa_20s = "\1\66\11\uffff";
+    static final String dfa_21s = "\1\uffff\1\2\10\1";
+    static final String dfa_22s = "\12\uffff}>";
+    static final String[] dfa_23s = {
             "\1\6\20\uffff\1\1\11\uffff\1\2\1\3\1\4\1\5\1\11\21\uffff\1\10\1\7",
             "",
             "",
@@ -11579,202 +11737,179 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             ""
     };
 
-    static final short[] dfa_19 = DFA.unpackEncodedString(dfa_19s);
-    static final short[] dfa_20 = DFA.unpackEncodedString(dfa_20s);
-    static final char[] dfa_21 = DFA.unpackEncodedStringToUnsignedChars(dfa_21s);
-    static final char[] dfa_22 = DFA.unpackEncodedStringToUnsignedChars(dfa_22s);
-    static final short[] dfa_23 = DFA.unpackEncodedString(dfa_23s);
-    static final short[] dfa_24 = DFA.unpackEncodedString(dfa_24s);
-    static final short[][] dfa_25 = unpackEncodedStringArray(dfa_25s);
+    static final short[] dfa_17 = DFA.unpackEncodedString(dfa_17s);
+    static final short[] dfa_18 = DFA.unpackEncodedString(dfa_18s);
+    static final char[] dfa_19 = DFA.unpackEncodedStringToUnsignedChars(dfa_19s);
+    static final char[] dfa_20 = DFA.unpackEncodedStringToUnsignedChars(dfa_20s);
+    static final short[] dfa_21 = DFA.unpackEncodedString(dfa_21s);
+    static final short[] dfa_22 = DFA.unpackEncodedString(dfa_22s);
+    static final short[][] dfa_23 = unpackEncodedStringArray(dfa_23s);
 
     class DFA26 extends DFA {
 
         public DFA26(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 26;
-            this.eot = dfa_19;
-            this.eof = dfa_20;
-            this.min = dfa_21;
-            this.max = dfa_22;
-            this.accept = dfa_23;
-            this.special = dfa_24;
-            this.transition = dfa_25;
+            this.eot = dfa_17;
+            this.eof = dfa_18;
+            this.min = dfa_19;
+            this.max = dfa_20;
+            this.accept = dfa_21;
+            this.special = dfa_22;
+            this.transition = dfa_23;
         }
         public String getDescription() {
             return "()+ loopback of 1310:2: ( (lv_decls_0_0= ruleDecl ) )+";
         }
     }
-    static final String dfa_26s = "\42\uffff";
-    static final String dfa_27s = "\2\uffff\3\10\1\1\12\uffff\1\1\13\uffff\1\10\2\uffff\1\10\2\uffff";
-    static final String dfa_28s = "\1\4\1\uffff\5\4\2\uffff\1\5\5\32\5\4\1\5\3\32\3\5\1\32\2\4\1\32\1\4\1\5\1\32";
-    static final String dfa_29s = "\1\66\1\uffff\5\66\2\uffff\1\47\1\46\4\47\1\4\1\66\1\65\1\43\1\10\1\47\4\44\1\47\1\44\1\47\1\66\1\4\1\44\1\66\2\44";
-    static final String dfa_30s = "\1\uffff\1\1\5\uffff\1\2\1\3\31\uffff";
-    static final String dfa_31s = "\42\uffff}>";
-    static final String[] dfa_32s = {
+    static final String dfa_24s = "\71\uffff";
+    static final String dfa_25s = "\2\uffff\4\10\4\uffff\1\10\5\uffff\1\10\10\uffff\1\10\2\uffff\1\1\16\uffff\1\10\2\uffff\1\10\12\uffff";
+    static final String dfa_26s = "\1\4\1\uffff\5\4\2\uffff\3\4\3\32\1\5\1\4\1\5\3\32\2\4\1\32\5\4\1\32\1\4\3\32\5\5\3\32\1\5\2\4\1\32\1\4\2\32\1\uffff\1\4\1\32\1\uffff\2\5\2\32";
+    static final String dfa_27s = "\1\66\1\uffff\4\66\1\65\2\uffff\1\4\1\66\1\65\3\32\1\45\1\66\1\45\3\44\1\10\1\65\1\32\1\4\1\66\1\4\1\65\1\66\1\44\1\43\5\44\1\34\6\44\1\66\1\4\1\44\1\66\1\32\1\44\1\uffff\1\4\1\44\1\uffff\4\44";
+    static final String dfa_28s = "\1\uffff\1\1\5\uffff\1\2\1\3\50\uffff\1\1\2\uffff\1\1\4\uffff";
+    static final String dfa_29s = "\71\uffff}>";
+    static final String[] dfa_30s = {
             "\1\5\1\uffff\1\2\1\3\1\4\30\uffff\1\1\1\uffff\1\6\4\uffff\4\1\1\uffff\1\1\5\uffff\2\1\2\7",
             "",
-            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\10\10\2\uffff\5\10",
-            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\10\10\2\uffff\5\10",
-            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\10\10\2\uffff\5\10",
-            "\5\1\14\uffff\1\1\4\uffff\1\1\1\uffff\1\1\1\uffff\7\1\2\7\11\1\2\uffff\5\1",
-            "\1\11\1\uffff\1\13\1\14\1\15\30\uffff\1\1\1\uffff\1\1\4\uffff\4\1\1\uffff\1\1\5\uffff\2\1\1\12\1\1",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\10\1\12\3\10\14\uffff\1\10\4\uffff\1\10\1\uffff\1\11\1\uffff\5\10\1\13\1\10\2\7\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\17\1\uffff\1\14\1\15\1\16\54\uffff\1\7",
             "",
             "",
-            "\1\16\24\uffff\1\21\1\uffff\1\17\1\uffff\1\1\5\uffff\1\20\1\22\2\1",
-            "\1\7\11\uffff\1\7\1\22\1\1",
-            "\1\23\11\uffff\1\1\2\uffff\1\1",
-            "\1\23\11\uffff\1\1\2\uffff\1\1",
-            "\1\23\11\uffff\1\1\2\uffff\1\1",
-            "\1\23\3\uffff\1\1\5\uffff\1\1\2\uffff\1\1",
-            "\1\24",
-            "\1\1\1\uffff\3\1\14\uffff\1\1\4\uffff\1\1\3\uffff\7\1\2\7\1\uffff\10\1\2\uffff\5\1",
-            "\1\30\1\uffff\1\25\1\26\1\27\54\uffff\1\7",
-            "\1\31\36\uffff\1\1",
-            "\1\32\1\uffff\1\25\1\26\1\27",
-            "\1\33\24\uffff\1\23\1\uffff\1\17\1\uffff\1\1\5\uffff\1\1\2\uffff\1\1",
-            "\1\23\11\uffff\1\34",
-            "\1\23\11\uffff\1\34",
-            "\1\23\11\uffff\1\34",
-            "\1\36\24\uffff\1\21\1\uffff\1\35\7\uffff\1\37",
-            "\1\1\24\uffff\1\7\13\uffff\2\1",
-            "\1\36\24\uffff\1\23\1\uffff\1\35\7\uffff\1\34",
-            "\1\23\3\uffff\1\1\5\uffff\1\1\2\uffff\1\1",
-            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\1\10\10\2\uffff\5\10",
-            "\1\40",
-            "\1\23\11\uffff\1\34",
-            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\7\1\1\10\10\2\uffff\5\10",
-            "\1\41\24\uffff\1\23\1\uffff\1\35\7\uffff\1\34",
-            "\1\23\11\uffff\1\34"
+            "\1\20",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\5\10\1\13\1\10\2\uffff\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\21\1\uffff\1\22\1\23\1\24\32\uffff\1\1\21\uffff\1\10",
+            "\1\25",
+            "\1\25",
+            "\1\25",
+            "\1\27\24\uffff\1\26\1\uffff\1\30\7\uffff\2\7",
+            "\1\10\1\31\3\10\14\uffff\1\10\4\uffff\1\10\1\uffff\1\11\1\uffff\5\10\1\13\1\10\2\uffff\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\35\24\uffff\1\33\1\uffff\1\32\7\uffff\1\34\1\10",
+            "\1\36\11\uffff\1\1",
+            "\1\36\11\uffff\1\1",
+            "\1\36\11\uffff\1\1",
+            "\1\42\1\uffff\1\37\1\40\1\41",
+            "\1\43\1\uffff\1\37\1\40\1\41\54\uffff\1\7",
+            "\1\25",
+            "\1\44",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\5\10\1\13\1\10\2\uffff\1\1\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\45",
+            "\1\46\1\uffff\1\47\1\50\1\51\32\uffff\1\1\21\uffff\1\10",
+            "\1\1\1\uffff\3\1\14\uffff\1\1\4\uffff\1\1\3\uffff\7\1\2\10\1\uffff\4\1\1\uffff\3\1\2\uffff\5\1",
+            "\1\36\11\uffff\1\1",
+            "\1\52\1\uffff\1\47\1\50\1\51\32\uffff\1\1",
+            "\1\25\11\uffff\1\53",
+            "\1\25\11\uffff\1\53",
+            "\1\25\11\uffff\1\53",
+            "\1\55\24\uffff\1\25\1\uffff\1\54\7\uffff\1\53",
+            "\1\55\24\uffff\1\26\1\uffff\1\54\7\uffff\1\56",
+            "\1\57\24\uffff\1\25\1\uffff\1\30",
+            "\1\60\24\uffff\1\36\1\uffff\1\32\7\uffff\1\1",
+            "\1\63\24\uffff\1\33\1\uffff\1\62\7\uffff\1\61",
+            "\1\36\11\uffff\1\64",
+            "\1\36\11\uffff\1\64",
+            "\1\36\11\uffff\1\64",
+            "\1\63\24\uffff\1\36\1\uffff\1\62\7\uffff\1\64",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\uffff\1\64\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\65",
+            "\1\25\11\uffff\1\53",
+            "\1\10\1\uffff\3\10\14\uffff\1\10\4\uffff\1\10\3\uffff\7\10\2\7\1\64\4\10\1\uffff\3\10\2\uffff\5\10",
+            "\1\25",
+            "\1\36\11\uffff\1\64",
+            "",
+            "\1\66",
+            "\1\36\11\uffff\1\64",
+            "",
+            "\1\67\24\uffff\1\25\1\uffff\1\54\7\uffff\1\53",
+            "\1\70\24\uffff\1\36\1\uffff\1\62\7\uffff\1\64",
+            "\1\25\11\uffff\1\53",
+            "\1\36\11\uffff\1\64"
     };
 
-    static final short[] dfa_26 = DFA.unpackEncodedString(dfa_26s);
-    static final short[] dfa_27 = DFA.unpackEncodedString(dfa_27s);
-    static final char[] dfa_28 = DFA.unpackEncodedStringToUnsignedChars(dfa_28s);
-    static final char[] dfa_29 = DFA.unpackEncodedStringToUnsignedChars(dfa_29s);
-    static final short[] dfa_30 = DFA.unpackEncodedString(dfa_30s);
-    static final short[] dfa_31 = DFA.unpackEncodedString(dfa_31s);
-    static final short[][] dfa_32 = unpackEncodedStringArray(dfa_32s);
+    static final short[] dfa_24 = DFA.unpackEncodedString(dfa_24s);
+    static final short[] dfa_25 = DFA.unpackEncodedString(dfa_25s);
+    static final char[] dfa_26 = DFA.unpackEncodedStringToUnsignedChars(dfa_26s);
+    static final char[] dfa_27 = DFA.unpackEncodedStringToUnsignedChars(dfa_27s);
+    static final short[] dfa_28 = DFA.unpackEncodedString(dfa_28s);
+    static final short[] dfa_29 = DFA.unpackEncodedString(dfa_29s);
+    static final short[][] dfa_30 = unpackEncodedStringArray(dfa_30s);
 
     class DFA39 extends DFA {
 
         public DFA39(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 39;
-            this.eot = dfa_26;
-            this.eof = dfa_27;
-            this.min = dfa_28;
-            this.max = dfa_29;
-            this.accept = dfa_30;
-            this.special = dfa_31;
-            this.transition = dfa_32;
+            this.eot = dfa_24;
+            this.eof = dfa_25;
+            this.min = dfa_26;
+            this.max = dfa_27;
+            this.accept = dfa_28;
+            this.special = dfa_29;
+            this.transition = dfa_30;
         }
         public String getDescription() {
-            return "1984:2: ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_lit_3_0= ruleLiteralTuple ) ) )";
+            return "1984:2: ( ( ( (lv_front_0_0= ruleExprFront ) ) ( (lv_tails_1_0= ruleExprTail ) )* ) | ( (lv_locVar_2_0= ruleLocalVarDecl ) ) | ( (lv_exp_3_0= ruleExpr ) ) )";
         }
     }
-    static final String dfa_33s = "\10\uffff";
-    static final String dfa_34s = "\2\uffff\1\4\2\uffff\3\4";
-    static final String dfa_35s = "\1\4\1\uffff\2\4\1\uffff\3\4";
-    static final String dfa_36s = "\1\64\1\uffff\1\66\1\4\1\uffff\3\66";
-    static final String dfa_37s = "\1\uffff\1\1\2\uffff\1\2\3\uffff";
-    static final String dfa_38s = "\10\uffff}>";
-    static final String[] dfa_39s = {
-            "\1\2\1\uffff\3\1\30\uffff\1\1\1\uffff\1\1\4\uffff\4\1\1\uffff\1\1\5\uffff\2\1",
+    static final String dfa_31s = "\16\uffff";
+    static final String dfa_32s = "\1\4\2\uffff\1\5\5\uffff\1\4\1\43\1\uffff\1\5\1\43";
+    static final String dfa_33s = "\1\64\2\uffff\1\47\5\uffff\1\4\1\47\1\uffff\2\47";
+    static final String dfa_34s = "\1\uffff\1\1\1\2\1\uffff\1\3\1\4\1\5\1\6\1\7\2\uffff\1\10\2\uffff";
+    static final String dfa_35s = "\16\uffff}>";
+    static final String[] dfa_36s = {
+            "\1\3\1\uffff\3\2\30\uffff\1\1\1\uffff\1\2\4\uffff\1\4\1\5\1\6\1\7\1\uffff\1\10\5\uffff\2\1",
             "",
-            "\1\4\1\5\3\4\14\uffff\1\4\4\uffff\1\4\1\uffff\1\3\1\uffff\7\4\2\uffff\1\1\10\4\2\uffff\5\4",
-            "\1\6",
             "",
-            "\1\4\1\uffff\3\4\14\uffff\1\4\4\uffff\1\4\3\uffff\7\4\2\uffff\1\1\10\4\2\uffff\5\4",
-            "\1\4\1\7\3\4\14\uffff\1\4\4\uffff\1\4\1\uffff\1\3\1\uffff\7\4\2\uffff\1\1\10\4\2\uffff\5\4",
-            "\1\4\1\uffff\3\4\14\uffff\1\4\4\uffff\1\4\3\uffff\7\4\2\uffff\1\1\10\4\2\uffff\5\4"
+            "\1\12\26\uffff\1\11\6\uffff\1\13\3\uffff\1\2",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\14",
+            "\1\13\3\uffff\1\2",
+            "",
+            "\1\15\26\uffff\1\11\6\uffff\1\13\3\uffff\1\2",
+            "\1\13\3\uffff\1\2"
     };
 
-    static final short[] dfa_33 = DFA.unpackEncodedString(dfa_33s);
+    static final short[] dfa_31 = DFA.unpackEncodedString(dfa_31s);
+    static final char[] dfa_32 = DFA.unpackEncodedStringToUnsignedChars(dfa_32s);
+    static final char[] dfa_33 = DFA.unpackEncodedStringToUnsignedChars(dfa_33s);
     static final short[] dfa_34 = DFA.unpackEncodedString(dfa_34s);
-    static final char[] dfa_35 = DFA.unpackEncodedStringToUnsignedChars(dfa_35s);
-    static final char[] dfa_36 = DFA.unpackEncodedStringToUnsignedChars(dfa_36s);
-    static final short[] dfa_37 = DFA.unpackEncodedString(dfa_37s);
-    static final short[] dfa_38 = DFA.unpackEncodedString(dfa_38s);
-    static final short[][] dfa_39 = unpackEncodedStringArray(dfa_39s);
+    static final short[] dfa_35 = DFA.unpackEncodedString(dfa_35s);
+    static final short[][] dfa_36 = unpackEncodedStringArray(dfa_36s);
 
-    class DFA40 extends DFA {
+    class DFA42 extends DFA {
 
-        public DFA40(BaseRecognizer recognizer) {
+        public DFA42(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 40;
-            this.eot = dfa_33;
-            this.eof = dfa_34;
-            this.min = dfa_35;
-            this.max = dfa_36;
-            this.accept = dfa_37;
-            this.special = dfa_38;
-            this.transition = dfa_39;
+            this.decisionNumber = 42;
+            this.eot = dfa_31;
+            this.eof = dfa_31;
+            this.min = dfa_32;
+            this.max = dfa_33;
+            this.accept = dfa_34;
+            this.special = dfa_35;
+            this.transition = dfa_36;
         }
         public String getDescription() {
-            return "2083:2: ( ( (lv_delim_0_0= ruleDelimitedExpr ) ) | ( (lv_id_1_0= ruleQualifiedName ) ) )";
+            return "2197:2: ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | (otherlv_20= '|' ( (lv_parblock_21_0= ruleParBlockElems ) ) otherlv_22= '|' ) | ( ( (lv_fname_23_0= ruleQualifiedName ) ) ( (lv_brack_24_0= '(' ) ) ( (lv_fargs_25_0= ruleExprList ) ) otherlv_26= ')' ) )";
         }
     }
-    static final String dfa_40s = "\22\uffff";
-    static final String dfa_41s = "\1\4\2\uffff\1\4\5\uffff\3\32\1\5\1\uffff\1\32\1\4\1\5\1\32";
-    static final String dfa_42s = "\1\64\2\uffff\1\66\5\uffff\4\47\1\uffff\1\47\1\4\2\47";
-    static final String dfa_43s = "\1\uffff\1\1\1\2\1\uffff\1\3\1\4\1\5\1\6\1\10\4\uffff\1\7\4\uffff";
-    static final String dfa_44s = "\22\uffff}>";
-    static final String[] dfa_45s = {
-            "\1\2\1\uffff\3\2\30\uffff\1\1\1\uffff\1\3\4\uffff\1\4\1\5\1\6\1\7\1\uffff\1\10\5\uffff\2\1",
-            "",
-            "",
-            "\1\14\1\uffff\1\11\1\12\1\13\30\uffff\1\15\1\uffff\1\15\4\uffff\4\15\1\uffff\1\15\5\uffff\4\15",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\2\11\uffff\1\15\2\uffff\1\15",
-            "\1\2\11\uffff\1\15\2\uffff\1\15",
-            "\1\2\11\uffff\1\15\2\uffff\1\15",
-            "\1\16\24\uffff\1\2\1\uffff\1\17\1\uffff\1\15\5\uffff\4\15",
-            "",
-            "\1\2\3\uffff\1\15\5\uffff\1\15\2\uffff\1\15",
-            "\1\20",
-            "\1\21\24\uffff\1\2\1\uffff\1\17\1\uffff\1\15\5\uffff\1\15\2\uffff\1\15",
-            "\1\2\3\uffff\1\15\5\uffff\1\15\2\uffff\1\15"
-    };
-
-    static final short[] dfa_40 = DFA.unpackEncodedString(dfa_40s);
-    static final char[] dfa_41 = DFA.unpackEncodedStringToUnsignedChars(dfa_41s);
-    static final char[] dfa_42 = DFA.unpackEncodedStringToUnsignedChars(dfa_42s);
-    static final short[] dfa_43 = DFA.unpackEncodedString(dfa_43s);
-    static final short[] dfa_44 = DFA.unpackEncodedString(dfa_44s);
-    static final short[][] dfa_45 = unpackEncodedStringArray(dfa_45s);
-
-    class DFA43 extends DFA {
-
-        public DFA43(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 43;
-            this.eot = dfa_40;
-            this.eof = dfa_40;
-            this.min = dfa_41;
-            this.max = dfa_42;
-            this.accept = dfa_43;
-            this.special = dfa_44;
-            this.transition = dfa_45;
-        }
-        public String getDescription() {
-            return "2183:2: ( ( (lv_dod_0_0= ruleDo ) ) | ( ( (lv_lits_1_0= ruleLiteralTuple ) ) ( (lv_eqop_2_0= ':=' ) ) ( (lv_pblock_3_0= ruleParBlockElems ) ) ) | ( ( (lv_ret_4_0= 'return' ) ) ( (lv_block_5_0= ruleBlockElem ) ) ) | ( ( (lv_awhile_6_0= 'while' ) ) ( (lv_expr_7_0= ruleExpr ) ) ( (lv_whiledod_8_0= ruleDo ) ) ) | ( ( (lv_afor_9_0= 'for' ) ) ( (lv_gen_10_0= ruleGenerators ) ) ( (lv_dofront_11_0= ruleDoFront ) ) otherlv_12= 'end' ) | ( ( (lv_anif_13_0= 'if' ) ) ( (lv_cond_14_0= ruleExpr ) ) otherlv_15= 'then' ( (lv_blocks_16_0= ruleBlockElems ) ) ( (lv_elifs_17_0= ruleElifs ) )? ( (lv_els_18_0= ruleElse ) )? otherlv_19= 'end' ) | ( (lv_par_20_0= ruleParanthesized ) ) | (otherlv_21= '|' ( (lv_parblock_22_0= ruleParBlockElems ) ) otherlv_23= '|' ) )";
-        }
-    }
-    static final String dfa_46s = "\15\uffff";
-    static final String dfa_47s = "\1\4\2\60\2\4\2\32\2\uffff\1\4\1\60\2\32";
-    static final String dfa_48s = "\1\65\2\60\1\65\1\66\2\44\2\uffff\1\65\1\60\2\44";
-    static final String dfa_49s = "\7\uffff\1\2\1\1\4\uffff";
-    static final String dfa_50s = "\15\uffff}>";
-    static final String[] dfa_51s = {
+    static final String dfa_37s = "\15\uffff";
+    static final String dfa_38s = "\1\4\2\60\2\4\2\32\2\uffff\1\4\1\60\2\32";
+    static final String dfa_39s = "\1\65\2\60\1\65\1\61\2\44\2\uffff\1\65\1\60\2\44";
+    static final String dfa_40s = "\7\uffff\1\1\1\2\4\uffff";
+    static final String dfa_41s = "\15\uffff}>";
+    static final String[] dfa_42s = {
             "\1\1\36\uffff\1\3\21\uffff\1\2",
             "\1\4",
             "\1\4",
             "\1\5\60\uffff\1\6",
-            "\1\10\1\uffff\3\10\30\uffff\1\10\1\uffff\1\10\4\uffff\4\10\1\uffff\1\10\3\uffff\1\7\1\uffff\4\10",
+            "\1\7\1\uffff\3\7\32\uffff\1\7\15\uffff\1\10",
             "\1\11\11\uffff\1\12",
             "\1\11\11\uffff\1\12",
             "",
@@ -11785,197 +11920,190 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
             "\1\11\11\uffff\1\12"
     };
 
-    static final short[] dfa_46 = DFA.unpackEncodedString(dfa_46s);
-    static final char[] dfa_47 = DFA.unpackEncodedStringToUnsignedChars(dfa_47s);
-    static final char[] dfa_48 = DFA.unpackEncodedStringToUnsignedChars(dfa_48s);
-    static final short[] dfa_49 = DFA.unpackEncodedString(dfa_49s);
-    static final short[] dfa_50 = DFA.unpackEncodedString(dfa_50s);
-    static final short[][] dfa_51 = unpackEncodedStringArray(dfa_51s);
+    static final short[] dfa_37 = DFA.unpackEncodedString(dfa_37s);
+    static final char[] dfa_38 = DFA.unpackEncodedStringToUnsignedChars(dfa_38s);
+    static final char[] dfa_39 = DFA.unpackEncodedStringToUnsignedChars(dfa_39s);
+    static final short[] dfa_40 = DFA.unpackEncodedString(dfa_40s);
+    static final short[] dfa_41 = DFA.unpackEncodedString(dfa_41s);
+    static final short[][] dfa_42 = unpackEncodedStringArray(dfa_42s);
 
     class DFA47 extends DFA {
 
         public DFA47(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 47;
-            this.eot = dfa_46;
-            this.eof = dfa_46;
-            this.min = dfa_47;
-            this.max = dfa_48;
-            this.accept = dfa_49;
-            this.special = dfa_50;
-            this.transition = dfa_51;
+            this.eot = dfa_37;
+            this.eof = dfa_37;
+            this.min = dfa_38;
+            this.max = dfa_39;
+            this.accept = dfa_40;
+            this.special = dfa_41;
+            this.transition = dfa_42;
         }
         public String getDescription() {
-            return "2885:2: ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) )";
+            return "3001:2: ( ( ( (lv_idtup_0_0= ruleIdOrTuple ) ) otherlv_1= '<-' ( (lv_expr_2_0= ruleExpr ) ) ) | ( ( (lv_idtup_3_0= ruleIdOrTuple ) ) otherlv_4= '<-' ( (lv_seq_5_0= 'seq' ) ) otherlv_6= '(' ( (lv_expr_7_0= ruleExpr ) ) otherlv_8= ')' ) )";
         }
     }
-    static final String dfa_52s = "\20\uffff";
-    static final String dfa_53s = "\1\uffff\1\4\6\uffff\1\4\6\uffff\1\4";
-    static final String dfa_54s = "\1\4\1\5\1\45\1\4\2\uffff\1\5\2\32\2\4\1\45\1\5\3\32";
-    static final String dfa_55s = "\1\66\1\64\1\60\1\66\2\uffff\1\47\1\46\1\64\2\65\1\60\3\44\1\64";
-    static final String dfa_56s = "\4\uffff\1\2\1\1\12\uffff";
-    static final String dfa_57s = "\20\uffff}>";
-    static final String[] dfa_58s = {
-            "\1\1\1\uffff\3\4\30\uffff\1\4\1\uffff\1\3\4\uffff\4\4\1\uffff\1\4\5\uffff\2\4\1\2\1\4",
-            "\1\4\24\uffff\1\4\1\uffff\1\4\1\uffff\1\4\2\uffff\1\4\3\uffff\3\4\10\uffff\1\5\2\uffff\2\4",
-            "\2\4\11\uffff\1\5",
-            "\1\6\1\uffff\3\4\30\uffff\1\4\1\uffff\1\4\4\uffff\4\4\1\uffff\1\4\5\uffff\2\4\1\7\1\4",
+    static final String dfa_43s = "\11\uffff";
+    static final String dfa_44s = "\1\uffff\1\4\6\uffff\1\4";
+    static final String dfa_45s = "\1\4\1\5\1\uffff\1\4\1\uffff\1\5\1\4\1\5\1\32";
+    static final String dfa_46s = "\1\65\1\64\1\uffff\1\65\1\uffff\1\44\1\65\1\44\1\64";
+    static final String dfa_47s = "\2\uffff\1\1\1\uffff\1\2\4\uffff";
+    static final String dfa_48s = "\11\uffff}>";
+    static final String[] dfa_49s = {
+            "\1\1\1\uffff\3\4\32\uffff\1\3\21\uffff\1\2",
+            "\1\4\24\uffff\1\4\1\uffff\1\4\4\uffff\1\4\16\uffff\1\2\2\uffff\2\4",
             "",
+            "\1\5\1\uffff\3\4\54\uffff\1\2",
             "",
-            "\1\4\24\uffff\1\11\1\uffff\1\4\1\uffff\1\4\5\uffff\1\10\3\4",
-            "\1\12\11\uffff\1\13\2\4",
-            "\1\4\3\uffff\1\4\2\uffff\1\4\3\uffff\2\4\11\uffff\1\5\2\uffff\2\4",
-            "\1\14\1\uffff\3\4\54\uffff\1\15",
-            "\1\16\60\uffff\1\15",
-            "\2\4\11\uffff\1\5",
-            "\1\4\24\uffff\1\11\1\uffff\1\4\7\uffff\1\17",
-            "\1\12\11\uffff\1\13",
-            "\1\12\11\uffff\1\13",
-            "\1\4\6\uffff\1\4\3\uffff\3\4\10\uffff\1\5\2\uffff\2\4"
+            "\1\4\24\uffff\1\6\1\uffff\1\4\7\uffff\1\2",
+            "\1\7\1\uffff\3\4\54\uffff\1\2",
+            "\1\4\24\uffff\1\6\1\uffff\1\4\7\uffff\1\10",
+            "\1\4\6\uffff\1\4\16\uffff\1\2\2\uffff\2\4"
     };
 
-    static final short[] dfa_52 = DFA.unpackEncodedString(dfa_52s);
-    static final short[] dfa_53 = DFA.unpackEncodedString(dfa_53s);
-    static final char[] dfa_54 = DFA.unpackEncodedStringToUnsignedChars(dfa_54s);
-    static final char[] dfa_55 = DFA.unpackEncodedStringToUnsignedChars(dfa_55s);
-    static final short[] dfa_56 = DFA.unpackEncodedString(dfa_56s);
-    static final short[] dfa_57 = DFA.unpackEncodedString(dfa_57s);
-    static final short[][] dfa_58 = unpackEncodedStringArray(dfa_58s);
+    static final short[] dfa_43 = DFA.unpackEncodedString(dfa_43s);
+    static final short[] dfa_44 = DFA.unpackEncodedString(dfa_44s);
+    static final char[] dfa_45 = DFA.unpackEncodedStringToUnsignedChars(dfa_45s);
+    static final char[] dfa_46 = DFA.unpackEncodedStringToUnsignedChars(dfa_46s);
+    static final short[] dfa_47 = DFA.unpackEncodedString(dfa_47s);
+    static final short[] dfa_48 = DFA.unpackEncodedString(dfa_48s);
+    static final short[][] dfa_49 = unpackEncodedStringArray(dfa_49s);
 
     class DFA48 extends DFA {
 
         public DFA48(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 48;
-            this.eot = dfa_52;
-            this.eof = dfa_53;
-            this.min = dfa_54;
-            this.max = dfa_55;
-            this.accept = dfa_56;
-            this.special = dfa_57;
-            this.transition = dfa_58;
+            this.eot = dfa_43;
+            this.eof = dfa_44;
+            this.min = dfa_45;
+            this.max = dfa_46;
+            this.accept = dfa_47;
+            this.special = dfa_48;
+            this.transition = dfa_49;
         }
         public String getDescription() {
-            return "3015:2: ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) )";
+            return "3131:2: ( ( (lv_binding_0_0= ruleBinding ) ) | ( (lv_expr_1_0= ruleExpr ) ) )";
         }
     }
-    static final String dfa_59s = "\34\uffff";
-    static final String dfa_60s = "\3\4\2\45\1\4\2\45\2\4\1\uffff\4\32\1\5\1\uffff\1\4\1\45\1\uffff\1\4\1\45\1\uffff\2\32\1\4\2\32";
-    static final String dfa_61s = "\2\66\1\65\2\46\1\65\2\45\1\65\1\43\1\uffff\4\45\1\47\1\uffff\1\65\1\46\1\uffff\1\65\1\45\1\uffff\2\44\1\43\2\44";
-    static final String dfa_62s = "\12\uffff\1\2\5\uffff\1\4\2\uffff\1\1\2\uffff\1\3\5\uffff";
-    static final String dfa_63s = "\34\uffff}>";
-    static final String[] dfa_64s = {
+    static final String dfa_50s = "\34\uffff";
+    static final String dfa_51s = "\3\4\2\45\1\4\2\45\1\4\1\uffff\1\4\4\32\1\5\2\uffff\1\4\1\45\1\4\1\45\1\uffff\2\32\1\4\2\32";
+    static final String dfa_52s = "\2\66\1\65\2\46\1\65\2\45\1\65\1\uffff\1\43\4\45\1\47\2\uffff\1\65\1\46\1\65\1\45\1\uffff\2\44\1\43\2\44";
+    static final String dfa_53s = "\11\uffff\1\2\6\uffff\1\4\1\1\4\uffff\1\3\5\uffff";
+    static final String dfa_54s = "\34\uffff}>";
+    static final String[] dfa_55s = {
             "\1\3\32\uffff\1\1\3\uffff\1\5\21\uffff\1\4\1\2",
             "\1\3\36\uffff\1\5\21\uffff\1\4\1\2",
             "\1\6\36\uffff\1\10\21\uffff\1\7",
-            "\1\11\1\12",
-            "\1\11\1\12",
+            "\1\12\1\11",
+            "\1\12\1\11",
             "\1\13\60\uffff\1\14",
-            "\1\11",
-            "\1\11",
+            "\1\12",
+            "\1\12",
             "\1\15\60\uffff\1\16",
-            "\1\17\36\uffff\1\20",
             "",
-            "\1\21\11\uffff\1\22\1\23",
-            "\1\21\11\uffff\1\22\1\23",
-            "\1\24\11\uffff\1\25\1\23",
-            "\1\24\11\uffff\1\25\1\23",
-            "\1\26\40\uffff\2\23",
+            "\1\17\36\uffff\1\20",
+            "\1\22\11\uffff\1\23\1\21",
+            "\1\22\11\uffff\1\23\1\21",
+            "\1\24\11\uffff\1\25\1\21",
+            "\1\24\11\uffff\1\25\1\21",
+            "\1\26\40\uffff\2\21",
+            "",
             "",
             "\1\27\60\uffff\1\30",
-            "\1\31\1\12",
-            "",
+            "\1\31\1\11",
             "\1\32\60\uffff\1\33",
             "\1\31",
             "",
-            "\1\21\11\uffff\1\22",
-            "\1\21\11\uffff\1\22",
+            "\1\22\11\uffff\1\23",
+            "\1\22\11\uffff\1\23",
             "\1\26\36\uffff\1\20",
             "\1\24\11\uffff\1\25",
             "\1\24\11\uffff\1\25"
     };
 
-    static final short[] dfa_59 = DFA.unpackEncodedString(dfa_59s);
-    static final char[] dfa_60 = DFA.unpackEncodedStringToUnsignedChars(dfa_60s);
-    static final char[] dfa_61 = DFA.unpackEncodedStringToUnsignedChars(dfa_61s);
-    static final short[] dfa_62 = DFA.unpackEncodedString(dfa_62s);
-    static final short[] dfa_63 = DFA.unpackEncodedString(dfa_63s);
-    static final short[][] dfa_64 = unpackEncodedStringArray(dfa_64s);
+    static final short[] dfa_50 = DFA.unpackEncodedString(dfa_50s);
+    static final char[] dfa_51 = DFA.unpackEncodedStringToUnsignedChars(dfa_51s);
+    static final char[] dfa_52 = DFA.unpackEncodedStringToUnsignedChars(dfa_52s);
+    static final short[] dfa_53 = DFA.unpackEncodedString(dfa_53s);
+    static final short[] dfa_54 = DFA.unpackEncodedString(dfa_54s);
+    static final short[][] dfa_55 = unpackEncodedStringArray(dfa_55s);
 
     class DFA63 extends DFA {
 
         public DFA63(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 63;
-            this.eot = dfa_59;
-            this.eof = dfa_59;
-            this.min = dfa_60;
-            this.max = dfa_61;
-            this.accept = dfa_62;
-            this.special = dfa_63;
-            this.transition = dfa_64;
+            this.eot = dfa_50;
+            this.eof = dfa_50;
+            this.min = dfa_51;
+            this.max = dfa_52;
+            this.accept = dfa_53;
+            this.special = dfa_54;
+            this.transition = dfa_55;
         }
         public String getDescription() {
-            return "3537:2: ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) )";
+            return "3607:2: ( ( ( (lv_pri_0_0= 'private' ) )? ( (lv_mut_1_0= 'var' ) )? ( (lv_vars_2_0= ruleNoNewlineVarWTypes ) ) ( (lv_init_3_0= ruleInitVal ) ) ) | ( ( (lv_pri_4_0= 'private' ) )? ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_pri_8_0= 'private' ) )? ( (lv_mut_9_0= 'var' ) )? ( (lv_idtup_10_0= ruleIdOrTuple ) ) otherlv_11= ':' ( (lv_type_12_0= ruleType ) ) this_DOTS_13= RULE_DOTS ( (lv_init_14_0= ruleInitVal ) ) ) | ( ( (lv_pri_15_0= 'private' ) )? ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( (lv_init_20_0= ruleInitVal ) ) ) )";
         }
     }
-    static final String dfa_65s = "\33\uffff";
-    static final String dfa_66s = "\2\4\2\45\1\4\2\45\2\4\1\uffff\4\32\1\uffff\1\5\1\4\1\45\1\uffff\1\4\1\45\1\uffff\2\32\1\4\2\32";
-    static final String dfa_67s = "\1\66\1\65\2\46\1\65\2\45\1\65\1\43\1\uffff\4\45\1\uffff\1\47\1\65\1\46\1\uffff\1\65\1\45\1\uffff\2\44\1\43\2\44";
-    static final String dfa_68s = "\11\uffff\1\2\4\uffff\1\4\3\uffff\1\1\2\uffff\1\3\5\uffff";
-    static final String dfa_69s = "\33\uffff}>";
-    static final String[] dfa_70s = {
+    static final String dfa_56s = "\33\uffff";
+    static final String dfa_57s = "\2\4\2\45\1\4\2\45\1\4\1\uffff\1\4\4\32\1\5\1\uffff\1\4\1\45\1\uffff\1\4\1\45\1\uffff\2\32\1\4\2\32";
+    static final String dfa_58s = "\1\66\1\65\2\46\1\65\2\45\1\65\1\uffff\1\43\4\45\1\47\1\uffff\1\65\1\46\1\uffff\1\65\1\45\1\uffff\2\44\1\43\2\44";
+    static final String dfa_59s = "\10\uffff\1\2\6\uffff\1\4\2\uffff\1\1\2\uffff\1\3\5\uffff";
+    static final String dfa_60s = "\33\uffff}>";
+    static final String[] dfa_61s = {
             "\1\2\36\uffff\1\4\21\uffff\1\3\1\1",
             "\1\5\36\uffff\1\7\21\uffff\1\6",
-            "\1\10\1\11",
-            "\1\10\1\11",
+            "\1\11\1\10",
+            "\1\11\1\10",
             "\1\12\60\uffff\1\13",
-            "\1\10",
-            "\1\10",
+            "\1\11",
+            "\1\11",
             "\1\14\60\uffff\1\15",
-            "\1\17\36\uffff\1\16",
             "",
+            "\1\16\36\uffff\1\17",
             "\1\20\11\uffff\1\21\1\22",
             "\1\20\11\uffff\1\21\1\22",
             "\1\23\11\uffff\1\24\1\22",
             "\1\23\11\uffff\1\24\1\22",
-            "",
             "\1\25\40\uffff\2\22",
+            "",
             "\1\26\60\uffff\1\27",
-            "\1\30\1\11",
+            "\1\30\1\10",
             "",
             "\1\31\60\uffff\1\32",
             "\1\30",
             "",
             "\1\20\11\uffff\1\21",
             "\1\20\11\uffff\1\21",
-            "\1\25\36\uffff\1\16",
+            "\1\25\36\uffff\1\17",
             "\1\23\11\uffff\1\24",
             "\1\23\11\uffff\1\24"
     };
 
-    static final short[] dfa_65 = DFA.unpackEncodedString(dfa_65s);
-    static final char[] dfa_66 = DFA.unpackEncodedStringToUnsignedChars(dfa_66s);
-    static final char[] dfa_67 = DFA.unpackEncodedStringToUnsignedChars(dfa_67s);
-    static final short[] dfa_68 = DFA.unpackEncodedString(dfa_68s);
-    static final short[] dfa_69 = DFA.unpackEncodedString(dfa_69s);
-    static final short[][] dfa_70 = unpackEncodedStringArray(dfa_70s);
+    static final short[] dfa_56 = DFA.unpackEncodedString(dfa_56s);
+    static final char[] dfa_57 = DFA.unpackEncodedStringToUnsignedChars(dfa_57s);
+    static final char[] dfa_58 = DFA.unpackEncodedStringToUnsignedChars(dfa_58s);
+    static final short[] dfa_59 = DFA.unpackEncodedString(dfa_59s);
+    static final short[] dfa_60 = DFA.unpackEncodedString(dfa_60s);
+    static final short[][] dfa_61 = unpackEncodedStringArray(dfa_61s);
 
     class DFA76 extends DFA {
 
         public DFA76(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
             this.decisionNumber = 76;
-            this.eot = dfa_65;
-            this.eof = dfa_65;
-            this.min = dfa_66;
-            this.max = dfa_67;
-            this.accept = dfa_68;
-            this.special = dfa_69;
-            this.transition = dfa_70;
+            this.eot = dfa_56;
+            this.eof = dfa_56;
+            this.min = dfa_57;
+            this.max = dfa_58;
+            this.accept = dfa_59;
+            this.special = dfa_60;
+            this.transition = dfa_61;
         }
         public String getDescription() {
-            return "4299:2: ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleBlockElem ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleBlockElem ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleBlockElem ) ) ) )";
+            return "4369:2: ( ( ( (lv_mut_0_0= 'var' ) )? ( (lv_vars_1_0= ruleNoNewlineVarWTypes ) ) ( ( (lv_muta_2_0= ':=' ) ) | ( (lv_immut_3_0= '=' ) ) ) ( (lv_init_4_0= ruleExpr ) ) ) | ( ( (lv_idtup_5_0= ruleIdOrTuple ) ) otherlv_6= '=' ( (lv_litTup_7_0= ruleLiteralTuple ) ) ) | ( ( (lv_mut_8_0= 'var' ) )? ( (lv_idtup_9_0= ruleIdOrTuple ) ) otherlv_10= ':' ( (lv_type_11_0= ruleType ) ) this_DOTS_12= RULE_DOTS ( ( (lv_muta_13_0= ':=' ) ) | ( (lv_immut_14_0= '=' ) ) ) ( (lv_init_15_0= ruleExpr ) ) ) | ( ( (lv_mut_16_0= 'var' ) )? ( (lv_idtup_17_0= ruleIdOrTuple ) ) otherlv_18= ':' ( (lv_tuptype_19_0= ruleTupleType ) ) ( ( (lv_muta_20_0= ':=' ) ) | ( (lv_immut_21_0= '=' ) ) ) ( (lv_init_22_0= ruleExpr ) ) ) )";
         }
     }
  
@@ -12018,19 +12146,19 @@ public class InternalFortXTransParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0000C00000200000L});
     public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000800000200000L});
     public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0000000004000002L});
     public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x00782F0A800001D2L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0004000000200000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0010000200000000L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0060000880000010L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x000000C000000000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000004000000000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x00000008000001D0L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x00782F0A800001D2L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0004000000200000L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0010000200000000L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0060000880000010L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x000000C000000000L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x00000008000001D0L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000004000000L});
     public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x00000000000001D0L});
 
 }

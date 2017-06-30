@@ -27,7 +27,7 @@ public interface BlockElems extends EObject
 {
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference list.
-   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Exp}.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.BlockElem}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Block</em>' containment reference list isn't clear,
@@ -39,6 +39,6 @@ public interface BlockElems extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Exp> getBlock();
+  EList<BlockElem> getBlock();
 
 } // BlockElems

@@ -3,50 +3,55 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.Exp;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
+
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
+import srf.transpiler.fortxtrans.fortXTrans.ExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Exp</b></em>'.
+ * An implementation of the model object '<em><b>Expr List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExpImpl#getExp <em>Exp</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprListImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
+public class ExprListImpl extends MinimalEObjectImpl.Container implements ExprList
 {
   /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
+   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getExp()
    * @generated
    * @ordered
    */
-  protected Expr exp;
+  protected EList<Expr> exp;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExpImpl()
+  protected ExprListImpl()
   {
     super();
   }
@@ -59,7 +64,7 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.EXP;
+    return FortXTransPackage.Literals.EXPR_LIST;
   }
 
   /**
@@ -67,47 +72,13 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExp()
+  public EList<Expr> getExp()
   {
+    if (exp == null)
+    {
+      exp = new EObjectContainmentEList<Expr>(Expr.class, this, FortXTransPackage.EXPR_LIST__EXP);
+    }
     return exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
-  {
-    Expr oldExp = exp;
-    exp = newExp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXP__EXP, oldExp, newExp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExp(Expr newExp)
-  {
-    if (newExp != exp)
-    {
-      NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXP__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXP__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXP__EXP, newExp, newExp));
   }
 
   /**
@@ -120,8 +91,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXP__EXP:
-        return basicSetExp(null, msgs);
+      case FortXTransPackage.EXPR_LIST__EXP:
+        return ((InternalEList<?>)getExp()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,7 +107,7 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXP__EXP:
+      case FortXTransPackage.EXPR_LIST__EXP:
         return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -147,13 +118,15 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXP__EXP:
-        setExp((Expr)newValue);
+      case FortXTransPackage.EXPR_LIST__EXP:
+        getExp().clear();
+        getExp().addAll((Collection<? extends Expr>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +142,8 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXP__EXP:
-        setExp((Expr)null);
+      case FortXTransPackage.EXPR_LIST__EXP:
+        getExp().clear();
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +159,10 @@ public class ExpImpl extends MinimalEObjectImpl.Container implements Exp
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXP__EXP:
-        return exp != null;
+      case FortXTransPackage.EXPR_LIST__EXP:
+        return exp != null && !exp.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ExpImpl
+} //ExprListImpl

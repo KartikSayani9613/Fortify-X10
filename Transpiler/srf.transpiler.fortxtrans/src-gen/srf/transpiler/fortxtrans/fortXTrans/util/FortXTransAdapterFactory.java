@@ -181,6 +181,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createFnDeclAdapter();
       }
       @Override
+      public Adapter caseStmnt(Stmnt object)
+      {
+        return createStmntAdapter();
+      }
+      @Override
       public Adapter caseExpr(Expr object)
       {
         return createExprAdapter();
@@ -199,6 +204,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseDelimitedExpr(DelimitedExpr object)
       {
         return createDelimitedExprAdapter();
+      }
+      @Override
+      public Adapter caseExprList(ExprList object)
+      {
+        return createExprListAdapter();
       }
       @Override
       public Adapter caseParBlockElems(ParBlockElems object)
@@ -241,9 +251,9 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createBlockElemsAdapter();
       }
       @Override
-      public Adapter caseExp(Exp object)
+      public Adapter caseBlockElem(BlockElem object)
       {
-        return createExpAdapter();
+        return createBlockElemAdapter();
       }
       @Override
       public Adapter caseDo(Do object)
@@ -638,6 +648,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt <em>Stmnt</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnt
+   * @generated
+   */
+  public Adapter createStmntAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Expr <em>Expr</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -693,6 +718,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDelimitedExprAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprList <em>Expr List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ExprList
+   * @generated
+   */
+  public Adapter createExprListAdapter()
   {
     return null;
   }
@@ -818,16 +858,16 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Exp <em>Exp</em>}'.
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BlockElem <em>Block Elem</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Exp
+   * @see srf.transpiler.fortxtrans.fortXTrans.BlockElem
    * @generated
    */
-  public Adapter createExpAdapter()
+  public Adapter createBlockElemAdapter()
   {
     return null;
   }

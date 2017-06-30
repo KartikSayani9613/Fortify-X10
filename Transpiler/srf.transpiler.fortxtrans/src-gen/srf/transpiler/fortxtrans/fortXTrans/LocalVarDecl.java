@@ -144,12 +144,12 @@ public interface LocalVarDecl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Init</em>' containment reference.
-   * @see #setInit(Exp)
+   * @see #setInit(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLocalVarDecl_Init()
    * @model containment="true"
    * @generated
    */
-  Exp getInit();
+  Expr getInit();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit <em>Init</em>}' containment reference.
@@ -159,7 +159,7 @@ public interface LocalVarDecl extends EObject
    * @see #getInit()
    * @generated
    */
-  void setInit(Exp value);
+  void setInit(Expr value);
 
   /**
    * Returns the value of the '<em><b>Idtup</b></em>' containment reference.

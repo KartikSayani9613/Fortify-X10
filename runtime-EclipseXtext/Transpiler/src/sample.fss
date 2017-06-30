@@ -4,31 +4,17 @@ export Executable
 	private var n:String = "Hello"
 
 	run():() = do
-	
-		for i<-range do
-			if i then
-				this
-			elif i then
-				that
-			else
-				do
-					j = 20.0 //Immutable Float
-					k:ZZ32 = 20 //Immutable Integer
-					l:ZZ32 := 20 //Mutable Integer
-					(m, o, o):RR64... := (1.0, 2.0, 3.0)
-					 //Mutable Doubles^
-					 (q, r, s):RR64... = (1.0, 2.0, 3.0)
-					 //ImMutable Doubles^
-					 var (t:ZZ32, u:ZZ64, v:RR64) = (1, 2, 3.0)
-					 //Mutabel bunch of vars
-					 |(for i<-name, k<-name2 do something end
-					 , while j do elsething end
-					 , while k do yetanother end)|
-				end			
-				
-			end
+		var n:ZZ32 = 20
+		for i<-n do
+			fact(i)
 		end
-	
 	end
 	
+	fact(i:ZZ32):ZZ32 = do
+		if i then
+			return 1
+		else
+			return nfact(n)
+		end
+	end
 end

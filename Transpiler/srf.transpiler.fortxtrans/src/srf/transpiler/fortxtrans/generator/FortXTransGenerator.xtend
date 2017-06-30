@@ -17,16 +17,16 @@ import srf.transpiler.fortxtrans.fortXTrans.Decl
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl
 import srf.transpiler.fortxtrans.fortXTrans.ValParam
 import srf.transpiler.fortxtrans.fortXTrans.FieldDecl
-import srf.transpiler.fortxtrans.fortXTrans.Expr
-import srf.transpiler.fortxtrans.fortXTrans.ExprFront
-import srf.transpiler.fortxtrans.fortXTrans.ExprTail
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
-import srf.transpiler.fortxtrans.fortXTrans.Do
-import srf.transpiler.fortxtrans.fortXTrans.DoFront
-import srf.transpiler.fortxtrans.fortXTrans.BlockElems
-import srf.transpiler.fortxtrans.fortXTrans.Binding
-import srf.transpiler.fortxtrans.fortXTrans.Elifs
-import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
+//import srf.transpiler.fortxtrans.fortXTrans.Expr
+//import srf.transpiler.fortxtrans.fortXTrans.ExprFront
+//import srf.transpiler.fortxtrans.fortXTrans.ExprTail
+//import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
+//import srf.transpiler.fortxtrans.fortXTrans.Do
+//import srf.transpiler.fortxtrans.fortXTrans.DoFront
+//import srf.transpiler.fortxtrans.fortXTrans.BlockElems
+//import srf.transpiler.fortxtrans.fortXTrans.Binding
+//import srf.transpiler.fortxtrans.fortXTrans.Elifs
+//import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
 
 /**
  * Generates code from your model files on save.
@@ -45,7 +45,7 @@ class FortXTransGenerator extends AbstractGenerator {
 		}
 	}
 	
-	def compile(Component c)'''
+	def String compile(Component c)'''
 		import x10.io.Console;
 		import x10.lang.Math;
 		import x10.array.Array_1;
@@ -63,9 +63,9 @@ class FortXTransGenerator extends AbstractGenerator {
 		*/
 		
 		public class «c.name»{
-			«FOR d:c.decls»
-				«d.compile»
-			«ENDFOR»
+«««			«FOR d:c.decls»
+«««				«d.compile»
+«««			«ENDFOR»
 		}
 	'''
 	
@@ -453,350 +453,385 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«ENDIF
 		»«ENDIF»{	
 		«IF f.body»
-				«f.fnItself.compile»
+«««				«f.fnItself.compile»
 		«ENDIF»
 		}
 		'''
 	
-	def compile(LocalVarDecl f)'''«IF f.vars!==null
-		»«IF f.vars.single!==null»«IF f.mut===null
-			»«IF f.immut!==null» val «
-			ELSE
-			»var «
-			ENDIF
-			»«ELSE»var «ENDIF»«f.vars.single.bid»:«
-			IF f.vars.single.istype.type.tname=="ZZ32"
-				»Int = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.intg»n«ENDIF»;
-				«
-			ELSE»«
-				IF f.vars.single.istype.type.tname=="ZZ64"
-					»Long = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.intg»l«ENDIF»;
-					«
-				ELSE»«
-					IF f.vars.single.istype.type.tname=="RR32"
-						»Float = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.flot»f«ENDIF»;
-						«
-					ELSE»«
-						IF f.vars.single.istype.type.tname=="RR64"
-							»Double = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.flot»d«ENDIF»;
-							«
-						ELSE»«
-							IF f.vars.single.istype.type.tname=="String"
-								»String = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»"«f.init.exp.lit.lit.str»"«ENDIF»;
-								«
-							ELSE»«
-								f.vars.single.istype.type.tname» = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q
-									»«ELSE»«IF f.init.exp.lit.lit.str!==null»"«f.init.exp.lit.lit.str»"«
-									ELSE»«IF f.init.exp.lit.lit.flot!==null»«f.init.exp.lit.lit.flot»f«
-									ELSE»«f.init.exp.lit.lit.intg»n«ENDIF»«ENDIF»«ENDIF»;
-								«
-							ENDIF
-						»«ENDIF
-					»«ENDIF
-				»«ENDIF
-			»«ENDIF
-		»«ELSE
-			»«FOR m:0..<f.vars.multiple.length»
-				«IF f.mut===null
-					»«IF f.immut!==null»val «
-					ELSE
-					»var «
-					ENDIF
-			»«ELSE»var «ENDIF»«f.vars.multiple.get(m).bid»:«
-					IF f.vars.multiple.get(m).istype.type.tname=="ZZ32"
-						»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
-						«
-					ELSE»«
-						IF f.vars.multiple.get(m).istype.type.tname=="ZZ64"
-							»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»l«ENDIF»;
-							«
-						ELSE»«
-							IF f.vars.multiple.get(m).istype.type.tname=="RR32"
-								»Float = « IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
-								«
-							ELSE»«
-								IF f.vars.multiple.get(m).istype.type.tname=="RR64"
-									»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
-									«
-								ELSE»«
-									IF f.vars.multiple.get(m).istype.type.tname=="String"
-										»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
-										«
-									ELSE»«
-										f.vars.multiple.get(m).istype.type.tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q
-											»«ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
-											ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
-											ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
-									«ENDIF
-								»«ENDIF
-							»«ENDIF
-						»«ENDIF
-					»«ENDIF
-				»«ENDFOR»
-		«ENDIF
-		»«ELSE
-		»«IF f.type!==null
-		»«FOR m:0..<f.idtup.bid.length»
-			«IF f.mut===null
-				»«IF f.immut!==null»val «
-				ELSE
-				»var «ENDIF
-			»«ELSE»var «ENDIF»«f.idtup.bid.get(m)»: «
-				IF f.type.tname=="ZZ32"
-					»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
-					«
-				ELSE»«
-					IF f.type.tname=="ZZ64"
-						»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»f«ENDIF»;
-						«
-					ELSE»«
-						IF f.type.tname=="RR32"
-							»Float = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
-							«
-						ELSE»«
-							IF f.type.tname=="RR64"
-								»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
-								«
-							ELSE»«
-								IF f.type.tname=="String"
-									»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
-									«
-								ELSE»«
-									f.type.tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q
-									»«ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
-									ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
-									ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
-									«
-								ENDIF
-							»«ENDIF
-						»«ENDIF
-					»«ENDIF
-				»«ENDIF
-			»«ENDFOR»
-		«ELSE»«IF f.tuptype!==null
-		»«FOR m:0..<f.idtup.bid.length»
-			«IF f.mut===null
-				»«IF f.immut!==null»val «
-			ELSE
-				»var «ENDIF
-			»«ELSE»var «ENDIF»«f.idtup.bid.get(m)»: «
-			IF f.tuptype.types.get(m).tname=="ZZ32"
-				»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
-				«
-			ELSE»«
-				IF f.tuptype.types.get(m).tname=="ZZ64"
-					»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»l«ENDIF»;
-					«
-				ELSE»«
-					IF f.tuptype.types.get(m).tname=="RR32"
-						»Float = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
-						«
-					ELSE»«
-						IF f.tuptype.types.get(m).tname=="RR64"
-							»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
-							«
-						ELSE»«
-							IF f.tuptype.types.get(m).tname=="String"
-							»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
-								«
-							ELSE»«
-								f.tuptype.types.get(m).tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«
-								ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
-								ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
-								ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
-								«ENDIF
-						»«ENDIF
-					»«ENDIF
-				»«ENDIF
-			»«ENDIF»
-		«ENDFOR»
-		«ELSE
-		»«IF f.litTup!==null
-			»«IF f.idtup.bid.length==1
-				» val «
-					f.idtup.bid.get(0)» = «
-					IF f.litTup.lit.q!==null»
-						«f.litTup.lit»«
-					ELSE»«
-					IF f.litTup.lit.flot!==null
-						»«f.litTup.lit.flot»f«
-					ELSE»«IF f.litTup.lit.str!==null
-						»"«f.litTup.lit.str»"«
-					ELSE
-						»«f.litTup.lit.intg
-					»n«ENDIF»«ENDIF»«ENDIF
-				»;
-				«
-			ELSE
-			»«FOR m:0..<f.idtup.bid.length
-				» val «
-				f.idtup.bid.get(m)» = «
-								IF f.litTup.lits.get(m).q!==null»
-									«f.litTup.lits.get(m)»«
-								ELSE»«
-								IF f.litTup.lits.get(m).flot!==null
-									»«f.litTup.lits.get(m).flot»f«
-								ELSE»«IF f.litTup.lits.get(m).str!==null
-									»"«f.litTup.lits.get(m).str»"«
-								ELSE
-									»«f.litTup.lits.get(m).intg
-								»n«ENDIF»«ENDIF»«ENDIF
-							»;
-							«
-			ENDFOR
-		»«ENDIF»«ENDIF»«ENDIF»«ENDIF»«ENDIF»'''
-		
-	def String compile(Expr e)
-	'''
-	«IF e.lit!==null»«IF e.lit.lit!==null
-		»«IF e.lit.lit.q!==null»«e.lit.lit.q
-			»«ELSE
-				»«IF e.lit.lit.str!==null»"«e.lit.lit.str»"«
-				ELSE»
-					«IF e.lit.lit.flot!==null»«e.lit.lit.flot»f«
-					ELSE»«e.lit.lit.intg»n«
-					ENDIF»«
-				ENDIF»«
-			ENDIF»;«
-		ENDIF
-	»«ELSE
-	»«IF e.locVar!==null
-		»«e.locVar.compile»«
-	ELSE
-	»«e.front.compile»«IF e.tails!==null»«
-		FOR t:e.tails
-			»«t.compile
-		»«ENDFOR»«ENDIF»«ENDIF»«ENDIF»'''	
-	
-	def compile(ExprTail t)''' as «t.type»'''
-	
-	def compile(ExprFront ef)'''«IF ef.id!==null
-		»«ef.id
-		»«ELSE
-			»«IF ef.delim!==null
-				»«ef.delim.compile
-			»«ENDIF»«
-		ENDIF»
-	'''
-	
-	def compile(DelimitedExpr d)
-	'''
-	«IF d.ret!==null
-		»return «d.block.exp.compile»;
-	«ELSE
-		»«IF d.lits!==null
-			»«IF d.lits.lit!==null»«d.lits.lit.q» = «
-				IF d.pblock.block.get(0).exp.lit.lit.q!==null»«d.pblock.block.get(0).exp.lit.lit.q»«
-				ELSE»«IF d.pblock.block.get(0).exp.lit.lit.str!==null»"«d.pblock.block.get(0).exp.lit.lit.str»"«
-					ELSE»«IF d.pblock.block.get(0).exp.lit.lit.flot!==null»«d.pblock.block.get(0).exp.lit.lit.flot»f«
-						ELSE»«d.pblock.block.get(0).exp.lit.lit.intg»n«
-						ENDIF
-					»«ENDIF
-				»;«ENDIF
-			»«ELSE
-			»«FOR l:0..<d.lits.lits.length
-			»«d.lits.lits.get(l).q» = «
-				IF d.pblock.block.get(l).exp.lit.lit.q!==null»«d.pblock.block.get(l).exp.lit.lit.q»«
-				ELSE»«IF d.pblock.block.get(l).exp.lit.lit.str!==null»"«d.pblock.block.get(l).exp.lit.lit.str»"«
-					ELSE»«IF d.pblock.block.get(l).exp.lit.lit.flot!==null»«d.pblock.block.get(l).exp.lit.lit.flot»f«
-						ELSE»«d.pblock.block.get(l).exp.lit.lit.intg»n«
-						ENDIF
-					»«ENDIF
-				»;«ENDIF
-			»«ENDFOR»«ENDIF»
-		«ELSE»
-«««				THE DO BLOCK
-		«IF d.dod!==null
-			»«d.dod.compile
-		»«ELSE»
-«««				THE WHILE PART
-			«IF d.awhile!==null
-			»while(«d.expr.compile»)«d.whiledod.compile»
-			«ELSE»
-«««				THE FOR PART
-				«IF d.afor!==null
-					»«IF d.gen.binding.seq===null»
-					finish «ENDIF»for(«d.gen.binding.compile» in «d.gen.binding.expr.compile
-						»)«IF d.gen.binding.seq===null»
-						async «ENDIF»«
-					IF d.gen.clause!==null
-					»«FOR c:d.gen.clause»{
-					«IF c.binding.seq===null»
-					finish «ENDIF
-					»for(«c.binding.compile» in «c.binding.expr.compile
-					»)«IF c.binding.seq===null»
-					async «ENDIF»«ENDFOR»«d.dofront.compile
-					
-					»«FOR c:0..<d.gen.clause.length»
-					}«ENDFOR»«
-					ELSE»«d.dofront.compile
-					»«ENDIF»
-«««				THE IF ELSE IF PART
-				«ELSE
-					»«IF d.anif!==null
-					»if(«d.cond.compile») «d.blocks.compile
-					»«IF d.elifs!==null
-					»«d.elifs.compile»«
-					ENDIF
-					»«IF d.els!==null»
-					else 
-						«d.els.block.compile»
-					«ENDIF»
-					«ELSE»
-						«IF d.par!==null
-							»(«d.par.exp»)
-						«ELSE
-							»«IF d.parblock!==null»finish{
-								«FOR b:d.parblock.block»
-								async{«b.exp.compile»}«ENDFOR»}«ENDIF
-						»«ENDIF»
-					«ENDIF»
-				«ENDIF»
-			«ENDIF»
-		«ENDIF»
-		«ENDIF»
-		«ENDIF»
-	'''
-	
-	def compile(Elifs el)
-	'''
-	«FOR e:el.e»
-		else if(«e.expr.compile»)«e.block.compile»
-	«ENDFOR»
-	'''
-	
-	def compile(Binding b)
-	'''«IF b.idtup.bid.length==1
-			»«b.idtup.bid.get(0)
-		»«ELSE
-			»«b.idtup.bid»«ENDIF»'''
-	
-	def compile(Do dobox)
-	'''
-	«FOR d:0..<dobox.dofs.length
-		»«IF d!=0»
-			async «
-		ENDIF
-		»«dobox.dofs.get(d).compile
-	»«ENDFOR»
-	'''
-
-	def compile(DoFront dof)
-		'''«IF dof.at
-			»at(«dof.exp.compile») «
-		ENDIF
-		»«
-		IF dof.atom
-			»atomic «
-		ENDIF
-		»«dof.block.compile»'''
-	
-    def compile(BlockElems bs)
-    '''
-    {
-   		«FOR b:0..<bs.block.length»
-		    «bs.block.get(b).exp.compile»
-		«ENDFOR»}
-	'''
+//	def compile(LocalVarDecl f)'''«IF f.vars!==null
+//		»«IF f.vars.single!==null»«IF f.mut===null
+//			»«IF f.immut!==null» val «
+//			ELSE
+//			»var «
+//			ENDIF
+//			»«ELSE»var «ENDIF»«f.vars.single.bid»:«
+//			IF f.vars.single.istype.type.tname=="ZZ32"
+//				»Int = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.intg»n«ENDIF»;
+//				«
+//			ELSE»«
+//				IF f.vars.single.istype.type.tname=="ZZ64"
+//					»Long = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.intg»l«ENDIF»;
+//					«
+//				ELSE»«
+//					IF f.vars.single.istype.type.tname=="RR32"
+//						»Float = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.flot»f«ENDIF»;
+//						«
+//					ELSE»«
+//						IF f.vars.single.istype.type.tname=="RR64"
+//							»Double = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.flot»d«ENDIF»;
+//							«
+//						ELSE»«
+//							IF f.vars.single.istype.type.tname=="String"
+//								»String = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»"«f.init.exp.lit.lit.str»"«ENDIF»;
+//								«
+//							ELSE»«
+//								f.vars.single.istype.type.tname» = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q
+//									»«ELSE»«IF f.init.exp.lit.lit.str!==null»"«f.init.exp.lit.lit.str»"«
+//									ELSE»«IF f.init.exp.lit.lit.flot!==null»«f.init.exp.lit.lit.flot»f«
+//									ELSE»«f.init.exp.lit.lit.intg»n«ENDIF»«ENDIF»«ENDIF»;
+//								«
+//							ENDIF
+//						»«ENDIF
+//					»«ENDIF
+//				»«ENDIF
+//			»«ENDIF
+//		»«ELSE
+//			»«FOR m:0..<f.vars.multiple.length»
+//				«IF f.mut===null
+//					»«IF f.immut!==null»val «
+//					ELSE
+//					»var «
+//					ENDIF
+//			»«ELSE»var «ENDIF»«f.vars.multiple.get(m).bid»:«
+//					IF f.vars.multiple.get(m).istype.type.tname=="ZZ32"
+//						»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
+//						«
+//					ELSE»«
+//						IF f.vars.multiple.get(m).istype.type.tname=="ZZ64"
+//							»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»l«ENDIF»;
+//							«
+//						ELSE»«
+//							IF f.vars.multiple.get(m).istype.type.tname=="RR32"
+//								»Float = « IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
+//								«
+//							ELSE»«
+//								IF f.vars.multiple.get(m).istype.type.tname=="RR64"
+//									»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
+//									«
+//								ELSE»«
+//									IF f.vars.multiple.get(m).istype.type.tname=="String"
+//										»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
+//										«
+//									ELSE»«
+//										f.vars.multiple.get(m).istype.type.tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q
+//											»«ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
+//											ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
+//											ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
+//									«ENDIF
+//								»«ENDIF
+//							»«ENDIF
+//						»«ENDIF
+//					»«ENDIF
+//				»«ENDFOR»
+//		«ENDIF
+//		»«ELSE
+//		»«IF f.type!==null
+//		»«FOR m:0..<f.idtup.bid.length»
+//			«IF f.mut===null
+//				»«IF f.immut!==null»val «
+//				ELSE
+//				»var «ENDIF
+//			»«ELSE»var «ENDIF»«f.idtup.bid.get(m)»: «
+//				IF f.type.tname=="ZZ32"
+//					»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
+//					«
+//				ELSE»«
+//					IF f.type.tname=="ZZ64"
+//						»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»f«ENDIF»;
+//						«
+//					ELSE»«
+//						IF f.type.tname=="RR32"
+//							»Float = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
+//							«
+//						ELSE»«
+//							IF f.type.tname=="RR64"
+//								»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
+//								«
+//							ELSE»«
+//								IF f.type.tname=="String"
+//									»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
+//									«
+//								ELSE»«
+//									f.type.tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q
+//									»«ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
+//									ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
+//									ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
+//									«
+//								ENDIF
+//							»«ENDIF
+//						»«ENDIF
+//					»«ENDIF
+//				»«ENDIF
+//			»«ENDFOR»
+//		«ELSE»«IF f.tuptype!==null
+//		»«FOR m:0..<f.idtup.bid.length»
+//			«IF f.mut===null
+//				»«IF f.immut!==null»val «
+//			ELSE
+//				»var «ENDIF
+//			»«ELSE»var «ENDIF»«f.idtup.bid.get(m)»: «
+//			IF f.tuptype.types.get(m).tname=="ZZ32"
+//				»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
+//				«
+//			ELSE»«
+//				IF f.tuptype.types.get(m).tname=="ZZ64"
+//					»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»l«ENDIF»;
+//					«
+//				ELSE»«
+//					IF f.tuptype.types.get(m).tname=="RR32"
+//						»Float = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
+//						«
+//					ELSE»«
+//						IF f.tuptype.types.get(m).tname=="RR64"
+//							»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
+//							«
+//						ELSE»«
+//							IF f.tuptype.types.get(m).tname=="String"
+//							»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
+//								«
+//							ELSE»«
+//								f.tuptype.types.get(m).tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«
+//								ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
+//								ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
+//								ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
+//								«ENDIF
+//						»«ENDIF
+//					»«ENDIF
+//				»«ENDIF
+//			»«ENDIF»
+//		«ENDFOR»
+//		«ELSE
+//		»«IF f.litTup!==null
+//			»«IF f.idtup.bid.length==1
+//				» val «
+//					f.idtup.bid.get(0)» = «
+//					IF f.litTup.lit.q!==null»
+//						«f.litTup.lit»«
+//					ELSE»«
+//					IF f.litTup.lit.flot!==null
+//						»«f.litTup.lit.flot»f«
+//					ELSE»«IF f.litTup.lit.str!==null
+//						»"«f.litTup.lit.str»"«
+//					ELSE
+//						»«f.litTup.lit.intg
+//					»n«ENDIF»«ENDIF»«ENDIF
+//				»;
+//				«
+//			ELSE
+//			»«FOR m:0..<f.idtup.bid.length
+//				» val «
+//				f.idtup.bid.get(m)» = «
+//								IF f.litTup.lits.get(m).q!==null»
+//									«f.litTup.lits.get(m)»«
+//								ELSE»«
+//								IF f.litTup.lits.get(m).flot!==null
+//									»«f.litTup.lits.get(m).flot»f«
+//								ELSE»«IF f.litTup.lits.get(m).str!==null
+//									»"«f.litTup.lits.get(m).str»"«
+//								ELSE
+//									»«f.litTup.lits.get(m).intg
+//								»n«ENDIF»«ENDIF»«ENDIF
+//							»;
+//							«
+//			ENDFOR
+//		»«ENDIF»«ENDIF»«ENDIF»«ENDIF»«ENDIF»'''
+//		
+//	def String compile(Expr e)
+//	'''«IF e.lit!==null
+//		»«IF e.lit.lit!==null
+//			»«IF e.lit.lit.q!==null
+//				»«e.lit.lit.q
+//			»«ELSE
+//				»«IF e.lit.lit.str!==null
+//					»"«e.lit.lit.str
+//				»"«ELSE
+//					»«IF e.lit.lit.flot!==null
+//						»«e.lit.lit.flot
+//					»f«ELSE»«e.lit.lit.intg
+//						»n«
+//					ENDIF»«
+//				ENDIF»«
+//			ENDIF»«
+//		ENDIF
+//	»«ELSE
+//	»«IF e.locVar!==null
+//		»«e.locVar.compile»«
+//	ELSE
+//	»«e.front.compile»«IF e.tails!==null»«
+//		FOR t:e.tails
+//			»«t.compile
+//		»«ENDFOR»«ENDIF»«ENDIF»«ENDIF»'''	
+//	
+//	def compile(ExprTail t)''' as «t.type»'''
+//	
+//	def compile(ExprFront ef)'''
+//		«IF ef.delim!==null
+//			»«ef.delim.compile
+//		»«ENDIF»
+//	'''
+//	
+//	def compile(DelimitedExpr d)
+//	'''
+//	«IF d.ret!==null
+//		»return «d.block.exp.compile»;
+//	«ELSE
+//		»«IF d.lits!==null
+//			»«IF d.lits.lit!==null»«d.lits.lit.q» = «
+//				IF d.pblock.block.get(0).exp.lit.lit.q!==null»«d.pblock.block.get(0).exp.lit.lit.q»«
+//				ELSE»«IF d.pblock.block.get(0).exp.lit.lit.str!==null»"«d.pblock.block.get(0).exp.lit.lit.str»"«
+//					ELSE»«IF d.pblock.block.get(0).exp.lit.lit.flot!==null»«d.pblock.block.get(0).exp.lit.lit.flot»f«
+//						ELSE»«d.pblock.block.get(0).exp.lit.lit.intg»n«
+//						ENDIF
+//					»«ENDIF
+//				»;«ENDIF
+//			»«ELSE
+//			»«FOR l:0..<d.lits.lits.length
+//			»«d.lits.lits.get(l).q» = «
+//				IF d.pblock.block.get(l).exp.lit.lit.q!==null»«d.pblock.block.get(l).exp.lit.lit.q»«
+//				ELSE»«IF d.pblock.block.get(l).exp.lit.lit.str!==null»"«d.pblock.block.get(l).exp.lit.lit.str»"«
+//					ELSE»«IF d.pblock.block.get(l).exp.lit.lit.flot!==null»«d.pblock.block.get(l).exp.lit.lit.flot»f«
+//						ELSE»«d.pblock.block.get(l).exp.lit.lit.intg»n«
+//						ENDIF
+//					»«ENDIF
+//				»;«ENDIF
+//			»«ENDFOR»«ENDIF»
+//		«ELSE»
+//«««				THE DO BLOCK
+//		«IF d.dod!==null
+//			»«d.dod.compile
+//		»«ELSE»
+//«««				THE WHILE PART
+//			«IF d.awhile!==null
+//			»while(«d.expr.compile»)«d.whiledod.compile»
+//			«ELSE»
+//«««				THE FOR PART
+//				«IF d.afor!==null
+//					»«IF d.gen.binding.seq===null»
+//					finish «ENDIF»for(«d.gen.binding.compile» in «d.gen.binding.expr.compile
+//						»)«IF d.gen.binding.seq===null»
+//						async «ENDIF»«
+//					IF d.gen.clause!==null
+//					»«FOR c:d.gen.clause»{
+//					«IF c.binding.seq===null»
+//					finish «ENDIF
+//					»for(«c.binding.compile» in «c.binding.expr.compile
+//					»)«IF c.binding.seq===null»
+//					async «ENDIF»«ENDFOR»«d.dofront.compile
+//					»«FOR c:0..<d.gen.clause.length»
+//					}«ENDFOR»«
+//					ELSE»«d.dofront.compile
+//					»«ENDIF»
+//«««				THE IF ELSE IF PART
+//				«ELSE
+//					»«IF d.anif!==null
+//					»if(«d.cond.compile») «d.blocks.compile
+//					»«IF d.elifs!==null
+//					»«d.elifs.compile»«
+//					ENDIF
+//					»«IF d.els!==null»
+//					else 
+//						«d.els.block.compile»
+//					«ENDIF»
+//					«ELSE»
+//						«IF d.parblock!==null»finish{
+//							«FOR b:d.parblock.block»
+//							async{«b.exp.compile»}«
+//							ENDFOR
+//						»}«
+//						ELSE»
+//						
+//							«IF d.fname!==null
+//								»-«d.fname
+//								»(«IF d.fargs.block.length==1
+//									»«IF d.fargs.block.get(0).exp.lit.lit.q!==null
+//										»«d.fargs.block.get(0).exp.lit.lit.q»«
+//									ELSE
+//										»«IF d.fargs.block.get(0).exp.lit.lit.str!==null
+//											»"«d.fargs.block.get(0).exp.lit.lit.str»"«
+//										ELSE
+//											»«IF d.fargs.block.get(0).exp.lit.lit.flot!==null
+//												»«d.fargs.block.get(0).exp.lit.lit.flot
+//											»«ELSE
+//												»«d.fargs.block.get(0).exp.lit.lit.intg
+//											»«ENDIF
+//										»«ENDIF
+//									»«ENDIF
+//								»)«ELSE
+//									»(«FOR f:0..<d.fargs.block.length
+//										»«IF f!=0», «ENDIF»«IF d.fargs.block.get(f).exp.lit.lit.q!==null
+//											»«d.fargs.block.get(f).exp.lit.lit.q»«
+//											ELSE
+//												»«IF d.fargs.block.get(f).exp.lit.lit.str!==null
+//													»"«d.fargs.block.get(f).exp.lit.lit.str»"«
+//												ELSE
+//													»«IF d.fargs.block.get(f).exp.lit.lit.flot!==null
+//														»«d.fargs.block.get(f).exp.lit.lit.flot
+//													»«ELSE
+//														»«d.fargs.block.get(f).exp.lit.lit.intg
+//													»«ENDIF
+//												»«ENDIF
+//											»«ENDIF
+//									»«ENDFOR»)«
+//								ENDIF
+//							»«ENDIF»
+//						«ENDIF»
+//					«ENDIF»
+//				«ENDIF»
+//			«ENDIF»
+//		«ENDIF»
+//		«ENDIF»
+//		«ENDIF»
+//	'''
+//	
+//	def compile(Elifs el)
+//	'''
+//	«FOR e:el.e»
+//		else if(«e.expr.compile»)«e.block.compile»
+//	«ENDFOR»
+//	'''
+//	
+//	def compile(Binding b)
+//	'''«IF b.idtup.bid.length==1
+//			»«b.idtup.bid.get(0)
+//		»«ELSE
+//			»«b.idtup.bid»«ENDIF»'''
+//	
+//	def compile(Do dobox)
+//	'''
+//	«FOR d:0..<dobox.dofs.length
+//		»«IF d!=0»
+//			async «
+//		ENDIF
+//		»«dobox.dofs.get(d).compile
+//	»«ENDFOR»
+//	'''
+//
+//	def compile(DoFront dof)
+//		'''«IF dof.at
+//			»at(«dof.exp.compile») «
+//		ENDIF
+//		»«
+//		IF dof.atom
+//			»atomic «
+//		ENDIF
+//		»«dof.block.compile»'''
+//	
+//    def compile(BlockElems bs)
+//    '''
+//    {
+//   		«FOR b:0..<bs.block.length»
+//		    «bs.block.get(b).exp.compile»
+//		«ENDFOR»}
+//	'''
    
 }

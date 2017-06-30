@@ -86,10 +86,12 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.TUPLE_TYPE: return createTupleType();
       case FortXTransPackage.TYPE: return createType();
       case FortXTransPackage.FN_DECL: return createFnDecl();
+      case FortXTransPackage.STMNT: return createStmnt();
       case FortXTransPackage.EXPR: return createExpr();
       case FortXTransPackage.EXPR_FRONT: return createExprFront();
       case FortXTransPackage.EXPR_TAIL: return createExprTail();
       case FortXTransPackage.DELIMITED_EXPR: return createDelimitedExpr();
+      case FortXTransPackage.EXPR_LIST: return createExprList();
       case FortXTransPackage.PAR_BLOCK_ELEMS: return createParBlockElems();
       case FortXTransPackage.ELIFS: return createElifs();
       case FortXTransPackage.ELIF: return createElif();
@@ -98,7 +100,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.BINDING: return createBinding();
       case FortXTransPackage.GEN_CLAUSE: return createGenClause();
       case FortXTransPackage.BLOCK_ELEMS: return createBlockElems();
-      case FortXTransPackage.EXP: return createExp();
+      case FortXTransPackage.BLOCK_ELEM: return createBlockElem();
       case FortXTransPackage.DO: return createDo();
       case FortXTransPackage.DO_FRONT: return createDoFront();
       case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
@@ -351,6 +353,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public Stmnt createStmnt()
+  {
+    StmntImpl stmnt = new StmntImpl();
+    return stmnt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expr createExpr()
   {
     ExprImpl expr = new ExprImpl();
@@ -388,6 +401,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     DelimitedExprImpl delimitedExpr = new DelimitedExprImpl();
     return delimitedExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ExprList createExprList()
+  {
+    ExprListImpl exprList = new ExprListImpl();
+    return exprList;
   }
 
   /**
@@ -483,10 +507,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exp createExp()
+  public BlockElem createBlockElem()
   {
-    ExpImpl exp = new ExpImpl();
-    return exp;
+    BlockElemImpl blockElem = new BlockElemImpl();
+    return blockElem;
   }
 
   /**

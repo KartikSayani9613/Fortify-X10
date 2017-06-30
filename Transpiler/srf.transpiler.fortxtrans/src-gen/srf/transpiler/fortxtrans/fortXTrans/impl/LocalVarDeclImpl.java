@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.Exp;
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
@@ -122,7 +122,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * @generated
    * @ordered
    */
-  protected Exp init;
+  protected Expr init;
 
   /**
    * The cached value of the '{@link #getIdtup() <em>Idtup</em>}' containment reference.
@@ -307,7 +307,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * <!-- end-user-doc -->
    * @generated
    */
-  public Exp getInit()
+  public Expr getInit()
   {
     return init;
   }
@@ -317,9 +317,9 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInit(Exp newInit, NotificationChain msgs)
+  public NotificationChain basicSetInit(Expr newInit, NotificationChain msgs)
   {
-    Exp oldInit = init;
+    Expr oldInit = init;
     init = newInit;
     if (eNotificationRequired())
     {
@@ -334,7 +334,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInit(Exp newInit)
+  public void setInit(Expr newInit)
   {
     if (newInit != init)
     {
@@ -623,7 +623,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
         setImmut((String)newValue);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__INIT:
-        setInit((Exp)newValue);
+        setInit((Expr)newValue);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__IDTUP:
         setIdtup((IdOrTuple)newValue);
@@ -664,7 +664,7 @@ public class LocalVarDeclImpl extends MinimalEObjectImpl.Container implements Lo
         setImmut(IMMUT_EDEFAULT);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__INIT:
-        setInit((Exp)null);
+        setInit((Expr)null);
         return;
       case FortXTransPackage.LOCAL_VAR_DECL__IDTUP:
         setIdtup((IdOrTuple)null);

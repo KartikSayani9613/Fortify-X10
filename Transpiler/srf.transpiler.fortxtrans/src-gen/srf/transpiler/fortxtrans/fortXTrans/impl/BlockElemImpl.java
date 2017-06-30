@@ -12,41 +12,41 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
-import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
+import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Expr Front</b></em>'.
+ * An implementation of the model object '<em><b>Block Elem</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BlockElemImpl#getSt <em>St</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprFront
+public class BlockElemImpl extends MinimalEObjectImpl.Container implements BlockElem
 {
   /**
-   * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference.
+   * The cached value of the '{@link #getSt() <em>St</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDelim()
+   * @see #getSt()
    * @generated
    * @ordered
    */
-  protected DelimitedExpr delim;
+  protected Stmnt st;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExprFrontImpl()
+  protected BlockElemImpl()
   {
     super();
   }
@@ -59,7 +59,7 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.EXPR_FRONT;
+    return FortXTransPackage.Literals.BLOCK_ELEM;
   }
 
   /**
@@ -67,9 +67,9 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
    * <!-- end-user-doc -->
    * @generated
    */
-  public DelimitedExpr getDelim()
+  public Stmnt getSt()
   {
-    return delim;
+    return st;
   }
 
   /**
@@ -77,13 +77,13 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDelim(DelimitedExpr newDelim, NotificationChain msgs)
+  public NotificationChain basicSetSt(Stmnt newSt, NotificationChain msgs)
   {
-    DelimitedExpr oldDelim = delim;
-    delim = newDelim;
+    Stmnt oldSt = st;
+    st = newSt;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__DELIM, oldDelim, newDelim);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.BLOCK_ELEM__ST, oldSt, newSt);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +94,20 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDelim(DelimitedExpr newDelim)
+  public void setSt(Stmnt newSt)
   {
-    if (newDelim != delim)
+    if (newSt != st)
     {
       NotificationChain msgs = null;
-      if (delim != null)
-        msgs = ((InternalEObject)delim).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR_FRONT__DELIM, null, msgs);
-      if (newDelim != null)
-        msgs = ((InternalEObject)newDelim).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR_FRONT__DELIM, null, msgs);
-      msgs = basicSetDelim(newDelim, msgs);
+      if (st != null)
+        msgs = ((InternalEObject)st).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BLOCK_ELEM__ST, null, msgs);
+      if (newSt != null)
+        msgs = ((InternalEObject)newSt).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BLOCK_ELEM__ST, null, msgs);
+      msgs = basicSetSt(newSt, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR_FRONT__DELIM, newDelim, newDelim));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.BLOCK_ELEM__ST, newSt, newSt));
   }
 
   /**
@@ -120,8 +120,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        return basicSetDelim(null, msgs);
+      case FortXTransPackage.BLOCK_ELEM__ST:
+        return basicSetSt(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +136,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        return getDelim();
+      case FortXTransPackage.BLOCK_ELEM__ST:
+        return getSt();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +152,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        setDelim((DelimitedExpr)newValue);
+      case FortXTransPackage.BLOCK_ELEM__ST:
+        setSt((Stmnt)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +169,8 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        setDelim((DelimitedExpr)null);
+      case FortXTransPackage.BLOCK_ELEM__ST:
+        setSt((Stmnt)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +186,10 @@ public class ExprFrontImpl extends MinimalEObjectImpl.Container implements ExprF
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR_FRONT__DELIM:
-        return delim != null;
+      case FortXTransPackage.BLOCK_ELEM__ST:
+        return st != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ExprFrontImpl
+} //BlockElemImpl

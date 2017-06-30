@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import srf.transpiler.fortxtrans.fortXTrans.Exp;
+import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
 
@@ -67,7 +67,7 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
    * @generated
    * @ordered
    */
-  protected EList<Exp> block;
+  protected EList<BlockElem> block;
 
   /**
    * <!-- begin-user-doc -->
@@ -118,11 +118,11 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Exp> getBlock()
+  public EList<BlockElem> getBlock()
   {
     if (block == null)
     {
-      block = new EObjectContainmentEList<Exp>(Exp.class, this, FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK);
+      block = new EObjectContainmentEList<BlockElem>(BlockElem.class, this, FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK);
     }
     return block;
   }
@@ -177,7 +177,7 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
         return;
       case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         getBlock().clear();
-        getBlock().addAll((Collection<? extends Exp>)newValue);
+        getBlock().addAll((Collection<? extends BlockElem>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

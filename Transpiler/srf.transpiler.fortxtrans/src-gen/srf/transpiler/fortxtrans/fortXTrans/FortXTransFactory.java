@@ -213,6 +213,15 @@ public interface FortXTransFactory extends EFactory
   FnDecl createFnDecl();
 
   /**
+   * Returns a new object of class '<em>Stmnt</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Stmnt</em>'.
+   * @generated
+   */
+  Stmnt createStmnt();
+
+  /**
    * Returns a new object of class '<em>Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -247,6 +256,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   DelimitedExpr createDelimitedExpr();
+
+  /**
+   * Returns a new object of class '<em>Expr List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expr List</em>'.
+   * @generated
+   */
+  ExprList createExprList();
 
   /**
    * Returns a new object of class '<em>Par Block Elems</em>'.
@@ -321,13 +339,13 @@ public interface FortXTransFactory extends EFactory
   BlockElems createBlockElems();
 
   /**
-   * Returns a new object of class '<em>Exp</em>'.
+   * Returns a new object of class '<em>Block Elem</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Exp</em>'.
+   * @return a new object of class '<em>Block Elem</em>'.
    * @generated
    */
-  Exp createExp();
+  BlockElem createBlockElem();
 
   /**
    * Returns a new object of class '<em>Do</em>'.

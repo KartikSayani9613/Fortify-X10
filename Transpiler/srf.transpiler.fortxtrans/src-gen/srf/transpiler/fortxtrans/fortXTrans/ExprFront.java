@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getDelim <em>Delim</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getId <em>Id</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront()
@@ -49,31 +48,5 @@ public interface ExprFront extends EObject
    * @generated
    */
   void setDelim(DelimitedExpr value);
-
-  /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExprFront_Id()
-   * @model
-   * @generated
-   */
-  String getId();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront#getId <em>Id</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
-   * @generated
-   */
-  void setId(String value);
 
 } // ExprFront
