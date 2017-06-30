@@ -21,6 +21,9 @@ export Executable
 					 //ImMutable Doubles^
 					 var (t:ZZ32, u:ZZ64, v:RR64) = (1, 2, 3.0)
 					 //Mutabel bunch of vars
+					 |(for i<-name, k<-name2 do something end
+					 , while j do elsething end
+					 , while k do yetanother end)|
 				end			
 				
 			end

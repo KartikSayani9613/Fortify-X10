@@ -944,13 +944,22 @@ public interface FortXTransPackage extends EPackage
   int EXPR__LOC_VAR = 2;
 
   /**
+   * The feature id for the '<em><b>Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPR__LIT = 3;
+
+  /**
    * The number of structural features of the '<em>Expr</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPR_FEATURE_COUNT = 3;
+  int EXPR_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl <em>Expr Front</em>}' class.
@@ -1037,76 +1046,40 @@ public interface FortXTransPackage extends EPackage
   int DELIMITED_EXPR__DOD = 0;
 
   /**
-   * The feature id for the '<em><b>Awhile</b></em>' attribute.
+   * The feature id for the '<em><b>Lits</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__AWHILE = 1;
+  int DELIMITED_EXPR__LITS = 1;
 
   /**
-   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * The feature id for the '<em><b>Eqop</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__EXPR = 2;
+  int DELIMITED_EXPR__EQOP = 2;
 
   /**
-   * The feature id for the '<em><b>Whiledod</b></em>' containment reference.
+   * The feature id for the '<em><b>Pblock</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__WHILEDOD = 3;
+  int DELIMITED_EXPR__PBLOCK = 3;
 
   /**
-   * The feature id for the '<em><b>Afor</b></em>' attribute.
+   * The feature id for the '<em><b>Ret</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__AFOR = 4;
-
-  /**
-   * The feature id for the '<em><b>Gen</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED_EXPR__GEN = 5;
-
-  /**
-   * The feature id for the '<em><b>Dofront</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED_EXPR__DOFRONT = 6;
-
-  /**
-   * The feature id for the '<em><b>Anif</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED_EXPR__ANIF = 7;
-
-  /**
-   * The feature id for the '<em><b>Cond</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int DELIMITED_EXPR__COND = 8;
+  int DELIMITED_EXPR__RET = 4;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1115,7 +1088,88 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__BLOCK = 9;
+  int DELIMITED_EXPR__BLOCK = 5;
+
+  /**
+   * The feature id for the '<em><b>Awhile</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__AWHILE = 6;
+
+  /**
+   * The feature id for the '<em><b>Expr</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__EXPR = 7;
+
+  /**
+   * The feature id for the '<em><b>Whiledod</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__WHILEDOD = 8;
+
+  /**
+   * The feature id for the '<em><b>Afor</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__AFOR = 9;
+
+  /**
+   * The feature id for the '<em><b>Gen</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__GEN = 10;
+
+  /**
+   * The feature id for the '<em><b>Dofront</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__DOFRONT = 11;
+
+  /**
+   * The feature id for the '<em><b>Anif</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__ANIF = 12;
+
+  /**
+   * The feature id for the '<em><b>Cond</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__COND = 13;
+
+  /**
+   * The feature id for the '<em><b>Blocks</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DELIMITED_EXPR__BLOCKS = 14;
 
   /**
    * The feature id for the '<em><b>Elifs</b></em>' containment reference.
@@ -1124,7 +1178,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__ELIFS = 10;
+  int DELIMITED_EXPR__ELIFS = 15;
 
   /**
    * The feature id for the '<em><b>Els</b></em>' containment reference.
@@ -1133,7 +1187,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__ELS = 11;
+  int DELIMITED_EXPR__ELS = 16;
 
   /**
    * The feature id for the '<em><b>Par</b></em>' containment reference.
@@ -1142,7 +1196,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__PAR = 12;
+  int DELIMITED_EXPR__PAR = 17;
 
   /**
    * The feature id for the '<em><b>Parblock</b></em>' containment reference.
@@ -1151,7 +1205,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR__PARBLOCK = 13;
+  int DELIMITED_EXPR__PARBLOCK = 18;
 
   /**
    * The number of structural features of the '<em>Delimited Expr</em>' class.
@@ -1160,7 +1214,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR_FEATURE_COUNT = 14;
+  int DELIMITED_EXPR_FEATURE_COUNT = 19;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParBlockElemsImpl <em>Par Block Elems</em>}' class.
@@ -1173,13 +1227,22 @@ public interface FortXTransPackage extends EPackage
   int PAR_BLOCK_ELEMS = 25;
 
   /**
+   * The feature id for the '<em><b>Brack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAR_BLOCK_ELEMS__BRACK = 0;
+
+  /**
    * The feature id for the '<em><b>Block</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PAR_BLOCK_ELEMS__BLOCK = 0;
+  int PAR_BLOCK_ELEMS__BLOCK = 1;
 
   /**
    * The number of structural features of the '<em>Par Block Elems</em>' class.
@@ -1188,7 +1251,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PAR_BLOCK_ELEMS_FEATURE_COUNT = 1;
+  int PAR_BLOCK_ELEMS_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ElifsImpl <em>Elifs</em>}' class.
@@ -1930,13 +1993,31 @@ public interface FortXTransPackage extends EPackage
   int LOCAL_VAR_DECL__VARS = 1;
 
   /**
+   * The feature id for the '<em><b>Muta</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__MUTA = 2;
+
+  /**
+   * The feature id for the '<em><b>Immut</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOCAL_VAR_DECL__IMMUT = 3;
+
+  /**
    * The feature id for the '<em><b>Init</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__INIT = 2;
+  int LOCAL_VAR_DECL__INIT = 4;
 
   /**
    * The feature id for the '<em><b>Idtup</b></em>' containment reference.
@@ -1945,7 +2026,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__IDTUP = 3;
+  int LOCAL_VAR_DECL__IDTUP = 5;
 
   /**
    * The feature id for the '<em><b>Lit Tup</b></em>' containment reference.
@@ -1954,7 +2035,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__LIT_TUP = 4;
+  int LOCAL_VAR_DECL__LIT_TUP = 6;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1963,7 +2044,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__TYPE = 5;
+  int LOCAL_VAR_DECL__TYPE = 7;
 
   /**
    * The feature id for the '<em><b>Tuptype</b></em>' containment reference.
@@ -1972,7 +2053,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__TUPTYPE = 6;
+  int LOCAL_VAR_DECL__TUPTYPE = 8;
 
   /**
    * The number of structural features of the '<em>Local Var Decl</em>' class.
@@ -1981,7 +2062,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL_FEATURE_COUNT = 7;
+  int LOCAL_VAR_DECL_FEATURE_COUNT = 9;
 
 
   /**
@@ -2744,6 +2825,17 @@ public interface FortXTransPackage extends EPackage
   EReference getExpr_LocVar();
 
   /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLit <em>Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lit</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Expr#getLit()
+   * @see #getExpr()
+   * @generated
+   */
+  EReference getExpr_Lit();
+
+  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ExprFront <em>Expr Front</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2816,6 +2908,61 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getDelimitedExpr_Dod();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getLits <em>Lits</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lits</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getLits()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Lits();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEqop <em>Eqop</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Eqop</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEqop()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EAttribute getDelimitedExpr_Eqop();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPblock <em>Pblock</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Pblock</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPblock()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Pblock();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getRet <em>Ret</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Ret</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getRet()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EAttribute getDelimitedExpr_Ret();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock()
+   * @see #getDelimitedExpr()
+   * @generated
+   */
+  EReference getDelimitedExpr_Block();
 
   /**
    * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAwhile <em>Awhile</em>}'.
@@ -2906,15 +3053,15 @@ public interface FortXTransPackage extends EPackage
   EReference getDelimitedExpr_Cond();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}'.
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlocks <em>Blocks</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Block</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock()
+   * @return the meta object for the containment reference '<em>Blocks</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlocks()
    * @see #getDelimitedExpr()
    * @generated
    */
-  EReference getDelimitedExpr_Block();
+  EReference getDelimitedExpr_Blocks();
 
   /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}'.
@@ -2969,6 +3116,17 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EClass getParBlockElems();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBrack <em>Brack</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Brack</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBrack()
+   * @see #getParBlockElems()
+   * @generated
+   */
+  EAttribute getParBlockElems_Brack();
 
   /**
    * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBlock <em>Block</em>}'.
@@ -3643,6 +3801,28 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getLocalVarDecl_Vars();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMuta <em>Muta</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Muta</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMuta()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EAttribute getLocalVarDecl_Muta();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getImmut <em>Immut</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Immut</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getImmut()
+   * @see #getLocalVarDecl()
+   * @generated
+   */
+  EAttribute getLocalVarDecl_Immut();
 
   /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit <em>Init</em>}'.
@@ -4335,6 +4515,14 @@ public interface FortXTransPackage extends EPackage
     EReference EXPR__LOC_VAR = eINSTANCE.getExpr_LocVar();
 
     /**
+     * The meta object literal for the '<em><b>Lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference EXPR__LIT = eINSTANCE.getExpr_Lit();
+
+    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprFrontImpl <em>Expr Front</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -4395,6 +4583,46 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference DELIMITED_EXPR__DOD = eINSTANCE.getDelimitedExpr_Dod();
+
+    /**
+     * The meta object literal for the '<em><b>Lits</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__LITS = eINSTANCE.getDelimitedExpr_Lits();
+
+    /**
+     * The meta object literal for the '<em><b>Eqop</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELIMITED_EXPR__EQOP = eINSTANCE.getDelimitedExpr_Eqop();
+
+    /**
+     * The meta object literal for the '<em><b>Pblock</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__PBLOCK = eINSTANCE.getDelimitedExpr_Pblock();
+
+    /**
+     * The meta object literal for the '<em><b>Ret</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DELIMITED_EXPR__RET = eINSTANCE.getDelimitedExpr_Ret();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DELIMITED_EXPR__BLOCK = eINSTANCE.getDelimitedExpr_Block();
 
     /**
      * The meta object literal for the '<em><b>Awhile</b></em>' attribute feature.
@@ -4461,12 +4689,12 @@ public interface FortXTransPackage extends EPackage
     EReference DELIMITED_EXPR__COND = eINSTANCE.getDelimitedExpr_Cond();
 
     /**
-     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Blocks</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DELIMITED_EXPR__BLOCK = eINSTANCE.getDelimitedExpr_Block();
+    EReference DELIMITED_EXPR__BLOCKS = eINSTANCE.getDelimitedExpr_Blocks();
 
     /**
      * The meta object literal for the '<em><b>Elifs</b></em>' containment reference feature.
@@ -4509,6 +4737,14 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EClass PAR_BLOCK_ELEMS = eINSTANCE.getParBlockElems();
+
+    /**
+     * The meta object literal for the '<em><b>Brack</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PAR_BLOCK_ELEMS__BRACK = eINSTANCE.getParBlockElems_Brack();
 
     /**
      * The meta object literal for the '<em><b>Block</b></em>' containment reference list feature.
@@ -5051,6 +5287,22 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference LOCAL_VAR_DECL__VARS = eINSTANCE.getLocalVarDecl_Vars();
+
+    /**
+     * The meta object literal for the '<em><b>Muta</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOCAL_VAR_DECL__MUTA = eINSTANCE.getLocalVarDecl_Muta();
+
+    /**
+     * The meta object literal for the '<em><b>Immut</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOCAL_VAR_DECL__IMMUT = eINSTANCE.getLocalVarDecl_Immut();
 
     /**
      * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.

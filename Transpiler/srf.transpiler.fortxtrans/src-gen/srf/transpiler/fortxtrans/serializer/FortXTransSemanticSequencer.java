@@ -354,9 +354,11 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         dod=Do | 
+	 *         (lits=LiteralTuple eqop=':=' pblock=ParBlockElems) | 
+	 *         (ret='return' block=BlockElem) | 
 	 *         (awhile='while' expr=Expr whiledod=Do) | 
 	 *         (afor='for' gen=Generators dofront=DoFront) | 
-	 *         (anif='if' cond=Expr block=BlockElems elifs=Elifs? els=Else?) | 
+	 *         (anif='if' cond=Expr blocks=BlockElems elifs=Elifs? els=Else?) | 
 	 *         par=Paranthesized | 
 	 *         parblock=ParBlockElems
 	 *     )
@@ -488,7 +490,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Expr returns Expr
 	 *
 	 * Constraint:
-	 *     ((front=ExprFront tails+=ExprTail*) | locVar=LocalVarDecl)
+	 *     ((front=ExprFront tails+=ExprTail*) | locVar=LocalVarDecl | lit=LiteralTuple)
 	 */
 	protected void sequence_Expr(ISerializationContext context, Expr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -672,10 +674,10 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *
 	 * Constraint:
 	 *     (
-	 *         (mut='var'? vars=NoNewlineVarWTypes init=InitVal) | 
+	 *         (mut='var'? vars=NoNewlineVarWTypes (muta=':=' | immut='=') init=BlockElem) | 
 	 *         (idtup=IdOrTuple litTup=LiteralTuple) | 
-	 *         (mut='var'? idtup=IdOrTuple type=Type init=InitVal) | 
-	 *         (mut='var'? idtup=IdOrTuple tuptype=TupleType init=InitVal)
+	 *         (mut='var'? idtup=IdOrTuple type=Type (muta=':=' | immut='=') init=BlockElem) | 
+	 *         (mut='var'? idtup=IdOrTuple tuptype=TupleType (muta=':=' | immut='=') init=BlockElem)
 	 *     )
 	 */
 	protected void sequence_LocalVarDecl(ISerializationContext context, LocalVarDecl semanticObject) {
@@ -721,7 +723,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ParBlockElems returns ParBlockElems
 	 *
 	 * Constraint:
-	 *     (block+=BlockElem block+=BlockElem+)
+	 *     (brack='(' block+=BlockElem block+=BlockElem+)
 	 */
 	protected void sequence_ParBlockElems(ISerializationContext context, ParBlockElems semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

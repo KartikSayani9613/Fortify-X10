@@ -36,6 +36,21 @@ public class fact64{
 				var t:Int = 1n;
 				var u:Long = 2l;
 					var v:Double = 3.0d;
+				finish{
+				async{finish for(i in name)
+				async {
+					finish for(k in name2)
+					async {
+				something
+						}
+				}
+				}		async{while(j){
+				elsething
+						}
+				}		async{while(k){
+				yetanother
+						}
+				}}
 				}
 				}
 			}

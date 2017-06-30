@@ -460,35 +460,35 @@ class FortXTransGenerator extends AbstractGenerator {
 	
 	def compile(LocalVarDecl f)'''«IF f.vars!==null
 		»«IF f.vars.single!==null»«IF f.mut===null
-			»«IF f.init.immut!==null» val «
+			»«IF f.immut!==null» val «
 			ELSE
 			»var «
 			ENDIF
 			»«ELSE»var «ENDIF»«f.vars.single.bid»:«
 			IF f.vars.single.istype.type.tname=="ZZ32"
-				»Int = «IF f.init.lit.lit.q!==null»«f.init.lit.lit.q»«ELSE»«f.init.lit.lit.intg»n«ENDIF»;
+				»Int = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.intg»n«ENDIF»;
 				«
 			ELSE»«
 				IF f.vars.single.istype.type.tname=="ZZ64"
-					»Long = «IF f.init.lit.lit.q!==null»«f.init.lit.lit.q»«ELSE»«f.init.lit.lit.intg»l«ENDIF»;
+					»Long = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.intg»l«ENDIF»;
 					«
 				ELSE»«
 					IF f.vars.single.istype.type.tname=="RR32"
-						»Float = «IF f.init.lit.lit.q!==null»«f.init.lit.lit.q»«ELSE»«f.init.lit.lit.flot»f«ENDIF»;
+						»Float = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.flot»f«ENDIF»;
 						«
 					ELSE»«
 						IF f.vars.single.istype.type.tname=="RR64"
-							»Double = «IF f.init.lit.lit.q!==null»«f.init.lit.lit.q»«ELSE»«f.init.lit.lit.flot»d«ENDIF»;
+							»Double = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»«f.init.exp.lit.lit.flot»d«ENDIF»;
 							«
 						ELSE»«
 							IF f.vars.single.istype.type.tname=="String"
-								»String = «IF f.init.lit.lit.q!==null»«f.init.lit.lit.q»«ELSE»"«f.init.lit.lit.str»"«ENDIF»;
+								»String = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q»«ELSE»"«f.init.exp.lit.lit.str»"«ENDIF»;
 								«
 							ELSE»«
-								f.vars.single.istype.type.tname» = «IF f.init.lit.lit.q!==null»«f.init.lit.lit.q
-									»«ELSE»«IF f.init.lit.lit.str!==null»"«f.init.lit.lit.str»"«
-									ELSE»«IF f.init.lit.lit.flot!==null»«f.init.lit.lit.flot»f«
-									ELSE»«f.init.lit.lit.intg»n«ENDIF»«ENDIF»«ENDIF»;
+								f.vars.single.istype.type.tname» = «IF f.init.exp.lit.lit.q!==null»«f.init.exp.lit.lit.q
+									»«ELSE»«IF f.init.exp.lit.lit.str!==null»"«f.init.exp.lit.lit.str»"«
+									ELSE»«IF f.init.exp.lit.lit.flot!==null»«f.init.exp.lit.lit.flot»f«
+									ELSE»«f.init.exp.lit.lit.intg»n«ENDIF»«ENDIF»«ENDIF»;
 								«
 							ENDIF
 						»«ENDIF
@@ -498,35 +498,35 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«ELSE
 			»«FOR m:0..<f.vars.multiple.length»
 				«IF f.mut===null
-					»«IF f.init.immut!==null»val «
+					»«IF f.immut!==null»val «
 					ELSE
 					»var «
 					ENDIF
 			»«ELSE»var «ENDIF»«f.vars.multiple.get(m).bid»:«
 					IF f.vars.multiple.get(m).istype.type.tname=="ZZ32"
-						»Int = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).intg»n«ENDIF»;
+						»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
 						«
 					ELSE»«
 						IF f.vars.multiple.get(m).istype.type.tname=="ZZ64"
-							»Long = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).intg»l«ENDIF»;
+							»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»l«ENDIF»;
 							«
 						ELSE»«
 							IF f.vars.multiple.get(m).istype.type.tname=="RR32"
-								»Float = « IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).flot»f«ENDIF»;
+								»Float = « IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
 								«
 							ELSE»«
 								IF f.vars.multiple.get(m).istype.type.tname=="RR64"
-									»Double = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).flot»d«ENDIF»;
+									»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
 									«
 								ELSE»«
 									IF f.vars.multiple.get(m).istype.type.tname=="String"
-										»String = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»"«f.init.lit.lits.get(m).str»"«ENDIF»;
+										»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
 										«
 									ELSE»«
-										f.vars.multiple.get(m).istype.type.tname» = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q
-											»«ELSE»«IF f.init.lit.lits.get(m).str!==null»"«f.init.lit.lits.get(m).str»"«
-											ELSE»«IF f.init.lit.lits.get(m).flot!==null»«f.init.lit.lits.get(m).flot»f«
-											ELSE»«f.init.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
+										f.vars.multiple.get(m).istype.type.tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q
+											»«ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
+											ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
+											ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
 									«ENDIF
 								»«ENDIF
 							»«ENDIF
@@ -538,34 +538,34 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«IF f.type!==null
 		»«FOR m:0..<f.idtup.bid.length»
 			«IF f.mut===null
-				»«IF f.init.immut!==null»val «
+				»«IF f.immut!==null»val «
 				ELSE
 				»var «ENDIF
 			»«ELSE»var «ENDIF»«f.idtup.bid.get(m)»: «
 				IF f.type.tname=="ZZ32"
-					»Int = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).intg»n«ENDIF»;
+					»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
 					«
 				ELSE»«
 					IF f.type.tname=="ZZ64"
-						»Long = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).intg»f«ENDIF»;
+						»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»f«ENDIF»;
 						«
 					ELSE»«
 						IF f.type.tname=="RR32"
-							»Float = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).flot»f«ENDIF»;
+							»Float = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
 							«
 						ELSE»«
 							IF f.type.tname=="RR64"
-								»Double = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).flot»d«ENDIF»;
+								»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
 								«
 							ELSE»«
 								IF f.type.tname=="String"
-									»String = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»"«f.init.lit.lits.get(m).str»"«ENDIF»;
+									»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
 									«
 								ELSE»«
-									f.type.tname» = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q
-									»«ELSE»«IF f.init.lit.lits.get(m).str!==null»"«f.init.lit.lits.get(m).str»"«
-									ELSE»«IF f.init.lit.lits.get(m).flot!==null»«f.init.lit.lits.get(m).flot»f«
-									ELSE»«f.init.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
+									f.type.tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q
+									»«ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
+									ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
+									ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
 									«
 								ENDIF
 							»«ENDIF
@@ -576,34 +576,34 @@ class FortXTransGenerator extends AbstractGenerator {
 		«ELSE»«IF f.tuptype!==null
 		»«FOR m:0..<f.idtup.bid.length»
 			«IF f.mut===null
-				»«IF f.init.immut!==null»val «
+				»«IF f.immut!==null»val «
 			ELSE
 				»var «ENDIF
 			»«ELSE»var «ENDIF»«f.idtup.bid.get(m)»: «
 			IF f.tuptype.types.get(m).tname=="ZZ32"
-				»Int = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).intg»n«ENDIF»;
+				»Int = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»;
 				«
 			ELSE»«
 				IF f.tuptype.types.get(m).tname=="ZZ64"
-					»Long = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).intg»l«ENDIF»;
+					»Long = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).intg»l«ENDIF»;
 					«
 				ELSE»«
 					IF f.tuptype.types.get(m).tname=="RR32"
-						»Float = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).flot»f«ENDIF»;
+						»Float = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»f«ENDIF»;
 						«
 					ELSE»«
 						IF f.tuptype.types.get(m).tname=="RR64"
-							»Double = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»«f.init.lit.lits.get(m).flot»d«ENDIF»;
+							»Double = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»«f.init.exp.lit.lits.get(m).flot»d«ENDIF»;
 							«
 						ELSE»«
 							IF f.tuptype.types.get(m).tname=="String"
-							»String = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«ELSE»"«f.init.lit.lits.get(m).str»"«ENDIF»;
+							»String = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«ELSE»"«f.init.exp.lit.lits.get(m).str»"«ENDIF»;
 								«
 							ELSE»«
-								f.tuptype.types.get(m).tname» = «IF f.init.lit.lits.get(m).q!==null»«f.init.lit.lits.get(m).q»«
-								ELSE»«IF f.init.lit.lits.get(m).str!==null»"«f.init.lit.lits.get(m).str»"«
-								ELSE»«IF f.init.lit.lits.get(m).flot!==null»«f.init.lit.lits.get(m).flot»f«
-								ELSE»«f.init.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
+								f.tuptype.types.get(m).tname» = «IF f.init.exp.lit.lits.get(m).q!==null»«f.init.exp.lit.lits.get(m).q»«
+								ELSE»«IF f.init.exp.lit.lits.get(m).str!==null»"«f.init.exp.lit.lits.get(m).str»"«
+								ELSE»«IF f.init.exp.lit.lits.get(m).flot!==null»«f.init.exp.lit.lits.get(m).flot»f«
+								ELSE»«f.init.exp.lit.lits.get(m).intg»n«ENDIF»«ENDIF»«ENDIF»;
 								«ENDIF
 						»«ENDIF
 					»«ENDIF
@@ -647,13 +647,26 @@ class FortXTransGenerator extends AbstractGenerator {
 		»«ENDIF»«ENDIF»«ENDIF»«ENDIF»«ENDIF»'''
 		
 	def String compile(Expr e)
-	'''«IF e.locVar!==null
-	»«e.locVar.compile»«
+	'''
+	«IF e.lit!==null»«IF e.lit.lit!==null
+		»«IF e.lit.lit.q!==null»«e.lit.lit.q
+			»«ELSE
+				»«IF e.lit.lit.str!==null»"«e.lit.lit.str»"«
+				ELSE»
+					«IF e.lit.lit.flot!==null»«e.lit.lit.flot»f«
+					ELSE»«e.lit.lit.intg»n«
+					ENDIF»«
+				ENDIF»«
+			ENDIF»;«
+		ENDIF
+	»«ELSE
+	»«IF e.locVar!==null
+		»«e.locVar.compile»«
 	ELSE
 	»«e.front.compile»«IF e.tails!==null»«
 		FOR t:e.tails
 			»«t.compile
-		»«ENDFOR»«ENDIF»«ENDIF»'''	
+		»«ENDFOR»«ENDIF»«ENDIF»«ENDIF»'''	
 	
 	def compile(ExprTail t)''' as «t.type»'''
 	
@@ -663,9 +676,35 @@ class FortXTransGenerator extends AbstractGenerator {
 			»«IF ef.delim!==null
 				»«ef.delim.compile
 			»«ENDIF»«
-		ENDIF»'''
+		ENDIF»
+	'''
 	
-	def compile(DelimitedExpr d)'''
+	def compile(DelimitedExpr d)
+	'''
+	«IF d.ret!==null
+		»return «d.block.exp.compile»;
+	«ELSE
+		»«IF d.lits!==null
+			»«IF d.lits.lit!==null»«d.lits.lit.q» = «
+				IF d.pblock.block.get(0).exp.lit.lit.q!==null»«d.pblock.block.get(0).exp.lit.lit.q»«
+				ELSE»«IF d.pblock.block.get(0).exp.lit.lit.str!==null»"«d.pblock.block.get(0).exp.lit.lit.str»"«
+					ELSE»«IF d.pblock.block.get(0).exp.lit.lit.flot!==null»«d.pblock.block.get(0).exp.lit.lit.flot»f«
+						ELSE»«d.pblock.block.get(0).exp.lit.lit.intg»n«
+						ENDIF
+					»«ENDIF
+				»;«ENDIF
+			»«ELSE
+			»«FOR l:0..<d.lits.lits.length
+			»«d.lits.lits.get(l).q» = «
+				IF d.pblock.block.get(l).exp.lit.lit.q!==null»«d.pblock.block.get(l).exp.lit.lit.q»«
+				ELSE»«IF d.pblock.block.get(l).exp.lit.lit.str!==null»"«d.pblock.block.get(l).exp.lit.lit.str»"«
+					ELSE»«IF d.pblock.block.get(l).exp.lit.lit.flot!==null»«d.pblock.block.get(l).exp.lit.lit.flot»f«
+						ELSE»«d.pblock.block.get(l).exp.lit.lit.intg»n«
+						ENDIF
+					»«ENDIF
+				»;«ENDIF
+			»«ENDFOR»«ENDIF»
+		«ELSE»
 «««				THE DO BLOCK
 		«IF d.dod!==null
 			»«d.dod.compile
@@ -695,7 +734,7 @@ class FortXTransGenerator extends AbstractGenerator {
 «««				THE IF ELSE IF PART
 				«ELSE
 					»«IF d.anif!==null
-					»if(«d.cond.compile») «d.block.compile
+					»if(«d.cond.compile») «d.blocks.compile
 					»«IF d.elifs!==null
 					»«d.elifs.compile»«
 					ENDIF
@@ -704,13 +743,18 @@ class FortXTransGenerator extends AbstractGenerator {
 						«d.els.block.compile»
 					«ENDIF»
 					«ELSE»
-						«IF d.par!==null»(«d.par.exp»)
-						«ENDIF»
+						«IF d.par!==null
+							»(«d.par.exp»)
+						«ELSE
+							»«IF d.parblock!==null»finish{
+								«FOR b:d.parblock.block»
+								async{«b.exp.compile»}«ENDFOR»}«ENDIF
+						»«ENDIF»
 					«ENDIF»
-«««				«ELSE
-«««					»«IF d.»«ENDIF»
 				«ENDIF»
 			«ENDIF»
+		«ENDIF»
+		«ENDIF»
 		«ENDIF»
 	'''
 	

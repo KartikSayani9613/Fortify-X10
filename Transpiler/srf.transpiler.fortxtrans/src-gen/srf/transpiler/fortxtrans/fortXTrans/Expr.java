@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getTails <em>Tails</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLocVar <em>Loc Var</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLit <em>Lit</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr()
@@ -94,5 +95,31 @@ public interface Expr extends EObject
    * @generated
    */
   void setLocVar(LocalVarDecl value);
+
+  /**
+   * Returns the value of the '<em><b>Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lit</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lit</em>' containment reference.
+   * @see #setLit(LiteralTuple)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Lit()
+   * @model containment="true"
+   * @generated
+   */
+  LiteralTuple getLit();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getLit <em>Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lit</em>' containment reference.
+   * @see #getLit()
+   * @generated
+   */
+  void setLit(LiteralTuple value);
 
 } // Expr

@@ -5,6 +5,7 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
@@ -29,6 +31,7 @@ import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParBlockElemsImpl#getBrack <em>Brack</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParBlockElemsImpl#getBlock <em>Block</em>}</li>
  * </ul>
  *
@@ -36,6 +39,26 @@ import srf.transpiler.fortxtrans.fortXTrans.ParBlockElems;
  */
 public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements ParBlockElems
 {
+  /**
+   * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBrack()
+   * @generated
+   * @ordered
+   */
+  protected static final String BRACK_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getBrack()
+   * @generated
+   * @ordered
+   */
+  protected String brack = BRACK_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -65,6 +88,29 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   protected EClass eStaticClass()
   {
     return FortXTransPackage.Literals.PAR_BLOCK_ELEMS;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String getBrack()
+  {
+    return brack;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBrack(String newBrack)
+  {
+    String oldBrack = brack;
+    brack = newBrack;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.PAR_BLOCK_ELEMS__BRACK, oldBrack, brack));
   }
 
   /**
@@ -107,6 +153,8 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
+        return getBrack();
       case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         return getBlock();
     }
@@ -124,6 +172,9 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
+        setBrack((String)newValue);
+        return;
       case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         getBlock().clear();
         getBlock().addAll((Collection<? extends Exp>)newValue);
@@ -142,6 +193,9 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
+        setBrack(BRACK_EDEFAULT);
+        return;
       case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         getBlock().clear();
         return;
@@ -159,10 +213,29 @@ public class ParBlockElemsImpl extends MinimalEObjectImpl.Container implements P
   {
     switch (featureID)
     {
+      case FortXTransPackage.PAR_BLOCK_ELEMS__BRACK:
+        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
       case FortXTransPackage.PAR_BLOCK_ELEMS__BLOCK:
         return block != null && !block.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (brack: ");
+    result.append(brack);
+    result.append(')');
+    return result.toString();
   }
 
 } //ParBlockElemsImpl

@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMut <em>Mut</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getVars <em>Vars</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMuta <em>Muta</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getImmut <em>Immut</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit <em>Init</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getIdtup <em>Idtup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup <em>Lit Tup</em>}</li>
@@ -82,6 +84,58 @@ public interface LocalVarDecl extends EObject
   void setVars(NoNewlineVarWTypes value);
 
   /**
+   * Returns the value of the '<em><b>Muta</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Muta</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Muta</em>' attribute.
+   * @see #setMuta(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLocalVarDecl_Muta()
+   * @model
+   * @generated
+   */
+  String getMuta();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getMuta <em>Muta</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Muta</em>' attribute.
+   * @see #getMuta()
+   * @generated
+   */
+  void setMuta(String value);
+
+  /**
+   * Returns the value of the '<em><b>Immut</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Immut</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Immut</em>' attribute.
+   * @see #setImmut(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLocalVarDecl_Immut()
+   * @model
+   * @generated
+   */
+  String getImmut();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getImmut <em>Immut</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Immut</em>' attribute.
+   * @see #getImmut()
+   * @generated
+   */
+  void setImmut(String value);
+
+  /**
    * Returns the value of the '<em><b>Init</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -90,12 +144,12 @@ public interface LocalVarDecl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Init</em>' containment reference.
-   * @see #setInit(InitVal)
+   * @see #setInit(Exp)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLocalVarDecl_Init()
    * @model containment="true"
    * @generated
    */
-  InitVal getInit();
+  Exp getInit();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit <em>Init</em>}' containment reference.
@@ -105,7 +159,7 @@ public interface LocalVarDecl extends EObject
    * @see #getInit()
    * @generated
    */
-  void setInit(InitVal value);
+  void setInit(Exp value);
 
   /**
    * Returns the value of the '<em><b>Idtup</b></em>' containment reference.

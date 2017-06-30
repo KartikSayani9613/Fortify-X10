@@ -23,6 +23,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 
 /**
@@ -36,6 +37,7 @@ import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getFront <em>Front</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getTails <em>Tails</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getLocVar <em>Loc Var</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getLit <em>Lit</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,6 +73,16 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * @ordered
    */
   protected LocalVarDecl locVar;
+
+  /**
+   * The cached value of the '{@link #getLit() <em>Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit()
+   * @generated
+   * @ordered
+   */
+  protected LiteralTuple lit;
 
   /**
    * <!-- begin-user-doc -->
@@ -208,6 +220,54 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
+  public LiteralTuple getLit()
+  {
+    return lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLit(LiteralTuple newLit, NotificationChain msgs)
+  {
+    LiteralTuple oldLit = lit;
+    lit = newLit;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__LIT, oldLit, newLit);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLit(LiteralTuple newLit)
+  {
+    if (newLit != lit)
+    {
+      NotificationChain msgs = null;
+      if (lit != null)
+        msgs = ((InternalEObject)lit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__LIT, null, msgs);
+      if (newLit != null)
+        msgs = ((InternalEObject)newLit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__LIT, null, msgs);
+      msgs = basicSetLit(newLit, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__LIT, newLit, newLit));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -219,6 +279,8 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return ((InternalEList<?>)getTails()).basicRemove(otherEnd, msgs);
       case FortXTransPackage.EXPR__LOC_VAR:
         return basicSetLocVar(null, msgs);
+      case FortXTransPackage.EXPR__LIT:
+        return basicSetLit(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -239,6 +301,8 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return getTails();
       case FortXTransPackage.EXPR__LOC_VAR:
         return getLocVar();
+      case FortXTransPackage.EXPR__LIT:
+        return getLit();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -264,6 +328,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
       case FortXTransPackage.EXPR__LOC_VAR:
         setLocVar((LocalVarDecl)newValue);
         return;
+      case FortXTransPackage.EXPR__LIT:
+        setLit((LiteralTuple)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -287,6 +354,9 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
       case FortXTransPackage.EXPR__LOC_VAR:
         setLocVar((LocalVarDecl)null);
         return;
+      case FortXTransPackage.EXPR__LIT:
+        setLit((LiteralTuple)null);
+        return;
     }
     super.eUnset(featureID);
   }
@@ -307,6 +377,8 @@ public class ExprImpl extends MinimalEObjectImpl.Container implements Expr
         return tails != null && !tails.isEmpty();
       case FortXTransPackage.EXPR__LOC_VAR:
         return locVar != null;
+      case FortXTransPackage.EXPR__LIT:
+        return lit != null;
     }
     return super.eIsSet(featureID);
   }

@@ -16,6 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBrack <em>Brack</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBlock <em>Block</em>}</li>
  * </ul>
  *
@@ -25,6 +26,32 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ParBlockElems extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Brack</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Brack</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Brack</em>' attribute.
+   * @see #setBrack(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParBlockElems_Brack()
+   * @model
+   * @generated
+   */
+  String getBrack();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ParBlockElems#getBrack <em>Brack</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Brack</em>' attribute.
+   * @see #getBrack()
+   * @generated
+   */
+  void setBrack(String value);
+
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference list.
    * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Exp}.

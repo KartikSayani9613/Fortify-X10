@@ -15,6 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDod <em>Dod</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getLits <em>Lits</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEqop <em>Eqop</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPblock <em>Pblock</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getRet <em>Ret</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAwhile <em>Awhile</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getExpr <em>Expr</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getWhiledod <em>Whiledod</em>}</li>
@@ -23,7 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getDofront <em>Dofront</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getAnif <em>Anif</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getCond <em>Cond</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlocks <em>Blocks</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getElifs <em>Elifs</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEls <em>Els</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPar <em>Par</em>}</li>
@@ -61,6 +66,136 @@ public interface DelimitedExpr extends EObject
    * @generated
    */
   void setDod(Do value);
+
+  /**
+   * Returns the value of the '<em><b>Lits</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lits</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lits</em>' containment reference.
+   * @see #setLits(LiteralTuple)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Lits()
+   * @model containment="true"
+   * @generated
+   */
+  LiteralTuple getLits();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getLits <em>Lits</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lits</em>' containment reference.
+   * @see #getLits()
+   * @generated
+   */
+  void setLits(LiteralTuple value);
+
+  /**
+   * Returns the value of the '<em><b>Eqop</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Eqop</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Eqop</em>' attribute.
+   * @see #setEqop(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Eqop()
+   * @model
+   * @generated
+   */
+  String getEqop();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getEqop <em>Eqop</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Eqop</em>' attribute.
+   * @see #getEqop()
+   * @generated
+   */
+  void setEqop(String value);
+
+  /**
+   * Returns the value of the '<em><b>Pblock</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Pblock</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Pblock</em>' containment reference.
+   * @see #setPblock(ParBlockElems)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Pblock()
+   * @model containment="true"
+   * @generated
+   */
+  ParBlockElems getPblock();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getPblock <em>Pblock</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Pblock</em>' containment reference.
+   * @see #getPblock()
+   * @generated
+   */
+  void setPblock(ParBlockElems value);
+
+  /**
+   * Returns the value of the '<em><b>Ret</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ret</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ret</em>' attribute.
+   * @see #setRet(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Ret()
+   * @model
+   * @generated
+   */
+  String getRet();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getRet <em>Ret</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ret</em>' attribute.
+   * @see #getRet()
+   * @generated
+   */
+  void setRet(String value);
+
+  /**
+   * Returns the value of the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Block</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Block</em>' containment reference.
+   * @see #setBlock(Exp)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Block()
+   * @model containment="true"
+   * @generated
+   */
+  Exp getBlock();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Block</em>' containment reference.
+   * @see #getBlock()
+   * @generated
+   */
+  void setBlock(Exp value);
 
   /**
    * Returns the value of the '<em><b>Awhile</b></em>' attribute.
@@ -271,30 +406,30 @@ public interface DelimitedExpr extends EObject
   void setCond(Expr value);
 
   /**
-   * Returns the value of the '<em><b>Block</b></em>' containment reference.
+   * Returns the value of the '<em><b>Blocks</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Block</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Blocks</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(BlockElems)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Block()
+   * @return the value of the '<em>Blocks</em>' containment reference.
+   * @see #setBlocks(BlockElems)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Blocks()
    * @model containment="true"
    * @generated
    */
-  BlockElems getBlock();
+  BlockElems getBlocks();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlocks <em>Blocks</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Block</em>' containment reference.
-   * @see #getBlock()
+   * @param value the new value of the '<em>Blocks</em>' containment reference.
+   * @see #getBlocks()
    * @generated
    */
-  void setBlock(BlockElems value);
+  void setBlocks(BlockElems value);
 
   /**
    * Returns the value of the '<em><b>Elifs</b></em>' containment reference.

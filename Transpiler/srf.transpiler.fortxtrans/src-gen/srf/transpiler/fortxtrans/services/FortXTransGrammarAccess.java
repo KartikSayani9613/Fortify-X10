@@ -1147,15 +1147,16 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTailsExprTailParserRuleCall_0_1_0 = (RuleCall)cTailsAssignment_0_1.eContents().get(0);
 		private final Assignment cLocVarAssignment_1 = (Assignment)cAlternatives.eContents().get(1);
 		private final RuleCall cLocVarLocalVarDeclParserRuleCall_1_0 = (RuleCall)cLocVarAssignment_1.eContents().get(0);
+		private final Assignment cLitAssignment_2 = (Assignment)cAlternatives.eContents().get(2);
+		private final RuleCall cLitLiteralTupleParserRuleCall_2_0 = (RuleCall)cLitAssignment_2.eContents().get(0);
 		
 		//Expr:
 		//	front=ExprFront tails+=ExprTail*
 		//	| locVar=LocalVarDecl
-		//	//	|assign=AssignExpr
-		//;
+		//	| lit=LiteralTuple;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//front=ExprFront tails+=ExprTail* | locVar=LocalVarDecl
+		//front=ExprFront tails+=ExprTail* | locVar=LocalVarDecl | lit=LiteralTuple
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//front=ExprFront tails+=ExprTail*
@@ -1178,6 +1179,12 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//LocalVarDecl
 		public RuleCall getLocVarLocalVarDeclParserRuleCall_1_0() { return cLocVarLocalVarDeclParserRuleCall_1_0; }
+		
+		//lit=LiteralTuple
+		public Assignment getLitAssignment_2() { return cLitAssignment_2; }
+		
+		//LiteralTuple
+		public RuleCall getLitLiteralTupleParserRuleCall_2_0() { return cLitLiteralTupleParserRuleCall_2_0; }
 	}
 	public class ExprFrontElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ExprFront");
@@ -1236,52 +1243,67 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cDodAssignment_0 = (Assignment)cAlternatives.eContents().get(0);
 		private final RuleCall cDodDoParserRuleCall_0_0 = (RuleCall)cDodAssignment_0.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
-		private final Assignment cAwhileAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
-		private final Keyword cAwhileWhileKeyword_1_0_0 = (Keyword)cAwhileAssignment_1_0.eContents().get(0);
-		private final Assignment cExprAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
-		private final RuleCall cExprExprParserRuleCall_1_1_0 = (RuleCall)cExprAssignment_1_1.eContents().get(0);
-		private final Assignment cWhiledodAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
-		private final RuleCall cWhiledodDoParserRuleCall_1_2_0 = (RuleCall)cWhiledodAssignment_1_2.eContents().get(0);
+		private final Assignment cLitsAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
+		private final RuleCall cLitsLiteralTupleParserRuleCall_1_0_0 = (RuleCall)cLitsAssignment_1_0.eContents().get(0);
+		private final Assignment cEqopAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final Keyword cEqopColonEqualsSignKeyword_1_1_0 = (Keyword)cEqopAssignment_1_1.eContents().get(0);
+		private final Assignment cPblockAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cPblockParBlockElemsParserRuleCall_1_2_0 = (RuleCall)cPblockAssignment_1_2.eContents().get(0);
 		private final Group cGroup_2 = (Group)cAlternatives.eContents().get(2);
-		private final Assignment cAforAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
-		private final Keyword cAforForKeyword_2_0_0 = (Keyword)cAforAssignment_2_0.eContents().get(0);
-		private final Assignment cGenAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
-		private final RuleCall cGenGeneratorsParserRuleCall_2_1_0 = (RuleCall)cGenAssignment_2_1.eContents().get(0);
-		private final Assignment cDofrontAssignment_2_2 = (Assignment)cGroup_2.eContents().get(2);
-		private final RuleCall cDofrontDoFrontParserRuleCall_2_2_0 = (RuleCall)cDofrontAssignment_2_2.eContents().get(0);
-		private final Keyword cEndKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
+		private final Assignment cRetAssignment_2_0 = (Assignment)cGroup_2.eContents().get(0);
+		private final Keyword cRetReturnKeyword_2_0_0 = (Keyword)cRetAssignment_2_0.eContents().get(0);
+		private final Assignment cBlockAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cBlockBlockElemParserRuleCall_2_1_0 = (RuleCall)cBlockAssignment_2_1.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
-		private final Assignment cAnifAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
-		private final Keyword cAnifIfKeyword_3_0_0 = (Keyword)cAnifAssignment_3_0.eContents().get(0);
-		private final Assignment cCondAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cCondExprParserRuleCall_3_1_0 = (RuleCall)cCondAssignment_3_1.eContents().get(0);
-		private final Keyword cThenKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
-		private final Assignment cBlockAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
-		private final RuleCall cBlockBlockElemsParserRuleCall_3_3_0 = (RuleCall)cBlockAssignment_3_3.eContents().get(0);
-		private final Assignment cElifsAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
-		private final RuleCall cElifsElifsParserRuleCall_3_4_0 = (RuleCall)cElifsAssignment_3_4.eContents().get(0);
-		private final Assignment cElsAssignment_3_5 = (Assignment)cGroup_3.eContents().get(5);
-		private final RuleCall cElsElseParserRuleCall_3_5_0 = (RuleCall)cElsAssignment_3_5.eContents().get(0);
-		private final Keyword cEndKeyword_3_6 = (Keyword)cGroup_3.eContents().get(6);
-		private final Assignment cParAssignment_4 = (Assignment)cAlternatives.eContents().get(4);
-		private final RuleCall cParParanthesizedParserRuleCall_4_0 = (RuleCall)cParAssignment_4.eContents().get(0);
+		private final Assignment cAwhileAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final Keyword cAwhileWhileKeyword_3_0_0 = (Keyword)cAwhileAssignment_3_0.eContents().get(0);
+		private final Assignment cExprAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cExprExprParserRuleCall_3_1_0 = (RuleCall)cExprAssignment_3_1.eContents().get(0);
+		private final Assignment cWhiledodAssignment_3_2 = (Assignment)cGroup_3.eContents().get(2);
+		private final RuleCall cWhiledodDoParserRuleCall_3_2_0 = (RuleCall)cWhiledodAssignment_3_2.eContents().get(0);
+		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
+		private final Assignment cAforAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final Keyword cAforForKeyword_4_0_0 = (Keyword)cAforAssignment_4_0.eContents().get(0);
+		private final Assignment cGenAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cGenGeneratorsParserRuleCall_4_1_0 = (RuleCall)cGenAssignment_4_1.eContents().get(0);
+		private final Assignment cDofrontAssignment_4_2 = (Assignment)cGroup_4.eContents().get(2);
+		private final RuleCall cDofrontDoFrontParserRuleCall_4_2_0 = (RuleCall)cDofrontAssignment_4_2.eContents().get(0);
+		private final Keyword cEndKeyword_4_3 = (Keyword)cGroup_4.eContents().get(3);
 		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cVerticalLineKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final Assignment cParblockAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
-		private final RuleCall cParblockParBlockElemsParserRuleCall_5_1_0 = (RuleCall)cParblockAssignment_5_1.eContents().get(0);
-		private final Keyword cVerticalLineKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Assignment cAnifAssignment_5_0 = (Assignment)cGroup_5.eContents().get(0);
+		private final Keyword cAnifIfKeyword_5_0_0 = (Keyword)cAnifAssignment_5_0.eContents().get(0);
+		private final Assignment cCondAssignment_5_1 = (Assignment)cGroup_5.eContents().get(1);
+		private final RuleCall cCondExprParserRuleCall_5_1_0 = (RuleCall)cCondAssignment_5_1.eContents().get(0);
+		private final Keyword cThenKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final Assignment cBlocksAssignment_5_3 = (Assignment)cGroup_5.eContents().get(3);
+		private final RuleCall cBlocksBlockElemsParserRuleCall_5_3_0 = (RuleCall)cBlocksAssignment_5_3.eContents().get(0);
+		private final Assignment cElifsAssignment_5_4 = (Assignment)cGroup_5.eContents().get(4);
+		private final RuleCall cElifsElifsParserRuleCall_5_4_0 = (RuleCall)cElifsAssignment_5_4.eContents().get(0);
+		private final Assignment cElsAssignment_5_5 = (Assignment)cGroup_5.eContents().get(5);
+		private final RuleCall cElsElseParserRuleCall_5_5_0 = (RuleCall)cElsAssignment_5_5.eContents().get(0);
+		private final Keyword cEndKeyword_5_6 = (Keyword)cGroup_5.eContents().get(6);
+		private final Assignment cParAssignment_6 = (Assignment)cAlternatives.eContents().get(6);
+		private final RuleCall cParParanthesizedParserRuleCall_6_0 = (RuleCall)cParAssignment_6.eContents().get(0);
+		private final Group cGroup_7 = (Group)cAlternatives.eContents().get(7);
+		private final Keyword cVerticalLineKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Assignment cParblockAssignment_7_1 = (Assignment)cGroup_7.eContents().get(1);
+		private final RuleCall cParblockParBlockElemsParserRuleCall_7_1_0 = (RuleCall)cParblockAssignment_7_1.eContents().get(0);
+		private final Keyword cVerticalLineKeyword_7_2 = (Keyword)cGroup_7.eContents().get(2);
 		
 		//DelimitedExpr:
 		//	dod=Do
+		//	| lits=LiteralTuple eqop=':=' pblock=ParBlockElems
+		//	| ret='return' block=BlockElem
 		//	| awhile='while' expr=Expr whiledod=Do
 		//	| afor='for' gen=Generators dofront=DoFront 'end'
-		//	| anif='if' cond=Expr 'then' block=BlockElems elifs=Elifs? els=Else? 'end'
+		//	| anif='if' cond=Expr 'then' blocks=BlockElems elifs=Elifs? els=Else? 'end'
 		//	| par=Paranthesized
 		//	| '|' parblock=ParBlockElems '|';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//dod=Do | awhile='while' expr=Expr whiledod=Do | afor='for' gen=Generators dofront=DoFront 'end' | anif='if' cond=Expr
-		//'then' block=BlockElems elifs=Elifs? els=Else? 'end' | par=Paranthesized | '|' parblock=ParBlockElems '|'
+		//dod=Do | lits=LiteralTuple eqop=':=' pblock=ParBlockElems | ret='return' block=BlockElem | awhile='while' expr=Expr
+		//whiledod=Do | afor='for' gen=Generators dofront=DoFront 'end' | anif='if' cond=Expr 'then' blocks=BlockElems
+		//elifs=Elifs? els=Else? 'end' | par=Paranthesized | '|' parblock=ParBlockElems '|'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//dod=Do
@@ -1290,115 +1312,152 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//Do
 		public RuleCall getDodDoParserRuleCall_0_0() { return cDodDoParserRuleCall_0_0; }
 		
-		//awhile='while' expr=Expr whiledod=Do
+		//lits=LiteralTuple eqop=':=' pblock=ParBlockElems
 		public Group getGroup_1() { return cGroup_1; }
 		
-		//awhile='while'
-		public Assignment getAwhileAssignment_1_0() { return cAwhileAssignment_1_0; }
+		//lits=LiteralTuple
+		public Assignment getLitsAssignment_1_0() { return cLitsAssignment_1_0; }
 		
-		//'while'
-		public Keyword getAwhileWhileKeyword_1_0_0() { return cAwhileWhileKeyword_1_0_0; }
+		//LiteralTuple
+		public RuleCall getLitsLiteralTupleParserRuleCall_1_0_0() { return cLitsLiteralTupleParserRuleCall_1_0_0; }
 		
-		//expr=Expr
-		public Assignment getExprAssignment_1_1() { return cExprAssignment_1_1; }
+		//eqop=':='
+		public Assignment getEqopAssignment_1_1() { return cEqopAssignment_1_1; }
 		
-		//Expr
-		public RuleCall getExprExprParserRuleCall_1_1_0() { return cExprExprParserRuleCall_1_1_0; }
+		//':='
+		public Keyword getEqopColonEqualsSignKeyword_1_1_0() { return cEqopColonEqualsSignKeyword_1_1_0; }
 		
-		//whiledod=Do
-		public Assignment getWhiledodAssignment_1_2() { return cWhiledodAssignment_1_2; }
-		
-		//Do
-		public RuleCall getWhiledodDoParserRuleCall_1_2_0() { return cWhiledodDoParserRuleCall_1_2_0; }
-		
-		//afor='for' gen=Generators dofront=DoFront 'end'
-		public Group getGroup_2() { return cGroup_2; }
-		
-		//afor='for'
-		public Assignment getAforAssignment_2_0() { return cAforAssignment_2_0; }
-		
-		//'for'
-		public Keyword getAforForKeyword_2_0_0() { return cAforForKeyword_2_0_0; }
-		
-		//gen=Generators
-		public Assignment getGenAssignment_2_1() { return cGenAssignment_2_1; }
-		
-		//Generators
-		public RuleCall getGenGeneratorsParserRuleCall_2_1_0() { return cGenGeneratorsParserRuleCall_2_1_0; }
-		
-		//dofront=DoFront
-		public Assignment getDofrontAssignment_2_2() { return cDofrontAssignment_2_2; }
-		
-		//DoFront
-		public RuleCall getDofrontDoFrontParserRuleCall_2_2_0() { return cDofrontDoFrontParserRuleCall_2_2_0; }
-		
-		//'end'
-		public Keyword getEndKeyword_2_3() { return cEndKeyword_2_3; }
-		
-		//anif='if' cond=Expr 'then' block=BlockElems elifs=Elifs? els=Else? 'end'
-		public Group getGroup_3() { return cGroup_3; }
-		
-		//anif='if'
-		public Assignment getAnifAssignment_3_0() { return cAnifAssignment_3_0; }
-		
-		//'if'
-		public Keyword getAnifIfKeyword_3_0_0() { return cAnifIfKeyword_3_0_0; }
-		
-		//cond=Expr
-		public Assignment getCondAssignment_3_1() { return cCondAssignment_3_1; }
-		
-		//Expr
-		public RuleCall getCondExprParserRuleCall_3_1_0() { return cCondExprParserRuleCall_3_1_0; }
-		
-		//'then'
-		public Keyword getThenKeyword_3_2() { return cThenKeyword_3_2; }
-		
-		//block=BlockElems
-		public Assignment getBlockAssignment_3_3() { return cBlockAssignment_3_3; }
-		
-		//BlockElems
-		public RuleCall getBlockBlockElemsParserRuleCall_3_3_0() { return cBlockBlockElemsParserRuleCall_3_3_0; }
-		
-		//elifs=Elifs?
-		public Assignment getElifsAssignment_3_4() { return cElifsAssignment_3_4; }
-		
-		//Elifs
-		public RuleCall getElifsElifsParserRuleCall_3_4_0() { return cElifsElifsParserRuleCall_3_4_0; }
-		
-		//els=Else?
-		public Assignment getElsAssignment_3_5() { return cElsAssignment_3_5; }
-		
-		//Else
-		public RuleCall getElsElseParserRuleCall_3_5_0() { return cElsElseParserRuleCall_3_5_0; }
-		
-		//'end'
-		public Keyword getEndKeyword_3_6() { return cEndKeyword_3_6; }
-		
-		//par=Paranthesized
-		public Assignment getParAssignment_4() { return cParAssignment_4; }
-		
-		//Paranthesized
-		public RuleCall getParParanthesizedParserRuleCall_4_0() { return cParParanthesizedParserRuleCall_4_0; }
-		
-		//'|' parblock=ParBlockElems '|'
-		public Group getGroup_5() { return cGroup_5; }
-		
-		//'|'
-		public Keyword getVerticalLineKeyword_5_0() { return cVerticalLineKeyword_5_0; }
-		
-		//parblock=ParBlockElems
-		public Assignment getParblockAssignment_5_1() { return cParblockAssignment_5_1; }
+		//pblock=ParBlockElems
+		public Assignment getPblockAssignment_1_2() { return cPblockAssignment_1_2; }
 		
 		//ParBlockElems
-		public RuleCall getParblockParBlockElemsParserRuleCall_5_1_0() { return cParblockParBlockElemsParserRuleCall_5_1_0; }
+		public RuleCall getPblockParBlockElemsParserRuleCall_1_2_0() { return cPblockParBlockElemsParserRuleCall_1_2_0; }
+		
+		//ret='return' block=BlockElem
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//ret='return'
+		public Assignment getRetAssignment_2_0() { return cRetAssignment_2_0; }
+		
+		//'return'
+		public Keyword getRetReturnKeyword_2_0_0() { return cRetReturnKeyword_2_0_0; }
+		
+		//block=BlockElem
+		public Assignment getBlockAssignment_2_1() { return cBlockAssignment_2_1; }
+		
+		//BlockElem
+		public RuleCall getBlockBlockElemParserRuleCall_2_1_0() { return cBlockBlockElemParserRuleCall_2_1_0; }
+		
+		//awhile='while' expr=Expr whiledod=Do
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//awhile='while'
+		public Assignment getAwhileAssignment_3_0() { return cAwhileAssignment_3_0; }
+		
+		//'while'
+		public Keyword getAwhileWhileKeyword_3_0_0() { return cAwhileWhileKeyword_3_0_0; }
+		
+		//expr=Expr
+		public Assignment getExprAssignment_3_1() { return cExprAssignment_3_1; }
+		
+		//Expr
+		public RuleCall getExprExprParserRuleCall_3_1_0() { return cExprExprParserRuleCall_3_1_0; }
+		
+		//whiledod=Do
+		public Assignment getWhiledodAssignment_3_2() { return cWhiledodAssignment_3_2; }
+		
+		//Do
+		public RuleCall getWhiledodDoParserRuleCall_3_2_0() { return cWhiledodDoParserRuleCall_3_2_0; }
+		
+		//afor='for' gen=Generators dofront=DoFront 'end'
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//afor='for'
+		public Assignment getAforAssignment_4_0() { return cAforAssignment_4_0; }
+		
+		//'for'
+		public Keyword getAforForKeyword_4_0_0() { return cAforForKeyword_4_0_0; }
+		
+		//gen=Generators
+		public Assignment getGenAssignment_4_1() { return cGenAssignment_4_1; }
+		
+		//Generators
+		public RuleCall getGenGeneratorsParserRuleCall_4_1_0() { return cGenGeneratorsParserRuleCall_4_1_0; }
+		
+		//dofront=DoFront
+		public Assignment getDofrontAssignment_4_2() { return cDofrontAssignment_4_2; }
+		
+		//DoFront
+		public RuleCall getDofrontDoFrontParserRuleCall_4_2_0() { return cDofrontDoFrontParserRuleCall_4_2_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_4_3() { return cEndKeyword_4_3; }
+		
+		//anif='if' cond=Expr 'then' blocks=BlockElems elifs=Elifs? els=Else? 'end'
+		public Group getGroup_5() { return cGroup_5; }
+		
+		//anif='if'
+		public Assignment getAnifAssignment_5_0() { return cAnifAssignment_5_0; }
+		
+		//'if'
+		public Keyword getAnifIfKeyword_5_0_0() { return cAnifIfKeyword_5_0_0; }
+		
+		//cond=Expr
+		public Assignment getCondAssignment_5_1() { return cCondAssignment_5_1; }
+		
+		//Expr
+		public RuleCall getCondExprParserRuleCall_5_1_0() { return cCondExprParserRuleCall_5_1_0; }
+		
+		//'then'
+		public Keyword getThenKeyword_5_2() { return cThenKeyword_5_2; }
+		
+		//blocks=BlockElems
+		public Assignment getBlocksAssignment_5_3() { return cBlocksAssignment_5_3; }
+		
+		//BlockElems
+		public RuleCall getBlocksBlockElemsParserRuleCall_5_3_0() { return cBlocksBlockElemsParserRuleCall_5_3_0; }
+		
+		//elifs=Elifs?
+		public Assignment getElifsAssignment_5_4() { return cElifsAssignment_5_4; }
+		
+		//Elifs
+		public RuleCall getElifsElifsParserRuleCall_5_4_0() { return cElifsElifsParserRuleCall_5_4_0; }
+		
+		//els=Else?
+		public Assignment getElsAssignment_5_5() { return cElsAssignment_5_5; }
+		
+		//Else
+		public RuleCall getElsElseParserRuleCall_5_5_0() { return cElsElseParserRuleCall_5_5_0; }
+		
+		//'end'
+		public Keyword getEndKeyword_5_6() { return cEndKeyword_5_6; }
+		
+		//par=Paranthesized
+		public Assignment getParAssignment_6() { return cParAssignment_6; }
+		
+		//Paranthesized
+		public RuleCall getParParanthesizedParserRuleCall_6_0() { return cParParanthesizedParserRuleCall_6_0; }
+		
+		//'|' parblock=ParBlockElems '|'
+		public Group getGroup_7() { return cGroup_7; }
 		
 		//'|'
-		public Keyword getVerticalLineKeyword_5_2() { return cVerticalLineKeyword_5_2; }
+		public Keyword getVerticalLineKeyword_7_0() { return cVerticalLineKeyword_7_0; }
+		
+		//parblock=ParBlockElems
+		public Assignment getParblockAssignment_7_1() { return cParblockAssignment_7_1; }
+		
+		//ParBlockElems
+		public RuleCall getParblockParBlockElemsParserRuleCall_7_1_0() { return cParblockParBlockElemsParserRuleCall_7_1_0; }
+		
+		//'|'
+		public Keyword getVerticalLineKeyword_7_2() { return cVerticalLineKeyword_7_2; }
 	}
 	public class ParBlockElemsElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "srf.transpiler.fortxtrans.FortXTrans.ParBlockElems");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cBrackAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cBrackLeftParenthesisKeyword_0_0 = (Keyword)cBrackAssignment_0.eContents().get(0);
 		private final Assignment cBlockAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cBlockBlockElemParserRuleCall_1_0 = (RuleCall)cBlockAssignment_1.eContents().get(0);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
@@ -1408,14 +1467,17 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ParBlockElems:
-		//	'(' block+=BlockElem (',' block+=BlockElem)+ ')';
+		//	brack='(' block+=BlockElem (',' block+=BlockElem)+ ')';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'(' block+=BlockElem (',' block+=BlockElem)+ ')'
+		//brack='(' block+=BlockElem (',' block+=BlockElem)+ ')'
 		public Group getGroup() { return cGroup; }
 		
+		//brack='('
+		public Assignment getBrackAssignment_0() { return cBrackAssignment_0; }
+		
 		//'('
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		public Keyword getBrackLeftParenthesisKeyword_0_0() { return cBrackLeftParenthesisKeyword_0_0; }
 		
 		//block+=BlockElem
 		public Assignment getBlockAssignment_1() { return cBlockAssignment_1; }
@@ -2353,8 +2415,13 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMutVarKeyword_0_0_0 = (Keyword)cMutAssignment_0_0.eContents().get(0);
 		private final Assignment cVarsAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
 		private final RuleCall cVarsNoNewlineVarWTypesParserRuleCall_0_1_0 = (RuleCall)cVarsAssignment_0_1.eContents().get(0);
-		private final Assignment cInitAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
-		private final RuleCall cInitInitValParserRuleCall_0_2_0 = (RuleCall)cInitAssignment_0_2.eContents().get(0);
+		private final Alternatives cAlternatives_0_2 = (Alternatives)cGroup_0.eContents().get(2);
+		private final Assignment cMutaAssignment_0_2_0 = (Assignment)cAlternatives_0_2.eContents().get(0);
+		private final Keyword cMutaColonEqualsSignKeyword_0_2_0_0 = (Keyword)cMutaAssignment_0_2_0.eContents().get(0);
+		private final Assignment cImmutAssignment_0_2_1 = (Assignment)cAlternatives_0_2.eContents().get(1);
+		private final Keyword cImmutEqualsSignKeyword_0_2_1_0 = (Keyword)cImmutAssignment_0_2_1.eContents().get(0);
+		private final Assignment cInitAssignment_0_3 = (Assignment)cGroup_0.eContents().get(3);
+		private final RuleCall cInitBlockElemParserRuleCall_0_3_0 = (RuleCall)cInitAssignment_0_3.eContents().get(0);
 		private final Group cGroup_1 = (Group)cAlternatives.eContents().get(1);
 		private final Assignment cIdtupAssignment_1_0 = (Assignment)cGroup_1.eContents().get(0);
 		private final RuleCall cIdtupIdOrTupleParserRuleCall_1_0_0 = (RuleCall)cIdtupAssignment_1_0.eContents().get(0);
@@ -2370,8 +2437,13 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cTypeAssignment_2_3 = (Assignment)cGroup_2.eContents().get(3);
 		private final RuleCall cTypeTypeParserRuleCall_2_3_0 = (RuleCall)cTypeAssignment_2_3.eContents().get(0);
 		private final RuleCall cDOTSTerminalRuleCall_2_4 = (RuleCall)cGroup_2.eContents().get(4);
-		private final Assignment cInitAssignment_2_5 = (Assignment)cGroup_2.eContents().get(5);
-		private final RuleCall cInitInitValParserRuleCall_2_5_0 = (RuleCall)cInitAssignment_2_5.eContents().get(0);
+		private final Alternatives cAlternatives_2_5 = (Alternatives)cGroup_2.eContents().get(5);
+		private final Assignment cMutaAssignment_2_5_0 = (Assignment)cAlternatives_2_5.eContents().get(0);
+		private final Keyword cMutaColonEqualsSignKeyword_2_5_0_0 = (Keyword)cMutaAssignment_2_5_0.eContents().get(0);
+		private final Assignment cImmutAssignment_2_5_1 = (Assignment)cAlternatives_2_5.eContents().get(1);
+		private final Keyword cImmutEqualsSignKeyword_2_5_1_0 = (Keyword)cImmutAssignment_2_5_1.eContents().get(0);
+		private final Assignment cInitAssignment_2_6 = (Assignment)cGroup_2.eContents().get(6);
+		private final RuleCall cInitBlockElemParserRuleCall_2_6_0 = (RuleCall)cInitAssignment_2_6.eContents().get(0);
 		private final Group cGroup_3 = (Group)cAlternatives.eContents().get(3);
 		private final Assignment cMutAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
 		private final Keyword cMutVarKeyword_3_0_0 = (Keyword)cMutAssignment_3_0.eContents().get(0);
@@ -2380,21 +2452,27 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cColonKeyword_3_2 = (Keyword)cGroup_3.eContents().get(2);
 		private final Assignment cTuptypeAssignment_3_3 = (Assignment)cGroup_3.eContents().get(3);
 		private final RuleCall cTuptypeTupleTypeParserRuleCall_3_3_0 = (RuleCall)cTuptypeAssignment_3_3.eContents().get(0);
-		private final Assignment cInitAssignment_3_4 = (Assignment)cGroup_3.eContents().get(4);
-		private final RuleCall cInitInitValParserRuleCall_3_4_0 = (RuleCall)cInitAssignment_3_4.eContents().get(0);
+		private final Alternatives cAlternatives_3_4 = (Alternatives)cGroup_3.eContents().get(4);
+		private final Assignment cMutaAssignment_3_4_0 = (Assignment)cAlternatives_3_4.eContents().get(0);
+		private final Keyword cMutaColonEqualsSignKeyword_3_4_0_0 = (Keyword)cMutaAssignment_3_4_0.eContents().get(0);
+		private final Assignment cImmutAssignment_3_4_1 = (Assignment)cAlternatives_3_4.eContents().get(1);
+		private final Keyword cImmutEqualsSignKeyword_3_4_1_0 = (Keyword)cImmutAssignment_3_4_1.eContents().get(0);
+		private final Assignment cInitAssignment_3_5 = (Assignment)cGroup_3.eContents().get(5);
+		private final RuleCall cInitBlockElemParserRuleCall_3_5_0 = (RuleCall)cInitAssignment_3_5.eContents().get(0);
 		
 		//LocalVarDecl:
-		//	mut='var'? vars=NoNewlineVarWTypes init=InitVal
+		//	mut='var'? vars=NoNewlineVarWTypes (muta=':=' | immut='=') init=BlockElem
 		//	| idtup=IdOrTuple '=' litTup=LiteralTuple
-		//	| mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
-		//	| mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal;
+		//	| mut='var'? idtup=IdOrTuple ':' type=Type DOTS (muta=':=' | immut='=') init=BlockElem
+		//	| mut='var'? idtup=IdOrTuple ':' tuptype=TupleType (muta=':=' | immut='=') init=BlockElem;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//mut='var'? vars=NoNewlineVarWTypes init=InitVal | idtup=IdOrTuple '=' litTup=LiteralTuple | mut='var'? idtup=IdOrTuple
-		//':' type=Type DOTS init=InitVal | mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+		//mut='var'? vars=NoNewlineVarWTypes (muta=':=' | immut='=') init=BlockElem | idtup=IdOrTuple '=' litTup=LiteralTuple |
+		//mut='var'? idtup=IdOrTuple ':' type=Type DOTS (muta=':=' | immut='=') init=BlockElem | mut='var'? idtup=IdOrTuple ':'
+		//tuptype=TupleType (muta=':=' | immut='=') init=BlockElem
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//mut='var'? vars=NoNewlineVarWTypes init=InitVal
+		//mut='var'? vars=NoNewlineVarWTypes (muta=':=' | immut='=') init=BlockElem
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//mut='var'?
@@ -2409,11 +2487,26 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//NoNewlineVarWTypes
 		public RuleCall getVarsNoNewlineVarWTypesParserRuleCall_0_1_0() { return cVarsNoNewlineVarWTypesParserRuleCall_0_1_0; }
 		
-		//init=InitVal
-		public Assignment getInitAssignment_0_2() { return cInitAssignment_0_2; }
+		//muta=':=' | immut='='
+		public Alternatives getAlternatives_0_2() { return cAlternatives_0_2; }
 		
-		//InitVal
-		public RuleCall getInitInitValParserRuleCall_0_2_0() { return cInitInitValParserRuleCall_0_2_0; }
+		//muta=':='
+		public Assignment getMutaAssignment_0_2_0() { return cMutaAssignment_0_2_0; }
+		
+		//':='
+		public Keyword getMutaColonEqualsSignKeyword_0_2_0_0() { return cMutaColonEqualsSignKeyword_0_2_0_0; }
+		
+		//immut='='
+		public Assignment getImmutAssignment_0_2_1() { return cImmutAssignment_0_2_1; }
+		
+		//'='
+		public Keyword getImmutEqualsSignKeyword_0_2_1_0() { return cImmutEqualsSignKeyword_0_2_1_0; }
+		
+		//init=BlockElem
+		public Assignment getInitAssignment_0_3() { return cInitAssignment_0_3; }
+		
+		//BlockElem
+		public RuleCall getInitBlockElemParserRuleCall_0_3_0() { return cInitBlockElemParserRuleCall_0_3_0; }
 		
 		//idtup=IdOrTuple '=' litTup=LiteralTuple
 		public Group getGroup_1() { return cGroup_1; }
@@ -2433,7 +2526,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//LiteralTuple
 		public RuleCall getLitTupLiteralTupleParserRuleCall_1_2_0() { return cLitTupLiteralTupleParserRuleCall_1_2_0; }
 		
-		//mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
+		//mut='var'? idtup=IdOrTuple ':' type=Type DOTS (muta=':=' | immut='=') init=BlockElem
 		public Group getGroup_2() { return cGroup_2; }
 		
 		//mut='var'?
@@ -2460,13 +2553,28 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//DOTS
 		public RuleCall getDOTSTerminalRuleCall_2_4() { return cDOTSTerminalRuleCall_2_4; }
 		
-		//init=InitVal
-		public Assignment getInitAssignment_2_5() { return cInitAssignment_2_5; }
+		//muta=':=' | immut='='
+		public Alternatives getAlternatives_2_5() { return cAlternatives_2_5; }
 		
-		//InitVal
-		public RuleCall getInitInitValParserRuleCall_2_5_0() { return cInitInitValParserRuleCall_2_5_0; }
+		//muta=':='
+		public Assignment getMutaAssignment_2_5_0() { return cMutaAssignment_2_5_0; }
 		
-		//mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+		//':='
+		public Keyword getMutaColonEqualsSignKeyword_2_5_0_0() { return cMutaColonEqualsSignKeyword_2_5_0_0; }
+		
+		//immut='='
+		public Assignment getImmutAssignment_2_5_1() { return cImmutAssignment_2_5_1; }
+		
+		//'='
+		public Keyword getImmutEqualsSignKeyword_2_5_1_0() { return cImmutEqualsSignKeyword_2_5_1_0; }
+		
+		//init=BlockElem
+		public Assignment getInitAssignment_2_6() { return cInitAssignment_2_6; }
+		
+		//BlockElem
+		public RuleCall getInitBlockElemParserRuleCall_2_6_0() { return cInitBlockElemParserRuleCall_2_6_0; }
+		
+		//mut='var'? idtup=IdOrTuple ':' tuptype=TupleType (muta=':=' | immut='=') init=BlockElem
 		public Group getGroup_3() { return cGroup_3; }
 		
 		//mut='var'?
@@ -2490,11 +2598,26 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//TupleType
 		public RuleCall getTuptypeTupleTypeParserRuleCall_3_3_0() { return cTuptypeTupleTypeParserRuleCall_3_3_0; }
 		
-		//init=InitVal
-		public Assignment getInitAssignment_3_4() { return cInitAssignment_3_4; }
+		//muta=':=' | immut='='
+		public Alternatives getAlternatives_3_4() { return cAlternatives_3_4; }
 		
-		//InitVal
-		public RuleCall getInitInitValParserRuleCall_3_4_0() { return cInitInitValParserRuleCall_3_4_0; }
+		//muta=':='
+		public Assignment getMutaAssignment_3_4_0() { return cMutaAssignment_3_4_0; }
+		
+		//':='
+		public Keyword getMutaColonEqualsSignKeyword_3_4_0_0() { return cMutaColonEqualsSignKeyword_3_4_0_0; }
+		
+		//immut='='
+		public Assignment getImmutAssignment_3_4_1() { return cImmutAssignment_3_4_1; }
+		
+		//'='
+		public Keyword getImmutEqualsSignKeyword_3_4_1_0() { return cImmutEqualsSignKeyword_3_4_1_0; }
+		
+		//init=BlockElem
+		public Assignment getInitAssignment_3_5() { return cInitAssignment_3_5; }
+		
+		//BlockElem
+		public RuleCall getInitBlockElemParserRuleCall_3_5_0() { return cInitBlockElemParserRuleCall_3_5_0; }
 	}
 	
 	
@@ -2908,8 +3031,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	//Expr:
 	//	front=ExprFront tails+=ExprTail*
 	//	| locVar=LocalVarDecl
-	//	//	|assign=AssignExpr
-	//;
+	//	| lit=LiteralTuple;
 	public ExprElements getExprAccess() {
 		return pExpr;
 	}
@@ -2941,9 +3063,11 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	
 	//DelimitedExpr:
 	//	dod=Do
+	//	| lits=LiteralTuple eqop=':=' pblock=ParBlockElems
+	//	| ret='return' block=BlockElem
 	//	| awhile='while' expr=Expr whiledod=Do
 	//	| afor='for' gen=Generators dofront=DoFront 'end'
-	//	| anif='if' cond=Expr 'then' block=BlockElems elifs=Elifs? els=Else? 'end'
+	//	| anif='if' cond=Expr 'then' blocks=BlockElems elifs=Elifs? els=Else? 'end'
 	//	| par=Paranthesized
 	//	| '|' parblock=ParBlockElems '|';
 	public DelimitedExprElements getDelimitedExprAccess() {
@@ -2955,7 +3079,7 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//ParBlockElems:
-	//	'(' block+=BlockElem (',' block+=BlockElem)+ ')';
+	//	brack='(' block+=BlockElem (',' block+=BlockElem)+ ')';
 	public ParBlockElemsElements getParBlockElemsAccess() {
 		return pParBlockElems;
 	}
@@ -3182,10 +3306,10 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	//LocalVarDecl:
-	//	mut='var'? vars=NoNewlineVarWTypes init=InitVal
+	//	mut='var'? vars=NoNewlineVarWTypes (muta=':=' | immut='=') init=BlockElem
 	//	| idtup=IdOrTuple '=' litTup=LiteralTuple
-	//	| mut='var'? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
-	//	| mut='var'? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal;
+	//	| mut='var'? idtup=IdOrTuple ':' type=Type DOTS (muta=':=' | immut='=') init=BlockElem
+	//	| mut='var'? idtup=IdOrTuple ':' tuptype=TupleType (muta=':=' | immut='=') init=BlockElem;
 	public LocalVarDeclElements getLocalVarDeclAccess() {
 		return pLocalVarDecl;
 	}

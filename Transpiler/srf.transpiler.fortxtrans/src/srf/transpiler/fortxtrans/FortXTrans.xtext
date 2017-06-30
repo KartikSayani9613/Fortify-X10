@@ -119,7 +119,7 @@ FnDecl:
 Expr:
 	front=ExprFront (tails+=ExprTail)*
 	|locVar=LocalVarDecl
-//	|assign=AssignExpr
+	|lit=LiteralTuple
 ;
 
 ExprFront:
@@ -133,15 +133,17 @@ ExprTail:
 
 DelimitedExpr :
 	dod=Do
+	|lits=LiteralTuple eqop=':=' pblock=ParBlockElems
+	|ret='return' block=BlockElem
 	|awhile='while' expr=Expr  whiledod=Do
 	|afor='for' gen=Generators dofront=DoFront 'end'
-	|anif='if' cond=Expr 'then' block=BlockElems (elifs=Elifs)? (els=Else)? 'end'
+	|anif='if' cond=Expr 'then' blocks=BlockElems (elifs=Elifs)? (els=Else)? 'end'
 	|par=Paranthesized
 	|'|' parblock=ParBlockElems '|'
 ;
 
 ParBlockElems:
-	 '(' block+=BlockElem (',' block+=BlockElem)+ ')' 
+	 brack='(' block+=BlockElem (',' block+=BlockElem)+ ')'
 ;
 
 Elifs:
@@ -239,11 +241,12 @@ Literal:
 	|q=QualifiedName
 ;
 
+
 LocalVarDecl:
-	(mut='var')? vars=NoNewlineVarWTypes init=InitVal
+	(mut='var')? vars=NoNewlineVarWTypes (muta=':='|immut='=') init=BlockElem
 	|idtup=IdOrTuple '=' litTup=LiteralTuple
-	|(mut='var')? idtup=IdOrTuple ':' type=Type DOTS init=InitVal
-	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+	|(mut='var')? idtup=IdOrTuple ':' type=Type DOTS (muta=':='|immut='=') init=BlockElem
+	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType (muta=':='|immut='=') init=BlockElem
 ;
 
 @Override 
