@@ -267,22 +267,13 @@ public interface FortXTransFactory extends EFactory
   Expr createExpr();
 
   /**
-   * Returns a new object of class '<em>Expr Front</em>'.
+   * Returns a new object of class '<em>Expr List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expr Front</em>'.
+   * @return a new object of class '<em>Expr List</em>'.
    * @generated
    */
-  ExprFront createExprFront();
-
-  /**
-   * Returns a new object of class '<em>Comma Expr</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Comma Expr</em>'.
-   * @generated
-   */
-  CommaExpr createCommaExpr();
+  ExprList createExprList();
 
   /**
    * Returns a new object of class '<em>Expr Tail</em>'.
@@ -346,6 +337,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   Binding createBinding();
+
+  /**
+   * Returns a new object of class '<em>Gen Source</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Gen Source</em>'.
+   * @generated
+   */
+  GenSource createGenSource();
 
   /**
    * Returns a new object of class '<em>Gen Clause</em>'.
@@ -474,6 +474,15 @@ public interface FortXTransFactory extends EFactory
   LiteralTup createLiteralTup();
 
   /**
+   * Returns a new object of class '<em>Literal List</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Literal List</em>'.
+   * @generated
+   */
+  LiteralList createLiteralList();
+
+  /**
    * Returns a new object of class '<em>Literal</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -490,6 +499,42 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   LocalVarDecl createLocalVarDecl();
+
+  /**
+   * Returns a new object of class '<em>Or</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Or</em>'.
+   * @generated
+   */
+  Or createOr();
+
+  /**
+   * Returns a new object of class '<em>And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>And</em>'.
+   * @generated
+   */
+  And createAnd();
+
+  /**
+   * Returns a new object of class '<em>Equality</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Equality</em>'.
+   * @generated
+   */
+  Equality createEquality();
+
+  /**
+   * Returns a new object of class '<em>Comparison</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Comparison</em>'.
+   * @generated
+   */
+  Comparison createComparison();
 
   /**
    * Returns a new object of class '<em>Add Expr</em>'.
@@ -528,13 +573,67 @@ public interface FortXTransFactory extends EFactory
   MultExpr createMultExpr();
 
   /**
-   * Returns a new object of class '<em>Primary</em>'.
+   * Returns a new object of class '<em>Exponent Expr</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primary</em>'.
+   * @return a new object of class '<em>Exponent Expr</em>'.
    * @generated
    */
-  Primary createPrimary();
+  ExponentExpr createExponentExpr();
+
+  /**
+   * Returns a new object of class '<em>Assop</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assop</em>'.
+   * @generated
+   */
+  Assop createAssop();
+
+  /**
+   * Returns a new object of class '<em>FCall</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>FCall</em>'.
+   * @generated
+   */
+  FCall createFCall();
+
+  /**
+   * Returns a new object of class '<em>Int Const</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Int Const</em>'.
+   * @generated
+   */
+  IntConst createIntConst();
+
+  /**
+   * Returns a new object of class '<em>Float Const</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Float Const</em>'.
+   * @generated
+   */
+  FloatConst createFloatConst();
+
+  /**
+   * Returns a new object of class '<em>Str Const</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Str Const</em>'.
+   * @generated
+   */
+  StrConst createStrConst();
+
+  /**
+   * Returns a new object of class '<em>Bool Const</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Bool Const</em>'.
+   * @generated
+   */
+  BoolConst createBoolConst();
 
   /**
    * Returns the package supported by this factory.

@@ -3,62 +3,20 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans.impl;
 
-import java.util.Collection;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.Literal;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTup;
 
 /**
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Literal Tup</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * The following features are implemented:
- * </p>
- * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupImpl#getLit <em>Lit</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupImpl#getLits <em>Lits</em>}</li>
- * </ul>
  *
  * @generated
  */
-public class LiteralTupImpl extends MinimalEObjectImpl.Container implements LiteralTup
+public class LiteralTupImpl extends LiteralTupleImpl implements LiteralTup
 {
-  /**
-   * The cached value of the '{@link #getLit() <em>Lit</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLit()
-   * @generated
-   * @ordered
-   */
-  protected Literal lit;
-
-  /**
-   * The cached value of the '{@link #getLits() <em>Lits</em>}' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLits()
-   * @generated
-   * @ordered
-   */
-  protected EList<Literal> lits;
-
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -78,164 +36,6 @@ public class LiteralTupImpl extends MinimalEObjectImpl.Container implements Lite
   protected EClass eStaticClass()
   {
     return FortXTransPackage.Literals.LITERAL_TUP;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Literal getLit()
-  {
-    return lit;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetLit(Literal newLit, NotificationChain msgs)
-  {
-    Literal oldLit = lit;
-    lit = newLit;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL_TUP__LIT, oldLit, newLit);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLit(Literal newLit)
-  {
-    if (newLit != lit)
-    {
-      NotificationChain msgs = null;
-      if (lit != null)
-        msgs = ((InternalEObject)lit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.LITERAL_TUP__LIT, null, msgs);
-      if (newLit != null)
-        msgs = ((InternalEObject)newLit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.LITERAL_TUP__LIT, null, msgs);
-      msgs = basicSetLit(newLit, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.LITERAL_TUP__LIT, newLit, newLit));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<Literal> getLits()
-  {
-    if (lits == null)
-    {
-      lits = new EObjectContainmentEList<Literal>(Literal.class, this, FortXTransPackage.LITERAL_TUP__LITS);
-    }
-    return lits;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case FortXTransPackage.LITERAL_TUP__LIT:
-        return basicSetLit(null, msgs);
-      case FortXTransPackage.LITERAL_TUP__LITS:
-        return ((InternalEList<?>)getLits()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Object eGet(int featureID, boolean resolve, boolean coreType)
-  {
-    switch (featureID)
-    {
-      case FortXTransPackage.LITERAL_TUP__LIT:
-        return getLit();
-      case FortXTransPackage.LITERAL_TUP__LITS:
-        return getLits();
-    }
-    return super.eGet(featureID, resolve, coreType);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public void eSet(int featureID, Object newValue)
-  {
-    switch (featureID)
-    {
-      case FortXTransPackage.LITERAL_TUP__LIT:
-        setLit((Literal)newValue);
-        return;
-      case FortXTransPackage.LITERAL_TUP__LITS:
-        getLits().clear();
-        getLits().addAll((Collection<? extends Literal>)newValue);
-        return;
-    }
-    super.eSet(featureID, newValue);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public void eUnset(int featureID)
-  {
-    switch (featureID)
-    {
-      case FortXTransPackage.LITERAL_TUP__LIT:
-        setLit((Literal)null);
-        return;
-      case FortXTransPackage.LITERAL_TUP__LITS:
-        getLits().clear();
-        return;
-    }
-    super.eUnset(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public boolean eIsSet(int featureID)
-  {
-    switch (featureID)
-    {
-      case FortXTransPackage.LITERAL_TUP__LIT:
-        return lit != null;
-      case FortXTransPackage.LITERAL_TUP__LITS:
-        return lits != null && !lits.isEmpty();
-    }
-    return super.eIsSet(featureID);
   }
 
 } //LiteralTupImpl

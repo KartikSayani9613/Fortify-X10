@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
-import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.GenSource;
 import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
 
 /**
@@ -26,7 +26,7 @@ import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getIdtup <em>Idtup</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getExpr <em>Expr</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getG <em>G</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindingImpl#getSeq <em>Seq</em>}</li>
  * </ul>
  *
@@ -45,14 +45,14 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
   protected IdOrTuple idtup;
 
   /**
-   * The cached value of the '{@link #getExpr() <em>Expr</em>}' containment reference.
+   * The cached value of the '{@link #getG() <em>G</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpr()
+   * @see #getG()
    * @generated
    * @ordered
    */
-  protected Expr expr;
+  protected GenSource g;
 
   /**
    * The default value of the '{@link #getSeq() <em>Seq</em>}' attribute.
@@ -148,9 +148,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExpr()
+  public GenSource getG()
   {
-    return expr;
+    return g;
   }
 
   /**
@@ -158,13 +158,13 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetExpr(Expr newExpr, NotificationChain msgs)
+  public NotificationChain basicSetG(GenSource newG, NotificationChain msgs)
   {
-    Expr oldExpr = expr;
-    expr = newExpr;
+    GenSource oldG = g;
+    g = newG;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.BINDING__EXPR, oldExpr, newExpr);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.BINDING__G, oldG, newG);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -175,20 +175,20 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExpr(Expr newExpr)
+  public void setG(GenSource newG)
   {
-    if (newExpr != expr)
+    if (newG != g)
     {
       NotificationChain msgs = null;
-      if (expr != null)
-        msgs = ((InternalEObject)expr).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BINDING__EXPR, null, msgs);
-      if (newExpr != null)
-        msgs = ((InternalEObject)newExpr).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BINDING__EXPR, null, msgs);
-      msgs = basicSetExpr(newExpr, msgs);
+      if (g != null)
+        msgs = ((InternalEObject)g).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BINDING__G, null, msgs);
+      if (newG != null)
+        msgs = ((InternalEObject)newG).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.BINDING__G, null, msgs);
+      msgs = basicSetG(newG, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.BINDING__EXPR, newExpr, newExpr));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.BINDING__G, newG, newG));
   }
 
   /**
@@ -226,8 +226,8 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
     {
       case FortXTransPackage.BINDING__IDTUP:
         return basicSetIdtup(null, msgs);
-      case FortXTransPackage.BINDING__EXPR:
-        return basicSetExpr(null, msgs);
+      case FortXTransPackage.BINDING__G:
+        return basicSetG(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -244,8 +244,8 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
     {
       case FortXTransPackage.BINDING__IDTUP:
         return getIdtup();
-      case FortXTransPackage.BINDING__EXPR:
-        return getExpr();
+      case FortXTransPackage.BINDING__G:
+        return getG();
       case FortXTransPackage.BINDING__SEQ:
         return getSeq();
     }
@@ -265,8 +265,8 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
       case FortXTransPackage.BINDING__IDTUP:
         setIdtup((IdOrTuple)newValue);
         return;
-      case FortXTransPackage.BINDING__EXPR:
-        setExpr((Expr)newValue);
+      case FortXTransPackage.BINDING__G:
+        setG((GenSource)newValue);
         return;
       case FortXTransPackage.BINDING__SEQ:
         setSeq((String)newValue);
@@ -288,8 +288,8 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
       case FortXTransPackage.BINDING__IDTUP:
         setIdtup((IdOrTuple)null);
         return;
-      case FortXTransPackage.BINDING__EXPR:
-        setExpr((Expr)null);
+      case FortXTransPackage.BINDING__G:
+        setG((GenSource)null);
         return;
       case FortXTransPackage.BINDING__SEQ:
         setSeq(SEQ_EDEFAULT);
@@ -310,8 +310,8 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
     {
       case FortXTransPackage.BINDING__IDTUP:
         return idtup != null;
-      case FortXTransPackage.BINDING__EXPR:
-        return expr != null;
+      case FortXTransPackage.BINDING__G:
+        return g != null;
       case FortXTransPackage.BINDING__SEQ:
         return SEQ_EDEFAULT == null ? seq != null : !SEQ_EDEFAULT.equals(seq);
     }

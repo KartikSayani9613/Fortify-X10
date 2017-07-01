@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -37,7 +36,7 @@ import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
  *
  * @generated
  */
-public class QualifiedNameImpl extends MinimalEObjectImpl.Container implements QualifiedName
+public class QualifiedNameImpl extends QualifiedImpl implements QualifiedName
 {
   /**
    * The cached value of the '{@link #getS() <em>S</em>}' containment reference list.

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getIdtup <em>Idtup</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getExpr <em>Expr</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getG <em>G</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getSeq <em>Seq</em>}</li>
  * </ul>
  *
@@ -52,30 +52,30 @@ public interface Binding extends EObject
   void setIdtup(IdOrTuple value);
 
   /**
-   * Returns the value of the '<em><b>Expr</b></em>' containment reference.
+   * Returns the value of the '<em><b>G</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expr</em>' containment reference isn't clear,
+   * If the meaning of the '<em>G</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expr</em>' containment reference.
-   * @see #setExpr(Expr)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBinding_Expr()
+   * @return the value of the '<em>G</em>' containment reference.
+   * @see #setG(GenSource)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBinding_G()
    * @model containment="true"
    * @generated
    */
-  Expr getExpr();
+  GenSource getG();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getExpr <em>Expr</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getG <em>G</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Expr</em>' containment reference.
-   * @see #getExpr()
+   * @param value the new value of the '<em>G</em>' containment reference.
+   * @see #getG()
    * @generated
    */
-  void setExpr(Expr value);
+  void setG(GenSource value);
 
   /**
    * Returns the value of the '<em><b>Seq</b></em>' attribute.

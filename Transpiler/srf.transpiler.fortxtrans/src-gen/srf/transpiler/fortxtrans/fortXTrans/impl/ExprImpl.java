@@ -5,7 +5,6 @@ package srf.transpiler.fortxtrans.fortXTrans.impl;
 
 import java.util.Collection;
 
-import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -13,13 +12,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
-import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 
@@ -31,25 +27,13 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getFront <em>Front</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getTail <em>Tail</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExprImpl extends CommaExprImpl implements Expr
+public class ExprImpl extends GenSourceImpl implements Expr
 {
-  /**
-   * The cached value of the '{@link #getFront() <em>Front</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getFront()
-   * @generated
-   * @ordered
-   */
-  protected ExprFront front;
-
   /**
    * The cached value of the '{@link #getTail() <em>Tail</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -59,16 +43,6 @@ public class ExprImpl extends CommaExprImpl implements Expr
    * @ordered
    */
   protected EList<ExprTail> tail;
-
-  /**
-   * The cached value of the '{@link #getExp() <em>Exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getExp()
-   * @generated
-   * @ordered
-   */
-  protected Expr exp;
 
   /**
    * <!-- begin-user-doc -->
@@ -96,54 +70,6 @@ public class ExprImpl extends CommaExprImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprFront getFront()
-  {
-    return front;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetFront(ExprFront newFront, NotificationChain msgs)
-  {
-    ExprFront oldFront = front;
-    front = newFront;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__FRONT, oldFront, newFront);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setFront(ExprFront newFront)
-  {
-    if (newFront != front)
-    {
-      NotificationChain msgs = null;
-      if (front != null)
-        msgs = ((InternalEObject)front).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__FRONT, null, msgs);
-      if (newFront != null)
-        msgs = ((InternalEObject)newFront).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__FRONT, null, msgs);
-      msgs = basicSetFront(newFront, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__FRONT, newFront, newFront));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EList<ExprTail> getTail()
   {
     if (tail == null)
@@ -158,65 +84,13 @@ public class ExprImpl extends CommaExprImpl implements Expr
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getExp()
-  {
-    return exp;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetExp(Expr newExp, NotificationChain msgs)
-  {
-    Expr oldExp = exp;
-    exp = newExp;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__EXP, oldExp, newExp);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setExp(Expr newExp)
-  {
-    if (newExp != exp)
-    {
-      NotificationChain msgs = null;
-      if (exp != null)
-        msgs = ((InternalEObject)exp).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__EXP, null, msgs);
-      if (newExp != null)
-        msgs = ((InternalEObject)newExp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPR__EXP, null, msgs);
-      msgs = basicSetExp(newExp, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPR__EXP, newExp, newExp));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__FRONT:
-        return basicSetFront(null, msgs);
       case FortXTransPackage.EXPR__TAIL:
         return ((InternalEList<?>)getTail()).basicRemove(otherEnd, msgs);
-      case FortXTransPackage.EXPR__EXP:
-        return basicSetExp(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -231,12 +105,8 @@ public class ExprImpl extends CommaExprImpl implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__FRONT:
-        return getFront();
       case FortXTransPackage.EXPR__TAIL:
         return getTail();
-      case FortXTransPackage.EXPR__EXP:
-        return getExp();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -252,15 +122,9 @@ public class ExprImpl extends CommaExprImpl implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__FRONT:
-        setFront((ExprFront)newValue);
-        return;
       case FortXTransPackage.EXPR__TAIL:
         getTail().clear();
         getTail().addAll((Collection<? extends ExprTail>)newValue);
-        return;
-      case FortXTransPackage.EXPR__EXP:
-        setExp((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -276,14 +140,8 @@ public class ExprImpl extends CommaExprImpl implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__FRONT:
-        setFront((ExprFront)null);
-        return;
       case FortXTransPackage.EXPR__TAIL:
         getTail().clear();
-        return;
-      case FortXTransPackage.EXPR__EXP:
-        setExp((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -299,12 +157,8 @@ public class ExprImpl extends CommaExprImpl implements Expr
   {
     switch (featureID)
     {
-      case FortXTransPackage.EXPR__FRONT:
-        return front != null;
       case FortXTransPackage.EXPR__TAIL:
         return tail != null && !tail.isEmpty();
-      case FortXTransPackage.EXPR__EXP:
-        return exp != null;
     }
     return super.eIsSet(featureID);
   }

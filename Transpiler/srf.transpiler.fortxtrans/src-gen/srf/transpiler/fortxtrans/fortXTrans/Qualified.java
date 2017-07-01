@@ -9,70 +9,11 @@ package srf.transpiler.fortxtrans.fortXTrans;
  * A representation of the model object '<em><b>Qualified</b></em>'.
  * <!-- end-user-doc -->
  *
- * <p>
- * The following features are supported:
- * </p>
- * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Qualified#getQ <em>Q</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Qualified#getQlist <em>Qlist</em>}</li>
- * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getQualified()
  * @model
  * @generated
  */
-public interface Qualified extends Expr
+public interface Qualified extends LiteralTuple
 {
-  /**
-   * Returns the value of the '<em><b>Q</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Q</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Q</em>' containment reference.
-   * @see #setQ(QualifiedName)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getQualified_Q()
-   * @model containment="true"
-   * @generated
-   */
-  QualifiedName getQ();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Qualified#getQ <em>Q</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Q</em>' containment reference.
-   * @see #getQ()
-   * @generated
-   */
-  void setQ(QualifiedName value);
-
-  /**
-   * Returns the value of the '<em><b>Qlist</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Qlist</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Qlist</em>' containment reference.
-   * @see #setQlist(QualifiedNameTuple)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getQualified_Qlist()
-   * @model containment="true"
-   * @generated
-   */
-  QualifiedNameTuple getQlist();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Qualified#getQlist <em>Qlist</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Qlist</em>' containment reference.
-   * @see #getQlist()
-   * @generated
-   */
-  void setQlist(QualifiedNameTuple value);
-
 } // Qualified

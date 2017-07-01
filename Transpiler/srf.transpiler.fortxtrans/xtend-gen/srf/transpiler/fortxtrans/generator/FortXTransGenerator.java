@@ -22,27 +22,28 @@ import srf.transpiler.fortxtrans.fortXTrans.AddExpr;
 import srf.transpiler.fortxtrans.fortXTrans.BindId;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
-import srf.transpiler.fortxtrans.fortXTrans.CommaExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
 import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.DivExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
+import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
-import srf.transpiler.fortxtrans.fortXTrans.ExprFront;
+import srf.transpiler.fortxtrans.fortXTrans.ExprList;
+import srf.transpiler.fortxtrans.fortXTrans.FCall;
 import srf.transpiler.fortxtrans.fortXTrans.FieldDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
 import srf.transpiler.fortxtrans.fortXTrans.Import;
-import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
+import srf.transpiler.fortxtrans.fortXTrans.MultExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
-import srf.transpiler.fortxtrans.fortXTrans.Primary;
-import srf.transpiler.fortxtrans.fortXTrans.Qualified;
 import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
+import srf.transpiler.fortxtrans.fortXTrans.SubExpr;
 import srf.transpiler.fortxtrans.fortXTrans.ValParam;
 
 /**
@@ -290,27 +291,58 @@ public class FortXTransGenerator extends AbstractGenerator {
         {
           int _length = ((Object[])Conversions.unwrapArray(e.getExportedName(), Object.class)).length;
           ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
-          for(final Integer s : _doubleDotLessThan) {
+          for(final Integer k : _doubleDotLessThan) {
             {
-              if (((s).intValue() == 0)) {
-                QualifiedName _get = e.getExportedName().get((s).intValue());
-                _builder.append(_get);
+              if (((k).intValue() == 0)) {
+                String _compile = this.compile(e.getExportedName().get((k).intValue()));
+                _builder.append(_compile);
               } else {
                 _builder.append(", ");
-                QualifiedName _get_1 = e.getExportedName().get((s).intValue());
-                _builder.append(_get_1);
+                String _compile_1 = this.compile(e.getExportedName().get((k).intValue()));
+                _builder.append(_compile_1);
               }
             }
           }
         }
         _builder.append("}");
       } else {
-        QualifiedName _get_2 = e.getExportedName().get(0);
-        _builder.append(_get_2);
+        QualifiedName _get = e.getExportedName().get(0);
+        _builder.append(_get);
       }
     }
     _builder.newLineIfNotEmpty();
     return _builder;
+  }
+  
+  public String compile(final QualifiedName q) {
+    StringConcatenation _builder = new StringConcatenation();
+    String s = _builder.toString();
+    int _length = ((Object[])Conversions.unwrapArray(q.getS(), Object.class)).length;
+    boolean _equals = (_length == 1);
+    if (_equals) {
+      String _name = q.getS().get(0).getName();
+      String _plus = (s + _name);
+      s = _plus;
+    } else {
+      String _name_1 = q.getS().get(0).getName();
+      String _plus_1 = (s + _name_1);
+      s = _plus_1;
+      int _length_1 = ((Object[])Conversions.unwrapArray(q.getS(), Object.class)).length;
+      ExclusiveRange _doubleDotLessThan = new ExclusiveRange(1, _length_1, true);
+      for (final Integer ss : _doubleDotLessThan) {
+        String _name_2 = q.getS().get((ss).intValue()).getName();
+        String _plus_2 = ((s + ".") + _name_2);
+        s = _plus_2;
+      }
+    }
+    String _dots = q.getDots();
+    boolean _tripleNotEquals = (_dots != null);
+    if (_tripleNotEquals) {
+      String _dots_1 = q.getDots();
+      String _plus_3 = (s + _dots_1);
+      s = _plus_3;
+    }
+    return s;
   }
   
   public CharSequence compile(final ValParam p) {
@@ -475,7 +507,7 @@ public class FortXTransGenerator extends AbstractGenerator {
               Expr _exp = st.getExp();
               boolean _tripleNotEquals_2 = (_exp != null);
               if (_tripleNotEquals_2) {
-                CharSequence _compile_2 = this.compile(st.getExp());
+                String _compile_2 = this.compile(st.getExp());
                 _builder.append(_compile_2);
               }
             }
@@ -526,9 +558,15 @@ public class FortXTransGenerator extends AbstractGenerator {
   public CharSequence compile(final BlockElems bs) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("//BlockElems");
-    CharSequence _compile = this.compile(bs.getBlock().get(0));
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    {
+      EList<BlockElem> _block = bs.getBlock();
+      for(final BlockElem b : _block) {
+        CharSequence _compile = this.compile(b);
+        _builder.append(_compile);
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
   
@@ -544,59 +582,105 @@ public class FortXTransGenerator extends AbstractGenerator {
   public CharSequence compile(final LocalVarDecl d) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("//LocalVar ");
-    CharSequence _compile = this.compile(d.getInit());
+    String _compile = this.compile(d.getInit());
     _builder.append(_compile);
     _builder.newLineIfNotEmpty();
     return _builder;
   }
   
-  public CharSequence compile(final Expr e) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//Expr");
-    CharSequence _compile = this.compile(e.getFront());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public CharSequence compile(final ExprFront ef) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//ExprFront");
-    String _compile = this.compile(ef.getAdd());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
-  }
-  
-  public String compile(final CommaExpr ce) {
-    String s = "//CommaExpr";
+  public String compile(final Expr e) {
+    String s = "";
     boolean _matched = false;
-    if (ce instanceof Qualified) {
+    if (e instanceof AddExpr) {
       _matched=true;
-      s = (s + "yolo");
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("(");
+      String _compile = this.compile(((AddExpr)e).getLeft());
+      _builder.append(_compile);
+      _builder.append("+");
+      String _compile_1 = this.compile(((AddExpr)e).getRight());
+      _builder.append(_compile_1);
+      _builder.append(")");
+      String _plus = (s + _builder);
+      s = _plus;
     }
     if (!_matched) {
-      if (ce instanceof Primary) {
+      if (e instanceof SubExpr) {
         _matched=true;
-        CharSequence _compile = this.compile(((Primary)ce).getExp());
-        String _plus = (s + _compile);
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((SubExpr)e).getLeft());
+        _builder.append(_compile);
+        _builder.append("-");
+        String _compile_1 = this.compile(((SubExpr)e).getRight());
+        _builder.append(_compile_1);
+        _builder.append(")");
+        String _plus = (s + _builder);
         s = _plus;
       }
     }
     if (!_matched) {
-      if (ce instanceof AddExpr) {
+      if (e instanceof DivExpr) {
         _matched=true;
-        s = (s + "noYolo");
-      }
-    }
-    if (!_matched) {
-      if (ce instanceof LiteralTuple) {
-        _matched=true;
-        String _string = Integer.valueOf(((LiteralTuple)ce).getLit().getLit().getIntg()).toString();
-        String _plus = (s + _string);
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((DivExpr)e).getLeft());
+        _builder.append(_compile);
+        _builder.append("/");
+        String _compile_1 = this.compile(((DivExpr)e).getRight());
+        _builder.append(_compile_1);
+        _builder.append(")");
+        String _plus = (s + _builder);
         s = _plus;
       }
     }
+    if (!_matched) {
+      if (e instanceof MultExpr) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((MultExpr)e).getLeft());
+        _builder.append(_compile);
+        _builder.append("*");
+        String _compile_1 = this.compile(((MultExpr)e).getRight());
+        _builder.append(_compile_1);
+        _builder.append(")");
+        String _plus = (s + _builder);
+        s = _plus;
+      }
+    }
+    if (!_matched) {
+      if (e instanceof ExponentExpr) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(Math.pow(");
+        String _compile = this.compile(((ExponentExpr)e).getLeft());
+        _builder.append(_compile);
+        _builder.append(",");
+        String _compile_1 = this.compile(((ExponentExpr)e).getRight());
+        _builder.append(_compile_1);
+        _builder.append("))");
+        String _plus = (s + _builder);
+        s = _plus;
+      }
+    }
+    if (!_matched) {
+      if (e instanceof FCall) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("yolo(");
+        String _compile = this.compile(((FCall)e).getRight().getExps());
+        _builder.append(_compile);
+        _builder.append(")");
+        String _plus = (s + _builder);
+        s = _plus;
+      }
+    }
+    return s;
+  }
+  
+  public String compile(final ExprList e) {
+    String s = "";
     return s;
   }
 }

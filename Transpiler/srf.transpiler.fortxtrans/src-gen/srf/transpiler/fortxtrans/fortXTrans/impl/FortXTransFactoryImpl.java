@@ -92,8 +92,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.STMNT: return createStmnt();
       case FortXTransPackage.DELIMITED_EXPR_LIST: return createDelimitedExprList();
       case FortXTransPackage.EXPR: return createExpr();
-      case FortXTransPackage.EXPR_FRONT: return createExprFront();
-      case FortXTransPackage.COMMA_EXPR: return createCommaExpr();
+      case FortXTransPackage.EXPR_LIST: return createExprList();
       case FortXTransPackage.EXPR_TAIL: return createExprTail();
       case FortXTransPackage.DELIMITED_EXPR: return createDelimitedExpr();
       case FortXTransPackage.ELIFS: return createElifs();
@@ -101,6 +100,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.ELSE: return createElse();
       case FortXTransPackage.GENERATORS: return createGenerators();
       case FortXTransPackage.BINDING: return createBinding();
+      case FortXTransPackage.GEN_SOURCE: return createGenSource();
       case FortXTransPackage.GEN_CLAUSE: return createGenClause();
       case FortXTransPackage.BLOCK_ELEMS: return createBlockElems();
       case FortXTransPackage.BLOCK_ELEM: return createBlockElem();
@@ -115,13 +115,24 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.INIT_VAL: return createInitVal();
       case FortXTransPackage.LITERAL_TUPLE: return createLiteralTuple();
       case FortXTransPackage.LITERAL_TUP: return createLiteralTup();
+      case FortXTransPackage.LITERAL_LIST: return createLiteralList();
       case FortXTransPackage.LITERAL: return createLiteral();
       case FortXTransPackage.LOCAL_VAR_DECL: return createLocalVarDecl();
+      case FortXTransPackage.OR: return createOr();
+      case FortXTransPackage.AND: return createAnd();
+      case FortXTransPackage.EQUALITY: return createEquality();
+      case FortXTransPackage.COMPARISON: return createComparison();
       case FortXTransPackage.ADD_EXPR: return createAddExpr();
       case FortXTransPackage.SUB_EXPR: return createSubExpr();
       case FortXTransPackage.DIV_EXPR: return createDivExpr();
       case FortXTransPackage.MULT_EXPR: return createMultExpr();
-      case FortXTransPackage.PRIMARY: return createPrimary();
+      case FortXTransPackage.EXPONENT_EXPR: return createExponentExpr();
+      case FortXTransPackage.ASSOP: return createAssop();
+      case FortXTransPackage.FCALL: return createFCall();
+      case FortXTransPackage.INT_CONST: return createIntConst();
+      case FortXTransPackage.FLOAT_CONST: return createFloatConst();
+      case FortXTransPackage.STR_CONST: return createStrConst();
+      case FortXTransPackage.BOOL_CONST: return createBoolConst();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -429,21 +440,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprFront createExprFront()
+  public ExprList createExprList()
   {
-    ExprFrontImpl exprFront = new ExprFrontImpl();
-    return exprFront;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CommaExpr createCommaExpr()
-  {
-    CommaExprImpl commaExpr = new CommaExprImpl();
-    return commaExpr;
+    ExprListImpl exprList = new ExprListImpl();
+    return exprList;
   }
 
   /**
@@ -521,6 +521,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     BindingImpl binding = new BindingImpl();
     return binding;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GenSource createGenSource()
+  {
+    GenSourceImpl genSource = new GenSourceImpl();
+    return genSource;
   }
 
   /**
@@ -682,6 +693,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
+  public LiteralList createLiteralList()
+  {
+    LiteralListImpl literalList = new LiteralListImpl();
+    return literalList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Literal createLiteral()
   {
     LiteralImpl literal = new LiteralImpl();
@@ -697,6 +719,50 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     LocalVarDeclImpl localVarDecl = new LocalVarDeclImpl();
     return localVarDecl;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Or createOr()
+  {
+    OrImpl or = new OrImpl();
+    return or;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public And createAnd()
+  {
+    AndImpl and = new AndImpl();
+    return and;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Equality createEquality()
+  {
+    EqualityImpl equality = new EqualityImpl();
+    return equality;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Comparison createComparison()
+  {
+    ComparisonImpl comparison = new ComparisonImpl();
+    return comparison;
   }
 
   /**
@@ -748,10 +814,76 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public Primary createPrimary()
+  public ExponentExpr createExponentExpr()
   {
-    PrimaryImpl primary = new PrimaryImpl();
-    return primary;
+    ExponentExprImpl exponentExpr = new ExponentExprImpl();
+    return exponentExpr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Assop createAssop()
+  {
+    AssopImpl assop = new AssopImpl();
+    return assop;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FCall createFCall()
+  {
+    FCallImpl fCall = new FCallImpl();
+    return fCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public IntConst createIntConst()
+  {
+    IntConstImpl intConst = new IntConstImpl();
+    return intConst;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FloatConst createFloatConst()
+  {
+    FloatConstImpl floatConst = new FloatConstImpl();
+    return floatConst;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StrConst createStrConst()
+  {
+    StrConstImpl strConst = new StrConstImpl();
+    return strConst;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BoolConst createBoolConst()
+  {
+    BoolConstImpl boolConst = new BoolConstImpl();
+    return boolConst;
   }
 
   /**

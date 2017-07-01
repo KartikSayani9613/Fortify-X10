@@ -3,26 +3,25 @@
  */
 package srf.transpiler.fortxtrans.fortXTrans;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Comma Expr</b></em>'.
+ * A representation of the model object '<em><b>Exponent Expr</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.CommaExpr#getLeft <em>Left</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.CommaExpr#getRight <em>Right</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getLeft <em>Left</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getRight <em>Right</em>}</li>
  * </ul>
  *
- * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getCommaExpr()
+ * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExponentExpr()
  * @model
  * @generated
  */
-public interface CommaExpr extends EObject
+public interface ExponentExpr extends Expr
 {
   /**
    * Returns the value of the '<em><b>Left</b></em>' containment reference.
@@ -33,22 +32,22 @@ public interface CommaExpr extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Left</em>' containment reference.
-   * @see #setLeft(CommaExpr)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getCommaExpr_Left()
+   * @see #setLeft(Expr)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExponentExpr_Left()
    * @model containment="true"
    * @generated
    */
-  CommaExpr getLeft();
+  Expr getLeft();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.CommaExpr#getLeft <em>Left</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getLeft <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Left</em>' containment reference.
    * @see #getLeft()
    * @generated
    */
-  void setLeft(CommaExpr value);
+  void setLeft(Expr value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.
@@ -60,14 +59,14 @@ public interface CommaExpr extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
    * @see #setRight(Expr)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getCommaExpr_Right()
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExponentExpr_Right()
    * @model containment="true"
    * @generated
    */
   Expr getRight();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.CommaExpr#getRight <em>Right</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getRight <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Right</em>' containment reference.
@@ -76,4 +75,4 @@ public interface CommaExpr extends EObject
    */
   void setRight(Expr value);
 
-} // CommaExpr
+} // ExponentExpr

@@ -14,43 +14,15 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getTail <em>Tail</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExp <em>Exp</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr()
  * @model
  * @generated
  */
-public interface Expr extends CommaExpr
+public interface Expr extends GenSource
 {
-  /**
-   * Returns the value of the '<em><b>Front</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Front</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Front</em>' containment reference.
-   * @see #setFront(ExprFront)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Front()
-   * @model containment="true"
-   * @generated
-   */
-  ExprFront getFront();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getFront <em>Front</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Front</em>' containment reference.
-   * @see #getFront()
-   * @generated
-   */
-  void setFront(ExprFront value);
-
   /**
    * Returns the value of the '<em><b>Tail</b></em>' containment reference list.
    * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.ExprTail}.
@@ -66,31 +38,5 @@ public interface Expr extends CommaExpr
    * @generated
    */
   EList<ExprTail> getTail();
-
-  /**
-   * Returns the value of the '<em><b>Exp</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Exp</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Exp</em>' containment reference.
-   * @see #setExp(Expr)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExpr_Exp()
-   * @model containment="true"
-   * @generated
-   */
-  Expr getExp();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Expr#getExp <em>Exp</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Exp</em>' containment reference.
-   * @see #getExp()
-   * @generated
-   */
-  void setExp(Expr value);
 
 } // Expr

@@ -12,52 +12,52 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.CommaExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.GenSource;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Comma Expr</b></em>'.
+ * An implementation of the model object '<em><b>Gen Source</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.CommaExprImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.CommaExprImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.GenSourceImpl#getStart <em>Start</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.GenSourceImpl#getEnd <em>End</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class CommaExprImpl extends MinimalEObjectImpl.Container implements CommaExpr
+public class GenSourceImpl extends MinimalEObjectImpl.Container implements GenSource
 {
   /**
-   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
+   * The cached value of the '{@link #getStart() <em>Start</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLeft()
+   * @see #getStart()
    * @generated
    * @ordered
    */
-  protected CommaExpr left;
+  protected Expr start;
 
   /**
-   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+   * The cached value of the '{@link #getEnd() <em>End</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRight()
+   * @see #getEnd()
    * @generated
    * @ordered
    */
-  protected Expr right;
+  protected Expr end;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected CommaExprImpl()
+  protected GenSourceImpl()
   {
     super();
   }
@@ -70,7 +70,7 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.COMMA_EXPR;
+    return FortXTransPackage.Literals.GEN_SOURCE;
   }
 
   /**
@@ -78,9 +78,9 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public CommaExpr getLeft()
+  public Expr getStart()
   {
-    return left;
+    return start;
   }
 
   /**
@@ -88,13 +88,13 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeft(CommaExpr newLeft, NotificationChain msgs)
+  public NotificationChain basicSetStart(Expr newStart, NotificationChain msgs)
   {
-    CommaExpr oldLeft = left;
-    left = newLeft;
+    Expr oldStart = start;
+    start = newStart;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.COMMA_EXPR__LEFT, oldLeft, newLeft);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.GEN_SOURCE__START, oldStart, newStart);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -105,20 +105,20 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLeft(CommaExpr newLeft)
+  public void setStart(Expr newStart)
   {
-    if (newLeft != left)
+    if (newStart != start)
     {
       NotificationChain msgs = null;
-      if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.COMMA_EXPR__LEFT, null, msgs);
-      if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.COMMA_EXPR__LEFT, null, msgs);
-      msgs = basicSetLeft(newLeft, msgs);
+      if (start != null)
+        msgs = ((InternalEObject)start).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.GEN_SOURCE__START, null, msgs);
+      if (newStart != null)
+        msgs = ((InternalEObject)newStart).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.GEN_SOURCE__START, null, msgs);
+      msgs = basicSetStart(newStart, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.COMMA_EXPR__LEFT, newLeft, newLeft));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.GEN_SOURCE__START, newStart, newStart));
   }
 
   /**
@@ -126,9 +126,9 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getRight()
+  public Expr getEnd()
   {
-    return right;
+    return end;
   }
 
   /**
@@ -136,13 +136,13 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(Expr newRight, NotificationChain msgs)
+  public NotificationChain basicSetEnd(Expr newEnd, NotificationChain msgs)
   {
-    Expr oldRight = right;
-    right = newRight;
+    Expr oldEnd = end;
+    end = newEnd;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.COMMA_EXPR__RIGHT, oldRight, newRight);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.GEN_SOURCE__END, oldEnd, newEnd);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -153,20 +153,20 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(Expr newRight)
+  public void setEnd(Expr newEnd)
   {
-    if (newRight != right)
+    if (newEnd != end)
     {
       NotificationChain msgs = null;
-      if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.COMMA_EXPR__RIGHT, null, msgs);
-      if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.COMMA_EXPR__RIGHT, null, msgs);
-      msgs = basicSetRight(newRight, msgs);
+      if (end != null)
+        msgs = ((InternalEObject)end).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.GEN_SOURCE__END, null, msgs);
+      if (newEnd != null)
+        msgs = ((InternalEObject)newEnd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.GEN_SOURCE__END, null, msgs);
+      msgs = basicSetEnd(newEnd, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.COMMA_EXPR__RIGHT, newRight, newRight));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.GEN_SOURCE__END, newEnd, newEnd));
   }
 
   /**
@@ -179,10 +179,10 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
   {
     switch (featureID)
     {
-      case FortXTransPackage.COMMA_EXPR__LEFT:
-        return basicSetLeft(null, msgs);
-      case FortXTransPackage.COMMA_EXPR__RIGHT:
-        return basicSetRight(null, msgs);
+      case FortXTransPackage.GEN_SOURCE__START:
+        return basicSetStart(null, msgs);
+      case FortXTransPackage.GEN_SOURCE__END:
+        return basicSetEnd(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -197,10 +197,10 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
   {
     switch (featureID)
     {
-      case FortXTransPackage.COMMA_EXPR__LEFT:
-        return getLeft();
-      case FortXTransPackage.COMMA_EXPR__RIGHT:
-        return getRight();
+      case FortXTransPackage.GEN_SOURCE__START:
+        return getStart();
+      case FortXTransPackage.GEN_SOURCE__END:
+        return getEnd();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -215,11 +215,11 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
   {
     switch (featureID)
     {
-      case FortXTransPackage.COMMA_EXPR__LEFT:
-        setLeft((CommaExpr)newValue);
+      case FortXTransPackage.GEN_SOURCE__START:
+        setStart((Expr)newValue);
         return;
-      case FortXTransPackage.COMMA_EXPR__RIGHT:
-        setRight((Expr)newValue);
+      case FortXTransPackage.GEN_SOURCE__END:
+        setEnd((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -235,11 +235,11 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
   {
     switch (featureID)
     {
-      case FortXTransPackage.COMMA_EXPR__LEFT:
-        setLeft((CommaExpr)null);
+      case FortXTransPackage.GEN_SOURCE__START:
+        setStart((Expr)null);
         return;
-      case FortXTransPackage.COMMA_EXPR__RIGHT:
-        setRight((Expr)null);
+      case FortXTransPackage.GEN_SOURCE__END:
+        setEnd((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -255,12 +255,12 @@ public class CommaExprImpl extends MinimalEObjectImpl.Container implements Comma
   {
     switch (featureID)
     {
-      case FortXTransPackage.COMMA_EXPR__LEFT:
-        return left != null;
-      case FortXTransPackage.COMMA_EXPR__RIGHT:
-        return right != null;
+      case FortXTransPackage.GEN_SOURCE__START:
+        return start != null;
+      case FortXTransPackage.GEN_SOURCE__END:
+        return end != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //CommaExprImpl
+} //GenSourceImpl

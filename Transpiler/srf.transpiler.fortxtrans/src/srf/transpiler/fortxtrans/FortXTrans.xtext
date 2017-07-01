@@ -39,8 +39,8 @@ QualifiedName:
 ;
 
 Qualified:
-	q=QualifiedName
-	|qlist=QualifiedNameTuple
+	QualifiedName
+	|QualifiedNameTuple
 ;
 
 QualifiedNameTuple:
@@ -113,6 +113,7 @@ FnDecl:
 	(mods=FnMods)? name=ID params=ValParam (retVal=RetType)? (body?='=' fnItself=Stmnts)?
 ;
 
+
 Stmnts:
 	front=Stmnt
 	|locVar=LocalVarDecl
@@ -129,16 +130,25 @@ DelimitedExprList:
 ;
 
 Expr:
-	front=ExprFront (tail+=ExprTail)*
+	Or (tail+=ExprTail)*
+//	|'(' CommaExpr (tail+=ExprTail)* ')'
+	
 ;
 
-ExprFront:
-	add=CommaExpr 
+Or returns Expr:
+	And ({Or.left=current} 'OR' right=And)*
 ;
 
-CommaExpr:
-	AddExpr ({CommaExpr.left=current} ',' right=AddExpr)*
+And returns Expr:
+	Equality ({And.left=current} "AND" right=Equality)* 
 ;
+
+Equality returns Expr:
+	Comparison ({Equality.left=current} op=("==="|"=/="|"EQ"|"NE") right=Comparison)* 
+;
+
+Comparison returns Expr:
+AddExpr ({Comparison.left=current} op=(">="|"<="|">"|"<"|"LT"|"GT"|"LE"|"GE")right=AddExpr)* ;
 
 AddExpr returns Expr:
 	SubExpr ({AddExpr.left=current}'+' right=SubExpr)*
@@ -153,14 +163,22 @@ DivExpr returns Expr:
 ;
 
 MultExpr returns Expr:
-	Primary ({MultExpr.left=current}'*' right=Primary)*
+	ExponentExpr ({MultExpr.left=current}'*' right=ExponentExpr)*
+;
+
+ExponentExpr returns Expr:
+	Primary ({ExponentExpr.left=current} '^' right=Primary)*
 ;
 
 Primary returns Expr:
-	Qualified ({Primary.left=current}':=' exp=Expr)? ({Primary.Fname=current}'(' fargs = Expr ')')?
-	|LiteralTuple
-	|'('exp=Expr')'
+	LiteralTuple ({Assop.left=current}(op=':=' right=ExprList))? ({FCall.left=current} '('right= ExprList')')?
+	|'('Expr')'
 ;
+
+ExprList:
+	exps=Expr (',' exp+=Expr)*
+;
+
 
 
 ExprTail:
@@ -192,8 +210,12 @@ Generators:
 ;
 
 Binding:
-	idtup=IdOrTuple '<-' expr=Expr
-	|idtup=IdOrTuple '<-' seq='seq' '('expr=Expr')'
+	idtup=IdOrTuple '<-' g=GenSource
+	|idtup=IdOrTuple '<-' seq='seq' '('g=GenSource')'
+;
+
+GenSource:
+	Expr ({GenSource.start=current}'#' end=Expr)?
 ;
 
 GenClause:
@@ -255,20 +277,24 @@ InitVal:
 ;
 
 LiteralTuple:
-	lit=LiteralTup
-	|qname=QualifiedName
-	|qlist=QualifiedNameTuple
+	LiteralTup
+	|Qualified
 ;
 
 LiteralTup:
-	lit=Literal
-	|'(' lits+=Literal (',' lits+=Literal)+ ')'
+	Literal
+	|LiteralList
+;
+
+LiteralList:
+	'(' lit+=Literal (',' lit+=Literal)* ')'
 ;
 
 Literal:
-	intg=INT
-	|flot=FLOAT
-	|str=STRING
+	{IntConst}value=INT
+	|{FloatConst}value=FLOAT
+	|{StrConst}value=STRING
+	|{BoolConst}value=('true'|'false')
 ;
 
 LocalVarDecl:

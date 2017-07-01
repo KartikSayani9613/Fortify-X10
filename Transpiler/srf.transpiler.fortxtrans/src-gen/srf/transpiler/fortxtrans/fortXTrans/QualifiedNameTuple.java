@@ -5,8 +5,6 @@ package srf.transpiler.fortxtrans.fortXTrans;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Qualified Name Tuple</b></em>'.
@@ -23,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface QualifiedNameTuple extends EObject
+public interface QualifiedNameTuple extends Qualified
 {
   /**
    * Returns the value of the '<em><b>Qlist</b></em>' containment reference list.

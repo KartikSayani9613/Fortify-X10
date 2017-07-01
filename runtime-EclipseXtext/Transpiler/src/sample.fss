@@ -1,8 +1,17 @@
-component sample
-export Executable...
+component testum
+export Executable
 
-	run():() = do
-		var x:ZZ32 = 20+20
-	end
+  run():() = do
+    some := some+some(10)
+    for i<-0#10 do
+    	if i<2 then
+    		return i
+    	else
+    		return i*fact(i-1)
+    	end
+    end
+  end
+  
+  
 
 end

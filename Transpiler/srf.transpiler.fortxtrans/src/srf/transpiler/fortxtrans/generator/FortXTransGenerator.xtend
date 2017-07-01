@@ -24,30 +24,32 @@ import srf.transpiler.fortxtrans.fortXTrans.Do
 import srf.transpiler.fortxtrans.fortXTrans.DoFront
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
-import srf.transpiler.fortxtrans.fortXTrans.ExprFront
 import srf.transpiler.fortxtrans.fortXTrans.ExprTail
 import srf.transpiler.fortxtrans.fortXTrans.Expr
 import srf.transpiler.fortxtrans.fortXTrans.Stmnts
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem
-import srf.transpiler.fortxtrans.fortXTrans.CommaExpr
-import srf.transpiler.fortxtrans.fortXTrans.impl.CommaExprImpl
-import org.eclipse.emf.ecore.EObject
 import srf.transpiler.fortxtrans.fortXTrans.Qualified
 import srf.transpiler.fortxtrans.fortXTrans.AddExpr
-import srf.transpiler.fortxtrans.fortXTrans.Primary
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedName
 
-//import srf.transpiler.fortxtrans.fortXTrans.Expr
-//import srf.transpiler.fortxtrans.fortXTrans.ExprFront
-//import srf.transpiler.fortxtrans.fortXTrans.ExprTail
-//import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
-//import srf.transpiler.fortxtrans.fortXTrans.Do
-//import srf.transpiler.fortxtrans.fortXTrans.DoFront
-//import srf.transpiler.fortxtrans.fortXTrans.BlockElems
-//import srf.transpiler.fortxtrans.fortXTrans.Binding
-//import srf.transpiler.fortxtrans.fortXTrans.Elifs
-//import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
+import srf.transpiler.fortxtrans.fortXTrans.BlockElems
+import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
+import srf.transpiler.fortxtrans.fortXTrans.SubExpr
+import srf.transpiler.fortxtrans.fortXTrans.DivExpr
+import srf.transpiler.fortxtrans.fortXTrans.MultExpr
+import srf.transpiler.fortxtrans.fortXTrans.FCall
+import srf.transpiler.fortxtrans.fortXTrans.Literal
+import srf.transpiler.fortxtrans.fortXTrans.IntConst
+import srf.transpiler.fortxtrans.fortXTrans.FloatConst
+import srf.transpiler.fortxtrans.fortXTrans.StrConst
+import srf.transpiler.fortxtrans.fortXTrans.LiteralList
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple
+import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr
+import srf.transpiler.fortxtrans.fortXTrans.SimpleName
+import srf.transpiler.fortxtrans.fortXTrans.Assop
+import srf.transpiler.fortxtrans.fortXTrans.ExprList
 
 /**
  * Generates code from your model files on save.
@@ -161,11 +163,11 @@ class FortXTransGenerator extends AbstractGenerator {
 		«e.exp
 		» «IF e.brack!==null
 			»{«
-			FOR s:0..<(e.exportedName.length)
-				»«IF s==0
-					»«e.exportedName.get(s)
+			FOR k:0..<(e.exportedName.length)
+				»«IF k==0
+					»«e.exportedName.get(k).compile
 				»«ELSE
-					», «e.exportedName.get(s)
+					», «e.exportedName.get(k).compile
 				»«ENDIF
 			»«ENDFOR
 			»}«
@@ -173,6 +175,21 @@ class FortXTransGenerator extends AbstractGenerator {
 			»«e.exportedName.get(0)
 		»«ENDIF»
 	'''
+	
+	def compile(QualifiedName q){
+		var s = ''''''
+		if(q.s.length==1)
+			s = s+q.s.get(0).name
+		else{
+			s = s+q.s.get(0).name
+			for(ss:1..<q.s.length)
+				s=s+"."+q.s.get(ss).name
+		}
+			
+		if(q.dots!==null)
+			s=s+q.dots
+		return s
+	}
 	
 	def compile(ValParam p)
 	'''«IF p.params.length==0
@@ -264,8 +281,10 @@ class FortXTransGenerator extends AbstractGenerator {
 	'''
 	
 	def compile(BlockElems bs)'''
-	//BlockElems«bs.block.get(0).compile»
-«««	«bs.block.get(1).compile»
+	//BlockElems
+	«FOR b:bs.block»
+	«b.compile»
+	«ENDFOR»
 	'''
 	
 	def compile (BlockElem b)'''
@@ -276,24 +295,24 @@ class FortXTransGenerator extends AbstractGenerator {
 	//LocalVar «d.init.compile»
 	'''
 	
-	def compile(Expr e)'''
-	//Expr«e.front.compile»
-	'''
-	
-	def compile(ExprFront ef)'''
-	//ExprFront«ef.add.compile»
-	'''
-	
-	def String compile(CommaExpr ce){
-		var String s = "//CommaExpr"
-		switch(ce)
-		{
-			Qualified:s=s+"yolo"
-			Primary:s=s+ce.exp.compile
-			AddExpr:s=s+"noYolo"
-			LiteralTuple:s=s+ce.lit.lit.intg.toString
+	def String compile(Expr e){
+		var s = ""
+		switch(e){
+			AddExpr: s = s+'''(«e.left.compile»+«e.right.compile»)'''
+			SubExpr: s = s+'''(«e.left.compile»-«e.right.compile»)'''
+			DivExpr: s = s+'''(«e.left.compile»/«e.right.compile»)'''
+			MultExpr: s = s+'''(«e.left.compile»*«e.right.compile»)'''
+			ExponentExpr: s = s+'''(Math.pow(«e.left.compile»,«e.right.compile»))'''
+			FCall:s=s+'''yolo(«e.right.exps.compile»)'''
+			
 		}
 		return s
-		}
+	}
+	
+	def compile(ExprList e){
+		var s = ""
+					
+		return s
+	}
    
 }

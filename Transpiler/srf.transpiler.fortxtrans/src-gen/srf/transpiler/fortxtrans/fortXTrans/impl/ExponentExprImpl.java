@@ -11,52 +11,52 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.Primary;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Primary</b></em>'.
+ * An implementation of the model object '<em><b>Exponent Expr</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.PrimaryImpl#getFname <em>Fname</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.PrimaryImpl#getFargs <em>Fargs</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExponentExprImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExponentExprImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class PrimaryImpl extends ExprImpl implements Primary
+public class ExponentExprImpl extends ExprImpl implements ExponentExpr
 {
   /**
-   * The cached value of the '{@link #getFname() <em>Fname</em>}' containment reference.
+   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFname()
+   * @see #getLeft()
    * @generated
    * @ordered
    */
-  protected Expr fname;
+  protected Expr left;
 
   /**
-   * The cached value of the '{@link #getFargs() <em>Fargs</em>}' containment reference.
+   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFargs()
+   * @see #getRight()
    * @generated
    * @ordered
    */
-  protected Expr fargs;
+  protected Expr right;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected PrimaryImpl()
+  protected ExponentExprImpl()
   {
     super();
   }
@@ -69,7 +69,7 @@ public class PrimaryImpl extends ExprImpl implements Primary
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.PRIMARY;
+    return FortXTransPackage.Literals.EXPONENT_EXPR;
   }
 
   /**
@@ -77,9 +77,9 @@ public class PrimaryImpl extends ExprImpl implements Primary
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getFname()
+  public Expr getLeft()
   {
-    return fname;
+    return left;
   }
 
   /**
@@ -87,13 +87,13 @@ public class PrimaryImpl extends ExprImpl implements Primary
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFname(Expr newFname, NotificationChain msgs)
+  public NotificationChain basicSetLeft(Expr newLeft, NotificationChain msgs)
   {
-    Expr oldFname = fname;
-    fname = newFname;
+    Expr oldLeft = left;
+    left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.PRIMARY__FNAME, oldFname, newFname);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPONENT_EXPR__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -104,20 +104,20 @@ public class PrimaryImpl extends ExprImpl implements Primary
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFname(Expr newFname)
+  public void setLeft(Expr newLeft)
   {
-    if (newFname != fname)
+    if (newLeft != left)
     {
       NotificationChain msgs = null;
-      if (fname != null)
-        msgs = ((InternalEObject)fname).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.PRIMARY__FNAME, null, msgs);
-      if (newFname != null)
-        msgs = ((InternalEObject)newFname).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.PRIMARY__FNAME, null, msgs);
-      msgs = basicSetFname(newFname, msgs);
+      if (left != null)
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPONENT_EXPR__LEFT, null, msgs);
+      if (newLeft != null)
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPONENT_EXPR__LEFT, null, msgs);
+      msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.PRIMARY__FNAME, newFname, newFname));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPONENT_EXPR__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -125,9 +125,9 @@ public class PrimaryImpl extends ExprImpl implements Primary
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expr getFargs()
+  public Expr getRight()
   {
-    return fargs;
+    return right;
   }
 
   /**
@@ -135,13 +135,13 @@ public class PrimaryImpl extends ExprImpl implements Primary
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFargs(Expr newFargs, NotificationChain msgs)
+  public NotificationChain basicSetRight(Expr newRight, NotificationChain msgs)
   {
-    Expr oldFargs = fargs;
-    fargs = newFargs;
+    Expr oldRight = right;
+    right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.PRIMARY__FARGS, oldFargs, newFargs);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPONENT_EXPR__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -152,20 +152,20 @@ public class PrimaryImpl extends ExprImpl implements Primary
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFargs(Expr newFargs)
+  public void setRight(Expr newRight)
   {
-    if (newFargs != fargs)
+    if (newRight != right)
     {
       NotificationChain msgs = null;
-      if (fargs != null)
-        msgs = ((InternalEObject)fargs).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.PRIMARY__FARGS, null, msgs);
-      if (newFargs != null)
-        msgs = ((InternalEObject)newFargs).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.PRIMARY__FARGS, null, msgs);
-      msgs = basicSetFargs(newFargs, msgs);
+      if (right != null)
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPONENT_EXPR__RIGHT, null, msgs);
+      if (newRight != null)
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.EXPONENT_EXPR__RIGHT, null, msgs);
+      msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.PRIMARY__FARGS, newFargs, newFargs));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPONENT_EXPR__RIGHT, newRight, newRight));
   }
 
   /**
@@ -178,10 +178,10 @@ public class PrimaryImpl extends ExprImpl implements Primary
   {
     switch (featureID)
     {
-      case FortXTransPackage.PRIMARY__FNAME:
-        return basicSetFname(null, msgs);
-      case FortXTransPackage.PRIMARY__FARGS:
-        return basicSetFargs(null, msgs);
+      case FortXTransPackage.EXPONENT_EXPR__LEFT:
+        return basicSetLeft(null, msgs);
+      case FortXTransPackage.EXPONENT_EXPR__RIGHT:
+        return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -196,10 +196,10 @@ public class PrimaryImpl extends ExprImpl implements Primary
   {
     switch (featureID)
     {
-      case FortXTransPackage.PRIMARY__FNAME:
-        return getFname();
-      case FortXTransPackage.PRIMARY__FARGS:
-        return getFargs();
+      case FortXTransPackage.EXPONENT_EXPR__LEFT:
+        return getLeft();
+      case FortXTransPackage.EXPONENT_EXPR__RIGHT:
+        return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -214,11 +214,11 @@ public class PrimaryImpl extends ExprImpl implements Primary
   {
     switch (featureID)
     {
-      case FortXTransPackage.PRIMARY__FNAME:
-        setFname((Expr)newValue);
+      case FortXTransPackage.EXPONENT_EXPR__LEFT:
+        setLeft((Expr)newValue);
         return;
-      case FortXTransPackage.PRIMARY__FARGS:
-        setFargs((Expr)newValue);
+      case FortXTransPackage.EXPONENT_EXPR__RIGHT:
+        setRight((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -234,11 +234,11 @@ public class PrimaryImpl extends ExprImpl implements Primary
   {
     switch (featureID)
     {
-      case FortXTransPackage.PRIMARY__FNAME:
-        setFname((Expr)null);
+      case FortXTransPackage.EXPONENT_EXPR__LEFT:
+        setLeft((Expr)null);
         return;
-      case FortXTransPackage.PRIMARY__FARGS:
-        setFargs((Expr)null);
+      case FortXTransPackage.EXPONENT_EXPR__RIGHT:
+        setRight((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -254,12 +254,12 @@ public class PrimaryImpl extends ExprImpl implements Primary
   {
     switch (featureID)
     {
-      case FortXTransPackage.PRIMARY__FNAME:
-        return fname != null;
-      case FortXTransPackage.PRIMARY__FARGS:
-        return fargs != null;
+      case FortXTransPackage.EXPONENT_EXPR__LEFT:
+        return left != null;
+      case FortXTransPackage.EXPONENT_EXPR__RIGHT:
+        return right != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //PrimaryImpl
+} //ExponentExprImpl
