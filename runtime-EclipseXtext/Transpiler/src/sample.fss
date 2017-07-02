@@ -1,17 +1,43 @@
-component testum
-export Executable
+component testum 
+export Executable 
 
-  run():() = do
-    some := some+some(10)
-    for i<-0#10 do
-    	if i<2 then
-    		return i
-    	else
-    		return i*fact(i-1)
-    	end
-    end
-  end
-  
-  
-
+	private var x:ZZ64 = func(20)
+	private var (x:Bool, y:RR64) = (true, 20.0)
+	run():() = do 
+		needleLength:RR64 = 20.0
+//   		numRows:RR64 = 10.0
+//   		tableHeight:RR64 = needleLength*numRows
+//   		var hits : RR64 = 0.0
+//   		var n : RR64 = 0.0
+//   		start:RR64 = nanoTime()
+//   		println("Starting parallel Buffons")
+//   		for i<-1#3000 do
+//   			delta_X = random(2.0) - 1.0
+//   			delta_Y = random(2.0) - 1.0
+//   			rsq = delta_X^2 + delta_Y^2
+//   			if 0.0 < rsq AND rsq< 1.0 then
+//   				y1 = tableHeight*random(1.0)
+//   				y2 = y1 + needleLength*(delta_Y / SQRT*rsq)
+//   				(y_L, y_H) = (min(y1, y2), max(y1, y2)) 
+//   				temp1:RR64 = y_L / needleLength
+//        		temp2:RR64 = y_H / needleLength
+//        		if Math.ceil(temp1) === Math.floor(temp2) then
+//        			atomic do hits:= hits + 1.0 end
+//        		end
+//        		atomic do n:= n+1.0 end
+//   			end
+//   		end
+//   		
+//   		probability = hits/n
+//   		piest = 2.0/probability
+//   		print("hits=")
+//   		print(hits)
+//   		print(" n=")
+//   		print(n)
+//   		print("Buffons: estimated Pi = ")
+//   		print(pi_est)
+//   		finish = nanoTime() - start
+//   		println(finish)
+	end
+	
 end

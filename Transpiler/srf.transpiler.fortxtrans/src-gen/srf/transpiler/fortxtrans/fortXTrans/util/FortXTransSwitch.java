@@ -374,20 +374,6 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.ID_OR_TUPLE:
-      {
-        IdOrTuple idOrTuple = (IdOrTuple)theEObject;
-        T result = caseIdOrTuple(idOrTuple);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.BIND_ID:
-      {
-        BindId bindId = (BindId)theEObject;
-        T result = caseBindId(bindId);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case FortXTransPackage.IS_TYPE:
       {
         IsType isType = (IsType)theEObject;
@@ -413,13 +399,6 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         NoNewlineVarWType noNewlineVarWType = (NoNewlineVarWType)theEObject;
         T result = caseNoNewlineVarWType(noNewlineVarWType);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.INIT_VAL:
-      {
-        InitVal initVal = (InitVal)theEObject;
-        T result = caseInitVal(initVal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -567,6 +546,24 @@ public class FortXTransSwitch<T> extends Switch<T>
         T result = caseFCall(fCall);
         if (result == null) result = caseExpr(fCall);
         if (result == null) result = caseGenSource(fCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.NOT:
+      {
+        Not not = (Not)theEObject;
+        T result = caseNot(not);
+        if (result == null) result = caseExpr(not);
+        if (result == null) result = caseGenSource(not);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.PARAN:
+      {
+        Paran paran = (Paran)theEObject;
+        T result = caseParan(paran);
+        if (result == null) result = caseExpr(paran);
+        if (result == null) result = caseGenSource(paran);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1279,38 +1276,6 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Id Or Tuple</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Id Or Tuple</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseIdOrTuple(IdOrTuple object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Bind Id</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Bind Id</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseBindId(BindId object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Is Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1370,22 +1335,6 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNoNewlineVarWType(NoNewlineVarWType object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Init Val</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Init Val</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseInitVal(InitVal object)
   {
     return null;
   }
@@ -1642,6 +1591,38 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFCall(FCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Not</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNot(Not object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Paran</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Paran</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParan(Paran object)
   {
     return null;
   }

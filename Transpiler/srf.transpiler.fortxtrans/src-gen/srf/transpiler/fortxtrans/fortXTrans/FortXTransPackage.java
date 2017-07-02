@@ -460,7 +460,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLiteralTuple()
    * @generated
    */
-  int LITERAL_TUPLE = 48;
+  int LITERAL_TUPLE = 45;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -1008,13 +1008,13 @@ public interface FortXTransPackage extends EPackage
   int PARAM = 19;
 
   /**
-   * The feature id for the '<em><b>BId</b></em>' containment reference.
+   * The feature id for the '<em><b>Par Id</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAM__BID = 0;
+  int PARAM__PAR_ID = 0;
 
   /**
    * The feature id for the '<em><b>Istype</b></em>' containment reference.
@@ -1238,22 +1238,13 @@ public interface FortXTransPackage extends EPackage
   int STMNT__DELIM = 0;
 
   /**
-   * The feature id for the '<em><b>Brack</b></em>' attribute.
+   * The feature id for the '<em><b>Delims</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STMNT__BRACK = 1;
-
-  /**
-   * The feature id for the '<em><b>Delim List</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMNT__DELIM_LIST = 2;
+  int STMNT__DELIMS = 1;
 
   /**
    * The number of structural features of the '<em>Stmnt</em>' class.
@@ -1262,7 +1253,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMNT_FEATURE_COUNT = 3;
+  int STMNT_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl <em>Delimited Expr List</em>}' class.
@@ -1855,71 +1846,6 @@ public interface FortXTransPackage extends EPackage
   int DO_FRONT_FEATURE_COUNT = 4;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl <em>Id Or Tuple</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIdOrTuple()
-   * @generated
-   */
-  int ID_OR_TUPLE = 41;
-
-  /**
-   * The feature id for the '<em><b>Bid</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ID_OR_TUPLE__BID = 0;
-
-  /**
-   * The number of structural features of the '<em>Id Or Tuple</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ID_OR_TUPLE_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindIdImpl <em>Bind Id</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.BindIdImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBindId()
-   * @generated
-   */
-  int BIND_ID = 42;
-
-  /**
-   * The feature id for the '<em><b>S</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BIND_ID__S = 0;
-
-  /**
-   * The feature id for the '<em><b>Undsc</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BIND_ID__UNDSC = 1;
-
-  /**
-   * The number of structural features of the '<em>Bind Id</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int BIND_ID_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl <em>Is Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1927,7 +1853,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIsType()
    * @generated
    */
-  int IS_TYPE = 43;
+  int IS_TYPE = 41;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1955,7 +1881,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFieldDecl()
    * @generated
    */
-  int FIELD_DECL = 44;
+  int FIELD_DECL = 42;
 
   /**
    * The feature id for the '<em><b>Pri</b></em>' attribute.
@@ -2003,22 +1929,13 @@ public interface FortXTransPackage extends EPackage
   int FIELD_DECL__IDTUP = 4;
 
   /**
-   * The feature id for the '<em><b>Lit Tup</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FIELD_DECL__LIT_TUP = 5;
-
-  /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int FIELD_DECL__TYPE = 6;
+  int FIELD_DECL__TYPE = 5;
 
   /**
    * The feature id for the '<em><b>Tuptype</b></em>' containment reference.
@@ -2027,7 +1944,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_DECL__TUPTYPE = 7;
+  int FIELD_DECL__TUPTYPE = 6;
 
   /**
    * The number of structural features of the '<em>Field Decl</em>' class.
@@ -2036,7 +1953,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int FIELD_DECL_FEATURE_COUNT = 8;
+  int FIELD_DECL_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NoNewlineVarWTypesImpl <em>No Newline Var WTypes</em>}' class.
@@ -2046,7 +1963,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNoNewlineVarWTypes()
    * @generated
    */
-  int NO_NEWLINE_VAR_WTYPES = 45;
+  int NO_NEWLINE_VAR_WTYPES = 43;
 
   /**
    * The feature id for the '<em><b>Single</b></em>' containment reference.
@@ -2083,7 +2000,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNoNewlineVarWType()
    * @generated
    */
-  int NO_NEWLINE_VAR_WTYPE = 46;
+  int NO_NEWLINE_VAR_WTYPE = 44;
 
   /**
    * The feature id for the '<em><b>Bid</b></em>' containment reference.
@@ -2113,52 +2030,6 @@ public interface FortXTransPackage extends EPackage
   int NO_NEWLINE_VAR_WTYPE_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.InitValImpl <em>Init Val</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.InitValImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getInitVal()
-   * @generated
-   */
-  int INIT_VAL = 47;
-
-  /**
-   * The feature id for the '<em><b>Mut</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_VAL__MUT = 0;
-
-  /**
-   * The feature id for the '<em><b>Lit</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_VAL__LIT = 1;
-
-  /**
-   * The feature id for the '<em><b>Immut</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_VAL__IMMUT = 2;
-
-  /**
-   * The number of structural features of the '<em>Init Val</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INIT_VAL_FEATURE_COUNT = 3;
-
-  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupImpl <em>Literal Tup</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2166,7 +2037,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLiteralTup()
    * @generated
    */
-  int LITERAL_TUP = 49;
+  int LITERAL_TUP = 46;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2212,7 +2083,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLiteralList()
    * @generated
    */
-  int LITERAL_LIST = 50;
+  int LITERAL_LIST = 47;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2267,7 +2138,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLiteral()
    * @generated
    */
-  int LITERAL = 51;
+  int LITERAL = 48;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2313,7 +2184,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getLocalVarDecl()
    * @generated
    */
-  int LOCAL_VAR_DECL = 52;
+  int LOCAL_VAR_DECL = 49;
 
   /**
    * The feature id for the '<em><b>Mut</b></em>' attribute.
@@ -2352,22 +2223,13 @@ public interface FortXTransPackage extends EPackage
   int LOCAL_VAR_DECL__IDTUP = 3;
 
   /**
-   * The feature id for the '<em><b>Lit Tup</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int LOCAL_VAR_DECL__LIT_TUP = 4;
-
-  /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__TYPE = 5;
+  int LOCAL_VAR_DECL__TYPE = 4;
 
   /**
    * The feature id for the '<em><b>Tuptype</b></em>' containment reference.
@@ -2376,7 +2238,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL__TUPTYPE = 6;
+  int LOCAL_VAR_DECL__TUPTYPE = 5;
 
   /**
    * The number of structural features of the '<em>Local Var Decl</em>' class.
@@ -2385,7 +2247,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOCAL_VAR_DECL_FEATURE_COUNT = 7;
+  int LOCAL_VAR_DECL_FEATURE_COUNT = 6;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.OrImpl <em>Or</em>}' class.
@@ -2395,7 +2257,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getOr()
    * @generated
    */
-  int OR = 53;
+  int OR = 50;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2459,7 +2321,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAnd()
    * @generated
    */
-  int AND = 54;
+  int AND = 51;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2523,7 +2385,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getEquality()
    * @generated
    */
-  int EQUALITY = 55;
+  int EQUALITY = 52;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2596,7 +2458,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getComparison()
    * @generated
    */
-  int COMPARISON = 56;
+  int COMPARISON = 53;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2669,7 +2531,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAddExpr()
    * @generated
    */
-  int ADD_EXPR = 57;
+  int ADD_EXPR = 54;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2733,7 +2595,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getSubExpr()
    * @generated
    */
-  int SUB_EXPR = 58;
+  int SUB_EXPR = 55;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2797,7 +2659,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDivExpr()
    * @generated
    */
-  int DIV_EXPR = 59;
+  int DIV_EXPR = 56;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2861,7 +2723,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getMultExpr()
    * @generated
    */
-  int MULT_EXPR = 60;
+  int MULT_EXPR = 57;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2925,7 +2787,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getExponentExpr()
    * @generated
    */
-  int EXPONENT_EXPR = 61;
+  int EXPONENT_EXPR = 58;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -2989,7 +2851,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getAssop()
    * @generated
    */
-  int ASSOP = 62;
+  int ASSOP = 59;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3062,7 +2924,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFCall()
    * @generated
    */
-  int FCALL = 63;
+  int FCALL = 60;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3119,6 +2981,116 @@ public interface FortXTransPackage extends EPackage
   int FCALL_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl <em>Not</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNot()
+   * @generated
+   */
+  int NOT = 61;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT__START = EXPR__START;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT__END = EXPR__END;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT__TAIL = EXPR__TAIL;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT__EXPRESSION = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Not</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NOT_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanImpl <em>Paran</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParan()
+   * @generated
+   */
+  int PARAN = 62;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAN__START = EXPR__START;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAN__END = EXPR__END;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAN__TAIL = EXPR__TAIL;
+
+  /**
+   * The feature id for the '<em><b>Exp</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAN__EXP = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Paran</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAN_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IntConstImpl <em>Int Const</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3126,7 +3098,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIntConst()
    * @generated
    */
-  int INT_CONST = 64;
+  int INT_CONST = 63;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3181,7 +3153,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFloatConst()
    * @generated
    */
-  int FLOAT_CONST = 65;
+  int FLOAT_CONST = 64;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3236,7 +3208,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getStrConst()
    * @generated
    */
-  int STR_CONST = 66;
+  int STR_CONST = 65;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3291,7 +3263,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBoolConst()
    * @generated
    */
-  int BOOL_CONST = 67;
+  int BOOL_CONST = 66;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3947,15 +3919,15 @@ public interface FortXTransPackage extends EPackage
   EClass getParam();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getBId <em>BId</em>}'.
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getParId <em>Par Id</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>BId</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Param#getBId()
+   * @return the meta object for the containment reference '<em>Par Id</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Param#getParId()
    * @see #getParam()
    * @generated
    */
-  EReference getParam_BId();
+  EReference getParam_ParId();
 
   /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getIstype <em>Istype</em>}'.
@@ -4162,26 +4134,15 @@ public interface FortXTransPackage extends EPackage
   EReference getStmnt_Delim();
 
   /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getBrack <em>Brack</em>}'.
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelims <em>Delims</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Brack</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnt#getBrack()
+   * @return the meta object for the containment reference '<em>Delims</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelims()
    * @see #getStmnt()
    * @generated
    */
-  EAttribute getStmnt_Brack();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelimList <em>Delim List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Delim List</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelimList()
-   * @see #getStmnt()
-   * @generated
-   */
-  EReference getStmnt_DelimList();
+  EReference getStmnt_Delims();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList <em>Delimited Expr List</em>}'.
@@ -4773,59 +4734,6 @@ public interface FortXTransPackage extends EPackage
   EReference getDoFront_Block();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.IdOrTuple <em>Id Or Tuple</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Id Or Tuple</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.IdOrTuple
-   * @generated
-   */
-  EClass getIdOrTuple();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.IdOrTuple#getBid <em>Bid</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Bid</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.IdOrTuple#getBid()
-   * @see #getIdOrTuple()
-   * @generated
-   */
-  EReference getIdOrTuple_Bid();
-
-  /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.BindId <em>Bind Id</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Bind Id</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.BindId
-   * @generated
-   */
-  EClass getBindId();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.BindId#getS <em>S</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>S</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.BindId#getS()
-   * @see #getBindId()
-   * @generated
-   */
-  EReference getBindId_S();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.BindId#getUndsc <em>Undsc</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Undsc</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.BindId#getUndsc()
-   * @see #getBindId()
-   * @generated
-   */
-  EAttribute getBindId_Undsc();
-
-  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4912,17 +4820,6 @@ public interface FortXTransPackage extends EPackage
   EReference getFieldDecl_Idtup();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getLitTup <em>Lit Tup</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Lit Tup</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getLitTup()
-   * @see #getFieldDecl()
-   * @generated
-   */
-  EReference getFieldDecl_LitTup();
-
-  /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getType <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5007,49 +4904,6 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getNoNewlineVarWType_Istype();
-
-  /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.InitVal <em>Init Val</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Init Val</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.InitVal
-   * @generated
-   */
-  EClass getInitVal();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.InitVal#getMut <em>Mut</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Mut</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.InitVal#getMut()
-   * @see #getInitVal()
-   * @generated
-   */
-  EAttribute getInitVal_Mut();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.InitVal#getLit <em>Lit</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Lit</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.InitVal#getLit()
-   * @see #getInitVal()
-   * @generated
-   */
-  EReference getInitVal_Lit();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.InitVal#getImmut <em>Immut</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Immut</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.InitVal#getImmut()
-   * @see #getInitVal()
-   * @generated
-   */
-  EAttribute getInitVal_Immut();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.LiteralTuple <em>Literal Tuple</em>}'.
@@ -5155,17 +5009,6 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getLocalVarDecl_Idtup();
-
-  /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup <em>Lit Tup</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Lit Tup</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup()
-   * @see #getLocalVarDecl()
-   * @generated
-   */
-  EReference getLocalVarDecl_LitTup();
 
   /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getType <em>Type</em>}'.
@@ -5573,6 +5416,48 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getFCall_Right();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Not <em>Not</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Not</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Not
+   * @generated
+   */
+  EClass getNot();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Not#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Not#getExpression()
+   * @see #getNot()
+   * @generated
+   */
+  EReference getNot_Expression();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Paran <em>Paran</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Paran</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Paran
+   * @generated
+   */
+  EClass getParan();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Paran#getExp <em>Exp</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Exp</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Paran#getExp()
+   * @see #getParan()
+   * @generated
+   */
+  EReference getParan_Exp();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.IntConst <em>Int Const</em>}'.
@@ -6178,12 +6063,12 @@ public interface FortXTransPackage extends EPackage
     EClass PARAM = eINSTANCE.getParam();
 
     /**
-     * The meta object literal for the '<em><b>BId</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Par Id</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference PARAM__BID = eINSTANCE.getParam_BId();
+    EReference PARAM__PAR_ID = eINSTANCE.getParam_ParId();
 
     /**
      * The meta object literal for the '<em><b>Istype</b></em>' containment reference feature.
@@ -6348,20 +6233,12 @@ public interface FortXTransPackage extends EPackage
     EReference STMNT__DELIM = eINSTANCE.getStmnt_Delim();
 
     /**
-     * The meta object literal for the '<em><b>Brack</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Delims</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute STMNT__BRACK = eINSTANCE.getStmnt_Brack();
-
-    /**
-     * The meta object literal for the '<em><b>Delim List</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference STMNT__DELIM_LIST = eINSTANCE.getStmnt_DelimList();
+    EReference STMNT__DELIMS = eINSTANCE.getStmnt_Delims();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl <em>Delimited Expr List</em>}' class.
@@ -6836,50 +6713,6 @@ public interface FortXTransPackage extends EPackage
     EReference DO_FRONT__BLOCK = eINSTANCE.getDoFront_Block();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl <em>Id Or Tuple</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.IdOrTupleImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIdOrTuple()
-     * @generated
-     */
-    EClass ID_OR_TUPLE = eINSTANCE.getIdOrTuple();
-
-    /**
-     * The meta object literal for the '<em><b>Bid</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference ID_OR_TUPLE__BID = eINSTANCE.getIdOrTuple_Bid();
-
-    /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.BindIdImpl <em>Bind Id</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.BindIdImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBindId()
-     * @generated
-     */
-    EClass BIND_ID = eINSTANCE.getBindId();
-
-    /**
-     * The meta object literal for the '<em><b>S</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference BIND_ID__S = eINSTANCE.getBindId_S();
-
-    /**
-     * The meta object literal for the '<em><b>Undsc</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute BIND_ID__UNDSC = eINSTANCE.getBindId_Undsc();
-
-    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IsTypeImpl <em>Is Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6948,14 +6781,6 @@ public interface FortXTransPackage extends EPackage
     EReference FIELD_DECL__IDTUP = eINSTANCE.getFieldDecl_Idtup();
 
     /**
-     * The meta object literal for the '<em><b>Lit Tup</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FIELD_DECL__LIT_TUP = eINSTANCE.getFieldDecl_LitTup();
-
-    /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7022,40 +6847,6 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference NO_NEWLINE_VAR_WTYPE__ISTYPE = eINSTANCE.getNoNewlineVarWType_Istype();
-
-    /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.InitValImpl <em>Init Val</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.InitValImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getInitVal()
-     * @generated
-     */
-    EClass INIT_VAL = eINSTANCE.getInitVal();
-
-    /**
-     * The meta object literal for the '<em><b>Mut</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INIT_VAL__MUT = eINSTANCE.getInitVal_Mut();
-
-    /**
-     * The meta object literal for the '<em><b>Lit</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference INIT_VAL__LIT = eINSTANCE.getInitVal_Lit();
-
-    /**
-     * The meta object literal for the '<em><b>Immut</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute INIT_VAL__IMMUT = eINSTANCE.getInitVal_Immut();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.LiteralTupleImpl <em>Literal Tuple</em>}' class.
@@ -7146,14 +6937,6 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference LOCAL_VAR_DECL__IDTUP = eINSTANCE.getLocalVarDecl_Idtup();
-
-    /**
-     * The meta object literal for the '<em><b>Lit Tup</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference LOCAL_VAR_DECL__LIT_TUP = eINSTANCE.getLocalVarDecl_LitTup();
 
     /**
      * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
@@ -7480,6 +7263,42 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference FCALL__RIGHT = eINSTANCE.getFCall_Right();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl <em>Not</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNot()
+     * @generated
+     */
+    EClass NOT = eINSTANCE.getNot();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanImpl <em>Paran</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ParanImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParan()
+     * @generated
+     */
+    EClass PARAN = eINSTANCE.getParan();
+
+    /**
+     * The meta object literal for the '<em><b>Exp</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAN__EXP = eINSTANCE.getParan_Exp();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.IntConstImpl <em>Int Const</em>}' class.

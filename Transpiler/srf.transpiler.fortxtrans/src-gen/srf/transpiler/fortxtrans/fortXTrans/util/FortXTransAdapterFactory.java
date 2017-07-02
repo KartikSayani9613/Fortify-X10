@@ -281,16 +281,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createDoFrontAdapter();
       }
       @Override
-      public Adapter caseIdOrTuple(IdOrTuple object)
-      {
-        return createIdOrTupleAdapter();
-      }
-      @Override
-      public Adapter caseBindId(BindId object)
-      {
-        return createBindIdAdapter();
-      }
-      @Override
       public Adapter caseIsType(IsType object)
       {
         return createIsTypeAdapter();
@@ -309,11 +299,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNoNewlineVarWType(NoNewlineVarWType object)
       {
         return createNoNewlineVarWTypeAdapter();
-      }
-      @Override
-      public Adapter caseInitVal(InitVal object)
-      {
-        return createInitValAdapter();
       }
       @Override
       public Adapter caseLiteralTuple(LiteralTuple object)
@@ -394,6 +379,16 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFCall(FCall object)
       {
         return createFCallAdapter();
+      }
+      @Override
+      public Adapter caseNot(Not object)
+      {
+        return createNotAdapter();
+      }
+      @Override
+      public Adapter caseParan(Paran object)
+      {
+        return createParanAdapter();
       }
       @Override
       public Adapter caseIntConst(IntConst object)
@@ -1053,36 +1048,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.IdOrTuple <em>Id Or Tuple</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.IdOrTuple
-   * @generated
-   */
-  public Adapter createIdOrTupleAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.BindId <em>Bind Id</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.BindId
-   * @generated
-   */
-  public Adapter createBindIdAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.IsType <em>Is Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -1138,21 +1103,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNoNewlineVarWTypeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.InitVal <em>Init Val</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.InitVal
-   * @generated
-   */
-  public Adapter createInitValAdapter()
   {
     return null;
   }
@@ -1393,6 +1343,36 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Not <em>Not</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Not
+   * @generated
+   */
+  public Adapter createNotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Paran <em>Paran</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Paran
+   * @generated
+   */
+  public Adapter createParanAdapter()
   {
     return null;
   }

@@ -18,38 +18,35 @@ import srf.transpiler.fortxtrans.fortXTrans.FnDecl
 import srf.transpiler.fortxtrans.fortXTrans.ValParam
 import srf.transpiler.fortxtrans.fortXTrans.FieldDecl
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
-import srf.transpiler.fortxtrans.fortXTrans.Elifs
-import srf.transpiler.fortxtrans.fortXTrans.Binding
 import srf.transpiler.fortxtrans.fortXTrans.Do
 import srf.transpiler.fortxtrans.fortXTrans.DoFront
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr
-import srf.transpiler.fortxtrans.fortXTrans.ExprTail
 import srf.transpiler.fortxtrans.fortXTrans.Expr
 import srf.transpiler.fortxtrans.fortXTrans.Stmnts
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem
-import srf.transpiler.fortxtrans.fortXTrans.Qualified
 import srf.transpiler.fortxtrans.fortXTrans.AddExpr
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple
 import srf.transpiler.fortxtrans.fortXTrans.QualifiedName
-
-import srf.transpiler.fortxtrans.fortXTrans.BlockElems
-import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl
 import srf.transpiler.fortxtrans.fortXTrans.SubExpr
 import srf.transpiler.fortxtrans.fortXTrans.DivExpr
 import srf.transpiler.fortxtrans.fortXTrans.MultExpr
 import srf.transpiler.fortxtrans.fortXTrans.FCall
+import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr
+import srf.transpiler.fortxtrans.fortXTrans.ExprList
+import srf.transpiler.fortxtrans.fortXTrans.Not
+import srf.transpiler.fortxtrans.fortXTrans.Paran
+import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList
+import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple
 import srf.transpiler.fortxtrans.fortXTrans.Literal
+import srf.transpiler.fortxtrans.fortXTrans.Qualified
+import srf.transpiler.fortxtrans.fortXTrans.LiteralTup
+import srf.transpiler.fortxtrans.fortXTrans.LiteralList
 import srf.transpiler.fortxtrans.fortXTrans.IntConst
 import srf.transpiler.fortxtrans.fortXTrans.FloatConst
 import srf.transpiler.fortxtrans.fortXTrans.StrConst
-import srf.transpiler.fortxtrans.fortXTrans.LiteralList
-import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple
-import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr
-import srf.transpiler.fortxtrans.fortXTrans.SimpleName
-import srf.transpiler.fortxtrans.fortXTrans.Assop
-import srf.transpiler.fortxtrans.fortXTrans.ExprList
+import srf.transpiler.fortxtrans.fortXTrans.BoolConst
 
 /**
  * Generates code from your model files on save.
@@ -57,6 +54,10 @@ import srf.transpiler.fortxtrans.fortXTrans.ExprList
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class FortXTransGenerator extends AbstractGenerator {
+	
+	def String remlast(String s){
+		return s.substring(0, s.length-1)
+	}
 
 	 @Inject extension IQualifiedNameProvider
 	
@@ -86,6 +87,15 @@ class FortXTransGenerator extends AbstractGenerator {
 		*/
 		
 		public class «c.name»{
+			public static def println[T](x:T){
+				return Console.OUT.println(x);
+			}
+			
+			public static def nanoTime(){
+				return System.nanoTime();
+			}
+			
+			
 			«FOR d:c.decls»
 				«d.compile»
 			«ENDFOR»
@@ -185,7 +195,6 @@ class FortXTransGenerator extends AbstractGenerator {
 			for(ss:1..<q.s.length)
 				s=s+"."+q.s.get(ss).name
 		}
-			
 		if(q.dots!==null)
 			s=s+q.dots
 		return s
@@ -199,10 +208,10 @@ class FortXTransGenerator extends AbstractGenerator {
 			»«p.params.get(0)»«
 		ELSE»«
 			FOR s:0..<p.params.length»«
-				IF s==0
-					»«p.params.get(s).BId»:«
+				IF s==0»
+					«p.params.get(s).parId.compile»:«
 				ELSE
-					», «p.params.get(s).BId
+					», «p.params.get(s).parId.compile
 				»:«ENDIF»«
 				IF p.params.get(s).istype.type.name=="ZZ32"
 					»Int«
@@ -244,9 +253,115 @@ class FortXTransGenerator extends AbstractGenerator {
 		«ENDIF»
 	'''
 	
-	def compile(FieldDecl f)
-	'''
-	//FieldDecl'''
+	def compile(FieldDecl f){
+		var s = ""
+		if(f.vars!==null)
+		{
+			if(f.vars.single!==null){
+				if(f.pri!==null)
+					s = s + '''private '''
+				if(f.mut===null)
+					s = s + '''static val '''
+				else
+					s = s + '''var '''
+				s = s + f.vars.single.bid.compile+":"
+				var type = f.vars.single.istype.type.name
+				if(type=="ZZ32")
+					s=s+'''Int = '''+f.init.compile+" as Int;"
+				else if(type=="ZZ64")
+					s=s+'''Long = '''+f.init.compile+" as Long;"
+				else if(type=="RR32")
+					s=s+'''Float = '''+f.init.compile+" as Float;"
+				else if(type=="RR64")
+					s=s+'''Double = '''+f.init.compile+" as Double;"
+				else if(type=="String")
+					s=s+'''String = '''+f.init.compile+";"
+				else{
+					s = s+ type + "= " + f.init.compile+";";		
+				}
+			}
+			else{
+				var attach = f.init.compile.split(",")
+				for(m:0..<f.vars.multiple.length){
+					if(f.pri!==null)
+						s = s + '''private '''
+					if(f.mut===null)
+						s = s + '''static val '''
+					else
+						s = s + '''var '''
+					s = s + f.vars.multiple.get(m).bid.compile+":"
+					var type = f.vars.multiple.get(m).istype.type.name
+					if(type=="ZZ32")
+						s=s+'''Int = '''+ attach.get(m)+" as Int;"
+					else if(type=="ZZ64")
+						s=s+'''Long = ''' + attach.get(m)+" as Long;"
+					else if(type=="RR32")
+							s=s+'''Float = ''' + attach.get(m)+" as Float;"
+					else if(type=="RR64")
+						s=s+'''Double = ''' + attach.get(m)+" as Double;"
+					else if(type=="String")
+						s=s+'''String = '''+ attach.get(m)+";"
+					else{
+						s = s+ type + "= " + attach.get(m)+";";	
+					}
+					s = s+"\n"
+				}
+			}
+		}
+		else if(f.type!==null){
+			var vars = f.idtup.compile.split(",")
+			if(vars.length==1)
+				s = s+"yolo"
+		}
+		return s
+	}
+	
+	
+	def String compile(LiteralTuple lt){
+		switch(lt){
+			Qualified: return lt.compile
+			LiteralTup: return lt.compile
+		}
+	}
+	
+	def String compile(Qualified q){
+		switch(q){
+			QualifiedName: return q.compile
+			QualifiedNameTuple: return q.compile
+		}
+	}
+	
+	def String compile(QualifiedNameTuple qt){
+		var s = ""
+		s = s + qt.qlist.get(0).compile
+		for(q:1..<qt.qlist.length)
+			s = s + "," + qt.qlist.get(q).compile
+		return s
+	}
+	
+	def String compile(LiteralTup lt){
+		switch(lt){
+			Literal: return lt.compile
+			LiteralList: return lt.compile
+		}
+	}
+	
+	def String compile(Literal l){
+		switch(l){
+			IntConst: return l.value.toString+"n"
+			FloatConst: return l.value.toString+"f"
+			StrConst: return "\""+l.value+"\""
+			BoolConst: return l.value
+		}
+	}
+	
+	def String compile(LiteralList ll){
+		var s = ""
+		s = s + ll.lit.get(0).compile
+		for(l:1..<ll.lit.length)
+			s = s + "," + ll.lit.get(l).compile
+		return s
+	}
 	
 	def compile(FnDecl f)'''
 	//FnDecl
@@ -264,9 +379,21 @@ class FortXTransGenerator extends AbstractGenerator {
 	«ENDIF»«ENDIF»
 	'''
 	
-	def compile(Stmnt s)'''
-	//Statement«s.delim.compile»
-	'''
+	def compile(Stmnt s){
+		if(s.delim!==null)
+			return s.delim.compile
+		else
+			return s.delims.compile
+	}
+	
+	def compile(DelimitedExprList d){
+		var s = ""
+		for(dd:d.delim)
+			s=s+'''{
+					«dd.compile»
+				}'''		
+		return s
+	}
 	
 	def compile(DelimitedExpr d)'''
 	//DelimExpr«d.dod.compile»
@@ -303,14 +430,16 @@ class FortXTransGenerator extends AbstractGenerator {
 			DivExpr: s = s+'''(«e.left.compile»/«e.right.compile»)'''
 			MultExpr: s = s+'''(«e.left.compile»*«e.right.compile»)'''
 			ExponentExpr: s = s+'''(Math.pow(«e.left.compile»,«e.right.compile»))'''
-			FCall:s=s+'''yolo(«e.right.exps.compile»)'''
-			
+			Not:s=s+"!"+e.expression.compile
+			Paran:s=s+'''(«e.exp.compile»)'''
+			FCall:s=s+'''yolo(«IF e.right!==null»«e.right.exps.compile»«ENDIF»)'''
+			LiteralTuple: s= s+e.compile
 		}
 		return s
 	}
 	
 	def compile(ExprList e){
-		var s = ""
+		var s = "name, name"
 					
 		return s
 	}

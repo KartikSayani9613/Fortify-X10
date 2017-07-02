@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getVars <em>Vars</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getInit <em>Init</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getIdtup <em>Idtup</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup <em>Lit Tup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getType <em>Type</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getTuptype <em>Tuptype</em>}</li>
  * </ul>
@@ -116,12 +115,12 @@ public interface LocalVarDecl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Idtup</em>' containment reference.
-   * @see #setIdtup(IdOrTuple)
+   * @see #setIdtup(Qualified)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLocalVarDecl_Idtup()
    * @model containment="true"
    * @generated
    */
-  IdOrTuple getIdtup();
+  Qualified getIdtup();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getIdtup <em>Idtup</em>}' containment reference.
@@ -131,33 +130,7 @@ public interface LocalVarDecl extends EObject
    * @see #getIdtup()
    * @generated
    */
-  void setIdtup(IdOrTuple value);
-
-  /**
-   * Returns the value of the '<em><b>Lit Tup</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Lit Tup</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lit Tup</em>' containment reference.
-   * @see #setLitTup(LiteralTuple)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getLocalVarDecl_LitTup()
-   * @model containment="true"
-   * @generated
-   */
-  LiteralTuple getLitTup();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl#getLitTup <em>Lit Tup</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lit Tup</em>' containment reference.
-   * @see #getLitTup()
-   * @generated
-   */
-  void setLitTup(LiteralTuple value);
+  void setIdtup(Qualified value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

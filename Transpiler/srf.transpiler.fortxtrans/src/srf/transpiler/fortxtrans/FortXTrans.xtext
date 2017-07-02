@@ -34,8 +34,7 @@ ImportedNames:
 ;
 
 QualifiedName:
-	s+=SimpleName (dots=DOTS)?
-	|s+=SimpleName ('.'s+=SimpleName)+ (dots=DOTS)?
+	s+=SimpleName ('.'s+=SimpleName)* (dots=DOTS)?
 ;
 
 Qualified:
@@ -97,7 +96,7 @@ ValParam:
 ;
 
 Param:
-	bId=BindId istype=IsType
+	parId=QualifiedName istype=IsType
 ;
 
 RetType:
@@ -122,11 +121,11 @@ Stmnts:
 
 Stmnt:
 	delim=DelimitedExpr
-	|brack='(' delimList=DelimitedExprList ')'
+	|'(|' delims=DelimitedExprList '|)'
 ;
 
 DelimitedExprList:
-	delim+=DelimitedExpr (',' delim+=DelimitedExpr)+
+	delim+=DelimitedExpr (',' delim+=DelimitedExpr)*
 ;
 
 Expr:
@@ -163,7 +162,7 @@ DivExpr returns Expr:
 ;
 
 MultExpr returns Expr:
-	ExponentExpr ({MultExpr.left=current}'*' right=ExponentExpr)*
+	ExponentExpr ({MultExpr.left=current} '*' right=ExponentExpr)*
 ;
 
 ExponentExpr returns Expr:
@@ -171,14 +170,14 @@ ExponentExpr returns Expr:
 ;
 
 Primary returns Expr:
-	LiteralTuple ({Assop.left=current}(op=':=' right=ExprList))? ({FCall.left=current} '('right= ExprList')')?
-	|'('Expr')'
+	LiteralTuple ({Assop.left=current}(op=':=' right=ExprList))? ({FCall.left=current} '('right= ExprList?')')?
+	|{Not} '!' expression=Primary
+	|{Paran}'('exp=ExprList')'
 ;
 
 ExprList:
 	exps=Expr (',' exp+=Expr)*
 ;
-
 
 
 ExprTail:
@@ -210,8 +209,8 @@ Generators:
 ;
 
 Binding:
-	idtup=IdOrTuple '<-' g=GenSource
-	|idtup=IdOrTuple '<-' seq='seq' '('g=GenSource')'
+	idtup=Qualified '<-' g=GenSource
+	|idtup=Qualified '<-' seq='seq' '('g=GenSource')'
 ;
 
 GenSource:
@@ -241,26 +240,16 @@ DoFront:
 ;
 
 
-IdOrTuple:
-	bid+=BindId
-	|'(' bid+=BindId (',' bid+=BindId)* ')'	
-;
-
-BindId:
-	s=SimpleName
-	|undsc='_'
-;
-
 IsType:
 	':' type=SimpleName
 ;
 //For a field Decl, If you 'var' has been used it will be mutable. 
 //If 'var' has not been used check '=' for immutable and ':=' for mutable.
 FieldDecl:
-	(pri='private')? (mut='var')? vars=NoNewlineVarWTypes init=InitVal
-	|(pri='private')? idtup=IdOrTuple '=' litTup=LiteralTuple
-	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' type=SimpleName DOTS init=InitVal
-	|(pri='private')? (mut='var')? idtup=IdOrTuple ':' tuptype=TupleType init=InitVal
+	(pri='private')? (mut='var')? vars=NoNewlineVarWTypes ('=' init=Expr)?
+	|(pri='private')? idtup=Qualified '=' (init=Expr)?
+	|(pri='private')? (mut='var')? idtup=Qualified ':' type=SimpleName DOTS ('=' init=Expr)?
+	|(pri='private')? (mut='var')? idtup=Qualified ':' tuptype=TupleType ('=' init=Expr)?
 ;
 
 NoNewlineVarWTypes:
@@ -268,12 +257,7 @@ NoNewlineVarWTypes:
 	| "(" multiple+=NoNewlineVarWType ( "," multiple+=NoNewlineVarWType)+ ")"
 ;
 NoNewlineVarWType:
-	bid=BindId istype=IsType
-;
-
-InitVal:
-	mut=':=' lit=LiteralTuple
-	|immut='=' lit=LiteralTuple
+	bid=QualifiedName istype=IsType
 ;
 
 LiteralTuple:
@@ -294,14 +278,14 @@ Literal:
 	{IntConst}value=INT
 	|{FloatConst}value=FLOAT
 	|{StrConst}value=STRING
-	|{BoolConst}value=('true'|'false')
+	|{BoolConst}(value='true'|value='false')
 ;
 
 LocalVarDecl:
 	(mut='var')? vars=NoNewlineVarWTypes '=' init=Expr
-	|idtup=IdOrTuple '=' litTup=LiteralTuple
-	|(mut='var')? idtup=IdOrTuple ':' type=SimpleName DOTS "=" init=Expr
-	|(mut='var')? idtup=IdOrTuple ':' tuptype=TupleType '=' init=Expr
+	|idtup=Qualified '=' init=Expr
+	|(mut='var')? idtup=Qualified ':' type=SimpleName DOTS "=" init=Expr
+	|(mut='var')? idtup=Qualified ':' tuptype=TupleType '=' init=Expr
 ;
 
 @Override 

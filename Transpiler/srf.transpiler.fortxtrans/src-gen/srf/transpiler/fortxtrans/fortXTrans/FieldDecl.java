@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getVars <em>Vars</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getInit <em>Init</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getIdtup <em>Idtup</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getLitTup <em>Lit Tup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getType <em>Type</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getTuptype <em>Tuptype</em>}</li>
  * </ul>
@@ -117,12 +116,12 @@ public interface FieldDecl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Init</em>' containment reference.
-   * @see #setInit(InitVal)
+   * @see #setInit(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFieldDecl_Init()
    * @model containment="true"
    * @generated
    */
-  InitVal getInit();
+  Expr getInit();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getInit <em>Init</em>}' containment reference.
@@ -132,7 +131,7 @@ public interface FieldDecl extends EObject
    * @see #getInit()
    * @generated
    */
-  void setInit(InitVal value);
+  void setInit(Expr value);
 
   /**
    * Returns the value of the '<em><b>Idtup</b></em>' containment reference.
@@ -143,12 +142,12 @@ public interface FieldDecl extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Idtup</em>' containment reference.
-   * @see #setIdtup(IdOrTuple)
+   * @see #setIdtup(Qualified)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFieldDecl_Idtup()
    * @model containment="true"
    * @generated
    */
-  IdOrTuple getIdtup();
+  Qualified getIdtup();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getIdtup <em>Idtup</em>}' containment reference.
@@ -158,33 +157,7 @@ public interface FieldDecl extends EObject
    * @see #getIdtup()
    * @generated
    */
-  void setIdtup(IdOrTuple value);
-
-  /**
-   * Returns the value of the '<em><b>Lit Tup</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Lit Tup</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Lit Tup</em>' containment reference.
-   * @see #setLitTup(LiteralTuple)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getFieldDecl_LitTup()
-   * @model containment="true"
-   * @generated
-   */
-  LiteralTuple getLitTup();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.FieldDecl#getLitTup <em>Lit Tup</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Lit Tup</em>' containment reference.
-   * @see #getLitTup()
-   * @generated
-   */
-  void setLitTup(LiteralTuple value);
+  void setIdtup(Qualified value);
 
   /**
    * Returns the value of the '<em><b>Type</b></em>' containment reference.

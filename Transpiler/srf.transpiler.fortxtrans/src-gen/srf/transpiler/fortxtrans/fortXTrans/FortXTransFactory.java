@@ -393,24 +393,6 @@ public interface FortXTransFactory extends EFactory
   DoFront createDoFront();
 
   /**
-   * Returns a new object of class '<em>Id Or Tuple</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Id Or Tuple</em>'.
-   * @generated
-   */
-  IdOrTuple createIdOrTuple();
-
-  /**
-   * Returns a new object of class '<em>Bind Id</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Bind Id</em>'.
-   * @generated
-   */
-  BindId createBindId();
-
-  /**
    * Returns a new object of class '<em>Is Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -445,15 +427,6 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   NoNewlineVarWType createNoNewlineVarWType();
-
-  /**
-   * Returns a new object of class '<em>Init Val</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Init Val</em>'.
-   * @generated
-   */
-  InitVal createInitVal();
 
   /**
    * Returns a new object of class '<em>Literal Tuple</em>'.
@@ -598,6 +571,24 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   FCall createFCall();
+
+  /**
+   * Returns a new object of class '<em>Not</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not</em>'.
+   * @generated
+   */
+  Not createNot();
+
+  /**
+   * Returns a new object of class '<em>Paran</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Paran</em>'.
+   * @generated
+   */
+  Paran createParan();
 
   /**
    * Returns a new object of class '<em>Int Const</em>'.

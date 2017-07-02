@@ -33,12 +33,12 @@ public interface NoNewlineVarWType extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Bid</em>' containment reference.
-   * @see #setBid(BindId)
+   * @see #setBid(QualifiedName)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getNoNewlineVarWType_Bid()
    * @model containment="true"
    * @generated
    */
-  BindId getBid();
+  QualifiedName getBid();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType#getBid <em>Bid</em>}' containment reference.
@@ -48,7 +48,7 @@ public interface NoNewlineVarWType extends EObject
    * @see #getBid()
    * @generated
    */
-  void setBid(BindId value);
+  void setBid(QualifiedName value);
 
   /**
    * Returns the value of the '<em><b>Istype</b></em>' containment reference.

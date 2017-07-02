@@ -80,7 +80,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ValParam/brack"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Param">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Param/bId"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Param/parId"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Param/istype"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//RetType">
@@ -105,8 +105,7 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Stmnt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnt/delim"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//Stmnt/brack"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnt/delimList"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnt/delims"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//DelimitedExprList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExprList/delim"/>
@@ -179,13 +178,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//DoFront/atom"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DoFront/block"/>
     </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//IdOrTuple">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//IdOrTuple/bid"/>
-    </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//BindId">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//BindId/s"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//BindId/undsc"/>
-    </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//IsType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//IsType/type"/>
     </genClasses>
@@ -195,7 +187,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FieldDecl/vars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FieldDecl/init"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FieldDecl/idtup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FieldDecl/litTup"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FieldDecl/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FieldDecl/tuptype"/>
     </genClasses>
@@ -206,11 +197,6 @@
     <genClasses ecoreClass="FortXTrans.ecore#//NoNewlineVarWType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//NoNewlineVarWType/bid"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//NoNewlineVarWType/istype"/>
-    </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//InitVal">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//InitVal/mut"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//InitVal/lit"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//InitVal/immut"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//LiteralTuple"/>
     <genClasses ecoreClass="FortXTrans.ecore#//LiteralTup"/>
@@ -223,7 +209,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/vars"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/init"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/idtup"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/litTup"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//LocalVarDecl/tuptype"/>
     </genClasses>
@@ -273,6 +258,12 @@
     <genClasses ecoreClass="FortXTrans.ecore#//FCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FCall/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FCall/right"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//Not">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Not/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//Paran">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Paran/exp"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//IntConst">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//IntConst/value"/>

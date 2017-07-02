@@ -106,13 +106,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.BLOCK_ELEM: return createBlockElem();
       case FortXTransPackage.DO: return createDo();
       case FortXTransPackage.DO_FRONT: return createDoFront();
-      case FortXTransPackage.ID_OR_TUPLE: return createIdOrTuple();
-      case FortXTransPackage.BIND_ID: return createBindId();
       case FortXTransPackage.IS_TYPE: return createIsType();
       case FortXTransPackage.FIELD_DECL: return createFieldDecl();
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES: return createNoNewlineVarWTypes();
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPE: return createNoNewlineVarWType();
-      case FortXTransPackage.INIT_VAL: return createInitVal();
       case FortXTransPackage.LITERAL_TUPLE: return createLiteralTuple();
       case FortXTransPackage.LITERAL_TUP: return createLiteralTup();
       case FortXTransPackage.LITERAL_LIST: return createLiteralList();
@@ -129,6 +126,8 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.EXPONENT_EXPR: return createExponentExpr();
       case FortXTransPackage.ASSOP: return createAssop();
       case FortXTransPackage.FCALL: return createFCall();
+      case FortXTransPackage.NOT: return createNot();
+      case FortXTransPackage.PARAN: return createParan();
       case FortXTransPackage.INT_CONST: return createIntConst();
       case FortXTransPackage.FLOAT_CONST: return createFloatConst();
       case FortXTransPackage.STR_CONST: return createStrConst();
@@ -594,28 +593,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public IdOrTuple createIdOrTuple()
-  {
-    IdOrTupleImpl idOrTuple = new IdOrTupleImpl();
-    return idOrTuple;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public BindId createBindId()
-  {
-    BindIdImpl bindId = new BindIdImpl();
-    return bindId;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public IsType createIsType()
   {
     IsTypeImpl isType = new IsTypeImpl();
@@ -653,17 +630,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     NoNewlineVarWTypeImpl noNewlineVarWType = new NoNewlineVarWTypeImpl();
     return noNewlineVarWType;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public InitVal createInitVal()
-  {
-    InitValImpl initVal = new InitValImpl();
-    return initVal;
   }
 
   /**
@@ -840,6 +806,28 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     FCallImpl fCall = new FCallImpl();
     return fCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Not createNot()
+  {
+    NotImpl not = new NotImpl();
+    return not;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Paran createParan()
+  {
+    ParanImpl paran = new ParanImpl();
+    return paran;
   }
 
   /**

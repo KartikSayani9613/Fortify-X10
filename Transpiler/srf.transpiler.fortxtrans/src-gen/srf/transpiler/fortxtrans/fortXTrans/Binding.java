@@ -34,12 +34,12 @@ public interface Binding extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Idtup</em>' containment reference.
-   * @see #setIdtup(IdOrTuple)
+   * @see #setIdtup(Qualified)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getBinding_Idtup()
    * @model containment="true"
    * @generated
    */
-  IdOrTuple getIdtup();
+  Qualified getIdtup();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Binding#getIdtup <em>Idtup</em>}' containment reference.
@@ -49,7 +49,7 @@ public interface Binding extends EObject
    * @see #getIdtup()
    * @generated
    */
-  void setIdtup(IdOrTuple value);
+  void setIdtup(Qualified value);
 
   /**
    * Returns the value of the '<em><b>G</b></em>' containment reference.

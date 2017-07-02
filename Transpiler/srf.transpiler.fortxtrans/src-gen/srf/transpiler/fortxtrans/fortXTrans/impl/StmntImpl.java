@@ -26,8 +26,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getDelim <em>Delim</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getBrack <em>Brack</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getDelimList <em>Delim List</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getDelims <em>Delims</em>}</li>
  * </ul>
  *
  * @generated
@@ -45,34 +44,14 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   protected DelimitedExpr delim;
 
   /**
-   * The default value of the '{@link #getBrack() <em>Brack</em>}' attribute.
+   * The cached value of the '{@link #getDelims() <em>Delims</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBrack()
+   * @see #getDelims()
    * @generated
    * @ordered
    */
-  protected static final String BRACK_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBrack() <em>Brack</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBrack()
-   * @generated
-   * @ordered
-   */
-  protected String brack = BRACK_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getDelimList() <em>Delim List</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getDelimList()
-   * @generated
-   * @ordered
-   */
-  protected DelimitedExprList delimList;
+  protected DelimitedExprList delims;
 
   /**
    * <!-- begin-user-doc -->
@@ -148,9 +127,9 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBrack()
+  public DelimitedExprList getDelims()
   {
-    return brack;
+    return delims;
   }
 
   /**
@@ -158,36 +137,13 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBrack(String newBrack)
+  public NotificationChain basicSetDelims(DelimitedExprList newDelims, NotificationChain msgs)
   {
-    String oldBrack = brack;
-    brack = newBrack;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__BRACK, oldBrack, brack));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DelimitedExprList getDelimList()
-  {
-    return delimList;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDelimList(DelimitedExprList newDelimList, NotificationChain msgs)
-  {
-    DelimitedExprList oldDelimList = delimList;
-    delimList = newDelimList;
+    DelimitedExprList oldDelims = delims;
+    delims = newDelims;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM_LIST, oldDelimList, newDelimList);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIMS, oldDelims, newDelims);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -198,20 +154,20 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDelimList(DelimitedExprList newDelimList)
+  public void setDelims(DelimitedExprList newDelims)
   {
-    if (newDelimList != delimList)
+    if (newDelims != delims)
     {
       NotificationChain msgs = null;
-      if (delimList != null)
-        msgs = ((InternalEObject)delimList).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM_LIST, null, msgs);
-      if (newDelimList != null)
-        msgs = ((InternalEObject)newDelimList).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM_LIST, null, msgs);
-      msgs = basicSetDelimList(newDelimList, msgs);
+      if (delims != null)
+        msgs = ((InternalEObject)delims).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIMS, null, msgs);
+      if (newDelims != null)
+        msgs = ((InternalEObject)newDelims).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIMS, null, msgs);
+      msgs = basicSetDelims(newDelims, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM_LIST, newDelimList, newDelimList));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIMS, newDelims, newDelims));
   }
 
   /**
@@ -226,8 +182,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
     {
       case FortXTransPackage.STMNT__DELIM:
         return basicSetDelim(null, msgs);
-      case FortXTransPackage.STMNT__DELIM_LIST:
-        return basicSetDelimList(null, msgs);
+      case FortXTransPackage.STMNT__DELIMS:
+        return basicSetDelims(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -244,10 +200,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
     {
       case FortXTransPackage.STMNT__DELIM:
         return getDelim();
-      case FortXTransPackage.STMNT__BRACK:
-        return getBrack();
-      case FortXTransPackage.STMNT__DELIM_LIST:
-        return getDelimList();
+      case FortXTransPackage.STMNT__DELIMS:
+        return getDelims();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -265,11 +219,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
       case FortXTransPackage.STMNT__DELIM:
         setDelim((DelimitedExpr)newValue);
         return;
-      case FortXTransPackage.STMNT__BRACK:
-        setBrack((String)newValue);
-        return;
-      case FortXTransPackage.STMNT__DELIM_LIST:
-        setDelimList((DelimitedExprList)newValue);
+      case FortXTransPackage.STMNT__DELIMS:
+        setDelims((DelimitedExprList)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -288,11 +239,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
       case FortXTransPackage.STMNT__DELIM:
         setDelim((DelimitedExpr)null);
         return;
-      case FortXTransPackage.STMNT__BRACK:
-        setBrack(BRACK_EDEFAULT);
-        return;
-      case FortXTransPackage.STMNT__DELIM_LIST:
-        setDelimList((DelimitedExprList)null);
+      case FortXTransPackage.STMNT__DELIMS:
+        setDelims((DelimitedExprList)null);
         return;
     }
     super.eUnset(featureID);
@@ -310,29 +258,10 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
     {
       case FortXTransPackage.STMNT__DELIM:
         return delim != null;
-      case FortXTransPackage.STMNT__BRACK:
-        return BRACK_EDEFAULT == null ? brack != null : !BRACK_EDEFAULT.equals(brack);
-      case FortXTransPackage.STMNT__DELIM_LIST:
-        return delimList != null;
+      case FortXTransPackage.STMNT__DELIMS:
+        return delims != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (brack: ");
-    result.append(brack);
-    result.append(')');
-    return result.toString();
   }
 
 } //StmntImpl

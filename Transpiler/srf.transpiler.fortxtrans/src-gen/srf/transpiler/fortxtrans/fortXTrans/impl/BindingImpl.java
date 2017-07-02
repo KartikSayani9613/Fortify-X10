@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.GenSource;
-import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
+import srf.transpiler.fortxtrans.fortXTrans.Qualified;
 
 /**
  * <!-- begin-user-doc -->
@@ -42,7 +42,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * @generated
    * @ordered
    */
-  protected IdOrTuple idtup;
+  protected Qualified idtup;
 
   /**
    * The cached value of the '{@link #getG() <em>G</em>}' containment reference.
@@ -100,7 +100,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public IdOrTuple getIdtup()
+  public Qualified getIdtup()
   {
     return idtup;
   }
@@ -110,9 +110,9 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetIdtup(IdOrTuple newIdtup, NotificationChain msgs)
+  public NotificationChain basicSetIdtup(Qualified newIdtup, NotificationChain msgs)
   {
-    IdOrTuple oldIdtup = idtup;
+    Qualified oldIdtup = idtup;
     idtup = newIdtup;
     if (eNotificationRequired())
     {
@@ -127,7 +127,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIdtup(IdOrTuple newIdtup)
+  public void setIdtup(Qualified newIdtup)
   {
     if (newIdtup != idtup)
     {
@@ -263,7 +263,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
     switch (featureID)
     {
       case FortXTransPackage.BINDING__IDTUP:
-        setIdtup((IdOrTuple)newValue);
+        setIdtup((Qualified)newValue);
         return;
       case FortXTransPackage.BINDING__G:
         setG((GenSource)newValue);
@@ -286,7 +286,7 @@ public class BindingImpl extends MinimalEObjectImpl.Container implements Binding
     switch (featureID)
     {
       case FortXTransPackage.BINDING__IDTUP:
-        setIdtup((IdOrTuple)null);
+        setIdtup((Qualified)null);
         return;
       case FortXTransPackage.BINDING__G:
         setG((GenSource)null);

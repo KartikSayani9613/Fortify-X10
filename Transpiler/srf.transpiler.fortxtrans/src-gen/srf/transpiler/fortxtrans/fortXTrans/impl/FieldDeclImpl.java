@@ -12,12 +12,11 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FieldDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.IdOrTuple;
-import srf.transpiler.fortxtrans.fortXTrans.InitVal;
-import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
+import srf.transpiler.fortxtrans.fortXTrans.Qualified;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.TupleType;
 
@@ -34,7 +33,6 @@ import srf.transpiler.fortxtrans.fortXTrans.TupleType;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FieldDeclImpl#getVars <em>Vars</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FieldDeclImpl#getInit <em>Init</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FieldDeclImpl#getIdtup <em>Idtup</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FieldDeclImpl#getLitTup <em>Lit Tup</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FieldDeclImpl#getType <em>Type</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.FieldDeclImpl#getTuptype <em>Tuptype</em>}</li>
  * </ul>
@@ -101,7 +99,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected InitVal init;
+  protected Expr init;
 
   /**
    * The cached value of the '{@link #getIdtup() <em>Idtup</em>}' containment reference.
@@ -111,17 +109,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * @generated
    * @ordered
    */
-  protected IdOrTuple idtup;
-
-  /**
-   * The cached value of the '{@link #getLitTup() <em>Lit Tup</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getLitTup()
-   * @generated
-   * @ordered
-   */
-  protected LiteralTuple litTup;
+  protected Qualified idtup;
 
   /**
    * The cached value of the '{@link #getType() <em>Type</em>}' containment reference.
@@ -263,7 +251,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public InitVal getInit()
+  public Expr getInit()
   {
     return init;
   }
@@ -273,9 +261,9 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetInit(InitVal newInit, NotificationChain msgs)
+  public NotificationChain basicSetInit(Expr newInit, NotificationChain msgs)
   {
-    InitVal oldInit = init;
+    Expr oldInit = init;
     init = newInit;
     if (eNotificationRequired())
     {
@@ -290,7 +278,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setInit(InitVal newInit)
+  public void setInit(Expr newInit)
   {
     if (newInit != init)
     {
@@ -311,7 +299,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public IdOrTuple getIdtup()
+  public Qualified getIdtup()
   {
     return idtup;
   }
@@ -321,9 +309,9 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetIdtup(IdOrTuple newIdtup, NotificationChain msgs)
+  public NotificationChain basicSetIdtup(Qualified newIdtup, NotificationChain msgs)
   {
-    IdOrTuple oldIdtup = idtup;
+    Qualified oldIdtup = idtup;
     idtup = newIdtup;
     if (eNotificationRequired())
     {
@@ -338,7 +326,7 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setIdtup(IdOrTuple newIdtup)
+  public void setIdtup(Qualified newIdtup)
   {
     if (newIdtup != idtup)
     {
@@ -352,54 +340,6 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FIELD_DECL__IDTUP, newIdtup, newIdtup));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public LiteralTuple getLitTup()
-  {
-    return litTup;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetLitTup(LiteralTuple newLitTup, NotificationChain msgs)
-  {
-    LiteralTuple oldLitTup = litTup;
-    litTup = newLitTup;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.FIELD_DECL__LIT_TUP, oldLitTup, newLitTup);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setLitTup(LiteralTuple newLitTup)
-  {
-    if (newLitTup != litTup)
-    {
-      NotificationChain msgs = null;
-      if (litTup != null)
-        msgs = ((InternalEObject)litTup).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.FIELD_DECL__LIT_TUP, null, msgs);
-      if (newLitTup != null)
-        msgs = ((InternalEObject)newLitTup).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.FIELD_DECL__LIT_TUP, null, msgs);
-      msgs = basicSetLitTup(newLitTup, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.FIELD_DECL__LIT_TUP, newLitTup, newLitTup));
   }
 
   /**
@@ -514,8 +454,6 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         return basicSetInit(null, msgs);
       case FortXTransPackage.FIELD_DECL__IDTUP:
         return basicSetIdtup(null, msgs);
-      case FortXTransPackage.FIELD_DECL__LIT_TUP:
-        return basicSetLitTup(null, msgs);
       case FortXTransPackage.FIELD_DECL__TYPE:
         return basicSetType(null, msgs);
       case FortXTransPackage.FIELD_DECL__TUPTYPE:
@@ -544,8 +482,6 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         return getInit();
       case FortXTransPackage.FIELD_DECL__IDTUP:
         return getIdtup();
-      case FortXTransPackage.FIELD_DECL__LIT_TUP:
-        return getLitTup();
       case FortXTransPackage.FIELD_DECL__TYPE:
         return getType();
       case FortXTransPackage.FIELD_DECL__TUPTYPE:
@@ -574,13 +510,10 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         setVars((NoNewlineVarWTypes)newValue);
         return;
       case FortXTransPackage.FIELD_DECL__INIT:
-        setInit((InitVal)newValue);
+        setInit((Expr)newValue);
         return;
       case FortXTransPackage.FIELD_DECL__IDTUP:
-        setIdtup((IdOrTuple)newValue);
-        return;
-      case FortXTransPackage.FIELD_DECL__LIT_TUP:
-        setLitTup((LiteralTuple)newValue);
+        setIdtup((Qualified)newValue);
         return;
       case FortXTransPackage.FIELD_DECL__TYPE:
         setType((SimpleName)newValue);
@@ -612,13 +545,10 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         setVars((NoNewlineVarWTypes)null);
         return;
       case FortXTransPackage.FIELD_DECL__INIT:
-        setInit((InitVal)null);
+        setInit((Expr)null);
         return;
       case FortXTransPackage.FIELD_DECL__IDTUP:
-        setIdtup((IdOrTuple)null);
-        return;
-      case FortXTransPackage.FIELD_DECL__LIT_TUP:
-        setLitTup((LiteralTuple)null);
+        setIdtup((Qualified)null);
         return;
       case FortXTransPackage.FIELD_DECL__TYPE:
         setType((SimpleName)null);
@@ -650,8 +580,6 @@ public class FieldDeclImpl extends MinimalEObjectImpl.Container implements Field
         return init != null;
       case FortXTransPackage.FIELD_DECL__IDTUP:
         return idtup != null;
-      case FortXTransPackage.FIELD_DECL__LIT_TUP:
-        return litTup != null;
       case FortXTransPackage.FIELD_DECL__TYPE:
         return type != null;
       case FortXTransPackage.FIELD_DECL__TUPTYPE:

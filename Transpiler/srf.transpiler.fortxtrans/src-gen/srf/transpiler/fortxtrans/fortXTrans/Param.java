@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Param#getBId <em>BId</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Param#getParId <em>Par Id</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Param#getIstype <em>Istype</em>}</li>
  * </ul>
  *
@@ -25,30 +25,30 @@ import org.eclipse.emf.ecore.EObject;
 public interface Param extends EObject
 {
   /**
-   * Returns the value of the '<em><b>BId</b></em>' containment reference.
+   * Returns the value of the '<em><b>Par Id</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>BId</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Par Id</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>BId</em>' containment reference.
-   * @see #setBId(BindId)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParam_BId()
+   * @return the value of the '<em>Par Id</em>' containment reference.
+   * @see #setParId(QualifiedName)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getParam_ParId()
    * @model containment="true"
    * @generated
    */
-  BindId getBId();
+  QualifiedName getParId();
 
   /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getBId <em>BId</em>}' containment reference.
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Param#getParId <em>Par Id</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>BId</em>' containment reference.
-   * @see #getBId()
+   * @param value the new value of the '<em>Par Id</em>' containment reference.
+   * @see #getParId()
    * @generated
    */
-  void setBId(BindId value);
+  void setParId(QualifiedName value);
 
   /**
    * Returns the value of the '<em><b>Istype</b></em>' containment reference.
