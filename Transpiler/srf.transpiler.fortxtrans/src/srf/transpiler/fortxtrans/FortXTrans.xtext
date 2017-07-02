@@ -170,7 +170,7 @@ ExponentExpr returns Expr:
 ;
 
 Primary returns Expr:
-	LiteralTuple ({Assop.left=current}(op=':=' right=ExprList))? ({FCall.left=current} '('right= ExprList?')')?
+	LiteralTuple ({Assop.left=current}(op=':=' right=Expr))? ({FCall.left=current} '('right= ExprList?')')?
 	|{Not} '!' expression=Primary
 	|{Paran}'('exp=ExprList')'
 ;

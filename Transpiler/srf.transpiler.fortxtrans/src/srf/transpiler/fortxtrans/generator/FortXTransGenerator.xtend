@@ -47,6 +47,7 @@ import srf.transpiler.fortxtrans.fortXTrans.IntConst
 import srf.transpiler.fortxtrans.fortXTrans.FloatConst
 import srf.transpiler.fortxtrans.fortXTrans.StrConst
 import srf.transpiler.fortxtrans.fortXTrans.BoolConst
+import srf.transpiler.fortxtrans.fortXTrans.Assop
 
 /**
  * Generates code from your model files on save.
@@ -87,6 +88,10 @@ class FortXTransGenerator extends AbstractGenerator {
 		*/
 		
 		public class «c.name»{
+			
+			«FOR d:c.decls»
+				«d.compile»
+			«ENDFOR»
 			public static def println[T](x:T){
 				return Console.OUT.println(x);
 			}
@@ -94,11 +99,10 @@ class FortXTransGenerator extends AbstractGenerator {
 			public static def nanoTime(){
 				return System.nanoTime();
 			}
-			
-			
-			«FOR d:c.decls»
-				«d.compile»
-			«ENDFOR»
+			static def min(x:Double, y:Double) = Math.min(x, y);
+			static def min(x:Long, y:Long) = Math.min(x, y);
+			static def max(x:Long, y:Long) = Math.max(x, y);
+			static def max(x:Double, y:Double) = Math.max(x, y); 
 		}
 	'''
 	
@@ -310,8 +314,56 @@ class FortXTransGenerator extends AbstractGenerator {
 		}
 		else if(f.type!==null){
 			var vars = f.idtup.compile.split(",")
-			if(vars.length==1)
-				s = s+"yolo"
+			var vals = f.init.compile.split(",")
+			if(vars.length==1){
+				if(f.pri!==null)
+					s = s+'''private '''
+				if(f.mut===null)
+					s = s+'''static val '''
+				else
+					s = s+'''var '''
+				s = s + vars.get(0)+":"
+				var type = f.type.name
+				if(type=="ZZ32")
+					s=s+'''Int = '''+ vals.get(0) +" as Int;"
+				else if(type=="ZZ64")
+					s=s+'''Long = ''' + vals.get(0) +" as Long;"
+				else if(type=="RR32")
+					s=s+'''Float = ''' + vals.get(0) +" as Float;"
+				else if(type=="RR64")
+					s=s+'''Double = ''' + vals.get(0) +" as Double;"
+				else if(type=="String")
+					s=s+'''String = '''+ vals.get(0) +";"
+				else{
+					s = s+ type + "= " + vals.get(0) +";";	
+				}
+			}
+			else{
+				for(v:0..<vars.length){
+					if(f.pri!==null)
+						s = s+'''private '''
+					if(f.mut===null)
+						s = s+'''static val '''
+					else
+						s = s+'''var '''
+					s = s + vars.get(v)+":"
+					var type = f.type.name
+					if(type=="ZZ32")
+						s=s+'''Int = '''+ vals.get(v) +" as Int;"
+					else if(type=="ZZ64")
+						s=s+'''Long = ''' + vals.get(v) +" as Long;"
+					else if(type=="RR32")
+						s=s+'''Float = ''' + vals.get(v) +" as Float;"
+					else if(type=="RR64")
+						s=s+'''Double = ''' + vals.get(v) +" as Double;"
+					else if(type=="String")
+						s=s+'''String = '''+ vals.get(v) +";"
+					else{
+						s = s+ type + "= " + vals.get(v) +";";	
+					}
+					s = s+"\n"
+				}
+			}
 		}
 		return s
 	}
@@ -431,16 +483,21 @@ class FortXTransGenerator extends AbstractGenerator {
 			MultExpr: s = s+'''(«e.left.compile»*«e.right.compile»)'''
 			ExponentExpr: s = s+'''(Math.pow(«e.left.compile»,«e.right.compile»))'''
 			Not:s=s+"!"+e.expression.compile
-			Paran:s=s+'''(«e.exp.compile»)'''
-			FCall:s=s+'''yolo(«IF e.right!==null»«e.right.exps.compile»«ENDIF»)'''
+			Paran:s=s+'''«e.exp.compile»'''
+			FCall:s=s+'''«e.left.compile»(«IF e.right!==null»«e.right.exps.compile»«ENDIF»)'''
 			LiteralTuple: s= s+e.compile
+			Assop: s = e.compile
 		}
 		return s
 	}
 	
+	def String compile(Assop a)'''some = some'''
+	
 	def compile(ExprList e){
-		var s = "name, name"
-					
+		var s = ""
+		s = s + e.exps.compile
+		for(ex:e.exp)
+			s = s + "," + ex.compile	
 		return s
 	}
    

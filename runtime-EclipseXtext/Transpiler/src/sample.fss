@@ -2,9 +2,10 @@ component testum
 export Executable 
 
 	private var x:ZZ64 = func(20)
-	private var (x:Bool, y:RR64) = (true, 20.0)
+	private var (x:Bool, y:RR64, z:RR64) = (true, 20.0, func(20,20))
+	var (x, y):RR64... = (name, func(20))
 	run():() = do 
-		needleLength:RR64 = 20.0
+		needleLength:RR64 = ((20+20)*20)*20
 //   		numRows:RR64 = 10.0
 //   		tableHeight:RR64 = needleLength*numRows
 //   		var hits : RR64 = 0.0
