@@ -101,8 +101,12 @@ class FortXTransGenerator extends AbstractGenerator {
 			}
 			static def min(x:Double, y:Double) = Math.min(x, y);
 			static def min(x:Long, y:Long) = Math.min(x, y);
+			static def min(x:Int, y:Int) = Math.min(x, y);
+			static def min(x:Float, y:Float) = Math.min(x, y);
 			static def max(x:Long, y:Long) = Math.max(x, y);
-			static def max(x:Double, y:Double) = Math.max(x, y); 
+			static def max(x:Double, y:Double) = Math.max(x, y);
+			static def max(x:Int, y:Int) = Math.min(x, y);
+			static def max(x:Float, y:Float) = Math.min(x, y);
 		}
 	'''
 	
@@ -365,6 +369,9 @@ class FortXTransGenerator extends AbstractGenerator {
 				}
 			}
 		}
+//		else if(f.tuptype!==null){
+//			
+//		}
 		return s
 	}
 	

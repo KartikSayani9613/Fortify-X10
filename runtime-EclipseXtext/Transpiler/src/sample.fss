@@ -3,7 +3,8 @@ export Executable
 
 	private var x:ZZ64 = func(20)
 	private var (x:Bool, y:RR64, z:RR64) = (true, 20.0, func(20,20))
-	var (x, y):RR64... = (name, func(20))
+	(x, y):RR64... = (name, 30+30)
+	(x, y):(RR64, RR32) = (21, 30)
 	run():() = do 
 		needleLength:RR64 = ((20+20)*20)*20
 //   		numRows:RR64 = 10.0
