@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getSingle <em>Single</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getArrsize <em>Arrsize</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getMultiple <em>Multiple</em>}</li>
  * </ul>
  *
@@ -51,6 +52,32 @@ public interface NoNewlineVarWTypes extends EObject
    * @generated
    */
   void setSingle(NoNewlineVarWType value);
+
+  /**
+   * Returns the value of the '<em><b>Arrsize</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Arrsize</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Arrsize</em>' containment reference.
+   * @see #setArrsize(ExprList)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getNoNewlineVarWTypes_Arrsize()
+   * @model containment="true"
+   * @generated
+   */
+  ExprList getArrsize();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getArrsize <em>Arrsize</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Arrsize</em>' containment reference.
+   * @see #getArrsize()
+   * @generated
+   */
+  void setArrsize(ExprList value);
 
   /**
    * Returns the value of the '<em><b>Multiple</b></em>' containment reference list.

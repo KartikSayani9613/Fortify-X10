@@ -12,7 +12,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
@@ -89,7 +88,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * @generated
    * @ordered
    */
-  protected BlockElem block;
+  protected Expr block;
 
   /**
    * The default value of the '{@link #getAwhile() <em>Awhile</em>}' attribute.
@@ -328,7 +327,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public BlockElem getBlock()
+  public Expr getBlock()
   {
     return block;
   }
@@ -338,9 +337,9 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(BlockElem newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(Expr newBlock, NotificationChain msgs)
   {
-    BlockElem oldBlock = block;
+    Expr oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
@@ -355,7 +354,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(BlockElem newBlock)
+  public void setBlock(Expr newBlock)
   {
     if (newBlock != block)
     {
@@ -917,7 +916,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         setRet((String)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
-        setBlock((BlockElem)newValue);
+        setBlock((Expr)newValue);
         return;
       case FortXTransPackage.DELIMITED_EXPR__AWHILE:
         setAwhile((String)newValue);
@@ -973,7 +972,7 @@ public class DelimitedExprImpl extends MinimalEObjectImpl.Container implements D
         setRet(RET_EDEFAULT);
         return;
       case FortXTransPackage.DELIMITED_EXPR__BLOCK:
-        setBlock((BlockElem)null);
+        setBlock((Expr)null);
         return;
       case FortXTransPackage.DELIMITED_EXPR__AWHILE:
         setAwhile(AWHILE_EDEFAULT);

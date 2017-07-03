@@ -69,12 +69,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Decl/function"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Decl/field"/>
     </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//FnMods">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FnMods/mods"/>
-    </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//FnMod">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//FnMod/modtype"/>
-    </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//ValParam">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ValParam/params"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ValParam/brack"/>
@@ -89,6 +83,12 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//TupleType">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//TupleType/types"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//FnMods">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FnMods/mods"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//FnMod">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//FnMod/modtype"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//FnDecl">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FnDecl/mods"/>
@@ -192,6 +192,7 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//NoNewlineVarWTypes">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//NoNewlineVarWTypes/single"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//NoNewlineVarWTypes/arrsize"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//NoNewlineVarWTypes/multiple"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//NoNewlineVarWType">
@@ -259,6 +260,12 @@
     <genClasses ecoreClass="FortXTrans.ecore#//FCall">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FCall/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//FCall/right"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//ArrayInit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/sizes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/filler"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Not/expression"/>

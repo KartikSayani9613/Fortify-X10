@@ -1,0 +1,19 @@
+component fact
+export Executable
+
+	run():() = do
+		
+		var facts:ZZ32[10] = array1[\ZZ32, 10 \](filler)
+	
+		for i<-seq(0#20) do
+			j:ZZ64 = i as ZZ64
+			print("factorial(")
+			print(j)
+			print(")= ")
+			println(fact(j))
+		end
+	end
+	
+	fact(x:ZZ64):ZZ64 = if x<2 then return 1 else return x*fact(x-1) end
+
+end

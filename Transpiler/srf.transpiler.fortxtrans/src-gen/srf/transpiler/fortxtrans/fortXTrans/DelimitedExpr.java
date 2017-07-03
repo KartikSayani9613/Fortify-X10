@@ -97,12 +97,12 @@ public interface DelimitedExpr extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(BlockElem)
+   * @see #setBlock(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExpr_Block()
    * @model containment="true"
    * @generated
    */
-  BlockElem getBlock();
+  Expr getBlock();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr#getBlock <em>Block</em>}' containment reference.
@@ -112,7 +112,7 @@ public interface DelimitedExpr extends EObject
    * @see #getBlock()
    * @generated
    */
-  void setBlock(BlockElem value);
+  void setBlock(Expr value);
 
   /**
    * Returns the value of the '<em><b>Awhile</b></em>' attribute.

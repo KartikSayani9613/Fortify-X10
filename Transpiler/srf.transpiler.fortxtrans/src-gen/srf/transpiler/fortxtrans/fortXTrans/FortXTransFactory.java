@@ -168,24 +168,6 @@ public interface FortXTransFactory extends EFactory
   Decl createDecl();
 
   /**
-   * Returns a new object of class '<em>Fn Mods</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fn Mods</em>'.
-   * @generated
-   */
-  FnMods createFnMods();
-
-  /**
-   * Returns a new object of class '<em>Fn Mod</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Fn Mod</em>'.
-   * @generated
-   */
-  FnMod createFnMod();
-
-  /**
    * Returns a new object of class '<em>Val Param</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -220,6 +202,24 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   TupleType createTupleType();
+
+  /**
+   * Returns a new object of class '<em>Fn Mods</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Mods</em>'.
+   * @generated
+   */
+  FnMods createFnMods();
+
+  /**
+   * Returns a new object of class '<em>Fn Mod</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Fn Mod</em>'.
+   * @generated
+   */
+  FnMod createFnMod();
 
   /**
    * Returns a new object of class '<em>Fn Decl</em>'.
@@ -571,6 +571,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   FCall createFCall();
+
+  /**
+   * Returns a new object of class '<em>Array Init</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Init</em>'.
+   * @generated
+   */
+  ArrayInit createArrayInit();
 
   /**
    * Returns a new object of class '<em>Not</em>'.

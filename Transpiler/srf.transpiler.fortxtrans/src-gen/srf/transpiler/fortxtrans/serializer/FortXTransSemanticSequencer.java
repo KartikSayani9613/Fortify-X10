@@ -20,6 +20,7 @@ import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.And;
+import srf.transpiler.fortxtrans.fortXTrans.ArrayInit;
 import srf.transpiler.fortxtrans.fortXTrans.Assop;
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
@@ -141,6 +142,36 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case FortXTransPackage.ARRAY_INIT:
+				if (rule == grammarAccess.getExprRule()
+						|| rule == grammarAccess.getGenSourceRule()
+						|| action == grammarAccess.getGenSourceAccess().getGenSourceStartAction_1_0()) {
+					sequence_Expr_Primary(context, (ArrayInit) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getOrRule()
+						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
+						|| rule == grammarAccess.getAndRule()
+						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
+						|| rule == grammarAccess.getEqualityRule()
+						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
+						|| rule == grammarAccess.getComparisonRule()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
+						|| rule == grammarAccess.getAddExprRule()
+						|| action == grammarAccess.getAddExprAccess().getAddExprLeftAction_1_0()
+						|| rule == grammarAccess.getSubExprRule()
+						|| action == grammarAccess.getSubExprAccess().getSubExprLeftAction_1_0()
+						|| rule == grammarAccess.getDivExprRule()
+						|| action == grammarAccess.getDivExprAccess().getDivExprLeftAction_1_0()
+						|| rule == grammarAccess.getMultExprRule()
+						|| action == grammarAccess.getMultExprAccess().getMultExprLeftAction_1_0()
+						|| rule == grammarAccess.getExponentExprRule()
+						|| action == grammarAccess.getExponentExprAccess().getExponentExprLeftAction_1_0()
+						|| rule == grammarAccess.getPrimaryRule()) {
+					sequence_Primary(context, (ArrayInit) semanticObject); 
+					return; 
+				}
+				else break;
 			case FortXTransPackage.ASSOP:
 				if (rule == grammarAccess.getExprRule()
 						|| rule == grammarAccess.getGenSourceRule()
@@ -167,7 +198,8 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getExponentExprRule()
 						|| action == grammarAccess.getExponentExprAccess().getExponentExprLeftAction_1_0()
 						|| rule == grammarAccess.getPrimaryRule()
-						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()) {
+						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()) {
 					sequence_Primary(context, (Assop) semanticObject); 
 					return; 
 				}
@@ -209,6 +241,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()
 						|| rule == grammarAccess.getLiteralTupRule()
 						|| rule == grammarAccess.getLiteralRule()) {
@@ -367,7 +400,8 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| action == grammarAccess.getMultExprAccess().getMultExprLeftAction_1_0()
 						|| rule == grammarAccess.getExponentExprRule()
 						|| action == grammarAccess.getExponentExprAccess().getExponentExprLeftAction_1_0()
-						|| rule == grammarAccess.getPrimaryRule()) {
+						|| rule == grammarAccess.getPrimaryRule()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()) {
 					sequence_Primary(context, (FCall) semanticObject); 
 					return; 
 				}
@@ -403,6 +437,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()
 						|| rule == grammarAccess.getLiteralTupRule()
 						|| rule == grammarAccess.getLiteralRule()) {
@@ -462,6 +497,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()
 						|| rule == grammarAccess.getLiteralTupRule()
 						|| rule == grammarAccess.getLiteralRule()) {
@@ -500,6 +536,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()
 						|| rule == grammarAccess.getLiteralTupRule()
 						|| rule == grammarAccess.getLiteralListRule()) {
@@ -679,6 +716,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()) {
 					sequence_QualifiedName(context, (QualifiedName) semanticObject); 
 					return; 
@@ -714,6 +752,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()) {
 					sequence_QualifiedNameTuple(context, (QualifiedNameTuple) semanticObject); 
 					return; 
@@ -765,6 +804,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 						|| rule == grammarAccess.getPrimaryRule()
 						|| action == grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0()
 						|| action == grammarAccess.getPrimaryAccess().getFCallLeftAction_0_2_0()
+						|| action == grammarAccess.getPrimaryAccess().getArrayInitLeftAction_0_3_0()
 						|| rule == grammarAccess.getLiteralTupleRule()
 						|| rule == grammarAccess.getLiteralTupRule()
 						|| rule == grammarAccess.getLiteralRule()) {
@@ -1083,7 +1123,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 * Constraint:
 	 *     (
 	 *         dod=Do | 
-	 *         (ret='return' block=BlockElem) | 
+	 *         (ret='return' block=Expr) | 
 	 *         (awhile='while' expr=Expr whiledod=Do) | 
 	 *         (afor='for' gen=Generators dofront=DoFront) | 
 	 *         (anif='if' cond=Expr blocks=BlockElems elifs=Elifs? els=Else?)
@@ -1445,6 +1485,20 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Expr returns ArrayInit
+	 *     GenSource returns ArrayInit
+	 *     GenSource.GenSource_1_0 returns ArrayInit
+	 *
+	 * Constraint:
+	 *     (left=Primary_ArrayInit_0_3_0 type=SimpleName sizes=ExprList? filler=QualifiedName tail+=ExprTail*)
+	 */
+	protected void sequence_Expr_Primary(ISerializationContext context, ArrayInit semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Expr returns Assop
 	 *     GenSource returns Assop
 	 *     GenSource.GenSource_1_0 returns Assop
@@ -1722,6 +1776,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns LiteralList
 	 *     Primary.Assop_0_1_0 returns LiteralList
 	 *     Primary.FCall_0_2_0 returns LiteralList
+	 *     Primary.ArrayInit_0_3_0 returns LiteralList
 	 *     LiteralTuple returns LiteralList
 	 *     LiteralTup returns LiteralList
 	 *     LiteralList returns LiteralList
@@ -1757,6 +1812,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns BoolConst
 	 *     Primary.Assop_0_1_0 returns BoolConst
 	 *     Primary.FCall_0_2_0 returns BoolConst
+	 *     Primary.ArrayInit_0_3_0 returns BoolConst
 	 *     LiteralTuple returns BoolConst
 	 *     LiteralTup returns BoolConst
 	 *     Literal returns BoolConst
@@ -1792,6 +1848,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns FloatConst
 	 *     Primary.Assop_0_1_0 returns FloatConst
 	 *     Primary.FCall_0_2_0 returns FloatConst
+	 *     Primary.ArrayInit_0_3_0 returns FloatConst
 	 *     LiteralTuple returns FloatConst
 	 *     LiteralTup returns FloatConst
 	 *     Literal returns FloatConst
@@ -1833,6 +1890,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns IntConst
 	 *     Primary.Assop_0_1_0 returns IntConst
 	 *     Primary.FCall_0_2_0 returns IntConst
+	 *     Primary.ArrayInit_0_3_0 returns IntConst
 	 *     LiteralTuple returns IntConst
 	 *     LiteralTup returns IntConst
 	 *     Literal returns IntConst
@@ -1874,6 +1932,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns StrConst
 	 *     Primary.Assop_0_1_0 returns StrConst
 	 *     Primary.FCall_0_2_0 returns StrConst
+	 *     Primary.ArrayInit_0_3_0 returns StrConst
 	 *     LiteralTuple returns StrConst
 	 *     LiteralTup returns StrConst
 	 *     Literal returns StrConst
@@ -1971,7 +2030,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     NoNewlineVarWTypes returns NoNewlineVarWTypes
 	 *
 	 * Constraint:
-	 *     (single=NoNewlineVarWType | (multiple+=NoNewlineVarWType multiple+=NoNewlineVarWType+))
+	 *     ((single=NoNewlineVarWType arrsize=ExprList?) | (multiple+=NoNewlineVarWType multiple+=NoNewlineVarWType+))
 	 */
 	protected void sequence_NoNewlineVarWTypes(ISerializationContext context, NoNewlineVarWTypes semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2023,6 +2082,36 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     Or returns ArrayInit
+	 *     Or.Or_1_0 returns ArrayInit
+	 *     And returns ArrayInit
+	 *     And.And_1_0 returns ArrayInit
+	 *     Equality returns ArrayInit
+	 *     Equality.Equality_1_0 returns ArrayInit
+	 *     Comparison returns ArrayInit
+	 *     Comparison.Comparison_1_0 returns ArrayInit
+	 *     AddExpr returns ArrayInit
+	 *     AddExpr.AddExpr_1_0 returns ArrayInit
+	 *     SubExpr returns ArrayInit
+	 *     SubExpr.SubExpr_1_0 returns ArrayInit
+	 *     DivExpr returns ArrayInit
+	 *     DivExpr.DivExpr_1_0 returns ArrayInit
+	 *     MultExpr returns ArrayInit
+	 *     MultExpr.MultExpr_1_0 returns ArrayInit
+	 *     ExponentExpr returns ArrayInit
+	 *     ExponentExpr.ExponentExpr_1_0 returns ArrayInit
+	 *     Primary returns ArrayInit
+	 *
+	 * Constraint:
+	 *     (left=Primary_ArrayInit_0_3_0 type=SimpleName sizes=ExprList? filler=QualifiedName)
+	 */
+	protected void sequence_Primary(ISerializationContext context, ArrayInit semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Or returns Assop
 	 *     Or.Or_1_0 returns Assop
 	 *     And returns Assop
@@ -2043,6 +2132,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExponentExpr.ExponentExpr_1_0 returns Assop
 	 *     Primary returns Assop
 	 *     Primary.FCall_0_2_0 returns Assop
+	 *     Primary.ArrayInit_0_3_0 returns Assop
 	 *
 	 * Constraint:
 	 *     (left=Primary_Assop_0_1_0 op=':=' right=Expr)
@@ -2085,6 +2175,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExponentExpr returns FCall
 	 *     ExponentExpr.ExponentExpr_1_0 returns FCall
 	 *     Primary returns FCall
+	 *     Primary.ArrayInit_0_3_0 returns FCall
 	 *
 	 * Constraint:
 	 *     (left=Primary_FCall_0_2_0 right=ExprList?)
@@ -2227,6 +2318,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns QualifiedNameTuple
 	 *     Primary.Assop_0_1_0 returns QualifiedNameTuple
 	 *     Primary.FCall_0_2_0 returns QualifiedNameTuple
+	 *     Primary.ArrayInit_0_3_0 returns QualifiedNameTuple
 	 *     LiteralTuple returns QualifiedNameTuple
 	 *
 	 * Constraint:
@@ -2262,6 +2354,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary returns QualifiedName
 	 *     Primary.Assop_0_1_0 returns QualifiedName
 	 *     Primary.FCall_0_2_0 returns QualifiedName
+	 *     Primary.ArrayInit_0_3_0 returns QualifiedName
 	 *     LiteralTuple returns QualifiedName
 	 *
 	 * Constraint:

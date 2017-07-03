@@ -81,12 +81,12 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.ALIASED_API_NAME: return createAliasedAPIName();
       case FortXTransPackage.DECLS: return createDecls();
       case FortXTransPackage.DECL: return createDecl();
-      case FortXTransPackage.FN_MODS: return createFnMods();
-      case FortXTransPackage.FN_MOD: return createFnMod();
       case FortXTransPackage.VAL_PARAM: return createValParam();
       case FortXTransPackage.PARAM: return createParam();
       case FortXTransPackage.RET_TYPE: return createRetType();
       case FortXTransPackage.TUPLE_TYPE: return createTupleType();
+      case FortXTransPackage.FN_MODS: return createFnMods();
+      case FortXTransPackage.FN_MOD: return createFnMod();
       case FortXTransPackage.FN_DECL: return createFnDecl();
       case FortXTransPackage.STMNTS: return createStmnts();
       case FortXTransPackage.STMNT: return createStmnt();
@@ -126,6 +126,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.EXPONENT_EXPR: return createExponentExpr();
       case FortXTransPackage.ASSOP: return createAssop();
       case FortXTransPackage.FCALL: return createFCall();
+      case FortXTransPackage.ARRAY_INIT: return createArrayInit();
       case FortXTransPackage.NOT: return createNot();
       case FortXTransPackage.NEG: return createNeg();
       case FortXTransPackage.PARAN: return createParan();
@@ -319,28 +320,6 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public FnMods createFnMods()
-  {
-    FnModsImpl fnMods = new FnModsImpl();
-    return fnMods;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FnMod createFnMod()
-  {
-    FnModImpl fnMod = new FnModImpl();
-    return fnMod;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public ValParam createValParam()
   {
     ValParamImpl valParam = new ValParamImpl();
@@ -378,6 +357,28 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     TupleTypeImpl tupleType = new TupleTypeImpl();
     return tupleType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnMods createFnMods()
+  {
+    FnModsImpl fnMods = new FnModsImpl();
+    return fnMods;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FnMod createFnMod()
+  {
+    FnModImpl fnMod = new FnModImpl();
+    return fnMod;
   }
 
   /**
@@ -807,6 +808,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     FCallImpl fCall = new FCallImpl();
     return fCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayInit createArrayInit()
+  {
+    ArrayInitImpl arrayInit = new ArrayInitImpl();
+    return arrayInit;
   }
 
   /**

@@ -39,11 +39,11 @@ QualifiedName:
 
 Qualified:
 	QualifiedName
-	|QualifiedNameTuple
+	|'(' QualifiedNameTuple ')'
 ;
 
 QualifiedNameTuple:
-	'('qlist+=QualifiedName (',' qlist+=QualifiedName)* ')'
+	qlist+=QualifiedName (',' qlist+=QualifiedName)* 
 ;
 
 SimpleNames:
@@ -79,17 +79,6 @@ Decl:
 //	|trait=TraitDecl
 ;
 
-FnMods:
-	(mods+=FnMod)+
-;
-
-FnMod:
-	modtype='private'
-	|modtype='test'
-	|modtype='atomic'
-	|modtype='io'
-;
-
 ValParam:
 	params+=Param
 	 |brack='(' (params+=Param (',' params+=Param)*)? ')'
@@ -106,6 +95,17 @@ RetType:
 
 TupleType:
 	'(' types+=SimpleName (',' types+=SimpleName)* ')'
+;
+
+FnMods:
+	(mods+=FnMod)+
+;
+
+FnMod:
+	modtype='private'
+	|modtype='test'
+	|modtype='atomic'
+	|modtype='io'
 ;
 
 FnDecl:
@@ -172,7 +172,8 @@ ExponentExpr returns Expr:
 ;
 
 Primary returns Expr:
-	LiteralTuple ({Assop.left=current}(op=':=' right=Expr))? ({FCall.left=current} '('right= ExprList?')')?
+	LiteralTuple ({Assop.left=current}(op=':=' right=Expr))? ({FCall.left=current} '('right= ExprList?')')? 
+			({ArrayInit.left=current}'[''\\' type=SimpleName ',' sizes = ExprList? '\\'']''('filler=QualifiedName?')')?
 	|{Not} '!' expression=Primary
 	|{Neg} '-' expression=Primary
 	|{Paran}'('exp=ExprList')'
@@ -189,7 +190,7 @@ ExprTail:
 
 DelimitedExpr :
 	dod=Do
-	|ret='return' block=BlockElem
+	|ret='return' block=Expr
 	|awhile='while' expr=Expr  whiledod=Do
 	|afor='for' gen=Generators dofront=DoFront 'end'
 	|anif='if' cond=Expr 'then' blocks=BlockElems (elifs=Elifs)? (els=Else)? 'end'
@@ -256,11 +257,11 @@ FieldDecl:
 ;
 
 NoNewlineVarWTypes:
-	single=NoNewlineVarWType
-	| "(" multiple+=NoNewlineVarWType ( "," multiple+=NoNewlineVarWType)+ ")"
+	single=NoNewlineVarWType ('[' arrsize=ExprList ']')?
+	| "(" multiple+=NoNewlineVarWType  ( "," multiple+=NoNewlineVarWType)+ ")"
 ;
 NoNewlineVarWType:
-	bid=QualifiedName istype=IsType
+	bid=QualifiedName istype=IsType 
 ;
 
 LiteralTuple:
@@ -270,11 +271,11 @@ LiteralTuple:
 
 LiteralTup:
 	Literal
-	|LiteralList
+	|'(' LiteralList ')'
 ;
 
 LiteralList:
-	'(' lit+=Literal (',' lit+=Literal)* ')'
+	 lit+=Literal (',' lit+=Literal)* 
 ;
 
 Literal:

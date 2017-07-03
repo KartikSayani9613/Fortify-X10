@@ -37,7 +37,6 @@ import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr
 import srf.transpiler.fortxtrans.fortXTrans.ExprList
 import srf.transpiler.fortxtrans.fortXTrans.Not
 import srf.transpiler.fortxtrans.fortXTrans.Paran
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList
 import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple
 import srf.transpiler.fortxtrans.fortXTrans.Literal
 import srf.transpiler.fortxtrans.fortXTrans.Qualified
@@ -51,6 +50,14 @@ import srf.transpiler.fortxtrans.fortXTrans.Assop
 import srf.transpiler.fortxtrans.fortXTrans.TupleType
 import srf.transpiler.fortxtrans.fortXTrans.Neg
 import srf.transpiler.fortxtrans.fortXTrans.StmntList
+import srf.transpiler.fortxtrans.fortXTrans.Elifs
+import srf.transpiler.fortxtrans.fortXTrans.Else
+import srf.transpiler.fortxtrans.fortXTrans.Binding
+import srf.transpiler.fortxtrans.fortXTrans.GenSource
+import srf.transpiler.fortxtrans.fortXTrans.Or
+import srf.transpiler.fortxtrans.fortXTrans.And
+import srf.transpiler.fortxtrans.fortXTrans.Equality
+import srf.transpiler.fortxtrans.fortXTrans.Comparison
 
 /**
  * Generates code from your model files on save.
@@ -79,6 +86,7 @@ class FortXTransGenerator extends AbstractGenerator {
 		import x10.array.Array_1;
 		import x10.array.Array_2;
 		import x10.array.Array_3;
+		import x10.util.Random;
 		/*needs to import
 		«FOR i:c.imports»
 			«i.compile»
@@ -95,7 +103,7 @@ class FortXTransGenerator extends AbstractGenerator {
 			«FOR d:c.decls»
 				«d.compile»
 			«ENDFOR»
-			public static def println[T](x:T){Console.OUT.println(x);}
+			public static def println[T](x:T){Console.OUT.println("\n"+x);}
 			static def print[T](x:T){Console.OUT.print(x);}
 			public static def nanoTime() = System.nanoTime();
 			static def min(x:Double, y:Double) = Math.min(x, y);
@@ -104,10 +112,10 @@ class FortXTransGenerator extends AbstractGenerator {
 			static def min(x:Float, y:Float) = Math.min(x, y);
 			static def max(x:Long, y:Long) = Math.max(x, y);
 			static def max(x:Double, y:Double) = Math.max(x, y);
-			static def max(x:Int, y:Int) = Math.min(x, y);
-			static def max(x:Float, y:Float) = Math.min(x, y);
+			static def max(x:Int, y:Int) = Math.max(x, y);
+			static def max(x:Float, y:Float) = Math.max(x, y);
 			static def random(x:Double){
-				var r = new Random();
+				var r:Random = new Random();
 				return x*r.nextDouble()-1.0d;
 			}
 			static def sqrt(x:Double) = Math.sqrt(x);
@@ -116,7 +124,7 @@ class FortXTransGenerator extends AbstractGenerator {
 	
 	def compile(Import i)'''
 		«IF i.api===null»
-			«i.imps» «i.importedNames.impname
+			«i.imps» «i.importedNames.impname.compile
 			»«IF i.importedNames.asname!==null
 				»as «i.importedNames.asname
 			»«ELSE
@@ -211,7 +219,7 @@ class FortXTransGenerator extends AbstractGenerator {
 			s=s+q.dots
 		return s
 	}
-	
+
 	def compile(ValParam p)
 	'''«IF p.params.length==0
 		»«
@@ -443,58 +451,181 @@ class FortXTransGenerator extends AbstractGenerator {
 		return s
 	}
 	
-	def compile(FnDecl f)'''
-	//FnDecl
-	«IF f.body»
-	«f.fnItself.compile»
-	«ENDIF»'''
+	def compile(FnDecl f){
+		var s = ""
+		if(f.name=="run")
+			s = s + '''public static def main(args:Rail[String])'''
+		else{
+			if(f.mods!==null)
+				for(m:f.mods.mods)
+					s = s + m.modtype +" ";
+			s = s + '''static def ''' + f.name + '''('''
+			if(f.params!==null)
+				s = s + f.params.compile
+			 s = s + ''')'''
+			 if(f.retVal!==null)
+			 	if(f.retVal.empty=='(')
+			 		s = s + ''':void'''
+			 	else if (f.retVal.type.name=="ZZ32")
+			 		s = s + ''':Int'''
+			 	else if (f.retVal.type.name=="ZZ64")
+			 		s = s + ''':Long'''
+			 	else if (f.retVal.type.name=="RR32")
+			 		s = s + ''':Float'''
+			 	else if (f.retVal.type.name=="RR64")
+			 		s = s + ''':Double'''
+			 	else
+			 		s =s + f.retVal.type.name
+		}
+		if(f.body)
+			s = s + '''{'''+ "\n\t" + f.fnItself.compile + "\n"+'''}'''
+	}
 	
-	def String compile(Stmnts st)'''
-	//Statements
-	«IF st.front!==null»«st.front.compile»«
-	ELSE»«IF st.delims!==null»«st.delims.compile»«ELSE»«IF st.locVar!==null»«st.locVar.compile»«
-	ELSE»
-	«IF st.exp!==null»«st.exp.compile
-	»«ENDIF»
-	«ENDIF»«ENDIF»«ENDIF»
-	'''
+	def String compile(Stmnts st){
+	
+	if(st.front!==null)
+		return st.front.compile
+	else if(st.delims!==null)
+		return st.delims.compile
+	else if (st.locVar!==null)
+		return st.locVar.compile
+	else
+		switch(st.exp){
+			Assop: return st.exp.compile
+			default: return st.exp.compile+";"
+		}
+	}
 	
 	def compile(Stmnt s){
 		if(s.delim!==null)
 			return s.delim.compile
 	}
 	
-	def compile(StmntList d){
-		var s = "{"
+	def String compile(StmntList d){
+		var s = "finish{"
 		for(dd:d.delim)
-			s=s+'''
+			s=s+'''async{
 					«dd.compile»
-				'''		
+				}'''		
 		s = s+"}"
 		return s
 	}
 	
-	def compile(DelimitedExpr d)'''
-	//DelimExpr«d.dod.compile»
-	'''
+	def String compile(DelimitedExpr d){
 	
-	def compile(Do d)'''
-	//Do«d.dofs.get(0).compile»
-	'''
+		if(d.dod!==null)
+			return d.dod.compile+"\n"
+		else if(d.ret!==null)
+			return "return " + d.block.compile+";\n"
+		else if(d.awhile!==null)
+			return '''while('''+d.expr.compile+''')'''+'''{'''+"\n"+d.whiledod.compile + "\n"+'''}'''+"\n"
+		else if(d.afor!==null){
+			var s = ""
+			if(d.gen.binding.seq===null)
+				s = s + '''finish '''
+			s = s+'''for('''+d.gen.binding.compile+''' in '''+d.gen.binding.g.compile+''')'''
+			if(d.gen.binding.seq===null)
+				s = s + ''' async{'''+"\n\t"
+			else
+				s = s +'''{'''+"\n\t"
+			if(d.gen.clause!==null){
+				for(c:d.gen.clause){
+					s = s + '''{'''+"\n"
+					if(c.binding.seq===null)
+						s = s + "\t"+'''finish '''
+					s = s + '''for('''+c.binding.compile+'''in'''+c.binding.g.compile+''')'''
+					if(c.binding.seq===null)
+						s = s + ''' async{'''+"\n\t"
+					else
+						s = s +'''{'''+"\n\t"
+				}
+				s = s + d.dofront.compile
+				for(c:d.gen.clause)
+					s = s + "\n\t"+'''}'''
+			}
+			else
+				s = s + d.dofront.compile
+			s = s + "\n\t"+'''}'''+"\n"
+			return s
+		}
+		else if(d.anif!==null){
+			var s= '''if('''+d.cond.compile+''')'''+'''{'''+"\n"+d.blocks.compile + "\n"+'''}'''+"\n"
+			if(d.elifs!==null)
+				s = s + d.elifs.compile
+			if(d.els!==null)
+				s = s + d.els.compile 
+			return s
+		}
+			
+	}
 	
-	def compile(DoFront df)'''
-	//DoFront«df.block.compile»
-	'''
+	def compile(GenSource g){
+		switch(g){
+			Expr: return g.compile
+			GenSource: return g.start.compile+'''..'''+g.end.compile
+		}
+	}
+	
+	def compile(Binding b){
+		switch(b.idtup){
+			QualifiedName: return b.idtup.compile
+			QualifiedNameTuple: return "["+b.idtup.compile+"]"
+		}
+	}
+	
+	def compile(Elifs el){
+		var s = ""
+		for(e:el.e)
+			s = s + '''else if('''+e.expr.compile+''')'''+'''{'''+"\n"+e.block.compile + "\n"+'''}'''
+		return s
+	}
+	
+	def compile(Else e){
+		var s = '''else{'''+"\n"
+		s = s +e.block.compile + '''}'''+"\n"
+	}
+	
+	def compile(Do dobox){
+		var s = ""
+		if(dobox.dofs.length==1)
+			s = s + dobox.dofs.get(0).compile
+		else{
+			s = s + '''finish{
+				'''
+			for(d:dobox.dofs)
+				s = s + '''
+				async{
+					«d.compile»
+				}
+				'''
+			s = s + '''
+			}'''	
+		}
+		return s
+	}
+	
+	def compile(DoFront dof){
+		var s = ""
+		if(dof.at)
+			s = s + '''at(«dof.exp.compile») '''
+		if(dof.atom)
+			s = s + '''
+			atomic{
+				«dof.block.compile»
+			}'''
+		else
+			s = s + dof.block.compile
+		return s
+	}
 	
 	def compile(BlockElems bs)'''
-	//BlockElems
 	«FOR b:bs.block»
 	«b.compile»
 	«ENDFOR»
 	'''
 	
 	def compile (BlockElem b)'''
-	//BlockElem«b.st.compile»
+	«b.st.compile»
 	'''
 	
 	def String compile(LocalVarDecl f){
@@ -605,7 +736,7 @@ class FortXTransGenerator extends AbstractGenerator {
 			var vals = f.init.compile.split("@")
 			for(k:0..<vars.length){
 				s = s + '''val '''
-				s = s + vars.get(k) + ''' = ''' + vals.get(k)
+				s = s + vars.get(k) + ''' = ''' + vals.get(k)+";\n"
 			}
 		}
 		return s
@@ -614,6 +745,28 @@ class FortXTransGenerator extends AbstractGenerator {
 	def String compile(Expr e){
 		var s = ""
 		switch(e){
+			Or: s = s + '''(«e.left.compile»||«e.right.compile»)'''
+			And: s = s + '''(«e.left.compile»&&«e.right.compile»)'''
+			Equality:	{
+							s = s + '''(«e.left.compile»'''
+							if(e.op=="===" || e.op=="EQ")
+								s = s + ''' == '''
+							else
+								s = s + ''' != '''
+							s = s + '''«e.right.compile»)'''
+						}
+			Comparison:	{
+							s = s + '''(«e.left.compile»'''
+							if(e.op==">=" || e.op=="GE")
+								s = s + ''' >= '''
+							else if(e.op=="<="||e.op=="LT")
+								s = s + ''' <= '''
+							else if(e.op=="<"||e.op=="LT")
+								s = s + ''' < '''
+							else if(e.op==">"||e.op=="GT")
+								s = s + ''' > '''
+							s = s + '''«e.right.compile»)'''
+						}
 			AddExpr: s = s+'''(«e.left.compile»+«e.right.compile»)'''
 			SubExpr: s = s+'''(«e.left.compile»-«e.right.compile»)'''
 			DivExpr: s = s+'''(«e.left.compile»/«e.right.compile»)'''
@@ -626,6 +779,21 @@ class FortXTransGenerator extends AbstractGenerator {
 			LiteralTuple: s= s+e.compile
 			Assop: s = e.compile
 		}
+		if(e.tail!==null)
+			for(t:e.tail){
+				s = s + ''' as '''
+				var tp = t.type.name
+				if(tp=="ZZ32")
+					s = s + '''Int'''
+				else if(tp=="ZZ64")
+					s = s + '''Long'''
+				else if(tp=="RR32")
+					s = s + '''Float'''
+				else if(tp=="RR64")
+					s = s + '''Double'''
+				else
+					s = s + tp
+			}
 		return s
 	}
 	
@@ -634,12 +802,12 @@ class FortXTransGenerator extends AbstractGenerator {
 		var lefts = a.left.compile.split(",")
 		var rights = a.right.compile.split('@')
 		if(lefts.length==1)
-			s = s + lefts.get(0)+ ''' = ''' + rights.get(0) + "\n"
+			s = s + lefts.get(0)+ ''' = ''' + rights.get(0) + ";\n"
 		else{
 			s = s + '''finish {
 				'''
 			for(k:0..<lefts.length)
-				s = s + '''async{ ''' + lefts.get(k)+ ''' = ''' + rights.get(k) + '''}''' + "\n"
+				s = s + '''async{ ''' + lefts.get(k)+ ''' = ''' + rights.get(k) + '''}''' + ";\n"
 			s = s + '''}'''+"\n"
 		}
 		

@@ -82,13 +82,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="field" eType="#//FieldDecl"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FnMods">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="mods" upperBound="-1" eType="#//FnMod"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="FnMod">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modtype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ValParam">
     <eStructuralFeatures xsi:type="ecore:EReference" name="params" upperBound="-1"
         eType="#//Param" containment="true"/>
@@ -108,6 +101,13 @@
   <eClassifiers xsi:type="ecore:EClass" name="TupleType">
     <eStructuralFeatures xsi:type="ecore:EReference" name="types" upperBound="-1"
         eType="#//SimpleName" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FnMods">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mods" upperBound="-1" eType="#//FnMod"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FnMod">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modtype" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FnDecl">
     <eStructuralFeatures xsi:type="ecore:EReference" name="mods" eType="#//FnMods"
@@ -154,7 +154,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="DelimitedExpr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="dod" eType="#//Do" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ret" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//BlockElem"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//Expr"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="awhile" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="expr" eType="#//Expr" containment="true"/>
@@ -247,6 +247,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="NoNewlineVarWTypes">
     <eStructuralFeatures xsi:type="ecore:EReference" name="single" eType="#//NoNewlineVarWType"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrsize" eType="#//ExprList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="multiple" upperBound="-1"
         eType="#//NoNewlineVarWType" containment="true"/>
   </eClassifiers>
@@ -333,6 +335,15 @@
   <eClassifiers xsi:type="ecore:EClass" name="FCall" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//ExprList"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayInit" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//SimpleName"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sizes" eType="#//ExprList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filler" eType="#//QualifiedName"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Expr">

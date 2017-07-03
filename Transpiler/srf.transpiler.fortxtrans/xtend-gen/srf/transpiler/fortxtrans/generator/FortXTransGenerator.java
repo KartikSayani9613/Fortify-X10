@@ -19,10 +19,13 @@ import org.eclipse.xtext.xbase.lib.ExclusiveRange;
 import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import srf.transpiler.fortxtrans.fortXTrans.AddExpr;
+import srf.transpiler.fortxtrans.fortXTrans.And;
 import srf.transpiler.fortxtrans.fortXTrans.Assop;
+import srf.transpiler.fortxtrans.fortXTrans.Binding;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElems;
 import srf.transpiler.fortxtrans.fortXTrans.BoolConst;
+import srf.transpiler.fortxtrans.fortXTrans.Comparison;
 import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
 import srf.transpiler.fortxtrans.fortXTrans.Decls;
@@ -30,14 +33,23 @@ import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
 import srf.transpiler.fortxtrans.fortXTrans.DivExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
+import srf.transpiler.fortxtrans.fortXTrans.Elif;
+import srf.transpiler.fortxtrans.fortXTrans.Elifs;
+import srf.transpiler.fortxtrans.fortXTrans.Else;
+import srf.transpiler.fortxtrans.fortXTrans.Equality;
 import srf.transpiler.fortxtrans.fortXTrans.ExponentExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Export;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprList;
+import srf.transpiler.fortxtrans.fortXTrans.ExprTail;
 import srf.transpiler.fortxtrans.fortXTrans.FCall;
 import srf.transpiler.fortxtrans.fortXTrans.FieldDecl;
 import srf.transpiler.fortxtrans.fortXTrans.FloatConst;
 import srf.transpiler.fortxtrans.fortXTrans.FnDecl;
+import srf.transpiler.fortxtrans.fortXTrans.FnMod;
+import srf.transpiler.fortxtrans.fortXTrans.FnMods;
+import srf.transpiler.fortxtrans.fortXTrans.GenClause;
+import srf.transpiler.fortxtrans.fortXTrans.GenSource;
 import srf.transpiler.fortxtrans.fortXTrans.Import;
 import srf.transpiler.fortxtrans.fortXTrans.IntConst;
 import srf.transpiler.fortxtrans.fortXTrans.Literal;
@@ -50,11 +62,13 @@ import srf.transpiler.fortxtrans.fortXTrans.Neg;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
 import srf.transpiler.fortxtrans.fortXTrans.Not;
+import srf.transpiler.fortxtrans.fortXTrans.Or;
 import srf.transpiler.fortxtrans.fortXTrans.Param;
 import srf.transpiler.fortxtrans.fortXTrans.Paran;
 import srf.transpiler.fortxtrans.fortXTrans.Qualified;
 import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
 import srf.transpiler.fortxtrans.fortXTrans.QualifiedNameTuple;
+import srf.transpiler.fortxtrans.fortXTrans.RetType;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
 import srf.transpiler.fortxtrans.fortXTrans.StmntList;
@@ -104,6 +118,8 @@ public class FortXTransGenerator extends AbstractGenerator {
     _builder.newLine();
     _builder.append("import x10.array.Array_3;");
     _builder.newLine();
+    _builder.append("import x10.util.Random;");
+    _builder.newLine();
     _builder.append("/*needs to import");
     _builder.newLine();
     {
@@ -146,7 +162,7 @@ public class FortXTransGenerator extends AbstractGenerator {
       }
     }
     _builder.append("\t");
-    _builder.append("public static def println[T](x:T){Console.OUT.println(x);}");
+    _builder.append("public static def println[T](x:T){Console.OUT.println(\"\\n\"+x);}");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("static def print[T](x:T){Console.OUT.print(x);}");
@@ -173,16 +189,16 @@ public class FortXTransGenerator extends AbstractGenerator {
     _builder.append("static def max(x:Double, y:Double) = Math.max(x, y);");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("static def max(x:Int, y:Int) = Math.min(x, y);");
+    _builder.append("static def max(x:Int, y:Int) = Math.max(x, y);");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("static def max(x:Float, y:Float) = Math.min(x, y);");
+    _builder.append("static def max(x:Float, y:Float) = Math.max(x, y);");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("static def random(x:Double){");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("var r = new Random();");
+    _builder.append("var r:Random = new Random();");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return x*r.nextDouble()-1.0d;");
@@ -207,8 +223,8 @@ public class FortXTransGenerator extends AbstractGenerator {
         String _imps = i.getImps();
         _builder.append(_imps);
         _builder.append(" ");
-        QualifiedName _impname = i.getImportedNames().getImpname();
-        _builder.append(_impname);
+        String _compile = this.compile(i.getImportedNames().getImpname());
+        _builder.append(_compile);
         {
           String _asname = i.getImportedNames().getAsname();
           boolean _tripleNotEquals = (_asname != null);
@@ -520,7 +536,7 @@ public class FortXTransGenerator extends AbstractGenerator {
       FnDecl _function = d.getFunction();
       boolean _tripleNotEquals = (_function != null);
       if (_tripleNotEquals) {
-        CharSequence _compile = this.compile(d.getFunction());
+        String _compile = this.compile(d.getFunction());
         _builder.append(_compile);
         _builder.newLineIfNotEmpty();
       } else {
@@ -1080,66 +1096,152 @@ public class FortXTransGenerator extends AbstractGenerator {
     return s;
   }
   
-  public CharSequence compile(final FnDecl f) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//FnDecl");
-    _builder.newLine();
+  public String compile(final FnDecl f) {
+    String _xblockexpression = null;
     {
-      boolean _isBody = f.isBody();
-      if (_isBody) {
-        String _compile = this.compile(f.getFnItself());
-        _builder.append(_compile);
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    return _builder;
-  }
-  
-  public String compile(final Stmnts st) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//Statements");
-    _builder.newLine();
-    {
-      Stmnt _front = st.getFront();
-      boolean _tripleNotEquals = (_front != null);
-      if (_tripleNotEquals) {
-        CharSequence _compile = this.compile(st.getFront());
-        _builder.append(_compile);
+      String s = "";
+      String _name = f.getName();
+      boolean _equals = Objects.equal(_name, "run");
+      if (_equals) {
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("public static def main(args:Rail[String])");
+        String _plus = (s + _builder);
+        s = _plus;
       } else {
-        {
-          StmntList _delims = st.getDelims();
-          boolean _tripleNotEquals_1 = (_delims != null);
-          if (_tripleNotEquals_1) {
-            String _compile_1 = this.compile(st.getDelims());
-            _builder.append(_compile_1);
+        FnMods _mods = f.getMods();
+        boolean _tripleNotEquals = (_mods != null);
+        if (_tripleNotEquals) {
+          EList<FnMod> _mods_1 = f.getMods().getMods();
+          for (final FnMod m : _mods_1) {
+            String _modtype = m.getModtype();
+            String _plus_1 = (s + _modtype);
+            String _plus_2 = (_plus_1 + " ");
+            s = _plus_2;
+          }
+        }
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("static def ");
+        String _plus_3 = (s + _builder_1);
+        String _name_1 = f.getName();
+        String _plus_4 = (_plus_3 + _name_1);
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("(");
+        String _plus_5 = (_plus_4 + _builder_2);
+        s = _plus_5;
+        ValParam _params = f.getParams();
+        boolean _tripleNotEquals_1 = (_params != null);
+        if (_tripleNotEquals_1) {
+          CharSequence _compile = this.compile(f.getParams());
+          String _plus_6 = (s + _compile);
+          s = _plus_6;
+        }
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append(")");
+        String _plus_7 = (s + _builder_3);
+        s = _plus_7;
+        RetType _retVal = f.getRetVal();
+        boolean _tripleNotEquals_2 = (_retVal != null);
+        if (_tripleNotEquals_2) {
+          String _empty = f.getRetVal().getEmpty();
+          boolean _equals_1 = Objects.equal(_empty, "(");
+          if (_equals_1) {
+            StringConcatenation _builder_4 = new StringConcatenation();
+            _builder_4.append(":void");
+            String _plus_8 = (s + _builder_4);
+            s = _plus_8;
           } else {
-            {
-              LocalVarDecl _locVar = st.getLocVar();
-              boolean _tripleNotEquals_2 = (_locVar != null);
-              if (_tripleNotEquals_2) {
-                String _compile_2 = this.compile(st.getLocVar());
-                _builder.append(_compile_2);
+            String _name_2 = f.getRetVal().getType().getName();
+            boolean _equals_2 = Objects.equal(_name_2, "ZZ32");
+            if (_equals_2) {
+              StringConcatenation _builder_5 = new StringConcatenation();
+              _builder_5.append(":Int");
+              String _plus_9 = (s + _builder_5);
+              s = _plus_9;
+            } else {
+              String _name_3 = f.getRetVal().getType().getName();
+              boolean _equals_3 = Objects.equal(_name_3, "ZZ64");
+              if (_equals_3) {
+                StringConcatenation _builder_6 = new StringConcatenation();
+                _builder_6.append(":Long");
+                String _plus_10 = (s + _builder_6);
+                s = _plus_10;
               } else {
-                _builder.newLineIfNotEmpty();
-                {
-                  Expr _exp = st.getExp();
-                  boolean _tripleNotEquals_3 = (_exp != null);
-                  if (_tripleNotEquals_3) {
-                    String _compile_3 = this.compile(st.getExp());
-                    _builder.append(_compile_3);
+                String _name_4 = f.getRetVal().getType().getName();
+                boolean _equals_4 = Objects.equal(_name_4, "RR32");
+                if (_equals_4) {
+                  StringConcatenation _builder_7 = new StringConcatenation();
+                  _builder_7.append(":Float");
+                  String _plus_11 = (s + _builder_7);
+                  s = _plus_11;
+                } else {
+                  String _name_5 = f.getRetVal().getType().getName();
+                  boolean _equals_5 = Objects.equal(_name_5, "RR64");
+                  if (_equals_5) {
+                    StringConcatenation _builder_8 = new StringConcatenation();
+                    _builder_8.append(":Double");
+                    String _plus_12 = (s + _builder_8);
+                    s = _plus_12;
+                  } else {
+                    String _name_6 = f.getRetVal().getType().getName();
+                    String _plus_13 = (s + _name_6);
+                    s = _plus_13;
                   }
                 }
-                _builder.newLineIfNotEmpty();
               }
             }
           }
         }
       }
+      String _xifexpression = null;
+      boolean _isBody = f.isBody();
+      if (_isBody) {
+        StringConcatenation _builder_9 = new StringConcatenation();
+        _builder_9.append("{");
+        String _plus_14 = (s + _builder_9);
+        String _plus_15 = (_plus_14 + "\n\t");
+        String _compile_1 = this.compile(f.getFnItself());
+        String _plus_16 = (_plus_15 + _compile_1);
+        String _plus_17 = (_plus_16 + "\n");
+        StringConcatenation _builder_10 = new StringConcatenation();
+        _builder_10.append("}");
+        String _plus_18 = (_plus_17 + _builder_10);
+        _xifexpression = s = _plus_18;
+      }
+      _xblockexpression = _xifexpression;
     }
-    return _builder.toString();
+    return _xblockexpression;
   }
   
-  public CharSequence compile(final Stmnt s) {
+  public String compile(final Stmnts st) {
+    Stmnt _front = st.getFront();
+    boolean _tripleNotEquals = (_front != null);
+    if (_tripleNotEquals) {
+      return this.compile(st.getFront());
+    } else {
+      StmntList _delims = st.getDelims();
+      boolean _tripleNotEquals_1 = (_delims != null);
+      if (_tripleNotEquals_1) {
+        return this.compile(st.getDelims());
+      } else {
+        LocalVarDecl _locVar = st.getLocVar();
+        boolean _tripleNotEquals_2 = (_locVar != null);
+        if (_tripleNotEquals_2) {
+          return this.compile(st.getLocVar());
+        } else {
+          Expr _exp = st.getExp();
+          boolean _matched = false;
+          if (_exp instanceof Assop) {
+            _matched=true;
+            return this.compile(st.getExp());
+          }
+          String _compile = this.compile(st.getExp());
+          return (_compile + ";");
+        }
+      }
+    }
+  }
+  
+  public String compile(final Stmnt s) {
     DelimitedExpr _delim = s.getDelim();
     boolean _tripleNotEquals = (_delim != null);
     if (_tripleNotEquals) {
@@ -1149,13 +1251,18 @@ public class FortXTransGenerator extends AbstractGenerator {
   }
   
   public String compile(final StmntList d) {
-    String s = "{";
+    String s = "finish{";
     EList<Stmnt> _delim = d.getDelim();
     for (final Stmnt dd : _delim) {
       StringConcatenation _builder = new StringConcatenation();
-      CharSequence _compile = this.compile(dd);
-      _builder.append(_compile);
+      _builder.append("async{");
+      _builder.newLine();
+      _builder.append("\t\t\t\t\t");
+      String _compile = this.compile(dd);
+      _builder.append(_compile, "\t\t\t\t\t");
       _builder.newLineIfNotEmpty();
+      _builder.append("\t\t\t\t");
+      _builder.append("}");
       String _plus = (s + _builder);
       s = _plus;
     }
@@ -1163,37 +1270,354 @@ public class FortXTransGenerator extends AbstractGenerator {
     return s;
   }
   
-  public CharSequence compile(final DelimitedExpr d) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//DelimExpr");
-    CharSequence _compile = this.compile(d.getDod());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public String compile(final DelimitedExpr d) {
+    Do _dod = d.getDod();
+    boolean _tripleNotEquals = (_dod != null);
+    if (_tripleNotEquals) {
+      String _compile = this.compile(d.getDod());
+      return (_compile + "\n");
+    } else {
+      String _ret = d.getRet();
+      boolean _tripleNotEquals_1 = (_ret != null);
+      if (_tripleNotEquals_1) {
+        String _compile_1 = this.compile(d.getBlock());
+        String _plus = ("return " + _compile_1);
+        return (_plus + ";\n");
+      } else {
+        String _awhile = d.getAwhile();
+        boolean _tripleNotEquals_2 = (_awhile != null);
+        if (_tripleNotEquals_2) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("while(");
+          String _compile_2 = this.compile(d.getExpr());
+          String _plus_1 = (_builder.toString() + _compile_2);
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(")");
+          String _plus_2 = (_plus_1 + _builder_1);
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append("{");
+          String _plus_3 = (_plus_2 + _builder_2);
+          String _plus_4 = (_plus_3 + "\n");
+          String _compile_3 = this.compile(d.getWhiledod());
+          String _plus_5 = (_plus_4 + _compile_3);
+          String _plus_6 = (_plus_5 + "\n");
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append("}");
+          String _plus_7 = (_plus_6 + _builder_3);
+          return (_plus_7 + "\n");
+        } else {
+          String _afor = d.getAfor();
+          boolean _tripleNotEquals_3 = (_afor != null);
+          if (_tripleNotEquals_3) {
+            String s = "";
+            String _seq = d.getGen().getBinding().getSeq();
+            boolean _tripleEquals = (_seq == null);
+            if (_tripleEquals) {
+              StringConcatenation _builder_4 = new StringConcatenation();
+              _builder_4.append("finish ");
+              String _plus_8 = (s + _builder_4);
+              s = _plus_8;
+            }
+            StringConcatenation _builder_5 = new StringConcatenation();
+            _builder_5.append("for(");
+            String _plus_9 = (s + _builder_5);
+            String _compile_4 = this.compile(d.getGen().getBinding());
+            String _plus_10 = (_plus_9 + _compile_4);
+            StringConcatenation _builder_6 = new StringConcatenation();
+            _builder_6.append(" ");
+            _builder_6.append("in ");
+            String _plus_11 = (_plus_10 + _builder_6);
+            String _compile_5 = this.compile(d.getGen().getBinding().getG());
+            String _plus_12 = (_plus_11 + _compile_5);
+            StringConcatenation _builder_7 = new StringConcatenation();
+            _builder_7.append(")");
+            String _plus_13 = (_plus_12 + _builder_7);
+            s = _plus_13;
+            String _seq_1 = d.getGen().getBinding().getSeq();
+            boolean _tripleEquals_1 = (_seq_1 == null);
+            if (_tripleEquals_1) {
+              StringConcatenation _builder_8 = new StringConcatenation();
+              _builder_8.append(" ");
+              _builder_8.append("async{");
+              String _plus_14 = (s + _builder_8);
+              String _plus_15 = (_plus_14 + "\n\t");
+              s = _plus_15;
+            } else {
+              StringConcatenation _builder_9 = new StringConcatenation();
+              _builder_9.append("{");
+              String _plus_16 = (s + _builder_9);
+              String _plus_17 = (_plus_16 + "\n\t");
+              s = _plus_17;
+            }
+            EList<GenClause> _clause = d.getGen().getClause();
+            boolean _tripleNotEquals_4 = (_clause != null);
+            if (_tripleNotEquals_4) {
+              EList<GenClause> _clause_1 = d.getGen().getClause();
+              for (final GenClause c : _clause_1) {
+                {
+                  StringConcatenation _builder_10 = new StringConcatenation();
+                  _builder_10.append("{");
+                  String _plus_18 = (s + _builder_10);
+                  String _plus_19 = (_plus_18 + "\n");
+                  s = _plus_19;
+                  String _seq_2 = c.getBinding().getSeq();
+                  boolean _tripleEquals_2 = (_seq_2 == null);
+                  if (_tripleEquals_2) {
+                    StringConcatenation _builder_11 = new StringConcatenation();
+                    _builder_11.append("finish ");
+                    String _plus_20 = ((s + "\t") + _builder_11);
+                    s = _plus_20;
+                  }
+                  StringConcatenation _builder_12 = new StringConcatenation();
+                  _builder_12.append("for(");
+                  String _plus_21 = (s + _builder_12);
+                  String _compile_6 = this.compile(c.getBinding());
+                  String _plus_22 = (_plus_21 + _compile_6);
+                  StringConcatenation _builder_13 = new StringConcatenation();
+                  _builder_13.append("in");
+                  String _plus_23 = (_plus_22 + _builder_13);
+                  String _compile_7 = this.compile(c.getBinding().getG());
+                  String _plus_24 = (_plus_23 + _compile_7);
+                  StringConcatenation _builder_14 = new StringConcatenation();
+                  _builder_14.append(")");
+                  String _plus_25 = (_plus_24 + _builder_14);
+                  s = _plus_25;
+                  String _seq_3 = c.getBinding().getSeq();
+                  boolean _tripleEquals_3 = (_seq_3 == null);
+                  if (_tripleEquals_3) {
+                    StringConcatenation _builder_15 = new StringConcatenation();
+                    _builder_15.append(" ");
+                    _builder_15.append("async{");
+                    String _plus_26 = (s + _builder_15);
+                    String _plus_27 = (_plus_26 + "\n\t");
+                    s = _plus_27;
+                  } else {
+                    StringConcatenation _builder_16 = new StringConcatenation();
+                    _builder_16.append("{");
+                    String _plus_28 = (s + _builder_16);
+                    String _plus_29 = (_plus_28 + "\n\t");
+                    s = _plus_29;
+                  }
+                }
+              }
+              String _compile_6 = this.compile(d.getDofront());
+              String _plus_18 = (s + _compile_6);
+              s = _plus_18;
+              EList<GenClause> _clause_2 = d.getGen().getClause();
+              for (final GenClause c_1 : _clause_2) {
+                StringConcatenation _builder_10 = new StringConcatenation();
+                _builder_10.append("}");
+                String _plus_19 = ((s + "\n\t") + _builder_10);
+                s = _plus_19;
+              }
+            } else {
+              String _compile_7 = this.compile(d.getDofront());
+              String _plus_20 = (s + _compile_7);
+              s = _plus_20;
+            }
+            StringConcatenation _builder_11 = new StringConcatenation();
+            _builder_11.append("}");
+            String _plus_21 = ((s + "\n\t") + _builder_11);
+            String _plus_22 = (_plus_21 + "\n");
+            s = _plus_22;
+            return s;
+          } else {
+            String _anif = d.getAnif();
+            boolean _tripleNotEquals_5 = (_anif != null);
+            if (_tripleNotEquals_5) {
+              StringConcatenation _builder_12 = new StringConcatenation();
+              _builder_12.append("if(");
+              String _compile_8 = this.compile(d.getCond());
+              String _plus_23 = (_builder_12.toString() + _compile_8);
+              StringConcatenation _builder_13 = new StringConcatenation();
+              _builder_13.append(")");
+              String _plus_24 = (_plus_23 + _builder_13);
+              StringConcatenation _builder_14 = new StringConcatenation();
+              _builder_14.append("{");
+              String _plus_25 = (_plus_24 + _builder_14);
+              String _plus_26 = (_plus_25 + "\n");
+              CharSequence _compile_9 = this.compile(d.getBlocks());
+              String _plus_27 = (_plus_26 + _compile_9);
+              String _plus_28 = (_plus_27 + "\n");
+              StringConcatenation _builder_15 = new StringConcatenation();
+              _builder_15.append("}");
+              String _plus_29 = (_plus_28 + _builder_15);
+              String s_1 = (_plus_29 + "\n");
+              Elifs _elifs = d.getElifs();
+              boolean _tripleNotEquals_6 = (_elifs != null);
+              if (_tripleNotEquals_6) {
+                String _compile_10 = this.compile(d.getElifs());
+                String _plus_30 = (s_1 + _compile_10);
+                s_1 = _plus_30;
+              }
+              Else _els = d.getEls();
+              boolean _tripleNotEquals_7 = (_els != null);
+              if (_tripleNotEquals_7) {
+                String _compile_11 = this.compile(d.getEls());
+                String _plus_31 = (s_1 + _compile_11);
+                s_1 = _plus_31;
+              }
+              return s_1;
+            }
+          }
+        }
+      }
+    }
+    return null;
   }
   
-  public CharSequence compile(final Do d) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//Do");
-    CharSequence _compile = this.compile(d.getDofs().get(0));
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public String compile(final GenSource g) {
+    boolean _matched = false;
+    if (g instanceof Expr) {
+      _matched=true;
+      return this.compile(((Expr)g));
+    }
+    if (!_matched) {
+      if (g instanceof GenSource) {
+        _matched=true;
+        String _compile = this.compile(g.getStart());
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("..");
+        String _plus = (_compile + _builder);
+        String _compile_1 = this.compile(g.getEnd());
+        return (_plus + _compile_1);
+      }
+    }
+    return null;
   }
   
-  public CharSequence compile(final DoFront df) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//DoFront");
-    CharSequence _compile = this.compile(df.getBlock());
-    _builder.append(_compile);
-    _builder.newLineIfNotEmpty();
-    return _builder;
+  public String compile(final Binding b) {
+    Qualified _idtup = b.getIdtup();
+    boolean _matched = false;
+    if (_idtup instanceof QualifiedName) {
+      _matched=true;
+      return this.compile(b.getIdtup());
+    }
+    if (!_matched) {
+      if (_idtup instanceof QualifiedNameTuple) {
+        _matched=true;
+        String _compile = this.compile(b.getIdtup());
+        String _plus = ("[" + _compile);
+        return (_plus + "]");
+      }
+    }
+    return null;
+  }
+  
+  public String compile(final Elifs el) {
+    String s = "";
+    EList<Elif> _e = el.getE();
+    for (final Elif e : _e) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("else if(");
+      String _plus = (s + _builder);
+      String _compile = this.compile(e.getExpr());
+      String _plus_1 = (_plus + _compile);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append(")");
+      String _plus_2 = (_plus_1 + _builder_1);
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("{");
+      String _plus_3 = (_plus_2 + _builder_2);
+      String _plus_4 = (_plus_3 + "\n");
+      CharSequence _compile_1 = this.compile(e.getBlock());
+      String _plus_5 = (_plus_4 + _compile_1);
+      String _plus_6 = (_plus_5 + "\n");
+      StringConcatenation _builder_3 = new StringConcatenation();
+      _builder_3.append("}");
+      String _plus_7 = (_plus_6 + _builder_3);
+      s = _plus_7;
+    }
+    return s;
+  }
+  
+  public String compile(final Else e) {
+    String _xblockexpression = null;
+    {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("else{");
+      String s = (_builder.toString() + "\n");
+      CharSequence _compile = this.compile(e.getBlock());
+      String _plus = (s + _compile);
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("}");
+      String _plus_1 = (_plus + _builder_1);
+      String _plus_2 = (_plus_1 + "\n");
+      _xblockexpression = s = _plus_2;
+    }
+    return _xblockexpression;
+  }
+  
+  public String compile(final Do dobox) {
+    String s = "";
+    int _length = ((Object[])Conversions.unwrapArray(dobox.getDofs(), Object.class)).length;
+    boolean _equals = (_length == 1);
+    if (_equals) {
+      String _compile = this.compile(dobox.getDofs().get(0));
+      String _plus = (s + _compile);
+      s = _plus;
+    } else {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("finish{");
+      _builder.newLine();
+      String _plus_1 = (s + _builder);
+      s = _plus_1;
+      EList<DoFront> _dofs = dobox.getDofs();
+      for (final DoFront d : _dofs) {
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("async{");
+        _builder_1.newLine();
+        _builder_1.append("\t");
+        String _compile_1 = this.compile(d);
+        _builder_1.append(_compile_1, "\t");
+        _builder_1.newLineIfNotEmpty();
+        _builder_1.append("}");
+        _builder_1.newLine();
+        String _plus_2 = (s + _builder_1);
+        s = _plus_2;
+      }
+      StringConcatenation _builder_2 = new StringConcatenation();
+      _builder_2.append("}");
+      String _plus_3 = (s + _builder_2);
+      s = _plus_3;
+    }
+    return s;
+  }
+  
+  public String compile(final DoFront dof) {
+    String s = "";
+    boolean _isAt = dof.isAt();
+    if (_isAt) {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("at(");
+      String _compile = this.compile(dof.getExp());
+      _builder.append(_compile);
+      _builder.append(") ");
+      String _plus = (s + _builder);
+      s = _plus;
+    }
+    boolean _isAtom = dof.isAtom();
+    if (_isAtom) {
+      StringConcatenation _builder_1 = new StringConcatenation();
+      _builder_1.append("atomic{");
+      _builder_1.newLine();
+      _builder_1.append("\t");
+      CharSequence _compile_1 = this.compile(dof.getBlock());
+      _builder_1.append(_compile_1, "\t");
+      _builder_1.newLineIfNotEmpty();
+      _builder_1.append("}");
+      String _plus_1 = (s + _builder_1);
+      s = _plus_1;
+    } else {
+      CharSequence _compile_2 = this.compile(dof.getBlock());
+      String _plus_2 = (s + _compile_2);
+      s = _plus_2;
+    }
+    return s;
   }
   
   public CharSequence compile(final BlockElems bs) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//BlockElems");
-    _builder.newLine();
     {
       EList<BlockElem> _block = bs.getBlock();
       for(final BlockElem b : _block) {
@@ -1207,7 +1631,6 @@ public class FortXTransGenerator extends AbstractGenerator {
   
   public CharSequence compile(final BlockElem b) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("//BlockElem");
     String _compile = this.compile(b.getSt());
     _builder.append(_compile);
     _builder.newLineIfNotEmpty();
@@ -1586,7 +2009,8 @@ public class FortXTransGenerator extends AbstractGenerator {
               String _plus_23 = (_plus_22 + _builder_8);
               String _get_1 = vals_2[(k_1).intValue()];
               String _plus_24 = (_plus_23 + _get_1);
-              s = _plus_24;
+              String _plus_25 = (_plus_24 + ";\n");
+              s = _plus_25;
             }
           }
         }
@@ -1598,18 +2022,126 @@ public class FortXTransGenerator extends AbstractGenerator {
   public String compile(final Expr e) {
     String s = "";
     boolean _matched = false;
-    if (e instanceof AddExpr) {
+    if (e instanceof Or) {
       _matched=true;
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("(");
-      String _compile = this.compile(((AddExpr)e).getLeft());
+      String _compile = this.compile(((Or)e).getLeft());
       _builder.append(_compile);
-      _builder.append("+");
-      String _compile_1 = this.compile(((AddExpr)e).getRight());
+      _builder.append("||");
+      String _compile_1 = this.compile(((Or)e).getRight());
       _builder.append(_compile_1);
       _builder.append(")");
       String _plus = (s + _builder);
       s = _plus;
+    }
+    if (!_matched) {
+      if (e instanceof And) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((And)e).getLeft());
+        _builder.append(_compile);
+        _builder.append("&&");
+        String _compile_1 = this.compile(((And)e).getRight());
+        _builder.append(_compile_1);
+        _builder.append(")");
+        String _plus = (s + _builder);
+        s = _plus;
+      }
+    }
+    if (!_matched) {
+      if (e instanceof Equality) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((Equality)e).getLeft());
+        _builder.append(_compile);
+        String _plus = (s + _builder);
+        s = _plus;
+        if ((Objects.equal(((Equality)e).getOp(), "===") || Objects.equal(((Equality)e).getOp(), "EQ"))) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(" ");
+          _builder_1.append("== ");
+          String _plus_1 = (s + _builder_1);
+          s = _plus_1;
+        } else {
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append(" ");
+          _builder_2.append("!= ");
+          String _plus_2 = (s + _builder_2);
+          s = _plus_2;
+        }
+        StringConcatenation _builder_3 = new StringConcatenation();
+        String _compile_1 = this.compile(((Equality)e).getRight());
+        _builder_3.append(_compile_1);
+        _builder_3.append(")");
+        String _plus_3 = (s + _builder_3);
+        s = _plus_3;
+      }
+    }
+    if (!_matched) {
+      if (e instanceof Comparison) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((Comparison)e).getLeft());
+        _builder.append(_compile);
+        String _plus = (s + _builder);
+        s = _plus;
+        if ((Objects.equal(((Comparison)e).getOp(), ">=") || Objects.equal(((Comparison)e).getOp(), "GE"))) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(" ");
+          _builder_1.append(">= ");
+          String _plus_1 = (s + _builder_1);
+          s = _plus_1;
+        } else {
+          if ((Objects.equal(((Comparison)e).getOp(), "<=") || Objects.equal(((Comparison)e).getOp(), "LT"))) {
+            StringConcatenation _builder_2 = new StringConcatenation();
+            _builder_2.append(" ");
+            _builder_2.append("<= ");
+            String _plus_2 = (s + _builder_2);
+            s = _plus_2;
+          } else {
+            if ((Objects.equal(((Comparison)e).getOp(), "<") || Objects.equal(((Comparison)e).getOp(), "LT"))) {
+              StringConcatenation _builder_3 = new StringConcatenation();
+              _builder_3.append(" ");
+              _builder_3.append("< ");
+              String _plus_3 = (s + _builder_3);
+              s = _plus_3;
+            } else {
+              if ((Objects.equal(((Comparison)e).getOp(), ">") || Objects.equal(((Comparison)e).getOp(), "GT"))) {
+                StringConcatenation _builder_4 = new StringConcatenation();
+                _builder_4.append(" ");
+                _builder_4.append("> ");
+                String _plus_4 = (s + _builder_4);
+                s = _plus_4;
+              }
+            }
+          }
+        }
+        StringConcatenation _builder_5 = new StringConcatenation();
+        String _compile_1 = this.compile(((Comparison)e).getRight());
+        _builder_5.append(_compile_1);
+        _builder_5.append(")");
+        String _plus_5 = (s + _builder_5);
+        s = _plus_5;
+      }
+    }
+    if (!_matched) {
+      if (e instanceof AddExpr) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("(");
+        String _compile = this.compile(((AddExpr)e).getLeft());
+        _builder.append(_compile);
+        _builder.append("+");
+        String _compile_1 = this.compile(((AddExpr)e).getRight());
+        _builder.append(_compile_1);
+        _builder.append(")");
+        String _plus = (s + _builder);
+        s = _plus;
+      }
     }
     if (!_matched) {
       if (e instanceof SubExpr) {
@@ -1743,6 +2275,54 @@ public class FortXTransGenerator extends AbstractGenerator {
         s = this.compile(((Assop)e));
       }
     }
+    EList<ExprTail> _tail = e.getTail();
+    boolean _tripleNotEquals = (_tail != null);
+    if (_tripleNotEquals) {
+      EList<ExprTail> _tail_1 = e.getTail();
+      for (final ExprTail t : _tail_1) {
+        {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append(" ");
+          _builder.append("as ");
+          String _plus = (s + _builder);
+          s = _plus;
+          String tp = t.getType().getName();
+          boolean _equals = Objects.equal(tp, "ZZ32");
+          if (_equals) {
+            StringConcatenation _builder_1 = new StringConcatenation();
+            _builder_1.append("Int");
+            String _plus_1 = (s + _builder_1);
+            s = _plus_1;
+          } else {
+            boolean _equals_1 = Objects.equal(tp, "ZZ64");
+            if (_equals_1) {
+              StringConcatenation _builder_2 = new StringConcatenation();
+              _builder_2.append("Long");
+              String _plus_2 = (s + _builder_2);
+              s = _plus_2;
+            } else {
+              boolean _equals_2 = Objects.equal(tp, "RR32");
+              if (_equals_2) {
+                StringConcatenation _builder_3 = new StringConcatenation();
+                _builder_3.append("Float");
+                String _plus_3 = (s + _builder_3);
+                s = _plus_3;
+              } else {
+                boolean _equals_3 = Objects.equal(tp, "RR64");
+                if (_equals_3) {
+                  StringConcatenation _builder_4 = new StringConcatenation();
+                  _builder_4.append("Double");
+                  String _plus_4 = (s + _builder_4);
+                  s = _plus_4;
+                } else {
+                  s = (s + tp);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     return s;
   }
   
@@ -1761,7 +2341,7 @@ public class FortXTransGenerator extends AbstractGenerator {
       String _plus_1 = (_plus + _builder);
       String _get_1 = rights[0];
       String _plus_2 = (_plus_1 + _get_1);
-      String _plus_3 = (_plus_2 + "\n");
+      String _plus_3 = (_plus_2 + ";\n");
       s = _plus_3;
     } else {
       StringConcatenation _builder_1 = new StringConcatenation();
@@ -1786,7 +2366,7 @@ public class FortXTransGenerator extends AbstractGenerator {
         StringConcatenation _builder_4 = new StringConcatenation();
         _builder_4.append("}");
         String _plus_9 = (_plus_8 + _builder_4);
-        String _plus_10 = (_plus_9 + "\n");
+        String _plus_10 = (_plus_9 + ";\n");
         s = _plus_10;
       }
       StringConcatenation _builder_5 = new StringConcatenation();

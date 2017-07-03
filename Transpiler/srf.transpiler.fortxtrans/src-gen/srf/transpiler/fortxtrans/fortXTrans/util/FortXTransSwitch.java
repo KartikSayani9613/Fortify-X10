@@ -198,20 +198,6 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.FN_MODS:
-      {
-        FnMods fnMods = (FnMods)theEObject;
-        T result = caseFnMods(fnMods);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case FortXTransPackage.FN_MOD:
-      {
-        FnMod fnMod = (FnMod)theEObject;
-        T result = caseFnMod(fnMod);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case FortXTransPackage.VAL_PARAM:
       {
         ValParam valParam = (ValParam)theEObject;
@@ -237,6 +223,20 @@ public class FortXTransSwitch<T> extends Switch<T>
       {
         TupleType tupleType = (TupleType)theEObject;
         T result = caseTupleType(tupleType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.FN_MODS:
+      {
+        FnMods fnMods = (FnMods)theEObject;
+        T result = caseFnMods(fnMods);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.FN_MOD:
+      {
+        FnMod fnMod = (FnMod)theEObject;
+        T result = caseFnMod(fnMod);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -546,6 +546,15 @@ public class FortXTransSwitch<T> extends Switch<T>
         T result = caseFCall(fCall);
         if (result == null) result = caseExpr(fCall);
         if (result == null) result = caseGenSource(fCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.ARRAY_INIT:
+      {
+        ArrayInit arrayInit = (ArrayInit)theEObject;
+        T result = caseArrayInit(arrayInit);
+        if (result == null) result = caseExpr(arrayInit);
+        if (result == null) result = caseGenSource(arrayInit);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -885,38 +894,6 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Fn Mods</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Fn Mods</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFnMods(FnMods object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Fn Mod</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Fn Mod</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseFnMod(FnMod object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Val Param</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -976,6 +953,38 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseTupleType(TupleType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Fn Mods</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Fn Mods</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFnMods(FnMods object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Fn Mod</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Fn Mod</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFnMod(FnMod object)
   {
     return null;
   }
@@ -1600,6 +1609,22 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseFCall(FCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Init</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Init</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayInit(ArrayInit object)
   {
     return null;
   }

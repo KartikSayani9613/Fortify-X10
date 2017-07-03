@@ -905,62 +905,6 @@ public interface FortXTransPackage extends EPackage
   int DECL_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMods()
-   * @generated
-   */
-  int FN_MODS = 16;
-
-  /**
-   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MODS__MODS = 0;
-
-  /**
-   * The number of structural features of the '<em>Fn Mods</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MODS_FEATURE_COUNT = 1;
-
-  /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl <em>Fn Mod</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMod()
-   * @generated
-   */
-  int FN_MOD = 17;
-
-  /**
-   * The feature id for the '<em><b>Modtype</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MOD__MODTYPE = 0;
-
-  /**
-   * The number of structural features of the '<em>Fn Mod</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int FN_MOD_FEATURE_COUNT = 1;
-
-  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl <em>Val Param</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -968,7 +912,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getValParam()
    * @generated
    */
-  int VAL_PARAM = 18;
+  int VAL_PARAM = 16;
 
   /**
    * The feature id for the '<em><b>Params</b></em>' containment reference list.
@@ -1005,7 +949,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParam()
    * @generated
    */
-  int PARAM = 19;
+  int PARAM = 17;
 
   /**
    * The feature id for the '<em><b>Par Id</b></em>' containment reference.
@@ -1042,7 +986,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getRetType()
    * @generated
    */
-  int RET_TYPE = 20;
+  int RET_TYPE = 18;
 
   /**
    * The feature id for the '<em><b>Empty</b></em>' attribute.
@@ -1079,7 +1023,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getTupleType()
    * @generated
    */
-  int TUPLE_TYPE = 21;
+  int TUPLE_TYPE = 19;
 
   /**
    * The feature id for the '<em><b>Types</b></em>' containment reference list.
@@ -1098,6 +1042,62 @@ public interface FortXTransPackage extends EPackage
    * @ordered
    */
   int TUPLE_TYPE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMods()
+   * @generated
+   */
+  int FN_MODS = 20;
+
+  /**
+   * The feature id for the '<em><b>Mods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MODS__MODS = 0;
+
+  /**
+   * The number of structural features of the '<em>Fn Mods</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MODS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl <em>Fn Mod</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMod()
+   * @generated
+   */
+  int FN_MOD = 21;
+
+  /**
+   * The feature id for the '<em><b>Modtype</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MOD__MODTYPE = 0;
+
+  /**
+   * The number of structural features of the '<em>Fn Mod</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FN_MOD_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl <em>Fn Decl</em>}' class.
@@ -1975,13 +1975,22 @@ public interface FortXTransPackage extends EPackage
   int NO_NEWLINE_VAR_WTYPES__SINGLE = 0;
 
   /**
+   * The feature id for the '<em><b>Arrsize</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NO_NEWLINE_VAR_WTYPES__ARRSIZE = 1;
+
+  /**
    * The feature id for the '<em><b>Multiple</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NO_NEWLINE_VAR_WTYPES__MULTIPLE = 1;
+  int NO_NEWLINE_VAR_WTYPES__MULTIPLE = 2;
 
   /**
    * The number of structural features of the '<em>No Newline Var WTypes</em>' class.
@@ -1990,7 +1999,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int NO_NEWLINE_VAR_WTYPES_FEATURE_COUNT = 2;
+  int NO_NEWLINE_VAR_WTYPES_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NoNewlineVarWTypeImpl <em>No Newline Var WType</em>}' class.
@@ -2990,6 +2999,88 @@ public interface FortXTransPackage extends EPackage
   int FCALL_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl <em>Array Init</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getArrayInit()
+   * @generated
+   */
+  int ARRAY_INIT = 61;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__START = EXPR__START;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__END = EXPR__END;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__TAIL = EXPR__TAIL;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__LEFT = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__TYPE = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Sizes</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__SIZES = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Filler</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__FILLER = EXPR_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Array Init</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT_FEATURE_COUNT = EXPR_FEATURE_COUNT + 4;
+
+  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl <em>Not</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2997,7 +3088,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNot()
    * @generated
    */
-  int NOT = 61;
+  int NOT = 62;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3052,7 +3143,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNeg()
    * @generated
    */
-  int NEG = 62;
+  int NEG = 63;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3107,7 +3198,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParan()
    * @generated
    */
-  int PARAN = 63;
+  int PARAN = 64;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3162,7 +3253,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIntConst()
    * @generated
    */
-  int INT_CONST = 64;
+  int INT_CONST = 65;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3217,7 +3308,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFloatConst()
    * @generated
    */
-  int FLOAT_CONST = 65;
+  int FLOAT_CONST = 66;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3272,7 +3363,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getStrConst()
    * @generated
    */
-  int STR_CONST = 66;
+  int STR_CONST = 67;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3327,7 +3418,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBoolConst()
    * @generated
    */
-  int BOOL_CONST = 67;
+  int BOOL_CONST = 68;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3899,48 +3990,6 @@ public interface FortXTransPackage extends EPackage
   EReference getDecl_Field();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods <em>Fn Mods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Fn Mods</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnMods
-   * @generated
-   */
-  EClass getFnMods();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods#getMods <em>Mods</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Mods</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnMods#getMods()
-   * @see #getFnMods()
-   * @generated
-   */
-  EReference getFnMods_Mods();
-
-  /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod <em>Fn Mod</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Fn Mod</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnMod
-   * @generated
-   */
-  EClass getFnMod();
-
-  /**
-   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getModtype <em>Modtype</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Modtype</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnMod#getModtype()
-   * @see #getFnMod()
-   * @generated
-   */
-  EAttribute getFnMod_Modtype();
-
-  /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ValParam <em>Val Param</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4056,6 +4105,48 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getTupleType_Types();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods <em>Fn Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Fn Mods</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnMods
+   * @generated
+   */
+  EClass getFnMods();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods#getMods <em>Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mods</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnMods#getMods()
+   * @see #getFnMods()
+   * @generated
+   */
+  EReference getFnMods_Mods();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod <em>Fn Mod</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Fn Mod</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnMod
+   * @generated
+   */
+  EClass getFnMod();
+
+  /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod#getModtype <em>Modtype</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Modtype</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnMod#getModtype()
+   * @see #getFnMod()
+   * @generated
+   */
+  EAttribute getFnMod_Modtype();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.FnDecl <em>Fn Decl</em>}'.
@@ -4927,6 +5018,17 @@ public interface FortXTransPackage extends EPackage
   EReference getNoNewlineVarWTypes_Single();
 
   /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getArrsize <em>Arrsize</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Arrsize</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getArrsize()
+   * @see #getNoNewlineVarWTypes()
+   * @generated
+   */
+  EReference getNoNewlineVarWTypes_Arrsize();
+
+  /**
    * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes#getMultiple <em>Multiple</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5491,6 +5593,60 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getFCall_Right();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit <em>Array Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Init</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit
+   * @generated
+   */
+  EClass getArrayInit();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLeft()
+   * @see #getArrayInit()
+   * @generated
+   */
+  EReference getArrayInit_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getType()
+   * @see #getArrayInit()
+   * @generated
+   */
+  EReference getArrayInit_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getSizes <em>Sizes</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Sizes</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getSizes()
+   * @see #getArrayInit()
+   * @generated
+   */
+  EReference getArrayInit_Sizes();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getFiller <em>Filler</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Filler</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getFiller()
+   * @see #getArrayInit()
+   * @generated
+   */
+  EReference getArrayInit_Filler();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Not <em>Not</em>}'.
@@ -6087,42 +6243,6 @@ public interface FortXTransPackage extends EPackage
     EReference DECL__FIELD = eINSTANCE.getDecl_Field();
 
     /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMods()
-     * @generated
-     */
-    EClass FN_MODS = eINSTANCE.getFnMods();
-
-    /**
-     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference FN_MODS__MODS = eINSTANCE.getFnMods_Mods();
-
-    /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl <em>Fn Mod</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMod()
-     * @generated
-     */
-    EClass FN_MOD = eINSTANCE.getFnMod();
-
-    /**
-     * The meta object literal for the '<em><b>Modtype</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute FN_MOD__MODTYPE = eINSTANCE.getFnMod_Modtype();
-
-    /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ValParamImpl <em>Val Param</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6217,6 +6337,42 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference TUPLE_TYPE__TYPES = eINSTANCE.getTupleType_Types();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl <em>Fn Mods</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModsImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMods()
+     * @generated
+     */
+    EClass FN_MODS = eINSTANCE.getFnMods();
+
+    /**
+     * The meta object literal for the '<em><b>Mods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FN_MODS__MODS = eINSTANCE.getFnMods_Mods();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl <em>Fn Mod</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FnModImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFnMod()
+     * @generated
+     */
+    EClass FN_MOD = eINSTANCE.getFnMod();
+
+    /**
+     * The meta object literal for the '<em><b>Modtype</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FN_MOD__MODTYPE = eINSTANCE.getFnMod_Modtype();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.FnDeclImpl <em>Fn Decl</em>}' class.
@@ -6911,6 +7067,14 @@ public interface FortXTransPackage extends EPackage
     EReference NO_NEWLINE_VAR_WTYPES__SINGLE = eINSTANCE.getNoNewlineVarWTypes_Single();
 
     /**
+     * The meta object literal for the '<em><b>Arrsize</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NO_NEWLINE_VAR_WTYPES__ARRSIZE = eINSTANCE.getNoNewlineVarWTypes_Arrsize();
+
+    /**
      * The meta object literal for the '<em><b>Multiple</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7367,6 +7531,48 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference FCALL__RIGHT = eINSTANCE.getFCall_Right();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl <em>Array Init</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getArrayInit()
+     * @generated
+     */
+    EClass ARRAY_INIT = eINSTANCE.getArrayInit();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INIT__LEFT = eINSTANCE.getArrayInit_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INIT__TYPE = eINSTANCE.getArrayInit_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Sizes</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INIT__SIZES = eINSTANCE.getArrayInit_Sizes();
+
+    /**
+     * The meta object literal for the '<em><b>Filler</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INIT__FILLER = eINSTANCE.getArrayInit_Filler();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl <em>Not</em>}' class.

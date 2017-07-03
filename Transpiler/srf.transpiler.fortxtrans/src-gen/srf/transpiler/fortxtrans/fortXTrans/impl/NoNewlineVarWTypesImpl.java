@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import srf.transpiler.fortxtrans.fortXTrans.ExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
@@ -32,6 +33,7 @@ import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.NoNewlineVarWTypesImpl#getSingle <em>Single</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.NoNewlineVarWTypesImpl#getArrsize <em>Arrsize</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.NoNewlineVarWTypesImpl#getMultiple <em>Multiple</em>}</li>
  * </ul>
  *
@@ -48,6 +50,16 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
    * @ordered
    */
   protected NoNewlineVarWType single;
+
+  /**
+   * The cached value of the '{@link #getArrsize() <em>Arrsize</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArrsize()
+   * @generated
+   * @ordered
+   */
+  protected ExprList arrsize;
 
   /**
    * The cached value of the '{@link #getMultiple() <em>Multiple</em>}' containment reference list.
@@ -133,6 +145,54 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
    * <!-- end-user-doc -->
    * @generated
    */
+  public ExprList getArrsize()
+  {
+    return arrsize;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetArrsize(ExprList newArrsize, NotificationChain msgs)
+  {
+    ExprList oldArrsize = arrsize;
+    arrsize = newArrsize;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE, oldArrsize, newArrsize);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setArrsize(ExprList newArrsize)
+  {
+    if (newArrsize != arrsize)
+    {
+      NotificationChain msgs = null;
+      if (arrsize != null)
+        msgs = ((InternalEObject)arrsize).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE, null, msgs);
+      if (newArrsize != null)
+        msgs = ((InternalEObject)newArrsize).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE, null, msgs);
+      msgs = basicSetArrsize(newArrsize, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE, newArrsize, newArrsize));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<NoNewlineVarWType> getMultiple()
   {
     if (multiple == null)
@@ -154,6 +214,8 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__SINGLE:
         return basicSetSingle(null, msgs);
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE:
+        return basicSetArrsize(null, msgs);
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__MULTIPLE:
         return ((InternalEList<?>)getMultiple()).basicRemove(otherEnd, msgs);
     }
@@ -172,6 +234,8 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__SINGLE:
         return getSingle();
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE:
+        return getArrsize();
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__MULTIPLE:
         return getMultiple();
     }
@@ -191,6 +255,9 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__SINGLE:
         setSingle((NoNewlineVarWType)newValue);
+        return;
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE:
+        setArrsize((ExprList)newValue);
         return;
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__MULTIPLE:
         getMultiple().clear();
@@ -213,6 +280,9 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__SINGLE:
         setSingle((NoNewlineVarWType)null);
         return;
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE:
+        setArrsize((ExprList)null);
+        return;
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__MULTIPLE:
         getMultiple().clear();
         return;
@@ -232,6 +302,8 @@ public class NoNewlineVarWTypesImpl extends MinimalEObjectImpl.Container impleme
     {
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__SINGLE:
         return single != null;
+      case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__ARRSIZE:
+        return arrsize != null;
       case FortXTransPackage.NO_NEWLINE_VAR_WTYPES__MULTIPLE:
         return multiple != null && !multiple.isEmpty();
     }

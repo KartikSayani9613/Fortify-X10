@@ -156,16 +156,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createDeclAdapter();
       }
       @Override
-      public Adapter caseFnMods(FnMods object)
-      {
-        return createFnModsAdapter();
-      }
-      @Override
-      public Adapter caseFnMod(FnMod object)
-      {
-        return createFnModAdapter();
-      }
-      @Override
       public Adapter caseValParam(ValParam object)
       {
         return createValParamAdapter();
@@ -184,6 +174,16 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseTupleType(TupleType object)
       {
         return createTupleTypeAdapter();
+      }
+      @Override
+      public Adapter caseFnMods(FnMods object)
+      {
+        return createFnModsAdapter();
+      }
+      @Override
+      public Adapter caseFnMod(FnMod object)
+      {
+        return createFnModAdapter();
       }
       @Override
       public Adapter caseFnDecl(FnDecl object)
@@ -379,6 +379,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseFCall(FCall object)
       {
         return createFCallAdapter();
+      }
+      @Override
+      public Adapter caseArrayInit(ArrayInit object)
+      {
+        return createArrayInitAdapter();
       }
       @Override
       public Adapter caseNot(Not object)
@@ -678,36 +683,6 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods <em>Fn Mods</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnMods
-   * @generated
-   */
-  public Adapter createFnModsAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod <em>Fn Mod</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FnMod
-   * @generated
-   */
-  public Adapter createFnModAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ValParam <em>Val Param</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -763,6 +738,36 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTupleTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMods <em>Fn Mods</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnMods
+   * @generated
+   */
+  public Adapter createFnModsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.FnMod <em>Fn Mod</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.FnMod
+   * @generated
+   */
+  public Adapter createFnModAdapter()
   {
     return null;
   }
@@ -1348,6 +1353,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createFCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit <em>Array Init</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit
+   * @generated
+   */
+  public Adapter createArrayInitAdapter()
   {
     return null;
   }
