@@ -124,6 +124,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="Stmnts">
     <eStructuralFeatures xsi:type="ecore:EReference" name="front" eType="#//Stmnt"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delims" eType="#//StmntList"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="locVar" eType="#//LocalVarDecl"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="exp" eType="#//Expr" containment="true"/>
@@ -131,12 +133,10 @@
   <eClassifiers xsi:type="ecore:EClass" name="Stmnt">
     <eStructuralFeatures xsi:type="ecore:EReference" name="delim" eType="#//DelimitedExpr"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="delims" eType="#//DelimitedExprList"
-        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DelimitedExprList">
+  <eClassifiers xsi:type="ecore:EClass" name="StmntList">
     <eStructuralFeatures xsi:type="ecore:EReference" name="delim" upperBound="-1"
-        eType="#//DelimitedExpr" containment="true"/>
+        eType="#//Stmnt" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expr" eSuperTypes="#//GenSource">
     <eStructuralFeatures xsi:type="ecore:EReference" name="tail" upperBound="-1" eType="#//ExprTail"
@@ -319,6 +319,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExponentExpr" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
@@ -326,7 +327,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//LiteralTuple"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//ExprList"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="FCall" eSuperTypes="#//Expr">
@@ -335,6 +336,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expr"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Neg" eSuperTypes="#//Expr">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expr"
         containment="true"/>
   </eClassifiers>

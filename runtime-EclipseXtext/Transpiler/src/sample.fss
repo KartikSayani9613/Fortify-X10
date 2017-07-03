@@ -1,45 +1,53 @@
 component testum 
 export Executable 
 
-	private var x:ZZ64 = func(20)
-	private var (x:Bool, y:RR64, z:RR64) = (true, 20.0, func(20,20))
-	(x, y):RR64... = (name, 30+30)
-	(x, y):(RR64, RR32) = (21, 30)
 	run():() = do 
-		needleLength:RR64 = ((20+20)*20)*20
-//   		numRows:RR64 = 10.0
-//   		tableHeight:RR64 = needleLength*numRows
-//   		var hits : RR64 = 0.0
-//   		var n : RR64 = 0.0
-//   		start:RR64 = nanoTime()
-//   		println("Starting parallel Buffons")
+		
+		(|
+			do 
+				(some:= some) 
+				some:=soeme 
+			end, 
+			do 
+				some:=some 
+			end
+		|)
+		
+		some := some
+		needleLength:RR64 = 20
+   		numRows:RR64 = 10.0
+   		tableHeight:RR64 = needleLength*numRows
+   		var hits : RR64 = 0.0
+   		var n : RR64 = 0.0
+   		start:RR64 = nanoTime()
+   		println("Starting parallel Buffons")
 //   		for i<-1#3000 do
-//   			delta_X = random(2.0) - 1.0
-//   			delta_Y = random(2.0) - 1.0
-//   			rsq = delta_X^2 + delta_Y^2
+   			delta_X = random(2.0) - 1.0
+   			delta_Y = random(2.0) - 1.0
+   			rsq = delta_X^2 + delta_Y^2
 //   			if 0.0 < rsq AND rsq< 1.0 then
-//   				y1 = tableHeight*random(1.0)
-//   				y2 = y1 + needleLength*(delta_Y / SQRT*rsq)
-//   				(y_L, y_H) = (min(y1, y2), max(y1, y2)) 
-//   				temp1:RR64 = y_L / needleLength
-//        		temp2:RR64 = y_H / needleLength
+   				y1 = tableHeight*random(1.0)
+   				y2 = y1 + needleLength*(delta_Y / sqrt(rsq))
+   				(y_L, y_H) := (min(y1, y2), max(y1, y2)) 
+   				temp1:RR64 = y_L / needleLength
+        		temp2:RR64 = y_H / needleLength
 //        		if Math.ceil(temp1) === Math.floor(temp2) then
-//        			atomic do hits:= hits + 1.0 end
+        			atomic do hits:= hits + 1.0 end
 //        		end
-//        		atomic do n:= n+1.0 end
+        		atomic do n:= n+1.0 end
 //   			end
 //   		end
-//   		
-//   		probability = hits/n
-//   		piest = 2.0/probability
-//   		print("hits=")
-//   		print(hits)
-//   		print(" n=")
-//   		print(n)
-//   		print("Buffons: estimated Pi = ")
-//   		print(pi_est)
-//   		finish = nanoTime() - start
-//   		println(finish)
+   		
+   		probability = -hits/n
+   		piest = 2.0/probability
+   		print("hits=")
+   		print(hits)
+   		print(" n=")
+   		print(n)
+   		print("Buffons: estimated Pi = ")
+   		print(pi_est)
+   		finish = nanoTime() - start
+   		println("Time Taken ",finish," nanoseconds")
 	end
 	
 end

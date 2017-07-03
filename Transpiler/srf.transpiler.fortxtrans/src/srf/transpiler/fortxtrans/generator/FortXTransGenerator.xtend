@@ -48,6 +48,9 @@ import srf.transpiler.fortxtrans.fortXTrans.FloatConst
 import srf.transpiler.fortxtrans.fortXTrans.StrConst
 import srf.transpiler.fortxtrans.fortXTrans.BoolConst
 import srf.transpiler.fortxtrans.fortXTrans.Assop
+import srf.transpiler.fortxtrans.fortXTrans.TupleType
+import srf.transpiler.fortxtrans.fortXTrans.Neg
+import srf.transpiler.fortxtrans.fortXTrans.StmntList
 
 /**
  * Generates code from your model files on save.
@@ -92,13 +95,9 @@ class FortXTransGenerator extends AbstractGenerator {
 			«FOR d:c.decls»
 				«d.compile»
 			«ENDFOR»
-			public static def println[T](x:T){
-				return Console.OUT.println(x);
-			}
-			
-			public static def nanoTime(){
-				return System.nanoTime();
-			}
+			public static def println[T](x:T){Console.OUT.println(x);}
+			static def print[T](x:T){Console.OUT.print(x);}
+			public static def nanoTime() = System.nanoTime();
 			static def min(x:Double, y:Double) = Math.min(x, y);
 			static def min(x:Long, y:Long) = Math.min(x, y);
 			static def min(x:Int, y:Int) = Math.min(x, y);
@@ -107,6 +106,11 @@ class FortXTransGenerator extends AbstractGenerator {
 			static def max(x:Double, y:Double) = Math.max(x, y);
 			static def max(x:Int, y:Int) = Math.min(x, y);
 			static def max(x:Float, y:Float) = Math.min(x, y);
+			static def random(x:Double){
+				var r = new Random();
+				return x*r.nextDouble()-1.0d;
+			}
+			static def sqrt(x:Double) = Math.sqrt(x);
 		}
 	'''
 	
@@ -190,7 +194,7 @@ class FortXTransGenerator extends AbstractGenerator {
 			»«ENDFOR
 			»}«
 		ELSE
-			»«e.exportedName.get(0)
+			»«e.exportedName.get(0).compile
 		»«ENDIF»
 	'''
 	
@@ -289,7 +293,7 @@ class FortXTransGenerator extends AbstractGenerator {
 				}
 			}
 			else{
-				var attach = f.init.compile.split(",")
+				var attach = f.init.compile.split("@")
 				for(m:0..<f.vars.multiple.length){
 					if(f.pri!==null)
 						s = s + '''private '''
@@ -318,63 +322,80 @@ class FortXTransGenerator extends AbstractGenerator {
 		}
 		else if(f.type!==null){
 			var vars = f.idtup.compile.split(",")
-			var vals = f.init.compile.split(",")
-			if(vars.length==1){
+			var vals = f.init.compile.split("@")
+			for(v:0..<vars.length){
 				if(f.pri!==null)
 					s = s+'''private '''
 				if(f.mut===null)
 					s = s+'''static val '''
 				else
 					s = s+'''var '''
-				s = s + vars.get(0)+":"
+				s = s + vars.get(v)+":"
 				var type = f.type.name
 				if(type=="ZZ32")
-					s=s+'''Int = '''+ vals.get(0) +" as Int;"
+					s=s+'''Int = '''+ vals.get(v) +" as Int;"
 				else if(type=="ZZ64")
-					s=s+'''Long = ''' + vals.get(0) +" as Long;"
+					s=s+'''Long = ''' + vals.get(v) +" as Long;"
 				else if(type=="RR32")
-					s=s+'''Float = ''' + vals.get(0) +" as Float;"
+					s=s+'''Float = ''' + vals.get(v) +" as Float;"
 				else if(type=="RR64")
-					s=s+'''Double = ''' + vals.get(0) +" as Double;"
+					s=s+'''Double = ''' + vals.get(v) +" as Double;"
 				else if(type=="String")
-					s=s+'''String = '''+ vals.get(0) +";"
-				else{
-					s = s+ type + "= " + vals.get(0) +";";	
-				}
+					s=s+'''String = '''+ vals.get(v) +";"
+				else
+					s = s+ type + "= " + vals.get(v) +";";	
+				s = s+"\n"
 			}
-			else{
-				for(v:0..<vars.length){
-					if(f.pri!==null)
-						s = s+'''private '''
-					if(f.mut===null)
-						s = s+'''static val '''
-					else
-						s = s+'''var '''
-					s = s + vars.get(v)+":"
-					var type = f.type.name
-					if(type=="ZZ32")
-						s=s+'''Int = '''+ vals.get(v) +" as Int;"
-					else if(type=="ZZ64")
-						s=s+'''Long = ''' + vals.get(v) +" as Long;"
-					else if(type=="RR32")
-						s=s+'''Float = ''' + vals.get(v) +" as Float;"
-					else if(type=="RR64")
-						s=s+'''Double = ''' + vals.get(v) +" as Double;"
-					else if(type=="String")
-						s=s+'''String = '''+ vals.get(v) +";"
-					else{
-						s = s+ type + "= " + vals.get(v) +";";	
-					}
-					s = s+"\n"
-				}
+			
+		}
+		else if(f.tuptype!==null){
+			var vars = f.idtup.compile.split(",")
+			var types = f.tuptype.compile.split(",")
+			var vals = f.init.compile.split("@")
+			for(k:0..<vars.length){
+				if(f.pri!==null)
+					s = s+'''private '''
+				if(f.mut===null)
+					s = s+'''static val '''
+				else
+					s = s+'''var '''
+				s = s + vars.get(k) + ":"
+				var type = types.get(k)
+				if(type=="ZZ32")
+					s=s+'''Int = '''+ vals.get(k) +" as Int;"
+				else if(type=="ZZ64")
+					s=s+'''Long = ''' + vals.get(k) +" as Long;"
+				else if(type=="RR32")
+					s=s+'''Float = ''' + vals.get(k) +" as Float;"
+				else if(type=="RR64")
+					s=s+'''Double = ''' + vals.get(k) +" as Double;"
+				else if(type=="String")
+					s=s+'''String = '''+ vals.get(k) +";"
+				else
+					s = s+ type + "= " + vals.get(k) +";";	
+				s = s+"\n"
 			}
 		}
-//		else if(f.tuptype!==null){
-//			
-//		}
+		else{
+			var vars = f.idtup.compile.split(",")
+			var vals = f.init.compile.split("@")
+			for(k:0..<vars.length){
+				if(f.pri!==null)
+					s = s+'''private '''
+				s = s + '''static val '''
+				s = s + vars.get(k) + ''' = ''' + vals.get(k)
+			}
+		}
 		return s
 	}
 	
+	def String compile(TupleType tp){
+		var s = ""
+		s = s + tp.types.get(0).name
+		for(k:1..<tp.types.length)
+			s = s+","+tp.types.get(k).name
+		return s
+	}
 	
 	def String compile(LiteralTuple lt){
 		switch(lt){
@@ -431,26 +452,25 @@ class FortXTransGenerator extends AbstractGenerator {
 	def String compile(Stmnts st)'''
 	//Statements
 	«IF st.front!==null»«st.front.compile»«
-	ELSE»«IF st.locVar!==null»«st.locVar.compile»«
+	ELSE»«IF st.delims!==null»«st.delims.compile»«ELSE»«IF st.locVar!==null»«st.locVar.compile»«
 	ELSE»
 	«IF st.exp!==null»«st.exp.compile
 	»«ENDIF»
-	«ENDIF»«ENDIF»
+	«ENDIF»«ENDIF»«ENDIF»
 	'''
 	
 	def compile(Stmnt s){
 		if(s.delim!==null)
 			return s.delim.compile
-		else
-			return s.delims.compile
 	}
 	
-	def compile(DelimitedExprList d){
-		var s = ""
+	def compile(StmntList d){
+		var s = "{"
 		for(dd:d.delim)
-			s=s+'''{
+			s=s+'''
 					«dd.compile»
-				}'''		
+				'''		
+		s = s+"}"
 		return s
 	}
 	
@@ -477,9 +497,119 @@ class FortXTransGenerator extends AbstractGenerator {
 	//BlockElem«b.st.compile»
 	'''
 	
-	def compile(LocalVarDecl d)'''
-	//LocalVar «d.init.compile»
-	'''
+	def String compile(LocalVarDecl f){
+		var s = ""
+		if(f.vars!==null)
+		{
+			if(f.vars.single!==null){
+				if(f.mut===null)
+					s = s + '''val '''
+				else
+					s = s + '''var '''
+				s = s + f.vars.single.bid.compile+":"
+				var type = f.vars.single.istype.type.name
+				if(type=="ZZ32")
+					s=s+'''Int = '''+f.init.compile+" as Int;"
+				else if(type=="ZZ64")
+					s=s+'''Long = '''+f.init.compile+" as Long;"
+				else if(type=="RR32")
+					s=s+'''Float = '''+f.init.compile+" as Float;"
+				else if(type=="RR64")
+					s=s+'''Double = '''+f.init.compile+" as Double;"
+				else if(type=="String")
+					s=s+'''String = '''+f.init.compile+";"
+				else{
+					s = s+ type + "= " + f.init.compile+";";		
+				}
+			}
+			else{
+				var attach = f.init.compile.split("@")
+				for(m:0..<f.vars.multiple.length){
+					if(f.mut===null)
+						s = s + '''val '''
+					else
+						s = s + '''var '''
+					s = s + f.vars.multiple.get(m).bid.compile+":"
+					var type = f.vars.multiple.get(m).istype.type.name
+					if(type=="ZZ32")
+						s=s+'''Int = '''+ attach.get(m)+" as Int;"
+					else if(type=="ZZ64")
+						s=s+'''Long = ''' + attach.get(m)+" as Long;"
+					else if(type=="RR32")
+							s=s+'''Float = ''' + attach.get(m)+" as Float;"
+					else if(type=="RR64")
+						s=s+'''Double = ''' + attach.get(m)+" as Double;"
+					else if(type=="String")
+						s=s+'''String = '''+ attach.get(m)+";"
+					else{
+						s = s+ type + "= " + attach.get(m)+";";	
+					}
+					s = s+"\n"
+				}
+			}
+		}
+		else if(f.type!==null){
+			var vars = f.idtup.compile.split(",")
+			var vals = f.init.compile.split("@")
+			for(v:0..<vars.length){
+				if(f.mut===null)
+					s = s+'''val '''
+				else
+					s = s+'''var '''
+				s = s + vars.get(v)+":"
+				var type = f.type.name
+				if(type=="ZZ32")
+					s=s+'''Int = '''+ vals.get(v) +" as Int;"
+				else if(type=="ZZ64")
+					s=s+'''Long = ''' + vals.get(v) +" as Long;"
+				else if(type=="RR32")
+					s=s+'''Float = ''' + vals.get(v) +" as Float;"
+				else if(type=="RR64")
+					s=s+'''Double = ''' + vals.get(v) +" as Double;"
+				else if(type=="String")
+					s=s+'''String = '''+ vals.get(v) +";"
+				else
+					s = s+ type + "= " + vals.get(v) +";";	
+				s = s+"\n"
+			}
+			
+		}
+		else if(f.tuptype!==null){
+			var vars = f.idtup.compile.split(",")
+			var types = f.tuptype.compile.split(",")
+			var vals = f.init.compile.split("@")
+			for(k:0..<vars.length){
+				if(f.mut===null)
+					s = s+'''val '''
+				else
+					s = s+'''var '''
+				s = s + vars.get(k) + ":"
+				var type = types.get(k)
+				if(type=="ZZ32")
+					s=s+'''Int = '''+ vals.get(k) +" as Int;"
+				else if(type=="ZZ64")
+					s=s+'''Long = ''' + vals.get(k) +" as Long;"
+				else if(type=="RR32")
+					s=s+'''Float = ''' + vals.get(k) +" as Float;"
+				else if(type=="RR64")
+					s=s+'''Double = ''' + vals.get(k) +" as Double;"
+				else if(type=="String")
+					s=s+'''String = '''+ vals.get(k) +";"
+				else
+					s = s+ type + "= " + vals.get(k) +";";	
+				s = s+"\n"
+			}
+		}
+		else{
+			var vars = f.idtup.compile.split(",")
+			var vals = f.init.compile.split("@")
+			for(k:0..<vars.length){
+				s = s + '''val '''
+				s = s + vars.get(k) + ''' = ''' + vals.get(k)
+			}
+		}
+		return s
+	}
 	
 	def String compile(Expr e){
 		var s = ""
@@ -489,22 +619,38 @@ class FortXTransGenerator extends AbstractGenerator {
 			DivExpr: s = s+'''(«e.left.compile»/«e.right.compile»)'''
 			MultExpr: s = s+'''(«e.left.compile»*«e.right.compile»)'''
 			ExponentExpr: s = s+'''(Math.pow(«e.left.compile»,«e.right.compile»))'''
-			Not:s=s+"!"+e.expression.compile
+			Not:s=s+"!"+'''('''+e.expression.compile+''')'''
+			Neg:s=s+"-"+'''('''+e.expression.compile+''')'''
 			Paran:s=s+'''«e.exp.compile»'''
-			FCall:s=s+'''«e.left.compile»(«IF e.right!==null»«e.right.exps.compile»«ENDIF»)'''
+			FCall:s=s+'''«e.left.compile»(«IF e.right!==null»«e.right.compile.replace("@",",")»«ENDIF»)'''
 			LiteralTuple: s= s+e.compile
 			Assop: s = e.compile
 		}
 		return s
 	}
 	
-	def String compile(Assop a)'''some = some'''
+	def String compile(Assop a){
+		var s = ""
+		var lefts = a.left.compile.split(",")
+		var rights = a.right.compile.split('@')
+		if(lefts.length==1)
+			s = s + lefts.get(0)+ ''' = ''' + rights.get(0) + "\n"
+		else{
+			s = s + '''finish {
+				'''
+			for(k:0..<lefts.length)
+				s = s + '''async{ ''' + lefts.get(k)+ ''' = ''' + rights.get(k) + '''}''' + "\n"
+			s = s + '''}'''+"\n"
+		}
+		
+		return s
+	}
 	
 	def compile(ExprList e){
 		var s = ""
 		s = s + e.exps.compile
 		for(ex:e.exp)
-			s = s + "," + ex.compile	
+			s = s + "@" + ex.compile	
 		return s
 	}
    

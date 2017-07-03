@@ -1192,13 +1192,22 @@ public interface FortXTransPackage extends EPackage
   int STMNTS__FRONT = 0;
 
   /**
+   * The feature id for the '<em><b>Delims</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STMNTS__DELIMS = 1;
+
+  /**
    * The feature id for the '<em><b>Loc Var</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STMNTS__LOC_VAR = 1;
+  int STMNTS__LOC_VAR = 2;
 
   /**
    * The feature id for the '<em><b>Exp</b></em>' containment reference.
@@ -1207,7 +1216,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMNTS__EXP = 2;
+  int STMNTS__EXP = 3;
 
   /**
    * The number of structural features of the '<em>Stmnts</em>' class.
@@ -1216,7 +1225,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int STMNTS_FEATURE_COUNT = 3;
+  int STMNTS_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl <em>Stmnt</em>}' class.
@@ -1238,32 +1247,23 @@ public interface FortXTransPackage extends EPackage
   int STMNT__DELIM = 0;
 
   /**
-   * The feature id for the '<em><b>Delims</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int STMNT__DELIMS = 1;
-
-  /**
    * The number of structural features of the '<em>Stmnt</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int STMNT_FEATURE_COUNT = 2;
+  int STMNT_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl <em>Delimited Expr List</em>}' class.
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntListImpl <em>Stmnt List</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl
-   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDelimitedExprList()
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.StmntListImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getStmntList()
    * @generated
    */
-  int DELIMITED_EXPR_LIST = 25;
+  int STMNT_LIST = 25;
 
   /**
    * The feature id for the '<em><b>Delim</b></em>' containment reference list.
@@ -1272,16 +1272,16 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR_LIST__DELIM = 0;
+  int STMNT_LIST__DELIM = 0;
 
   /**
-   * The number of structural features of the '<em>Delimited Expr List</em>' class.
+   * The number of structural features of the '<em>Stmnt List</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DELIMITED_EXPR_LIST_FEATURE_COUNT = 1;
+  int STMNT_LIST_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprListImpl <em>Expr List</em>}' class.
@@ -2826,13 +2826,22 @@ public interface FortXTransPackage extends EPackage
   int EXPONENT_EXPR__LEFT = EXPR_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPONENT_EXPR__OP = EXPR_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPONENT_EXPR__RIGHT = EXPR_FEATURE_COUNT + 1;
+  int EXPONENT_EXPR__RIGHT = EXPR_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Exponent Expr</em>' class.
@@ -2841,7 +2850,7 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPONENT_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 2;
+  int EXPONENT_EXPR_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.AssopImpl <em>Assop</em>}' class.
@@ -3036,6 +3045,61 @@ public interface FortXTransPackage extends EPackage
   int NOT_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NegImpl <em>Neg</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.NegImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNeg()
+   * @generated
+   */
+  int NEG = 62;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG__START = EXPR__START;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG__END = EXPR__END;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG__TAIL = EXPR__TAIL;
+
+  /**
+   * The feature id for the '<em><b>Expression</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG__EXPRESSION = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Neg</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NEG_FEATURE_COUNT = EXPR_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanImpl <em>Paran</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3043,7 +3107,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParan()
    * @generated
    */
-  int PARAN = 62;
+  int PARAN = 63;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3098,7 +3162,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIntConst()
    * @generated
    */
-  int INT_CONST = 63;
+  int INT_CONST = 64;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3153,7 +3217,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFloatConst()
    * @generated
    */
-  int FLOAT_CONST = 64;
+  int FLOAT_CONST = 65;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3208,7 +3272,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getStrConst()
    * @generated
    */
-  int STR_CONST = 65;
+  int STR_CONST = 66;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3263,7 +3327,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBoolConst()
    * @generated
    */
-  int BOOL_CONST = 66;
+  int BOOL_CONST = 67;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -4091,6 +4155,17 @@ public interface FortXTransPackage extends EPackage
   EReference getStmnts_Front();
 
   /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getDelims <em>Delims</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Delims</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnts#getDelims()
+   * @see #getStmnts()
+   * @generated
+   */
+  EReference getStmnts_Delims();
+
+  /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getLocVar <em>Loc Var</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -4134,36 +4209,25 @@ public interface FortXTransPackage extends EPackage
   EReference getStmnt_Delim();
 
   /**
-   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelims <em>Delims</em>}'.
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.StmntList <em>Stmnt List</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Delims</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelims()
-   * @see #getStmnt()
+   * @return the meta object for class '<em>Stmnt List</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.StmntList
    * @generated
    */
-  EReference getStmnt_Delims();
+  EClass getStmntList();
 
   /**
-   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList <em>Delimited Expr List</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Delimited Expr List</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList
-   * @generated
-   */
-  EClass getDelimitedExprList();
-
-  /**
-   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList#getDelim <em>Delim</em>}'.
+   * Returns the meta object for the containment reference list '{@link srf.transpiler.fortxtrans.fortXTrans.StmntList#getDelim <em>Delim</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference list '<em>Delim</em>'.
-   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList#getDelim()
-   * @see #getDelimitedExprList()
+   * @see srf.transpiler.fortxtrans.fortXTrans.StmntList#getDelim()
+   * @see #getStmntList()
    * @generated
    */
-  EReference getDelimitedExprList_Delim();
+  EReference getStmntList_Delim();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Expr <em>Expr</em>}'.
@@ -5332,6 +5396,17 @@ public interface FortXTransPackage extends EPackage
   EReference getExponentExpr_Left();
 
   /**
+   * Returns the meta object for the attribute '{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getOp()
+   * @see #getExponentExpr()
+   * @generated
+   */
+  EAttribute getExponentExpr_Op();
+
+  /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5437,6 +5512,27 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getNot_Expression();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Neg <em>Neg</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Neg</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Neg
+   * @generated
+   */
+  EClass getNeg();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.Neg#getExpression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Expression</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Neg#getExpression()
+   * @see #getNeg()
+   * @generated
+   */
+  EReference getNeg_Expression();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Paran <em>Paran</em>}'.
@@ -6199,6 +6295,14 @@ public interface FortXTransPackage extends EPackage
     EReference STMNTS__FRONT = eINSTANCE.getStmnts_Front();
 
     /**
+     * The meta object literal for the '<em><b>Delims</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference STMNTS__DELIMS = eINSTANCE.getStmnts_Delims();
+
+    /**
      * The meta object literal for the '<em><b>Loc Var</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -6233,22 +6337,14 @@ public interface FortXTransPackage extends EPackage
     EReference STMNT__DELIM = eINSTANCE.getStmnt_Delim();
 
     /**
-     * The meta object literal for the '<em><b>Delims</b></em>' containment reference feature.
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntListImpl <em>Stmnt List</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.StmntListImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getStmntList()
      * @generated
      */
-    EReference STMNT__DELIMS = eINSTANCE.getStmnt_Delims();
-
-    /**
-     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl <em>Delimited Expr List</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl
-     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getDelimitedExprList()
-     * @generated
-     */
-    EClass DELIMITED_EXPR_LIST = eINSTANCE.getDelimitedExprList();
+    EClass STMNT_LIST = eINSTANCE.getStmntList();
 
     /**
      * The meta object literal for the '<em><b>Delim</b></em>' containment reference list feature.
@@ -6256,7 +6352,7 @@ public interface FortXTransPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DELIMITED_EXPR_LIST__DELIM = eINSTANCE.getDelimitedExprList_Delim();
+    EReference STMNT_LIST__DELIM = eINSTANCE.getStmntList_Delim();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExprImpl <em>Expr</em>}' class.
@@ -7197,6 +7293,14 @@ public interface FortXTransPackage extends EPackage
     EReference EXPONENT_EXPR__LEFT = eINSTANCE.getExponentExpr_Left();
 
     /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute EXPONENT_EXPR__OP = eINSTANCE.getExponentExpr_Op();
+
+    /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -7281,6 +7385,24 @@ public interface FortXTransPackage extends EPackage
      * @generated
      */
     EReference NOT__EXPRESSION = eINSTANCE.getNot_Expression();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NegImpl <em>Neg</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.NegImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNeg()
+     * @generated
+     */
+    EClass NEG = eINSTANCE.getNeg();
+
+    /**
+     * The meta object literal for the '<em><b>Expression</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NEG__EXPRESSION = eINSTANCE.getNeg_Expression();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ParanImpl <em>Paran</em>}' class.

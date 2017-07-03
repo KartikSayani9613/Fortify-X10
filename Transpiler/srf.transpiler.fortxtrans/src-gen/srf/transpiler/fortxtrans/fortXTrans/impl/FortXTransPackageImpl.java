@@ -25,7 +25,6 @@ import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
 import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList;
 import srf.transpiler.fortxtrans.fortXTrans.DivExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
@@ -60,6 +59,7 @@ import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 import srf.transpiler.fortxtrans.fortXTrans.Model;
 import srf.transpiler.fortxtrans.fortXTrans.MultExpr;
+import srf.transpiler.fortxtrans.fortXTrans.Neg;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
 import srf.transpiler.fortxtrans.fortXTrans.Not;
@@ -73,6 +73,7 @@ import srf.transpiler.fortxtrans.fortXTrans.RetType;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.StmntList;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
 import srf.transpiler.fortxtrans.fortXTrans.StrConst;
 import srf.transpiler.fortxtrans.fortXTrans.SubExpr;
@@ -267,7 +268,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass delimitedExprListEClass = null;
+  private EClass stmntListEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -520,6 +521,13 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * @generated
    */
   private EClass notEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass negEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1354,7 +1362,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStmnts_LocVar()
+  public EReference getStmnts_Delims()
   {
     return (EReference)stmntsEClass.getEStructuralFeatures().get(1);
   }
@@ -1364,9 +1372,19 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStmnts_Exp()
+  public EReference getStmnts_LocVar()
   {
     return (EReference)stmntsEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getStmnts_Exp()
+  {
+    return (EReference)stmntsEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1394,9 +1412,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getStmnt_Delims()
+  public EClass getStmntList()
   {
-    return (EReference)stmntEClass.getEStructuralFeatures().get(1);
+    return stmntListEClass;
   }
 
   /**
@@ -1404,19 +1422,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDelimitedExprList()
+  public EReference getStmntList_Delim()
   {
-    return delimitedExprListEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDelimitedExprList_Delim()
-  {
-    return (EReference)delimitedExprListEClass.getEStructuralFeatures().get(0);
+    return (EReference)stmntListEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2514,9 +2522,19 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getExponentExpr_Op()
+  {
+    return (EAttribute)exponentExprEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getExponentExpr_Right()
   {
-    return (EReference)exponentExprEClass.getEStructuralFeatures().get(1);
+    return (EReference)exponentExprEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -2607,6 +2625,26 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
   public EReference getNot_Expression()
   {
     return (EReference)notEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNeg()
+  {
+    return negEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNeg_Expression()
+  {
+    return (EReference)negEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -2835,15 +2873,15 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     stmntsEClass = createEClass(STMNTS);
     createEReference(stmntsEClass, STMNTS__FRONT);
+    createEReference(stmntsEClass, STMNTS__DELIMS);
     createEReference(stmntsEClass, STMNTS__LOC_VAR);
     createEReference(stmntsEClass, STMNTS__EXP);
 
     stmntEClass = createEClass(STMNT);
     createEReference(stmntEClass, STMNT__DELIM);
-    createEReference(stmntEClass, STMNT__DELIMS);
 
-    delimitedExprListEClass = createEClass(DELIMITED_EXPR_LIST);
-    createEReference(delimitedExprListEClass, DELIMITED_EXPR_LIST__DELIM);
+    stmntListEClass = createEClass(STMNT_LIST);
+    createEReference(stmntListEClass, STMNT_LIST__DELIM);
 
     exprEClass = createEClass(EXPR);
     createEReference(exprEClass, EXPR__TAIL);
@@ -2986,6 +3024,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     exponentExprEClass = createEClass(EXPONENT_EXPR);
     createEReference(exponentExprEClass, EXPONENT_EXPR__LEFT);
+    createEAttribute(exponentExprEClass, EXPONENT_EXPR__OP);
     createEReference(exponentExprEClass, EXPONENT_EXPR__RIGHT);
 
     assopEClass = createEClass(ASSOP);
@@ -2999,6 +3038,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
+
+    negEClass = createEClass(NEG);
+    createEReference(negEClass, NEG__EXPRESSION);
 
     paranEClass = createEClass(PARAN);
     createEReference(paranEClass, PARAN__EXP);
@@ -3067,6 +3109,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     assopEClass.getESuperTypes().add(this.getExpr());
     fCallEClass.getESuperTypes().add(this.getExpr());
     notEClass.getESuperTypes().add(this.getExpr());
+    negEClass.getESuperTypes().add(this.getExpr());
     paranEClass.getESuperTypes().add(this.getExpr());
     intConstEClass.getESuperTypes().add(this.getLiteral());
     floatConstEClass.getESuperTypes().add(this.getLiteral());
@@ -3170,15 +3213,15 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     initEClass(stmntsEClass, Stmnts.class, "Stmnts", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStmnts_Front(), this.getStmnt(), null, "front", null, 0, 1, Stmnts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getStmnts_Delims(), this.getStmntList(), null, "delims", null, 0, 1, Stmnts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStmnts_LocVar(), this.getLocalVarDecl(), null, "locVar", null, 0, 1, Stmnts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStmnts_Exp(), this.getExpr(), null, "exp", null, 0, 1, Stmnts.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(stmntEClass, Stmnt.class, "Stmnt", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStmnt_Delim(), this.getDelimitedExpr(), null, "delim", null, 0, 1, Stmnt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getStmnt_Delims(), this.getDelimitedExprList(), null, "delims", null, 0, 1, Stmnt.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(delimitedExprListEClass, DelimitedExprList.class, "DelimitedExprList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDelimitedExprList_Delim(), this.getDelimitedExpr(), null, "delim", null, 0, -1, DelimitedExprList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(stmntListEClass, StmntList.class, "StmntList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getStmntList_Delim(), this.getStmnt(), null, "delim", null, 0, -1, StmntList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(exprEClass, Expr.class, "Expr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpr_Tail(), this.getExprTail(), null, "tail", null, 0, -1, Expr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3321,12 +3364,13 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     initEClass(exponentExprEClass, ExponentExpr.class, "ExponentExpr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExponentExpr_Left(), this.getExpr(), null, "left", null, 0, 1, ExponentExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExponentExpr_Op(), ecorePackage.getEString(), "op", null, 0, 1, ExponentExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExponentExpr_Right(), this.getExpr(), null, "right", null, 0, 1, ExponentExpr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(assopEClass, Assop.class, "Assop", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAssop_Left(), this.getLiteralTuple(), null, "left", null, 0, 1, Assop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAssop_Op(), ecorePackage.getEString(), "op", null, 0, 1, Assop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getAssop_Right(), this.getExprList(), null, "right", null, 0, 1, Assop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getAssop_Right(), this.getExpr(), null, "right", null, 0, 1, Assop.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(fCallEClass, FCall.class, "FCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getFCall_Left(), this.getExpr(), null, "left", null, 0, 1, FCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -3334,6 +3378,9 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
 
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpr(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(negEClass, Neg.class, "Neg", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNeg_Expression(), this.getExpr(), null, "expression", null, 0, 1, Neg.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paranEClass, Paran.class, "Paran", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParan_Exp(), this.getExprList(), null, "exp", null, 0, 1, Paran.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

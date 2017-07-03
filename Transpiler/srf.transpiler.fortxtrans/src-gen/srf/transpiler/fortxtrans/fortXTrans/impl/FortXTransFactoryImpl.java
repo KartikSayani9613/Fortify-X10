@@ -90,7 +90,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.FN_DECL: return createFnDecl();
       case FortXTransPackage.STMNTS: return createStmnts();
       case FortXTransPackage.STMNT: return createStmnt();
-      case FortXTransPackage.DELIMITED_EXPR_LIST: return createDelimitedExprList();
+      case FortXTransPackage.STMNT_LIST: return createStmntList();
       case FortXTransPackage.EXPR: return createExpr();
       case FortXTransPackage.EXPR_LIST: return createExprList();
       case FortXTransPackage.EXPR_TAIL: return createExprTail();
@@ -127,6 +127,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.ASSOP: return createAssop();
       case FortXTransPackage.FCALL: return createFCall();
       case FortXTransPackage.NOT: return createNot();
+      case FortXTransPackage.NEG: return createNeg();
       case FortXTransPackage.PARAN: return createParan();
       case FortXTransPackage.INT_CONST: return createIntConst();
       case FortXTransPackage.FLOAT_CONST: return createFloatConst();
@@ -417,10 +418,10 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public DelimitedExprList createDelimitedExprList()
+  public StmntList createStmntList()
   {
-    DelimitedExprListImpl delimitedExprList = new DelimitedExprListImpl();
-    return delimitedExprList;
+    StmntListImpl stmntList = new StmntListImpl();
+    return stmntList;
   }
 
   /**
@@ -817,6 +818,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     NotImpl not = new NotImpl();
     return not;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Neg createNeg()
+  {
+    NegImpl neg = new NegImpl();
+    return neg;
   }
 
   /**

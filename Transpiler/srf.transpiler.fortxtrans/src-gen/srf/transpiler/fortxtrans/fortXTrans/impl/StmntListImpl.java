@@ -17,24 +17,24 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
+import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.StmntList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Delimited Expr List</b></em>'.
+ * An implementation of the model object '<em><b>Stmnt List</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.DelimitedExprListImpl#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntListImpl#getDelim <em>Delim</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implements DelimitedExprList
+public class StmntListImpl extends MinimalEObjectImpl.Container implements StmntList
 {
   /**
    * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference list.
@@ -44,14 +44,14 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
    * @generated
    * @ordered
    */
-  protected EList<DelimitedExpr> delim;
+  protected EList<Stmnt> delim;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected DelimitedExprListImpl()
+  protected StmntListImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.DELIMITED_EXPR_LIST;
+    return FortXTransPackage.Literals.STMNT_LIST;
   }
 
   /**
@@ -72,11 +72,11 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<DelimitedExpr> getDelim()
+  public EList<Stmnt> getDelim()
   {
     if (delim == null)
     {
-      delim = new EObjectContainmentEList<DelimitedExpr>(DelimitedExpr.class, this, FortXTransPackage.DELIMITED_EXPR_LIST__DELIM);
+      delim = new EObjectContainmentEList<Stmnt>(Stmnt.class, this, FortXTransPackage.STMNT_LIST__DELIM);
     }
     return delim;
   }
@@ -91,7 +91,7 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+      case FortXTransPackage.STMNT_LIST__DELIM:
         return ((InternalEList<?>)getDelim()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +107,7 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+      case FortXTransPackage.STMNT_LIST__DELIM:
         return getDelim();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,9 +124,9 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+      case FortXTransPackage.STMNT_LIST__DELIM:
         getDelim().clear();
-        getDelim().addAll((Collection<? extends DelimitedExpr>)newValue);
+        getDelim().addAll((Collection<? extends Stmnt>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,7 +142,7 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+      case FortXTransPackage.STMNT_LIST__DELIM:
         getDelim().clear();
         return;
     }
@@ -159,10 +159,10 @@ public class DelimitedExprListImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
-      case FortXTransPackage.DELIMITED_EXPR_LIST__DELIM:
+      case FortXTransPackage.STMNT_LIST__DELIM:
         return delim != null && !delim.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //DelimitedExprListImpl
+} //StmntListImpl

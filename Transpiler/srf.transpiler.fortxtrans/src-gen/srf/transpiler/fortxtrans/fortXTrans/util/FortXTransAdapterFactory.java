@@ -201,9 +201,9 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createStmntAdapter();
       }
       @Override
-      public Adapter caseDelimitedExprList(DelimitedExprList object)
+      public Adapter caseStmntList(StmntList object)
       {
-        return createDelimitedExprListAdapter();
+        return createStmntListAdapter();
       }
       @Override
       public Adapter caseExpr(Expr object)
@@ -384,6 +384,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNot(Not object)
       {
         return createNotAdapter();
+      }
+      @Override
+      public Adapter caseNeg(Neg object)
+      {
+        return createNegAdapter();
       }
       @Override
       public Adapter caseParan(Paran object)
@@ -808,16 +813,16 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList <em>Delimited Expr List</em>}'.
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.StmntList <em>Stmnt List</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList
+   * @see srf.transpiler.fortxtrans.fortXTrans.StmntList
    * @generated
    */
-  public Adapter createDelimitedExprListAdapter()
+  public Adapter createStmntListAdapter()
   {
     return null;
   }
@@ -1358,6 +1363,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNotAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.Neg <em>Neg</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.Neg
+   * @generated
+   */
+  public Adapter createNegAdapter()
   {
     return null;
   }

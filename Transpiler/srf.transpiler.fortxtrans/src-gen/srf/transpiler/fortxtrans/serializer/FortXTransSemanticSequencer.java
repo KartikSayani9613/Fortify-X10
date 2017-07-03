@@ -30,7 +30,6 @@ import srf.transpiler.fortxtrans.fortXTrans.Component;
 import srf.transpiler.fortxtrans.fortXTrans.Decl;
 import srf.transpiler.fortxtrans.fortXTrans.Decls;
 import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList;
 import srf.transpiler.fortxtrans.fortXTrans.DivExpr;
 import srf.transpiler.fortxtrans.fortXTrans.Do;
 import srf.transpiler.fortxtrans.fortXTrans.DoFront;
@@ -59,6 +58,7 @@ import srf.transpiler.fortxtrans.fortXTrans.IsType;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralList;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 import srf.transpiler.fortxtrans.fortXTrans.MultExpr;
+import srf.transpiler.fortxtrans.fortXTrans.Neg;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWType;
 import srf.transpiler.fortxtrans.fortXTrans.NoNewlineVarWTypes;
 import srf.transpiler.fortxtrans.fortXTrans.Not;
@@ -71,6 +71,7 @@ import srf.transpiler.fortxtrans.fortXTrans.RetType;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleNames;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.StmntList;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
 import srf.transpiler.fortxtrans.fortXTrans.StrConst;
 import srf.transpiler.fortxtrans.fortXTrans.SubExpr;
@@ -245,9 +246,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case FortXTransPackage.DELIMITED_EXPR:
 				sequence_DelimitedExpr(context, (DelimitedExpr) semanticObject); 
-				return; 
-			case FortXTransPackage.DELIMITED_EXPR_LIST:
-				sequence_DelimitedExprList(context, (DelimitedExprList) semanticObject); 
 				return; 
 			case FortXTransPackage.DIV_EXPR:
 				if (rule == grammarAccess.getOrRule()
@@ -539,6 +537,36 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case FortXTransPackage.NEG:
+				if (rule == grammarAccess.getExprRule()
+						|| rule == grammarAccess.getGenSourceRule()
+						|| action == grammarAccess.getGenSourceAccess().getGenSourceStartAction_1_0()) {
+					sequence_Expr_Primary(context, (Neg) semanticObject); 
+					return; 
+				}
+				else if (rule == grammarAccess.getOrRule()
+						|| action == grammarAccess.getOrAccess().getOrLeftAction_1_0()
+						|| rule == grammarAccess.getAndRule()
+						|| action == grammarAccess.getAndAccess().getAndLeftAction_1_0()
+						|| rule == grammarAccess.getEqualityRule()
+						|| action == grammarAccess.getEqualityAccess().getEqualityLeftAction_1_0()
+						|| rule == grammarAccess.getComparisonRule()
+						|| action == grammarAccess.getComparisonAccess().getComparisonLeftAction_1_0()
+						|| rule == grammarAccess.getAddExprRule()
+						|| action == grammarAccess.getAddExprAccess().getAddExprLeftAction_1_0()
+						|| rule == grammarAccess.getSubExprRule()
+						|| action == grammarAccess.getSubExprAccess().getSubExprLeftAction_1_0()
+						|| rule == grammarAccess.getDivExprRule()
+						|| action == grammarAccess.getDivExprAccess().getDivExprLeftAction_1_0()
+						|| rule == grammarAccess.getMultExprRule()
+						|| action == grammarAccess.getMultExprAccess().getMultExprLeftAction_1_0()
+						|| rule == grammarAccess.getExponentExprRule()
+						|| action == grammarAccess.getExponentExprAccess().getExponentExprLeftAction_1_0()
+						|| rule == grammarAccess.getPrimaryRule()) {
+					sequence_Primary(context, (Neg) semanticObject); 
+					return; 
+				}
+				else break;
 			case FortXTransPackage.NO_NEWLINE_VAR_WTYPE:
 				sequence_NoNewlineVarWType(context, (NoNewlineVarWType) semanticObject); 
 				return; 
@@ -702,6 +730,9 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				return; 
 			case FortXTransPackage.STMNT:
 				sequence_Stmnt(context, (Stmnt) semanticObject); 
+				return; 
+			case FortXTransPackage.STMNT_LIST:
+				sequence_StmntList(context, (StmntList) semanticObject); 
 				return; 
 			case FortXTransPackage.STMNTS:
 				sequence_Stmnts(context, (Stmnts) semanticObject); 
@@ -1047,18 +1078,6 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
-	 *     DelimitedExprList returns DelimitedExprList
-	 *
-	 * Constraint:
-	 *     (delim+=DelimitedExpr delim+=DelimitedExpr*)
-	 */
-	protected void sequence_DelimitedExprList(ISerializationContext context, DelimitedExprList semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
 	 *     DelimitedExpr returns DelimitedExpr
 	 *
 	 * Constraint:
@@ -1251,17 +1270,20 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     ExponentExpr.ExponentExpr_1_0 returns ExponentExpr
 	 *
 	 * Constraint:
-	 *     (left=ExponentExpr_ExponentExpr_1_0 right=Primary)
+	 *     (left=ExponentExpr_ExponentExpr_1_0 op='^' right=Primary)
 	 */
 	protected void sequence_ExponentExpr(ISerializationContext context, ExponentExpr semanticObject) {
 		if (errorAcceptor != null) {
 			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPONENT_EXPR__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPONENT_EXPR__LEFT));
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPONENT_EXPR__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPONENT_EXPR__OP));
 			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.EXPONENT_EXPR__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.EXPONENT_EXPR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getExponentExprAccess().getExponentExprLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getExponentExprAccess().getOpCircumflexAccentKeyword_1_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getExponentExprAccess().getRightPrimaryParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
@@ -1274,7 +1296,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     GenSource.GenSource_1_0 returns ExponentExpr
 	 *
 	 * Constraint:
-	 *     (left=ExponentExpr_ExponentExpr_1_0 right=Primary tail+=ExprTail*)
+	 *     (left=ExponentExpr_ExponentExpr_1_0 op='^' right=Primary tail+=ExprTail*)
 	 */
 	protected void sequence_ExponentExpr_Expr(ISerializationContext context, ExponentExpr semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1428,7 +1450,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     GenSource.GenSource_1_0 returns Assop
 	 *
 	 * Constraint:
-	 *     (left=Primary_Assop_0_1_0 op=':=' right=ExprList tail+=ExprTail*)
+	 *     (left=Primary_Assop_0_1_0 op=':=' right=Expr tail+=ExprTail*)
 	 */
 	protected void sequence_Expr_Primary(ISerializationContext context, Assop semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -1445,6 +1467,20 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     (left=Primary_FCall_0_2_0 right=ExprList? tail+=ExprTail*)
 	 */
 	protected void sequence_Expr_Primary(ISerializationContext context, FCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Expr returns Neg
+	 *     GenSource returns Neg
+	 *     GenSource.GenSource_1_0 returns Neg
+	 *
+	 * Constraint:
+	 *     (expression=Primary tail+=ExprTail*)
+	 */
+	protected void sequence_Expr_Primary(ISerializationContext context, Neg semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -2009,7 +2045,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary.FCall_0_2_0 returns Assop
 	 *
 	 * Constraint:
-	 *     (left=Primary_Assop_0_1_0 op=':=' right=ExprList)
+	 *     (left=Primary_Assop_0_1_0 op=':=' right=Expr)
 	 */
 	protected void sequence_Primary(ISerializationContext context, Assop semanticObject) {
 		if (errorAcceptor != null) {
@@ -2023,7 +2059,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getPrimaryAccess().getAssopLeftAction_0_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getPrimaryAccess().getOpColonEqualsSignKeyword_0_1_1_0_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getPrimaryAccess().getRightExprListParserRuleCall_0_1_1_1_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getPrimaryAccess().getRightExprParserRuleCall_0_1_1_1_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -2055,6 +2091,42 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 */
 	protected void sequence_Primary(ISerializationContext context, FCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
+	 *     Or returns Neg
+	 *     Or.Or_1_0 returns Neg
+	 *     And returns Neg
+	 *     And.And_1_0 returns Neg
+	 *     Equality returns Neg
+	 *     Equality.Equality_1_0 returns Neg
+	 *     Comparison returns Neg
+	 *     Comparison.Comparison_1_0 returns Neg
+	 *     AddExpr returns Neg
+	 *     AddExpr.AddExpr_1_0 returns Neg
+	 *     SubExpr returns Neg
+	 *     SubExpr.SubExpr_1_0 returns Neg
+	 *     DivExpr returns Neg
+	 *     DivExpr.DivExpr_1_0 returns Neg
+	 *     MultExpr returns Neg
+	 *     MultExpr.MultExpr_1_0 returns Neg
+	 *     ExponentExpr returns Neg
+	 *     ExponentExpr.ExponentExpr_1_0 returns Neg
+	 *     Primary returns Neg
+	 *
+	 * Constraint:
+	 *     expression=Primary
+	 */
+	protected void sequence_Primary(ISerializationContext context, Neg semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.NEG__EXPRESSION) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.NEG__EXPRESSION));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpressionPrimaryParserRuleCall_2_2_0(), semanticObject.getExpression());
+		feeder.finish();
 	}
 	
 	
@@ -2125,7 +2197,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.PARAN__EXP));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPrimaryAccess().getExpExprListParserRuleCall_2_2_0(), semanticObject.getExp());
+		feeder.accept(grammarAccess.getPrimaryAccess().getExpExprListParserRuleCall_3_2_0(), semanticObject.getExp());
 		feeder.finish();
 	}
 	
@@ -2244,13 +2316,31 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Contexts:
+	 *     StmntList returns StmntList
+	 *
+	 * Constraint:
+	 *     (delim+=Stmnt delim+=Stmnt*)
+	 */
+	protected void sequence_StmntList(ISerializationContext context, StmntList semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Stmnt returns Stmnt
 	 *
 	 * Constraint:
-	 *     (delim=DelimitedExpr | delims=DelimitedExprList)
+	 *     delim=DelimitedExpr
 	 */
 	protected void sequence_Stmnt(ISerializationContext context, Stmnt semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, FortXTransPackage.Literals.STMNT__DELIM) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, FortXTransPackage.Literals.STMNT__DELIM));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getStmntAccess().getDelimDelimitedExprParserRuleCall_0(), semanticObject.getDelim());
+		feeder.finish();
 	}
 	
 	
@@ -2259,7 +2349,7 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Stmnts returns Stmnts
 	 *
 	 * Constraint:
-	 *     (front=Stmnt | locVar=LocalVarDecl | exp=Expr)
+	 *     (front=Stmnt | delims=StmntList | locVar=LocalVarDecl | exp=Expr)
 	 */
 	protected void sequence_Stmnts(ISerializationContext context, Stmnts semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

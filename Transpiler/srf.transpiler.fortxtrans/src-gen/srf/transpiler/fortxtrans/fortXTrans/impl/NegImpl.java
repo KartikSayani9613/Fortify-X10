@@ -10,43 +10,42 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr;
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.Neg;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Stmnt</b></em>'.
+ * An implementation of the model object '<em><b>Neg</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntImpl#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.NegImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
+public class NegImpl extends ExprImpl implements Neg
 {
   /**
-   * The cached value of the '{@link #getDelim() <em>Delim</em>}' containment reference.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDelim()
+   * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected DelimitedExpr delim;
+  protected Expr expression;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected StmntImpl()
+  protected NegImpl()
   {
     super();
   }
@@ -59,7 +58,7 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   @Override
   protected EClass eStaticClass()
   {
-    return FortXTransPackage.Literals.STMNT;
+    return FortXTransPackage.Literals.NEG;
   }
 
   /**
@@ -67,9 +66,9 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public DelimitedExpr getDelim()
+  public Expr getExpression()
   {
-    return delim;
+    return expression;
   }
 
   /**
@@ -77,13 +76,13 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDelim(DelimitedExpr newDelim, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expr newExpression, NotificationChain msgs)
   {
-    DelimitedExpr oldDelim = delim;
-    delim = newDelim;
+    Expr oldExpression = expression;
+    expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM, oldDelim, newDelim);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.NEG__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -94,20 +93,20 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDelim(DelimitedExpr newDelim)
+  public void setExpression(Expr newExpression)
   {
-    if (newDelim != delim)
+    if (newExpression != expression)
     {
       NotificationChain msgs = null;
-      if (delim != null)
-        msgs = ((InternalEObject)delim).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM, null, msgs);
-      if (newDelim != null)
-        msgs = ((InternalEObject)newDelim).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNT__DELIM, null, msgs);
-      msgs = basicSetDelim(newDelim, msgs);
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.NEG__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.NEG__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNT__DELIM, newDelim, newDelim));
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.NEG__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -120,8 +119,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__DELIM:
-        return basicSetDelim(null, msgs);
+      case FortXTransPackage.NEG__EXPRESSION:
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -136,8 +135,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__DELIM:
-        return getDelim();
+      case FortXTransPackage.NEG__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -152,8 +151,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__DELIM:
-        setDelim((DelimitedExpr)newValue);
+      case FortXTransPackage.NEG__EXPRESSION:
+        setExpression((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -169,8 +168,8 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__DELIM:
-        setDelim((DelimitedExpr)null);
+      case FortXTransPackage.NEG__EXPRESSION:
+        setExpression((Expr)null);
         return;
     }
     super.eUnset(featureID);
@@ -186,10 +185,10 @@ public class StmntImpl extends MinimalEObjectImpl.Container implements Stmnt
   {
     switch (featureID)
     {
-      case FortXTransPackage.STMNT__DELIM:
-        return delim != null;
+      case FortXTransPackage.NEG__EXPRESSION:
+        return expression != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //StmntImpl
+} //NegImpl

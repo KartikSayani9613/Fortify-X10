@@ -249,13 +249,13 @@ public interface FortXTransFactory extends EFactory
   Stmnt createStmnt();
 
   /**
-   * Returns a new object of class '<em>Delimited Expr List</em>'.
+   * Returns a new object of class '<em>Stmnt List</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Delimited Expr List</em>'.
+   * @return a new object of class '<em>Stmnt List</em>'.
    * @generated
    */
-  DelimitedExprList createDelimitedExprList();
+  StmntList createStmntList();
 
   /**
    * Returns a new object of class '<em>Expr</em>'.
@@ -580,6 +580,15 @@ public interface FortXTransFactory extends EFactory
    * @generated
    */
   Not createNot();
+
+  /**
+   * Returns a new object of class '<em>Neg</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Neg</em>'.
+   * @generated
+   */
+  Neg createNeg();
 
   /**
    * Returns a new object of class '<em>Paran</em>'.

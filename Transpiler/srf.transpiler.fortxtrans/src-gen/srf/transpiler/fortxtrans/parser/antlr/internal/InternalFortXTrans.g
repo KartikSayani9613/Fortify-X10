@@ -1976,11 +1976,49 @@ ruleStmnts returns [EObject current=null]
 		)
 		    |
 		(
+			otherlv_1='('
+			{
+				newLeafNode(otherlv_1, grammarAccess.getStmntsAccess().getLeftParenthesisKeyword_1_0());
+			}
+			otherlv_2='|'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getStmntsAccess().getVerticalLineKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getStmntsAccess().getDelimsStmntListParserRuleCall_1_2_0());
+					}
+					lv_delims_3_0=ruleStmntList
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getStmntsRule());
+						}
+						set(
+							$current,
+							"delims",
+							lv_delims_3_0,
+							"srf.transpiler.fortxtrans.FortXTrans.StmntList");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+			otherlv_4='|'
+			{
+				newLeafNode(otherlv_4, grammarAccess.getStmntsAccess().getVerticalLineKeyword_1_3());
+			}
+			otherlv_5=')'
+			{
+				newLeafNode(otherlv_5, grammarAccess.getStmntsAccess().getRightParenthesisKeyword_1_4());
+			}
+		)
+		    |
+		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStmntsAccess().getLocVarLocalVarDeclParserRuleCall_1_0());
+					newCompositeNode(grammarAccess.getStmntsAccess().getLocVarLocalVarDeclParserRuleCall_2_0());
 				}
-				lv_locVar_1_0=ruleLocalVarDecl
+				lv_locVar_6_0=ruleLocalVarDecl
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStmntsRule());
@@ -1988,7 +2026,7 @@ ruleStmnts returns [EObject current=null]
 					set(
 						$current,
 						"locVar",
-						lv_locVar_1_0,
+						lv_locVar_6_0,
 						"srf.transpiler.fortxtrans.FortXTrans.LocalVarDecl");
 					afterParserOrEnumRuleCall();
 				}
@@ -1998,9 +2036,9 @@ ruleStmnts returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getStmntsAccess().getExpExprParserRuleCall_2_0());
+					newCompositeNode(grammarAccess.getStmntsAccess().getExpExprParserRuleCall_3_0());
 				}
-				lv_exp_2_0=ruleExpr
+				lv_exp_7_0=ruleExpr
 				{
 					if ($current==null) {
 						$current = createModelElementForParent(grammarAccess.getStmntsRule());
@@ -2008,7 +2046,7 @@ ruleStmnts returns [EObject current=null]
 					set(
 						$current,
 						"exp",
-						lv_exp_2_0,
+						lv_exp_7_0,
 						"srf.transpiler.fortxtrans.FortXTrans.Expr");
 					afterParserOrEnumRuleCall();
 				}
@@ -2034,66 +2072,34 @@ ruleStmnt returns [EObject current=null]
 }:
 	(
 		(
-			(
-				{
-					newCompositeNode(grammarAccess.getStmntAccess().getDelimDelimitedExprParserRuleCall_0_0());
-				}
-				lv_delim_0_0=ruleDelimitedExpr
-				{
-					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getStmntRule());
-					}
-					set(
-						$current,
-						"delim",
-						lv_delim_0_0,
-						"srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
-					afterParserOrEnumRuleCall();
-				}
-			)
-		)
-		    |
-		(
-			otherlv_1='(|'
 			{
-				newLeafNode(otherlv_1, grammarAccess.getStmntAccess().getLeftParenthesisVerticalLineKeyword_1_0());
+				newCompositeNode(grammarAccess.getStmntAccess().getDelimDelimitedExprParserRuleCall_0());
 			}
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getStmntAccess().getDelimsDelimitedExprListParserRuleCall_1_1_0());
-					}
-					lv_delims_2_0=ruleDelimitedExprList
-					{
-						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getStmntRule());
-						}
-						set(
-							$current,
-							"delims",
-							lv_delims_2_0,
-							"srf.transpiler.fortxtrans.FortXTrans.DelimitedExprList");
-						afterParserOrEnumRuleCall();
-					}
-				)
-			)
-			otherlv_3='|)'
+			lv_delim_0_0=ruleDelimitedExpr
 			{
-				newLeafNode(otherlv_3, grammarAccess.getStmntAccess().getVerticalLineRightParenthesisKeyword_1_2());
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getStmntRule());
+				}
+				set(
+					$current,
+					"delim",
+					lv_delim_0_0,
+					"srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
+				afterParserOrEnumRuleCall();
 			}
 		)
 	)
 ;
 
-// Entry rule entryRuleDelimitedExprList
-entryRuleDelimitedExprList returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getDelimitedExprListRule()); }
-	iv_ruleDelimitedExprList=ruleDelimitedExprList
-	{ $current=$iv_ruleDelimitedExprList.current; }
+// Entry rule entryRuleStmntList
+entryRuleStmntList returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getStmntListRule()); }
+	iv_ruleStmntList=ruleStmntList
+	{ $current=$iv_ruleStmntList.current; }
 	EOF;
 
-// Rule DelimitedExprList
-ruleDelimitedExprList returns [EObject current=null]
+// Rule StmntList
+ruleStmntList returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -2104,18 +2110,18 @@ ruleDelimitedExprList returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getDelimitedExprListAccess().getDelimDelimitedExprParserRuleCall_0_0());
+					newCompositeNode(grammarAccess.getStmntListAccess().getDelimStmntParserRuleCall_0_0());
 				}
-				lv_delim_0_0=ruleDelimitedExpr
+				lv_delim_0_0=ruleStmnt
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getDelimitedExprListRule());
+						$current = createModelElementForParent(grammarAccess.getStmntListRule());
 					}
 					add(
 						$current,
 						"delim",
 						lv_delim_0_0,
-						"srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
+						"srf.transpiler.fortxtrans.FortXTrans.Stmnt");
 					afterParserOrEnumRuleCall();
 				}
 			)
@@ -2123,23 +2129,23 @@ ruleDelimitedExprList returns [EObject current=null]
 		(
 			otherlv_1=','
 			{
-				newLeafNode(otherlv_1, grammarAccess.getDelimitedExprListAccess().getCommaKeyword_1_0());
+				newLeafNode(otherlv_1, grammarAccess.getStmntListAccess().getCommaKeyword_1_0());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getDelimitedExprListAccess().getDelimDelimitedExprParserRuleCall_1_1_0());
+						newCompositeNode(grammarAccess.getStmntListAccess().getDelimStmntParserRuleCall_1_1_0());
 					}
-					lv_delim_2_0=ruleDelimitedExpr
+					lv_delim_2_0=ruleStmnt
 					{
 						if ($current==null) {
-							$current = createModelElementForParent(grammarAccess.getDelimitedExprListRule());
+							$current = createModelElementForParent(grammarAccess.getStmntListRule());
 						}
 						add(
 							$current,
 							"delim",
 							lv_delim_2_0,
-							"srf.transpiler.fortxtrans.FortXTrans.DelimitedExpr");
+							"srf.transpiler.fortxtrans.FortXTrans.Stmnt");
 						afterParserOrEnumRuleCall();
 					}
 				)
@@ -2832,10 +2838,20 @@ ruleExponentExpr returns [EObject current=null]
 						$current);
 				}
 			)
-			otherlv_2='^'
-			{
-				newLeafNode(otherlv_2, grammarAccess.getExponentExprAccess().getCircumflexAccentKeyword_1_1());
-			}
+			(
+				(
+					lv_op_2_0='^'
+					{
+						newLeafNode(lv_op_2_0, grammarAccess.getExponentExprAccess().getOpCircumflexAccentKeyword_1_1_0());
+					}
+					{
+						if ($current==null) {
+							$current = createModelElement(grammarAccess.getExponentExprRule());
+						}
+						setWithLastConsumed($current, "op", lv_op_2_0, "^");
+					}
+				)
+			)
 			(
 				(
 					{
@@ -2910,9 +2926,9 @@ rulePrimary returns [EObject current=null]
 					(
 						(
 							{
-								newCompositeNode(grammarAccess.getPrimaryAccess().getRightExprListParserRuleCall_0_1_1_1_0());
+								newCompositeNode(grammarAccess.getPrimaryAccess().getRightExprParserRuleCall_0_1_1_1_0());
 							}
-							lv_right_3_0=ruleExprList
+							lv_right_3_0=ruleExpr
 							{
 								if ($current==null) {
 									$current = createModelElementForParent(grammarAccess.getPrimaryRule());
@@ -2921,7 +2937,7 @@ rulePrimary returns [EObject current=null]
 									$current,
 									"right",
 									lv_right_3_0,
-									"srf.transpiler.fortxtrans.FortXTrans.ExprList");
+									"srf.transpiler.fortxtrans.FortXTrans.Expr");
 								afterParserOrEnumRuleCall();
 							}
 						)
@@ -3003,20 +3019,53 @@ rulePrimary returns [EObject current=null]
 			(
 				{
 					$current = forceCreateModelElement(
-						grammarAccess.getPrimaryAccess().getParanAction_2_0(),
+						grammarAccess.getPrimaryAccess().getNegAction_2_0(),
 						$current);
 				}
 			)
-			otherlv_12='('
+			otherlv_12='-'
 			{
-				newLeafNode(otherlv_12, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_2_1());
+				newLeafNode(otherlv_12, grammarAccess.getPrimaryAccess().getHyphenMinusKeyword_2_1());
 			}
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPrimaryAccess().getExpExprListParserRuleCall_2_2_0());
+						newCompositeNode(grammarAccess.getPrimaryAccess().getExpressionPrimaryParserRuleCall_2_2_0());
 					}
-					lv_exp_13_0=ruleExprList
+					lv_expression_13_0=rulePrimary
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getPrimaryRule());
+						}
+						set(
+							$current,
+							"expression",
+							lv_expression_13_0,
+							"srf.transpiler.fortxtrans.FortXTrans.Primary");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)
+		    |
+		(
+			(
+				{
+					$current = forceCreateModelElement(
+						grammarAccess.getPrimaryAccess().getParanAction_3_0(),
+						$current);
+				}
+			)
+			otherlv_15='('
+			{
+				newLeafNode(otherlv_15, grammarAccess.getPrimaryAccess().getLeftParenthesisKeyword_3_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getPrimaryAccess().getExpExprListParserRuleCall_3_2_0());
+					}
+					lv_exp_16_0=ruleExprList
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPrimaryRule());
@@ -3024,15 +3073,15 @@ rulePrimary returns [EObject current=null]
 						set(
 							$current,
 							"exp",
-							lv_exp_13_0,
+							lv_exp_16_0,
 							"srf.transpiler.fortxtrans.FortXTrans.ExprList");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
-			otherlv_14=')'
+			otherlv_17=')'
 			{
-				newLeafNode(otherlv_14, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_2_3());
+				newLeafNode(otherlv_17, grammarAccess.getPrimaryAccess().getRightParenthesisKeyword_3_3());
 			}
 		)
 	)

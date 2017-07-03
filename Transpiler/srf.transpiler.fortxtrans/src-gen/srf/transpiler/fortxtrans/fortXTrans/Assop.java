@@ -85,12 +85,12 @@ public interface Assop extends Expr
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(ExprList)
+   * @see #setRight(Expr)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getAssop_Right()
    * @model containment="true"
    * @generated
    */
-  ExprList getRight();
+  Expr getRight();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Assop#getRight <em>Right</em>}' containment reference.
@@ -100,6 +100,6 @@ public interface Assop extends Expr
    * @see #getRight()
    * @generated
    */
-  void setRight(ExprList value);
+  void setRight(Expr value);
 
 } // Assop

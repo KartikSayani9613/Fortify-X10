@@ -115,17 +115,17 @@ FnDecl:
 
 Stmnts:
 	front=Stmnt
+	|'(''|' delims=StmntList '|'')'
 	|locVar=LocalVarDecl
 	|exp=Expr
 ;
 
 Stmnt:
 	delim=DelimitedExpr
-	|'(|' delims=DelimitedExprList '|)'
 ;
 
-DelimitedExprList:
-	delim+=DelimitedExpr (',' delim+=DelimitedExpr)*
+StmntList:
+	delim+=Stmnt (',' delim+=Stmnt)*
 ;
 
 Expr:
@@ -165,13 +165,16 @@ MultExpr returns Expr:
 	ExponentExpr ({MultExpr.left=current} '*' right=ExponentExpr)*
 ;
 
+
+
 ExponentExpr returns Expr:
-	Primary ({ExponentExpr.left=current} '^' right=Primary)*
+	Primary ({ExponentExpr.left=current} op='^' right=Primary)*
 ;
 
 Primary returns Expr:
 	LiteralTuple ({Assop.left=current}(op=':=' right=Expr))? ({FCall.left=current} '('right= ExprList?')')?
 	|{Not} '!' expression=Primary
+	|{Neg} '-' expression=Primary
 	|{Paran}'('exp=ExprList')'
 ;
 

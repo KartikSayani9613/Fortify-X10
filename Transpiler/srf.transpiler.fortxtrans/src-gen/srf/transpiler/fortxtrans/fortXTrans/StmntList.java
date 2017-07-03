@@ -9,25 +9,25 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Delimited Expr List</b></em>'.
+ * A representation of the model object '<em><b>Stmnt List</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExprList#getDelim <em>Delim</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.StmntList#getDelim <em>Delim</em>}</li>
  * </ul>
  *
- * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExprList()
+ * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmntList()
  * @model
  * @generated
  */
-public interface DelimitedExprList extends EObject
+public interface StmntList extends EObject
 {
   /**
    * Returns the value of the '<em><b>Delim</b></em>' containment reference list.
-   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.DelimitedExpr}.
+   * The list contents are of type {@link srf.transpiler.fortxtrans.fortXTrans.Stmnt}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Delim</em>' containment reference list isn't clear,
@@ -35,10 +35,10 @@ public interface DelimitedExprList extends EObject
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Delim</em>' containment reference list.
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getDelimitedExprList_Delim()
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmntList_Delim()
    * @model containment="true"
    * @generated
    */
-  EList<DelimitedExpr> getDelim();
+  EList<Stmnt> getDelim();
 
-} // DelimitedExprList
+} // StmntList

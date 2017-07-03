@@ -12,7 +12,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import srf.transpiler.fortxtrans.fortXTrans.Assop;
-import srf.transpiler.fortxtrans.fortXTrans.ExprList;
+import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
 
@@ -71,7 +71,7 @@ public class AssopImpl extends ExprImpl implements Assop
    * @generated
    * @ordered
    */
-  protected ExprList right;
+  protected Expr right;
 
   /**
    * <!-- begin-user-doc -->
@@ -170,7 +170,7 @@ public class AssopImpl extends ExprImpl implements Assop
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExprList getRight()
+  public Expr getRight()
   {
     return right;
   }
@@ -180,9 +180,9 @@ public class AssopImpl extends ExprImpl implements Assop
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(ExprList newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(Expr newRight, NotificationChain msgs)
   {
-    ExprList oldRight = right;
+    Expr oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
@@ -197,7 +197,7 @@ public class AssopImpl extends ExprImpl implements Assop
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(ExprList newRight)
+  public void setRight(Expr newRight)
   {
     if (newRight != right)
     {
@@ -268,7 +268,7 @@ public class AssopImpl extends ExprImpl implements Assop
         setOp((String)newValue);
         return;
       case FortXTransPackage.ASSOP__RIGHT:
-        setRight((ExprList)newValue);
+        setRight((Expr)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -291,7 +291,7 @@ public class AssopImpl extends ExprImpl implements Assop
         setOp(OP_EDEFAULT);
         return;
       case FortXTransPackage.ASSOP__RIGHT:
-        setRight((ExprList)null);
+        setRight((Expr)null);
         return;
     }
     super.eUnset(featureID);

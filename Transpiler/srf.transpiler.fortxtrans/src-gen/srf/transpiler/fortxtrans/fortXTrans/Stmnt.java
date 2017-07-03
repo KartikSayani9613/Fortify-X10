@@ -15,7 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelim <em>Delim</em>}</li>
- *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelims <em>Delims</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt()
@@ -49,31 +48,5 @@ public interface Stmnt extends EObject
    * @generated
    */
   void setDelim(DelimitedExpr value);
-
-  /**
-   * Returns the value of the '<em><b>Delims</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Delims</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Delims</em>' containment reference.
-   * @see #setDelims(DelimitedExprList)
-   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnt_Delims()
-   * @model containment="true"
-   * @generated
-   */
-  DelimitedExprList getDelims();
-
-  /**
-   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnt#getDelims <em>Delims</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Delims</em>' containment reference.
-   * @see #getDelims()
-   * @generated
-   */
-  void setDelims(DelimitedExprList value);
 
 } // Stmnt

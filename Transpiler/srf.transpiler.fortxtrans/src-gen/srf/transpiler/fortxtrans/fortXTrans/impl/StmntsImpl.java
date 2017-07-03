@@ -16,6 +16,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
 import srf.transpiler.fortxtrans.fortXTrans.LocalVarDecl;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnt;
+import srf.transpiler.fortxtrans.fortXTrans.StmntList;
 import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
 
 /**
@@ -27,6 +28,7 @@ import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntsImpl#getFront <em>Front</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntsImpl#getDelims <em>Delims</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntsImpl#getLocVar <em>Loc Var</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.StmntsImpl#getExp <em>Exp</em>}</li>
  * </ul>
@@ -44,6 +46,16 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
    * @ordered
    */
   protected Stmnt front;
+
+  /**
+   * The cached value of the '{@link #getDelims() <em>Delims</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getDelims()
+   * @generated
+   * @ordered
+   */
+  protected StmntList delims;
 
   /**
    * The cached value of the '{@link #getLocVar() <em>Loc Var</em>}' containment reference.
@@ -132,6 +144,54 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNTS__FRONT, newFront, newFront));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StmntList getDelims()
+  {
+    return delims;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetDelims(StmntList newDelims, NotificationChain msgs)
+  {
+    StmntList oldDelims = delims;
+    delims = newDelims;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNTS__DELIMS, oldDelims, newDelims);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setDelims(StmntList newDelims)
+  {
+    if (newDelims != delims)
+    {
+      NotificationChain msgs = null;
+      if (delims != null)
+        msgs = ((InternalEObject)delims).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNTS__DELIMS, null, msgs);
+      if (newDelims != null)
+        msgs = ((InternalEObject)newDelims).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.STMNTS__DELIMS, null, msgs);
+      msgs = basicSetDelims(newDelims, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.STMNTS__DELIMS, newDelims, newDelims));
   }
 
   /**
@@ -242,6 +302,8 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
     {
       case FortXTransPackage.STMNTS__FRONT:
         return basicSetFront(null, msgs);
+      case FortXTransPackage.STMNTS__DELIMS:
+        return basicSetDelims(null, msgs);
       case FortXTransPackage.STMNTS__LOC_VAR:
         return basicSetLocVar(null, msgs);
       case FortXTransPackage.STMNTS__EXP:
@@ -262,6 +324,8 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
     {
       case FortXTransPackage.STMNTS__FRONT:
         return getFront();
+      case FortXTransPackage.STMNTS__DELIMS:
+        return getDelims();
       case FortXTransPackage.STMNTS__LOC_VAR:
         return getLocVar();
       case FortXTransPackage.STMNTS__EXP:
@@ -282,6 +346,9 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
     {
       case FortXTransPackage.STMNTS__FRONT:
         setFront((Stmnt)newValue);
+        return;
+      case FortXTransPackage.STMNTS__DELIMS:
+        setDelims((StmntList)newValue);
         return;
       case FortXTransPackage.STMNTS__LOC_VAR:
         setLocVar((LocalVarDecl)newValue);
@@ -306,6 +373,9 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
       case FortXTransPackage.STMNTS__FRONT:
         setFront((Stmnt)null);
         return;
+      case FortXTransPackage.STMNTS__DELIMS:
+        setDelims((StmntList)null);
+        return;
       case FortXTransPackage.STMNTS__LOC_VAR:
         setLocVar((LocalVarDecl)null);
         return;
@@ -328,6 +398,8 @@ public class StmntsImpl extends MinimalEObjectImpl.Container implements Stmnts
     {
       case FortXTransPackage.STMNTS__FRONT:
         return front != null;
+      case FortXTransPackage.STMNTS__DELIMS:
+        return delims != null;
       case FortXTransPackage.STMNTS__LOC_VAR:
         return locVar != null;
       case FortXTransPackage.STMNTS__EXP:

@@ -100,15 +100,15 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Stmnts">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnts/front"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnts/delims"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnts/locVar"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnts/exp"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Stmnt">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnt/delim"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Stmnt/delims"/>
     </genClasses>
-    <genClasses ecoreClass="FortXTrans.ecore#//DelimitedExprList">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//DelimitedExprList/delim"/>
+    <genClasses ecoreClass="FortXTrans.ecore#//StmntList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//StmntList/delim"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Expr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Expr/tail"/>
@@ -248,6 +248,7 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//ExponentExpr">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ExponentExpr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute FortXTrans.ecore#//ExponentExpr/op"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ExponentExpr/right"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Assop">
@@ -261,6 +262,9 @@
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Not/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//Neg">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Neg/expression"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Paran">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Paran/exp"/>

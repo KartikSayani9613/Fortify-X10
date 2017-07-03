@@ -261,10 +261,10 @@ public class FortXTransSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case FortXTransPackage.DELIMITED_EXPR_LIST:
+      case FortXTransPackage.STMNT_LIST:
       {
-        DelimitedExprList delimitedExprList = (DelimitedExprList)theEObject;
-        T result = caseDelimitedExprList(delimitedExprList);
+        StmntList stmntList = (StmntList)theEObject;
+        T result = caseStmntList(stmntList);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -555,6 +555,15 @@ public class FortXTransSwitch<T> extends Switch<T>
         T result = caseNot(not);
         if (result == null) result = caseExpr(not);
         if (result == null) result = caseGenSource(not);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case FortXTransPackage.NEG:
+      {
+        Neg neg = (Neg)theEObject;
+        T result = caseNeg(neg);
+        if (result == null) result = caseExpr(neg);
+        if (result == null) result = caseGenSource(neg);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1020,17 +1029,17 @@ public class FortXTransSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Delimited Expr List</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Stmnt List</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Delimited Expr List</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Stmnt List</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDelimitedExprList(DelimitedExprList object)
+  public T caseStmntList(StmntList object)
   {
     return null;
   }
@@ -1607,6 +1616,22 @@ public class FortXTransSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNot(Not object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Neg</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Neg</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNeg(Neg object)
   {
     return null;
   }

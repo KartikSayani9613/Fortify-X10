@@ -24,6 +24,7 @@ import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExponentExprImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExponentExprImpl#getOp <em>Op</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ExponentExprImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -40,6 +41,26 @@ public class ExponentExprImpl extends ExprImpl implements ExponentExpr
    * @ordered
    */
   protected Expr left;
+
+  /**
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
@@ -125,6 +146,29 @@ public class ExponentExprImpl extends ExprImpl implements ExponentExpr
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getOp()
+  {
+    return op;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOp(String newOp)
+  {
+    String oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.EXPONENT_EXPR__OP, oldOp, op));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Expr getRight()
   {
     return right;
@@ -198,6 +242,8 @@ public class ExponentExprImpl extends ExprImpl implements ExponentExpr
     {
       case FortXTransPackage.EXPONENT_EXPR__LEFT:
         return getLeft();
+      case FortXTransPackage.EXPONENT_EXPR__OP:
+        return getOp();
       case FortXTransPackage.EXPONENT_EXPR__RIGHT:
         return getRight();
     }
@@ -216,6 +262,9 @@ public class ExponentExprImpl extends ExprImpl implements ExponentExpr
     {
       case FortXTransPackage.EXPONENT_EXPR__LEFT:
         setLeft((Expr)newValue);
+        return;
+      case FortXTransPackage.EXPONENT_EXPR__OP:
+        setOp((String)newValue);
         return;
       case FortXTransPackage.EXPONENT_EXPR__RIGHT:
         setRight((Expr)newValue);
@@ -237,6 +286,9 @@ public class ExponentExprImpl extends ExprImpl implements ExponentExpr
       case FortXTransPackage.EXPONENT_EXPR__LEFT:
         setLeft((Expr)null);
         return;
+      case FortXTransPackage.EXPONENT_EXPR__OP:
+        setOp(OP_EDEFAULT);
+        return;
       case FortXTransPackage.EXPONENT_EXPR__RIGHT:
         setRight((Expr)null);
         return;
@@ -256,10 +308,29 @@ public class ExponentExprImpl extends ExprImpl implements ExponentExpr
     {
       case FortXTransPackage.EXPONENT_EXPR__LEFT:
         return left != null;
+      case FortXTransPackage.EXPONENT_EXPR__OP:
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
       case FortXTransPackage.EXPONENT_EXPR__RIGHT:
         return right != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (op: ");
+    result.append(op);
+    result.append(')');
+    return result.toString();
   }
 
 } //ExponentExprImpl

@@ -14,6 +14,7 @@ package srf.transpiler.fortxtrans.fortXTrans;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getLeft <em>Left</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getOp <em>Op</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getRight <em>Right</em>}</li>
  * </ul>
  *
@@ -48,6 +49,32 @@ public interface ExponentExpr extends Expr
    * @generated
    */
   void setLeft(Expr value);
+
+  /**
+   * Returns the value of the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Op</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Op</em>' attribute.
+   * @see #setOp(String)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getExponentExpr_Op()
+   * @model
+   * @generated
+   */
+  String getOp();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ExponentExpr#getOp <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Op</em>' attribute.
+   * @see #getOp()
+   * @generated
+   */
+  void setOp(String value);
 
   /**
    * Returns the value of the '<em><b>Right</b></em>' containment reference.

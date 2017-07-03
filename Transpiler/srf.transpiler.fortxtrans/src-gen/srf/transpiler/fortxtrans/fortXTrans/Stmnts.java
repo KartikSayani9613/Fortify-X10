@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getFront <em>Front</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getDelims <em>Delims</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getLocVar <em>Loc Var</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getExp <em>Exp</em>}</li>
  * </ul>
@@ -50,6 +51,32 @@ public interface Stmnts extends EObject
    * @generated
    */
   void setFront(Stmnt value);
+
+  /**
+   * Returns the value of the '<em><b>Delims</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Delims</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Delims</em>' containment reference.
+   * @see #setDelims(StmntList)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getStmnts_Delims()
+   * @model containment="true"
+   * @generated
+   */
+  StmntList getDelims();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.Stmnts#getDelims <em>Delims</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Delims</em>' containment reference.
+   * @see #getDelims()
+   * @generated
+   */
+  void setDelims(StmntList value);
 
   /**
    * Returns the value of the '<em><b>Loc Var</b></em>' containment reference.
