@@ -105,8 +105,6 @@ class FortXTransGenerator extends AbstractGenerator {
 			«FOR d:c.decls»
 				«d.compile»
 			«ENDFOR»
-			public static def println[T](x:T){Console.OUT.println("\n"+x);}
-			static def print[T](x:T){Console.OUT.print(x);}
 			public static def nanoTime() = System.nanoTime();
 			static def min(x:Double, y:Double) = Math.min(x, y);
 			static def min(x:Long, y:Long) = Math.min(x, y);
@@ -849,7 +847,13 @@ class FortXTransGenerator extends AbstractGenerator {
 				}
 				s = s + ''')'''
 			}
-			FCall:s=s+'''«e.left.compile»(«IF e.right!==null»«e.right.compile.replace("@",",")»«ENDIF»)'''
+			FCall:	{	var fname = e.left.compile
+						if(fname=="println"||fname=="print")
+							s = s + '''Console.OUT.«e.left.compile»(«IF e.right!==null»«e.right.compile.replace("@","+")»«ENDIF»)'''
+						else
+							s=s+'''«fname»(«IF e.right!==null»«e.right.compile.replace("@",",")»«ENDIF»)'''
+							
+					}
 			ArrayCall:s = s + '''«e.left.compile»(«e.right.compile.replace("@",",")»)«IF e.extRight!==null»=«e.extRight.compile»«ENDIF»'''
 			LiteralTuple: s= s+e.compile
 			Assop: s = e.compile

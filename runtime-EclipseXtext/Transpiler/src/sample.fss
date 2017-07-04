@@ -12,8 +12,8 @@ export Executable
    		
    		println("Starting parallel Buffons")
    		for i <- 1#3000 do
-      delta_X = random(2.0) - 1.0
-      delta_Y = random(2.0) - 1.0
+      		delta_X = random(2.0) - 1.0
+      		delta_Y = random(2.0) - 1.0
       rsq = delta_X^2 + delta_Y^2
      if 0.0 < rsq AND rsq < 1.0 then
         y1 = tableHeight*random(1.0)

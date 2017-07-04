@@ -10,25 +10,28 @@ import x10.util.Random;
 export Executable
 */
 
-public class fact{
+public class factorial{
 	
 	public static def main(args:Rail[String]){
-		var a:Array_1[Double] = new Array_1[Double](100n, 10n);
-	var b:Array_1[Double] = new Array_1[Double](100n, 10n);
-	var c:Array_1[Double] = new Array_1[Double](100n);
-	finish for(i in 0n..(100n-1)) async{
-		c(i)=(a(i)+b(i));
-	
-		}
-	finish for(i in 0n..(100n-1)) async{
-		println(c(i));
+		val start:Int = 0n as Int;
+	val fin:Int = 20n as Int;
+	for(i in 0n..(20n-1)){
+		Console.OUT.println("fact("+i+")="+fact(i as Long));
 	
 		}
 	
 	
 	}
-	public static def println[T](x:T){Console.OUT.println("\n"+x);}
-	static def print[T](x:T){Console.OUT.print(x);}
+	static def fact(i:Long):Long{
+		if((i < 2n)){
+	return 1n;
+	
+	}
+	else{
+	return (i*fact((i-1n)));
+	}
+	
+	}
 	public static def nanoTime() = System.nanoTime();
 	static def min(x:Double, y:Double) = Math.min(x, y);
 	static def min(x:Long, y:Long) = Math.min(x, y);

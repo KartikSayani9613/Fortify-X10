@@ -1,19 +1,15 @@
-component fact
+component factorial
 export Executable
 
-	run():() = do
-		var a:RR64[100] = array1[\RR64, 100\](10)
-		var b:RR64[100] = array1[\RR64, 100\](10)
-		var c:RR64[100] = array1[\RR64, 100\]()
+	run():()= do
+		start:ZZ32 = 0
+		fin:ZZ32 = 20
 		
-		for i<-0#100 do
-			c[i] := a[i] + b[i]
+		for i<-seq(0#20) do
+			println("fact(",i,")=",fact(i as ZZ64))
 		end
-		
-		for i<-0#100 do
-			println(c[i])
-		end
-		
 	end
+	
+	fact(i:ZZ64):ZZ64 = if i<2 then return 1 else return i*fact(i-1) end
 
 end

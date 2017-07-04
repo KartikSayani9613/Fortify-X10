@@ -164,12 +164,6 @@ public class FortXTransGenerator extends AbstractGenerator {
       }
     }
     _builder.append("\t");
-    _builder.append("public static def println[T](x:T){Console.OUT.println(\"\\n\"+x);}");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("static def print[T](x:T){Console.OUT.print(x);}");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("public static def nanoTime() = System.nanoTime();");
     _builder.newLine();
     _builder.append("\t");
@@ -2433,86 +2427,123 @@ public class FortXTransGenerator extends AbstractGenerator {
         if ((Objects.equal(ltp, "array1") || Objects.equal(ltp, "vector"))) {
           StringConcatenation _builder = new StringConcatenation();
           _builder.append("new Array_1[");
-          _builder.append(t);
-          _builder.append("](");
-          String _replace = this.compile(((ArrayInit)e).getSizes()).replace("@", ",");
-          _builder.append(_replace);
           String _plus = (s + _builder);
           s = _plus;
+        } else {
+          if ((Objects.equal(ltp, "array2") || Objects.equal(ltp, "matrix"))) {
+            StringConcatenation _builder_1 = new StringConcatenation();
+            _builder_1.append("new Array_2[");
+            String _plus_1 = (s + _builder_1);
+            s = _plus_1;
+          } else {
+            boolean _equals = Objects.equal(ltp, "array3");
+            if (_equals) {
+              StringConcatenation _builder_2 = new StringConcatenation();
+              _builder_2.append("new Array_3[");
+              String _plus_2 = (s + _builder_2);
+              s = _plus_2;
+            }
+          }
         }
+        StringConcatenation _builder_3 = new StringConcatenation();
+        _builder_3.append(t);
+        _builder_3.append("](");
+        String _replace = this.compile(((ArrayInit)e).getSizes()).replace("@", ",");
+        _builder_3.append(_replace);
+        String _plus_3 = (s + _builder_3);
+        s = _plus_3;
         LiteralTuple _lit = ((ArrayInit)e).getLit();
         boolean _tripleNotEquals = (_lit != null);
         if (_tripleNotEquals) {
-          StringConcatenation _builder_1 = new StringConcatenation();
-          _builder_1.append(", ");
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append(", ");
           String _compile = this.compile(((ArrayInit)e).getLit());
-          _builder_1.append(_compile);
-          String _plus_1 = (s + _builder_1);
-          s = _plus_1;
+          _builder_4.append(_compile);
+          String _plus_4 = (s + _builder_4);
+          s = _plus_4;
         } else {
           Stmnts _filler = ((ArrayInit)e).getFiller();
           boolean _tripleNotEquals_1 = (_filler != null);
           if (_tripleNotEquals_1) {
             String[] vars = this.compile(((ArrayInit)e).getInd()).split(",");
-            StringConcatenation _builder_2 = new StringConcatenation();
-            _builder_2.append(", (");
+            StringConcatenation _builder_5 = new StringConcatenation();
+            _builder_5.append(", (");
             String _get = vars[0];
-            _builder_2.append(_get);
-            _builder_2.append(":Long");
-            String _plus_2 = (s + _builder_2);
-            s = _plus_2;
+            _builder_5.append(_get);
+            _builder_5.append(":Long");
+            String _plus_5 = (s + _builder_5);
+            s = _plus_5;
             int _length = vars.length;
             ExclusiveRange _doubleDotLessThan = new ExclusiveRange(1, _length, true);
             for (final Integer k : _doubleDotLessThan) {
-              StringConcatenation _builder_3 = new StringConcatenation();
-              _builder_3.append(", ");
+              StringConcatenation _builder_6 = new StringConcatenation();
+              _builder_6.append(", ");
               String _get_1 = vars[(k).intValue()];
-              _builder_3.append(_get_1);
-              _builder_3.append(":Long");
-              String _plus_3 = (s + _builder_3);
-              s = _plus_3;
+              _builder_6.append(_get_1);
+              _builder_6.append(":Long");
+              String _plus_6 = (s + _builder_6);
+              s = _plus_6;
             }
-            StringConcatenation _builder_4 = new StringConcatenation();
-            _builder_4.append("):");
-            _builder_4.append(t);
-            String _plus_4 = (s + _builder_4);
-            s = _plus_4;
-            StringConcatenation _builder_5 = new StringConcatenation();
-            _builder_5.append(" ");
-            _builder_5.append("=> {");
-            String _plus_5 = (s + _builder_5);
-            String _compile_1 = this.compile(((ArrayInit)e).getFiller());
-            String _plus_6 = (_plus_5 + _compile_1);
-            StringConcatenation _builder_6 = new StringConcatenation();
-            _builder_6.append("}");
-            String _plus_7 = (_plus_6 + _builder_6);
+            StringConcatenation _builder_7 = new StringConcatenation();
+            _builder_7.append("):");
+            _builder_7.append(t);
+            String _plus_7 = (s + _builder_7);
             s = _plus_7;
+            StringConcatenation _builder_8 = new StringConcatenation();
+            _builder_8.append(" ");
+            _builder_8.append("=> {");
+            String _plus_8 = (s + _builder_8);
+            String _compile_1 = this.compile(((ArrayInit)e).getFiller());
+            String _plus_9 = (_plus_8 + _compile_1);
+            StringConcatenation _builder_9 = new StringConcatenation();
+            _builder_9.append("}");
+            String _plus_10 = (_plus_9 + _builder_9);
+            s = _plus_10;
           }
         }
-        StringConcatenation _builder_7 = new StringConcatenation();
-        _builder_7.append(")");
-        String _plus_8 = (s + _builder_7);
-        s = _plus_8;
+        StringConcatenation _builder_10 = new StringConcatenation();
+        _builder_10.append(")");
+        String _plus_11 = (s + _builder_10);
+        s = _plus_11;
       }
     }
     if (!_matched) {
       if (e instanceof FCall) {
         _matched=true;
-        StringConcatenation _builder = new StringConcatenation();
-        String _compile = this.compile(((FCall)e).getLeft());
-        _builder.append(_compile);
-        _builder.append("(");
-        {
-          ExprList _right = ((FCall)e).getRight();
-          boolean _tripleNotEquals = (_right != null);
-          if (_tripleNotEquals) {
-            String _replace = this.compile(((FCall)e).getRight()).replace("@", ",");
-            _builder.append(_replace);
+        String fname = this.compile(((FCall)e).getLeft());
+        if ((Objects.equal(fname, "println") || Objects.equal(fname, "print"))) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("Console.OUT.");
+          String _compile = this.compile(((FCall)e).getLeft());
+          _builder.append(_compile);
+          _builder.append("(");
+          {
+            ExprList _right = ((FCall)e).getRight();
+            boolean _tripleNotEquals = (_right != null);
+            if (_tripleNotEquals) {
+              String _replace = this.compile(((FCall)e).getRight()).replace("@", "+");
+              _builder.append(_replace);
+            }
           }
+          _builder.append(")");
+          String _plus = (s + _builder);
+          s = _plus;
+        } else {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(fname);
+          _builder_1.append("(");
+          {
+            ExprList _right_1 = ((FCall)e).getRight();
+            boolean _tripleNotEquals_1 = (_right_1 != null);
+            if (_tripleNotEquals_1) {
+              String _replace_1 = this.compile(((FCall)e).getRight()).replace("@", ",");
+              _builder_1.append(_replace_1);
+            }
+          }
+          _builder_1.append(")");
+          String _plus_1 = (s + _builder_1);
+          s = _plus_1;
         }
-        _builder.append(")");
-        String _plus = (s + _builder);
-        s = _plus;
       }
     }
     if (!_matched) {
