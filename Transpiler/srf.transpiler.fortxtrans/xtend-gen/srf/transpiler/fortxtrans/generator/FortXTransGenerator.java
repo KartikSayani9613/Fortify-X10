@@ -203,7 +203,7 @@ public class FortXTransGenerator extends AbstractGenerator {
     _builder.append("}");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("static def sqrt(x:Double) = Math.sqrt(x);");
+    _builder.append("static def SQRT(x:Double) = Math.sqrt(x);");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
@@ -1549,16 +1549,10 @@ public class FortXTransGenerator extends AbstractGenerator {
         _matched=true;
         String _compile = this.compile(g.getStart());
         StringConcatenation _builder = new StringConcatenation();
-        _builder.append("..");
+        _builder.append("..<");
         String _plus = (_compile + _builder);
-        StringConcatenation _builder_1 = new StringConcatenation();
-        _builder_1.append("(");
-        String _plus_1 = (_plus + _builder_1);
         String _compile_1 = this.compile(g.getEnd());
-        String _plus_2 = (_plus_1 + _compile_1);
-        StringConcatenation _builder_2 = new StringConcatenation();
-        _builder_2.append("-1)");
-        return (_plus_2 + _builder_2);
+        return (_plus + _compile_1);
       }
     }
     return null;
