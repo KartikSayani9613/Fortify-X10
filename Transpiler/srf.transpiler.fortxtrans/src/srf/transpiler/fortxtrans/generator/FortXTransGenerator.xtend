@@ -118,7 +118,7 @@ class FortXTransGenerator extends AbstractGenerator {
 				var r:Random = new Random();
 				return x*r.nextDouble()-1.0d;
 			}
-			static def sqrt(x:Double) = Math.sqrt(x);
+			static def SQRT(x:Double) = Math.sqrt(x);
 		}
 	'''
 	
@@ -580,7 +580,7 @@ class FortXTransGenerator extends AbstractGenerator {
 	def compile(GenSource g){
 		switch(g){
 			Expr: return g.compile
-			GenSource: return g.start.compile+'''..'''+'''('''+g.end.compile+'''-1)'''
+			GenSource: return g.start.compile+'''..<'''+g.end.compile
 		}
 	}
 	

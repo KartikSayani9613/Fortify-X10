@@ -1,0 +1,28 @@
+component array
+export Executable
+
+  run():() = do
+    var a:RR64[10000] = array1[\RR64,10000 \](fn i => return i/1000.0)
+    var b:RR64[50000] = array1[\RR64,50000 \](fn i => return i/1000.0)
+    var c:RR64[80000] = array1[\RR64,80000 \](fn i => return i/1000.0)
+    
+    start = nanoTime()
+    
+      (|for i<-0#10000 do
+        a[i] := SQRT ((a[i])^2 + (a[i])^3)
+      end,
+      for i<-0#50000 do
+        b[i] := SQRT ((b[i])^2 + (b[i])^3)
+      end,
+      for i<-0#80000 do
+        c[i] := SQRT ((c[i])^2 + (c[i])^3)
+      end|)
+    
+    println(a[1000])
+    fin = nanoTime() - start
+    println(fin)
+    
+  end
+  
+
+end

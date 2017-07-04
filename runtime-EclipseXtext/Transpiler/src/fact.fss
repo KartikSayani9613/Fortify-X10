@@ -5,7 +5,7 @@ export Executable
 		start:ZZ32 = 0
 		fin:ZZ32 = 20
 		
-		for i<-seq(0#20) do
+		for i<-0#20 do
 			println("fact(",i,")=",fact(i as ZZ64))
 		end
 	end

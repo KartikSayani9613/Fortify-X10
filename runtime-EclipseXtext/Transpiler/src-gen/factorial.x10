@@ -15,7 +15,7 @@ public class factorial{
 	public static def main(args:Rail[String]){
 		val start:Int = 0n as Int;
 	val fin:Int = 20n as Int;
-	for(i in 0n..(20n-1)){
+	finish for(i in 0n..(20n-1)) async{
 		Console.OUT.println("fact("+i+")="+fact(i as Long));
 	
 		}
