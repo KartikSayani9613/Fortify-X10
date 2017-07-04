@@ -386,6 +386,11 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
         return createArrayInitAdapter();
       }
       @Override
+      public Adapter caseArrayCall(ArrayCall object)
+      {
+        return createArrayCallAdapter();
+      }
+      @Override
       public Adapter caseNot(Not object)
       {
         return createNotAdapter();
@@ -1368,6 +1373,21 @@ public class FortXTransAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createArrayInitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayCall <em>Array Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayCall
+   * @generated
+   */
+  public Adapter createArrayCallAdapter()
   {
     return null;
   }

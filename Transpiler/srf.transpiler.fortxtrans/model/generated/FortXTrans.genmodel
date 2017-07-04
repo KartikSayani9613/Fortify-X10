@@ -265,7 +265,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/left"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/sizes"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/ind"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/filler"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayInit/lit"/>
+    </genClasses>
+    <genClasses ecoreClass="FortXTrans.ecore#//ArrayCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayCall/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayCall/right"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//ArrayCall/extRight"/>
     </genClasses>
     <genClasses ecoreClass="FortXTrans.ecore#//Not">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference FortXTrans.ecore#//Not/expression"/>

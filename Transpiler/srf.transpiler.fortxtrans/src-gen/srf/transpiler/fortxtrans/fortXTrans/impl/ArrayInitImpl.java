@@ -15,8 +15,10 @@ import srf.transpiler.fortxtrans.fortXTrans.ArrayInit;
 import srf.transpiler.fortxtrans.fortXTrans.Expr;
 import srf.transpiler.fortxtrans.fortXTrans.ExprList;
 import srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage;
-import srf.transpiler.fortxtrans.fortXTrans.QualifiedName;
+import srf.transpiler.fortxtrans.fortXTrans.LiteralTuple;
+import srf.transpiler.fortxtrans.fortXTrans.Qualified;
 import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
+import srf.transpiler.fortxtrans.fortXTrans.Stmnts;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,7 +31,9 @@ import srf.transpiler.fortxtrans.fortXTrans.SimpleName;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl#getLeft <em>Left</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl#getType <em>Type</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl#getSizes <em>Sizes</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl#getInd <em>Ind</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl#getFiller <em>Filler</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayInitImpl#getLit <em>Lit</em>}</li>
  * </ul>
  *
  * @generated
@@ -67,6 +71,16 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
   protected ExprList sizes;
 
   /**
+   * The cached value of the '{@link #getInd() <em>Ind</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInd()
+   * @generated
+   * @ordered
+   */
+  protected Qualified ind;
+
+  /**
    * The cached value of the '{@link #getFiller() <em>Filler</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -74,7 +88,17 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
    * @generated
    * @ordered
    */
-  protected QualifiedName filler;
+  protected Stmnts filler;
+
+  /**
+   * The cached value of the '{@link #getLit() <em>Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getLit()
+   * @generated
+   * @ordered
+   */
+  protected LiteralTuple lit;
 
   /**
    * <!-- begin-user-doc -->
@@ -246,7 +270,55 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
    * <!-- end-user-doc -->
    * @generated
    */
-  public QualifiedName getFiller()
+  public Qualified getInd()
+  {
+    return ind;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInd(Qualified newInd, NotificationChain msgs)
+  {
+    Qualified oldInd = ind;
+    ind = newInd;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.ARRAY_INIT__IND, oldInd, newInd);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInd(Qualified newInd)
+  {
+    if (newInd != ind)
+    {
+      NotificationChain msgs = null;
+      if (ind != null)
+        msgs = ((InternalEObject)ind).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ARRAY_INIT__IND, null, msgs);
+      if (newInd != null)
+        msgs = ((InternalEObject)newInd).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ARRAY_INIT__IND, null, msgs);
+      msgs = basicSetInd(newInd, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.ARRAY_INIT__IND, newInd, newInd));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Stmnts getFiller()
   {
     return filler;
   }
@@ -256,9 +328,9 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetFiller(QualifiedName newFiller, NotificationChain msgs)
+  public NotificationChain basicSetFiller(Stmnts newFiller, NotificationChain msgs)
   {
-    QualifiedName oldFiller = filler;
+    Stmnts oldFiller = filler;
     filler = newFiller;
     if (eNotificationRequired())
     {
@@ -273,7 +345,7 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFiller(QualifiedName newFiller)
+  public void setFiller(Stmnts newFiller)
   {
     if (newFiller != filler)
     {
@@ -294,6 +366,54 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
    * <!-- end-user-doc -->
    * @generated
    */
+  public LiteralTuple getLit()
+  {
+    return lit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetLit(LiteralTuple newLit, NotificationChain msgs)
+  {
+    LiteralTuple oldLit = lit;
+    lit = newLit;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, FortXTransPackage.ARRAY_INIT__LIT, oldLit, newLit);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setLit(LiteralTuple newLit)
+  {
+    if (newLit != lit)
+    {
+      NotificationChain msgs = null;
+      if (lit != null)
+        msgs = ((InternalEObject)lit).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ARRAY_INIT__LIT, null, msgs);
+      if (newLit != null)
+        msgs = ((InternalEObject)newLit).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - FortXTransPackage.ARRAY_INIT__LIT, null, msgs);
+      msgs = basicSetLit(newLit, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, FortXTransPackage.ARRAY_INIT__LIT, newLit, newLit));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -305,8 +425,12 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
         return basicSetType(null, msgs);
       case FortXTransPackage.ARRAY_INIT__SIZES:
         return basicSetSizes(null, msgs);
+      case FortXTransPackage.ARRAY_INIT__IND:
+        return basicSetInd(null, msgs);
       case FortXTransPackage.ARRAY_INIT__FILLER:
         return basicSetFiller(null, msgs);
+      case FortXTransPackage.ARRAY_INIT__LIT:
+        return basicSetLit(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -327,8 +451,12 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
         return getType();
       case FortXTransPackage.ARRAY_INIT__SIZES:
         return getSizes();
+      case FortXTransPackage.ARRAY_INIT__IND:
+        return getInd();
       case FortXTransPackage.ARRAY_INIT__FILLER:
         return getFiller();
+      case FortXTransPackage.ARRAY_INIT__LIT:
+        return getLit();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -352,8 +480,14 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
       case FortXTransPackage.ARRAY_INIT__SIZES:
         setSizes((ExprList)newValue);
         return;
+      case FortXTransPackage.ARRAY_INIT__IND:
+        setInd((Qualified)newValue);
+        return;
       case FortXTransPackage.ARRAY_INIT__FILLER:
-        setFiller((QualifiedName)newValue);
+        setFiller((Stmnts)newValue);
+        return;
+      case FortXTransPackage.ARRAY_INIT__LIT:
+        setLit((LiteralTuple)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -378,8 +512,14 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
       case FortXTransPackage.ARRAY_INIT__SIZES:
         setSizes((ExprList)null);
         return;
+      case FortXTransPackage.ARRAY_INIT__IND:
+        setInd((Qualified)null);
+        return;
       case FortXTransPackage.ARRAY_INIT__FILLER:
-        setFiller((QualifiedName)null);
+        setFiller((Stmnts)null);
+        return;
+      case FortXTransPackage.ARRAY_INIT__LIT:
+        setLit((LiteralTuple)null);
         return;
     }
     super.eUnset(featureID);
@@ -401,8 +541,12 @@ public class ArrayInitImpl extends ExprImpl implements ArrayInit
         return type != null;
       case FortXTransPackage.ARRAY_INIT__SIZES:
         return sizes != null;
+      case FortXTransPackage.ARRAY_INIT__IND:
+        return ind != null;
       case FortXTransPackage.ARRAY_INIT__FILLER:
         return filler != null;
+      case FortXTransPackage.ARRAY_INIT__LIT:
+        return lit != null;
     }
     return super.eIsSet(featureID);
   }

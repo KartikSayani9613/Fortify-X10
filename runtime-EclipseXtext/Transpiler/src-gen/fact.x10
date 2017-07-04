@@ -13,26 +13,18 @@ export Executable
 public class fact{
 	
 	public static def main(args:Rail[String]){
-		var facts:Int =  as Int;
-	for(i in 0n..20n){
-		val j:Long = i as Long as Long;
-	print("factorial(");
-	print(j);
-	print(")= ");
-	println(fact(j));
+		var a:Array_1[Double] = new Array_1[Double](100n, 10n);
+	var b:Array_1[Double] = new Array_1[Double](100n, 10n);
+	var c:Array_1[Double] = new Array_1[Double](100n);
+	finish for(i in 0n..(100n-1)) async{
+		c(i)=(a(i)+b(i));
+	
+		}
+	finish for(i in 0n..(100n-1)) async{
+		println(c(i));
 	
 		}
 	
-	
-	}
-	static def fact(x:Long):Long{
-		if((x < 2n)){
-	return 1n;
-	
-	}
-	else{
-	return (x*fact((x-1n)));
-	}
 	
 	}
 	public static def println[T](x:T){Console.OUT.println("\n"+x);}

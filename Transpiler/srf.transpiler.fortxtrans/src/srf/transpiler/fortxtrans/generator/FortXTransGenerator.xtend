@@ -58,6 +58,8 @@ import srf.transpiler.fortxtrans.fortXTrans.Or
 import srf.transpiler.fortxtrans.fortXTrans.And
 import srf.transpiler.fortxtrans.fortXTrans.Equality
 import srf.transpiler.fortxtrans.fortXTrans.Comparison
+import srf.transpiler.fortxtrans.fortXTrans.ArrayInit
+import srf.transpiler.fortxtrans.fortXTrans.ArrayCall
 
 /**
  * Generates code from your model files on save.
@@ -285,19 +287,37 @@ class FortXTransGenerator extends AbstractGenerator {
 				else
 					s = s + '''var '''
 				s = s + f.vars.single.bid.compile+":"
-				var type = f.vars.single.istype.type.name
-				if(type=="ZZ32")
-					s=s+'''Int = '''+f.init.compile+" as Int;"
-				else if(type=="ZZ64")
-					s=s+'''Long = '''+f.init.compile+" as Long;"
-				else if(type=="RR32")
-					s=s+'''Float = '''+f.init.compile+" as Float;"
-				else if(type=="RR64")
-					s=s+'''Double = '''+f.init.compile+" as Double;"
-				else if(type=="String")
-					s=s+'''String = '''+f.init.compile+";"
+				if(f.vars.arrsize!==null){
+					var arrt = f.vars.arrsize.compile.split("@")
+					s = s + '''Array_«arrt.length»['''
+					var type = f.vars.single.istype.type.name
+					if(type=="ZZ32")
+						s=s+'''Int] = '''+f.init.compile+";"
+					else if(type=="ZZ64")
+						s=s+'''Long] = '''+f.init.compile+";"
+					else if(type=="RR32")
+						s=s+'''Float] = '''+f.init.compile+";"
+					else if(type=="RR64")
+						s=s+'''Double] = '''+f.init.compile+";"
+					else if(type=="String")
+						s=s+'''String] = '''+f.init.compile+";"
+					else
+						s = s+ type + '''] = ''' + f.init.compile+";";
+				}
 				else{
-					s = s+ type + "= " + f.init.compile+";";		
+					var type = f.vars.single.istype.type.name
+					if(type=="ZZ32")
+						s=s+'''Int = '''+f.init.compile+" as Int;"
+					else if(type=="ZZ64")
+						s=s+'''Long = '''+f.init.compile+" as Long;"
+					else if(type=="RR32")
+						s=s+'''Float = '''+f.init.compile+" as Float;"
+					else if(type=="RR64")
+						s=s+'''Double = '''+f.init.compile+" as Double;"
+					else if(type=="String")
+						s=s+'''String = '''+f.init.compile+";"
+					else
+						s = s+ type + "= " + f.init.compile+";";		
 				}
 			}
 			else{
@@ -562,7 +582,7 @@ class FortXTransGenerator extends AbstractGenerator {
 	def compile(GenSource g){
 		switch(g){
 			Expr: return g.compile
-			GenSource: return g.start.compile+'''..'''+g.end.compile
+			GenSource: return g.start.compile+'''..'''+'''('''+g.end.compile+'''-1)'''
 		}
 	}
 	
@@ -638,20 +658,39 @@ class FortXTransGenerator extends AbstractGenerator {
 				else
 					s = s + '''var '''
 				s = s + f.vars.single.bid.compile+":"
-				var type = f.vars.single.istype.type.name
-				if(type=="ZZ32")
-					s=s+'''Int = '''+f.init.compile+" as Int;"
-				else if(type=="ZZ64")
-					s=s+'''Long = '''+f.init.compile+" as Long;"
-				else if(type=="RR32")
-					s=s+'''Float = '''+f.init.compile+" as Float;"
-				else if(type=="RR64")
-					s=s+'''Double = '''+f.init.compile+" as Double;"
-				else if(type=="String")
-					s=s+'''String = '''+f.init.compile+";"
-				else{
-					s = s+ type + "= " + f.init.compile+";";		
+				if(f.vars.arrsize!==null){
+					var arrt = f.vars.arrsize.compile.split("@")
+					s = s + '''Array_«arrt.length»['''
+					var type = f.vars.single.istype.type.name
+					if(type=="ZZ32")
+						s=s+'''Int] = '''+f.init.compile+";"
+					else if(type=="ZZ64")
+						s=s+'''Long] = '''+f.init.compile+";"
+					else if(type=="RR32")
+						s=s+'''Float] = '''+f.init.compile+";"
+					else if(type=="RR64")
+						s=s+'''Double] = '''+f.init.compile+";"
+					else if(type=="String")
+						s=s+'''String] = '''+f.init.compile+";"
+					else
+						s = s+ type + '''] = ''' + f.init.compile+";";
 				}
+				else{
+					var type = f.vars.single.istype.type.name
+					if(type=="ZZ32")
+						s=s+'''Int = '''+f.init.compile+" as Int;"
+					else if(type=="ZZ64")
+						s=s+'''Long = '''+f.init.compile+" as Long;"
+					else if(type=="RR32")
+						s=s+'''Float = '''+f.init.compile+" as Float;"
+					else if(type=="RR64")
+						s=s+'''Double = '''+f.init.compile+" as Double;"
+					else if(type=="String")
+						s=s+'''String = '''+f.init.compile+";"
+					else
+						s = s+ type + "= " + f.init.compile+";";		
+				}
+				
 			}
 			else{
 				var attach = f.init.compile.split("@")
@@ -742,6 +781,19 @@ class FortXTransGenerator extends AbstractGenerator {
 		return s
 	}
 	
+	def String typer(String s){
+		if(s=="ZZ32")
+			return "Int"
+		else if(s=="ZZ64")
+			return "Long"
+		else if(s=="RR32")
+			return "Float"
+		else if(s=="RR64")
+			return "Double"
+		else
+			return s
+	}
+	
 	def String compile(Expr e){
 		var s = ""
 		switch(e){
@@ -775,7 +827,30 @@ class FortXTransGenerator extends AbstractGenerator {
 			Not:s=s+"!"+'''('''+e.expression.compile+''')'''
 			Neg:s=s+"-"+'''('''+e.expression.compile+''')'''
 			Paran:s=s+'''«e.exp.compile»'''
+			ArrayInit: {
+				var ltp = e.left.compile
+				var t = typer(e.type.name)
+				if(ltp=="array1"|| ltp=="vector")
+					s = s + '''new Array_1['''
+				else if(ltp=="array2"||ltp=="matrix")
+					s = s + '''new Array_2['''
+				else if(ltp=="array3")
+					s = s + '''new Array_3['''
+				s = s + '''«t»](«e.sizes.compile.replace("@",",")»'''
+				if(e.lit!==null)
+					s = s + ''', «e.lit.compile»'''
+				else if(e.filler!==null){
+					var vars = e.ind.compile.split(",")
+					s = s + ''', («vars.get(0)»:Long'''
+					for(k:1..<vars.length)
+						s = s + ''', «vars.get(k)»:Long'''
+					s = s + '''):«t»'''
+					s = s + ''' => {''' + e.filler.compile +'''}'''
+				}
+				s = s + ''')'''
+			}
 			FCall:s=s+'''«e.left.compile»(«IF e.right!==null»«e.right.compile.replace("@",",")»«ENDIF»)'''
+			ArrayCall:s = s + '''«e.left.compile»(«e.right.compile.replace("@",",")»)«IF e.extRight!==null»=«e.extRight.compile»«ENDIF»'''
 			LiteralTuple: s= s+e.compile
 			Assop: s = e.compile
 		}

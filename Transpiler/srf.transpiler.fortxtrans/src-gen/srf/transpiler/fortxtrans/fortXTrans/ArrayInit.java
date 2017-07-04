@@ -16,7 +16,9 @@ package srf.transpiler.fortxtrans.fortXTrans;
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLeft <em>Left</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getType <em>Type</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getSizes <em>Sizes</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getInd <em>Ind</em>}</li>
  *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getFiller <em>Filler</em>}</li>
+ *   <li>{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLit <em>Lit</em>}</li>
  * </ul>
  *
  * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getArrayInit()
@@ -104,6 +106,32 @@ public interface ArrayInit extends Expr
   void setSizes(ExprList value);
 
   /**
+   * Returns the value of the '<em><b>Ind</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Ind</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Ind</em>' containment reference.
+   * @see #setInd(Qualified)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getArrayInit_Ind()
+   * @model containment="true"
+   * @generated
+   */
+  Qualified getInd();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getInd <em>Ind</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Ind</em>' containment reference.
+   * @see #getInd()
+   * @generated
+   */
+  void setInd(Qualified value);
+
+  /**
    * Returns the value of the '<em><b>Filler</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
@@ -112,12 +140,12 @@ public interface ArrayInit extends Expr
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Filler</em>' containment reference.
-   * @see #setFiller(QualifiedName)
+   * @see #setFiller(Stmnts)
    * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getArrayInit_Filler()
    * @model containment="true"
    * @generated
    */
-  QualifiedName getFiller();
+  Stmnts getFiller();
 
   /**
    * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getFiller <em>Filler</em>}' containment reference.
@@ -127,6 +155,32 @@ public interface ArrayInit extends Expr
    * @see #getFiller()
    * @generated
    */
-  void setFiller(QualifiedName value);
+  void setFiller(Stmnts value);
+
+  /**
+   * Returns the value of the '<em><b>Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Lit</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Lit</em>' containment reference.
+   * @see #setLit(LiteralTuple)
+   * @see srf.transpiler.fortxtrans.fortXTrans.FortXTransPackage#getArrayInit_Lit()
+   * @model containment="true"
+   * @generated
+   */
+  LiteralTuple getLit();
+
+  /**
+   * Sets the value of the '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLit <em>Lit</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Lit</em>' containment reference.
+   * @see #getLit()
+   * @generated
+   */
+  void setLit(LiteralTuple value);
 
 } // ArrayInit

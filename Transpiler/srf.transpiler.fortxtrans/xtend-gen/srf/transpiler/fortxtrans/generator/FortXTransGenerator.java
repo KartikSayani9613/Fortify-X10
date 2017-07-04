@@ -20,6 +20,8 @@ import org.eclipse.xtext.xbase.lib.Extension;
 import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import srf.transpiler.fortxtrans.fortXTrans.AddExpr;
 import srf.transpiler.fortxtrans.fortXTrans.And;
+import srf.transpiler.fortxtrans.fortXTrans.ArrayCall;
+import srf.transpiler.fortxtrans.fortXTrans.ArrayInit;
 import srf.transpiler.fortxtrans.fortXTrans.Assop;
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
 import srf.transpiler.fortxtrans.fortXTrans.BlockElem;
@@ -587,61 +589,137 @@ public class FortXTransGenerator extends AbstractGenerator {
         String _plus_3 = (s + _compile);
         String _plus_4 = (_plus_3 + ":");
         s = _plus_4;
-        String type = f.getVars().getSingle().getIstype().getType().getName();
-        boolean _equals = Objects.equal(type, "ZZ32");
-        if (_equals) {
+        ExprList _arrsize = f.getVars().getArrsize();
+        boolean _tripleNotEquals_3 = (_arrsize != null);
+        if (_tripleNotEquals_3) {
+          String[] arrt = this.compile(f.getVars().getArrsize()).split("@");
           StringConcatenation _builder_3 = new StringConcatenation();
-          _builder_3.append("Int = ");
+          _builder_3.append("Array_");
+          int _length = arrt.length;
+          _builder_3.append(_length);
+          _builder_3.append("[");
           String _plus_5 = (s + _builder_3);
-          String _compile_1 = this.compile(f.getInit());
-          String _plus_6 = (_plus_5 + _compile_1);
-          String _plus_7 = (_plus_6 + " as Int;");
-          s = _plus_7;
-        } else {
-          boolean _equals_1 = Objects.equal(type, "ZZ64");
-          if (_equals_1) {
+          s = _plus_5;
+          String type = f.getVars().getSingle().getIstype().getType().getName();
+          boolean _equals = Objects.equal(type, "ZZ32");
+          if (_equals) {
             StringConcatenation _builder_4 = new StringConcatenation();
-            _builder_4.append("Long = ");
-            String _plus_8 = (s + _builder_4);
-            String _compile_2 = this.compile(f.getInit());
-            String _plus_9 = (_plus_8 + _compile_2);
-            String _plus_10 = (_plus_9 + " as Long;");
-            s = _plus_10;
+            _builder_4.append("Int] = ");
+            String _plus_6 = (s + _builder_4);
+            String _compile_1 = this.compile(f.getInit());
+            String _plus_7 = (_plus_6 + _compile_1);
+            String _plus_8 = (_plus_7 + ";");
+            s = _plus_8;
           } else {
-            boolean _equals_2 = Objects.equal(type, "RR32");
-            if (_equals_2) {
+            boolean _equals_1 = Objects.equal(type, "ZZ64");
+            if (_equals_1) {
               StringConcatenation _builder_5 = new StringConcatenation();
-              _builder_5.append("Float = ");
-              String _plus_11 = (s + _builder_5);
-              String _compile_3 = this.compile(f.getInit());
-              String _plus_12 = (_plus_11 + _compile_3);
-              String _plus_13 = (_plus_12 + " as Float;");
-              s = _plus_13;
+              _builder_5.append("Long] = ");
+              String _plus_9 = (s + _builder_5);
+              String _compile_2 = this.compile(f.getInit());
+              String _plus_10 = (_plus_9 + _compile_2);
+              String _plus_11 = (_plus_10 + ";");
+              s = _plus_11;
             } else {
-              boolean _equals_3 = Objects.equal(type, "RR64");
-              if (_equals_3) {
+              boolean _equals_2 = Objects.equal(type, "RR32");
+              if (_equals_2) {
                 StringConcatenation _builder_6 = new StringConcatenation();
-                _builder_6.append("Double = ");
-                String _plus_14 = (s + _builder_6);
-                String _compile_4 = this.compile(f.getInit());
-                String _plus_15 = (_plus_14 + _compile_4);
-                String _plus_16 = (_plus_15 + " as Double;");
-                s = _plus_16;
+                _builder_6.append("Float] = ");
+                String _plus_12 = (s + _builder_6);
+                String _compile_3 = this.compile(f.getInit());
+                String _plus_13 = (_plus_12 + _compile_3);
+                String _plus_14 = (_plus_13 + ";");
+                s = _plus_14;
               } else {
-                boolean _equals_4 = Objects.equal(type, "String");
-                if (_equals_4) {
+                boolean _equals_3 = Objects.equal(type, "RR64");
+                if (_equals_3) {
                   StringConcatenation _builder_7 = new StringConcatenation();
-                  _builder_7.append("String = ");
-                  String _plus_17 = (s + _builder_7);
-                  String _compile_5 = this.compile(f.getInit());
-                  String _plus_18 = (_plus_17 + _compile_5);
-                  String _plus_19 = (_plus_18 + ";");
-                  s = _plus_19;
+                  _builder_7.append("Double] = ");
+                  String _plus_15 = (s + _builder_7);
+                  String _compile_4 = this.compile(f.getInit());
+                  String _plus_16 = (_plus_15 + _compile_4);
+                  String _plus_17 = (_plus_16 + ";");
+                  s = _plus_17;
                 } else {
-                  String _compile_6 = this.compile(f.getInit());
-                  String _plus_20 = (((s + type) + "= ") + _compile_6);
-                  String _plus_21 = (_plus_20 + ";");
-                  s = _plus_21;
+                  boolean _equals_4 = Objects.equal(type, "String");
+                  if (_equals_4) {
+                    StringConcatenation _builder_8 = new StringConcatenation();
+                    _builder_8.append("String] = ");
+                    String _plus_18 = (s + _builder_8);
+                    String _compile_5 = this.compile(f.getInit());
+                    String _plus_19 = (_plus_18 + _compile_5);
+                    String _plus_20 = (_plus_19 + ";");
+                    s = _plus_20;
+                  } else {
+                    StringConcatenation _builder_9 = new StringConcatenation();
+                    _builder_9.append("] = ");
+                    String _plus_21 = ((s + type) + _builder_9);
+                    String _compile_6 = this.compile(f.getInit());
+                    String _plus_22 = (_plus_21 + _compile_6);
+                    String _plus_23 = (_plus_22 + ";");
+                    s = _plus_23;
+                  }
+                }
+              }
+            }
+          }
+        } else {
+          String type_1 = f.getVars().getSingle().getIstype().getType().getName();
+          boolean _equals_5 = Objects.equal(type_1, "ZZ32");
+          if (_equals_5) {
+            StringConcatenation _builder_10 = new StringConcatenation();
+            _builder_10.append("Int = ");
+            String _plus_24 = (s + _builder_10);
+            String _compile_7 = this.compile(f.getInit());
+            String _plus_25 = (_plus_24 + _compile_7);
+            String _plus_26 = (_plus_25 + " as Int;");
+            s = _plus_26;
+          } else {
+            boolean _equals_6 = Objects.equal(type_1, "ZZ64");
+            if (_equals_6) {
+              StringConcatenation _builder_11 = new StringConcatenation();
+              _builder_11.append("Long = ");
+              String _plus_27 = (s + _builder_11);
+              String _compile_8 = this.compile(f.getInit());
+              String _plus_28 = (_plus_27 + _compile_8);
+              String _plus_29 = (_plus_28 + " as Long;");
+              s = _plus_29;
+            } else {
+              boolean _equals_7 = Objects.equal(type_1, "RR32");
+              if (_equals_7) {
+                StringConcatenation _builder_12 = new StringConcatenation();
+                _builder_12.append("Float = ");
+                String _plus_30 = (s + _builder_12);
+                String _compile_9 = this.compile(f.getInit());
+                String _plus_31 = (_plus_30 + _compile_9);
+                String _plus_32 = (_plus_31 + " as Float;");
+                s = _plus_32;
+              } else {
+                boolean _equals_8 = Objects.equal(type_1, "RR64");
+                if (_equals_8) {
+                  StringConcatenation _builder_13 = new StringConcatenation();
+                  _builder_13.append("Double = ");
+                  String _plus_33 = (s + _builder_13);
+                  String _compile_10 = this.compile(f.getInit());
+                  String _plus_34 = (_plus_33 + _compile_10);
+                  String _plus_35 = (_plus_34 + " as Double;");
+                  s = _plus_35;
+                } else {
+                  boolean _equals_9 = Objects.equal(type_1, "String");
+                  if (_equals_9) {
+                    StringConcatenation _builder_14 = new StringConcatenation();
+                    _builder_14.append("String = ");
+                    String _plus_36 = (s + _builder_14);
+                    String _compile_11 = this.compile(f.getInit());
+                    String _plus_37 = (_plus_36 + _compile_11);
+                    String _plus_38 = (_plus_37 + ";");
+                    s = _plus_38;
+                  } else {
+                    String _compile_12 = this.compile(f.getInit());
+                    String _plus_39 = (((s + type_1) + "= ") + _compile_12);
+                    String _plus_40 = (_plus_39 + ";");
+                    s = _plus_40;
+                  }
                 }
               }
             }
@@ -649,90 +727,90 @@ public class FortXTransGenerator extends AbstractGenerator {
         }
       } else {
         String[] attach = this.compile(f.getInit()).split("@");
-        int _length = ((Object[])Conversions.unwrapArray(f.getVars().getMultiple(), Object.class)).length;
-        ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+        int _length_1 = ((Object[])Conversions.unwrapArray(f.getVars().getMultiple(), Object.class)).length;
+        ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
         for (final Integer m : _doubleDotLessThan) {
           {
             String _pri_1 = f.getPri();
-            boolean _tripleNotEquals_3 = (_pri_1 != null);
-            if (_tripleNotEquals_3) {
-              StringConcatenation _builder_8 = new StringConcatenation();
-              _builder_8.append("private ");
-              String _plus_22 = (s + _builder_8);
-              s = _plus_22;
+            boolean _tripleNotEquals_4 = (_pri_1 != null);
+            if (_tripleNotEquals_4) {
+              StringConcatenation _builder_15 = new StringConcatenation();
+              _builder_15.append("private ");
+              String _plus_41 = (s + _builder_15);
+              s = _plus_41;
             }
             String _mut_1 = f.getMut();
             boolean _tripleEquals_1 = (_mut_1 == null);
             if (_tripleEquals_1) {
-              StringConcatenation _builder_9 = new StringConcatenation();
-              _builder_9.append("static val ");
-              String _plus_23 = (s + _builder_9);
-              s = _plus_23;
+              StringConcatenation _builder_16 = new StringConcatenation();
+              _builder_16.append("static val ");
+              String _plus_42 = (s + _builder_16);
+              s = _plus_42;
             } else {
-              StringConcatenation _builder_10 = new StringConcatenation();
-              _builder_10.append("var ");
-              String _plus_24 = (s + _builder_10);
-              s = _plus_24;
+              StringConcatenation _builder_17 = new StringConcatenation();
+              _builder_17.append("var ");
+              String _plus_43 = (s + _builder_17);
+              s = _plus_43;
             }
-            String _compile_7 = this.compile(f.getVars().getMultiple().get((m).intValue()).getBid());
-            String _plus_25 = (s + _compile_7);
-            String _plus_26 = (_plus_25 + ":");
-            s = _plus_26;
-            String type_1 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getName();
-            boolean _equals_5 = Objects.equal(type_1, "ZZ32");
-            if (_equals_5) {
-              StringConcatenation _builder_11 = new StringConcatenation();
-              _builder_11.append("Int = ");
-              String _plus_27 = (s + _builder_11);
+            String _compile_13 = this.compile(f.getVars().getMultiple().get((m).intValue()).getBid());
+            String _plus_44 = (s + _compile_13);
+            String _plus_45 = (_plus_44 + ":");
+            s = _plus_45;
+            String type_2 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getName();
+            boolean _equals_10 = Objects.equal(type_2, "ZZ32");
+            if (_equals_10) {
+              StringConcatenation _builder_18 = new StringConcatenation();
+              _builder_18.append("Int = ");
+              String _plus_46 = (s + _builder_18);
               String _get = attach[(m).intValue()];
-              String _plus_28 = (_plus_27 + _get);
-              String _plus_29 = (_plus_28 + " as Int;");
-              s = _plus_29;
+              String _plus_47 = (_plus_46 + _get);
+              String _plus_48 = (_plus_47 + " as Int;");
+              s = _plus_48;
             } else {
-              boolean _equals_6 = Objects.equal(type_1, "ZZ64");
-              if (_equals_6) {
-                StringConcatenation _builder_12 = new StringConcatenation();
-                _builder_12.append("Long = ");
-                String _plus_30 = (s + _builder_12);
+              boolean _equals_11 = Objects.equal(type_2, "ZZ64");
+              if (_equals_11) {
+                StringConcatenation _builder_19 = new StringConcatenation();
+                _builder_19.append("Long = ");
+                String _plus_49 = (s + _builder_19);
                 String _get_1 = attach[(m).intValue()];
-                String _plus_31 = (_plus_30 + _get_1);
-                String _plus_32 = (_plus_31 + " as Long;");
-                s = _plus_32;
+                String _plus_50 = (_plus_49 + _get_1);
+                String _plus_51 = (_plus_50 + " as Long;");
+                s = _plus_51;
               } else {
-                boolean _equals_7 = Objects.equal(type_1, "RR32");
-                if (_equals_7) {
-                  StringConcatenation _builder_13 = new StringConcatenation();
-                  _builder_13.append("Float = ");
-                  String _plus_33 = (s + _builder_13);
+                boolean _equals_12 = Objects.equal(type_2, "RR32");
+                if (_equals_12) {
+                  StringConcatenation _builder_20 = new StringConcatenation();
+                  _builder_20.append("Float = ");
+                  String _plus_52 = (s + _builder_20);
                   String _get_2 = attach[(m).intValue()];
-                  String _plus_34 = (_plus_33 + _get_2);
-                  String _plus_35 = (_plus_34 + " as Float;");
-                  s = _plus_35;
+                  String _plus_53 = (_plus_52 + _get_2);
+                  String _plus_54 = (_plus_53 + " as Float;");
+                  s = _plus_54;
                 } else {
-                  boolean _equals_8 = Objects.equal(type_1, "RR64");
-                  if (_equals_8) {
-                    StringConcatenation _builder_14 = new StringConcatenation();
-                    _builder_14.append("Double = ");
-                    String _plus_36 = (s + _builder_14);
+                  boolean _equals_13 = Objects.equal(type_2, "RR64");
+                  if (_equals_13) {
+                    StringConcatenation _builder_21 = new StringConcatenation();
+                    _builder_21.append("Double = ");
+                    String _plus_55 = (s + _builder_21);
                     String _get_3 = attach[(m).intValue()];
-                    String _plus_37 = (_plus_36 + _get_3);
-                    String _plus_38 = (_plus_37 + " as Double;");
-                    s = _plus_38;
+                    String _plus_56 = (_plus_55 + _get_3);
+                    String _plus_57 = (_plus_56 + " as Double;");
+                    s = _plus_57;
                   } else {
-                    boolean _equals_9 = Objects.equal(type_1, "String");
-                    if (_equals_9) {
-                      StringConcatenation _builder_15 = new StringConcatenation();
-                      _builder_15.append("String = ");
-                      String _plus_39 = (s + _builder_15);
+                    boolean _equals_14 = Objects.equal(type_2, "String");
+                    if (_equals_14) {
+                      StringConcatenation _builder_22 = new StringConcatenation();
+                      _builder_22.append("String = ");
+                      String _plus_58 = (s + _builder_22);
                       String _get_4 = attach[(m).intValue()];
-                      String _plus_40 = (_plus_39 + _get_4);
-                      String _plus_41 = (_plus_40 + ";");
-                      s = _plus_41;
+                      String _plus_59 = (_plus_58 + _get_4);
+                      String _plus_60 = (_plus_59 + ";");
+                      s = _plus_60;
                     } else {
                       String _get_5 = attach[(m).intValue()];
-                      String _plus_42 = (((s + type_1) + "= ") + _get_5);
-                      String _plus_43 = (_plus_42 + ";");
-                      s = _plus_43;
+                      String _plus_61 = (((s + type_2) + "= ") + _get_5);
+                      String _plus_62 = (_plus_61 + ";");
+                      s = _plus_62;
                     }
                   }
                 }
@@ -744,94 +822,94 @@ public class FortXTransGenerator extends AbstractGenerator {
       }
     } else {
       SimpleName _type = f.getType();
-      boolean _tripleNotEquals_3 = (_type != null);
-      if (_tripleNotEquals_3) {
+      boolean _tripleNotEquals_4 = (_type != null);
+      if (_tripleNotEquals_4) {
         String[] vars = this.compile(f.getIdtup()).split(",");
         String[] vals = this.compile(f.getInit()).split("@");
-        int _length_1 = vars.length;
-        ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_1, true);
+        int _length_2 = vars.length;
+        ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_2, true);
         for (final Integer v : _doubleDotLessThan_1) {
           {
             String _pri_1 = f.getPri();
-            boolean _tripleNotEquals_4 = (_pri_1 != null);
-            if (_tripleNotEquals_4) {
-              StringConcatenation _builder_8 = new StringConcatenation();
-              _builder_8.append("private ");
-              String _plus_22 = (s + _builder_8);
-              s = _plus_22;
+            boolean _tripleNotEquals_5 = (_pri_1 != null);
+            if (_tripleNotEquals_5) {
+              StringConcatenation _builder_15 = new StringConcatenation();
+              _builder_15.append("private ");
+              String _plus_41 = (s + _builder_15);
+              s = _plus_41;
             }
             String _mut_1 = f.getMut();
             boolean _tripleEquals_1 = (_mut_1 == null);
             if (_tripleEquals_1) {
-              StringConcatenation _builder_9 = new StringConcatenation();
-              _builder_9.append("static val ");
-              String _plus_23 = (s + _builder_9);
-              s = _plus_23;
+              StringConcatenation _builder_16 = new StringConcatenation();
+              _builder_16.append("static val ");
+              String _plus_42 = (s + _builder_16);
+              s = _plus_42;
             } else {
-              StringConcatenation _builder_10 = new StringConcatenation();
-              _builder_10.append("var ");
-              String _plus_24 = (s + _builder_10);
-              s = _plus_24;
+              StringConcatenation _builder_17 = new StringConcatenation();
+              _builder_17.append("var ");
+              String _plus_43 = (s + _builder_17);
+              s = _plus_43;
             }
             String _get = vars[(v).intValue()];
-            String _plus_25 = (s + _get);
-            String _plus_26 = (_plus_25 + ":");
-            s = _plus_26;
-            String type_1 = f.getType().getName();
-            boolean _equals_5 = Objects.equal(type_1, "ZZ32");
-            if (_equals_5) {
-              StringConcatenation _builder_11 = new StringConcatenation();
-              _builder_11.append("Int = ");
-              String _plus_27 = (s + _builder_11);
+            String _plus_44 = (s + _get);
+            String _plus_45 = (_plus_44 + ":");
+            s = _plus_45;
+            String type_2 = f.getType().getName();
+            boolean _equals_10 = Objects.equal(type_2, "ZZ32");
+            if (_equals_10) {
+              StringConcatenation _builder_18 = new StringConcatenation();
+              _builder_18.append("Int = ");
+              String _plus_46 = (s + _builder_18);
               String _get_1 = vals[(v).intValue()];
-              String _plus_28 = (_plus_27 + _get_1);
-              String _plus_29 = (_plus_28 + " as Int;");
-              s = _plus_29;
+              String _plus_47 = (_plus_46 + _get_1);
+              String _plus_48 = (_plus_47 + " as Int;");
+              s = _plus_48;
             } else {
-              boolean _equals_6 = Objects.equal(type_1, "ZZ64");
-              if (_equals_6) {
-                StringConcatenation _builder_12 = new StringConcatenation();
-                _builder_12.append("Long = ");
-                String _plus_30 = (s + _builder_12);
+              boolean _equals_11 = Objects.equal(type_2, "ZZ64");
+              if (_equals_11) {
+                StringConcatenation _builder_19 = new StringConcatenation();
+                _builder_19.append("Long = ");
+                String _plus_49 = (s + _builder_19);
                 String _get_2 = vals[(v).intValue()];
-                String _plus_31 = (_plus_30 + _get_2);
-                String _plus_32 = (_plus_31 + " as Long;");
-                s = _plus_32;
+                String _plus_50 = (_plus_49 + _get_2);
+                String _plus_51 = (_plus_50 + " as Long;");
+                s = _plus_51;
               } else {
-                boolean _equals_7 = Objects.equal(type_1, "RR32");
-                if (_equals_7) {
-                  StringConcatenation _builder_13 = new StringConcatenation();
-                  _builder_13.append("Float = ");
-                  String _plus_33 = (s + _builder_13);
+                boolean _equals_12 = Objects.equal(type_2, "RR32");
+                if (_equals_12) {
+                  StringConcatenation _builder_20 = new StringConcatenation();
+                  _builder_20.append("Float = ");
+                  String _plus_52 = (s + _builder_20);
                   String _get_3 = vals[(v).intValue()];
-                  String _plus_34 = (_plus_33 + _get_3);
-                  String _plus_35 = (_plus_34 + " as Float;");
-                  s = _plus_35;
+                  String _plus_53 = (_plus_52 + _get_3);
+                  String _plus_54 = (_plus_53 + " as Float;");
+                  s = _plus_54;
                 } else {
-                  boolean _equals_8 = Objects.equal(type_1, "RR64");
-                  if (_equals_8) {
-                    StringConcatenation _builder_14 = new StringConcatenation();
-                    _builder_14.append("Double = ");
-                    String _plus_36 = (s + _builder_14);
+                  boolean _equals_13 = Objects.equal(type_2, "RR64");
+                  if (_equals_13) {
+                    StringConcatenation _builder_21 = new StringConcatenation();
+                    _builder_21.append("Double = ");
+                    String _plus_55 = (s + _builder_21);
                     String _get_4 = vals[(v).intValue()];
-                    String _plus_37 = (_plus_36 + _get_4);
-                    String _plus_38 = (_plus_37 + " as Double;");
-                    s = _plus_38;
+                    String _plus_56 = (_plus_55 + _get_4);
+                    String _plus_57 = (_plus_56 + " as Double;");
+                    s = _plus_57;
                   } else {
-                    boolean _equals_9 = Objects.equal(type_1, "String");
-                    if (_equals_9) {
-                      StringConcatenation _builder_15 = new StringConcatenation();
-                      _builder_15.append("String = ");
-                      String _plus_39 = (s + _builder_15);
+                    boolean _equals_14 = Objects.equal(type_2, "String");
+                    if (_equals_14) {
+                      StringConcatenation _builder_22 = new StringConcatenation();
+                      _builder_22.append("String = ");
+                      String _plus_58 = (s + _builder_22);
                       String _get_5 = vals[(v).intValue()];
-                      String _plus_40 = (_plus_39 + _get_5);
-                      String _plus_41 = (_plus_40 + ";");
-                      s = _plus_41;
+                      String _plus_59 = (_plus_58 + _get_5);
+                      String _plus_60 = (_plus_59 + ";");
+                      s = _plus_60;
                     } else {
                       String _get_6 = vals[(v).intValue()];
-                      String _plus_42 = (((s + type_1) + "= ") + _get_6);
-                      String _plus_43 = (_plus_42 + ";");
-                      s = _plus_43;
+                      String _plus_61 = (((s + type_2) + "= ") + _get_6);
+                      String _plus_62 = (_plus_61 + ";");
+                      s = _plus_62;
                     }
                   }
                 }
@@ -842,95 +920,95 @@ public class FortXTransGenerator extends AbstractGenerator {
         }
       } else {
         TupleType _tuptype = f.getTuptype();
-        boolean _tripleNotEquals_4 = (_tuptype != null);
-        if (_tripleNotEquals_4) {
+        boolean _tripleNotEquals_5 = (_tuptype != null);
+        if (_tripleNotEquals_5) {
           String[] vars_1 = this.compile(f.getIdtup()).split(",");
           String[] types = this.compile(f.getTuptype()).split(",");
           String[] vals_1 = this.compile(f.getInit()).split("@");
-          int _length_2 = vars_1.length;
-          ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
+          int _length_3 = vars_1.length;
+          ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_3, true);
           for (final Integer k : _doubleDotLessThan_2) {
             {
               String _pri_1 = f.getPri();
-              boolean _tripleNotEquals_5 = (_pri_1 != null);
-              if (_tripleNotEquals_5) {
-                StringConcatenation _builder_8 = new StringConcatenation();
-                _builder_8.append("private ");
-                String _plus_22 = (s + _builder_8);
-                s = _plus_22;
+              boolean _tripleNotEquals_6 = (_pri_1 != null);
+              if (_tripleNotEquals_6) {
+                StringConcatenation _builder_15 = new StringConcatenation();
+                _builder_15.append("private ");
+                String _plus_41 = (s + _builder_15);
+                s = _plus_41;
               }
               String _mut_1 = f.getMut();
               boolean _tripleEquals_1 = (_mut_1 == null);
               if (_tripleEquals_1) {
-                StringConcatenation _builder_9 = new StringConcatenation();
-                _builder_9.append("static val ");
-                String _plus_23 = (s + _builder_9);
-                s = _plus_23;
+                StringConcatenation _builder_16 = new StringConcatenation();
+                _builder_16.append("static val ");
+                String _plus_42 = (s + _builder_16);
+                s = _plus_42;
               } else {
-                StringConcatenation _builder_10 = new StringConcatenation();
-                _builder_10.append("var ");
-                String _plus_24 = (s + _builder_10);
-                s = _plus_24;
+                StringConcatenation _builder_17 = new StringConcatenation();
+                _builder_17.append("var ");
+                String _plus_43 = (s + _builder_17);
+                s = _plus_43;
               }
               String _get = vars_1[(k).intValue()];
-              String _plus_25 = (s + _get);
-              String _plus_26 = (_plus_25 + ":");
-              s = _plus_26;
-              String type_1 = types[(k).intValue()];
-              boolean _equals_5 = Objects.equal(type_1, "ZZ32");
-              if (_equals_5) {
-                StringConcatenation _builder_11 = new StringConcatenation();
-                _builder_11.append("Int = ");
-                String _plus_27 = (s + _builder_11);
+              String _plus_44 = (s + _get);
+              String _plus_45 = (_plus_44 + ":");
+              s = _plus_45;
+              String type_2 = types[(k).intValue()];
+              boolean _equals_10 = Objects.equal(type_2, "ZZ32");
+              if (_equals_10) {
+                StringConcatenation _builder_18 = new StringConcatenation();
+                _builder_18.append("Int = ");
+                String _plus_46 = (s + _builder_18);
                 String _get_1 = vals_1[(k).intValue()];
-                String _plus_28 = (_plus_27 + _get_1);
-                String _plus_29 = (_plus_28 + " as Int;");
-                s = _plus_29;
+                String _plus_47 = (_plus_46 + _get_1);
+                String _plus_48 = (_plus_47 + " as Int;");
+                s = _plus_48;
               } else {
-                boolean _equals_6 = Objects.equal(type_1, "ZZ64");
-                if (_equals_6) {
-                  StringConcatenation _builder_12 = new StringConcatenation();
-                  _builder_12.append("Long = ");
-                  String _plus_30 = (s + _builder_12);
+                boolean _equals_11 = Objects.equal(type_2, "ZZ64");
+                if (_equals_11) {
+                  StringConcatenation _builder_19 = new StringConcatenation();
+                  _builder_19.append("Long = ");
+                  String _plus_49 = (s + _builder_19);
                   String _get_2 = vals_1[(k).intValue()];
-                  String _plus_31 = (_plus_30 + _get_2);
-                  String _plus_32 = (_plus_31 + " as Long;");
-                  s = _plus_32;
+                  String _plus_50 = (_plus_49 + _get_2);
+                  String _plus_51 = (_plus_50 + " as Long;");
+                  s = _plus_51;
                 } else {
-                  boolean _equals_7 = Objects.equal(type_1, "RR32");
-                  if (_equals_7) {
-                    StringConcatenation _builder_13 = new StringConcatenation();
-                    _builder_13.append("Float = ");
-                    String _plus_33 = (s + _builder_13);
+                  boolean _equals_12 = Objects.equal(type_2, "RR32");
+                  if (_equals_12) {
+                    StringConcatenation _builder_20 = new StringConcatenation();
+                    _builder_20.append("Float = ");
+                    String _plus_52 = (s + _builder_20);
                     String _get_3 = vals_1[(k).intValue()];
-                    String _plus_34 = (_plus_33 + _get_3);
-                    String _plus_35 = (_plus_34 + " as Float;");
-                    s = _plus_35;
+                    String _plus_53 = (_plus_52 + _get_3);
+                    String _plus_54 = (_plus_53 + " as Float;");
+                    s = _plus_54;
                   } else {
-                    boolean _equals_8 = Objects.equal(type_1, "RR64");
-                    if (_equals_8) {
-                      StringConcatenation _builder_14 = new StringConcatenation();
-                      _builder_14.append("Double = ");
-                      String _plus_36 = (s + _builder_14);
+                    boolean _equals_13 = Objects.equal(type_2, "RR64");
+                    if (_equals_13) {
+                      StringConcatenation _builder_21 = new StringConcatenation();
+                      _builder_21.append("Double = ");
+                      String _plus_55 = (s + _builder_21);
                       String _get_4 = vals_1[(k).intValue()];
-                      String _plus_37 = (_plus_36 + _get_4);
-                      String _plus_38 = (_plus_37 + " as Double;");
-                      s = _plus_38;
+                      String _plus_56 = (_plus_55 + _get_4);
+                      String _plus_57 = (_plus_56 + " as Double;");
+                      s = _plus_57;
                     } else {
-                      boolean _equals_9 = Objects.equal(type_1, "String");
-                      if (_equals_9) {
-                        StringConcatenation _builder_15 = new StringConcatenation();
-                        _builder_15.append("String = ");
-                        String _plus_39 = (s + _builder_15);
+                      boolean _equals_14 = Objects.equal(type_2, "String");
+                      if (_equals_14) {
+                        StringConcatenation _builder_22 = new StringConcatenation();
+                        _builder_22.append("String = ");
+                        String _plus_58 = (s + _builder_22);
                         String _get_5 = vals_1[(k).intValue()];
-                        String _plus_40 = (_plus_39 + _get_5);
-                        String _plus_41 = (_plus_40 + ";");
-                        s = _plus_41;
+                        String _plus_59 = (_plus_58 + _get_5);
+                        String _plus_60 = (_plus_59 + ";");
+                        s = _plus_60;
                       } else {
                         String _get_6 = vals_1[(k).intValue()];
-                        String _plus_42 = (((s + type_1) + "= ") + _get_6);
-                        String _plus_43 = (_plus_42 + ";");
-                        s = _plus_43;
+                        String _plus_61 = (((s + type_2) + "= ") + _get_6);
+                        String _plus_62 = (_plus_61 + ";");
+                        s = _plus_62;
                       }
                     }
                   }
@@ -942,31 +1020,31 @@ public class FortXTransGenerator extends AbstractGenerator {
         } else {
           String[] vars_2 = this.compile(f.getIdtup()).split(",");
           String[] vals_2 = this.compile(f.getInit()).split("@");
-          int _length_3 = vars_2.length;
-          ExclusiveRange _doubleDotLessThan_3 = new ExclusiveRange(0, _length_3, true);
+          int _length_4 = vars_2.length;
+          ExclusiveRange _doubleDotLessThan_3 = new ExclusiveRange(0, _length_4, true);
           for (final Integer k_1 : _doubleDotLessThan_3) {
             {
               String _pri_1 = f.getPri();
-              boolean _tripleNotEquals_5 = (_pri_1 != null);
-              if (_tripleNotEquals_5) {
-                StringConcatenation _builder_8 = new StringConcatenation();
-                _builder_8.append("private ");
-                String _plus_22 = (s + _builder_8);
-                s = _plus_22;
+              boolean _tripleNotEquals_6 = (_pri_1 != null);
+              if (_tripleNotEquals_6) {
+                StringConcatenation _builder_15 = new StringConcatenation();
+                _builder_15.append("private ");
+                String _plus_41 = (s + _builder_15);
+                s = _plus_41;
               }
-              StringConcatenation _builder_9 = new StringConcatenation();
-              _builder_9.append("static val ");
-              String _plus_23 = (s + _builder_9);
-              s = _plus_23;
+              StringConcatenation _builder_16 = new StringConcatenation();
+              _builder_16.append("static val ");
+              String _plus_42 = (s + _builder_16);
+              s = _plus_42;
               String _get = vars_2[(k_1).intValue()];
-              String _plus_24 = (s + _get);
-              StringConcatenation _builder_10 = new StringConcatenation();
-              _builder_10.append(" ");
-              _builder_10.append("= ");
-              String _plus_25 = (_plus_24 + _builder_10);
+              String _plus_43 = (s + _get);
+              StringConcatenation _builder_17 = new StringConcatenation();
+              _builder_17.append(" ");
+              _builder_17.append("= ");
+              String _plus_44 = (_plus_43 + _builder_17);
               String _get_1 = vals_2[(k_1).intValue()];
-              String _plus_26 = (_plus_25 + _get_1);
-              s = _plus_26;
+              String _plus_45 = (_plus_44 + _get_1);
+              s = _plus_45;
             }
           }
         }
@@ -1479,8 +1557,14 @@ public class FortXTransGenerator extends AbstractGenerator {
         StringConcatenation _builder = new StringConcatenation();
         _builder.append("..");
         String _plus = (_compile + _builder);
+        StringConcatenation _builder_1 = new StringConcatenation();
+        _builder_1.append("(");
+        String _plus_1 = (_plus + _builder_1);
         String _compile_1 = this.compile(g.getEnd());
-        return (_plus + _compile_1);
+        String _plus_2 = (_plus_1 + _compile_1);
+        StringConcatenation _builder_2 = new StringConcatenation();
+        _builder_2.append("-1)");
+        return (_plus_2 + _builder_2);
       }
     }
     return null;
@@ -1662,61 +1746,137 @@ public class FortXTransGenerator extends AbstractGenerator {
         String _plus_2 = (s + _compile);
         String _plus_3 = (_plus_2 + ":");
         s = _plus_3;
-        String type = f.getVars().getSingle().getIstype().getType().getName();
-        boolean _equals = Objects.equal(type, "ZZ32");
-        if (_equals) {
+        ExprList _arrsize = f.getVars().getArrsize();
+        boolean _tripleNotEquals_2 = (_arrsize != null);
+        if (_tripleNotEquals_2) {
+          String[] arrt = this.compile(f.getVars().getArrsize()).split("@");
           StringConcatenation _builder_2 = new StringConcatenation();
-          _builder_2.append("Int = ");
+          _builder_2.append("Array_");
+          int _length = arrt.length;
+          _builder_2.append(_length);
+          _builder_2.append("[");
           String _plus_4 = (s + _builder_2);
-          String _compile_1 = this.compile(f.getInit());
-          String _plus_5 = (_plus_4 + _compile_1);
-          String _plus_6 = (_plus_5 + " as Int;");
-          s = _plus_6;
-        } else {
-          boolean _equals_1 = Objects.equal(type, "ZZ64");
-          if (_equals_1) {
+          s = _plus_4;
+          String type = f.getVars().getSingle().getIstype().getType().getName();
+          boolean _equals = Objects.equal(type, "ZZ32");
+          if (_equals) {
             StringConcatenation _builder_3 = new StringConcatenation();
-            _builder_3.append("Long = ");
-            String _plus_7 = (s + _builder_3);
-            String _compile_2 = this.compile(f.getInit());
-            String _plus_8 = (_plus_7 + _compile_2);
-            String _plus_9 = (_plus_8 + " as Long;");
-            s = _plus_9;
+            _builder_3.append("Int] = ");
+            String _plus_5 = (s + _builder_3);
+            String _compile_1 = this.compile(f.getInit());
+            String _plus_6 = (_plus_5 + _compile_1);
+            String _plus_7 = (_plus_6 + ";");
+            s = _plus_7;
           } else {
-            boolean _equals_2 = Objects.equal(type, "RR32");
-            if (_equals_2) {
+            boolean _equals_1 = Objects.equal(type, "ZZ64");
+            if (_equals_1) {
               StringConcatenation _builder_4 = new StringConcatenation();
-              _builder_4.append("Float = ");
-              String _plus_10 = (s + _builder_4);
-              String _compile_3 = this.compile(f.getInit());
-              String _plus_11 = (_plus_10 + _compile_3);
-              String _plus_12 = (_plus_11 + " as Float;");
-              s = _plus_12;
+              _builder_4.append("Long] = ");
+              String _plus_8 = (s + _builder_4);
+              String _compile_2 = this.compile(f.getInit());
+              String _plus_9 = (_plus_8 + _compile_2);
+              String _plus_10 = (_plus_9 + ";");
+              s = _plus_10;
             } else {
-              boolean _equals_3 = Objects.equal(type, "RR64");
-              if (_equals_3) {
+              boolean _equals_2 = Objects.equal(type, "RR32");
+              if (_equals_2) {
                 StringConcatenation _builder_5 = new StringConcatenation();
-                _builder_5.append("Double = ");
-                String _plus_13 = (s + _builder_5);
-                String _compile_4 = this.compile(f.getInit());
-                String _plus_14 = (_plus_13 + _compile_4);
-                String _plus_15 = (_plus_14 + " as Double;");
-                s = _plus_15;
+                _builder_5.append("Float] = ");
+                String _plus_11 = (s + _builder_5);
+                String _compile_3 = this.compile(f.getInit());
+                String _plus_12 = (_plus_11 + _compile_3);
+                String _plus_13 = (_plus_12 + ";");
+                s = _plus_13;
               } else {
-                boolean _equals_4 = Objects.equal(type, "String");
-                if (_equals_4) {
+                boolean _equals_3 = Objects.equal(type, "RR64");
+                if (_equals_3) {
                   StringConcatenation _builder_6 = new StringConcatenation();
-                  _builder_6.append("String = ");
-                  String _plus_16 = (s + _builder_6);
-                  String _compile_5 = this.compile(f.getInit());
-                  String _plus_17 = (_plus_16 + _compile_5);
-                  String _plus_18 = (_plus_17 + ";");
-                  s = _plus_18;
+                  _builder_6.append("Double] = ");
+                  String _plus_14 = (s + _builder_6);
+                  String _compile_4 = this.compile(f.getInit());
+                  String _plus_15 = (_plus_14 + _compile_4);
+                  String _plus_16 = (_plus_15 + ";");
+                  s = _plus_16;
                 } else {
-                  String _compile_6 = this.compile(f.getInit());
-                  String _plus_19 = (((s + type) + "= ") + _compile_6);
-                  String _plus_20 = (_plus_19 + ";");
-                  s = _plus_20;
+                  boolean _equals_4 = Objects.equal(type, "String");
+                  if (_equals_4) {
+                    StringConcatenation _builder_7 = new StringConcatenation();
+                    _builder_7.append("String] = ");
+                    String _plus_17 = (s + _builder_7);
+                    String _compile_5 = this.compile(f.getInit());
+                    String _plus_18 = (_plus_17 + _compile_5);
+                    String _plus_19 = (_plus_18 + ";");
+                    s = _plus_19;
+                  } else {
+                    StringConcatenation _builder_8 = new StringConcatenation();
+                    _builder_8.append("] = ");
+                    String _plus_20 = ((s + type) + _builder_8);
+                    String _compile_6 = this.compile(f.getInit());
+                    String _plus_21 = (_plus_20 + _compile_6);
+                    String _plus_22 = (_plus_21 + ";");
+                    s = _plus_22;
+                  }
+                }
+              }
+            }
+          }
+        } else {
+          String type_1 = f.getVars().getSingle().getIstype().getType().getName();
+          boolean _equals_5 = Objects.equal(type_1, "ZZ32");
+          if (_equals_5) {
+            StringConcatenation _builder_9 = new StringConcatenation();
+            _builder_9.append("Int = ");
+            String _plus_23 = (s + _builder_9);
+            String _compile_7 = this.compile(f.getInit());
+            String _plus_24 = (_plus_23 + _compile_7);
+            String _plus_25 = (_plus_24 + " as Int;");
+            s = _plus_25;
+          } else {
+            boolean _equals_6 = Objects.equal(type_1, "ZZ64");
+            if (_equals_6) {
+              StringConcatenation _builder_10 = new StringConcatenation();
+              _builder_10.append("Long = ");
+              String _plus_26 = (s + _builder_10);
+              String _compile_8 = this.compile(f.getInit());
+              String _plus_27 = (_plus_26 + _compile_8);
+              String _plus_28 = (_plus_27 + " as Long;");
+              s = _plus_28;
+            } else {
+              boolean _equals_7 = Objects.equal(type_1, "RR32");
+              if (_equals_7) {
+                StringConcatenation _builder_11 = new StringConcatenation();
+                _builder_11.append("Float = ");
+                String _plus_29 = (s + _builder_11);
+                String _compile_9 = this.compile(f.getInit());
+                String _plus_30 = (_plus_29 + _compile_9);
+                String _plus_31 = (_plus_30 + " as Float;");
+                s = _plus_31;
+              } else {
+                boolean _equals_8 = Objects.equal(type_1, "RR64");
+                if (_equals_8) {
+                  StringConcatenation _builder_12 = new StringConcatenation();
+                  _builder_12.append("Double = ");
+                  String _plus_32 = (s + _builder_12);
+                  String _compile_10 = this.compile(f.getInit());
+                  String _plus_33 = (_plus_32 + _compile_10);
+                  String _plus_34 = (_plus_33 + " as Double;");
+                  s = _plus_34;
+                } else {
+                  boolean _equals_9 = Objects.equal(type_1, "String");
+                  if (_equals_9) {
+                    StringConcatenation _builder_13 = new StringConcatenation();
+                    _builder_13.append("String = ");
+                    String _plus_35 = (s + _builder_13);
+                    String _compile_11 = this.compile(f.getInit());
+                    String _plus_36 = (_plus_35 + _compile_11);
+                    String _plus_37 = (_plus_36 + ";");
+                    s = _plus_37;
+                  } else {
+                    String _compile_12 = this.compile(f.getInit());
+                    String _plus_38 = (((s + type_1) + "= ") + _compile_12);
+                    String _plus_39 = (_plus_38 + ";");
+                    s = _plus_39;
+                  }
                 }
               }
             }
@@ -1724,82 +1884,82 @@ public class FortXTransGenerator extends AbstractGenerator {
         }
       } else {
         String[] attach = this.compile(f.getInit()).split("@");
-        int _length = ((Object[])Conversions.unwrapArray(f.getVars().getMultiple(), Object.class)).length;
-        ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length, true);
+        int _length_1 = ((Object[])Conversions.unwrapArray(f.getVars().getMultiple(), Object.class)).length;
+        ExclusiveRange _doubleDotLessThan = new ExclusiveRange(0, _length_1, true);
         for (final Integer m : _doubleDotLessThan) {
           {
             String _mut_1 = f.getMut();
             boolean _tripleEquals_1 = (_mut_1 == null);
             if (_tripleEquals_1) {
-              StringConcatenation _builder_7 = new StringConcatenation();
-              _builder_7.append("val ");
-              String _plus_21 = (s + _builder_7);
-              s = _plus_21;
+              StringConcatenation _builder_14 = new StringConcatenation();
+              _builder_14.append("val ");
+              String _plus_40 = (s + _builder_14);
+              s = _plus_40;
             } else {
-              StringConcatenation _builder_8 = new StringConcatenation();
-              _builder_8.append("var ");
-              String _plus_22 = (s + _builder_8);
-              s = _plus_22;
+              StringConcatenation _builder_15 = new StringConcatenation();
+              _builder_15.append("var ");
+              String _plus_41 = (s + _builder_15);
+              s = _plus_41;
             }
-            String _compile_7 = this.compile(f.getVars().getMultiple().get((m).intValue()).getBid());
-            String _plus_23 = (s + _compile_7);
-            String _plus_24 = (_plus_23 + ":");
-            s = _plus_24;
-            String type_1 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getName();
-            boolean _equals_5 = Objects.equal(type_1, "ZZ32");
-            if (_equals_5) {
-              StringConcatenation _builder_9 = new StringConcatenation();
-              _builder_9.append("Int = ");
-              String _plus_25 = (s + _builder_9);
+            String _compile_13 = this.compile(f.getVars().getMultiple().get((m).intValue()).getBid());
+            String _plus_42 = (s + _compile_13);
+            String _plus_43 = (_plus_42 + ":");
+            s = _plus_43;
+            String type_2 = f.getVars().getMultiple().get((m).intValue()).getIstype().getType().getName();
+            boolean _equals_10 = Objects.equal(type_2, "ZZ32");
+            if (_equals_10) {
+              StringConcatenation _builder_16 = new StringConcatenation();
+              _builder_16.append("Int = ");
+              String _plus_44 = (s + _builder_16);
               String _get = attach[(m).intValue()];
-              String _plus_26 = (_plus_25 + _get);
-              String _plus_27 = (_plus_26 + " as Int;");
-              s = _plus_27;
+              String _plus_45 = (_plus_44 + _get);
+              String _plus_46 = (_plus_45 + " as Int;");
+              s = _plus_46;
             } else {
-              boolean _equals_6 = Objects.equal(type_1, "ZZ64");
-              if (_equals_6) {
-                StringConcatenation _builder_10 = new StringConcatenation();
-                _builder_10.append("Long = ");
-                String _plus_28 = (s + _builder_10);
+              boolean _equals_11 = Objects.equal(type_2, "ZZ64");
+              if (_equals_11) {
+                StringConcatenation _builder_17 = new StringConcatenation();
+                _builder_17.append("Long = ");
+                String _plus_47 = (s + _builder_17);
                 String _get_1 = attach[(m).intValue()];
-                String _plus_29 = (_plus_28 + _get_1);
-                String _plus_30 = (_plus_29 + " as Long;");
-                s = _plus_30;
+                String _plus_48 = (_plus_47 + _get_1);
+                String _plus_49 = (_plus_48 + " as Long;");
+                s = _plus_49;
               } else {
-                boolean _equals_7 = Objects.equal(type_1, "RR32");
-                if (_equals_7) {
-                  StringConcatenation _builder_11 = new StringConcatenation();
-                  _builder_11.append("Float = ");
-                  String _plus_31 = (s + _builder_11);
+                boolean _equals_12 = Objects.equal(type_2, "RR32");
+                if (_equals_12) {
+                  StringConcatenation _builder_18 = new StringConcatenation();
+                  _builder_18.append("Float = ");
+                  String _plus_50 = (s + _builder_18);
                   String _get_2 = attach[(m).intValue()];
-                  String _plus_32 = (_plus_31 + _get_2);
-                  String _plus_33 = (_plus_32 + " as Float;");
-                  s = _plus_33;
+                  String _plus_51 = (_plus_50 + _get_2);
+                  String _plus_52 = (_plus_51 + " as Float;");
+                  s = _plus_52;
                 } else {
-                  boolean _equals_8 = Objects.equal(type_1, "RR64");
-                  if (_equals_8) {
-                    StringConcatenation _builder_12 = new StringConcatenation();
-                    _builder_12.append("Double = ");
-                    String _plus_34 = (s + _builder_12);
+                  boolean _equals_13 = Objects.equal(type_2, "RR64");
+                  if (_equals_13) {
+                    StringConcatenation _builder_19 = new StringConcatenation();
+                    _builder_19.append("Double = ");
+                    String _plus_53 = (s + _builder_19);
                     String _get_3 = attach[(m).intValue()];
-                    String _plus_35 = (_plus_34 + _get_3);
-                    String _plus_36 = (_plus_35 + " as Double;");
-                    s = _plus_36;
+                    String _plus_54 = (_plus_53 + _get_3);
+                    String _plus_55 = (_plus_54 + " as Double;");
+                    s = _plus_55;
                   } else {
-                    boolean _equals_9 = Objects.equal(type_1, "String");
-                    if (_equals_9) {
-                      StringConcatenation _builder_13 = new StringConcatenation();
-                      _builder_13.append("String = ");
-                      String _plus_37 = (s + _builder_13);
+                    boolean _equals_14 = Objects.equal(type_2, "String");
+                    if (_equals_14) {
+                      StringConcatenation _builder_20 = new StringConcatenation();
+                      _builder_20.append("String = ");
+                      String _plus_56 = (s + _builder_20);
                       String _get_4 = attach[(m).intValue()];
-                      String _plus_38 = (_plus_37 + _get_4);
-                      String _plus_39 = (_plus_38 + ";");
-                      s = _plus_39;
+                      String _plus_57 = (_plus_56 + _get_4);
+                      String _plus_58 = (_plus_57 + ";");
+                      s = _plus_58;
                     } else {
                       String _get_5 = attach[(m).intValue()];
-                      String _plus_40 = (((s + type_1) + "= ") + _get_5);
-                      String _plus_41 = (_plus_40 + ";");
-                      s = _plus_41;
+                      String _plus_59 = (((s + type_2) + "= ") + _get_5);
+                      String _plus_60 = (_plus_59 + ";");
+                      s = _plus_60;
                     }
                   }
                 }
@@ -1811,86 +1971,86 @@ public class FortXTransGenerator extends AbstractGenerator {
       }
     } else {
       SimpleName _type = f.getType();
-      boolean _tripleNotEquals_2 = (_type != null);
-      if (_tripleNotEquals_2) {
+      boolean _tripleNotEquals_3 = (_type != null);
+      if (_tripleNotEquals_3) {
         String[] vars = this.compile(f.getIdtup()).split(",");
         String[] vals = this.compile(f.getInit()).split("@");
-        int _length_1 = vars.length;
-        ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_1, true);
+        int _length_2 = vars.length;
+        ExclusiveRange _doubleDotLessThan_1 = new ExclusiveRange(0, _length_2, true);
         for (final Integer v : _doubleDotLessThan_1) {
           {
             String _mut_1 = f.getMut();
             boolean _tripleEquals_1 = (_mut_1 == null);
             if (_tripleEquals_1) {
-              StringConcatenation _builder_7 = new StringConcatenation();
-              _builder_7.append("val ");
-              String _plus_21 = (s + _builder_7);
-              s = _plus_21;
+              StringConcatenation _builder_14 = new StringConcatenation();
+              _builder_14.append("val ");
+              String _plus_40 = (s + _builder_14);
+              s = _plus_40;
             } else {
-              StringConcatenation _builder_8 = new StringConcatenation();
-              _builder_8.append("var ");
-              String _plus_22 = (s + _builder_8);
-              s = _plus_22;
+              StringConcatenation _builder_15 = new StringConcatenation();
+              _builder_15.append("var ");
+              String _plus_41 = (s + _builder_15);
+              s = _plus_41;
             }
             String _get = vars[(v).intValue()];
-            String _plus_23 = (s + _get);
-            String _plus_24 = (_plus_23 + ":");
-            s = _plus_24;
-            String type_1 = f.getType().getName();
-            boolean _equals_5 = Objects.equal(type_1, "ZZ32");
-            if (_equals_5) {
-              StringConcatenation _builder_9 = new StringConcatenation();
-              _builder_9.append("Int = ");
-              String _plus_25 = (s + _builder_9);
+            String _plus_42 = (s + _get);
+            String _plus_43 = (_plus_42 + ":");
+            s = _plus_43;
+            String type_2 = f.getType().getName();
+            boolean _equals_10 = Objects.equal(type_2, "ZZ32");
+            if (_equals_10) {
+              StringConcatenation _builder_16 = new StringConcatenation();
+              _builder_16.append("Int = ");
+              String _plus_44 = (s + _builder_16);
               String _get_1 = vals[(v).intValue()];
-              String _plus_26 = (_plus_25 + _get_1);
-              String _plus_27 = (_plus_26 + " as Int;");
-              s = _plus_27;
+              String _plus_45 = (_plus_44 + _get_1);
+              String _plus_46 = (_plus_45 + " as Int;");
+              s = _plus_46;
             } else {
-              boolean _equals_6 = Objects.equal(type_1, "ZZ64");
-              if (_equals_6) {
-                StringConcatenation _builder_10 = new StringConcatenation();
-                _builder_10.append("Long = ");
-                String _plus_28 = (s + _builder_10);
+              boolean _equals_11 = Objects.equal(type_2, "ZZ64");
+              if (_equals_11) {
+                StringConcatenation _builder_17 = new StringConcatenation();
+                _builder_17.append("Long = ");
+                String _plus_47 = (s + _builder_17);
                 String _get_2 = vals[(v).intValue()];
-                String _plus_29 = (_plus_28 + _get_2);
-                String _plus_30 = (_plus_29 + " as Long;");
-                s = _plus_30;
+                String _plus_48 = (_plus_47 + _get_2);
+                String _plus_49 = (_plus_48 + " as Long;");
+                s = _plus_49;
               } else {
-                boolean _equals_7 = Objects.equal(type_1, "RR32");
-                if (_equals_7) {
-                  StringConcatenation _builder_11 = new StringConcatenation();
-                  _builder_11.append("Float = ");
-                  String _plus_31 = (s + _builder_11);
+                boolean _equals_12 = Objects.equal(type_2, "RR32");
+                if (_equals_12) {
+                  StringConcatenation _builder_18 = new StringConcatenation();
+                  _builder_18.append("Float = ");
+                  String _plus_50 = (s + _builder_18);
                   String _get_3 = vals[(v).intValue()];
-                  String _plus_32 = (_plus_31 + _get_3);
-                  String _plus_33 = (_plus_32 + " as Float;");
-                  s = _plus_33;
+                  String _plus_51 = (_plus_50 + _get_3);
+                  String _plus_52 = (_plus_51 + " as Float;");
+                  s = _plus_52;
                 } else {
-                  boolean _equals_8 = Objects.equal(type_1, "RR64");
-                  if (_equals_8) {
-                    StringConcatenation _builder_12 = new StringConcatenation();
-                    _builder_12.append("Double = ");
-                    String _plus_34 = (s + _builder_12);
+                  boolean _equals_13 = Objects.equal(type_2, "RR64");
+                  if (_equals_13) {
+                    StringConcatenation _builder_19 = new StringConcatenation();
+                    _builder_19.append("Double = ");
+                    String _plus_53 = (s + _builder_19);
                     String _get_4 = vals[(v).intValue()];
-                    String _plus_35 = (_plus_34 + _get_4);
-                    String _plus_36 = (_plus_35 + " as Double;");
-                    s = _plus_36;
+                    String _plus_54 = (_plus_53 + _get_4);
+                    String _plus_55 = (_plus_54 + " as Double;");
+                    s = _plus_55;
                   } else {
-                    boolean _equals_9 = Objects.equal(type_1, "String");
-                    if (_equals_9) {
-                      StringConcatenation _builder_13 = new StringConcatenation();
-                      _builder_13.append("String = ");
-                      String _plus_37 = (s + _builder_13);
+                    boolean _equals_14 = Objects.equal(type_2, "String");
+                    if (_equals_14) {
+                      StringConcatenation _builder_20 = new StringConcatenation();
+                      _builder_20.append("String = ");
+                      String _plus_56 = (s + _builder_20);
                       String _get_5 = vals[(v).intValue()];
-                      String _plus_38 = (_plus_37 + _get_5);
-                      String _plus_39 = (_plus_38 + ";");
-                      s = _plus_39;
+                      String _plus_57 = (_plus_56 + _get_5);
+                      String _plus_58 = (_plus_57 + ";");
+                      s = _plus_58;
                     } else {
                       String _get_6 = vals[(v).intValue()];
-                      String _plus_40 = (((s + type_1) + "= ") + _get_6);
-                      String _plus_41 = (_plus_40 + ";");
-                      s = _plus_41;
+                      String _plus_59 = (((s + type_2) + "= ") + _get_6);
+                      String _plus_60 = (_plus_59 + ";");
+                      s = _plus_60;
                     }
                   }
                 }
@@ -1901,87 +2061,87 @@ public class FortXTransGenerator extends AbstractGenerator {
         }
       } else {
         TupleType _tuptype = f.getTuptype();
-        boolean _tripleNotEquals_3 = (_tuptype != null);
-        if (_tripleNotEquals_3) {
+        boolean _tripleNotEquals_4 = (_tuptype != null);
+        if (_tripleNotEquals_4) {
           String[] vars_1 = this.compile(f.getIdtup()).split(",");
           String[] types = this.compile(f.getTuptype()).split(",");
           String[] vals_1 = this.compile(f.getInit()).split("@");
-          int _length_2 = vars_1.length;
-          ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_2, true);
+          int _length_3 = vars_1.length;
+          ExclusiveRange _doubleDotLessThan_2 = new ExclusiveRange(0, _length_3, true);
           for (final Integer k : _doubleDotLessThan_2) {
             {
               String _mut_1 = f.getMut();
               boolean _tripleEquals_1 = (_mut_1 == null);
               if (_tripleEquals_1) {
-                StringConcatenation _builder_7 = new StringConcatenation();
-                _builder_7.append("val ");
-                String _plus_21 = (s + _builder_7);
-                s = _plus_21;
+                StringConcatenation _builder_14 = new StringConcatenation();
+                _builder_14.append("val ");
+                String _plus_40 = (s + _builder_14);
+                s = _plus_40;
               } else {
-                StringConcatenation _builder_8 = new StringConcatenation();
-                _builder_8.append("var ");
-                String _plus_22 = (s + _builder_8);
-                s = _plus_22;
+                StringConcatenation _builder_15 = new StringConcatenation();
+                _builder_15.append("var ");
+                String _plus_41 = (s + _builder_15);
+                s = _plus_41;
               }
               String _get = vars_1[(k).intValue()];
-              String _plus_23 = (s + _get);
-              String _plus_24 = (_plus_23 + ":");
-              s = _plus_24;
-              String type_1 = types[(k).intValue()];
-              boolean _equals_5 = Objects.equal(type_1, "ZZ32");
-              if (_equals_5) {
-                StringConcatenation _builder_9 = new StringConcatenation();
-                _builder_9.append("Int = ");
-                String _plus_25 = (s + _builder_9);
+              String _plus_42 = (s + _get);
+              String _plus_43 = (_plus_42 + ":");
+              s = _plus_43;
+              String type_2 = types[(k).intValue()];
+              boolean _equals_10 = Objects.equal(type_2, "ZZ32");
+              if (_equals_10) {
+                StringConcatenation _builder_16 = new StringConcatenation();
+                _builder_16.append("Int = ");
+                String _plus_44 = (s + _builder_16);
                 String _get_1 = vals_1[(k).intValue()];
-                String _plus_26 = (_plus_25 + _get_1);
-                String _plus_27 = (_plus_26 + " as Int;");
-                s = _plus_27;
+                String _plus_45 = (_plus_44 + _get_1);
+                String _plus_46 = (_plus_45 + " as Int;");
+                s = _plus_46;
               } else {
-                boolean _equals_6 = Objects.equal(type_1, "ZZ64");
-                if (_equals_6) {
-                  StringConcatenation _builder_10 = new StringConcatenation();
-                  _builder_10.append("Long = ");
-                  String _plus_28 = (s + _builder_10);
+                boolean _equals_11 = Objects.equal(type_2, "ZZ64");
+                if (_equals_11) {
+                  StringConcatenation _builder_17 = new StringConcatenation();
+                  _builder_17.append("Long = ");
+                  String _plus_47 = (s + _builder_17);
                   String _get_2 = vals_1[(k).intValue()];
-                  String _plus_29 = (_plus_28 + _get_2);
-                  String _plus_30 = (_plus_29 + " as Long;");
-                  s = _plus_30;
+                  String _plus_48 = (_plus_47 + _get_2);
+                  String _plus_49 = (_plus_48 + " as Long;");
+                  s = _plus_49;
                 } else {
-                  boolean _equals_7 = Objects.equal(type_1, "RR32");
-                  if (_equals_7) {
-                    StringConcatenation _builder_11 = new StringConcatenation();
-                    _builder_11.append("Float = ");
-                    String _plus_31 = (s + _builder_11);
+                  boolean _equals_12 = Objects.equal(type_2, "RR32");
+                  if (_equals_12) {
+                    StringConcatenation _builder_18 = new StringConcatenation();
+                    _builder_18.append("Float = ");
+                    String _plus_50 = (s + _builder_18);
                     String _get_3 = vals_1[(k).intValue()];
-                    String _plus_32 = (_plus_31 + _get_3);
-                    String _plus_33 = (_plus_32 + " as Float;");
-                    s = _plus_33;
+                    String _plus_51 = (_plus_50 + _get_3);
+                    String _plus_52 = (_plus_51 + " as Float;");
+                    s = _plus_52;
                   } else {
-                    boolean _equals_8 = Objects.equal(type_1, "RR64");
-                    if (_equals_8) {
-                      StringConcatenation _builder_12 = new StringConcatenation();
-                      _builder_12.append("Double = ");
-                      String _plus_34 = (s + _builder_12);
+                    boolean _equals_13 = Objects.equal(type_2, "RR64");
+                    if (_equals_13) {
+                      StringConcatenation _builder_19 = new StringConcatenation();
+                      _builder_19.append("Double = ");
+                      String _plus_53 = (s + _builder_19);
                       String _get_4 = vals_1[(k).intValue()];
-                      String _plus_35 = (_plus_34 + _get_4);
-                      String _plus_36 = (_plus_35 + " as Double;");
-                      s = _plus_36;
+                      String _plus_54 = (_plus_53 + _get_4);
+                      String _plus_55 = (_plus_54 + " as Double;");
+                      s = _plus_55;
                     } else {
-                      boolean _equals_9 = Objects.equal(type_1, "String");
-                      if (_equals_9) {
-                        StringConcatenation _builder_13 = new StringConcatenation();
-                        _builder_13.append("String = ");
-                        String _plus_37 = (s + _builder_13);
+                      boolean _equals_14 = Objects.equal(type_2, "String");
+                      if (_equals_14) {
+                        StringConcatenation _builder_20 = new StringConcatenation();
+                        _builder_20.append("String = ");
+                        String _plus_56 = (s + _builder_20);
                         String _get_5 = vals_1[(k).intValue()];
-                        String _plus_38 = (_plus_37 + _get_5);
-                        String _plus_39 = (_plus_38 + ";");
-                        s = _plus_39;
+                        String _plus_57 = (_plus_56 + _get_5);
+                        String _plus_58 = (_plus_57 + ";");
+                        s = _plus_58;
                       } else {
                         String _get_6 = vals_1[(k).intValue()];
-                        String _plus_40 = (((s + type_1) + "= ") + _get_6);
-                        String _plus_41 = (_plus_40 + ";");
-                        s = _plus_41;
+                        String _plus_59 = (((s + type_2) + "= ") + _get_6);
+                        String _plus_60 = (_plus_59 + ";");
+                        s = _plus_60;
                       }
                     }
                   }
@@ -1993,30 +2153,54 @@ public class FortXTransGenerator extends AbstractGenerator {
         } else {
           String[] vars_2 = this.compile(f.getIdtup()).split(",");
           String[] vals_2 = this.compile(f.getInit()).split("@");
-          int _length_3 = vars_2.length;
-          ExclusiveRange _doubleDotLessThan_3 = new ExclusiveRange(0, _length_3, true);
+          int _length_4 = vars_2.length;
+          ExclusiveRange _doubleDotLessThan_3 = new ExclusiveRange(0, _length_4, true);
           for (final Integer k_1 : _doubleDotLessThan_3) {
             {
-              StringConcatenation _builder_7 = new StringConcatenation();
-              _builder_7.append("val ");
-              String _plus_21 = (s + _builder_7);
-              s = _plus_21;
+              StringConcatenation _builder_14 = new StringConcatenation();
+              _builder_14.append("val ");
+              String _plus_40 = (s + _builder_14);
+              s = _plus_40;
               String _get = vars_2[(k_1).intValue()];
-              String _plus_22 = (s + _get);
-              StringConcatenation _builder_8 = new StringConcatenation();
-              _builder_8.append(" ");
-              _builder_8.append("= ");
-              String _plus_23 = (_plus_22 + _builder_8);
+              String _plus_41 = (s + _get);
+              StringConcatenation _builder_15 = new StringConcatenation();
+              _builder_15.append(" ");
+              _builder_15.append("= ");
+              String _plus_42 = (_plus_41 + _builder_15);
               String _get_1 = vals_2[(k_1).intValue()];
-              String _plus_24 = (_plus_23 + _get_1);
-              String _plus_25 = (_plus_24 + ";\n");
-              s = _plus_25;
+              String _plus_43 = (_plus_42 + _get_1);
+              String _plus_44 = (_plus_43 + ";\n");
+              s = _plus_44;
             }
           }
         }
       }
     }
     return s;
+  }
+  
+  public String typer(final String s) {
+    boolean _equals = Objects.equal(s, "ZZ32");
+    if (_equals) {
+      return "Int";
+    } else {
+      boolean _equals_1 = Objects.equal(s, "ZZ64");
+      if (_equals_1) {
+        return "Long";
+      } else {
+        boolean _equals_2 = Objects.equal(s, "RR32");
+        if (_equals_2) {
+          return "Float";
+        } else {
+          boolean _equals_3 = Objects.equal(s, "RR64");
+          if (_equals_3) {
+            return "Double";
+          } else {
+            return s;
+          }
+        }
+      }
+    }
   }
   
   public String compile(final Expr e) {
@@ -2242,6 +2426,76 @@ public class FortXTransGenerator extends AbstractGenerator {
       }
     }
     if (!_matched) {
+      if (e instanceof ArrayInit) {
+        _matched=true;
+        String ltp = this.compile(((ArrayInit)e).getLeft());
+        String t = this.typer(((ArrayInit)e).getType().getName());
+        if ((Objects.equal(ltp, "array1") || Objects.equal(ltp, "vector"))) {
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("new Array_1[");
+          _builder.append(t);
+          _builder.append("](");
+          String _replace = this.compile(((ArrayInit)e).getSizes()).replace("@", ",");
+          _builder.append(_replace);
+          String _plus = (s + _builder);
+          s = _plus;
+        }
+        LiteralTuple _lit = ((ArrayInit)e).getLit();
+        boolean _tripleNotEquals = (_lit != null);
+        if (_tripleNotEquals) {
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append(", ");
+          String _compile = this.compile(((ArrayInit)e).getLit());
+          _builder_1.append(_compile);
+          String _plus_1 = (s + _builder_1);
+          s = _plus_1;
+        } else {
+          Stmnts _filler = ((ArrayInit)e).getFiller();
+          boolean _tripleNotEquals_1 = (_filler != null);
+          if (_tripleNotEquals_1) {
+            String[] vars = this.compile(((ArrayInit)e).getInd()).split(",");
+            StringConcatenation _builder_2 = new StringConcatenation();
+            _builder_2.append(", (");
+            String _get = vars[0];
+            _builder_2.append(_get);
+            _builder_2.append(":Long");
+            String _plus_2 = (s + _builder_2);
+            s = _plus_2;
+            int _length = vars.length;
+            ExclusiveRange _doubleDotLessThan = new ExclusiveRange(1, _length, true);
+            for (final Integer k : _doubleDotLessThan) {
+              StringConcatenation _builder_3 = new StringConcatenation();
+              _builder_3.append(", ");
+              String _get_1 = vars[(k).intValue()];
+              _builder_3.append(_get_1);
+              _builder_3.append(":Long");
+              String _plus_3 = (s + _builder_3);
+              s = _plus_3;
+            }
+            StringConcatenation _builder_4 = new StringConcatenation();
+            _builder_4.append("):");
+            _builder_4.append(t);
+            String _plus_4 = (s + _builder_4);
+            s = _plus_4;
+            StringConcatenation _builder_5 = new StringConcatenation();
+            _builder_5.append(" ");
+            _builder_5.append("=> {");
+            String _plus_5 = (s + _builder_5);
+            String _compile_1 = this.compile(((ArrayInit)e).getFiller());
+            String _plus_6 = (_plus_5 + _compile_1);
+            StringConcatenation _builder_6 = new StringConcatenation();
+            _builder_6.append("}");
+            String _plus_7 = (_plus_6 + _builder_6);
+            s = _plus_7;
+          }
+        }
+        StringConcatenation _builder_7 = new StringConcatenation();
+        _builder_7.append(")");
+        String _plus_8 = (s + _builder_7);
+        s = _plus_8;
+      }
+    }
+    if (!_matched) {
       if (e instanceof FCall) {
         _matched=true;
         StringConcatenation _builder = new StringConcatenation();
@@ -2257,6 +2511,29 @@ public class FortXTransGenerator extends AbstractGenerator {
           }
         }
         _builder.append(")");
+        String _plus = (s + _builder);
+        s = _plus;
+      }
+    }
+    if (!_matched) {
+      if (e instanceof ArrayCall) {
+        _matched=true;
+        StringConcatenation _builder = new StringConcatenation();
+        String _compile = this.compile(((ArrayCall)e).getLeft());
+        _builder.append(_compile);
+        _builder.append("(");
+        String _replace = this.compile(((ArrayCall)e).getRight()).replace("@", ",");
+        _builder.append(_replace);
+        _builder.append(")");
+        {
+          Expr _extRight = ((ArrayCall)e).getExtRight();
+          boolean _tripleNotEquals = (_extRight != null);
+          if (_tripleNotEquals) {
+            _builder.append("=");
+            String _compile_1 = this.compile(((ArrayCall)e).getExtRight());
+            _builder.append(_compile_1);
+          }
+        }
         String _plus = (s + _builder);
         s = _plus;
       }

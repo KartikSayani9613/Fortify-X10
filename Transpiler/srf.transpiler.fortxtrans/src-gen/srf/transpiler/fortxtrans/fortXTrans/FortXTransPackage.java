@@ -3063,13 +3063,31 @@ public interface FortXTransPackage extends EPackage
   int ARRAY_INIT__SIZES = EXPR_FEATURE_COUNT + 2;
 
   /**
+   * The feature id for the '<em><b>Ind</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__IND = EXPR_FEATURE_COUNT + 3;
+
+  /**
    * The feature id for the '<em><b>Filler</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ARRAY_INIT__FILLER = EXPR_FEATURE_COUNT + 3;
+  int ARRAY_INIT__FILLER = EXPR_FEATURE_COUNT + 4;
+
+  /**
+   * The feature id for the '<em><b>Lit</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INIT__LIT = EXPR_FEATURE_COUNT + 5;
 
   /**
    * The number of structural features of the '<em>Array Init</em>' class.
@@ -3078,7 +3096,80 @@ public interface FortXTransPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARRAY_INIT_FEATURE_COUNT = EXPR_FEATURE_COUNT + 4;
+  int ARRAY_INIT_FEATURE_COUNT = EXPR_FEATURE_COUNT + 6;
+
+  /**
+   * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayCallImpl <em>Array Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.ArrayCallImpl
+   * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getArrayCall()
+   * @generated
+   */
+  int ARRAY_CALL = 62;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL__START = EXPR__START;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL__END = EXPR__END;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL__TAIL = EXPR__TAIL;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL__LEFT = EXPR_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL__RIGHT = EXPR_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Ext Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL__EXT_RIGHT = EXPR_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Array Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_CALL_FEATURE_COUNT = EXPR_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl <em>Not</em>}' class.
@@ -3088,7 +3179,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNot()
    * @generated
    */
-  int NOT = 62;
+  int NOT = 63;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3143,7 +3234,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getNeg()
    * @generated
    */
-  int NEG = 63;
+  int NEG = 64;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3198,7 +3289,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getParan()
    * @generated
    */
-  int PARAN = 64;
+  int PARAN = 65;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3253,7 +3344,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getIntConst()
    * @generated
    */
-  int INT_CONST = 65;
+  int INT_CONST = 66;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3308,7 +3399,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getFloatConst()
    * @generated
    */
-  int FLOAT_CONST = 66;
+  int FLOAT_CONST = 67;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3363,7 +3454,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getStrConst()
    * @generated
    */
-  int STR_CONST = 67;
+  int STR_CONST = 68;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -3418,7 +3509,7 @@ public interface FortXTransPackage extends EPackage
    * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getBoolConst()
    * @generated
    */
-  int BOOL_CONST = 68;
+  int BOOL_CONST = 69;
 
   /**
    * The feature id for the '<em><b>Start</b></em>' containment reference.
@@ -5638,6 +5729,17 @@ public interface FortXTransPackage extends EPackage
   EReference getArrayInit_Sizes();
 
   /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getInd <em>Ind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ind</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getInd()
+   * @see #getArrayInit()
+   * @generated
+   */
+  EReference getArrayInit_Ind();
+
+  /**
    * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getFiller <em>Filler</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -5647,6 +5749,60 @@ public interface FortXTransPackage extends EPackage
    * @generated
    */
   EReference getArrayInit_Filler();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLit <em>Lit</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lit</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayInit#getLit()
+   * @see #getArrayInit()
+   * @generated
+   */
+  EReference getArrayInit_Lit();
+
+  /**
+   * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayCall <em>Array Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Call</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayCall
+   * @generated
+   */
+  EClass getArrayCall();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayCall#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayCall#getLeft()
+   * @see #getArrayCall()
+   * @generated
+   */
+  EReference getArrayCall_Left();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayCall#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayCall#getRight()
+   * @see #getArrayCall()
+   * @generated
+   */
+  EReference getArrayCall_Right();
+
+  /**
+   * Returns the meta object for the containment reference '{@link srf.transpiler.fortxtrans.fortXTrans.ArrayCall#getExtRight <em>Ext Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Ext Right</em>'.
+   * @see srf.transpiler.fortxtrans.fortXTrans.ArrayCall#getExtRight()
+   * @see #getArrayCall()
+   * @generated
+   */
+  EReference getArrayCall_ExtRight();
 
   /**
    * Returns the meta object for class '{@link srf.transpiler.fortxtrans.fortXTrans.Not <em>Not</em>}'.
@@ -7567,12 +7723,62 @@ public interface FortXTransPackage extends EPackage
     EReference ARRAY_INIT__SIZES = eINSTANCE.getArrayInit_Sizes();
 
     /**
+     * The meta object literal for the '<em><b>Ind</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INIT__IND = eINSTANCE.getArrayInit_Ind();
+
+    /**
      * The meta object literal for the '<em><b>Filler</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EReference ARRAY_INIT__FILLER = eINSTANCE.getArrayInit_Filler();
+
+    /**
+     * The meta object literal for the '<em><b>Lit</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INIT__LIT = eINSTANCE.getArrayInit_Lit();
+
+    /**
+     * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.ArrayCallImpl <em>Array Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.ArrayCallImpl
+     * @see srf.transpiler.fortxtrans.fortXTrans.impl.FortXTransPackageImpl#getArrayCall()
+     * @generated
+     */
+    EClass ARRAY_CALL = eINSTANCE.getArrayCall();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_CALL__LEFT = eINSTANCE.getArrayCall_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_CALL__RIGHT = eINSTANCE.getArrayCall_Right();
+
+    /**
+     * The meta object literal for the '<em><b>Ext Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_CALL__EXT_RIGHT = eINSTANCE.getArrayCall_ExtRight();
 
     /**
      * The meta object literal for the '{@link srf.transpiler.fortxtrans.fortXTrans.impl.NotImpl <em>Not</em>}' class.

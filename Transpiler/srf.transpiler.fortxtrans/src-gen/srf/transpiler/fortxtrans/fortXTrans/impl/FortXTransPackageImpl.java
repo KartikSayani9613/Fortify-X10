@@ -15,6 +15,7 @@ import srf.transpiler.fortxtrans.fortXTrans.AliasedAPIName;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedAPINames;
 import srf.transpiler.fortxtrans.fortXTrans.AliasedSimpleName;
 import srf.transpiler.fortxtrans.fortXTrans.And;
+import srf.transpiler.fortxtrans.fortXTrans.ArrayCall;
 import srf.transpiler.fortxtrans.fortXTrans.ArrayInit;
 import srf.transpiler.fortxtrans.fortXTrans.Assop;
 import srf.transpiler.fortxtrans.fortXTrans.Binding;
@@ -522,6 +523,13 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * @generated
    */
   private EClass arrayInitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayCallEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -2670,9 +2678,69 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getArrayInit_Filler()
+  public EReference getArrayInit_Ind()
   {
     return (EReference)arrayInitEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayInit_Filler()
+  {
+    return (EReference)arrayInitEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayInit_Lit()
+  {
+    return (EReference)arrayInitEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getArrayCall()
+  {
+    return arrayCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayCall_Left()
+  {
+    return (EReference)arrayCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayCall_Right()
+  {
+    return (EReference)arrayCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getArrayCall_ExtRight()
+  {
+    return (EReference)arrayCallEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -3109,7 +3177,14 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     createEReference(arrayInitEClass, ARRAY_INIT__LEFT);
     createEReference(arrayInitEClass, ARRAY_INIT__TYPE);
     createEReference(arrayInitEClass, ARRAY_INIT__SIZES);
+    createEReference(arrayInitEClass, ARRAY_INIT__IND);
     createEReference(arrayInitEClass, ARRAY_INIT__FILLER);
+    createEReference(arrayInitEClass, ARRAY_INIT__LIT);
+
+    arrayCallEClass = createEClass(ARRAY_CALL);
+    createEReference(arrayCallEClass, ARRAY_CALL__LEFT);
+    createEReference(arrayCallEClass, ARRAY_CALL__RIGHT);
+    createEReference(arrayCallEClass, ARRAY_CALL__EXT_RIGHT);
 
     notEClass = createEClass(NOT);
     createEReference(notEClass, NOT__EXPRESSION);
@@ -3184,6 +3259,7 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     assopEClass.getESuperTypes().add(this.getExpr());
     fCallEClass.getESuperTypes().add(this.getExpr());
     arrayInitEClass.getESuperTypes().add(this.getExpr());
+    arrayCallEClass.getESuperTypes().add(this.getExpr());
     notEClass.getESuperTypes().add(this.getExpr());
     negEClass.getESuperTypes().add(this.getExpr());
     paranEClass.getESuperTypes().add(this.getExpr());
@@ -3457,7 +3533,14 @@ public class FortXTransPackageImpl extends EPackageImpl implements FortXTransPac
     initEReference(getArrayInit_Left(), this.getExpr(), null, "left", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArrayInit_Type(), this.getSimpleName(), null, "type", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getArrayInit_Sizes(), this.getExprList(), null, "sizes", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getArrayInit_Filler(), this.getQualifiedName(), null, "filler", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayInit_Ind(), this.getQualified(), null, "ind", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayInit_Filler(), this.getStmnts(), null, "filler", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayInit_Lit(), this.getLiteralTuple(), null, "lit", null, 0, 1, ArrayInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayCallEClass, ArrayCall.class, "ArrayCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayCall_Left(), this.getExpr(), null, "left", null, 0, 1, ArrayCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayCall_Right(), this.getExprList(), null, "right", null, 0, 1, ArrayCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayCall_ExtRight(), this.getExpr(), null, "extRight", null, 0, 1, ArrayCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(notEClass, Not.class, "Not", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNot_Expression(), this.getExpr(), null, "expression", null, 0, 1, Not.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -343,7 +343,18 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sizes" eType="#//ExprList"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="filler" eType="#//QualifiedName"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ind" eType="#//Qualified"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filler" eType="#//Stmnts"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lit" eType="#//LiteralTuple"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayCall" eSuperTypes="#//Expr">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//Expr" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//ExprList"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extRight" eType="#//Expr"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Not" eSuperTypes="#//Expr">

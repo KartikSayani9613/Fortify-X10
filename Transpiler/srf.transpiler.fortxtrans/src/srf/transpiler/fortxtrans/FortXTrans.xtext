@@ -172,8 +172,14 @@ ExponentExpr returns Expr:
 ;
 
 Primary returns Expr:
-	LiteralTuple ({Assop.left=current}(op=':=' right=Expr))? ({FCall.left=current} '('right= ExprList?')')? 
-			({ArrayInit.left=current}'[''\\' type=SimpleName ',' sizes = ExprList? '\\'']''('filler=QualifiedName?')')?
+	LiteralTuple ({Assop.left=current}(op=':=' right=Expr))?
+	 ({FCall.left=current} '('right= ExprList?')')? 
+	(
+		{ArrayInit.left=current}
+		'[\\' type=SimpleName ',' sizes = ExprList? '\\]'
+		'(' (('fn' ind=Qualified '=>' filler=Stmnts?)| lit=LiteralTuple )? ')'
+	)?
+	({ArrayCall.left=current} '['right= ExprList?']' (':=' extRight=Expr)?)?
 	|{Not} '!' expression=Primary
 	|{Neg} '-' expression=Primary
 	|{Paran}'('exp=ExprList')'

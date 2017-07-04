@@ -582,6 +582,15 @@ public interface FortXTransFactory extends EFactory
   ArrayInit createArrayInit();
 
   /**
+   * Returns a new object of class '<em>Array Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Call</em>'.
+   * @generated
+   */
+  ArrayCall createArrayCall();
+
+  /**
    * Returns a new object of class '<em>Not</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

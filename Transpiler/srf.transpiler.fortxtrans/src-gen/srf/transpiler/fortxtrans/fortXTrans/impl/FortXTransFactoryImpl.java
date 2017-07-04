@@ -127,6 +127,7 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
       case FortXTransPackage.ASSOP: return createAssop();
       case FortXTransPackage.FCALL: return createFCall();
       case FortXTransPackage.ARRAY_INIT: return createArrayInit();
+      case FortXTransPackage.ARRAY_CALL: return createArrayCall();
       case FortXTransPackage.NOT: return createNot();
       case FortXTransPackage.NEG: return createNeg();
       case FortXTransPackage.PARAN: return createParan();
@@ -819,6 +820,17 @@ public class FortXTransFactoryImpl extends EFactoryImpl implements FortXTransFac
   {
     ArrayInitImpl arrayInit = new ArrayInitImpl();
     return arrayInit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ArrayCall createArrayCall()
+  {
+    ArrayCallImpl arrayCall = new ArrayCallImpl();
+    return arrayCall;
   }
 
   /**
