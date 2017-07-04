@@ -2,9 +2,9 @@ component array
 export Executable
 
   run():() = do
-    var a:RR64[10000] = array1[\RR64,10000 \](fn i => return i/1000.0)
-    var b:RR64[50000] = array1[\RR64,50000 \](fn i => return i/1000.0)
-    var c:RR64[80000] = array1[\RR64,80000 \](fn i => return i/1000.0)
+    var a:RR64[10000] = array1[\RR64,10000 \](fn (i) => return i/1000.0)
+    var b:RR64[50000] = array1[\RR64,50000 \](fn (i) => return i/1000.0)
+    var c:RR64[80000] = array1[\RR64,80000 \](fn (i) => return i/1000.0)
     
     start = nanoTime()
     
@@ -23,6 +23,4 @@ export Executable
     println(fin)
     
   end
-  
-
 end

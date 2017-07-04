@@ -45,5 +45,5 @@ public class factorial{
 		var r:Random = new Random();
 		return x*r.nextDouble()-1.0d;
 	}
-	static def sqrt(x:Double) = Math.sqrt(x);
+	static def SQRT(x:Double) = Math.sqrt(x);
 }

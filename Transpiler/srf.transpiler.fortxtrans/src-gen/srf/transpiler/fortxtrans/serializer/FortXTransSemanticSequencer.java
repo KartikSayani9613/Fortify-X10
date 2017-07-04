@@ -1545,7 +1545,13 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     GenSource.GenSource_1_0 returns ArrayInit
 	 *
 	 * Constraint:
-	 *     (left=Primary_ArrayInit_0_3_0 type=SimpleName sizes=ExprList? ((ind=Qualified filler=Stmnts?) | lit=LiteralTuple)? tail+=ExprTail*)
+	 *     (
+	 *         left=Primary_ArrayInit_0_3_0 
+	 *         type=SimpleName 
+	 *         sizes=ExprList? 
+	 *         (((ind=QualifiedName | ind=QualifiedNameTuple) filler=Stmnts?) | lit=LiteralTuple)? 
+	 *         tail+=ExprTail*
+	 *     )
 	 */
 	protected void sequence_Expr_Primary(ISerializationContext context, ArrayInit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -2194,7 +2200,12 @@ public class FortXTransSemanticSequencer extends AbstractDelegatingSemanticSeque
 	 *     Primary.ArrayCall_0_4_0 returns ArrayInit
 	 *
 	 * Constraint:
-	 *     (left=Primary_ArrayInit_0_3_0 type=SimpleName sizes=ExprList? ((ind=Qualified filler=Stmnts?) | lit=LiteralTuple)?)
+	 *     (
+	 *         left=Primary_ArrayInit_0_3_0 
+	 *         type=SimpleName 
+	 *         sizes=ExprList? 
+	 *         (((ind=QualifiedName | ind=QualifiedNameTuple) filler=Stmnts?) | lit=LiteralTuple)?
+	 *     )
 	 */
 	protected void sequence_Primary(ISerializationContext context, ArrayInit semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

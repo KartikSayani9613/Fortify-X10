@@ -177,7 +177,7 @@ Primary returns Expr:
 	(
 		{ArrayInit.left=current}
 		'[\\' type=SimpleName ',' sizes = ExprList? '\\]'
-		'(' (('fn' ind=Qualified '=>' filler=Stmnts?)| lit=LiteralTuple )? ')'
+		'(' (('fn' ('(' ind=QualifiedName ')'|ind=QualifiedNameTuple) '=>' filler=Stmnts?)| lit=LiteralTuple )? ')'
 	)?
 	({ArrayCall.left=current} '['right= ExprList?']' (':=' extRight=Expr)?)?
 	|{Not} '!' expression=Primary

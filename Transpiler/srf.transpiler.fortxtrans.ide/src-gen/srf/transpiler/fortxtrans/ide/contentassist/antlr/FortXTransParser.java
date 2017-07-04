@@ -47,6 +47,7 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComparisonAccess().getOpAlternatives_1_1_0(), "rule__Comparison__OpAlternatives_1_1_0");
 					put(grammarAccess.getPrimaryAccess().getAlternatives(), "rule__Primary__Alternatives");
 					put(grammarAccess.getPrimaryAccess().getAlternatives_0_3_7(), "rule__Primary__Alternatives_0_3_7");
+					put(grammarAccess.getPrimaryAccess().getAlternatives_0_3_7_0_1(), "rule__Primary__Alternatives_0_3_7_0_1");
 					put(grammarAccess.getDelimitedExprAccess().getAlternatives(), "rule__DelimitedExpr__Alternatives");
 					put(grammarAccess.getBindingAccess().getAlternatives(), "rule__Binding__Alternatives");
 					put(grammarAccess.getGenClauseAccess().getAlternatives(), "rule__GenClause__Alternatives");
@@ -122,6 +123,7 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryAccess().getGroup_0_2(), "rule__Primary__Group_0_2__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_0_3(), "rule__Primary__Group_0_3__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_0_3_7_0(), "rule__Primary__Group_0_3_7_0__0");
+					put(grammarAccess.getPrimaryAccess().getGroup_0_3_7_0_1_0(), "rule__Primary__Group_0_3_7_0_1_0__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_0_4(), "rule__Primary__Group_0_4__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_0_4_4(), "rule__Primary__Group_0_4_4__0");
 					put(grammarAccess.getPrimaryAccess().getGroup_1(), "rule__Primary__Group_1__0");
@@ -266,7 +268,8 @@ public class FortXTransParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPrimaryAccess().getRightAssignment_0_2_2(), "rule__Primary__RightAssignment_0_2_2");
 					put(grammarAccess.getPrimaryAccess().getTypeAssignment_0_3_2(), "rule__Primary__TypeAssignment_0_3_2");
 					put(grammarAccess.getPrimaryAccess().getSizesAssignment_0_3_4(), "rule__Primary__SizesAssignment_0_3_4");
-					put(grammarAccess.getPrimaryAccess().getIndAssignment_0_3_7_0_1(), "rule__Primary__IndAssignment_0_3_7_0_1");
+					put(grammarAccess.getPrimaryAccess().getIndAssignment_0_3_7_0_1_0_1(), "rule__Primary__IndAssignment_0_3_7_0_1_0_1");
+					put(grammarAccess.getPrimaryAccess().getIndAssignment_0_3_7_0_1_1(), "rule__Primary__IndAssignment_0_3_7_0_1_1");
 					put(grammarAccess.getPrimaryAccess().getFillerAssignment_0_3_7_0_3(), "rule__Primary__FillerAssignment_0_3_7_0_3");
 					put(grammarAccess.getPrimaryAccess().getLitAssignment_0_3_7_1(), "rule__Primary__LitAssignment_0_3_7_1");
 					put(grammarAccess.getPrimaryAccess().getRightAssignment_0_4_2(), "rule__Primary__RightAssignment_0_4_2");

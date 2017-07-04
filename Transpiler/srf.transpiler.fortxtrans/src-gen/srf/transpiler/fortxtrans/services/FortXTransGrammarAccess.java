@@ -1645,8 +1645,14 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives_0_3_7 = (Alternatives)cGroup_0_3.eContents().get(7);
 		private final Group cGroup_0_3_7_0 = (Group)cAlternatives_0_3_7.eContents().get(0);
 		private final Keyword cFnKeyword_0_3_7_0_0 = (Keyword)cGroup_0_3_7_0.eContents().get(0);
-		private final Assignment cIndAssignment_0_3_7_0_1 = (Assignment)cGroup_0_3_7_0.eContents().get(1);
-		private final RuleCall cIndQualifiedParserRuleCall_0_3_7_0_1_0 = (RuleCall)cIndAssignment_0_3_7_0_1.eContents().get(0);
+		private final Alternatives cAlternatives_0_3_7_0_1 = (Alternatives)cGroup_0_3_7_0.eContents().get(1);
+		private final Group cGroup_0_3_7_0_1_0 = (Group)cAlternatives_0_3_7_0_1.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_0_3_7_0_1_0_0 = (Keyword)cGroup_0_3_7_0_1_0.eContents().get(0);
+		private final Assignment cIndAssignment_0_3_7_0_1_0_1 = (Assignment)cGroup_0_3_7_0_1_0.eContents().get(1);
+		private final RuleCall cIndQualifiedNameParserRuleCall_0_3_7_0_1_0_1_0 = (RuleCall)cIndAssignment_0_3_7_0_1_0_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_0_3_7_0_1_0_2 = (Keyword)cGroup_0_3_7_0_1_0.eContents().get(2);
+		private final Assignment cIndAssignment_0_3_7_0_1_1 = (Assignment)cAlternatives_0_3_7_0_1.eContents().get(1);
+		private final RuleCall cIndQualifiedNameTupleParserRuleCall_0_3_7_0_1_1_0 = (RuleCall)cIndAssignment_0_3_7_0_1_1.eContents().get(0);
 		private final Keyword cEqualsSignGreaterThanSignKeyword_0_3_7_0_2 = (Keyword)cGroup_0_3_7_0.eContents().get(2);
 		private final Assignment cFillerAssignment_0_3_7_0_3 = (Assignment)cGroup_0_3_7_0.eContents().get(3);
 		private final RuleCall cFillerStmntsParserRuleCall_0_3_7_0_3_0 = (RuleCall)cFillerAssignment_0_3_7_0_3.eContents().get(0);
@@ -1684,22 +1690,24 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//	LiteralTuple ({Assop.left=current} (op=':=' right=Expr))? ({FCall.left=current} '(' right=ExprList? ')')?
 		//	({ArrayInit.left=current}
 		//	'[\\' type=SimpleName ',' sizes=ExprList? '\\]'
-		//	'(' ('fn' ind=Qualified '=>' filler=Stmnts? | lit=LiteralTuple)? ')')? ({ArrayCall.left=current} '[' right=ExprList?
-		//	']' (':=' extRight=Expr)?)?
+		//	'(' ('fn' ('(' ind=QualifiedName ')' | ind=QualifiedNameTuple) '=>' filler=Stmnts? | lit=LiteralTuple)? ')')?
+		//	({ArrayCall.left=current} '[' right=ExprList? ']' (':=' extRight=Expr)?)?
 		//	| {Not} '!' expression=Primary
 		//	| {Neg} '-' expression=Primary
 		//	| {Paran} '(' exp=ExprList ')';
 		@Override public ParserRule getRule() { return rule; }
 		
 		//LiteralTuple ({Assop.left=current} (op=':=' right=Expr))? ({FCall.left=current} '(' right=ExprList? ')')?
-		//({ArrayInit.left=current} '[\\' type=SimpleName ',' sizes=ExprList? '\\]' '(' ('fn' ind=Qualified '=>' filler=Stmnts? |
-		//lit=LiteralTuple)? ')')? ({ArrayCall.left=current} '[' right=ExprList? ']' (':=' extRight=Expr)?)? | {Not} '!'
-		//expression=Primary | {Neg} '-' expression=Primary | {Paran} '(' exp=ExprList ')'
+		//({ArrayInit.left=current} '[\\' type=SimpleName ',' sizes=ExprList? '\\]' '(' ('fn' ('(' ind=QualifiedName ')' |
+		//ind=QualifiedNameTuple) '=>' filler=Stmnts? | lit=LiteralTuple)? ')')? ({ArrayCall.left=current} '[' right=ExprList?
+		//']' (':=' extRight=Expr)?)? | {Not} '!' expression=Primary | {Neg} '-' expression=Primary | {Paran} '(' exp=ExprList
+		//')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
 		//LiteralTuple ({Assop.left=current} (op=':=' right=Expr))? ({FCall.left=current} '(' right=ExprList? ')')?
-		//({ArrayInit.left=current} '[\\' type=SimpleName ',' sizes=ExprList? '\\]' '(' ('fn' ind=Qualified '=>' filler=Stmnts? |
-		//lit=LiteralTuple)? ')')? ({ArrayCall.left=current} '[' right=ExprList? ']' (':=' extRight=Expr)?)?
+		//({ArrayInit.left=current} '[\\' type=SimpleName ',' sizes=ExprList? '\\]' '(' ('fn' ('(' ind=QualifiedName ')' |
+		//ind=QualifiedNameTuple) '=>' filler=Stmnts? | lit=LiteralTuple)? ')')? ({ArrayCall.left=current} '[' right=ExprList?
+		//']' (':=' extRight=Expr)?)?
 		public Group getGroup_0() { return cGroup_0; }
 		
 		//LiteralTuple
@@ -1744,8 +1752,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//')'
 		public Keyword getRightParenthesisKeyword_0_2_3() { return cRightParenthesisKeyword_0_2_3; }
 		
-		//({ArrayInit.left=current} '[\\' type=SimpleName ',' sizes=ExprList? '\\]' '(' ('fn' ind=Qualified '=>' filler=Stmnts? |
-		//lit=LiteralTuple)? ')')?
+		//({ArrayInit.left=current} '[\\' type=SimpleName ',' sizes=ExprList? '\\]' '(' ('fn' ('(' ind=QualifiedName ')' |
+		//ind=QualifiedNameTuple) '=>' filler=Stmnts? | lit=LiteralTuple)? ')')?
 		public Group getGroup_0_3() { return cGroup_0_3; }
 		
 		//{ArrayInit.left=current}
@@ -1775,20 +1783,38 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 		//'('
 		public Keyword getLeftParenthesisKeyword_0_3_6() { return cLeftParenthesisKeyword_0_3_6; }
 		
-		//('fn' ind=Qualified '=>' filler=Stmnts? | lit=LiteralTuple)?
+		//('fn' ('(' ind=QualifiedName ')' | ind=QualifiedNameTuple) '=>' filler=Stmnts? | lit=LiteralTuple)?
 		public Alternatives getAlternatives_0_3_7() { return cAlternatives_0_3_7; }
 		
-		//'fn' ind=Qualified '=>' filler=Stmnts?
+		//'fn' ('(' ind=QualifiedName ')' | ind=QualifiedNameTuple) '=>' filler=Stmnts?
 		public Group getGroup_0_3_7_0() { return cGroup_0_3_7_0; }
 		
 		//'fn'
 		public Keyword getFnKeyword_0_3_7_0_0() { return cFnKeyword_0_3_7_0_0; }
 		
-		//ind=Qualified
-		public Assignment getIndAssignment_0_3_7_0_1() { return cIndAssignment_0_3_7_0_1; }
+		//'(' ind=QualifiedName ')' | ind=QualifiedNameTuple
+		public Alternatives getAlternatives_0_3_7_0_1() { return cAlternatives_0_3_7_0_1; }
 		
-		//Qualified
-		public RuleCall getIndQualifiedParserRuleCall_0_3_7_0_1_0() { return cIndQualifiedParserRuleCall_0_3_7_0_1_0; }
+		//'(' ind=QualifiedName ')'
+		public Group getGroup_0_3_7_0_1_0() { return cGroup_0_3_7_0_1_0; }
+		
+		//'('
+		public Keyword getLeftParenthesisKeyword_0_3_7_0_1_0_0() { return cLeftParenthesisKeyword_0_3_7_0_1_0_0; }
+		
+		//ind=QualifiedName
+		public Assignment getIndAssignment_0_3_7_0_1_0_1() { return cIndAssignment_0_3_7_0_1_0_1; }
+		
+		//QualifiedName
+		public RuleCall getIndQualifiedNameParserRuleCall_0_3_7_0_1_0_1_0() { return cIndQualifiedNameParserRuleCall_0_3_7_0_1_0_1_0; }
+		
+		//')'
+		public Keyword getRightParenthesisKeyword_0_3_7_0_1_0_2() { return cRightParenthesisKeyword_0_3_7_0_1_0_2; }
+		
+		//ind=QualifiedNameTuple
+		public Assignment getIndAssignment_0_3_7_0_1_1() { return cIndAssignment_0_3_7_0_1_1; }
+		
+		//QualifiedNameTuple
+		public RuleCall getIndQualifiedNameTupleParserRuleCall_0_3_7_0_1_1_0() { return cIndQualifiedNameTupleParserRuleCall_0_3_7_0_1_1_0; }
 		
 		//'=>'
 		public Keyword getEqualsSignGreaterThanSignKeyword_0_3_7_0_2() { return cEqualsSignGreaterThanSignKeyword_0_3_7_0_2; }
@@ -3728,8 +3754,8 @@ public class FortXTransGrammarAccess extends AbstractGrammarElementFinder {
 	//	LiteralTuple ({Assop.left=current} (op=':=' right=Expr))? ({FCall.left=current} '(' right=ExprList? ')')?
 	//	({ArrayInit.left=current}
 	//	'[\\' type=SimpleName ',' sizes=ExprList? '\\]'
-	//	'(' ('fn' ind=Qualified '=>' filler=Stmnts? | lit=LiteralTuple)? ')')? ({ArrayCall.left=current} '[' right=ExprList?
-	//	']' (':=' extRight=Expr)?)?
+	//	'(' ('fn' ('(' ind=QualifiedName ')' | ind=QualifiedNameTuple) '=>' filler=Stmnts? | lit=LiteralTuple)? ')')?
+	//	({ArrayCall.left=current} '[' right=ExprList? ']' (':=' extRight=Expr)?)?
 	//	| {Not} '!' expression=Primary
 	//	| {Neg} '-' expression=Primary
 	//	| {Paran} '(' exp=ExprList ')';
