@@ -580,7 +580,7 @@ class FortXTransGenerator extends AbstractGenerator {
 	def compile(GenSource g){
 		switch(g){
 			Expr: return g.compile
-			GenSource: return g.start.compile+'''..<'''+g.end.compile
+			GenSource: return g.start.compile+'''..'''+'''('''+g.end.compile +'''-1)'''
 		}
 	}
 	

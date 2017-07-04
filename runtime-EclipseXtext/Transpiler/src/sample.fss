@@ -11,7 +11,7 @@ export Executable
    		start:RR64 = nanoTime()
    		
    		println("Starting parallel Buffons")
-   		for i <- 1#3000 do
+   		for i <- 1#3000 at 1 do
       		delta_X = random(2.0) - 1.0
       		delta_Y = random(2.0) - 1.0
       rsq = delta_X^2 + delta_Y^2

@@ -19,9 +19,9 @@ public class buffons{
 	var hits:Double = 0.0f as Double;
 	var n:Double = 0.0f as Double;
 	val start:Double = nanoTime() as Double;
-	println("Starting parallel Buffons");
-	finish for(i in 1n..(3000n-1)) async{
-		val delta_X = (random(2.0f)-1.0f);
+	Console.OUT.println("Starting parallel Buffons");
+	finish for(i in 1n..<3000n) async{
+		at(1n) val delta_X = (random(2.0f)-1.0f);
 	val delta_Y = (random(2.0f)-1.0f);
 	val rsq = ((Math.pow(delta_X,2n))+(Math.pow(delta_Y,2n)));
 	if(((0.0f < rsq)&&(rsq < 1.0f))){
@@ -46,19 +46,17 @@ public class buffons{
 		}
 	val probability = (hits/n);
 	val pi_est = (2.0f/probability);
-	print("hits = ");
-	print(hits);
-	print(" n = ");
-	print(n);
-	print("Buffons: estimated Pi = ");
-	print(pi_est);
+	Console.OUT.print("hits = ");
+	Console.OUT.print(hits);
+	Console.OUT.print(" n = ");
+	Console.OUT.print(n);
+	Console.OUT.print("Buffons: estimated Pi = ");
+	Console.OUT.print(pi_est);
 	val fin = (nanoTime()-start);
-	println((fin/1000000.0f));
+	Console.OUT.println((fin/1000000.0f));
 	
 	
 	}
-	public static def println[T](x:T){Console.OUT.println("\n"+x);}
-	static def print[T](x:T){Console.OUT.print(x);}
 	public static def nanoTime() = System.nanoTime();
 	static def min(x:Double, y:Double) = Math.min(x, y);
 	static def min(x:Long, y:Long) = Math.min(x, y);
@@ -72,5 +70,5 @@ public class buffons{
 		var r:Random = new Random();
 		return x*r.nextDouble()-1.0d;
 	}
-	static def sqrt(x:Double) = Math.sqrt(x);
+	static def SQRT(x:Double) = Math.sqrt(x);
 }
