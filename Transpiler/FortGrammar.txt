@@ -1,0 +1,244 @@
+Model:
+	Component
+	|API;
+	
+Component:
+	'component' ID Import* Export Decls* 'end';
+
+API:
+	'api' name=ID Import* AbsDecls'end';
+
+Import:
+	'import' ImportedNames
+	|'import' 'api' AliasedAPINames	;
+
+Export:
+	'export' QualifiedName
+	|'export' '{' QualifiedName ("," QualifiedName* '}';
+
+ImportedNames:
+	QualifiedName '.' '{' DOTS '}' ('except' SimpleNames)?
+	|QualifiedName '.' '{' AliasedSimpleName (',' AliasedSimpleName)* (','DOTS)? '}'
+	|QualifiedName ('as' ID)?;
+
+QualifiedName:
+	SimpleName ('.'SimpleName)* (DOTS)?;
+
+Qualified:
+	QualifiedName
+	|'(' QualifiedNameTuple ')';
+
+QualifiedNameTuple:
+	QualifiedName (',' QualifiedName)* ;
+
+SimpleNames:
+	SimpleName
+	|'{' SimpleName (',' SimpleName)* '}';
+
+SimpleName:
+	ID;
+
+AliasedSimpleName:
+	ID ('as' ID)?;
+
+AliasedAPINames:
+	AliasedAPIName
+	|'{' AliasedAPIName (',' AliasedAPIName)* '}';
+
+AliasedAPIName:
+	QualifiedName ('as' ID)?;
+
+Decls:
+	Decl+;
+
+Decl:
+	FnDecl
+	|FieldDecl
+//	|ObjDecl
+//	|TraitDecl;
+
+ValParam:
+	Param
+	 |'(' (Param (',' Param)*)? ')';
+
+Param:
+	QualifiedName IsType;
+
+RetType:
+	':' '(' ')'
+	|':' SimpleName
+;
+
+TupleType:
+	'(' SimpleName (',' SimpleName)* ')'
+;
+
+FnMods:
+	FnMod+;
+
+FnMod:
+	'private'
+	|'test'
+	|'atomic'
+	|'io';
+
+FnDecl:
+	FnMods?ID ValParam RetType? ('=' Stmnts)?;
+
+
+Stmnts:
+	Stmnt
+	|'(''|'StmntList '|'')'
+	|LocalVarDecl
+	|Expr;
+
+Stmnt:
+	DelimitedExpr;
+
+StmntList:
+	Stmnt (',' Stmnt)*;
+
+Expr:
+	Or (ExprTail)*
+//	|'(' CommaExpr (ExprTail)* ')'	
+;
+
+Or returns Expr:
+	And ('OR' And)*;
+
+And returns Expr:
+	Equality ( "AND" Equality)* ;
+
+Equality returns Expr:
+	Comparison ( ("==="|"=/="|"EQ"|"NE") Comparison)* ;
+
+Comparison returns Expr:
+AddExpr ((">="|"<="|">"|"<"|"LT"|"GT"|"LE"|"GE") AddExpr)* ;
+
+AddExpr returns Expr:
+	SubExpr ('+' SubExpr)*;
+
+SubExpr returns Expr:
+	DivExpr ('-'DivExpr)*;
+
+DivExpr returns Expr:
+	MultExpr ('/' MultExpr)*;
+
+MultExpr returns Expr:
+	ExponentExpr ( '*' ExponentExpr)*;
+
+
+
+ExponentExpr returns Expr:
+	Primary ('^' Primary)*;
+
+Primary returns Expr:
+	LiteralTuple ((':=' Expr))?
+	 ('('ExprList?')')? 
+	(
+		'[\\' SimpleName ',' ExprList? '\\]'
+		'(' (('fn' ('(' QualifiedName ')' | QualifiedNameTuple) '=>' Stmnts?)| LiteralTuple )? ')'
+	)?
+	( '[' ExprList?']' (':=' Expr)?)?
+	| '!' Primary
+	| '-' Primary
+	| '(' ExprList')';
+
+ExprList:
+	Expr (',' Expr)*;
+
+
+ExprTail:
+	'as' SimpleName;
+
+DelimitedExpr :
+	Do
+	|'return'Expr
+	|'while' Expr  Do
+	|'for' Generators DoFront 'end'
+	|'if' Expr 'then' BlockElems (Elifs)? (Else)? 'end';
+
+Elifs:	
+	Elif (Elif)*
+
+Elif:
+	'elif' Expr 'then' BlockElems;
+
+Else:
+	'else' BlockElems;
+
+Generators:
+	Binding (',' GenClause)*;
+
+Binding:
+	Qualified '<-' GenSource
+	|Qualified '<-' 'seq' '('GenSource')';
+
+GenSource:
+	Expr ( '#' Expr)?;
+
+GenClause:
+	Binding
+	|Expr;
+
+BlockElems:
+	BlockElem (BlockElem)*;
+
+BlockElem:
+	Stmnts
+	//	|LocalVarDecl;
+
+Do:
+	DoFront ('also' DoFront)* "end";
+
+DoFront:
+	('at' Expr)? ('atomic')? 'do' BlockElems;
+
+
+IsType:
+	':' SimpleName;
+
+FieldDecl:
+	('private')? ('var')? NoNewlineVarWTypes ('=' Expr)?
+	|('private')? Qualified '=' (Expr)?
+	|('private')? ('var')? Qualified ':' SimpleName DOTS ('=' Expr)?
+	|('private')? ('var')? Qualified ':' TupleType ('=' Expr)?;
+
+NoNewlineVarWTypes:
+	NoNewlineVarWType ('[' ExprList ']')?
+	| "(" NoNewlineVarWType  ( "," NoNewlineVarWType)+ ")";
+NoNewlineVarWType:
+	QualifiedName IsType ;
+
+LiteralTuple:
+	LiteralTup
+	|Qualified;
+
+LiteralTup:
+	Literal
+	|'(' LiteralList ')';
+
+LiteralList:
+	Literal (',' Literal)* ;
+
+Literal:
+	INT
+	|FLOAT
+	|STRING
+	|('true'|'false');
+
+LocalVarDecl:
+	('var')? NoNewlineVarWTypes '=' Expr
+	|Qualified '=' Expr
+	|('var')? Qualified ':' SimpleName DOTS "=" Expr
+	|('var')? Qualified ':' TupleType '=' Expr;
+
+@Override 
+terminal ML_COMMENT:
+	'(*' -> '*)';
+
+terminal FLOAT:
+	INT'.'INT;
+
+terminal DOTS:
+	'...';

@@ -21,7 +21,7 @@ public class buffons{
 	val start:Double = nanoTime() as Double;
 	Console.OUT.println("Starting parallel Buffons");
 	finish for(i in 1n..(3000n-1)) async{
-		at(1n) val delta_X = (random(2.0f)-1.0f);
+		val delta_X = (random(2.0f)-1.0f);
 	val delta_Y = (random(2.0f)-1.0f);
 	val rsq = ((Math.pow(delta_X,2n))+(Math.pow(delta_Y,2n)));
 	if(((0.0f < rsq)&&(rsq < 1.0f))){
